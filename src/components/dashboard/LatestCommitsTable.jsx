@@ -47,7 +47,7 @@ function LatestCommitsTable({ data }) {
                   <Chip label={commit.repo} size="small" variant="outlined" />
                 </Link>
               </TableCell>
-              <TableCell>{commit.date.toLocaleString('pt-BR')}</TableCell>
+              <TableCell>{commit.date.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</TableCell>
             </TableRow>
           ))}
         </TableBody>

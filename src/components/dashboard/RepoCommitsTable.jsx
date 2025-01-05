@@ -53,7 +53,7 @@ function RepoCommitsTable({ data }) {
         data.filter(commit => commit.repo === selectedRepo),
         ['date'],
         ['desc']
-      ).slice(0, 5)
+      ).slice(0, 10)
     : [];
 
   return (
@@ -87,8 +87,9 @@ function RepoCommitsTable({ data }) {
           )}
           renderOption={(props, option) => {
             const repo = repos.find(r => r.name === option);
+            const { key, ...otherProps } = props;
             return (
-              <Box component="li" {...props}>
+              <Box component="li" key={key} {...otherProps}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <GitHub fontSize="small" />
@@ -101,7 +102,7 @@ function RepoCommitsTable({ data }) {
                       variant="outlined"
                     />
                     <Typography variant="caption" color="text.secondary">
-                      Último: {new Date(repo.lastCommitDate).toLocaleDateString('pt-BR')}
+                      Último: {repo.lastCommitDate.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}
                     </Typography>
                   </Box>
                 </Box>
@@ -130,7 +131,7 @@ function RepoCommitsTable({ data }) {
                     {commit.message.split('\n')[0]}
                   </Link>
                 </TableCell>
-                <TableCell>{commit.date.toLocaleString('pt-BR')}</TableCell>
+                <TableCell>{commit.date.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</TableCell>
               </TableRow>
             ))}
           </TableBody>

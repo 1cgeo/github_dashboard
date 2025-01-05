@@ -1,11 +1,12 @@
-// src/components/dashboard/MonthlyCommitsChart.jsx
 import React from 'react';
-import { Paper, Box, Typography } from '@mui/material';
+import { Paper, Box, Typography, useTheme } from '@mui/material';
 import { BarChart as BarChartIcon } from '@mui/icons-material';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
 import _ from 'lodash';
 
 function MonthlyCommitsChart({ data }) {
+  const theme = useTheme();
+
   const last24Months = Array.from({length: 24}, (_, i) => {
     const date = new Date();
     date.setMonth(date.getMonth() - i);
@@ -21,7 +22,7 @@ function MonthlyCommitsChart({ data }) {
       const commitDate = commit.date;
       return commitDate.getFullYear() === year && commitDate.getMonth() === month;
     }).length;
-    return { label, commits };
+    return { name: label, commits };
   });
 
   return (
@@ -35,13 +36,24 @@ function MonthlyCommitsChart({ data }) {
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={monthlyCommitData}>
           <XAxis 
-            dataKey="label" 
+            dataKey="name" 
             tick={{ fontSize: 12 }}
             interval="preserveStartEnd"
           />
           <YAxis />
-          <Tooltip />
-          <Bar dataKey="commits" fill="#1976d2" />
+          <Tooltip 
+            contentStyle={{
+              backgroundColor: theme.palette.background.paper,
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: theme.shape.borderRadius,
+              color: theme.palette.text.primary
+            }}
+          />
+          <Bar 
+            dataKey="commits" 
+            fill={theme.palette.primary.main}
+            activeBar={<Rectangle fill={theme.palette.primary.light} />}
+          />
         </BarChart>
       </ResponsiveContainer>
     </Paper>

@@ -89,8 +89,9 @@ function AuthorCommitsTable({ data }) {
           )}
           renderOption={(props, option) => {
             const author = authors.find(a => a.name === option);
+            const { key, ...otherProps } = props;
             return (
-              <Box component="li" {...props}>
+              <Box component="li" key={key} {...otherProps}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                   <Typography>{option}</Typography>
                   <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
@@ -100,7 +101,7 @@ function AuthorCommitsTable({ data }) {
                       variant="outlined"
                     />
                     <Typography variant="caption" color="text.secondary">
-                      Último: {new Date(author.lastCommitDate).toLocaleDateString('pt-BR')}
+                      Último: {author.lastCommitDate.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}
                     </Typography>
                   </Box>
                 </Box>
@@ -133,7 +134,7 @@ function AuthorCommitsTable({ data }) {
                     <Chip label={commit.repo} size="small" variant="outlined" />
                   </Link>
                 </TableCell>
-                <TableCell>{commit.date.toLocaleString('pt-BR')}</TableCell>
+                <TableCell>{commit.date.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}</TableCell>
               </TableRow>
             ))}
           </TableBody>

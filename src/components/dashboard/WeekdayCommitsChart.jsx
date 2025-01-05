@@ -1,8 +1,7 @@
-// src/components/dashboard/WeekdayCommitsChart.jsx
 import React from 'react';
-import { Paper, Box, Typography } from '@mui/material';
+import { Paper, Box, Typography, useTheme } from '@mui/material';
 import { CalendarMonth } from '@mui/icons-material';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
 import _ from 'lodash';
 
 const weekDayOrder = [
@@ -16,12 +15,14 @@ const weekDayOrder = [
 ];
 
 function WeekdayCommitsChart({ data }) {
+  const theme = useTheme();
+
   const commitsByDayOfWeek = _.groupBy(data, commit => 
     commit.date.toLocaleString('pt-BR', { weekday: 'long' }).toLowerCase()
   );
 
   const dayOfWeekData = weekDayOrder.map(day => ({
-    day,
+    name: day,
     commits: (commitsByDayOfWeek[day] || []).length
   }));
 
@@ -35,10 +36,21 @@ function WeekdayCommitsChart({ data }) {
       </Box>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={dayOfWeekData}>
-          <XAxis dataKey="day" />
+          <XAxis dataKey="name" />
           <YAxis />
-          <Tooltip />
-          <Bar dataKey="commits" fill="#1976d2" />
+          <Tooltip 
+            contentStyle={{
+              backgroundColor: theme.palette.background.paper,
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: theme.shape.borderRadius,
+              color: theme.palette.text.primary
+            }}
+          />
+          <Bar 
+            dataKey="commits" 
+            fill={theme.palette.primary.main}
+            activeBar={<Rectangle fill={theme.palette.primary.light} />}
+          />
         </BarChart>
       </ResponsiveContainer>
     </Paper>
