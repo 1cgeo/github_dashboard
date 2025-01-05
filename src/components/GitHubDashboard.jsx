@@ -1,6 +1,6 @@
 // src/components/GitHubDashboard.jsx
 import React, { useState, useEffect } from 'react';
-import { Container, Box, CircularProgress, Chip } from '@mui/material';
+import { Container, Box, CircularProgress, Chip, useTheme, useMediaQuery } from '@mui/material';
 import { Schedule } from '@mui/icons-material';
 import commitData from '../data/commits.json';
 
@@ -18,6 +18,8 @@ import CurrentMonthPieChart from './dashboard/CurrentMonthPieChart';
 function GitHubDashboard() {
   const [processedData, setProcessedData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     const commits = commitData.commits.map(commit => ({
@@ -39,13 +41,22 @@ function GitHubDashboard() {
   }
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4, px: isMobile ? 1 : 2 }}>
+      <Box sx={{ 
+        mb: 4, 
+        display: 'flex', 
+        flexDirection: isMobile ? 'column' : 'row',
+        justifyContent: 'space-between', 
+        alignItems: isMobile ? 'flex-start' : 'center',
+        gap: 2
+      }}>
         <DashboardHeader />
         <Chip 
           icon={<Schedule />} 
-          label={`Dados atualizados em: ${new Date(commitData.lastUpdate).toLocaleString('pt-BR')}`}
+          label={`Atualizado: ${new Date(commitData.lastUpdate).toLocaleString('pt-BR')}`}
           variant="outlined"
+          size={isMobile ? "small" : "medium"}
+          sx={{ maxWidth: '100%', wordBreak: 'break-word' }}
         />
       </Box>
 
@@ -55,12 +66,22 @@ function GitHubDashboard() {
         <MonthlyCommitsChart data={processedData} />
       </Box>
       
-      <Box sx={{ mb: 3 }}>
+      <Box sx={{ 
+        mb: 3,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: 3
+      }}>
         <ReposPieChart data={processedData} />
         <CurrentMonthPieChart data={processedData} />
       </Box>
       
-      <Box sx={{ mb: 3 }}>
+      <Box sx={{ 
+        mb: 3,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: 3
+      }}>
         <WeekdayCommitsChart data={processedData} />
         <DailyCommitsChart data={processedData} />
       </Box>

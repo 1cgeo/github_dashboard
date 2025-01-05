@@ -1,6 +1,5 @@
-// src/components/dashboard/CurrentMonthPieChart.jsx
 import React from 'react';
-import { Paper, Box, Typography } from '@mui/material';
+import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { CalendarToday } from '@mui/icons-material';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import _ from 'lodash';
@@ -8,7 +7,9 @@ import _ from 'lodash';
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
 function CurrentMonthPieChart({ data }) {
-  // Filtra commits do mês atual
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
@@ -19,24 +20,38 @@ function CurrentMonthPieChart({ data }) {
            commitDate.getFullYear() === currentYear;
   });
 
-  // Agrupa por repositório
   const commitsByRepo = _.groupBy(currentMonthCommits, 'repo');
   
-  // Prepara dados para o gráfico
-  const pieChartData = Object.entries(commitsByRepo).map(([repo, commits]) => ({
+  let pieChartData = Object.entries(commitsByRepo).map(([repo, commits]) => ({
     name: repo,
     value: commits.length
   }));
 
-  // Ordena por quantidade de commits (maior para menor)
-  const sortedPieChartData = _.orderBy(pieChartData, ['value'], ['desc']);
+  // Para mobile, mostrar apenas os top 4 repositórios e agrupar o resto
+  if (isMobile && pieChartData.length > 4) {
+    const sortedData = _.orderBy(pieChartData, ['value'], ['desc']);
+    const topRepos = sortedData.slice(0, 3);
+    const otherRepos = sortedData.slice(3);
+    const otherValue = _.sumBy(otherRepos, 'value');
+    
+    pieChartData = [
+      ...topRepos,
+      {
+        name: 'Outros',
+        value: otherValue
+      }
+    ];
+  }
 
-  // Calcula o total de commits para a porcentagem
-  const totalCommits = _.sumBy(pieChartData, 'value');
+  // Ordena por quantidade de commits
+  pieChartData = _.orderBy(pieChartData, ['value'], ['desc']);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
+      const total = _.sumBy(pieChartData, 'value');
+      const percentage = ((data.value / total) * 100).toFixed(1);
+      
       return (
         <Box sx={{ 
           bgcolor: 'background.paper', 
@@ -45,11 +60,11 @@ function CurrentMonthPieChart({ data }) {
           borderColor: 'divider',
           borderRadius: 1
         }}>
-          <Typography variant="body2" color="text.primary">
-            <strong>{data.name}</strong>
+          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+            {data.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {data.value} commits ({((data.value / totalCommits) * 100).toFixed(1)}%)
+          <Typography variant="body2">
+            {data.value} commits ({percentage}%)
           </Typography>
         </Box>
       );
@@ -57,35 +72,76 @@ function CurrentMonthPieChart({ data }) {
     return null;
   };
 
+  const renderLegend = (props) => {
+    const { payload } = props;
+    return (
+      <Box sx={{ 
+        display: 'flex', 
+        flexWrap: 'wrap', 
+        gap: 1,
+        justifyContent: 'center',
+        px: 2
+      }}>
+        {payload.map((entry, index) => (
+          <Box
+            key={`legend-${index}`}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 0.5
+            }}
+          >
+            <Box
+              sx={{
+                width: 12,
+                height: 12,
+                backgroundColor: entry.color,
+                borderRadius: '50%'
+              }}
+            />
+            <Typography variant="caption" sx={{ maxWidth: isMobile ? 120 : 'none' }} noWrap>
+              {entry.value}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    );
+  };
+
   return (
     <Paper sx={{ p: 2 }}>
       <Box sx={{ mb: 2 }}>
         <Typography variant="h6" component="div" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <CalendarToday />
-          Commits por Repositório ({currentDate.toLocaleString('pt-BR', { month: 'long', year: 'numeric' })})
+          Commits por Repositório ({currentDate.toLocaleString('pt-BR', { 
+            month: 'long', 
+            year: 'numeric' 
+          })})
         </Typography>
       </Box>
-      <Box sx={{ height: 300, display: 'flex', justifyContent: 'center' }}>
-        {sortedPieChartData.length > 0 ? (
+      <Box sx={{ height: isMobile ? 250 : 300, display: 'flex', justifyContent: 'center' }}>
+        {pieChartData.length > 0 ? (
           <ResponsiveContainer>
             <PieChart>
               <Pie
-                data={sortedPieChartData}
+                data={pieChartData}
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={80}
+                innerRadius={isMobile ? 40 : 60}
+                outerRadius={isMobile ? 70 : 80}
                 fill="#8884d8"
-                paddingAngle={5}
+                paddingAngle={2}
                 dataKey="value"
-                label={({name, value}) => `${name} (${value})`}
               >
-                {sortedPieChartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                {pieChartData.map((entry, index) => (
+                  <Cell 
+                    key={`cell-${index}`} 
+                    fill={COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip content={<CustomTooltip />} />
-              <Legend />
+              <Legend content={renderLegend} />
             </PieChart>
           </ResponsiveContainer>
         ) : (

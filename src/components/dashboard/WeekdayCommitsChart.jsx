@@ -1,7 +1,7 @@
 import React from 'react';
-import { Paper, Box, Typography, useTheme } from '@mui/material';
+import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { CalendarMonth } from '@mui/icons-material';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import _ from 'lodash';
 
 const weekDayOrder = [
@@ -16,15 +16,40 @@ const weekDayOrder = [
 
 function WeekdayCommitsChart({ data }) {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const commitsByDayOfWeek = _.groupBy(data, commit => 
     commit.date.toLocaleString('pt-BR', { weekday: 'long' }).toLowerCase()
   );
 
   const dayOfWeekData = weekDayOrder.map(day => ({
-    name: day,
+    day: isMobile ? day.slice(0, 3) : day, // Abreviação para mobile
+    fullDay: day,
     commits: (commitsByDayOfWeek[day] || []).length
   }));
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <Box sx={{ 
+          bgcolor: 'background.paper', 
+          p: 1.5, 
+          border: '1px solid',
+          borderColor: 'divider',
+          borderRadius: 1
+        }}>
+          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+            {data.fullDay}
+          </Typography>
+          <Typography variant="body2">
+            {data.commits} commits
+          </Typography>
+        </Box>
+      );
+    }
+    return null;
+  };
 
   return (
     <Paper sx={{ p: 2 }}>
@@ -35,22 +60,21 @@ function WeekdayCommitsChart({ data }) {
         </Typography>
       </Box>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={dayOfWeekData}>
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip 
-            contentStyle={{
-              backgroundColor: theme.palette.background.paper,
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: theme.shape.borderRadius,
-              color: theme.palette.text.primary
-            }}
+        <BarChart 
+          data={dayOfWeekData}
+          margin={isMobile ? { left: 0, right: 0 } : { left: 20, right: 20 }}
+        >
+          <XAxis 
+            dataKey="day"
+            tick={{ fontSize: isMobile ? 10 : 12 }}
+            interval={0}
           />
-          <Bar 
-            dataKey="commits" 
-            fill={theme.palette.primary.main}
-            activeBar={<Rectangle fill={theme.palette.primary.light} />}
+          <YAxis 
+            width={isMobile ? 30 : 40}
+            tick={{ fontSize: isMobile ? 10 : 12 }}
           />
+          <Tooltip content={<CustomTooltip />} />
+          <Bar dataKey="commits" fill="#1976d2" />
         </BarChart>
       </ResponsiveContainer>
     </Paper>
