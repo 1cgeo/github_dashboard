@@ -30,6 +30,29 @@ function MonthlyCommitsChart({ data }) {
     return { label, commits };
   });
 
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <Box sx={{ 
+          bgcolor: 'background.paper', 
+          p: 1.5, 
+          border: '1px solid',
+          borderColor: 'divider',
+          borderRadius: 1
+        }}>
+          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+            {data.label}
+          </Typography>
+          <Typography variant="body2">
+            {data.commits} commits
+          </Typography>
+        </Box>
+      );
+    }
+    return null;
+  };
+  
   return (
     <Paper sx={{ p: 2 }}>
       <Box sx={{ mb: 2 }}>
@@ -52,7 +75,7 @@ function MonthlyCommitsChart({ data }) {
             height={isMobile ? 60 : 30}
           />
           <YAxis width={isMobile ? 30 : 40} />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="commits" fill="#1976d2" />
         </BarChart>
       </ResponsiveContainer>
