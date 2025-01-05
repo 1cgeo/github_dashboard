@@ -1,0 +1,35 @@
+name: Fetch and Deploy
+
+on:
+  schedule:
+    - cron: '0 4 * * *'  # 01:00 BRT
+  workflow_dispatch:      # Permite rodar manualmente
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch data
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: node scripts/fetchData.js
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./dist

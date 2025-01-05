@@ -42,8 +42,8 @@ async function fetchCommits() {
           const response = await fetch(
             `https://api.github.com/repos/${owner}/${name}/commits?since=${startDate.toISOString()}&page=${page}&per_page=100`,
             {
-              headers: process.env.GITHUB_TOKEN ? {
-                'Authorization': `token ${process.env.GITHUB_TOKEN}`
+              headers: process.env.GH_PAT ? {
+                'Authorization': `token ${process.env.GH_PAT}`
               } : {}
             }
           );
@@ -71,7 +71,7 @@ async function fetchCommits() {
           } else {
             console.error(`Error fetching ${repo} (page ${page}): ${response.status} ${response.statusText}`);
             if (response.status === 403) {
-              console.error('Rate limit exceeded. Consider using a GITHUB_TOKEN.');
+              console.error('Rate limit exceeded. Consider using a GH_PAT.');
               console.error('Remaining requests:', response.headers.get('x-ratelimit-remaining'));
               console.error('Rate limit resets at:', new Date(Number(response.headers.get('x-ratelimit-reset')) * 1000));
             }
@@ -135,11 +135,11 @@ async function fetchCommits() {
   }
   
   // Verificar e usar token do GitHub se disponível
-  if (process.env.GITHUB_TOKEN) {
+  if (process.env.GH_PAT) {
     console.log('Using provided GitHub token');
   } else {
     console.log('No GitHub token found. Requests will be rate-limited.');
-    console.log('To increase rate limits, set the GITHUB_TOKEN environment variable.');
+    console.log('To increase rate limits, set the GH_PAT environment variable.');
   }
   
   fetchCommits();
