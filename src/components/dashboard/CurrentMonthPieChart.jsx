@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Paper, Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { CalendarToday, ExpandMore, ExpandLess } from '@mui/icons-material';
@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'];
 
-function ImprovedCurrentMonthPieChart({ data }) {
+function CurrentMonthPieChart({ data }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [showAll, setShowAll] = useState(false);
@@ -21,9 +21,11 @@ function ImprovedCurrentMonthPieChart({ data }) {
     return commitDate.getMonth() === currentMonth && 
            commitDate.getFullYear() === currentYear;
   });
+  
+  const currentMonthShort = new Date().toLocaleString('pt-BR', { month: 'short' });
 
   // Preparar dados para o gráfico
-  const processData = () => {
+  const { pieChartData, totalRepos } = useMemo(() => {
     let allRepos = Object.entries(_.groupBy(currentMonthCommits, 'repo'))
       .map(([repo, commits]) => ({
         name: repo.split('/')[1], // Remove org prefix
@@ -33,26 +35,30 @@ function ImprovedCurrentMonthPieChart({ data }) {
       }))
       .sort((a, b) => b.value - a.value);
 
-    if (!showAll && allRepos.length > 9) {
+    if (!showAll && allRepos.length > 8) {
       const topRepos = allRepos.slice(0, 8);
       const otherRepos = allRepos.slice(8);
       const otherValue = _.sumBy(otherRepos, 'value');
       
-      return [
-        ...topRepos,
-        {
-          name: `Outros (${otherRepos.length} repos)`,
-          fullName: 'others',
-          value: otherValue,
-          org: 'others'
-        }
-      ];
+      return {
+        pieChartData: [
+          ...topRepos,
+          {
+            name: `Outros (${otherRepos.length} repos)`,
+            fullName: 'outros',
+            value: otherValue,
+            org: 'outros'
+          }
+        ],
+        totalRepos: allRepos.length
+      };
     }
 
-    return allRepos;
-  };
-
-  const pieChartData = processData();
+    return {
+      pieChartData: allRepos,
+      totalRepos: allRepos.length
+    };
+  }, [currentMonthCommits, showAll]);
 
   // Tooltip customizado
   const CustomTooltip = ({ active, payload }) => {
@@ -133,12 +139,9 @@ function ImprovedCurrentMonthPieChart({ data }) {
       <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h6" component="div" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <CalendarToday />
-          Commits por Repositório ({currentDate.toLocaleString('pt-BR', { 
-            month: 'long', 
-            year: 'numeric' 
-          })})
+          Commits por Repositório ({currentMonthShort})
         </Typography>
-        {pieChartData.length > 5 && (
+        {totalRepos > 8 && (
           <Button
             size="small"
             onClick={() => setShowAll(!showAll)}
@@ -190,4 +193,4 @@ function ImprovedCurrentMonthPieChart({ data }) {
   );
 }
 
-export default ImprovedCurrentMonthPieChart;
+export default CurrentMonthPieChart;

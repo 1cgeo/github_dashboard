@@ -37,9 +37,9 @@ function ImprovedReposPieChart({ data }) {
         ...topRepos,
         {
           name: `Outros (${otherRepos.length} repos)`,
-          fullName: 'others',
+          fullName: 'outros',
           value: otherValue,
-          org: 'others'
+          org: 'outros'
         }
       ];
     }
