@@ -42,6 +42,21 @@ function normalizeAuthorName(author) {
   return authorMapping[author] || author;
 }
 
+// Função para verificar se o commit deve ser incluído
+function shouldIncludeCommit(commit) {
+  // Excluir commits do dependabot
+  if (commit.commit.author.name === 'dependabot[bot]') {
+    return false;
+  }
+
+  // Excluir commits de merge
+  if (commit.commit.message.startsWith("Merge branch 'master'")) {
+    return false;
+  }
+
+  return true;
+}
+
 async function fetchCommits() {
     try {
       // Buscar commits dos últimos 36 meses
@@ -77,7 +92,9 @@ async function fetchCommits() {
             if (commits.length === 0) {
               hasMoreData = false;
             } else {
-              commits.forEach(commit => {
+              commits
+              .filter(shouldIncludeCommit)  
+              .forEach(commit => {
                 allCommits.push({
                   repo: repository,
                   date: commit.commit.author.date,
