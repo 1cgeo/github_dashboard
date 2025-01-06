@@ -7,10 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --cors",
     "fetch-data": "node scripts/fetchData.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "analyze": "vite-bundle-visualizer"
   },
   "type": "module",
   "keywords": [],
@@ -29,6 +30,8 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "gh-pages": "^6.3.0",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "vite-bundle-visualizer": "^1.2.1",
+    "vite-plugin-compression": "^0.5.1"
   }
 }
