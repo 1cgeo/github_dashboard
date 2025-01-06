@@ -21,11 +21,32 @@ const repositories = [
   { repository: 'dsgoficial/EBGeo', branch: '' }
 ];
 
+const authorMapping = {
+  'Raul Magno EB': 'raulmagno-eb',
+  'Philipe Borba': 'phborba',
+  'Felipe Diniz': 'dinizime',
+  'Marcel Fernandes': 'MarcelFernandesCGEO',
+  'Raul Magno': 'raulmagno-eb',
+  'Jaime Guilherme': 'JaimeGuilherme',
+  'bragaalexandre': 'Braga Alexandre',
+  'pedro-mar': 'Pedro Martins',
+  'marcelgfernandes@gmail.com': 'MarcelFernandesCGEO',
+  'Ten Viana': 'Viana',
+  'raulmagno': 'raulmagno-eb',
+  'Matheus Silva': 'matheusalsilva98',
+  'Diogo Oliveira': 'diogooliveira-dsg',
+  'Ronaldo': 'Ronaldo Martins'
+};
+
+function normalizeAuthorName(author) {
+  return authorMapping[author] || author;
+}
+
 async function fetchCommits() {
     try {
-      // Buscar commits dos últimos 24 meses
+      // Buscar commits dos últimos 36 meses
       const startDate = new Date();
-      startDate.setMonth(startDate.getMonth() - 24);
+      startDate.setMonth(startDate.getMonth() - 36);
       
       const allCommits = [];
       
@@ -60,7 +81,7 @@ async function fetchCommits() {
                 allCommits.push({
                   repo: repository,
                   date: commit.commit.author.date,
-                  author: commit.commit.author.name,
+                  author: normalizeAuthorName(commit.commit.author.name),
                   message: commit.commit.message,
                   sha: commit.sha.substring(0, 7),
                   htmlUrl: commit.html_url,

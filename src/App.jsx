@@ -43,6 +43,9 @@ function App() {
       createTheme({
         palette: {
           mode,
+          primary: {
+            main: '#2196f3'
+          },
           ...(mode === 'dark' ? {
             background: {
               default: '#121212',

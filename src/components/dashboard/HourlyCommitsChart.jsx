@@ -1,41 +1,33 @@
 import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import { BarChart as BarChartIcon } from '@mui/icons-material';
+import { AccessTime } from '@mui/icons-material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import _ from 'lodash';
 
-function MonthlyCommitsChart({ data }) {
+const timeRanges = [
+  { label: '00h - 08h', mobileLabel: '00-08h', start: 0, end: 8 },
+  { label: '08h - 13h', mobileLabel: '08-13h', start: 8, end: 13 },
+  { label: '13h - 17h', mobileLabel: '13-17h', start: 13, end: 17 },
+  { label: '17h - 00h', mobileLabel: '17-00h', start: 17, end: 24 }
+];
+
+function HourlyCommitsChart({ data }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const chartData = useMemo(() => {
-    const last24Months = Array.from({length: isMobile ? 12 : 24}, (_, i) => {
-      const date = new Date();
-      date.setMonth(date.getMonth() - i);
-      return {
-        year: date.getFullYear(),
-        month: date.getMonth(),
-        label: date.toLocaleString('pt-BR', { 
-          month: isMobile ? 'short' : 'long', 
-          year: 'numeric' 
-        }),
-        fullLabel: date.toLocaleString('pt-BR', { 
-          month: 'long', 
-          year: 'numeric' 
-        })
-      };
-    }).reverse();
-
-    return last24Months.map(({year, month, label, fullLabel}) => {
+    return timeRanges.map(range => {
       const commits = data.filter(commit => {
-        const commitDate = commit.date;
-        return commitDate.getFullYear() === year && commitDate.getMonth() === month;
-      }).length;
-      
-      return { 
-        label, 
-        fullLabel,
-        commits 
+        // Convert to Brasília time (UTC-3)
+        const date = new Date(commit.date);
+        const brasiliaHour = (date.getUTCHours() - 3 + 24) % 24;
+        return brasiliaHour >= range.start && brasiliaHour < range.end;
+      });
+
+      return {
+        range: isMobile ? range.mobileLabel : range.label,
+        fullRange: range.label,
+        commits: commits.length
       };
     });
   }, [data, isMobile]);
@@ -53,7 +45,7 @@ function MonthlyCommitsChart({ data }) {
           boxShadow: theme.shadows[2]
         }}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {data.fullLabel}
+            {data.fullRange}
           </Typography>
           <Typography variant="body2">
             {data.commits} {data.commits === 1 ? 'commit' : 'commits'}
@@ -63,7 +55,7 @@ function MonthlyCommitsChart({ data }) {
     }
     return null;
   };
-  
+
   return (
     <Paper sx={{ 
       p: { xs: 1.5, sm: 2 },
@@ -80,8 +72,8 @@ function MonthlyCommitsChart({ data }) {
             fontSize: { xs: '1rem', sm: '1.25rem' }
           }}
         >
-          <BarChartIcon sx={{ fontSize: { xs: '1.25rem', sm: 'inherit' } }} />
-          Commits por Mês {isMobile ? '(12 meses)' : '(24 meses)'}
+          <AccessTime sx={{ fontSize: { xs: '1.25rem', sm: 'inherit' } }} />
+          Commits por Horário
         </Typography>
       </Box>
       <ResponsiveContainer width="100%" height={isMobile ? 250 : 300}>
@@ -91,19 +83,16 @@ function MonthlyCommitsChart({ data }) {
             top: 5,
             right: isMobile ? 5 : 20,
             left: isMobile ? 5 : 20,
-            bottom: isMobile ? 60 : 20
+            bottom: isMobile ? 20 : 5
           }}
         >
           <XAxis 
-            dataKey="label" 
+            dataKey="range"
             tick={{ 
               fontSize: isMobile ? 10 : 12,
               fill: theme.palette.text.primary
             }}
-            interval={isMobile ? 1 : "preserveStartEnd"}
-            angle={isMobile ? -45 : 0}
-            textAnchor={isMobile ? "end" : "middle"}
-            height={isMobile ? 60 : 30}
+            interval={0}
           />
           <YAxis 
             width={35}
@@ -128,4 +117,4 @@ function MonthlyCommitsChart({ data }) {
   );
 }
 
-export default MonthlyCommitsChart;
+export default HourlyCommitsChart;

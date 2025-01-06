@@ -1,43 +1,45 @@
 import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import { BarChart as BarChartIcon } from '@mui/icons-material';
+import { CalendarMonth } from '@mui/icons-material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import _ from 'lodash';
 
-function MonthlyCommitsChart({ data }) {
+const weekDayOrder = [
+  'domingo',
+  'segunda-feira',
+  'terça-feira',
+  'quarta-feira',
+  'quinta-feira',
+  'sexta-feira',
+  'sábado'
+];
+
+function CurrentMonthWeekdayChart({ data }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const chartData = useMemo(() => {
-    const last24Months = Array.from({length: isMobile ? 12 : 24}, (_, i) => {
-      const date = new Date();
-      date.setMonth(date.getMonth() - i);
-      return {
-        year: date.getFullYear(),
-        month: date.getMonth(),
-        label: date.toLocaleString('pt-BR', { 
-          month: isMobile ? 'short' : 'long', 
-          year: 'numeric' 
-        }),
-        fullLabel: date.toLocaleString('pt-BR', { 
-          month: 'long', 
-          year: 'numeric' 
-        })
-      };
-    }).reverse();
+    // Filtra commits do mês atual
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
 
-    return last24Months.map(({year, month, label, fullLabel}) => {
-      const commits = data.filter(commit => {
-        const commitDate = commit.date;
-        return commitDate.getFullYear() === year && commitDate.getMonth() === month;
-      }).length;
-      
-      return { 
-        label, 
-        fullLabel,
-        commits 
-      };
+    const currentMonthCommits = data.filter(commit => {
+      const commitDate = commit.date;
+      return commitDate.getMonth() === currentMonth && 
+             commitDate.getFullYear() === currentYear;
     });
+
+    // Agrupa por dia da semana
+    const commitsByDayOfWeek = _.groupBy(currentMonthCommits, commit => 
+      commit.date.toLocaleString('pt-BR', { weekday: 'long' }).toLowerCase()
+    );
+
+    return weekDayOrder.map(day => ({
+      day: isMobile ? day.slice(0, 3) : day, // Abreviação para mobile
+      fullDay: day,
+      commits: (commitsByDayOfWeek[day] || []).length
+    }));
   }, [data, isMobile]);
 
   const CustomTooltip = ({ active, payload }) => {
@@ -53,7 +55,7 @@ function MonthlyCommitsChart({ data }) {
           boxShadow: theme.shadows[2]
         }}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {data.fullLabel}
+            {data.fullDay}
           </Typography>
           <Typography variant="body2">
             {data.commits} {data.commits === 1 ? 'commit' : 'commits'}
@@ -63,7 +65,9 @@ function MonthlyCommitsChart({ data }) {
     }
     return null;
   };
-  
+
+  const currentMonth = new Date().toLocaleString('pt-BR', { month: 'long' });
+
   return (
     <Paper sx={{ 
       p: { xs: 1.5, sm: 2 },
@@ -80,8 +84,8 @@ function MonthlyCommitsChart({ data }) {
             fontSize: { xs: '1rem', sm: '1.25rem' }
           }}
         >
-          <BarChartIcon sx={{ fontSize: { xs: '1.25rem', sm: 'inherit' } }} />
-          Commits por Mês {isMobile ? '(12 meses)' : '(24 meses)'}
+          <CalendarMonth sx={{ fontSize: { xs: '1.25rem', sm: 'inherit' } }} />
+          Commits por Dia da Semana ({currentMonth})
         </Typography>
       </Box>
       <ResponsiveContainer width="100%" height={isMobile ? 250 : 300}>
@@ -91,19 +95,16 @@ function MonthlyCommitsChart({ data }) {
             top: 5,
             right: isMobile ? 5 : 20,
             left: isMobile ? 5 : 20,
-            bottom: isMobile ? 60 : 20
+            bottom: isMobile ? 20 : 5
           }}
         >
           <XAxis 
-            dataKey="label" 
+            dataKey="day"
             tick={{ 
               fontSize: isMobile ? 10 : 12,
               fill: theme.palette.text.primary
             }}
-            interval={isMobile ? 1 : "preserveStartEnd"}
-            angle={isMobile ? -45 : 0}
-            textAnchor={isMobile ? "end" : "middle"}
-            height={isMobile ? 60 : 30}
+            interval={0}
           />
           <YAxis 
             width={35}
@@ -128,4 +129,4 @@ function MonthlyCommitsChart({ data }) {
   );
 }
 
-export default MonthlyCommitsChart;
+export default CurrentMonthWeekdayChart;

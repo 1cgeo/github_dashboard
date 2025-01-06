@@ -1,46 +1,57 @@
-import React from 'react';
-import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import { PieChart as PieChartIcon } from '@mui/icons-material';
+import React, { useState } from 'react';
+import { Paper, Box, Typography, Button, useTheme, useMediaQuery } from '@mui/material';
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { PieChart as PieChartIcon, ExpandMore, ExpandLess } from '@mui/icons-material';
 import _ from 'lodash';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'];
 
-function ReposPieChart({ data }) {
+function ImprovedReposPieChart({ data }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [showAll, setShowAll] = useState(false);
 
-  const commitsByRepo2025 = _.groupBy(
-    data.filter(commit => commit.date.getFullYear() === 2025),
-    'repo'
-  );
+  // Processar dados por organização
+  const groupedRepos = _.groupBy(data, commit => {
+    const [org] = commit.repo.split('/');
+    return org;
+  });
 
-  let pieChartData = Object.entries(commitsByRepo2025).map(([repo, commits]) => ({
-    name: repo,
-    value: commits.length
-  }));
+  // Preparar dados para o gráfico
+  const processData = () => {
+    let allRepos = Object.entries(_.groupBy(data, 'repo'))
+      .map(([repo, commits]) => ({
+        name: repo.split('/')[1], // Remove org prefix
+        fullName: repo,
+        value: commits.length,
+        org: repo.split('/')[0]
+      }))
+      .sort((a, b) => b.value - a.value);
 
-  // Para mobile, mostrar apenas os top 5 repositórios e agrupar o resto
-  if (isMobile && pieChartData.length > 5) {
-    const sortedData = _.orderBy(pieChartData, ['value'], ['desc']);
-    const topRepos = sortedData.slice(0, 4);
-    const otherRepos = sortedData.slice(4);
-    const otherValue = _.sumBy(otherRepos, 'value');
-    
-    pieChartData = [
-      ...topRepos,
-      {
-        name: 'Outros',
-        value: otherValue
-      }
-    ];
-  }
+    if (!showAll && allRepos.length > 9) {
+      const topRepos = allRepos.slice(0, 8);
+      const otherRepos = allRepos.slice(8);
+      const otherValue = _.sumBy(otherRepos, 'value');
+      
+      return [
+        ...topRepos,
+        {
+          name: `Outros (${otherRepos.length} repos)`,
+          fullName: 'others',
+          value: otherValue,
+          org: 'others'
+        }
+      ];
+    }
 
-  // Ordenar por valor (maior para menor)
-  pieChartData = _.orderBy(pieChartData, ['value'], ['desc']);
+    return allRepos;
+  };
 
+  const pieChartData = processData();
+
+  // Tooltip customizado
   const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
+    if (active && payload?.[0]) {
       const data = payload[0].payload;
       const total = _.sumBy(pieChartData, 'value');
       const percentage = ((data.value / total) * 100).toFixed(1);
@@ -51,10 +62,11 @@ function ReposPieChart({ data }) {
           p: 1.5, 
           border: '1px solid',
           borderColor: 'divider',
-          borderRadius: 1
+          borderRadius: 1,
+          boxShadow: theme.shadows[2]
         }}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
-            {data.name}
+            {data.fullName}
           </Typography>
           <Typography variant="body2">
             {data.value} commits ({percentage}%)
@@ -65,60 +77,77 @@ function ReposPieChart({ data }) {
     return null;
   };
 
-  const renderLegend = (props) => {
-    const { payload } = props;
-    return (
-      <Box sx={{ 
-        display: 'flex', 
-        flexWrap: 'wrap', 
-        gap: 1,
-        justifyContent: 'center',
-        px: 2
-      }}>
-        {payload.map((entry, index) => (
+  // Legenda customizada
+  const CustomLegend = ({ payload }) => (
+    <Box sx={{ 
+      display: 'flex', 
+      flexWrap: 'wrap', 
+      gap: 1,
+      justifyContent: 'center',
+      maxHeight: '100px',
+      overflowY: 'auto',
+      px: 2
+    }}>
+      {payload.map((entry, index) => (
+        <Box
+          key={`legend-${index}`}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 0.5,
+            minWidth: isMobile ? '45%' : '30%'
+          }}
+        >
           <Box
-            key={`legend-${index}`}
             sx={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 0.5
+              width: 12,
+              height: 12,
+              backgroundColor: entry.color,
+              borderRadius: '50%'
             }}
+          />
+          <Typography 
+            variant="caption" 
+            sx={{ 
+              maxWidth: '90%',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
+            }}
+            title={entry.payload.fullName}
           >
-            <Box
-              sx={{
-                width: 12,
-                height: 12,
-                backgroundColor: entry.color,
-                borderRadius: '50%'
-              }}
-            />
-            <Typography variant="caption" sx={{ maxWidth: isMobile ? 120 : 'none' }} noWrap>
-              {entry.value}
-            </Typography>
-          </Box>
-        ))}
-      </Box>
-    );
-  };
+            {entry.value}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+  );
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Box sx={{ mb: 2 }}>
+      <Box sx={{ mb: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h6" component="div" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <PieChartIcon />
-          Commits por Repositório em 2025
+          Commits por Repositório
         </Typography>
+        <Button
+          size="small"
+          onClick={() => setShowAll(!showAll)}
+          startIcon={showAll ? <ExpandLess /> : <ExpandMore />}
+        >
+          {showAll ? 'Mostrar Menos' : 'Mostrar Todos'}
+        </Button>
       </Box>
-      <Box sx={{ height: isMobile ? 250 : 300 }}>
+      
+      <Box sx={{ height: isMobile ? 300 : 400 }}>
         <ResponsiveContainer>
           <PieChart>
             <Pie
               data={pieChartData}
               cx="50%"
-              cy="50%"
+              cy="45%"
               innerRadius={isMobile ? 40 : 60}
-              outerRadius={isMobile ? 70 : 80}
-              fill="#8884d8"
+              outerRadius={isMobile ? 70 : 90}
               paddingAngle={2}
               dataKey="value"
             >
@@ -130,7 +159,7 @@ function ReposPieChart({ data }) {
               ))}
             </Pie>
             <Tooltip content={<CustomTooltip />} />
-            <Legend content={renderLegend} />
+            <Legend content={<CustomLegend />} />
           </PieChart>
         </ResponsiveContainer>
       </Box>
@@ -138,4 +167,4 @@ function ReposPieChart({ data }) {
   );
 }
 
-export default ReposPieChart;
+export default ImprovedReposPieChart;

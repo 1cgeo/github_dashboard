@@ -9,11 +9,14 @@ import StatsCards from './dashboard/StatsCards';
 import MonthlyCommitsChart from './dashboard/MonthlyCommitsChart';
 import ReposPieChart from './dashboard/ReposPieChart';
 import WeekdayCommitsChart from './dashboard/WeekdayCommitsChart';
+import HourlyCommitsChart from './dashboard/HourlyCommitsChart';
 import DailyCommitsChart from './dashboard/DailyCommitsChart';
 import LatestCommitsTable from './dashboard/LatestCommitsTable';
 import AuthorCommitsTable from './dashboard/AuthorCommitsTable';
 import RepoCommitsTable from './dashboard/RepoCommitsTable';
 import CurrentMonthPieChart from './dashboard/CurrentMonthPieChart';
+import CurrentMonthWeekdayChart from './dashboard/CurrentMonthWeekdayChart';
+import CurrentMonthHourlyChart from './dashboard/CurrentMonthHourlyChart';
 
 function GitHubDashboard() {
   const [processedData, setProcessedData] = useState([]);
@@ -61,7 +64,15 @@ function GitHubDashboard() {
       </Box>
 
       <StatsCards data={processedData} />
-      
+
+      <Box sx={{ mb: 3 }}>
+        <DailyCommitsChart data={processedData} />
+      </Box>
+
+      <Box sx={{ mb: 3 }}>
+        <LatestCommitsTable data={processedData} />
+      </Box>
+
       <Box sx={{ mb: 3 }}>
         <MonthlyCommitsChart data={processedData} />
       </Box>
@@ -76,20 +87,6 @@ function GitHubDashboard() {
         <CurrentMonthPieChart data={processedData} />
       </Box>
       
-      <Box sx={{ 
-        mb: 3,
-        display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-        gap: 3
-      }}>
-        <WeekdayCommitsChart data={processedData} />
-        <DailyCommitsChart data={processedData} />
-      </Box>
-      
-      <Box sx={{ mb: 3 }}>
-        <LatestCommitsTable data={processedData} />
-      </Box>
-      
       <Box sx={{ mb: 3 }}>
         <AuthorCommitsTable data={processedData} />
       </Box>
@@ -97,6 +94,27 @@ function GitHubDashboard() {
       <Box sx={{ mb: 3 }}>
         <RepoCommitsTable data={processedData} />
       </Box>
+
+      <Box sx={{ 
+        mb: 3,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: 3
+      }}>
+        <WeekdayCommitsChart data={processedData} />
+        <HourlyCommitsChart data={processedData} />
+      </Box>
+
+      <Box sx={{ 
+        mb: 3,
+        display: 'grid',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: 3
+      }}>
+        <CurrentMonthWeekdayChart data={processedData} />
+        <CurrentMonthHourlyChart data={processedData} />
+      </Box>
+
     </Container>
   );
 }
