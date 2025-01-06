@@ -7,14 +7,18 @@ import viteCompression from 'vite-plugin-compression'
 export default defineConfig({
   base: '/github_dashboard/',
   plugins: [
-    react(),
+    react({
+      jsxImportSource: '@emotion/react',
+      babel: {
+        plugins: ['@emotion/babel-plugin']
+      }
+    }),
     viteCompression({
       verbose: true,
       disable: false,
       threshold: 1024,
       algorithm: 'gzip',
       ext: '.gz',
-      // Comprime especificamente JSON e outros assets grandes
       filter: (file) => {
         return file.endsWith('.json') || 
                file.endsWith('.js') || 
@@ -29,19 +33,9 @@ export default defineConfig({
       },
       output: {
         manualChunks(id) {
-          // Vendor chunks
           if (id.includes('node_modules')) {
-            if (id.includes('react')) {
-              return 'vendor-react'
-            }
-            if (id.includes('@mui/material') || id.includes('@mui/system')) {
-              return 'vendor-mui-core'
-            }
-            if (id.includes('@mui/icons')) {
-              return 'vendor-mui-icons'
-            }
-            if (id.includes('@emotion')) {
-              return 'vendor-emotion'
+            if (id.includes('react') || id.includes('@emotion') || id.includes('@mui')) {
+              return 'vendor-core'
             }
             if (id.includes('recharts')) {
               return 'vendor-charts'
@@ -52,7 +46,6 @@ export default defineConfig({
             return 'vendor-misc'
           }
           
-          // App chunks
           if (id.includes('/src/components/dashboard/')) {
             return 'app-dashboard'
           }
@@ -69,7 +62,7 @@ export default defineConfig({
     minify: 'esbuild',
     cssCodeSplit: true,
     chunkSizeWarningLimit: 400,
-    sourcemap: false,
+    sourcemap: true,
     assetsInlineLimit: 4096,
     emptyOutDir: true,
   },
@@ -88,6 +81,12 @@ export default defineConfig({
       'lodash',
       '@emotion/react',
       '@emotion/styled',
+      '@emotion/cache',
+      '@emotion/utils',
+      '@emotion/weak-memoize',
+      '@emotion/memoize',
+      '@emotion/sheet',
+      '@emotion/serialize',
       'hoist-non-react-statics'
     ],
     esbuildOptions: {
