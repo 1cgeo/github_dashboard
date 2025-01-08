@@ -11,7 +11,7 @@ function DashboardHeader() {
           Dashboard de Commits - 1º CGEO
         </Typography>
         <Typography color="text.secondary">
-          Monitoramento de atividade em repositórios administrados pelo 1º CGEO considerando 3 anos de commits
+          Monitoramento de atividade em repositórios administrados pelo 1º CGEO desde 01/01/2022
         </Typography>
       </Box>
     </Box>

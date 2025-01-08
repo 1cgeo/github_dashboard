@@ -2,7 +2,7 @@ name: Fetch and Deploy
 
 on:
   schedule:
-    - cron: '0 4 * * *'  # 01:00 BRT
+    - cron: '0 10,15,20 * * *'  # 07:00, 12:00, 17:00 BRT
   workflow_dispatch:      # Permite rodar manualmente
 
 jobs:
@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -24,6 +26,13 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: node scripts/fetchData.js
+
+      - name: Commit changes if needed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add src/data/commits.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update commits data [skip ci]" && git push)
 
       - name: Build
         run: npm run build
