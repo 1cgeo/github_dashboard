@@ -1,23 +1,31 @@
+// src/components/dashboard/AuthorCommitsTable.jsx
 import React, { useState, useEffect } from 'react';
 import { 
   Paper, 
-  Typography, 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableRow,
+  Typography,
   Box,
   Link,
   Chip,
   TextField,
   InputAdornment,
   Autocomplete,
+  TableCell,
+  TableRow,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Stack
 } from '@mui/material';
 import { Person, Search } from '@mui/icons-material';
 import _ from 'lodash';
+import PaginatedTable from './PaginatedTable';
+
+const MAX_MESSAGE_LENGTH = 100;
+
+function truncateMessage(message) {
+  const firstLine = message.split('\n')[0];
+  if (firstLine.length <= MAX_MESSAGE_LENGTH) return firstLine;
+  return firstLine.substring(0, MAX_MESSAGE_LENGTH) + '...';
+}
 
 function AuthorCommitsTable({ data }) {
   const theme = useTheme();
@@ -27,6 +35,7 @@ function AuthorCommitsTable({ data }) {
 
   useEffect(() => {
     const commitsByAuthor = _.groupBy(data, 'author');
+    
     const processedAuthors = Object.entries(commitsByAuthor).map(([author, commits]) => {
       const lastCommit = _.maxBy(commits, commit => new Date(commit.date));
       return {
@@ -49,78 +58,120 @@ function AuthorCommitsTable({ data }) {
         data.filter(commit => commit.author === selectedAuthor),
         ['date'],
         ['desc']
-      ).slice(0, isMobile ? 5 : 10)
+      )
     : [];
 
-  const renderMobileView = () => (
-    <Box sx={{ mt: 2 }}>
-      {authorCommits.map((commit) => (
-        <Paper key={commit.sha} sx={{ p: 2, mb: 2, bgcolor: 'background.default' }}>
-          <Link 
-            href={commit.htmlUrl} 
-            target="_blank" 
-            rel="noopener"
-            sx={{ 
-              display: 'block',
-              mb: 1,
-              wordBreak: 'break-word'
-            }}
-          >
-            {commit.message.split('\n')[0]}
-          </Link>
-          
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
-            <Link href={commit.repoUrl} target="_blank" rel="noopener">
-              <Chip 
-                label={commit.repo} 
-                size="small" 
-                variant="outlined"
-                sx={{ maxWidth: '100%' }}
-              />
-            </Link>
-            <Typography variant="caption" color="text.secondary">
-              {commit.date.toLocaleString('pt-BR')}
-            </Typography>
-          </Box>
-        </Paper>
-      ))}
-    </Box>
+  const columns = ['Mensagem', 'Repositório', 'Data'];
+  const columnWidths = ['50%', '30%', '20%'];
+
+  const renderRow = (commit, index) => (
+    <TableRow key={index}>
+      <TableCell style={{ width: columnWidths[0] }}>
+        <Link 
+          href={commit.htmlUrl} 
+          target="_blank" 
+          rel="noopener"
+          title={commit.message.split('\n')[0]}
+          sx={{ 
+            display: 'block',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          {truncateMessage(commit.message)}
+        </Link>
+      </TableCell>
+      <TableCell style={{ width: columnWidths[1] }}>
+        <Link href={commit.repoUrl} target="_blank" rel="noopener">
+          <Chip label={commit.repo} size="small" variant="outlined" />
+        </Link>
+      </TableCell>
+      <TableCell style={{ width: columnWidths[2] }}>{commit.date.toLocaleString('pt-BR')}</TableCell>
+    </TableRow>
   );
 
-  const renderDesktopView = () => (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Mensagem</TableCell>
-          <TableCell>Repositório</TableCell>
-          <TableCell>Data</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {authorCommits.map((commit) => (
-          <TableRow key={commit.sha}>
-            <TableCell>
-              <Link href={commit.htmlUrl} target="_blank" rel="noopener">
-                {commit.message.split('\n')[0]}
-              </Link>
-            </TableCell>
-            <TableCell>
-              <Link href={commit.repoUrl} target="_blank" rel="noopener">
-                <Chip label={commit.repo} size="small" variant="outlined" />
-              </Link>
-            </TableCell>
-            <TableCell>{commit.date.toLocaleString('pt-BR')}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+  const renderMobileRow = (commit, index, style) => (
+    <TableRow key={index} sx={{ backgroundColor: style.backgroundColor }}>
+      <TableCell sx={{ p: 2 }}>
+        <Link 
+          href={commit.htmlUrl} 
+          target="_blank" 
+          rel="noopener"
+          title={commit.message.split('\n')[0]}
+          sx={{ 
+            display: 'block',
+            mb: 1,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          {truncateMessage(commit.message)}
+        </Link>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Link href={commit.repoUrl} target="_blank" rel="noopener">
+            <Chip 
+              label={commit.repo} 
+              size="small" 
+              variant="outlined"
+              sx={{ maxWidth: '100%', overflow: 'hidden' }}
+            />
+          </Link>
+          <Typography variant="caption" color="text.secondary">
+            {commit.date.toLocaleString('pt-BR')}
+          </Typography>
+        </Box>
+      </TableCell>
+    </TableRow>
   );
+
+  const renderAuthorOption = (props, option) => {
+    const { key, ...other } = props;
+    const author = authors.find(a => a.name === option);
+
+    if (isMobile) {
+      return (
+        <Box component="li" key={key} {...other}>
+          <Stack spacing={0.5} sx={{ p: 2 }}>
+            <Typography variant="subtitle1" noWrap>{option}</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Typography variant="body2" color="text.secondary">
+                {author.totalCommits} commits
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                • Último: {new Date(author.lastCommitDate).toLocaleDateString('pt-BR')}
+              </Typography>
+            </Box>
+          </Stack>
+        </Box>
+      );
+    }
+
+    return (
+      <Box component="li" key={key} {...other} sx={{ padding: 2 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+          <Typography>{option}</Typography>
+          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+            <Chip 
+              size="small" 
+              label={`${author.totalCommits} commits`}
+              variant="outlined"
+            />
+            <Typography variant="caption" color="text.secondary">
+              Último: {new Date(author.lastCommitDate).toLocaleDateString('pt-BR')}
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    );
+  };
 
   return (
     <Paper sx={{ p: 2 }}>
       <Typography variant="h6" component="div" sx={{ mb: 2, display: 'flex', alignItems: 'center', gap: 1 }}>
         <Person />
-        Commits por Autor {`(Últimos ${isMobile ? 5 : 10})`}
+        Commits por Autor
       </Typography>
 
       <Box sx={{ mb: 3 }}>
@@ -144,46 +195,29 @@ function AuthorCommitsTable({ data }) {
               }}
             />
           )}
-          renderOption={(props, option) => {
-            const author = authors.find(a => a.name === option);
-            return (
-              <Box
-                key={props.key}
-                component="li"
-                {...Object.fromEntries(Object.entries(props).filter(([key]) => key !== 'key'))}
-              >
-                <Box sx={{ 
-                  display: 'flex', 
-                  flexDirection: isMobile ? 'column' : 'row',
-                  justifyContent: 'space-between', 
-                  width: '100%', 
-                  gap: 1
-                }}>
-                  <Typography noWrap>{option}</Typography>
-                  <Box sx={{ 
-                    display: 'flex', 
-                    gap: 2, 
-                    alignItems: 'center',
-                    flexWrap: 'wrap'
-                  }}>
-                    <Chip 
-                      size="small" 
-                      label={`${author.totalCommits} commits`}
-                      variant="outlined"
-                    />
-                    <Typography variant="caption" color="text.secondary">
-                      Último: {new Date(author.lastCommitDate).toLocaleDateString('pt-BR')}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
-            );
+          renderOption={renderAuthorOption}
+          ListboxProps={{
+            sx: {
+              '& li': {
+                borderBottom: '1px solid',
+                borderColor: 'divider',
+                '&:last-child': {
+                  borderBottom: 'none'
+                }
+              }
+            }
           }}
         />
       </Box>
 
       {selectedAuthor && (
-        isMobile ? renderMobileView() : renderDesktopView()
+        <PaginatedTable
+          data={authorCommits}
+          columns={columns}
+          columnWidths={columnWidths}
+          renderRow={renderRow}
+          renderMobileRow={renderMobileRow}
+        />
       )}
     </Paper>
   );
