@@ -11,6 +11,7 @@ const repositories = [
   { repository: '1cgeo/ferramentas_mgcp', branch: '' },
   { repository: '1cgeo/mgcp', branch: '' },
   { repository: '1cgeo/doc_mgcp', branch: '' },
+  { repository: '1cgeo/ebgeo_web_2_admin', branch: '' },
   { repository: 'dsgoficial/modelagens', branch: '' },
   { repository: 'dsgoficial/configuracoes_producao', branch: '' },
   { repository: 'dsgoficial/ferramentas_edicao', branch: '' },
