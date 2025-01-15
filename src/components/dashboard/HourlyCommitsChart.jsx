@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { AccessTime } from '@mui/icons-material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import _ from 'lodash';
 
 const timeRanges = [
   { label: '00h - 08h', mobileLabel: '00-08h', start: 0, end: 8 },
@@ -18,9 +17,12 @@ function HourlyCommitsChart({ data }) {
   const chartData = useMemo(() => {
     return timeRanges.map(range => {
       const commits = data.filter(commit => {
-        // Convert to Brasília time (UTC-3)
-        const date = new Date(commit.date);
-        const brasiliaHour = (date.getUTCHours() - 3 + 24) % 24;
+        const hour = new Date(commit.date).toLocaleString('en-US', {
+          timeZone: 'America/Sao_Paulo',
+          hour: 'numeric',
+          hour12: false
+        });
+        const brasiliaHour = parseInt(hour);
         return brasiliaHour >= range.start && brasiliaHour < range.end;
       });
 

@@ -3,12 +3,12 @@ import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { Timeline } from '@mui/icons-material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import _ from 'lodash';
+import { getLastNDaysInBrasilia, groupCommitsByBrasiliaDate } from '../../utils/dateUtils';
 
 function DailyCommitsChart({ data }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-  const isLarge = useMediaQuery(theme.breakpoints.up('lg'));
 
   const viewportConfig = useMemo(() => ({
     daysToShow: isMobile ? 10 : isTablet ? 20 : 30,
@@ -16,35 +16,21 @@ function DailyCommitsChart({ data }) {
     height: isMobile ? 250 : isTablet ? 280 : 300,
     dateFormat: {
       day: 'numeric',
-      month: isMobile ? 'numeric' : isTablet ? 'short' : 'long'
+      month: isMobile ? 'numeric' : isTablet ? 'short' : 'long',
+      timeZone: 'America/Sao_Paulo'
     }
   }), [isMobile, isTablet]);
 
   const chartData = useMemo(() => {
-    const lastDays = Array.from({ length: viewportConfig.daysToShow }, (_, i) => {
-      const date = new Date();
-      date.setDate(date.getDate() - i);
-      return {
-        isoDate: date.toISOString().split('T')[0],
-        displayDate: date.toLocaleDateString('pt-BR', viewportConfig.dateFormat),
-        fullDate: date.toLocaleDateString('pt-BR', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        })
-      };
-    }).reverse();
-
-    const commitsByDate = _.groupBy(data, commit =>
-      commit.date.toISOString().split('T')[0]
-    );
+    const lastDays = getLastNDaysInBrasilia(viewportConfig.daysToShow);
+    const commitsByDate = groupCommitsByBrasiliaDate(data);
 
     return lastDays.map(({ isoDate, displayDate, fullDate }) => ({
       date: displayDate,
       fullDate,
       commits: (commitsByDate[isoDate] || []).length
     }));
-  }, [data, viewportConfig.daysToShow, viewportConfig.dateFormat]);
+  }, [data, viewportConfig.daysToShow]);
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload?.[0]) {

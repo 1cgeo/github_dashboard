@@ -1,9 +1,7 @@
-// CurrentMonthHourlyChart.jsx
 import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { AccessTime } from '@mui/icons-material';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import _ from 'lodash';
 
 const timeRanges = [
   { label: '00h - 08h', start: 0, end: 8 },
@@ -16,23 +14,36 @@ function CurrentMonthHourlyChart({ data }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const currentMonth = new Date().toLocaleString('pt-BR', { month: 'long' });
+  const currentMonth = new Date().toLocaleString('pt-BR', { 
+    month: 'long',
+    timeZone: 'America/Sao_Paulo' 
+  });
 
   const chartData = useMemo(() => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-
-    // Filter current month commits
+    // Filtrar commits do mês atual usando o timezone de Brasília
     const currentMonthCommits = data.filter(commit => {
-      const commitDate = commit.date;
-      return commitDate.getMonth() === currentMonth && 
-             commitDate.getFullYear() === currentYear;
+      const commitDate = new Date(commit.date).toLocaleString('en-US', {
+        timeZone: 'America/Sao_Paulo',
+        year: 'numeric',
+        month: 'numeric'
+      });
+      const nowDate = new Date().toLocaleString('en-US', {
+        timeZone: 'America/Sao_Paulo',
+        year: 'numeric',
+        month: 'numeric'
+      });
+      
+      return commitDate === nowDate;
     });
 
     return timeRanges.map(range => {
       const commits = currentMonthCommits.filter(commit => {
-        const brasiliaHour = (commit.date.getUTCHours() - 3 + 24) % 24;
+        const hour = new Date(commit.date).toLocaleString('en-US', {
+          timeZone: 'America/Sao_Paulo',
+          hour: 'numeric',
+          hour12: false
+        });
+        const brasiliaHour = parseInt(hour);
         return brasiliaHour >= range.start && brasiliaHour < range.end;
       });
 
