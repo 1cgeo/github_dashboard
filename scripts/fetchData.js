@@ -19,7 +19,8 @@ const repositories = [
   { repository: 'dsgoficial/sap', branch: '' },
   { repository: 'dsgoficial/SAP_Gerente', branch: '' },
   { repository: 'dsgoficial/SAP_Operador', branch: '' },
-  { repository: 'dsgoficial/EBGeo', branch: '' }
+  { repository: 'dsgoficial/EBGeo', branch: '' },
+  { repository: '1cgeo/prototipo_busca_llm', branch: '' }
 ];
 
 const authorMapping = {
