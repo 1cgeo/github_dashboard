@@ -80,7 +80,7 @@ function GitHubDashboard() {
         gap: 2
       }}>
         <SuspenseWrapper>
-          <DashboardHeader />
+          <DashboardHeader data={processedData} />
         </SuspenseWrapper>
         <Chip 
           icon={<Schedule />} 

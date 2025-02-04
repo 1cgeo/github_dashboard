@@ -24,20 +24,30 @@ const repositories = [
 ];
 
 const authorMapping = {
-  'Raul Magno EB': 'raulmagno-eb',
-  'Philipe Borba': 'phborba',
-  'Felipe Diniz': 'dinizime',
-  'Marcel Fernandes': 'MarcelFernandesCGEO',
-  'Raul Magno': 'raulmagno-eb',
-  'Jaime Guilherme': 'JaimeGuilherme',
-  'bragaalexandre': 'Braga Alexandre',
-  'pedro-mar': 'Pedro Martins',
-  'marcelgfernandes@gmail.com': 'MarcelFernandesCGEO',
-  'Ten Viana': 'Viana',
-  'raulmagno': 'raulmagno-eb',
-  'Matheus Silva': 'matheusalsilva98',
-  'Diogo Oliveira': 'diogooliveira-dsg',
-  'Ronaldo': 'Ronaldo Martins'
+  'Raul Magno EB': '1º Ten Raul Magno',
+  'raulmagno-eb': '1º Ten Raul Magno',
+  'Philipe Borba': 'Cap Borba',
+  'phborba': 'Cap Borba',
+  'Felipe Diniz': 'Maj Diniz',
+  'dinizime': 'Maj Diniz',
+  'Marcel Fernandes': '1º Ten Marcel',
+  'MarcelFernandesCGEO': '1º Ten Marcel',
+  'Raul Magno': '1º Ten Raul Magno',
+  'Jaime Guilherme': '1º Ten Jaime',
+  'bragaalexandre': '3º Sgt Alexandre Braga',
+  'Braga Alexandre': '3º Sgt Alexandre Braga',
+  'pedro-mar': '1º Ten Pedro Martins',
+  'Pedro Martins': '1º Ten Pedro Martins',
+  'marcelgfernandes@gmail.com': '1º Ten Marcel',
+  'Ten Viana': '1º Ten Viana',
+  'Viana': '1º Ten Viana',
+  'raulmagno': '1º Ten Raul Magno',
+  'Matheus Silva': '1º Ten Alves Silva',
+  'matheusalsilva98': '1º Ten Alves Silva',
+  'Diogo Oliveira': 'Maj Diogo Oliveira',
+  'diogooliveira-dsg': 'Maj Diogo Oliveira',
+  'Ronaldo': 'Cap Ronaldo',
+  'Ronaldo Martins': 'Cap Ronaldo'
 };
 
 function normalizeAuthorName(author) {
