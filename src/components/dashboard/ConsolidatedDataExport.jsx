@@ -40,8 +40,9 @@ function ConsolidatedDataExport({ data }) {
     // Group by repository
     const commitsByRepo = _.groupBy(periodCommits, 'repo');
 
-    // Prepare CSV data
-    const csvData = Object.entries(commitsByRepo).map(([repo, commits]) => {
+    // Prepare CSV data and sort by number of commits
+    const csvData = Object.entries(commitsByRepo)
+      .map(([repo, commits]) => {
       const authors = _.uniq(commits.map(c => c.author)).join(';');
       return {
         Repositório: repo,
@@ -52,10 +53,20 @@ function ConsolidatedDataExport({ data }) {
 
     // Convert to CSV string
     const headers = ['Repositório', 'Número de commits', 'Efetivo'];
-    const csvString = [
+    let csvString = [
       headers.join(','),
       ...csvData.map(row => headers.map(header => row[header]).join(','))
     ].join('\n');
+
+    // Sort CSV rows by number of commits (excluding header)
+    const [headerRow, ...dataRows] = csvString.split('\n');
+    const sortedRows = dataRows.sort((a, b) => {
+      const commitsA = parseInt(a.split(',')[1]);
+      const commitsB = parseInt(b.split(',')[1]);
+      return commitsB - commitsA;
+    });
+
+    csvString = [headerRow, ...sortedRows].join('\n');
 
     // Create and download file
     const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
@@ -88,9 +99,19 @@ function ConsolidatedDataExport({ data }) {
                 label="Ano"
                 onChange={(e) => setYear(e.target.value)}
               >
-                {years.map((year) => (
-                  <MenuItem key={year} value={year}>{year}</MenuItem>
-                ))}
+                {years.map((yearOption) => {
+                  const currentDate = new Date();
+                  const isDisabled = yearOption > currentDate.getFullYear();
+                  return (
+                    <MenuItem 
+                      key={yearOption} 
+                      value={yearOption}
+                      disabled={isDisabled}
+                    >
+                      {yearOption}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
             <FormControl fullWidth>
@@ -100,9 +121,18 @@ function ConsolidatedDataExport({ data }) {
                 label="Mês"
                 onChange={(e) => setMonth(e.target.value)}
               >
-                {months.map(({ value, label }) => (
-                  <MenuItem key={value} value={value}>{label}</MenuItem>
-                ))}
+                {months.map(({ value, label }) => {
+                  const isDisabled = year === currentDate.getFullYear() && value > currentDate.getMonth();
+                  return (
+                    <MenuItem 
+                      key={value} 
+                      value={value}
+                      disabled={isDisabled}
+                    >
+                      {label}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Box>

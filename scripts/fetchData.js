@@ -47,7 +47,8 @@ const authorMapping = {
   'Diogo Oliveira': 'Maj Diogo Oliveira',
   'diogooliveira-dsg': 'Maj Diogo Oliveira',
   'Ronaldo': 'Cap Ronaldo',
-  'Ronaldo Martins': 'Cap Ronaldo'
+  'Ronaldo Martins': 'Cap Ronaldo',
+  'santos-amaral': 'Cb Amaral'
 };
 
 function normalizeAuthorName(author) {
