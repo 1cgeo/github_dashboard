@@ -20,7 +20,8 @@ const repositories = [
   { repository: 'dsgoficial/SAP_Gerente', branch: '' },
   { repository: 'dsgoficial/SAP_Operador', branch: '' },
   { repository: 'dsgoficial/EBGeo', branch: '' },
-  { repository: '1cgeo/prototipo_busca_llm', branch: '' }
+  { repository: '1cgeo/prototipo_busca_llm', branch: '' },
+  { repository: '1cgeo/prototipo_colaboracao_tempo_real', branch: '' }
 ];
 
 const authorMapping = {
