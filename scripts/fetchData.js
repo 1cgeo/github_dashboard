@@ -49,7 +49,11 @@ const authorMapping = {
   'diogooliveira-dsg': 'Maj Diogo Oliveira',
   'Ronaldo': 'Cap Ronaldo',
   'Ronaldo Martins': 'Cap Ronaldo',
-  'santos-amaral': 'Cb Amaral'
+  'santos-amaral': 'Cb Amaral',
+  'Godinho365': "3º Sgt Godinho",
+  'Godinho': "3º Sgt Godinho",
+  'Luiz Guilherme Almeida Nogueira': "1º Ten Luiz Guilherme",
+  'jossanCosta': "2º Sgt Jossan",
 };
 
 function normalizeAuthorName(author) {
