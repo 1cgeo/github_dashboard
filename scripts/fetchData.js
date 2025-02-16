@@ -4,6 +4,7 @@ const repositories = [
   { repository: '1cgeo/ebgeo_web', branch: '' },
   { repository: '1cgeo/servico_nomes_geograficos', branch: '' },
   { repository: '1cgeo/ebgeo_web_2', branch: '' },
+  { repository: '1cgeo/ebgeo_web_2', branch: 'refactor' },
   { repository: '1cgeo/ebgeo_web_2_backend', branch: '' },
   { repository: '1cgeo/doc_ortoimagem', branch: '' },
   { repository: '1cgeo/doc_topografica', branch: '' },
