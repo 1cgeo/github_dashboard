@@ -46,6 +46,7 @@ const authorMapping = {
   'raulmagno': '1º Ten Raul Magno',
   'Matheus Silva': '1º Ten Alves Silva',
   'matheusalsilva98': '1º Ten Alves Silva',
+  'Matheus': '1º Ten Alves Silva',
   'Diogo Oliveira': 'Maj Diogo Oliveira',
   'diogooliveira-dsg': 'Maj Diogo Oliveira',
   'Ronaldo': 'Cap Ronaldo',
@@ -55,6 +56,7 @@ const authorMapping = {
   'Godinho': "3º Sgt Godinho",
   'Luiz Guilherme Almeida Nogueira': "1º Ten Luiz Guilherme",
   'jossanCosta': "2º Sgt Jossan",
+  'GustavoPereira75': "3º Sgt Gustavo Pereira",
 };
 
 function normalizeAuthorName(author) {
