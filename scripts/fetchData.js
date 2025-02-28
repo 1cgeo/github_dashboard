@@ -57,6 +57,7 @@ const authorMapping = {
   'Luiz Guilherme Almeida Nogueira': "1º Ten Luiz Guilherme",
   'jossanCosta': "2º Sgt Jossan",
   'GustavoPereira75': "3º Sgt Gustavo Pereira",
+  'e-tadeu': "Cap Tadeu",
 };
 
 function normalizeAuthorName(author) {
