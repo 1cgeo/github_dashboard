@@ -12,6 +12,7 @@ const repositories = [
   { repository: '1cgeo/ferramentas_mgcp', branch: '' },
   { repository: '1cgeo/mgcp', branch: '' },
   { repository: '1cgeo/doc_mgcp', branch: '' },
+  { repository: '1cgeo/doc_capacitacao', branch: '' },
   { repository: '1cgeo/ebgeo_web_2_admin', branch: '' },
   { repository: 'dsgoficial/modelagens', branch: '' },
   { repository: 'dsgoficial/configuracoes_producao', branch: '' },
@@ -22,7 +23,16 @@ const repositories = [
   { repository: 'dsgoficial/SAP_Operador', branch: '' },
   { repository: 'dsgoficial/EBGeo', branch: '' },
   { repository: '1cgeo/prototipo_busca_llm', branch: '' },
-  { repository: '1cgeo/prototipo_colaboracao_tempo_real', branch: '' }
+  { repository: '1cgeo/prototipo_colaboracao_tempo_real', branch: '' },
+  { repository: '1cgeo/controle_acervo', branch: '' },
+  { repository: '1cgeo/ferramentas_acervo', branch: '' },
+  { repository: 'dsgoficial/pto_controle', branch: '' },
+  { repository: 'dsgoficial/servico_autenticacao', branch: '' },
+  { repository: 'dsgoficial/servico_edicao', branch: '' },
+  { repository: '1cgeo/news_feed', branch: '' },
+  { repository: '1cgeo/ferramentas_mapoteca', branch: '' },
+  { repository: '1cgeo/projetos', branch: '' },
+  { repository: '1cgeo/produtos', branch: '' },
 ];
 
 const authorMapping = {
@@ -100,7 +110,7 @@ async function getExistingData() {
   
   // Se não houver arquivo ou ocorrer erro, retorna dados vazios
   return {
-    lastUpdate: new Date('2022-01-01T00:00:00Z'), // Busca commits desde 01/01/2022
+    lastUpdate: new Date('2024-01-01T00:00:00Z'), // Busca commits desde 01/01/2024
     commits: []
   };
 }
