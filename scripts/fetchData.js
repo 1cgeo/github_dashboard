@@ -68,6 +68,16 @@ const authorMapping = {
   'jossanCosta': "2º Sgt Jossan",
   'GustavoPereira75': "3º Sgt Gustavo Pereira",
   'e-tadeu': "Cap Tadeu",
+  'J Estevez': "2º Sgt Alvarez",
+  'JeanAlvarez': "2º Sgt Alvarez",
+  'Matheus Campos': "1º Ten Campos",
+  'Thiago Arruda': "1º Sgt Arruda",
+  'IsaacuchoaIME': "1º Ten Isaac",
+  'JaimeGuilherme': "1º Ten Jaime",
+  'Alex Melo': "3º Sgt Melo",
+  'luizg6': "1º Ten Luiz Guilherme",
+  'alegranzi': "2º Sgt Alegranzi",
+  'paulohenriquerodriguesdossantos': "1º Sgt Paulo",
 };
 
 function normalizeAuthorName(author) {
