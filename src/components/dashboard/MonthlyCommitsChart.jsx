@@ -9,7 +9,7 @@ function MonthlyCommitsChart({ data }) {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const chartData = useMemo(() => {
-    const last24Months = Array.from({length: isMobile ? 12 : 24}, (_, i) => {
+    const last12Months = Array.from({length: 12}, (_, i) => {
       const date = new Date();
       date.setMonth(date.getMonth() - i);
       return {
@@ -26,7 +26,7 @@ function MonthlyCommitsChart({ data }) {
       };
     }).reverse();
 
-    return last24Months.map(({year, month, label, fullLabel}) => {
+    return last12Months.map(({year, month, label, fullLabel}) => {
       const commits = data.filter(commit => {
         const commitDate = commit.date;
         return commitDate.getFullYear() === year && commitDate.getMonth() === month;
@@ -81,7 +81,7 @@ function MonthlyCommitsChart({ data }) {
           }}
         >
           <BarChartIcon sx={{ fontSize: { xs: '1.25rem', sm: 'inherit' } }} />
-          Commits por Mês {isMobile ? '(12 meses)' : '(24 meses)'}
+          Commits por Mês (12 meses)
         </Typography>
       </Box>
       <ResponsiveContainer width="100%" height={isMobile ? 250 : 300}>
