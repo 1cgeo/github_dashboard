@@ -1,10 +1,10 @@
 {
-  "lastUpdate": "2025-03-17T10:23:38.089Z",
+  "lastUpdate": "2025-03-17T15:23:15.745Z",
   "stats": {
-    "totalCommits": 2030,
+    "totalCommits": 2035,
     "commitsPerYear": {
       "2024": 1508,
-      "2025": 522
+      "2025": 527
     },
     "activeReposPerYear": {
       "2024": 26,
@@ -17,7 +17,7 @@
       "1cgeo/ebgeo_web_2_backend": 44,
       "1cgeo/doc_ortoimagem": 27,
       "1cgeo/doc_topografica": 70,
-      "1cgeo/doc_dgeo": 247,
+      "1cgeo/doc_dgeo": 248,
       "1cgeo/ferramentas_mgcp": 6,
       "1cgeo/mgcp": 15,
       "1cgeo/doc_mgcp": 32,
@@ -27,16 +27,16 @@
       "dsgoficial/configuracoes_producao": 155,
       "dsgoficial/ferramentas_edicao": 310,
       "dsgoficial/DsgTools": 379,
-      "dsgoficial/sap": 92,
+      "dsgoficial/sap": 93,
       "dsgoficial/SAP_Gerente": 50,
       "dsgoficial/SAP_Operador": 39,
       "dsgoficial/EBGeo": 26,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 18,
       "1cgeo/controle_acervo": 29,
-      "1cgeo/ferramentas_acervo": 9,
-      "dsgoficial/pto_controle": 21,
-      "dsgoficial/servico_autenticacao": 6,
+      "1cgeo/ferramentas_acervo": 10,
+      "dsgoficial/pto_controle": 22,
+      "dsgoficial/servico_autenticacao": 7,
       "dsgoficial/servico_edicao": 18,
       "1cgeo/news_feed": 0,
       "1cgeo/ferramentas_mapoteca": 13,
@@ -45,6 +45,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2025-03-17T14:46:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix disable triggers with no views",
+      "sha": "e8f2c1a",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/e8f2c1a71eea9713adf1ce5fb0d0cae6b5be40f7",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/servico_autenticacao",
+      "date": "2025-03-17T14:13:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix relative url",
+      "sha": "7ac1a14",
+      "htmlUrl": "https://github.com/dsgoficial/servico_autenticacao/commit/7ac1a14a122cf97b8ffb62ebe2c0806705823672",
+      "repoUrl": "https://github.com/dsgoficial/servico_autenticacao"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2025-03-17T13:52:32.000Z",
+      "author": "1º Ten Alves Silva",
+      "message": "documentacao atualizar banco de dados, com o incremento do processamento de imagens com o intuito de ocupar menos espaço",
+      "sha": "dc4852b",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/dc4852b61895404a260a4364ce4be48b826bfdec",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pto_controle",
+      "date": "2025-03-17T13:47:33.000Z",
+      "author": "1º Ten Alves Silva",
+      "message": "fix bug",
+      "sha": "f77e63d",
+      "htmlUrl": "https://github.com/dsgoficial/pto_controle/commit/f77e63d5d7474830de2bf437b91d5f4ea2a0e80b",
+      "repoUrl": "https://github.com/dsgoficial/pto_controle"
+    },
+    {
+      "repo": "1cgeo/ferramentas_acervo",
+      "date": "2025-03-17T12:07:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Cleanup-expired-downloads, Refresh_materialized_views, Create_materialized_views, Arquivos_incorretos",
+      "sha": "3e33ee8",
+      "htmlUrl": "https://github.com/1cgeo/ferramentas_acervo/commit/3e33ee8e18e66a8d567961c584c91e37889f73a1",
+      "repoUrl": "https://github.com/1cgeo/ferramentas_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2025-03-16T10:55:43.000Z",
