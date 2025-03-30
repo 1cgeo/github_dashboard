@@ -1,4 +1,4 @@
-// src/components/dashboard/StatsCards.jsx
+// Path: components\dashboard\StatsCards.jsx
 import React from 'react';
 import { Grid, Paper, Typography } from '@mui/material';
 

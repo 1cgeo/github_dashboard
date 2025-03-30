@@ -1,3 +1,4 @@
+// Path: utils\dateUtils.js
 /**
  * Converte uma data UTC para o fuso horário de Brasília (UTC-3)
  * @param {Date} date - Data UTC

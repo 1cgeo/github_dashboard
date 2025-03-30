@@ -1,3 +1,4 @@
+// Path: components\dashboard\DashboardHeader.jsx
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import logoImage from '../../assets/1cgeo.png';

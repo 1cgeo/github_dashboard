@@ -1,4 +1,4 @@
-// src/components/dashboard/RepoCommitsTable.jsx
+// Path: components\dashboard\RepoCommitsTable.jsx
 import React, { useState, useEffect } from 'react';
 import { 
   Paper, 

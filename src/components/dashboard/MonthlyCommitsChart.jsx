@@ -1,3 +1,4 @@
+// Path: components\dashboard\MonthlyCommitsChart.jsx
 import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { BarChart as BarChartIcon } from '@mui/icons-material';

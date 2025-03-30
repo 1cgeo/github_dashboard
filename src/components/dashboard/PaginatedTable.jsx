@@ -1,3 +1,4 @@
+// Path: components\dashboard\PaginatedTable.jsx
 import React, { useState } from 'react';
 import {
   Table,

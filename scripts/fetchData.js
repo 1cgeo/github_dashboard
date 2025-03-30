@@ -33,6 +33,7 @@ const repositories = [
   { repository: '1cgeo/ferramentas_mapoteca', branch: '' },
   { repository: '1cgeo/projetos', branch: '' },
   { repository: '1cgeo/produtos', branch: '' },
+  { repository: '1cgeo/prototipo_roteamento_restricao', branch: '' },
 ];
 
 const authorMapping = {

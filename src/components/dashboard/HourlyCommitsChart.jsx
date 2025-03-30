@@ -1,3 +1,4 @@
+// Path: components\dashboard\HourlyCommitsChart.jsx
 import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { AccessTime } from '@mui/icons-material';

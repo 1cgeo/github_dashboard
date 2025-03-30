@@ -1,4 +1,4 @@
-// src/components/GitHubDashboard.jsx
+// Path: components\GitHubDashboard.jsx
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Container, Box, CircularProgress, Chip, useTheme, useMediaQuery } from '@mui/material';
 import { Schedule } from '@mui/icons-material';

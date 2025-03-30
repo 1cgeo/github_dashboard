@@ -1,3 +1,4 @@
+// Path: components\dashboard\DailyCommitsChart.jsx
 import React, { useMemo } from 'react';
 import { Paper, Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import { Timeline } from '@mui/icons-material';

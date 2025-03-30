@@ -1,4 +1,4 @@
-// src/App.jsx
+// Path: App.jsx
 import React, { useMemo, useState, useEffect } from 'react';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import GitHubDashboard from './components/GitHubDashboard';

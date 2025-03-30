@@ -1,4 +1,4 @@
-// src/components/dashboard/AuthorCommitsTable.jsx
+// Path: components\dashboard\AuthorCommitsTable.jsx
 import React, { useState, useEffect } from 'react';
 import { 
   Paper, 

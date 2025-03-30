@@ -1,4 +1,4 @@
-// src/components/dashboard/LatestCommitsTable.jsx
+// Path: components\dashboard\LatestCommitsTable.jsx
 import React from 'react';
 import { 
   Paper, 
