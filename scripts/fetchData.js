@@ -2,6 +2,7 @@ import fs from 'fs';
 
 const repositories = [
   { repository: '1cgeo/ebgeo_web', branch: '' },
+  { repository: '1cgeo/ebgeo_web', branch: 'egbeo1.1' },
   { repository: '1cgeo/servico_nomes_geograficos', branch: '' },
   { repository: '1cgeo/ebgeo_web_2', branch: '' },
   { repository: '1cgeo/ebgeo_web_2', branch: 'refactor' },
@@ -34,6 +35,7 @@ const repositories = [
   { repository: '1cgeo/projetos', branch: '' },
   { repository: '1cgeo/produtos', branch: '' },
   { repository: '1cgeo/prototipo_roteamento_restricao', branch: '' },
+  { repository: '1cgeo/prototipo_location_ar', branch: '' },
 ];
 
 const authorMapping = {
@@ -78,7 +80,7 @@ const authorMapping = {
   'Alex Melo': "3º Sgt Melo",
   'luizg6': "1º Ten Luiz Guilherme",
   'alegranzi': "2º Sgt Alegranzi",
-  'paulohenriquerodriguesdossantos': "1º Sgt Paulo",
+  'paulohenriquerodriguesdossantos': "1º Sgt Paulo"
 };
 
 function normalizeAuthorName(author) {
