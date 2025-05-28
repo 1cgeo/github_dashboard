@@ -80,7 +80,8 @@ const authorMapping = {
   'Alex Melo': "3º Sgt Melo",
   'luizg6': "1º Ten Luiz Guilherme",
   'alegranzi': "2º Sgt Alegranzi",
-  'paulohenriquerodriguesdossantos': "1º Sgt Paulo"
+  'paulohenriquerodriguesdossantos': "1º Sgt Paulo",
+  'willmedina87': "2º Sgt Medina"
 };
 
 function normalizeAuthorName(author) {
