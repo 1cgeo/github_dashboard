@@ -81,7 +81,8 @@ const authorMapping = {
   'luizg6': "1º Ten Luiz Guilherme",
   'alegranzi': "2º Sgt Alegranzi",
   'paulohenriquerodriguesdossantos': "1º Sgt Paulo",
-  'willmedina87': "2º Sgt Medina"
+  'willmedina87': "2º Sgt Medina",
+  'Erodor94': "2º Sgt Castro",
 };
 
 function normalizeAuthorName(author) {
