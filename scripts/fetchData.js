@@ -84,6 +84,8 @@ const authorMapping = {
   'paulohenriquerodriguesdossantos': "1º Sgt Paulo",
   'willmedina87': "2º Sgt Medina",
   'Erodor94': "2º Sgt Castro",
+  'Antônio Ignacio': "Alu Ignacio",
+  'kretzer': "Alu Kretzer",
 };
 
 function normalizeAuthorName(author) {
@@ -99,7 +101,6 @@ function shouldIncludeCommit(commit) {
     return false;
   }
   
-
   if (commit.commit.message.startsWith("Merge branch 'master'")) {
     return false;
   }
@@ -107,13 +108,33 @@ function shouldIncludeCommit(commit) {
   return true;
 }
 
+function getRepoKey(repository, branch) {
+  return branch ? `${repository}@${branch}` : repository;
+}
+
 async function getExistingData() {
   const outputPath = './src/data/commits.json';
   try {
     if (fs.existsSync(outputPath)) {
       const data = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+      
+      // Migração: se não tiver repoLastUpdate, cria baseado no lastUpdate global
+      const repoLastUpdate = data.repoLastUpdate || {};
+      
+      // Se estava no formato antigo, inicializa todos os repos com o lastUpdate global
+      if (!data.repoLastUpdate) {
+        const globalLastUpdate = data.lastUpdate || '2024-01-01T00:00:00Z';
+        repositories.forEach(({ repository, branch }) => {
+          const key = getRepoKey(repository, branch);
+          repoLastUpdate[key] = globalLastUpdate;
+        });
+      }
+      
       return {
         lastUpdate: new Date(data.lastUpdate),
+        repoLastUpdate: Object.fromEntries(
+          Object.entries(repoLastUpdate).map(([key, date]) => [key, new Date(date)])
+        ),
         commits: data.commits.map(commit => ({
           ...commit,
           date: new Date(commit.date)
@@ -125,8 +146,18 @@ async function getExistingData() {
   }
   
   // Se não houver arquivo ou ocorrer erro, retorna dados vazios
+  const defaultDate = new Date('2024-01-01T00:00:00Z');
+  const repoLastUpdate = {};
+  
+  // Inicializa todos os repositórios com a data padrão
+  repositories.forEach(({ repository, branch }) => {
+    const key = getRepoKey(repository, branch);
+    repoLastUpdate[key] = defaultDate;
+  });
+  
   return {
-    lastUpdate: new Date('2024-01-01T00:00:00Z'), // Busca commits desde 01/01/2024
+    lastUpdate: defaultDate,
+    repoLastUpdate,
     commits: []
   };
 }
@@ -135,76 +166,90 @@ async function fetchCommits() {
   try {
     // Carregar dados existentes
     const existingData = await getExistingData();
-    console.log(`Last update: ${existingData.lastUpdate.toISOString()}`);
+    console.log(`Global last update: ${existingData.lastUpdate.toISOString()}`);
     console.log(`Existing commits: ${existingData.commits.length}`);
 
-    const startDate = existingData.lastUpdate;
     const newCommits = [];
+    const updatedRepoLastUpdate = { ...existingData.repoLastUpdate };
 
     for (const { repository, branch } of repositories) {
       try {
-        console.log(`Fetching commits for ${repository} since ${startDate.toISOString()}...`);
+        const repoKey = getRepoKey(repository, branch);
+        
+        // Usa a data específica deste repositório, ou data padrão se for novo
+        const repoStartDate = existingData.repoLastUpdate[repoKey] || new Date('2024-01-01T00:00:00Z');
+        
+        console.log(`Fetching commits for ${repoKey} since ${repoStartDate.toISOString()}...`);
         const [owner, name] = repository.split('/');
 
-      let page = 1;
-      let hasMoreData = true;
+        let page = 1;
+        let hasMoreData = true;
+        let latestCommitDate = repoStartDate;
 
-      while (hasMoreData) {
-        const query = branch
-          ? `https://api.github.com/repos/${owner}/${name}/commits?sha=${branch}&since=${startDate.toISOString()}&page=${page}&per_page=100`
-          : `https://api.github.com/repos/${owner}/${name}/commits?since=${startDate.toISOString()}&page=${page}&per_page=100`;
-        
-        const response = await fetch(query, {
-          headers: process.env.GH_PAT ? {
-            'Authorization': `token ${process.env.GH_PAT}`
-          } : {}
-        });
-        
-        if (response.status === 404) {
-          console.log(`Repository ${repository} not found or no commits in this period. Skipping...`);
-          hasMoreData = false;
-        } else if (response.status === 403) {
-          console.error('Rate limit exceeded. Consider using a GH_PAT.');
-          console.error('Remaining requests:', response.headers.get('x-ratelimit-remaining'));
-          console.error('Rate limit resets at:', new Date(Number(response.headers.get('x-ratelimit-reset')) * 1000));
-          throw new Error('Rate limit exceeded'); // Este erro é grave o suficiente para parar tudo
-        } else if (response.ok) {
-          const commits = await response.json();
+        while (hasMoreData) {
+          const query = branch
+            ? `https://api.github.com/repos/${owner}/${name}/commits?sha=${branch}&since=${repoStartDate.toISOString()}&page=${page}&per_page=100`
+            : `https://api.github.com/repos/${owner}/${name}/commits?since=${repoStartDate.toISOString()}&page=${page}&per_page=100`;
           
-          if (commits.length === 0) {
+          const response = await fetch(query, {
+            headers: process.env.GH_PAT ? {
+              'Authorization': `token ${process.env.GH_PAT}`
+            } : {}
+          });
+          
+          if (response.status === 404) {
+            console.log(`Repository ${repository} not found or no commits in this period. Skipping...`);
             hasMoreData = false;
-          } else {
-            commits
-              .filter(shouldIncludeCommit)
-              .forEach(commit => {
-                const commitDate = new Date(commit.commit.author.date);
-                // Só adiciona se for mais recente que a última atualização
-                if (commitDate > existingData.lastUpdate) {
-                  newCommits.push({
-                    repo: repository,
-                    date: commitDate,
-                    author: normalizeAuthorName(commit.commit.author.name),
-                    message: commit.commit.message,
-                    sha: commit.sha.substring(0, 7),
-                    htmlUrl: commit.html_url,
-                    repoUrl: `https://github.com/${repository}`
-                  });
-                }
-              });
+          } else if (response.status === 403) {
+            console.error('Rate limit exceeded. Consider using a GH_PAT.');
+            console.error('Remaining requests:', response.headers.get('x-ratelimit-remaining'));
+            console.error('Rate limit resets at:', new Date(Number(response.headers.get('x-ratelimit-reset')) * 1000));
+            throw new Error('Rate limit exceeded');
+          } else if (response.ok) {
+            const commits = await response.json();
             
-            page++;
+            if (commits.length === 0) {
+              hasMoreData = false;
+            } else {
+              commits
+                .filter(shouldIncludeCommit)
+                .forEach(commit => {
+                  const commitDate = new Date(commit.commit.author.date);
+                  
+                  // Atualiza a data mais recente deste repo
+                  if (commitDate > latestCommitDate) {
+                    latestCommitDate = commitDate;
+                  }
+                  
+                  // Só adiciona se for mais recente que a última atualização deste repo
+                  if (commitDate > repoStartDate) {
+                    newCommits.push({
+                      repo: repository,
+                      date: commitDate,
+                      author: normalizeAuthorName(commit.commit.author.name),
+                      message: commit.commit.message,
+                      sha: commit.sha.substring(0, 7),
+                      htmlUrl: commit.html_url,
+                      repoUrl: `https://github.com/${repository}`
+                    });
+                  }
+                });
+              
+              page++;
+            }
+          } else {
+            console.error(`Error fetching ${repository} (page ${page}): ${response.status} ${response.statusText}`);
+            hasMoreData = false;
           }
-        } else {
-          console.error(`Error fetching ${repository} (page ${page}): ${response.status} ${response.statusText}`);
-          // Para outros erros HTTP, logamos mas continuamos com o próximo repositório
-          hasMoreData = false;
-        }
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+        
+        // Atualiza o lastUpdate deste repositório específico
+        updatedRepoLastUpdate[repoKey] = latestCommitDate;
+        
       } catch (error) {
         console.error(`Error processing repository ${repository}:`, error.message);
-        // Continue com o próximo repositório
       }
     }
 
@@ -212,7 +257,7 @@ async function fetchCommits() {
     const allCommits = [
       ...existingData.commits,
       ...newCommits
-    ].sort((a, b) => b.date - a.date); // Ordena por data, mais recente primeiro
+    ].sort((a, b) => b.date - a.date);
 
     // Remover possíveis duplicatas baseado no SHA
     const uniqueCommits = Array.from(
@@ -247,10 +292,16 @@ async function fetchCommits() {
 
     const dataToSave = {
       lastUpdate: new Date().toISOString(),
+      repoLastUpdate: Object.fromEntries(
+        Object.entries(updatedRepoLastUpdate).map(([key, date]) => [
+          key,
+          date.toISOString()
+        ])
+      ),
       stats,
       commits: uniqueCommits.map(commit => ({
         ...commit,
-        date: commit.date.toISOString() // Converter Date para string para JSON
+        date: commit.date.toISOString()
       }))
     };
 
@@ -259,7 +310,7 @@ async function fetchCommits() {
     console.log('\nFetch completed successfully!');
     console.log(`New commits fetched: ${newCommits.length}`);
     console.log(`Total unique commits: ${uniqueCommits.length}`);
-    console.log('Commits per repository:');
+    console.log('\nCommits per repository:');
     for (const [repository, count] of Object.entries(stats.commitsByRepo)) {
       console.log(`  ${repository}: ${count}`);
     }
