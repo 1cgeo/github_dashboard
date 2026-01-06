@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-01-06T15:28:12.077Z",
+  "lastUpdate": "2026-01-06T20:29:13.975Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_topografica": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_dgeo": "2026-01-06T13:03:56.000Z",
+    "1cgeo/doc_dgeo": "2026-01-06T17:24:12.000Z",
     "1cgeo/ferramentas_mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2025-11-11T10:26:46.468Z",
@@ -17,8 +17,8 @@
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2025-11-11T10:26:46.468Z",
     "dsgoficial/configuracoes_producao": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/ferramentas_edicao": "2025-12-03T20:38:12.000Z",
-    "dsgoficial/DsgTools@dev": "2026-01-06T13:16:33.000Z",
+    "dsgoficial/ferramentas_edicao": "2026-01-06T16:23:16.000Z",
+    "dsgoficial/DsgTools@dev": "2026-01-06T19:19:21.000Z",
     "dsgoficial/sap": "2025-11-11T10:26:46.468Z",
     "dsgoficial/SAP_Gerente": "2025-11-11T10:26:46.468Z",
     "dsgoficial/SAP_Operador": "2025-11-11T10:26:46.468Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2025-12-01T12:11:09.000Z"
   },
   "stats": {
-    "totalCommits": 2931,
+    "totalCommits": 2935,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1422
@@ -55,7 +55,7 @@
       "1cgeo/ebgeo_web_2_backend": 44,
       "1cgeo/doc_ortoimagem": 37,
       "1cgeo/doc_topografica": 96,
-      "1cgeo/doc_dgeo": 435,
+      "1cgeo/doc_dgeo": 436,
       "1cgeo/ferramentas_mgcp": 8,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 33,
@@ -63,8 +63,8 @@
       "1cgeo/ebgeo_web_2_admin": 22,
       "dsgoficial/modelagens": 98,
       "dsgoficial/configuracoes_producao": 195,
-      "dsgoficial/ferramentas_edicao": 361,
-      "dsgoficial/DsgTools": 569,
+      "dsgoficial/ferramentas_edicao": 363,
+      "dsgoficial/DsgTools": 570,
       "dsgoficial/sap": 109,
       "dsgoficial/SAP_Gerente": 65,
       "dsgoficial/SAP_Operador": 47,
@@ -86,6 +86,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-01-06T19:19:21.000Z",
+      "author": "Cap Borba",
+      "message": "Versão 4.19.22: Novo algoritmo de avaliar segmentação a partir de raster de verdade de campo de acordo com a ET-CQDG",
+      "sha": "c97fdd0",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/c97fdd0c62e007f8529be1d4d4934514e72425fa",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-01-06T17:24:12.000Z",
+      "author": "1º Ten Marcel",
+      "message": "add rpcm tec dez e nov, rt 13 e rt 11",
+      "sha": "20f44fa",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/20f44fa0c52a41d125e0ec1d2a4ffa995f330435",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-01-06T16:23:16.000Z",
+      "author": "Maj Diniz",
+      "message": "abrevia municipios",
+      "sha": "18977a0",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/18977a00bc85bfe828bbdf2cf13004fc48689bac",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-01-06T16:23:06.000Z",
+      "author": "Maj Diniz",
+      "message": "fix merge rivers",
+      "sha": "44e2c3d",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/44e2c3d92ebad0b64041b6e006c1473ed0f51bcf",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-01-06T13:16:33.000Z",
