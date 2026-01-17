@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const repositories = [
   { repository: '1cgeo/ebgeo_web', branch: '' },
-  { repository: '1cgeo/ebgeo_web', branch: 'egbeo1.1' },
+  { repository: '1cgeo/ebgeo_web', branch: 'camadas' },
   { repository: '1cgeo/servico_nomes_geograficos', branch: '' },
   { repository: '1cgeo/ebgeo_web_2', branch: '' },
   { repository: '1cgeo/ebgeo_web_2', branch: 'refactor' },
