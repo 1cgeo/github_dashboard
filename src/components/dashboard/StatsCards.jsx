@@ -18,21 +18,21 @@ function StatsCard({ title, value }) {
 }
 
 function StatsCards({ data }) {
+  const commits2026 = data.filter(commit => commit.date.getFullYear() === 2026).length;
   const commits2025 = data.filter(commit => commit.date.getFullYear() === 2025).length;
-  const commits2024 = data.filter(commit => commit.date.getFullYear() === 2024).length;
+  const repos2026 = new Set(data.filter(commit => 
+    commit.date.getFullYear() === 2026).map(commit => commit.repo)
+  ).size;
   const repos2025 = new Set(data.filter(commit => 
     commit.date.getFullYear() === 2025).map(commit => commit.repo)
-  ).size;
-  const repos2024 = new Set(data.filter(commit => 
-    commit.date.getFullYear() === 2024).map(commit => commit.repo)
   ).size;
 
   return (
     <Grid container spacing={3} sx={{ mb: 3 }}>
+      <StatsCard title="Commits em 2026" value={commits2026} />
       <StatsCard title="Commits em 2025" value={commits2025} />
-      <StatsCard title="Commits em 2024" value={commits2024} />
+      <StatsCard title="Repositórios Ativos 2026" value={repos2026} />
       <StatsCard title="Repositórios Ativos 2025" value={repos2025} />
-      <StatsCard title="Repositórios Ativos 2024" value={repos2024} />
     </Grid>
   );
 }

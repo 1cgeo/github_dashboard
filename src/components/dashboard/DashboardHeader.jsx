@@ -13,7 +13,7 @@ function DashboardHeader({ data }) {
           Dashboard de Commits - 1º CGEO
         </Typography>
         <Typography color="text.secondary">
-          Monitoramento de atividade em repositórios administrados pelo 1º CGEO desde 01/01/2022
+          Monitoramento de atividade em repositórios administrados pelo 1º CGEO desde 01/01/2024
         </Typography>
         <ConsolidatedDataExport data={data} />
       </Box>

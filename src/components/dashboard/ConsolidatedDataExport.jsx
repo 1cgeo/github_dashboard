@@ -10,7 +10,11 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  Box
+  Box,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  FormLabel
 } from '@mui/material';
 import { Assessment } from '@mui/icons-material';
 import _ from 'lodash';
@@ -18,6 +22,7 @@ import _ from 'lodash';
 function ConsolidatedDataExport({ data }) {
   const [open, setOpen] = useState(false);
   const currentDate = new Date();
+  const [exportType, setExportType] = useState('monthly');
   const [month, setMonth] = useState(currentDate.getMonth());
   const [year, setYear] = useState(currentDate.getFullYear());
 
@@ -35,6 +40,9 @@ function ConsolidatedDataExport({ data }) {
     // Filter commits for selected period
     const periodCommits = data.filter(commit => {
       const commitDate = commit.date;
+      if (exportType === 'yearly') {
+        return commitDate.getFullYear() === year;
+      }
       return commitDate.getFullYear() === year && commitDate.getMonth() === month;
     });
 
@@ -44,13 +52,13 @@ function ConsolidatedDataExport({ data }) {
     // Prepare CSV data and sort by number of commits
     const csvData = Object.entries(commitsByRepo)
       .map(([repo, commits]) => {
-      const authors = _.uniq(commits.map(c => c.author)).join(';');
-      return {
-        Repositório: repo,
-        'Número de commits': commits.length,
-        Efetivo: authors
-      };
-    });
+        const authors = _.uniq(commits.map(c => c.author)).join(';');
+        return {
+          Repositório: repo,
+          'Número de commits': commits.length,
+          Efetivo: authors
+        };
+      });
 
     // Convert to CSV string
     const headers = ['Repositório', 'Número de commits', 'Efetivo'];
@@ -73,9 +81,23 @@ function ConsolidatedDataExport({ data }) {
     const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `commits_${year}_${String(month + 1).padStart(2, '0')}.csv`;
+    
+    // Generate filename based on export type
+    const filename = exportType === 'yearly'
+      ? `commits_${year}_anual.csv`
+      : `commits_${year}_${String(month + 1).padStart(2, '0')}.csv`;
+    
+    link.download = filename;
     link.click();
     setOpen(false);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    // Reset to default values
+    setExportType('monthly');
+    setMonth(currentDate.getMonth());
+    setYear(currentDate.getFullYear());
   };
 
   return (
@@ -89,60 +111,87 @@ function ConsolidatedDataExport({ data }) {
         Dados Consolidados
       </Button>
 
-      <Dialog open={open} onClose={() => setOpen(false)}>
+      <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Exportar Dados Consolidados</DialogTitle>
         <DialogContent>
-          <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-            <FormControl fullWidth>
-              <InputLabel>Ano</InputLabel>
-              <Select
-                value={year}
-                label="Ano"
-                onChange={(e) => setYear(e.target.value)}
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, mt: 2 }}>
+            {/* Export Type Selection */}
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Tipo de Exportação</FormLabel>
+              <RadioGroup
+                row
+                value={exportType}
+                onChange={(e) => setExportType(e.target.value)}
               >
-                {years.map((yearOption) => {
-                  const currentDate = new Date();
-                  const isDisabled = yearOption > currentDate.getFullYear();
-                  return (
-                    <MenuItem 
-                      key={yearOption} 
-                      value={yearOption}
-                      disabled={isDisabled}
-                    >
-                      {yearOption}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
+                <FormControlLabel 
+                  value="monthly" 
+                  control={<Radio />} 
+                  label="Mensal" 
+                />
+                <FormControlLabel 
+                  value="yearly" 
+                  control={<Radio />} 
+                  label="Anual" 
+                />
+              </RadioGroup>
             </FormControl>
-            <FormControl fullWidth>
-              <InputLabel>Mês</InputLabel>
-              <Select
-                value={month}
-                label="Mês"
-                onChange={(e) => setMonth(e.target.value)}
-              >
-                {months.map(({ value, label }) => {
-                  const isDisabled = year === currentDate.getFullYear() && value > currentDate.getMonth();
-                  return (
-                    <MenuItem 
-                      key={value} 
-                      value={value}
-                      disabled={isDisabled}
-                    >
-                      {label}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
+
+            {/* Year and Month Selectors */}
+            <Box sx={{ display: 'flex', gap: 2 }}>
+              <FormControl fullWidth>
+                <InputLabel>Ano</InputLabel>
+                <Select
+                  value={year}
+                  label="Ano"
+                  onChange={(e) => setYear(e.target.value)}
+                >
+                  {years.map((yearOption) => {
+                    const isDisabled = yearOption > currentDate.getFullYear();
+                    return (
+                      <MenuItem 
+                        key={yearOption} 
+                        value={yearOption}
+                        disabled={isDisabled}
+                      >
+                        {yearOption}
+                      </MenuItem>
+                    );
+                  })}
+                </Select>
+              </FormControl>
+
+              {/* Month selector - only shown for monthly export */}
+              {exportType === 'monthly' && (
+                <FormControl fullWidth>
+                  <InputLabel>Mês</InputLabel>
+                  <Select
+                    value={month}
+                    label="Mês"
+                    onChange={(e) => setMonth(e.target.value)}
+                  >
+                    {months.map(({ value, label }) => {
+                      const isDisabled = year === currentDate.getFullYear() && value > currentDate.getMonth();
+                      return (
+                        <MenuItem 
+                          key={value} 
+                          value={value}
+                          disabled={isDisabled}
+                        >
+                          {label}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+              )}
+            </Box>
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)}>Cancelar</Button>
+          <Button onClick={handleClose}>Cancelar</Button>
           <Button 
             onClick={handleExport}
-            disabled={!year || month === ''}
+            disabled={!year || (exportType === 'monthly' && month === '')}
           >
             Exportar
           </Button>
