@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-01-17T20:26:45.738Z",
+  "lastUpdate": "2026-01-18T10:26:01.511Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_topografica": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_dgeo": "2026-01-15T21:04:59.000Z",
+    "1cgeo/doc_dgeo": "2026-01-17T23:41:37.000Z",
     "1cgeo/ferramentas_mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2025-11-11T10:26:46.468Z",
@@ -20,7 +20,7 @@
     "dsgoficial/ferramentas_edicao": "2026-01-13T15:20:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-01-12T18:28:44.000Z",
     "dsgoficial/sap": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/SAP_Gerente": "2025-11-11T10:26:46.468Z",
+    "dsgoficial/SAP_Gerente": "2026-01-17T23:05:36.000Z",
     "dsgoficial/SAP_Operador": "2025-11-11T10:26:46.468Z",
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
@@ -33,14 +33,14 @@
     "1cgeo/news_feed": "2024-01-01T10:26:46.468Z",
     "1cgeo/ferramentas_mapoteca": "2025-11-11T10:26:46.468Z",
     "1cgeo/projetos": "2026-01-15T19:28:26.000Z",
-    "1cgeo/produtos": "2026-01-16T16:19:41.000Z",
+    "1cgeo/produtos": "2026-01-18T03:41:22.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2025-12-01T12:11:09.000Z",
-    "1cgeo/ebgeo_web@camadas": "2026-01-17T18:29:46.000Z"
+    "1cgeo/ebgeo_web@camadas": "2026-01-17T22:44:04.000Z"
   },
   "stats": {
-    "totalCommits": 3173,
+    "totalCommits": 3179,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -50,13 +50,13 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 505,
+      "1cgeo/ebgeo_web": 506,
       "1cgeo/servico_nomes_geograficos": 26,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
       "1cgeo/doc_ortoimagem": 37,
       "1cgeo/doc_topografica": 96,
-      "1cgeo/doc_dgeo": 437,
+      "1cgeo/doc_dgeo": 438,
       "1cgeo/ferramentas_mgcp": 8,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 33,
@@ -67,7 +67,7 @@
       "dsgoficial/ferramentas_edicao": 365,
       "dsgoficial/DsgTools": 574,
       "dsgoficial/sap": 109,
-      "dsgoficial/SAP_Gerente": 65,
+      "dsgoficial/SAP_Gerente": 66,
       "dsgoficial/SAP_Operador": 47,
       "dsgoficial/EBGeo": 68,
       "1cgeo/prototipo_busca_llm": 26,
@@ -80,13 +80,67 @@
       "1cgeo/news_feed": 0,
       "1cgeo/ferramentas_mapoteca": 13,
       "1cgeo/projetos": 27,
-      "1cgeo/produtos": 46,
+      "1cgeo/produtos": 49,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 65
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/produtos",
+      "date": "2026-01-18T03:41:22.000Z",
+      "author": "1º Ten Marcel",
+      "message": "atualizacao dos codigos de comparacao com a adicao de uma blacklist de mi, correspondente a mi fora da ASC e uma lista de execeções para conferência de ano devido a CO com ano de 2020 e imagem de 2018",
+      "sha": "d95870d",
+      "htmlUrl": "https://github.com/1cgeo/produtos/commit/d95870da6f3945d168badcdc457fa44942bf4747",
+      "repoUrl": "https://github.com/1cgeo/produtos"
+    },
+    {
+      "repo": "1cgeo/produtos",
+      "date": "2026-01-18T03:40:21.000Z",
+      "author": "1º Ten Marcel",
+      "message": "adicao da carta orto 2868-3 como produzida na versão orto em 2024",
+      "sha": "deb9f06",
+      "htmlUrl": "https://github.com/1cgeo/produtos/commit/deb9f068ff48b9da7c2b0683b5e1bd2142b39fe0",
+      "repoUrl": "https://github.com/1cgeo/produtos"
+    },
+    {
+      "repo": "1cgeo/produtos",
+      "date": "2026-01-18T03:39:34.000Z",
+      "author": "1º Ten Marcel",
+      "message": "remocao de duas cartas de uruguaiana orto 25k",
+      "sha": "ec4a5de",
+      "htmlUrl": "https://github.com/1cgeo/produtos/commit/ec4a5debf8db465731343db994023cf546a81021",
+      "repoUrl": "https://github.com/1cgeo/produtos"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-01-17T23:41:37.000Z",
+      "author": "1º Ten Marcel",
+      "message": "adicionado na documentação do SAP o controle de atividades por usuário e algumas menores alterações (gerenciar pit e gerenciar fila prioritária)",
+      "sha": "2bf502a",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/2bf502ac233fa4cb7f11848d2d2c11884610ef96",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-01-17T23:05:36.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix nomenclatura de arquivos e tratamento de dados",
+      "sha": "cf1d806",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/cf1d806067ff186897253ba0d41130489f04f5ec",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-01-17T22:44:04.000Z",
+      "author": "Maj Diniz",
+      "message": "versão inicial de atributos",
+      "sha": "b14a6ab",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b14a6ab08020511581eef03cfc9fd0f8dbeaac9a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-01-17T18:29:46.000Z",
