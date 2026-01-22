@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-01-21T20:36:14.934Z",
+  "lastUpdate": "2026-01-22T10:33:09.306Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,8 +19,8 @@
     "dsgoficial/configuracoes_producao": "2026-01-12T12:32:26.000Z",
     "dsgoficial/ferramentas_edicao": "2026-01-13T15:20:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-01-12T18:28:44.000Z",
-    "dsgoficial/sap": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/SAP_Gerente": "2026-01-17T23:05:36.000Z",
+    "dsgoficial/sap": "2026-01-21T20:50:53.000Z",
+    "dsgoficial/SAP_Gerente": "2026-01-21T20:49:50.000Z",
     "dsgoficial/SAP_Operador": "2025-11-11T10:26:46.468Z",
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
@@ -37,10 +37,10 @@
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2025-12-01T12:11:09.000Z",
-    "1cgeo/ebgeo_web@camadas": "2026-01-21T10:05:32.000Z"
+    "1cgeo/ebgeo_web@camadas": "2026-01-22T00:35:45.000Z"
   },
   "stats": {
-    "totalCommits": 3194,
+    "totalCommits": 3198,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -50,7 +50,7 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 512,
+      "1cgeo/ebgeo_web": 514,
       "1cgeo/servico_nomes_geograficos": 26,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
@@ -66,8 +66,8 @@
       "dsgoficial/configuracoes_producao": 197,
       "dsgoficial/ferramentas_edicao": 365,
       "dsgoficial/DsgTools": 574,
-      "dsgoficial/sap": 109,
-      "dsgoficial/SAP_Gerente": 66,
+      "dsgoficial/sap": 110,
+      "dsgoficial/SAP_Gerente": 67,
       "dsgoficial/SAP_Operador": 47,
       "dsgoficial/EBGeo": 68,
       "1cgeo/prototipo_busca_llm": 26,
@@ -87,6 +87,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-01-22T00:35:45.000Z",
+      "author": "Maj Diniz",
+      "message": "atualiza vite config",
+      "sha": "eb2e867",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb2e86708235ec343d05cdc696ec458958f44669",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-01-22T00:32:36.000Z",
+      "author": "Maj Diniz",
+      "message": "versão inicial catalogo",
+      "sha": "61b7259",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/61b7259971b8b40364c5208d2337ac35f86a2c17",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-01-21T20:50:53.000Z",
+      "author": "1º Ten Marcel",
+      "message": "adicionado rota para conferir status dos operadores",
+      "sha": "b2ae494",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/b2ae494a79331f0231b943533e6c925f28ae518a",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-01-21T20:49:50.000Z",
+      "author": "1º Ten Marcel",
+      "message": "1.31.4: adicionado tabela de status de operadores que estão ativos no SAP",
+      "sha": "bf07c14",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/bf07c1428d4e01bdf5d91a55b787bd4c53f30c55",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
     {
       "repo": "1cgeo/doc_dgeo",
       "date": "2026-01-21T17:52:04.000Z",
