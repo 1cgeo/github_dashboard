@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-02T10:51:49.406Z",
+  "lastUpdate": "2026-02-02T11:13:27.649Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -37,10 +37,11 @@
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2025-12-01T12:11:09.000Z",
-    "1cgeo/ebgeo_web@camadas": "2026-01-31T12:31:17.000Z"
+    "1cgeo/ebgeo_web@camadas": "2026-01-31T12:31:17.000Z",
+    "1cgeo/ebgeo_web@novo_360": "2026-02-01T23:05:36.000Z"
   },
   "stats": {
-    "totalCommits": 3260,
+    "totalCommits": 3268,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -50,7 +51,7 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 572,
+      "1cgeo/ebgeo_web": 580,
       "1cgeo/servico_nomes_geograficos": 26,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
@@ -87,6 +88,78 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-01T23:05:36.000Z",
+      "author": "Maj Diniz",
+      "message": "inicio briefing",
+      "sha": "8f5e12f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f5e12f1d93cabd498151bb7430b1700263d585f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-01T21:25:33.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor",
+      "sha": "a0498ff",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a0498ff5b414657ad7dc9df0bae6526dd0db5619",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-01T15:34:25.000Z",
+      "author": "Maj Diniz",
+      "message": "minor fixes",
+      "sha": "bf789c0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bf789c0e0fc41b7a4d624aeffb2a878983a2a5b4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-01T15:10:51.000Z",
+      "author": "Maj Diniz",
+      "message": "refatoração completa para backend e storymap",
+      "sha": "cbceed8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cbceed8d9de9d6a3c902b8fbb23c0dd8867a7f22",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-01T00:09:30.000Z",
+      "author": "Maj Diniz",
+      "message": "refatora sistema de storage para integraçãcom com backend",
+      "sha": "8328404",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8328404ae6ea1b8c22e7cf17341d0d38b0d2b0ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-01-31T23:26:19.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(utils): add UUID generation utilities\n\n- Create uuid.js with generateUUID(), isValidUUID(), isLegacyId(), isValidId()\n- Update IDUtils.generateUniqueId() to use UUID v4 instead of timestamp-random\n- Export UUID utilities from utilities/index.js barrel file\n\nThis prepares the codebase for globally unique IDs that won't collide\nacross devices, enabling future sync and collaboration features.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+      "sha": "ee3ccf9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ee3ccf95373bf0cca88d10452c90a08de6426ca2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-01-31T23:24:45.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): remove inverted dependency on tool_manager\n\n- Remove direct import of resetColorCache from store.js\n- Add ALL_DATA_CLEARED event to EventTypes\n- Store now emits event when clearing all data\n- Color picker helpers subscribe to event via initColorPickerEvents()\n- Initialize event subscription in services.js during app boot\n\nThis fixes the architectural issue where store/ imported from tool_manager/,\nwhich violated the dependency direction (store should be a leaf module).\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>",
+      "sha": "9290b26",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9290b26364bf3ad9a8bec3e23ccb64f84eb26ee4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-01-31T22:16:40.000Z",
+      "author": "Maj Diniz",
+      "message": "migração do 360",
+      "sha": "f2bf1a3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f2bf1a3cf4c63b318022a51a760a71e30a239479",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-01-31T12:31:17.000Z",
