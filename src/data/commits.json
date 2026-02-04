@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-03T20:42:23.524Z",
+  "lastUpdate": "2026-02-04T10:43:17.925Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,8 +18,8 @@
     "dsgoficial/modelagens": "2026-02-03T15:24:40.000Z",
     "dsgoficial/configuracoes_producao": "2026-01-12T12:32:26.000Z",
     "dsgoficial/ferramentas_edicao": "2026-01-13T15:20:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-01-12T18:28:44.000Z",
-    "dsgoficial/sap": "2026-01-21T20:50:53.000Z",
+    "dsgoficial/DsgTools@dev": "2026-02-04T00:31:02.000Z",
+    "dsgoficial/sap": "2026-02-03T21:44:40.000Z",
     "dsgoficial/SAP_Gerente": "2026-01-21T20:49:50.000Z",
     "dsgoficial/SAP_Operador": "2025-11-11T10:26:46.468Z",
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
@@ -28,7 +28,7 @@
     "1cgeo/controle_acervo": "2025-11-11T10:26:46.468Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/servico_autenticacao": "2025-11-11T10:26:46.468Z",
+    "dsgoficial/servico_autenticacao": "2026-02-04T00:07:59.000Z",
     "dsgoficial/servico_edicao": "2025-11-11T10:26:46.468Z",
     "1cgeo/news_feed": "2024-01-01T10:26:46.468Z",
     "1cgeo/ferramentas_mapoteca": "2026-01-27T11:34:48.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-01T23:05:36.000Z"
   },
   "stats": {
-    "totalCommits": 3273,
+    "totalCommits": 3279,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -66,8 +66,8 @@
       "dsgoficial/modelagens": 99,
       "dsgoficial/configuracoes_producao": 197,
       "dsgoficial/ferramentas_edicao": 365,
-      "dsgoficial/DsgTools": 574,
-      "dsgoficial/sap": 110,
+      "dsgoficial/DsgTools": 575,
+      "dsgoficial/sap": 114,
       "dsgoficial/SAP_Gerente": 67,
       "dsgoficial/SAP_Operador": 47,
       "dsgoficial/EBGeo": 68,
@@ -76,7 +76,7 @@
       "1cgeo/controle_acervo": 39,
       "1cgeo/ferramentas_acervo": 16,
       "dsgoficial/pto_controle": 29,
-      "dsgoficial/servico_autenticacao": 7,
+      "dsgoficial/servico_autenticacao": 8,
       "dsgoficial/servico_edicao": 19,
       "1cgeo/news_feed": 0,
       "1cgeo/ferramentas_mapoteca": 14,
@@ -88,6 +88,60 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-02-04T00:31:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix nurbfit",
+      "sha": "2a9310e",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/2a9310e4eb9fcc1798fb09990cbfacffb731ee18",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/servico_autenticacao",
+      "date": "2026-02-04T00:07:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix cria usuários",
+      "sha": "3714ac1",
+      "htmlUrl": "https://github.com/dsgoficial/servico_autenticacao/commit/3714ac156e61005972186803a1b549c4e5fa7fc3",
+      "repoUrl": "https://github.com/dsgoficial/servico_autenticacao"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-03T21:44:40.000Z",
+      "author": "Maj Diniz",
+      "message": "sap version 2.2.4",
+      "sha": "530bd4e",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/530bd4e9e2555253491b885cdd13925f0a97bb1e",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-03T21:37:20.000Z",
+      "author": "Maj Diniz",
+      "message": "permite utilizar variaveis de proxy do sistema",
+      "sha": "35fc59e",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/35fc59e128f587b03e1a82cd5515442f70f0affc",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-03T21:23:20.000Z",
+      "author": "Maj Diniz",
+      "message": "resolve problema de localstorage",
+      "sha": "5c74dba",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/5c74dba0553ca8c725c34c68e5d8bfbdca96db5f",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-03T21:09:05.000Z",
+      "author": "Maj Diniz",
+      "message": "corrige client sap",
+      "sha": "e6b065a",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/e6b065a6b3b74cd6f68797abbced310a4244b297",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "dsgoficial/modelagens",
       "date": "2026-02-03T15:24:40.000Z",
