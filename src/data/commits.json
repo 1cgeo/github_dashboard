@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-06T10:44:48.044Z",
+  "lastUpdate": "2026-02-06T15:44:13.198Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-01-12T12:32:26.000Z",
     "dsgoficial/ferramentas_edicao": "2026-01-13T15:20:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-02-04T00:31:02.000Z",
-    "dsgoficial/sap": "2026-02-03T21:44:40.000Z",
+    "dsgoficial/sap": "2026-02-06T14:19:21.000Z",
     "dsgoficial/SAP_Gerente": "2026-01-21T20:49:50.000Z",
     "dsgoficial/SAP_Operador": "2025-11-11T10:26:46.468Z",
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-06T00:31:46.000Z"
   },
   "stats": {
-    "totalCommits": 3287,
+    "totalCommits": 3289,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -67,7 +67,7 @@
       "dsgoficial/configuracoes_producao": 197,
       "dsgoficial/ferramentas_edicao": 365,
       "dsgoficial/DsgTools": 575,
-      "dsgoficial/sap": 114,
+      "dsgoficial/sap": 116,
       "dsgoficial/SAP_Gerente": 67,
       "dsgoficial/SAP_Operador": 47,
       "dsgoficial/EBGeo": 68,
@@ -88,6 +88,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-06T14:19:21.000Z",
+      "author": "Estevez Codando",
+      "message": "fix(api): centraliza prefixo /api no apiClient e normaliza endpoints\n\nRemove uso redundante de /api nos services do frontend, evitando paths\n/api/api e garantindo consistência entre client e backend.",
+      "sha": "581e6fb",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/581e6fbdfe20ff910e081f15b80ff5d4a56a59a5",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-06T13:29:26.000Z",
+      "author": "Estevez Codando",
+      "message": "fix(auth): evitar localhost no cliente e corrigir rota de login com baseURL /api",
+      "sha": "3d162c1",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/3d162c14edb16c54ea83162aa5994c3d7b338a7c",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-02-06T00:31:46.000Z",
