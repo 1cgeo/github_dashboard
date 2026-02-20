@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-20T10:41:57.050Z",
+  "lastUpdate": "2026-02-20T15:40:53.620Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -38,10 +38,10 @@
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2025-12-01T12:11:09.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
-    "1cgeo/ebgeo_web@novo_360": "2026-02-19T21:50:59.000Z"
+    "1cgeo/ebgeo_web@novo_360": "2026-02-20T14:35:11.000Z"
   },
   "stats": {
-    "totalCommits": 3335,
+    "totalCommits": 3352,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -51,7 +51,7 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 624,
+      "1cgeo/ebgeo_web": 641,
       "1cgeo/servico_nomes_geograficos": 26,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
@@ -88,6 +88,159 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T14:35:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #9 from 1cgeo/claude/fix-sidebar-layout-shift-092IJ\n\nfix: sync StateManager state in _collapsePanel to prevent layout shif…",
+      "sha": "6eed6ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6eed6ceaa4b6ff720f8357f92072135cf7870745",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T14:28:19.000Z",
+      "author": "Claude",
+      "message": "fix: sync StateManager state in _collapsePanel to prevent layout shift desync\n\n_collapsePanel() only performed a visual collapse without updating\nsidebar.expanded in StateManager. This caused search-bar, chips, and\nbase-layer-selector to remain displaced when the sidebar was closed\nthrough non-collapseSidebar paths (vector info panel, search result\npanel, tool panel).\n\nhttps://claude.ai/code/session_0123SSisZzz9J91huSQA8Fin",
+      "sha": "aaab753",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aaab7532caab7149e9805b199cfb51719859f61a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T14:21:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #8 from 1cgeo/claude/filter-edgv-layers-ZbVVT\n\nFiltrar camadas da ferramenta de identificação para exibir apenas EDGV",
+      "sha": "9082d2d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9082d2d52c0a71431663d82ac9aaf503a572b75c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T14:17:37.000Z",
+      "author": "Claude",
+      "message": "Filtrar camadas da ferramenta de identificação para exibir apenas EDGV\n\nRestringe a ferramenta \"Informações da Carta\" para mostrar apenas\ncamadas cujo sourceLayer inicie com 'edgv_', removendo camadas\nauxiliares (grid, situacao_ponto, fotos, cobter) dos resultados.\n\nhttps://claude.ai/code/session_012WVXKW2Zemmu8asMaMRN8M",
+      "sha": "3328b42",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3328b423e81fb219ef9058b7b21763e2c2e1d471",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:58:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #7 from 1cgeo/claude/hide-locked-map-options-grPEZ\n\nfeat: show clean read-only feature panel when map is locked",
+      "sha": "58d6c9a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/58d6c9a671a81699239fea58a9e19366d39351b9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:52:15.000Z",
+      "author": "Claude",
+      "message": "feat: show clean read-only feature panel when map is locked\n\nWhen a map is locked, the feature panel now shows a presentable\nread-only view instead of disabled editing controls:\n\n- Identification section kept with non-editable name/description\n- Photo gallery only shown when images exist, no add/delete buttons\n- No style or parameter tabs — attributes shown directly\n- Read-only attributes section with title only when attributes exist\n- Location section preserved for applicable feature types\n- Multi-selection: type list shows types/counts without edit controls\n- No \"Editar por tipo\" header or clickable items in locked mode\n\nhttps://claude.ai/code/session_01SnjjrWLNxy6Qyq3RmbYpN2",
+      "sha": "84da56e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/84da56e5e7804edf73c305b1449369550b2700c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:44:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #6 from 1cgeo/claude/catalog-filter-behavior-Dbb6l\n\nMudar catálogo para comportamento de filtro em vez de exibição",
+      "sha": "90d79a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/90d79a9bef5dd255316111856ba463021e7eda79",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:41:14.000Z",
+      "author": "Claude",
+      "message": "Mudar catálogo para comportamento de filtro em vez de exibição\n\nOs botões de filtro agora começam desmarcados e todos os itens são\nexibidos por padrão. Ao clicar em um filtro, apenas os itens do tipo\nselecionado são mostrados.\n\nhttps://claude.ai/code/session_01NmepwqMtDZnnH55GrXgNyt",
+      "sha": "93cdc98",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93cdc981d72094017761906f0296480b7136fc9b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:28:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #5 from 1cgeo/claude/fix-briefing-load-buttons-XECxW\n\nFix briefing load buttons missing on new briefing creation",
+      "sha": "4579391",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/45793917db8fa28efe86d84b360777c593a5393d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:26:39.000Z",
+      "author": "Claude",
+      "message": "Fix briefing load buttons missing on new briefing creation\n\nAwait _populateMapSelect() in _renderSlideEditor() so that the\nauto-assigned mapId is available before the conditional button\nrendering checks. Without await, the async map name fetch resolved\nafter the synchronous button checks, leaving slide.mapId as null\nand hiding the \"load orientation\" and \"import notes\" buttons.\n\nhttps://claude.ai/code/session_01MQWuDh5c3Bs7vBv27c8owz",
+      "sha": "a2986a5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a2986a5ee52f92d18ef5658c1508adf5f5cd156c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:25:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #4 from 1cgeo/claude/fix-tutorial-window-wWgc9\n\nfix: restore docsify vendor files for tutorial window",
+      "sha": "a8169a1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a8169a1b5c1909c42485d261589a98215408d5e2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:23:56.000Z",
+      "author": "Claude",
+      "message": "fix: restore docsify vendor files for tutorial window\n\nThe docsify.min.js and vue.css files were accidentally deleted in commit\na162ade when migrating other vendor libraries to npm. These files are\nrequired by public/docs/doc.html (the tutorial page opened via sidebar)\nand cannot be bundled via npm since they run in a standalone HTML page.\n\nhttps://claude.ai/code/session_01VhbNW6K8SWgXoJjrNMXs8S",
+      "sha": "792c947",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/792c9472e20772a91746e47434a66b51df06b02c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:18:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #3 from 1cgeo/claude/fix-layer-addition-bug-QvUT8\n\nfix: register CATALOG_ADD_LAYER listener eagerly in FeaturesTab const…",
+      "sha": "9fdc1e8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9fdc1e8cfbef481c6a484d95f296b06f7989cf22",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T13:08:04.000Z",
+      "author": "Claude",
+      "message": "fix: register CATALOG_ADD_LAYER listener eagerly in FeaturesTab constructor\n\nThe listener was registered in createUI() which only runs when the\ncamadas tab is first opened. Since the catalog modal emits the event\nBEFORE calling expandSidebar('camadas'), the event was lost on the\nvery first catalog layer addition (no listener existed yet). On the\nsecond attempt it worked because the first attempt's expandSidebar\nhad triggered createUI and registered the listener.\n\nMoving the registration to the constructor ensures the listener is\nalways active as soon as FeaturesTab is instantiated during app init.\n\nhttps://claude.ai/code/session_01CYJaJR2TwTLU82Hx4VGrS8",
+      "sha": "0a9f284",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0a9f284bb947ffbf493471b855a3d592af1c8b5c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T12:56:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #2 from 1cgeo/claude/fix-main-map-bugs-a7tWH\n\nfix: impede deleção do último mapa e centraliza nome padrão",
+      "sha": "3eca928",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3eca928ec3fece8ba63bbc02e9db8170ca1ec0cb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T12:53:57.000Z",
+      "author": "Claude",
+      "message": "fix: impede deleção do último mapa e centraliza nome padrão\n\n- Adiciona constante DEFAULT_MAP_NAME em store.constants.js para\n  eliminar strings 'Principal' hardcoded pelo código\n- Adiciona guarda em removeMap (store level) impedindo deleção\n  quando só resta um mapa, emitindo STORE_OPERATION_BLOCKED\n- Remove fallback que recriava mapa 'Principal' após deletar o\n  último (agora impossível com a guarda)\n- Oculta opção \"Deletar\" no menu de contexto do mapa quando só\n  existe um mapa na lista\n- Atualiza memory-store, repository e map.manager para usar a\n  constante DEFAULT_MAP_NAME\n\nhttps://claude.ai/code/session_017crVJob9aRHxsMXLT3auoJ",
+      "sha": "6ccbf73",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6ccbf73f70c7d07b9bd9c3d6cc0ef7322b0e8539",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-20T10:51:03.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "fix deploy",
+      "sha": "bdcd9cb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bdcd9cbf718c6ecea075dcafcf77a6f995784964",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-02-19T21:50:59.000Z",
