@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-02-22T20:32:26.800Z",
+  "lastUpdate": "2026-02-23T10:54:32.804Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2025-11-19T16:17:10.000Z",
+    "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -38,10 +38,10 @@
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2025-12-01T12:11:09.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
-    "1cgeo/ebgeo_web@novo_360": "2026-02-21T10:02:46.000Z"
+    "1cgeo/ebgeo_web@novo_360": "2026-02-23T09:52:41.000Z"
   },
   "stats": {
-    "totalCommits": 3353,
+    "totalCommits": 3381,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -51,7 +51,7 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 642,
+      "1cgeo/ebgeo_web": 670,
       "1cgeo/servico_nomes_geograficos": 26,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
@@ -88,6 +88,258 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-23T09:52:41.000Z",
+      "author": "Maj Diniz",
+      "message": "improvements",
+      "sha": "0ebf0e5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0ebf0e51ae4e9dabbbc7ac492fb5d1b3c5fc4aaf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-23T09:05:00.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #14 from 1cgeo/claude/export-briefing-pdf-1wAaC\n\nClaude/export briefing pdf",
+      "sha": "18037cd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/18037cd28f47efdd9379411759bcc1294926251d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-23T08:54:55.000Z",
+      "author": "Claude",
+      "message": "fix: center-crop images, improve text quality, fix canvas warning\n\n- Replace aspect-fit with center-crop: screenshots are now cropped to\n  match the PDF area's aspect ratio (no black bars, no distortion)\n- Increase html2canvas resolution: raise base element to 420px with\n  scale=3 multiplier, producing ~1260px output for crisp text and images\n- Increase CSS font sizes for capture element (20px title, 15px content)\n- Add willReadFrequently to canvas 2D context used for pixel readback\n  in ScreenshotControl.captureMapAsDataUrl\n- Remove unused getImageDimensions (replaced by loadImage for crop)\n\nhttps://claude.ai/code/session_01WeqmbrpxXDgjc2LK8jNUWk",
+      "sha": "858f450",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/858f4508e61f9c90be8f6fdd82146e825bac8f04",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-23T08:47:14.000Z",
+      "author": "Claude",
+      "message": "fix: render text panel with html2canvas and fix image aspect ratio\n\n- Replace plain-text stripping with html2canvas rendering for the text\n  panel, preserving rich text formatting (bold, italic, lists, images)\n  using the same BEM classes as the presentation panel\n- Fix image distortion by calculating aspect-fit dimensions instead of\n  stretching the screenshot to fill the available area\n- Add dark background fill behind letterboxed images\n- Add html2canvas dependency\n- Add briefing-pdf-export.css with off-screen capture overrides\n- Keep jsPDF native text as fallback when html2canvas fails\n\nhttps://claude.ai/code/session_01WeqmbrpxXDgjc2LK8jNUWk",
+      "sha": "e979716",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e97971601ef965663d2a80d36754c2db3bdc72fb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-23T08:34:27.000Z",
+      "author": "Claude",
+      "message": "feat: add briefing PDF export\n\nExports a briefing as a multi-page PDF (one A4 landscape page per slide).\nEach page mirrors the presentation layout: map/3D/360 image on left,\ntext panel (title + content) on right.\n\n- Add jsPDF dependency for multi-page PDF composition\n- Create briefing export pipeline (briefing-pdf-export.js) with\n  TransitionService reuse for slide navigation\n- Create slide capture service reusing existing screenshot tools:\n  ScreenshotControl.captureMapAsDataUrl (2D),\n  captureScreenshotAsDataUrl (3D), captureScreenshot360AsDataUrl (360)\n- Create PDF page composer with HTML-to-text conversion for slide content\n- Add PDF export button to briefing cards in sidebar\n- Refactor existing screenshot tools to expose data URL capture functions\n  alongside the existing download-based APIs\n\nhttps://claude.ai/code/session_01WeqmbrpxXDgjc2LK8jNUWk",
+      "sha": "e706714",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e70671409b56d2066afdf42ff555a478af8bc682",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-23T00:00:55.000Z",
+      "author": "Maj Diniz",
+      "message": "fix pdf",
+      "sha": "5a0aa62",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5a0aa621b538e21239716d17ad6b1bc8ed091655",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T23:32:21.000Z",
+      "author": "Maj Diniz",
+      "message": "fix gh pages",
+      "sha": "a7862b6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a7862b678b4038247b71c75e797d2c6e4a565e6e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T23:25:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #13 from 1cgeo/novo_360\n\nNovo EBGEO",
+      "sha": "396dfb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/396dfb0345c1d93cf58ff2becad9c92a7dc3c669",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T23:23:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #12 from 1cgeo/feature/new-tools\n\nFeature/new tools",
+      "sha": "0e3bb33",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e3bb33c9c87fc8533a1769d5a956c2c93df8ecd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T23:21:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #11 from 1cgeo/feature/tablet-responsive\n\nFeature/tablet responsive",
+      "sha": "8837a75",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8837a759c0208d54fe130f83ad560f11484edc4d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T23:21:10.000Z",
+      "author": "Maj Diniz",
+      "message": "largura tablet",
+      "sha": "16e650a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/16e650a0e6a4d3f2bb1e9a97de55d798deda754a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T19:26:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(phone): polish — hide chips, remove locate FAB, fix feature panel error\n\n- Hide .chips-container at phone breakpoint\n- Remove My Location FAB (user requested)\n- Add null guard for feature panel opened event\n- Remove unused crosshairIconSvg and _handleLocate\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "7f1deee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7f1deeeb6bcd63b45a18acfc61df6e443a4ebb2a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T19:22:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(phone): correct getControl import from @store instead of @store/services\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "209bff9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/209bff9a35526e68721d171ab2c07e791a84d6c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T19:08:46.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(phone): add layout orchestrator and wire into app init\n\nCreate PhoneLayout orchestrator that detects phone viewport (<=480px)\nvia matchMedia and manages all phone-specific components lifecycle.\nWire inter-component communication: bottom sheet, FABs, search overlay,\nfeature editor, and move actions. Integrate with store events for\nfeature selection, layer updates, and base layer cycling.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "d648904",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d64890450255182de7a0ec536325203212f4d0c5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T19:02:49.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(phone): add feature editor component for detail/edit/move\n\nAdds PhoneFeatureEditor class that renders feature information inside\nthe bottom sheet with three modes: read-only detail view, inline\nproperty editing with save/cancel, and move mode signaling. Also adds\nsupporting CSS classes for subtitle, edit inputs, and edit actions.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "5f99458",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5f994580a1c3803738b6e3ea8b3d8def9b301f13",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T19:02:35.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(phone): address spec review — XSS safety and Portuguese accents\n\n- bottom-sheet: setFeatureContent accepts DOM element instead of HTML string\n- search-overlay: remove result.icon innerHTML, use static SVG only\n- fabs: fix Portuguese accents in geolocation error messages\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "4990261",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/49902610d9274c611e0c414caac156220d97e928",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T18:58:45.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(phone): add FAB buttons and move action bar\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "da388a0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/da388a041086d0818c6d72616106d657c7a6bac6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T18:58:01.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(phone): add bottom sheet component with drag, snap, tabs\n\nDraggable bottom sheet for phone layout with three snap points\n(peek/half/full), touch gesture support with velocity-based snapping,\nthree tabs (Visao Geral/Camadas/Mais), coordinate format cycling,\nand feature detail view.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "e77614e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e77614ebf6c5217ead9521b63fe4fd5d41ec252d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T18:57:31.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(phone): add search overlay with pill and full-screen mode\n\nPure UI component with floating search pill that auto-hides during\nmap interaction and full-screen overlay with debounced search input.\nExposes onSearch/onResultSelect callbacks for orchestrator wiring.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "ed579d1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ed579d1ace3eb1302cfdb7c1f0dfeccb93b70af6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T18:52:12.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(phone): add CSS foundation — tokens, hide rules, phone component styles\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "d18123f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d18123fda5afc6a6ce19997e7da1bacffeb60ab9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T18:46:17.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: add phone responsive implementation plan\n\n8-task plan: CSS foundation, bottom sheet, search overlay, FABs,\nfeature editor, layout orchestrator, Vite chunks, testing/polish.\nTasks 2-4 parallelizable. Full code patterns and file references.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "9e0ca11",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9e0ca11a72d90b7c42bad0aacf908992f04b2f41",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T18:32:59.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: add phone responsive design document\n\nGoogle Maps-inspired phone layout (≤480px) with full-screen map,\ndraggable bottom sheet, floating search bar, and 2 FABs. Scope\nlimited to light editing (view, navigate, select, move, edit properties).\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "82548c0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82548c0c6aa1ddebe575872d1e6f3c04c2fe6042",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T17:24:12.000Z",
+      "author": "Maj Diniz",
+      "message": "claude config",
+      "sha": "65ffe31",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/65ffe3131d5cd3a1fdd15e52ec340958afc72289",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T14:54:01.000Z",
+      "author": "Maj Diniz",
+      "message": "finaliza exportação pdf",
+      "sha": "949a7a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/949a7a901e7b6edeab3301118b0bf3441a505cdb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T13:58:43.000Z",
+      "author": "Maj Diniz",
+      "message": "melhorias pdf",
+      "sha": "14cbc73",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/14cbc73a7aa4aae4cb323af23180904bede9558e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T10:08:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #10 from 1cgeo/claude/improve-pdf-export-HpjlK\n\nfix: improve PDF export with bug fixes and quality enhancements",
+      "sha": "7efc538",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7efc538a3b7c0dc078b96ebd3a0f85d7ee1b0bbf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T01:59:19.000Z",
+      "author": "Claude",
+      "message": "fix: improve PDF export with bug fixes and quality enhancements\n\nCritical fixes:\n- Fix GDAL georeferencing when title is enabled (canvas height mismatch)\n- Use page protocol instead of hardcoded http:// for GDAL path\n\nQuality improvements:\n- Switch from JPEG to PNG for lossless cartographic output\n- Reset map pitch to 0 to avoid perspective distortion in export\n- Use booleanIntersects for accurate spatial filtering of legend features\n- Legend swatches now use actual feature colors from map sources\n- Add cancel button to export progress modal\n- Disable export button during export to prevent concurrent exports\n\nCode quality:\n- Move export modal inline styles to pdf-export.css (BEM classes)\n- Replace JSON.parse(JSON.stringify) with deepClone()\n- Remove deprecated _update3DViewerModeUI from ExportTab\n\nhttps://claude.ai/code/session_01UTgTpmYduCM46YjyFGubCK",
+      "sha": "8fccaba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8fccaba43adb6cfd6c3e9fbf1ceb0f9001b7fd1f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-02-22T01:03:55.000Z",
+      "author": "Maj Diniz",
+      "message": "melhorias",
+      "sha": "9faf919",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9faf9192e9798f2b3b32956642747811844b99c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-02-21T10:02:46.000Z",
