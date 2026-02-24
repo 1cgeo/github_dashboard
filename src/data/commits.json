@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-24T16:03:20.173Z",
+  "lastUpdate": "2026-02-24T20:41:23.059Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-02-24T15:16:20.000Z",
+    "1cgeo/controle_acervo": "2026-02-24T18:43:28.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-02-06T17:43:13.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-23T09:52:41.000Z"
   },
   "stats": {
-    "totalCommits": 3383,
+    "totalCommits": 3392,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -73,7 +73,7 @@
       "dsgoficial/EBGeo": 68,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 40,
+      "1cgeo/controle_acervo": 49,
       "1cgeo/ferramentas_acervo": 16,
       "dsgoficial/pto_controle": 29,
       "dsgoficial/servico_autenticacao": 9,
@@ -88,6 +88,87 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T18:43:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix readme",
+      "sha": "c0f7783",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c0f7783e5c223de8569e00e6b6ad1ff3e5fe1939",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T18:38:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix text",
+      "sha": "bf2a323",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bf2a3237dabae9426dca7064bb71efb10766ab13",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T18:31:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #35 from 1cgeo/claude/claude-md-mm0r210k0h00bsjv-WS5VJ\n\nClaude/claude md mm0r210k0h00bsjv ws5 vj",
+      "sha": "646a432",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/646a43285c847ed3336515852f3150db69ee8533",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T18:14:38.000Z",
+      "author": "Claude",
+      "message": "Adiciona especificacoes completas dos dois clientes web\n\nDois documentos para servir de referencia na reescrita em JS puro:\n\n- especificacao_client_dashboard.md: Dashboard SCA com 4 abas de\n  graficos/tabelas, 17 endpoints, layout responsivo, autenticacao\n- especificacao_client_mapoteca.md: Admin mapoteca com 5 dominios\n  (clientes, pedidos, materiais, estoque/consumo, plotters), CRUD\n  completo, wizard de 4 etapas, 40+ endpoints, tabela reutilizavel\n\nCada documento cobre: todas as rotas, todos os endpoints com request/\nresponse, todos os campos de formulario com validacao, layout de cada\npagina, comportamentos transversais (cache, auth, tema, responsividade).\n\nhttps://claude.ai/code/session_0164tG58dnBzY2w6GUUngWX3",
+      "sha": "2d4d40a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2d4d40ac9b18cf199950a00d0752e1c605829cb8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T17:58:41.000Z",
+      "author": "Claude",
+      "message": "Adiciona revisao organizacional do monorepo\n\nAnalise cruzada dos 4 componentes identificando:\n- ~900 linhas duplicadas entre os 2 clientes React (10 arquivos >80%)\n- Bug: mapoteca assume token expiry de 24h mas backend usa 1h\n- mapoteca.sql ausente do create_config.js (instalacao incompleta)\n- Portas de proxy dos clientes nao correspondem ao servidor\n- Dashboard do acervo nao montado em routes.js (codigo morto)\n- Divergencia de versoes: React 18 vs 19, MUI 5 vs 6\nInclui 14 recomendacoes priorizadas e opcoes de estrategia monorepo.\n\nhttps://claude.ai/code/session_0164tG58dnBzY2w6GUUngWX3",
+      "sha": "ea18405",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ea184053d0aad6c5d8d81d3f41c27b86188f6c1c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T17:43:25.000Z",
+      "author": "Claude",
+      "message": "Adiciona analise de lacunas: Plugin QGIS vs Backend API\n\nDocumento cruzando todas as chamadas HTTP do plugin QGIS com os\nendpoints disponiveis no backend. Identifica 5 bugs criticos:\n- 12 dialogos verificam 'sucesso'/'mensagem' mas backend retorna\n  'success'/'message' (nunca detectam sucesso)\n- Criacao em massa chama POST produtos/produto mas backend espera\n  POST produtos/produtos (404)\n- GET acervo/versao/{id} e GET acervo/produto/{id} chamados pelo\n  plugin mas nao existem no backend (404)\n- Error handler do api_client verifica 'mensagem' em vez de 'message'\nInclui mapeamento completo de ~45 chamadas do plugin vs 101 endpoints.\n\nhttps://claude.ai/code/session_0164tG58dnBzY2w6GUUngWX3",
+      "sha": "5115530",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5115530ec26db9798584a361acc98cbd802f9ca4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T17:31:50.000Z",
+      "author": "Claude",
+      "message": "Revisao completa da documentacao da API (api_documentation.md)\n\nReescrita integral da documentacao com base na leitura do codigo-fonte.\nDocumenta todos os 101 endpoints montados, organizados por modulo:\nLogin, Acervo, Arquivo, Produtos, Projetos, Volumes, Usuarios,\nGerencia, Mapoteca (clientes, pedidos, plotters, materiais) e\nDashboard da Mapoteca. Inclui schemas de validacao Joi, niveis de\nautenticacao (verifyLogin/verifyAdmin), query params e formatos de\nrequest/response para cada endpoint. Nota que o modulo Dashboard do\nAcervo (17 endpoints) esta definido mas nao montado em routes.js.\n\nhttps://claude.ai/code/session_0164tG58dnBzY2w6GUUngWX3",
+      "sha": "aa7427a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/aa7427a8f6b7c65293a711915d3c2ed1ff1f7fbe",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T16:03:28.000Z",
+      "author": "Claude",
+      "message": "Atualiza dependências, limpa package.json e melhora .gitignore\n\n- Root: remove bcryptjs (não usado), npm-check-updates (usar via npx),\n  move concurrently para devDependencies, adiciona client_admin_mapoteca\n  ao install-all, adiciona ^ ao inquirer\n- Server: remove body-parser (integrado no Express 4.16+), colors,\n  documentation, inquirer, jsdoc, nunjucks, pgtools (não usados),\n  move nodemon para devDependencies, adiciona description\n- Client: atualiza versões para latest compatível dentro do major,\n  adiciona @emotion/babel-plugin (referenciado no vite.config.ts)\n- Mapoteca: atualiza versões, normaliza indentação, adiciona\n  @emotion/babel-plugin\n- .gitignore: adiciona entradas para build outputs, config.env, logs,\n  IDE, OS, TypeScript, Vite, QGIS plugin, certificados SSL\n- create_build.js: corrige caminho de dist/ (Vite output) em vez de build/\n\nhttps://claude.ai/code/session_0164tG58dnBzY2w6GUUngWX3",
+      "sha": "14ab4a3",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/14ab4a3f0b357afb29010271b69ed8ad0367d4e4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T15:35:25.000Z",
+      "author": "Claude",
+      "message": "Add comprehensive CLAUDE.md for AI assistant context\n\nDocuments the full codebase structure, tech stack, architecture patterns,\ndatabase schema, API endpoints, development workflows, and coding conventions\nfor all four components (server, two client apps, QGIS plugin).\n\nhttps://claude.ai/code/session_0164tG58dnBzY2w6GUUngWX3",
+      "sha": "d57200a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d57200a3698d2b37c4c8f156eee4457228a9b0bb",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-02-24T15:16:20.000Z",
