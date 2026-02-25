@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-24T20:41:23.059Z",
+  "lastUpdate": "2026-02-25T10:55:10.717Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-02-24T18:43:28.000Z",
+    "1cgeo/controle_acervo": "2026-02-25T09:55:14.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-02-06T17:43:13.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-23T09:52:41.000Z"
   },
   "stats": {
-    "totalCommits": 3392,
+    "totalCommits": 3399,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -73,7 +73,7 @@
       "dsgoficial/EBGeo": 68,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 49,
+      "1cgeo/controle_acervo": 56,
       "1cgeo/ferramentas_acervo": 16,
       "dsgoficial/pto_controle": 29,
       "dsgoficial/servico_autenticacao": 9,
@@ -88,6 +88,69 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T09:55:14.000Z",
+      "author": "Maj Diniz",
+      "message": "versão para testes",
+      "sha": "a477bad",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a477bad3e3fd77ce92b0d0330ac4d9cd8884ca7c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T00:24:31.000Z",
+      "author": "Maj Diniz",
+      "message": "continuando plugin",
+      "sha": "17b43ae",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/17b43aec4711488fe6671619665fd9996394af35",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T23:50:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Adiciona suite de testes do backend e corrige bugs de producao\n\nImplementa 217 testes em 18 suites cobrindo:\n- Testes unitarios: schemas Joi (login, produto, acervo, arquivo, gerencia, mapoteca),\n  utilitarios (AppError, asyncHandler, httpCode, schemaValidation, generateLocalizador)\n- Testes de integracao: controllers (produto, acervo, mapoteca)\n- Testes de rotas: autenticacao, produto, acervo, mapoteca\n\nCorrige bugs de producao encontrados durante os testes:\n- Express 5 wildcard: substitui path '*' por '{*path}' no fallback SPA\n- Truncate guard: adiciona verificacao de tabela valida antes de TRUNCATE\n- verify_login guard: trata caso de token decodificado sem uuid\n- Corrige validacao de schemas Joi (produtos, acervo, arquivo, mapoteca)\n- Corrige rotas com parametros duplicados e tipos inconsistentes\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>",
+      "sha": "5ee55c4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5ee55c4cdf1f5d0927a67b33440dad607f891705",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T20:50:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #36 from 1cgeo/claude/qgis-plugin-backend-plan-jHQPT\n\nClaude/qgis plugin backend plan j hqpt",
+      "sha": "a14ec38",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a14ec38d2690233992335c9ad83a9799c3cd772a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T20:16:10.000Z",
+      "author": "Claude",
+      "message": "Melhora robustez do plugin QGIS: timeout, re-auth, progresso e retry\n\n- Corrige NameError em panel.py (LoadSystematicFilesDialog -> BulkLoadFilesDialog)\n- Adiciona timeout de 30s em todas as requisicoes HTTP do api_client\n- Implementa re-autenticacao automatica silenciosa quando token JWT expira (401)\n- Adiciona callback de progresso no metodo download_file do api_client\n- Atualiza situacao_geral_dialog para mostrar progresso real do download\n- Adiciona retry individual para uploads com falha em todos os 6 dialogos de upload\n  (usuario pode retentar apenas os arquivos que falharam em vez de reiniciar tudo)\n\nhttps://claude.ai/code/session_01DWQ8eT2ua8Nn8cdZEWVPMb",
+      "sha": "f07069a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f07069ad381038a172da7d8d48cd6c8d3e1c0408",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T20:04:38.000Z",
+      "author": "Claude",
+      "message": "Atualiza analise de lacunas plugin QGIS/backend - todos os bugs corrigidos\n\nReescreve o documento de gap analysis refletindo o estado atual:\n- 5 bugs criticos anteriores marcados como CORRIGIDOS\n- 3 problemas menores anteriores marcados como CORRIGIDOS\n- Mapeamento completo atualizado: 50 endpoints com 100% OK\n- Documenta novas funcionalidades (download_file, relationship edit, retries)\n- Identifica problema pendente: dashboard acervo nao montado (afeta React, nao plugin)\n\nhttps://claude.ai/code/session_01DWQ8eT2ua8Nn8cdZEWVPMb",
+      "sha": "b604dcf",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b604dcf33a5bd3fb768d897fc208d49c9a72d8b0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-24T19:06:39.000Z",
+      "author": "Claude",
+      "message": "Corrige bugs criticos de integracao plugin QGIS/backend e adiciona endpoints faltantes\n\n- Corrige campos de resposta: sucesso/mensagem → success/message em 12 dialogos e api_client\n- Corrige path do endpoint de criacao em massa: produtos/produto → produtos/produtos\n- Cria endpoints GET /api/acervo/versao/:versao_id e GET /api/acervo/produto/:produto_id\n- Adiciona metodo download_file ao api_client para suporte a respostas binarias\n- Refatora situacao_geral_dialog para usar api_client em vez de urllib direto\n- Adiciona verificacao de sucesso individual antes de confirmar uploads (6 dialogos)\n- Adiciona mapoteca.sql ao script de instalacao create_config.js\n\nhttps://claude.ai/code/session_01DWQ8eT2ua8Nn8cdZEWVPMb",
+      "sha": "583cd57",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/583cd57866462cad7d09b7b8136576f46a49fb36",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-02-24T18:43:28.000Z",
