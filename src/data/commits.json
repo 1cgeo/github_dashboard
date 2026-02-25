@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-25T10:55:10.717Z",
+  "lastUpdate": "2026-02-25T16:08:19.345Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-02-25T09:55:14.000Z",
+    "1cgeo/controle_acervo": "2026-02-25T14:21:50.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-02-06T17:43:13.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-23T09:52:41.000Z"
   },
   "stats": {
-    "totalCommits": 3399,
+    "totalCommits": 3408,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -73,7 +73,7 @@
       "dsgoficial/EBGeo": 68,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 56,
+      "1cgeo/controle_acervo": 65,
       "1cgeo/ferramentas_acervo": 16,
       "dsgoficial/pto_controle": 29,
       "dsgoficial/servico_autenticacao": 9,
@@ -88,6 +88,87 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T14:21:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #39 from 1cgeo/claude/fix-plugin-file-error-I9Og4\n\nClaude/fix plugin file error i9 og4",
+      "sha": "d06aa77",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d06aa770c19a2fbe5014be7394ce47059741672b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T13:42:07.000Z",
+      "author": "Claude",
+      "message": "Fix 4 plugin dialog bugs\n\n1. LoadProductsDialog: Remove references to non-existent select_all_check\n   and productsTable widgets. The .ui file has no such widgets; the\n   select-all functionality is already provided by the existing buttons.\n\n2. DownloadsDeletadosDialog: Cast total/page/limit to int when parsing\n   the server response, fixing \"unsupported operand type(s) for //:\n   'int' and 'str'\" error in pagination calculation.\n\n3. BuscaProdutosDialog: Remove .strict() from buscaProdutos Joi schema\n   (server). Query parameters are always strings, so .strict() prevented\n   Joi from coercing \"1\" to 1, causing validation errors. Also added\n   int() casts on the client side for defensive parsing.\n\n4. DownloadProdutosDialog: Remove duplicate load_selected_products() call\n   from showEvent. The __init__ already calls it, so showEvent triggered\n   the \"Selecione pelo menos um produto\" warning a second time.\n\nhttps://claude.ai/code/session_01MhQuDhnSc69YW1Kw8Y3xD9",
+      "sha": "1f65a9f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1f65a9f45c9a743faaa32fca75bcd1551c16f425",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T13:33:05.000Z",
+      "author": "Claude",
+      "message": "Add ignore proxy checkbox to login dialog\n\nAdd \"Ignorar proxy do sistema\" checkbox directly on the login screen\nso users can toggle proxy bypass before attempting to log in. The\nsetting is saved and applied (via api_client._configure_proxy()) right\nbefore the login request is made.\n\n- Add QCheckBox to login.ui (checked by default)\n- Load/save the same 'ignore_proxy' setting used by configuracoes\n- Reconfigure the HTTP session proxy before each login attempt\n\nhttps://claude.ai/code/session_01MhQuDhnSc69YW1Kw8Y3xD9",
+      "sha": "4df773a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4df773a88a4ecde5770f8233a8eb67cc90509d0b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T13:24:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #38 from 1cgeo/claude/fix-plugin-file-error-I9Og4\n\nAdd option to bypass system proxy in plugin requests",
+      "sha": "54488b7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/54488b7befc556c9497059af0a247e4574091b5d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T13:23:20.000Z",
+      "author": "Claude",
+      "message": "Add option to bypass system proxy in plugin requests\n\nThe plugin's HTTP requests via the `requests` library were picking up\nsystem proxy settings, causing 407 Proxy Authentication Required errors\nin corporate environments.\n\nChanges:\n- Use requests.Session for all HTTP calls in APIClient\n- Add _configure_proxy() that reads the 'ignore_proxy' setting\n- When enabled (default), sets trust_env=False and clears proxies,\n  making all requests connect directly to the server\n- Add \"Ignorar proxy do sistema\" checkbox in Configurações dialog\n  (checked by default) under a new \"Configurações de Rede\" group\n- Saving settings immediately reconfigures the active session\n\nhttps://claude.ai/code/session_01MhQuDhnSc69YW1Kw8Y3xD9",
+      "sha": "c5837e5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c5837e53ea97485a06fa2978be067b29bbf58f1c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T13:09:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #37 from 1cgeo/claude/fix-plugin-file-error-I9Og4\n\nClaude/fix plugin file error i9 og4",
+      "sha": "544e44e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/544e44e6d7ccd5c8716346d6cc12fd42bed8f56d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T13:04:53.000Z",
+      "author": "Claude",
+      "message": "Fix wrong .ui filenames in 7 bulk operation dialogs\n\nThe Python files referenced old English .ui filenames that don't exist.\nThe actual .ui files use Portuguese names matching their directories:\n\n- bulk_produtos: bulk_create_products_dialog.ui → bulk_produtos_dialog.ui\n- bulk_carrega_arquivos: load_systematic_files_dialog.ui → bulk_carrega_arquivos_dialog.ui\n- bulk_carrega_produtos_versoes_arquivos: load_products_dialog.ui → bulk_carrega_produtos_versoes_arquivos_dialog.ui\n- bulk_carrega_versoes_arquivos: load_version_to_products_dialog.ui → bulk_carrega_versoes_arquivos_dialog.ui\n- bulk_produtos_versoes_historicas: load_historical_products_dialog.ui → bulk_produtos_versoes_historicas_dialog.ui\n- bulk_versoes_historicas: load_historical_versions_dialog.ui → bulk_versoes_historicas_dialog.ui\n- bulk_versao_relacionamento: bulk_create_version_relationships_dialog.ui → bulk_versao_relacionamento_dialog.ui\n\nhttps://claude.ai/code/session_01MhQuDhnSc69YW1Kw8Y3xD9",
+      "sha": "84290fc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/84290fc3fe56dd66eff702725a46e9aa0196495c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T12:54:56.000Z",
+      "author": "Claude",
+      "message": "Remove missing .ui file dependency from ConfiguracoesDialog\n\nThe dialog tried to load configuracoes_dialog.ui via uic.loadUiType()\nbut the .ui file was never created. The UI is already built entirely\nin code via setup_ui(), so the .ui loading was unnecessary.\n\nChanges:\n- Remove uic.loadUiType() call and FORM_CLASS inheritance\n- Create mainLayout (QVBoxLayout) directly in __init__\n- Add missing QHBoxLayout import used by button layout\n- Remove unused os and uic imports\n\nhttps://claude.ai/code/session_01MhQuDhnSc69YW1Kw8Y3xD9",
+      "sha": "2bd98dc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2bd98dcd78d2c0b21e5501b69de1c4d02ea3a136",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T12:45:58.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "4cc0cbc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4cc0cbc528443fbd4a257d79341df4852ce076e8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-02-25T09:55:14.000Z",
