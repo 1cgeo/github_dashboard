@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-25T16:08:19.345Z",
+  "lastUpdate": "2026-02-25T20:40:43.980Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,13 +19,13 @@
     "dsgoficial/configuracoes_producao": "2026-01-12T12:32:26.000Z",
     "dsgoficial/ferramentas_edicao": "2026-01-13T15:20:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-02-16T00:13:37.000Z",
-    "dsgoficial/sap": "2026-02-24T14:50:02.000Z",
+    "dsgoficial/sap": "2026-02-25T18:03:16.000Z",
     "dsgoficial/SAP_Gerente": "2026-01-21T20:49:50.000Z",
     "dsgoficial/SAP_Operador": "2025-11-11T10:26:46.468Z",
     "dsgoficial/EBGeo": "2025-11-28T02:37:26.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-02-25T14:21:50.000Z",
+    "1cgeo/controle_acervo": "2026-02-25T19:39:30.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-02-06T17:43:13.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-23T09:52:41.000Z"
   },
   "stats": {
-    "totalCommits": 3408,
+    "totalCommits": 3417,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -67,13 +67,13 @@
       "dsgoficial/configuracoes_producao": 197,
       "dsgoficial/ferramentas_edicao": 365,
       "dsgoficial/DsgTools": 576,
-      "dsgoficial/sap": 118,
+      "dsgoficial/sap": 119,
       "dsgoficial/SAP_Gerente": 67,
       "dsgoficial/SAP_Operador": 47,
       "dsgoficial/EBGeo": 68,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 65,
+      "1cgeo/controle_acervo": 73,
       "1cgeo/ferramentas_acervo": 16,
       "dsgoficial/pto_controle": 29,
       "dsgoficial/servico_autenticacao": 9,
@@ -88,6 +88,87 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T19:39:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #42 from 1cgeo/claude/review-setup-tutorial-bugs-CKlq6\n\nClaude/review setup tutorial bugs c klq6",
+      "sha": "e555a86",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e555a86b84097afb0dbc08603c6fe11c269dead6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T19:34:52.000Z",
+      "author": "Claude",
+      "message": "Atualiza CLAUDE.md removendo clientes deprecados e documentando plugin\n\n- Remove seções dos clientes React/TypeScript deprecados (client/, client_admin_mapoteca/)\n- Remove tech stack, comandos, convenções e arquitetura dos clientes\n- Adiciona documentação detalhada do plugin QGIS (estrutura gui/, core/, categorias de menu)\n- Adiciona seção Plugin Architecture com fluxo de login, panel mapping e settings\n- Adiciona convenções de código Python para o plugin\n- Atualiza Development Setup removendo passos dos clientes\n- Remove seção Production Build (sem cliente ativo) e Vite Proxy\n\nhttps://claude.ai/code/session_01PCMCUqhdvCk6TW2bt3TLJP",
+      "sha": "5bfa77e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5bfa77e59b29001fcdee6098bf7d6d090fdb3033",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T19:28:00.000Z",
+      "author": "Claude",
+      "message": "Corrige 10 bugs encontrados no fluxo inicial de configuração\n\nPlugin QGIS:\n- Corrige chave de settings inconsistente (server_url → saved_server) em api_client.py\n- Corrige filtro de busca que destruía estado dos checkboxes em manage_users_dialog\n- Corrige filtro de busca que destruía seleções em import_users_dialog\n- Corrige exibição de data_fim null na tabela de lotes (manage_lotes_dialog)\n\nServer:\n- Corrige negação dupla \"não não\" na mensagem de erro em database_version.js\n- Remove parâmetro usuarioUuid não utilizado de deleteLotes em projeto_ctrl.js\n\nBuild/Config:\n- Adiciona verificação de existência do diretório client/ em create_build.js\n\nDatabase:\n- Corrige tipo de volume_armazenamento_id de SMALLINT para INTEGER em acervo.sql\n- Corrige tipo de projeto_id de INTEGER para BIGINT em acervo.sql\n\nDocumentação:\n- Corrige versão do Express de 4 para 5 em CLAUDE.md\n\nhttps://claude.ai/code/session_01PCMCUqhdvCk6TW2bt3TLJP",
+      "sha": "cb1482b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cb1482be021f8864f96233c0499fc8fc36757ae3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T18:49:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #41 from 1cgeo/claude/review-setup-tutorial-bugs-WNDb5\n\nCorrige bugs no fluxo inicial de configuração (server + plugin)",
+      "sha": "974fbbc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/974fbbc8e3563c8fa18e238e9b96302901ef186d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T18:17:45.000Z",
+      "author": "Claude",
+      "message": "Corrige bugs no fluxo inicial de configuração (server + plugin)\n\nServer:\n- Corrige espaço faltando antes de WHERE em queries UPDATE (volume_ctrl, usuario_ctrl)\n- Adiciona httpCode.Conflict (409) que estava indefinido causando erros 500\n- Corrige crash por destructuring de null no verifyAdmin quando usuário não encontrado\n- Corrige função atualizar_mv_por_produtos que usava %I com schema no nome da view\n- Remove strict() de params de URL que rejeitava strings de req.params\n- Corrige race condition do serializeError (dynamic import async)\n- Corrige schema_validation para atribuir valores validados de volta ao req\n- Corrige USE_PROXY que defaultava para true quando env var ausente\n- Corrige bulkCreateProducts que usava verifyLogin ao invés de verifyAdmin\n- Permite strings vazias em mi/inom/descricao no schema de produtos em lote\n\nPlugin:\n- Adiciona uuid_versao faltando no add_historical_version_dialog\n- Corrige CRS errado (4326→4674) no carregamento de camadas de produtos\n- Corrige parsing de datas ISO com timestamp nos diálogos de edição (projeto/lote)\n- Adiciona prefixo SRID=4674 em geometrias WKT nos diálogos de produtos em lote\n- Corrige envio de strings vazias para campos que aceitam null no servidor\n\nhttps://claude.ai/code/session_01J2L2AY4MZgghgjWFQAZqqg",
+      "sha": "5479c06",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5479c062e9caf95bc987c30b095679a26ba55f1e",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-02-25T18:03:16.000Z",
+      "author": "1º Ten Marcel",
+      "message": "adição de atividade pausada no statusOperadores",
+      "sha": "a6697a8",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/a6697a88b04299ce946fecc9c34cf2b39c103c4b",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T17:57:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge pull request #40 from 1cgeo/claude/write-setup-tutorial-0cqi6\n\nAdd comprehensive SCA initial setup tutorial documentation",
+      "sha": "53f575c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/53f575cbe50c237590e25040a30f159337f7e031",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T17:46:39.000Z",
+      "author": "Claude",
+      "message": "Detalha fluxo de carga em lote de produtos completos no tutorial\n\nExpande o Passo 7 com seção dedicada à operação \"Adicionar Produtos\nCompletos em Lote\": criação da camada modelo, descrição de todos os\ncampos obrigatórios/opcionais, lógica de agrupamento hierárquico,\netapas automáticas do plugin e exemplo prático com 4 linhas.\n\nhttps://claude.ai/code/session_01FiSCv5oowyV1QRAv7dBuEc",
+      "sha": "7db5339",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7db53392c25befca16bdc74e390e61204c5f4954",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-02-25T15:02:28.000Z",
+      "author": "Claude",
+      "message": "Adiciona tutorial de configuração inicial do SCA\n\nGuia passo a passo em português para configurar o sistema do zero\nvia plugin QGIS: login, usuários, volumes, associações, projetos,\nlotes, produtos, visões materializadas e verificação.\n\nhttps://claude.ai/code/session_01FiSCv5oowyV1QRAv7dBuEc",
+      "sha": "a657255",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a657255e574a9d9fccfd474b7712f619b88d5a16",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-02-25T14:21:50.000Z",
