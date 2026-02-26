@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-02-26T15:57:27.051Z",
+  "lastUpdate": "2026-02-26T20:42:48.464Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -7,16 +7,16 @@
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_ortoimagem": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_topografica": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_dgeo": "2026-02-19T13:32:18.000Z",
+    "1cgeo/doc_ortoimagem": "2026-02-26T16:01:12.000Z",
+    "1cgeo/doc_topografica": "2026-02-26T16:00:53.000Z",
+    "1cgeo/doc_dgeo": "2026-02-26T19:16:38.000Z",
     "1cgeo/ferramentas_mgcp": "2026-01-19T16:32:03.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_mgcp": "2025-11-11T10:26:46.468Z",
+    "1cgeo/doc_mgcp": "2026-02-26T16:01:34.000Z",
     "1cgeo/doc_capacitacao": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2026-02-18T12:24:27.000Z",
-    "dsgoficial/configuracoes_producao": "2026-01-12T12:32:26.000Z",
+    "dsgoficial/configuracoes_producao": "2026-02-26T16:03:18.000Z",
     "dsgoficial/ferramentas_edicao": "2026-01-13T15:20:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-02-16T00:13:37.000Z",
     "dsgoficial/sap": "2026-02-25T18:03:16.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-02-26T00:54:01.000Z"
   },
   "stats": {
-    "totalCommits": 3422,
+    "totalCommits": 3429,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -55,16 +55,16 @@
       "1cgeo/servico_nomes_geograficos": 26,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
-      "1cgeo/doc_ortoimagem": 37,
-      "1cgeo/doc_topografica": 96,
-      "1cgeo/doc_dgeo": 457,
+      "1cgeo/doc_ortoimagem": 38,
+      "1cgeo/doc_topografica": 97,
+      "1cgeo/doc_dgeo": 460,
       "1cgeo/ferramentas_mgcp": 9,
       "1cgeo/mgcp": 19,
-      "1cgeo/doc_mgcp": 33,
+      "1cgeo/doc_mgcp": 34,
       "1cgeo/doc_capacitacao": 7,
       "1cgeo/ebgeo_web_2_admin": 22,
       "dsgoficial/modelagens": 100,
-      "dsgoficial/configuracoes_producao": 197,
+      "dsgoficial/configuracoes_producao": 198,
       "dsgoficial/ferramentas_edicao": 365,
       "dsgoficial/DsgTools": 576,
       "dsgoficial/sap": 119,
@@ -88,6 +88,69 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-02-26T19:16:38.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix doc ia",
+      "sha": "305b8cb",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/305b8cb9a7c715b4a06f7f60886151d54868b177",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-02-26T19:06:01.000Z",
+      "author": "1º Ten Marcel",
+      "message": "usando o servidor de ia para sr",
+      "sha": "f558bb7",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/f558bb7095d4321bce07b1ff5f49fcf44b10f8b3",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/configuracoes_producao",
+      "date": "2026-02-26T16:03:18.000Z",
+      "author": "1º Ten Marcel",
+      "message": "adição de llp_localidade_a na modelagem EDGV30Topo e fix estilo 14",
+      "sha": "90c7b66",
+      "htmlUrl": "https://github.com/dsgoficial/configuracoes_producao/commit/90c7b6667daf3452048120b8336bec31c3e9c5a9",
+      "repoUrl": "https://github.com/dsgoficial/configuracoes_producao"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-02-26T16:01:56.000Z",
+      "author": "1º Ten Marcel",
+      "message": "add dashboard_servidores na doc de TI",
+      "sha": "15aa571",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/15aa571e1754f999f659100b8be75af7151c5c68",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_mgcp",
+      "date": "2026-02-26T16:01:34.000Z",
+      "author": "1º Ten Marcel",
+      "message": "preparo cobter mgcp",
+      "sha": "e99d31d",
+      "htmlUrl": "https://github.com/1cgeo/doc_mgcp/commit/e99d31d6d67997d8755a616a9176aa9cd2c4cce2",
+      "repoUrl": "https://github.com/1cgeo/doc_mgcp"
+    },
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-02-26T16:01:12.000Z",
+      "author": "1º Ten Marcel",
+      "message": "add gitignore",
+      "sha": "1fac9ed",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/1fac9eda22854e261d41e32c51b02dcfd0dfb8a3",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-02-26T16:00:53.000Z",
+      "author": "1º Ten Marcel",
+      "message": "adição exemplos de hidrografias para revisão",
+      "sha": "c4d7b3c",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/c4d7b3c3729afe3fcb9969bc72dac83152d561b7",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
     {
       "repo": "dsgoficial/SAP_Gerente",
       "date": "2026-02-26T11:57:58.000Z",
