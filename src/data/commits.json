@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-03-12T10:43:47.194Z",
+  "lastUpdate": "2026-03-12T16:02:33.088Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-02-22T23:32:21.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,12 +36,12 @@
     "1cgeo/produtos": "2026-01-23T15:29:27.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-03-11T19:46:07.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-03-12T13:27:49.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
-    "1cgeo/ebgeo_web@novo_360": "2026-03-08T21:37:06.000Z"
+    "1cgeo/ebgeo_web@novo_360": "2026-03-12T15:20:03.000Z"
   },
   "stats": {
-    "totalCommits": 3461,
+    "totalCommits": 3466,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -51,7 +51,7 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 685,
+      "1cgeo/ebgeo_web": 686,
       "1cgeo/servico_nomes_geograficos": 27,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
@@ -84,10 +84,55 @@
       "1cgeo/produtos": 51,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 68
+      "dsgoficial/pytorch_segmentation_models_trainer": 72
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-03-12T15:20:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "051f564",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/051f56460ed81ee7ac1ab2de687b729d33035a6a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-03-12T13:27:49.000Z",
+      "author": "Cap Borba",
+      "message": "fix Docusaurus trailingSlash for GitHub Pages compatibility\n\ntrailingSlash: false generates path.html files which GitHub Pages\ncannot serve without the .html extension in the URL, causing 404s.\ntrailingSlash: true generates path/index.html which GitHub Pages\nserves correctly.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "eb48ac4",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/eb48ac43161c2ef9fa757ebfabf2cd43b63770c0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-03-12T13:22:21.000Z",
+      "author": "Cap Borba",
+      "message": "add Docs and GitHub links to Config Builder header\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "63d3a8c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/63d3a8c37ac358f4d9635a7aa4a7ec85e8a60bee",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-03-12T13:16:01.000Z",
+      "author": "Cap Borba",
+      "message": "fix Config Builder links to use href instead of to\n\nDocusaurus's `to` prop uses React Router (SPA navigation) and\nonly works for internal Docusaurus routes. The Config Builder is\na separate React app, so links must use `href` to force a full\nbrowser navigation to the correct URL.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "4e325db",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/4e325db38d9cc2514893e15abf3c0642eafed967",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-03-12T13:11:09.000Z",
+      "author": "Cap Borba",
+      "message": "migrate docs to Docusaurus and unify GitHub Pages deploy\n\n- Add website/ with Docusaurus 3 (PyTorch color theme, sidebar via _category_.json)\n- Migrate all docs from docs/ (MkDocs) to website/docs/ with Docusaurus syntax\n- Homepage includes Get Started + Config Builder buttons\n- Update web/vite.config.js base path to /<repo>/config-builder/\n- Replace docs.yml + deploy-config-builder.yml with unified deploy.yml:\n  generates schema.json → builds React → builds Docusaurus → copies\n  React into build/config-builder/ → single GitHub Pages deploy\n- Remove mkdocs.yaml and old docs/ directory\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "bc7da28",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/bc7da280ba7429575b93fcdb1e2814355c060d35",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-03-11T19:46:07.000Z",
