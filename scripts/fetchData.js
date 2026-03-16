@@ -38,6 +38,7 @@ const repositories = [
   { repository: '1cgeo/prototipo_roteamento_restricao', branch: '' },
   { repository: '1cgeo/prototipo_location_ar', branch: '' },
   { repository: 'dsgoficial/pytorch_segmentation_models_trainer', branch: '' },
+  { repository: '1cgeo/geoswarm', branch: '' },
 ];
 
 const authorMapping = {
