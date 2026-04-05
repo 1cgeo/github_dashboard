@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-05T10:40:09.890Z",
+  "lastUpdate": "2026-04-05T15:38:12.117Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-01-23T15:29:27.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-03T22:15:01.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-05T14:47:34.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-02T23:11:02.000Z",
     "1cgeo/geoswarm": "2026-03-29T17:14:51.000Z"
   },
   "stats": {
-    "totalCommits": 3560,
+    "totalCommits": 3563,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,38 @@
       "1cgeo/produtos": 51,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 94,
+      "dsgoficial/pytorch_segmentation_models_trainer": 97,
       "1cgeo/geoswarm": 42
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-05T14:47:34.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #193 from dsgoficial/claude/analyze-transformer-compatibility-umXmV\n\nAdd transformer model support, LoRA fine-tuning, and hardened training loop",
+      "sha": "febbffe",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/febbffe49cbb51251d20ba5b14b76288abbd5c34",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-05T14:43:25.000Z",
+      "author": "Claude",
+      "message": "Add [transformers] pip extras and CI job for transformer test suite\n\nsetup.py\n  - Add 'transformers' extras group: transformers>=4.30.0, peft>=0.6.0,\n    timm>=0.9.0.  Enables: pip install '.[transformers]'\n  - Add 'all' convenience alias bundling tests + transformers extras.\n  - terratorch excluded (no stable PyPI release); documented as manual install.\n\ntests/test_huggingface_models.py\n  - Add pytest.importorskip(\"transformers\") at module level so the file is\n    SKIPPED (not ERROR) in the main CI job where transformers is not installed,\n    matching the pattern already used in test_timm_models.py.\n\n.github/workflows/python-app.yml\n  - Add new parallel job 'test-transformers' that:\n      * Installs CPU-only PyTorch (no GPU runner needed)\n      * Installs the package via pip install '.[transformers]'\n      * Lints only the new transformer-related source files\n      * Runs the 7 new test files with coverage + pytest-timeout\n      * Uploads coverage to Codecov under the 'transformers' flag\n    The existing 'build' job is unchanged; both jobs run in parallel.\n\nrequirements.txt\n  - Improve comment block to reference 'pip install .[transformers]' and\n    document the terratorch manual install path.\n\nhttps://claude.ai/code/session_01T9RPrDKTBFPFsnxebyhnrn",
+      "sha": "239cb3e",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/239cb3e2f40b5e12821f1692e7b3aa7817e757ae",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-05T14:32:16.000Z",
+      "author": "Claude",
+      "message": "Add transformer model support, LoRA fine-tuning, and hardened training loop\n\nPhase 1 – ModelOutputAdapter (custom_models/transformer_adapters.py)\n  Normalises any model output (HF dataclass, dict, tuple, plain tensor) to a\n  (B,C,H,W) tensor with optional bilinear upsampling; unblocks all downstream\n  transformer integration.\n\nPhase 2 – HuggingFaceSegmentationWrapper (custom_models/huggingface_models.py)\n  Loads any AutoModelForSemanticSegmentation from the Hub or a local path,\n  bypasses the HF processor, and upsamples logits back to input resolution.\n\nPhase 3 – TimmEncoderWithSMPDecoder (custom_models/timm_models.py)\n  Combines a timm features_only backbone with SMP UNet/FPN/PAN decoders.\n  Documents the zero-code SMP \"tu-\" prefix path as the recommended approach.\n\nPhase 4 – TerraTorchSegmentationWrapper (custom_models/terratorch_models.py)\n  Bridges TerraTorch foundation model encoders (Prithvi, Clay, SatMAE) with\n  a linear or FPN segmentation head; handles single/multi-temporal inputs.\n\nPhase 5 – LoRA / PEFT fine-tuning (fine_tuning/, config_definitions/)\n  apply_fine_tuning_strategy() supports full / freeze_backbone / linear_probe\n  / lora strategies; LoraAdapterConfig + FineTuningConfig dataclasses added;\n  merge_lora_weights() for deployment.\n\nPhase 6 – Hardened training loop (model_loader/model.py)\n  _unpack_batch() replaces fragile batch.values() unpacking with configurable\n  image_key/mask_key; set_encoder_trainable() made generic (no longer assumes\n  .encoder attribute); _prepare_preds_for_metrics() guards metric calls.\n\nPhase 7 – Inference pipeline (predict.py)\n  Auto-merges LoRA adapter weights before inference; keep_lora_adapters flag\n  allows skipping the merge for fine-tuning resumption.\n\nPhase 8 – Example YAML configs (conf/examples/)\n  smp_mit_b2.yaml, smp_tu_convnext.yaml, segformer_hf.yaml,\n  segformer_lora.yaml, prithvi_terratorch.yaml, vit_linear_probe.yaml\n\nPhase 9 – Unit tests (tests/)\n  test_transformer_adapters, test_huggingface_models, test_timm_models,\n  test_fine_tuning, test_model_training_step, test_terratorch_models,\n  test_inference_pipeline – all offline, CPU-only, no weight downloads.\n\nhttps://claude.ai/code/session_01T9RPrDKTBFPFsnxebyhnrn",
+      "sha": "94750f7",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/94750f7273bc552afa2ee24ab2112ed388d93145",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-04-03T22:15:01.000Z",
