@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-10T20:43:34.175Z",
+  "lastUpdate": "2026-04-11T10:39:19.680Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-04-10T12:32:48.000Z",
     "dsgoficial/configuracoes_producao": "2026-03-05T14:13:33.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-04-10T19:45:43.000Z",
+    "dsgoficial/DsgTools@dev": "2026-04-11T10:37:08.000Z",
     "dsgoficial/sap": "2026-03-21T20:52:48.000Z",
     "dsgoficial/SAP_Gerente": "2026-02-26T23:51:22.000Z",
     "dsgoficial/SAP_Operador": "2026-03-21T20:52:05.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-04-09T10:02:30.000Z"
   },
   "stats": {
-    "totalCommits": 3570,
+    "totalCommits": 3578,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -67,7 +67,7 @@
       "dsgoficial/modelagens": 106,
       "dsgoficial/configuracoes_producao": 200,
       "dsgoficial/ferramentas_edicao": 366,
-      "dsgoficial/DsgTools": 596,
+      "dsgoficial/DsgTools": 604,
       "dsgoficial/sap": 122,
       "dsgoficial/SAP_Gerente": 70,
       "dsgoficial/SAP_Operador": 50,
@@ -90,6 +90,78 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T10:37:08.000Z",
+      "author": "Maj Diniz",
+      "message": "adiciona overrides com psycopg2 e remove deadcode",
+      "sha": "ac0a7e4",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/ac0a7e481541167ea1278d4779f5e0966b8656ae",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T10:35:49.000Z",
+      "author": "Maj Diniz",
+      "message": "internacionalização + correção f-string no workflowItem + arquivos de tradução",
+      "sha": "909f0e3",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/909f0e31280a14b2d3fcb7fc0fb4e118d333313d",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T10:32:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Migração de enums QgsWkbTypes.GeometryType → Qgis.GeometryType",
+      "sha": "f1afad9",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/f1afad94f4beb881e0b744ad583c93afb87b7531",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T08:30:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/database_refactor' into dev",
+      "sha": "fcbfa17",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/fcbfa173eb2c1713a30e9b600d845db82fa84c44",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T08:03:11.000Z",
+      "author": "Maj Diniz",
+      "message": "tradução",
+      "sha": "4d5e850",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/4d5e850c42068e6946129d56c7530f107aa447b5",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T00:49:59.000Z",
+      "author": "Cap Borba",
+      "message": "removes spatialite support",
+      "sha": "d270090",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/d270090f6f08726f900fa9247349e56c4b038c31",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-11T00:07:00.000Z",
+      "author": "Maj Diniz",
+      "message": "tradução",
+      "sha": "3a790ea",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/3a790ea3a986c858882b46a8f34b9b4d7c9853b9",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-04-10T23:21:16.000Z",
+      "author": "Maj Diniz",
+      "message": "tradução",
+      "sha": "3bb80fc",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/3bb80fce17257ecf275f030f1ba68511543435f8",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-04-10T19:45:43.000Z",
