@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-12T10:42:56.173Z",
+  "lastUpdate": "2026-04-12T15:40:26.290Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-12T02:18:23.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-12T12:54:58.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-09T10:02:30.000Z"
   },
   "stats": {
-    "totalCommits": 3601,
+    "totalCommits": 3605,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,47 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 106,
+      "dsgoficial/pytorch_segmentation_models_trainer": 110,
       "1cgeo/geoswarm": 43
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T12:54:58.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #197 from dsgoficial/claude/add-tta-rotations-UfzQD\n\nAdd Test Time Augmentation (TTA) with D4 symmetry group support",
+      "sha": "9736457",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/97364579ec70f987ab657ab79d799ed5471a22f5",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T12:49:26.000Z",
+      "author": "Cap Borba",
+      "message": "Merge branch 'main' into claude/add-tta-rotations-UfzQD",
+      "sha": "2fea4a3",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2fea4a36467f271ff06f517fc07274e593ccec24",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T12:47:06.000Z",
+      "author": "Claude",
+      "message": "Translate user-facing docs and config comments to English\n\n- website/docs/advanced/tta.md: full rewrite in English\n- config_definitions/predict_config.py: translate all docstrings,\n  field comments and inline YAML examples to English\n\nhttps://claude.ai/code/session_01YNbgv9DDit9DP5871wLbs9",
+      "sha": "fa2ee8f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/fa2ee8f94c4c5443da91e25f5aac45a3a40ed3e4",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T12:35:56.000Z",
+      "author": "Claude",
+      "message": "Add Test Time Augmentation (TTA) with D4 symmetry group support\n\nImplements TTA for both sliding-window inference and the model test_step,\nsupporting all 8 symmetries of a square (D4 dihedral group).  Each augmentation\nhas an exact inverse so predictions are de-augmented before averaging, ensuring\nno spatial artifacts.\n\nNew files:\n- tools/tta/tta.py — core module with _augment/_deaugment helpers and apply_tta()\n- tools/tta/__init__.py\n- tests/test_tta.py — unit tests covering round-trips, identity/constant models,\n  skip_keys behaviour and subset augmentation lists\n- website/docs/advanced/tta.md — full user guide with table of augmentation names,\n  YAML examples, cost table and frame-field notes\n\nModified files:\n- inference_processors.py — use_tta + tta_augmentations on all processor classes;\n  SingleImageFromFrameFieldProcessor sets _tta_skip_keys={\"crossfield\"}\n- model_loader/model.py — _get_tta_augmentations() / _predict_with_tta() helpers;\n  test_step() uses TTA when cfg.use_tta=True\n- config_definitions/predict_config.py — use_tta + tta_augmentations fields on\n  InferenceProcessorConfig and PredictSingleImageConfig with explicit per-item\n  comments so users can see exactly which augmentations are active in the YAML\n- tests/test_inference.py — TTA integration tests for SingleImageInfereceProcessor\n  and SingleImageFromFrameFieldProcessor\n- website/docs/user-guide/inference.md — TTA section with augmentation table\n\nhttps://claude.ai/code/session_01YNbgv9DDit9DP5871wLbs9",
+      "sha": "5c50cdd",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5c50cdd009bfdfc77be54c65d143796cd42c2d8c",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-04-12T02:18:23.000Z",
