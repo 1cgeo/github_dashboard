@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-11T20:39:08.884Z",
+  "lastUpdate": "2026-04-12T10:42:56.173Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -7,9 +7,9 @@
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_ortoimagem": "2026-02-26T16:01:12.000Z",
-    "1cgeo/doc_topografica": "2026-04-11T16:27:25.000Z",
-    "1cgeo/doc_dgeo": "2026-04-11T14:52:41.000Z",
+    "1cgeo/doc_ortoimagem": "2026-04-11T22:56:48.000Z",
+    "1cgeo/doc_topografica": "2026-04-11T22:56:53.000Z",
+    "1cgeo/doc_dgeo": "2026-04-11T23:39:18.000Z",
     "1cgeo/ferramentas_mgcp": "2026-01-19T16:32:03.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-05T14:47:34.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-12T02:18:23.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-09T10:02:30.000Z"
   },
   "stats": {
-    "totalCommits": 3583,
+    "totalCommits": 3601,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -56,9 +56,9 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
-      "1cgeo/doc_ortoimagem": 38,
-      "1cgeo/doc_topografica": 101,
-      "1cgeo/doc_dgeo": 463,
+      "1cgeo/doc_ortoimagem": 42,
+      "1cgeo/doc_topografica": 105,
+      "1cgeo/doc_dgeo": 464,
       "1cgeo/ferramentas_mgcp": 9,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -85,11 +85,173 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 97,
+      "dsgoficial/pytorch_segmentation_models_trainer": 106,
       "1cgeo/geoswarm": 43
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T02:18:23.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #196 from dsgoficial/claude/integrate-raster-dataset-DhU69\n\nfeat(dataset): add RasterPatchDataset with systematic sliding-window indexing",
+      "sha": "f9e9ced",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f9e9cedb94f999ed05e70984024dfc7a81ce5a45",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T02:13:43.000Z",
+      "author": "Claude",
+      "message": "fix(dataset): align RasterPatchDataset with SegmentationDataset behavior\n\nFixes several inconsistencies found by comparing RasterPatchDataset against\nSegmentationDataset and RandomCropSegmentationDataset:\n\n- dtype cast: use np.array(image, dtype=...) + del data, matching\n  _load_image_with_rasterio in SegmentationDataset\n- Mask binarization: add n_classes parameter; when n_classes==2 apply\n  (mask > 0) to align with SegmentationDataset is_binary_mask logic\n- reset_augmentation_function: add deepcopy path + gc.collect() every 100\n  items to prevent Albumentations cache memory leaks in long training runs\n- Orphan mask detection: scan mask_dir independently after the image loop;\n  emit UserWarning for every mask file with no corresponding image in\n  image_dir (previously silently ignored, masking misconfiguration)\n- Store image_dir, mask_dir, image_extension, mask_extension as instance\n  attributes for inspection and debugging\n\nAdd 4 new unit tests covering:\n  - n_classes=2 binarizes mask values\n  - n_classes>2 preserves raw pixel values\n  - reset_augmentation_function=True returns valid output\n  - Orphan mask (mask without image) triggers UserWarning\n\nUpdate RasterPatchDatasetConfig to expose n_classes and\nreset_augmentation_function fields.\n\nhttps://claude.ai/code/session_01T3QNq5AtpwvpU9u3sbq2KY",
+      "sha": "17b82ec",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/17b82ec076788b1f5e4491b38982024cab78ab99",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-12T02:03:03.000Z",
+      "author": "Claude",
+      "message": "feat(dataset): add RasterPatchDataset with systematic sliding-window indexing\n\nIntroduces RasterPatchDataset, a new torch.utils.data.Dataset that scans\nimage/mask directory pairs recursively and exposes every patch_size×patch_size\nwindow (with configurable stride) as an independent dataset item. Global index\nto (image, row, col) mapping runs in O(log N) via bisect over cumulative patch\ncounts; rasterio windowed read ensures full images never enter RAM.\n\nChanges:\n- dataset_loader/raster_patch_dataset.py: new class with augmentation,\n  selected_bands, image_dtype, and mask_extension support\n- dataset_loader/__init__.py: export RasterPatchDataset at package level\n- config_definitions/dataset_config.py: add RasterPatchDatasetConfig dataclass\n- conf/examples/raster_patch_segmentation.yaml: full training config example\n- tests/test_raster_patch_dataset.py: 16 unit tests covering patch arithmetic,\n  bisect mapping, dtypes, warnings, DataLoader integration, and Hydra instantiation\n- tests/test_configs/raster_patch_dataset.yaml: minimal Hydra test config\n- website/docs/user-guide/dataset-raster-patch.md: new user guide page\n- website/docs/api/dataset.md: add RasterPatchDataset to class hierarchy and\n  API reference; add RandomCropSegmentationDataset to hierarchy diagram\n\nhttps://claude.ai/code/session_01T3QNq5AtpwvpU9u3sbq2KY",
+      "sha": "d4f78c0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d4f78c07e34490f24f46b3ef22fd1b7aba61389b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-04-11T23:39:18.000Z",
+      "author": "Maj Diniz",
+      "message": "sap",
+      "sha": "795cd89",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/795cd89e64e2dadb11d87fbcb1b3565cdd3ae1ad",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-04-11T22:56:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "2ba4ec7",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/2ba4ec7a76bac06bdf189ee02f83314a07157d3a",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-04-11T22:56:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "2a4cf2e",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/2a4cf2eb76e11849bc345bd2a9879194ee7d2f94",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-04-11T22:28:31.000Z",
+      "author": "Maj Diniz",
+      "message": "melhora carta orto",
+      "sha": "d0bf108",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/d0bf10846fc302ec950b3db6ab64ec9d04397338",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-11T21:40:48.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #195 from dsgoficial/claude/add-validation-dataset-lbiRa\n\nAdd test_dataset support and fix validation dataset bugs",
+      "sha": "8f27415",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8f27415b327d2451036442759d64c313d503d035",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-11T21:38:28.000Z",
+      "author": "Claude",
+      "message": "docs(website): document test_dataset support across user-guide and API reference\n\n- training-segmentation.md: added test_dataset to Config Sections table;\n  added test_dataset block to Complete Config Example; added new \"Dataset\n  Splits\" section explaining the three-way split lifecycle and when to use\n  each; expanded Logged Metrics table with loss/test and test/* entries.\n- dataset-segmentation.md: updated Full YAML Configuration Example from\n  train/val to train/val/test with explanatory comment; renamed file title\n  comment to train_val_test.yaml.\n- api/model.md: added test_step and test_dataloader to Model Key Methods\n  table; updated val_dataloader return type to Optional[DataLoader]; updated\n  Configuration Keys table marking val_dataset as optional and documenting\n  test_dataset; updated metrics description to include test/ prefix;\n  added test_step to FrameFieldSegmentationPLModel Key Methods table.\n\nhttps://claude.ai/code/session_017ZEbaGv6RUYDfxogE1LWqh",
+      "sha": "2179d0f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2179d0fd2b6f5b776a09f6023dc938ecac82700f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-04-11T21:37:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "60baf81",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/60baf8104bd0acc40f5be4c23bed3fda1cff310a",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-04-11T21:37:09.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "03c3a2f",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/03c3a2fbd688e7f43621199d94ac4de4619c5d39",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-11T21:31:39.000Z",
+      "author": "Claude",
+      "message": "Add test_dataset support and fix validation dataset bugs\n\n- Added test_ds, test_dataloader(), test_step() and test_metrics (prefix\n  \"test/\") to Model; trainer.test() is now called automatically in train.py\n  after trainer.fit() when test_dataset is present in the config.\n- Added test_step() to FrameFieldSegmentationPLModel (logs loss/test,\n  losses/test_*, iou/test_*); removed orphan set_test_dataset() method.\n- Fixed bug: gpu_val_transform and gpu_train_transform were accessed via\n  cfg.val_dataset / cfg.train_dataset without checking key existence,\n  causing AttributeError when those sections were omitted from config.\n- Fixed val_dataloader() and added test_dataloader() to return None\n  gracefully when the corresponding dataset is not configured.\n- Added test_dataset field to TrainConfig dataclass.\n- Added test_dataset block to all six example YAML configs.\n- Tests: updated test_model_training_step.py and test_train.py; added\n  test_model_test_dataset.py (22 cases) and experiment_with_test.yaml;\n  added test_step cases to test_frame_field_model.py.\n- Docs: updated CHANGELOG.md, README.md, and copilot-instructions.md.\n\nhttps://claude.ai/code/session_017ZEbaGv6RUYDfxogE1LWqh",
+      "sha": "f094214",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f094214db161ef555c180da70729739c1d39ba87",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-04-11T21:24:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "7a06407",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/7a06407596859fd68373581498266c4e4d219e1b",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-04-11T21:24:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "ed1ac72",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/ed1ac720fc0c371754346966261260151f9bca21",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-11T21:00:34.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #194 from dsgoficial/claude/add-segmentation-dataset-class-wImfZ\n\nAdiciona SegmentationDatasetFromFolder para leitura recursiva de pastas",
+      "sha": "dda732d",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/dda732d59f68e659d5838267ff0410a13654e8f1",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-11T20:57:30.000Z",
+      "author": "Claude",
+      "message": "Documenta SegmentationDatasetFromFolder na API reference, user guide e CHANGELOG\n\n- website/docs/api/dataset.md:\n  * Atualiza hierarquia de classes para incluir SegmentationDatasetFromFolder\n  * Adiciona parâmetro df na tabela de SegmentationDataset (agora opcional)\n  * Nova seção completa para SegmentationDatasetFromFolder com parâmetros,\n    atributos, exceções, métodos estáticos e tabela de retorno de __getitem__\n\n- website/docs/user-guide/dataset-segmentation.md:\n  * Nova seção \"Folder-Based Dataset (No CSV Required)\" com regras de matching,\n    exemplo de estrutura de pastas, uso em Python, extensões diferentes,\n    suporte multiespectral, pipeline de augmentação, tratamento de erros e\n    tabela comparativa entre as três classes de segmentação\n\n- CHANGELOG.md:\n  * Registra a nova classe e a modificação retrocompatível de SegmentationDataset\n\nhttps://claude.ai/code/session_011WsZYDeiuGT8LGoGnV2GtB",
+      "sha": "7afae62",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7afae6288d18814f835a795833e3dba6da93c68f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-04-11T20:43:02.000Z",
+      "author": "Maj Diniz",
+      "message": "mais regras",
+      "sha": "172c05b",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/172c05b95365aeb09f964c1c1a909aa8a2943aa2",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-11T20:35:24.000Z",
+      "author": "Claude",
+      "message": "Adiciona SegmentationDatasetFromFolder para leitura recursiva de pastas\n\n- Adiciona parâmetro `df` opcional ao `SegmentationDataset.__init__`,\n  repassando-o ao `AbstractDataset` (que já suportava o parâmetro). Mantém\n  retrocompatibilidade total, pois `input_csv_path` e `df` são mutuamente\n  exclusivos.\n\n- Implementa `SegmentationDatasetFromFolder(SegmentationDataset)`:\n  * Recebe `image_folder`, `mask_folder` e `image_extension` (padrão `.tif`).\n  * Aceita `mask_extension` separado (útil quando imagem e máscara têm extensões\n    diferentes).\n  * Escaneia recursivamente com `Path.rglob()` e faz matching por\n    (subpasta_relativa, stem), garantindo que somente pares com mesma subpasta\n    e mesmo nome de arquivo sejam incluídos.\n  * Reutiliza integralmente `__getitem__`, `load_image`,\n    `_load_image_with_rasterio`, pipeline de augmentação e demais métodos de\n    `SegmentationDataset` / `AbstractDataset`.\n\n- Adiciona dados de teste em `tests/testing_data/data/folder_dataset/` com\n  estrutura de duas subpastas, incluindo arquivos órfãos (sem correspondente)\n  para validar que o matching os exclui corretamente.\n\n- Adiciona classe `Test_SegmentationDatasetFromFolder` com 9 testes unitários\n  cobrindo: criação, comprimento, shapes/dtypes dos tensors, exclusão de\n  órfãos, matching por subpasta+nome, extensão diferente para máscara,\n  ValueError em pastas sem par, ordenação reprodutível e atributos armazenados.\n\nhttps://claude.ai/code/session_011WsZYDeiuGT8LGoGnV2GtB",
+      "sha": "86e0bb9",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/86e0bb94024fdeceaa1f41351187f420ae003a37",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "1cgeo/doc_topografica",
       "date": "2026-04-11T16:27:25.000Z",
