@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-15T11:03:37.913Z",
+  "lastUpdate": "2026-04-15T16:08:50.065Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-12T12:54:58.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-15T15:27:43.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-09T10:02:30.000Z"
   },
   "stats": {
-    "totalCommits": 3610,
+    "totalCommits": 3615,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,56 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 110,
+      "dsgoficial/pytorch_segmentation_models_trainer": 115,
       "1cgeo/geoswarm": 43
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-15T15:27:43.000Z",
+      "author": "Cap Borba",
+      "message": "atualiza documentação",
+      "sha": "1ef0326",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1ef0326f2f3a7006fe2f0ec4f4e4dc6427d5aaac",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-15T15:16:32.000Z",
+      "author": "Cap Borba",
+      "message": "Unify TTA interfaces: add tta_mode to SingleImageInfereceProcessor and test_step\n\n- predict_config.py: add tta_mode, tile_weight, confidence_mode,\n  striped_threshold_pixels, stripe_height, output_probs_dir fields to\n  InferenceProcessorConfig; add tta_mode to PredictSingleImageConfig;\n  update docstrings to document both TTA interfaces side-by-side\n- inference_processors.py: SingleImageInfereceProcessor now accepts\n  tta_mode=\"d4\"|\"flip\" as a convenience alias that sets use_tta=True\n  and selects the matching tta_augmentations preset; class-level\n  _TTA_MODE_AUGMENTATIONS constant maps mode names to aug lists\n- model.py: _get_tta_augmentations() checks cfg.tta_mode first (d4/flip\n  presets), then falls back to cfg.use_tta + cfg.tta_augmentations;\n  test_step automatically benefits without any further changes\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "1aa4945",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1aa4945a15c72aa3cca1019a1f63f5ce9de5e538",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-15T15:04:38.000Z",
+      "author": "Cap Borba",
+      "message": "Merge branch 'RandomCropSegmentationDataset' into main\n\nIntegrates the RandomCropSegmentationDataset branch while preserving all\nfeatures from main (domain adaptation, LoRA fine-tuning, HuggingFace/TIMM/\nTerratorch model support, TTA module, RasterPatchDataset, test_step).\n\nKey additions from branch:\n- RandomCropSegmentationDataset: on-the-fly random crops with LRU cache,\n  class-balanced sampling, ClassMix/CutMix, soft labels, grid mode\n- EMACallback: exponential moving average for model weights\n- MixStyleCallback: feature-level domain augmentation\n- MoE models: upernet_moe, upernet_medoe, moe_layers\n- Dual-head model: upernet_dual_head\n- _shared_step refactor: unified train/val step with soft labels, dual-head,\n  MoE, MEDoE diagnostics, per-class IoU monitoring\n- MultiClassInferenceProcessor: embedded TTA (tta_mode d4/flip), striped\n  inference for large images, confidence maps, probability output\n- predict_from_batch: inference_processor mode with CSV-based image list\n- configure_optimizers: LR warmup via LinearLR + SequentialLR\n- New loss functions: WeightedLovaszSCELoss, WeightedJMLSCELoss and others\n- ignore_index=255 support in CrossEntropyLoss and image callbacks\n\nConflict resolution strategy:\n- Branch decisions preferred for config interfaces and training loop\n- Main features (test_step with TTA, LoRA merging, strict=False loading)\n  reintroduced where branch had removed them\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "8988665",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8988665ba460a162f0aadd02d84c3c427007c752",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-15T11:10:00.000Z",
+      "author": "Cap Borba",
+      "message": "changelog update",
+      "sha": "1c1c69a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1c1c69ac4c1d53c41acd32f8052ff8c528d4ed3a",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-15T11:05:18.000Z",
+      "author": "Cap Borba",
+      "message": "adds the initial structure for domain adaptation",
+      "sha": "a4079e4",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a4079e4417079e05d9fd38d7fea3e2eef5be5839",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/EBGeo",
       "date": "2026-04-14T13:47:15.000Z",
