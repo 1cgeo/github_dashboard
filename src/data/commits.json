@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-17T16:04:40.064Z",
+  "lastUpdate": "2026-04-17T20:52:17.618Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,8 +19,8 @@
     "dsgoficial/configuracoes_producao": "2026-03-05T14:13:33.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-04-12T21:51:07.000Z",
-    "dsgoficial/sap": "2026-03-21T20:52:48.000Z",
-    "dsgoficial/SAP_Gerente": "2026-02-26T23:51:22.000Z",
+    "dsgoficial/sap": "2026-04-13T00:39:12.000Z",
+    "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-03-21T20:52:05.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-16T23:14:20.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-17T20:32:46.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-09T10:02:30.000Z"
   },
   "stats": {
-    "totalCommits": 3623,
+    "totalCommits": 3629,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -68,8 +68,8 @@
       "dsgoficial/configuracoes_producao": 200,
       "dsgoficial/ferramentas_edicao": 366,
       "dsgoficial/DsgTools": 606,
-      "dsgoficial/sap": 122,
-      "dsgoficial/SAP_Gerente": 70,
+      "dsgoficial/sap": 123,
+      "dsgoficial/SAP_Gerente": 74,
       "dsgoficial/SAP_Operador": 50,
       "dsgoficial/EBGeo": 72,
       "1cgeo/prototipo_busca_llm": 26,
@@ -85,11 +85,20 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 122,
+      "dsgoficial/pytorch_segmentation_models_trainer": 123,
       "1cgeo/geoswarm": 43
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-17T20:32:46.000Z",
+      "author": "Cap Borba",
+      "message": "atualiza changelog",
+      "sha": "3ddfa59",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/3ddfa59da91e3ee0f43701cbaf1666089dc5d2e4",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-04-16T23:14:20.000Z",
@@ -242,6 +251,24 @@
       "sha": "9a5a409",
       "htmlUrl": "https://github.com/dsgoficial/EBGeo/commit/9a5a40998e521af53f8de4256788b3dd05613613",
       "repoUrl": "https://github.com/dsgoficial/EBGeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-04-13T00:39:12.000Z",
+      "author": "1º Ten Marcel",
+      "message": "organização de rotas para gerenciamento de insumos no SAP Gerente",
+      "sha": "a03ce3e",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/a03ce3ee53c546ef9fb01d9aaa7a60485498984d",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-04-13T00:36:26.000Z",
+      "author": "1º Ten Marcel",
+      "message": "modificações para gerenciamento de insumos",
+      "sha": "358aad5",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/358aad5fe9920db153875037954f46c64c9cd12f",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
     },
     {
       "repo": "dsgoficial/DsgTools",
@@ -892,6 +919,15 @@
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-03-24T20:54:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "1740bc2",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/1740bc2314e0e3dc623fe9705d1c202c5511d242",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-03-24T20:25:58.000Z",
       "author": "Maj Diniz",
@@ -962,6 +998,15 @@
       "sha": "700dba5",
       "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/700dba52d42e1f3b8d29f7dbad34b6e9410379a3",
       "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-03-21T20:25:19.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "5ad9805",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/5ad980555cadb11058cfaabe17b93c21a6f355b2",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
     },
     {
       "repo": "dsgoficial/DsgTools",
@@ -1583,6 +1628,15 @@
       "sha": "2753404",
       "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/2753404f91fe8e4a1529e6124869f80fb954b181",
       "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-03-10T09:44:48.000Z",
+      "author": "Maj Diniz",
+      "message": "qgis4",
+      "sha": "90a5855",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/90a58553142595ba799fbb3f8658b1ff1ad0548d",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
     },
     {
       "repo": "dsgoficial/DsgTools",
