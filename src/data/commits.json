@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-23T20:57:39.780Z",
+  "lastUpdate": "2026-04-24T11:09:32.508Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-17T20:32:46.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-24T10:40:41.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3633,
+    "totalCommits": 3637,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,47 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 123,
+      "dsgoficial/pytorch_segmentation_models_trainer": 127,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-24T10:40:41.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #200 from dsgoficial/claude/add-training-seed-parameter-2d8GN\n\nAdd optional training seed parameter for full reproducibility",
+      "sha": "afa99a5",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/afa99a5667e769478f59d8d352864b7591a7e858",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-24T10:33:43.000Z",
+      "author": "Claude",
+      "message": "Add optional training seed parameter for full reproducibility\n\nIntroduces `seed` (and `deterministic_cudnn`) as optional top-level YAML\nfields. When set, all sources of randomness — PyTorch, NumPy, Python\nrandom, CUDA, PYTHONHASHSEED, and DataLoader shuffle samplers — are seeded\nbefore model or dataset creation, making runs byte-identical across\nrestarts with the same config and hardware.\n\nhttps://claude.ai/code/session_01SSDoBzbwVEiMepQcb9WwBT",
+      "sha": "b100804",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b10080432041f8dbbe3dc215c2d1acd05a28ffb8",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-24T01:09:31.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #199 from dsgoficial/claude/plan-dropout-test-time-iq22k\n\nAdd MC Dropout at test-time uncertainty estimation",
+      "sha": "1cdd406",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1cdd4069028228b4e762807ddc0e26a1857dde34",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-24T01:06:52.000Z",
+      "author": "Claude",
+      "message": "Add MC Dropout at test-time uncertainty estimation\n\nImplements Monte Carlo Dropout inference without any training loop changes.\nTraining remains completely standard; only inference is affected.\n\nKey additions:\n- mc_dropout_utils.py: enable_mc_dropout(), warn_if_no_dropout(),\n  compute_uncertainty() supporting \"entropy\" and \"mutual_information\" modes\n- MCDropoutInferenceProcessor: runs n_samples stochastic forward passes per\n  tile; exports optional float32 uncertainty GeoTIFF (_mc_uncertainty.tif)\n  only when export_uncertainty_map=True to avoid wasted computation\n- MultiClassInferenceProcessor: TTA uncertainty support via new\n  export_uncertainty_map / uncertainty_mode / output_uncertainty_dir params;\n  computes uncertainty from TTA samples only when both TTA and the flag are on\n- MCDropoutInferenceProcessorConfig: Hydra dataclass registered in ConfigStore\n- conf/examples/mc_dropout_inference.yaml: reference YAML with inline docs\n- tests/test_mc_dropout.py: 30+ unit and integration tests\n- website/docs/advanced/mc-dropout.md: full user documentation\n\nhttps://claude.ai/code/session_01ECaQa9rrvhQuHh8QfBCfZ3",
+      "sha": "23dcc6e",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/23dcc6ec5645d8e0ed6a8a0a652548c452e99704",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "1cgeo/doc_dgeo",
       "date": "2026-04-23T14:58:21.000Z",
