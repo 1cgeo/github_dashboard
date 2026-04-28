@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-27T21:07:38.904Z",
+  "lastUpdate": "2026-04-28T11:49:28.995Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-24T10:40:41.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-04-28T02:58:28.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3642,
+    "totalCommits": 3651,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,92 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 127,
+      "dsgoficial/pytorch_segmentation_models_trainer": 136,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-28T02:58:28.000Z",
+      "author": "Cap Borba",
+      "message": "gh actions update",
+      "sha": "9ad0335",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/9ad033507219bf9f76cb1f2e99c21c162ff35cd9",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-28T02:49:25.000Z",
+      "author": "Cap Borba",
+      "message": "make tests faster with parallel processing",
+      "sha": "ff38793",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/ff387930a1a90ab459c117f35f3ef760b8db5d59",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-28T02:28:24.000Z",
+      "author": "Cap Borba",
+      "message": "fix tests",
+      "sha": "bde3d07",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/bde3d07ff0650d5465cf5a51e88be5d39c362a7f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-28T01:28:08.000Z",
+      "author": "Cap Borba",
+      "message": "test fix",
+      "sha": "0a2715b",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/0a2715b96b2434012cec35e0690bebad3357d583",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-28T01:19:21.000Z",
+      "author": "Cap Borba",
+      "message": "flake fix",
+      "sha": "42e94af",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/42e94af71df20083fedbb2c84d21fae9fe804d3a",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-28T01:07:25.000Z",
+      "author": "Cap Borba",
+      "message": "corrige testes",
+      "sha": "314a179",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/314a1796970149b657b1c0e539bb4a204f4da3ae",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-27T20:57:53.000Z",
+      "author": "Cap Borba",
+      "message": "update changelog",
+      "sha": "91ef126",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/91ef126d30744d238c7f8817dfadaea1a78d040b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-27T20:57:08.000Z",
+      "author": "Cap Borba",
+      "message": "update docs",
+      "sha": "3ec1789",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/3ec17892dc68fc265622ee5907aff5cb12d028e4",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-04-27T20:51:28.000Z",
+      "author": "Cap Borba",
+      "message": "corrige testes e migra para uv",
+      "sha": "266cf1c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/266cf1c28828e9fd9c2466926f90a8f09c807fce",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-04-27T18:39:01.000Z",
