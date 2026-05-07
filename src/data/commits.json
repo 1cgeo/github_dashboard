@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-07T11:51:16.445Z",
+  "lastUpdate": "2026-05-07T16:54:42.665Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-07T04:57:34.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-07T16:49:10.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3691,
+    "totalCommits": 3697,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,65 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 176,
+      "dsgoficial/pytorch_segmentation_models_trainer": 182,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-07T16:49:10.000Z",
+      "author": "Cap Borba",
+      "message": "fix test",
+      "sha": "eca5cad",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/eca5cad3741c20b3541aae016424446e49abeb8c",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-07T16:13:20.000Z",
+      "author": "Cap Borba",
+      "message": "fix doc build",
+      "sha": "7d54251",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7d542512adb8b28bcd8826a1ca3d6022b384b2b6",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-07T15:47:16.000Z",
+      "author": "Cap Borba",
+      "message": "corrige build quebrada da documentação",
+      "sha": "e86f03a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e86f03a942e4254bb40cf963a1081b17d6fea495",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-07T15:43:56.000Z",
+      "author": "Cap Borba",
+      "message": "Merge pull request #213 from dsgoficial/claude/add-experiments-runner-drreW\n\nAdd ExperimentsRunner for successive training runs with different seeds",
+      "sha": "5e87385",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5e8738568d980110b906329ea9a8ccafd31d52ff",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-07T13:47:42.000Z",
+      "author": "Claude",
+      "message": "Add resume support, seed in directory names, and logger identity injection\n\n- Renames per-run output dirs from run_XX to run_XX_seedYYY so the seed\n  is visible directly in the filesystem without consulting summary.csv.\n- Writes runner_state.json after every completed run; resume: true skips\n  already-done runs on restart and reuses seeds from the state file so\n  auto-generated seeds are stable across interruptions.\n- Injects run identity (run_XX_seedYYY) into the configured logger:\n  sets version for TensorBoard/CSV loggers, appends to name for WandB.\n- summary.csv is now updated incrementally after each run instead of\n  only at the end of the full sequence.\n- Adds 13 new tests (51 total) covering logger injection, state file\n  persistence, resume skip logic, and seed stability across restarts.\n\nhttps://claude.ai/code/session_0127XwKyzzR1xYUVaW2pF5ri",
+      "sha": "924c24e",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/924c24e3d7e7dab15873e403e2f2f7d06031e93e",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-07T13:19:46.000Z",
+      "author": "Claude",
+      "message": "Add ExperimentsRunner for successive training runs with different seeds\n\nIntroduces a new `run-experiments` mode that trains the same experiment\nmultiple times in series, each with an isolated seed and output directory,\nand aggregates timing + metrics into a summary.csv.\n\nDeveloped with TDD: 38 tests written before implementation, covering\nvalidation, seed resolution, config mutation, metric collection, CSV\noutput, and the full run() integration with mocked trainer.\n\nhttps://claude.ai/code/session_0127XwKyzzR1xYUVaW2pF5ri",
+      "sha": "790d585",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/790d585bcb75b3df7500afd2e0baae5268bb4c8e",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-05-07T04:57:34.000Z",
