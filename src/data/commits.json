@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-13T21:28:19.699Z",
+  "lastUpdate": "2026-05-14T11:56:01.122Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-13T20:25:18.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-14T11:50:25.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3744,
+    "totalCommits": 3762,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,173 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 229,
+      "dsgoficial/pytorch_segmentation_models_trainer": 247,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T11:50:25.000Z",
+      "author": "Cap Borba",
+      "message": "improves reproducibility",
+      "sha": "157a609",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/157a6093c56b27b3142cfc156a6f71d8cd7ef45c",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T11:41:19.000Z",
+      "author": "Cap Borba",
+      "message": "fix tool",
+      "sha": "702ad54",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/702ad54ed9c024463f351d48c404401dda5e2b0d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T05:25:49.000Z",
+      "author": "Cap Borba",
+      "message": "loss scale strategies",
+      "sha": "dd4c252",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/dd4c2529dcf4c73176d0219a61662c5397e5c622",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:45:12.000Z",
+      "author": "Cap Borba",
+      "message": "Merge remote-tracking branch 'refs/remotes/origin/main'",
+      "sha": "fedcf31",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/fedcf31f78da264e25043abe954197ceb0b66a51",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:44:56.000Z",
+      "author": "Cap Borba",
+      "message": "kl annealing",
+      "sha": "4a5ccde",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/4a5ccde7843af5bf8d231882c9a4ce8ea795e6e0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:40:52.000Z",
+      "author": "Cap Borba",
+      "message": "test fix",
+      "sha": "d34bd26",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d34bd26a273ac5d9a367f5c5529c52806652fe96",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:38:30.000Z",
+      "author": "Cap Borba",
+      "message": "Add iterable windowed datasets for worker-sharded raster reads",
+      "sha": "9894022",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/9894022e8db031818d1fa24a42f3823a6ff3fae2",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:18:29.000Z",
+      "author": "Cap Borba",
+      "message": "Merge remote-tracking branch 'refs/remotes/origin/main'",
+      "sha": "a82b2df",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a82b2df039f4022cfc38acbb8e6891b6d03e278e",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:18:20.000Z",
+      "author": "Cap Borba",
+      "message": "image callback fix",
+      "sha": "0e5b8ba",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/0e5b8ba9b1d2ee33f36fa5af68211aabb33dbff3",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T04:00:08.000Z",
+      "author": "Cap Borba",
+      "message": "another fix attempt",
+      "sha": "d098454",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d0984542b86ea609ed977c4c796311eb3e2b5048",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T03:51:42.000Z",
+      "author": "Cap Borba",
+      "message": "Merge branch 'main' of https://github.com/dsgoficial/pytorch_segmentation_models_trainer",
+      "sha": "fb2800f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/fb2800ff8b83e73001caf872204fa3bdbaebd5e6",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T03:51:29.000Z",
+      "author": "Cap Borba",
+      "message": "rasterio locks",
+      "sha": "664f3d8",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/664f3d8209f949b37d4c3d58cf3d0940336186a5",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T03:23:40.000Z",
+      "author": "Cap Borba",
+      "message": "metric fix and activation fix on autoencoder",
+      "sha": "924f99f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/924f99ffa9c80365285dba96ed7c92b38268b44f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T02:09:56.000Z",
+      "author": "Cap Borba",
+      "message": "Merge remote-tracking branch 'refs/remotes/origin/main'",
+      "sha": "0ec04eb",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/0ec04ebc30fc8a722fe55b9b95b2800decfc352d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T02:09:26.000Z",
+      "author": "Cap Borba",
+      "message": "compute stats",
+      "sha": "f9b0352",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f9b03522c576ce135f7ff1db7a79f96637d0f1dd",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T01:34:48.000Z",
+      "author": "Cap Borba",
+      "message": "• Add verified window index cache for windowed autoencoder datasets\n\n  - add verify_windows and window_index_cache support to windowed image datasets\n  - persist validated window coordinates and invalidate stale caches by config/file metadata\n  - add Hydra config, docs, example YAML, changelog entry, and focused tests\n  - fix RasterPatchDataset undefined logger lint error",
+      "sha": "386ce2b",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/386ce2b3545ba738bb1eeecf9c3b97cd70eb482d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T00:55:57.000Z",
+      "author": "Cap Borba",
+      "message": "Merge remote-tracking branch 'refs/remotes/origin/main'",
+      "sha": "bd6d81c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/bd6d81c746276419556fb57a21e36211a5af3f6a",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-14T00:55:29.000Z",
+      "author": "Cap Borba",
+      "message": "incorrect keys fixed",
+      "sha": "cf4d4df",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/cf4d4dfd8f1293253756c5f36a5c178a2795502d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-05-13T20:25:18.000Z",
