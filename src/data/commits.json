@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-20T21:59:44.562Z",
+  "lastUpdate": "2026-05-21T12:47:02.562Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-20T21:04:28.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-21T01:16:54.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3799,
+    "totalCommits": 3805,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,65 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 280,
+      "dsgoficial/pytorch_segmentation_models_trainer": 286,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-21T01:16:54.000Z",
+      "author": "Cap Borba",
+      "message": "fix: restore gpu-ml extras with uv stubs and --frozen CI sync\n\nKeep [gpu-ml] optional extras so users can install GPU packages with\n`pip install pkg[gpu-ml]`. CI stays CPU-only: gpu-ml packages are fully\nmocked in tests and are not installed on runners.\n\nThree changes prevent uv from trying to build incompatible GPU packages:\n- `constraint-dependencies` pins each package to a version with pre-built\n  wheels (cuml-cu12==26.4.0, cupy-cuda12x==14.0.1) or a known stub\n  (pydensecrf==1.0rc3, pygco==0.0.1, cucim-cu12==26.4.0)\n- `[[tool.uv.dependency-metadata]]` provides fake dist-info for the three\n  source-only sdists (cucim-cu12, pydensecrf, pygco) so uv skips building them\n- `--frozen` on every `uv sync` in CI forces uv to use uv.lock as-is without\n  re-resolving optional extras not present in the lock\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "2827a0a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2827a0a46f594f4c73d77dda5a14e045efd3e670",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-21T00:53:02.000Z",
+      "author": "Cap Borba",
+      "message": "fix: remove gpu-ml optional extras to permanently fix CI lock inconsistency\n\nAll packages in the gpu-ml group (cupy-cuda12x, cucim-cu12, cuml-cu12,\npydensecrf, pygco) were added in 9fbf51a without updating uv.lock. On\nevery uv sync the resolver detects the inconsistency and tries to build\nthem from source, which fails on CPU runners: CUDA packages require\npypi.nvidia.com and pydensecrf is incompatible with Cython 3.\n\nSince all gpu-ml packages are fully mocked in the test suite, removing\nthe extras section restores lock consistency without affecting CI\ncorrectness. Users needing these packages should install them manually\nwith --extra-index-url https://pypi.nvidia.com.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "be30bd3",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/be30bd39807c3c3e335d5a0fe6e5c8d4c6f6070f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-21T00:48:56.000Z",
+      "author": "Cap Borba",
+      "message": "fix: move example configs from root conf/ into package conf/examples/\n\nclassic_ml_random_forest.yaml, kfold_segmentation.yaml,\niterable_windowed_image_autoencoder.yaml, and windowed_image_autoencoder.yaml\nwere placed in the project root conf/examples/ instead of\npytorch_segmentation_models_trainer/conf/examples/ where all Hydra\nexample configs should live.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "d1af68c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d1af68cf1f61986e135c56a9e3d59f6689abb5f0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-21T00:47:47.000Z",
+      "author": "Cap Borba",
+      "message": "fix: remove pydensecrf and pygco from gpu-ml extras to fix CI\n\nBoth packages were added to the gpu-ml optional extras in 9fbf51a without\nupdating uv.lock. On every `uv sync`, uv detected the lock inconsistency\nand tried to compile pydensecrf==1.0rc3 from source, which fails with\nCython 3. Since both packages are fully mocked in the test suite and\nrequire CUDA environments to be useful, they are removed from pyproject.toml.\nUsers who need them can install manually.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "2396b40",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2396b400aaeb39a4933e453a7f847cf22e78b277",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-21T00:37:32.000Z",
+      "author": "Cap Borba",
+      "message": "ci: fix pydensecrf build failure by excluding gpu-ml extras on CPU runners\n\nReplace `uv sync --all-extras` with `uv sync --extra all` in the `build`\nand `test-transformers` CI jobs. `--all-extras` was pulling in the `gpu-ml`\noptional group which includes `pydensecrf==1.0rc3`; that package fails to\ncompile with Cython 3 on GitHub-hosted (CPU-only) runners.\n\nThe `gpu-ml` extras require CUDA and are already properly excluded in the\n`test-gpu-ml` job via mocks — this change brings the other jobs in line.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "ab9e1b2",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/ab9e1b22db31b4fe9c18b7657508be3f8952b06a",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-21T00:24:39.000Z",
+      "author": "Cap Borba",
+      "message": "web: Experiments Runner page, new losses, Vitest test suite\n\n- Add ExperimentsRunnerSection + ExperimentsRunnerPage (mode: run-experiments)\n  and wire it as the third tab in App.jsx\n- Expose 5 new segmentation losses in LossSection with full param panels\n  (WeightedDiceSCELoss, WeightedLovaszSCELoss, WeightedJMLSCELoss,\n  WeightedJMLSCEGCBLLoss); fix label/htmlFor accessibility throughout\n- Add Hydra dataclass configs for the 5 new losses in loss_config_definition.py\n  registered in ConfigStore; 17 new Python tests covering defaults and roundtrip\n- Set up Vitest 3 + React Testing Library: 56 frontend tests across LossSection,\n  ExperimentsRunnerSection, ExperimentsRunnerPage and App tab navigation\n- Add .github/workflows/web-tests.yml (Node 20, path-filtered to web/**)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "de3eb58",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/de3eb58f9678b54f8ab9a495f527960df880f5c8",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-05-20T21:04:28.000Z",
