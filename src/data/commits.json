@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-28T21:58:52.260Z",
+  "lastUpdate": "2026-05-29T12:49:15.863Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-04-24T18:26:32.000Z",
     "dsgoficial/configuracoes_producao": "2026-03-05T14:13:33.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-04-27T18:39:01.000Z",
+    "dsgoficial/DsgTools@dev": "2026-05-28T23:13:51.000Z",
     "dsgoficial/sap": "2026-04-13T00:39:12.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3830,
+    "totalCommits": 3831,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -67,7 +67,7 @@
       "dsgoficial/modelagens": 109,
       "dsgoficial/configuracoes_producao": 200,
       "dsgoficial/ferramentas_edicao": 366,
-      "dsgoficial/DsgTools": 610,
+      "dsgoficial/DsgTools": 611,
       "dsgoficial/sap": 123,
       "dsgoficial/SAP_Gerente": 74,
       "dsgoficial/SAP_Operador": 51,
@@ -90,6 +90,15 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-05-28T23:13:51.000Z",
+      "author": "Cap Borba",
+      "message": "Versão 5.1.2: add OptimalTileBBoxAlgorithm to GeometricAlgs\n\n  Decomposes a tile polygon layer into optimized bounding boxes using\n  coordinate compression, BFS connected-component detection (4-connectivity),\n  horizontal-strip decomposition, and greedy merging with a configurable\n  coverage threshold. Parallel processing via ThreadPoolExecutor.\n\n  - new file: optimalTileBBoxAlgorithm.py\n  - registered in DSGToolsProcessingAlgorithmProvider\n  - PT-BR translations added to DsgTools_pt.ts",
+      "sha": "4888961",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/48889612fd1d348fcbf6cf1e62198c33478530b6",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
     {
       "repo": "1cgeo/doc_dgeo",
       "date": "2026-05-28T19:34:54.000Z",
