@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-29T12:49:15.863Z",
+  "lastUpdate": "2026-05-29T18:14:13.962Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-28T01:41:09.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-29T14:01:12.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3831,
+    "totalCommits": 3834,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,38 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 300,
+      "dsgoficial/pytorch_segmentation_models_trainer": 303,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-29T14:01:12.000Z",
+      "author": "Cap Borba",
+      "message": "Merge worktree: dataset builder, raster tools, visualization\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "1935aaf",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1935aafe40bf8704e1bda6e31a9b55d2c5426953",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-29T14:00:34.000Z",
+      "author": "Cap Borba",
+      "message": "add dataset builder, raster tools, and segmentation visualization\n\nAdapts pit_ia_2025 routines into the framework as first-class CLI tools\naccessible via pytorch-smt-tools. All tools have 100% test coverage (57 tests).\n\nNew modules:\n- tools/dataset_builder/band_combiner.py: find_file_groups + combine_all\n  combine N VRTs/TIFFs across directories into multi-band GeoTIFFs\n- tools/dataset_builder/tile_dataset_builder.py: build_tile_dataset\n  tiles raster images and rasterizes GeoPackage polygons as masks\n- tools/dataset_builder/sliding_window_builder.py: build_sliding_window_dataset\n  crops existing image/mask CSV pairs into georeferenced patches\n- tools/raster/tiff_remap.py: remap_raster_folder\n  remaps pixel class values in all TIFFs in a directory tree\n- tools/raster/vrt2tif.py: convert_folder\n  converts VRTs (or any rasterio source) to compressed GeoTIFF\n- tools/visualization/segmentation_vis.py: colorize_mask, create_segmentation_grid\n  colorizes class masks and builds GT vs prediction comparison grids\n\nNew CLI commands (pytorch-smt-tools):\n  combine-bands, build-tile-dataset, build-sliding-window-dataset,\n  remap-mask-classes, convert-to-tiff, visualize-predictions\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "a75c185",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a75c1855339f8be5c23bcd5aa4e1302bfb397bd0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-29T13:56:17.000Z",
+      "author": "Cap Borba",
+      "message": "mbtiles crop",
+      "sha": "52cce4c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/52cce4caa1b904b4295b472a804cc805cfbe4598",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-05-28T23:13:51.000Z",
