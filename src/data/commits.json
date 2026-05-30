@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-05-29T21:54:50.768Z",
+  "lastUpdate": "2026-05-30T11:24:34.351Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-29T14:01:12.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-05-30T05:12:44.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-04-09T14:32:52.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3834,
+    "totalCommits": 3842,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,83 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 303,
+      "dsgoficial/pytorch_segmentation_models_trainer": 311,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T05:12:44.000Z",
+      "author": "Cap Borba",
+      "message": "uv lock update",
+      "sha": "a1f33f0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a1f33f0f7fa9523599843ef34d92c454fa1ded04",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T05:11:18.000Z",
+      "author": "Cap Borba",
+      "message": "remap just like dsgtools",
+      "sha": "fb53c82",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/fb53c82fb9d67439be905b1d6db918649246deb9",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T04:30:58.000Z",
+      "author": "Cap Borba",
+      "message": "feat: add GEE LULC downloader for MapBiomas, Dynamic World, and ESRI LULC\n\n  Adds pytorch_segmentation_models_trainer/tools/gee/gee_downloader.py with\n  support for downloading LULC rasters from Google Earth Engine for arbitrary\n  regions. Input accepts a bounding box or a vector file (GeoPackage/GeoJSON);\n  each polygon is downloaded in parallel and saved with a configurable name\n  attribute.\n\n  Three data sources are supported: MapBiomas (14 regional collections, Brazil\n  default), Dynamic World (modal label per calendar year), and ESRI LULC 10m.\n  Two download modes are available: direct (getDownloadURL, up to ~1°×1°) and\n  export-drive (Export.image.toDrive, for large regions). Downloads run via\n  ThreadPoolExecutor with configurable max_workers.\n\n  Authentication supports service account credentials (recommended for\n  server/CI, readable from GEE_SERVICE_ACCOUNT_EMAIL and\n  GEE_SERVICE_ACCOUNT_KEY_FILE env vars) and OAuth2 interactive flow as\n  fallback.\n\n  Exposed as pytorch-smt-tools download-gee-lulc CLI command. earthengine-api\n  added as optional extras group [gee]. A dedicated test-gee CI job installs\n  the extra and runs the 78-test suite (100% coverage, all GEE calls mocked).\n  The main CI job ignores test_gee_downloader.py via --ignore.",
+      "sha": "d7f5984",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d7f598411d69a38714ed72705515759f4502f890",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T03:42:30.000Z",
+      "author": "Cap Borba",
+      "message": "coverage fix",
+      "sha": "662887f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/662887f52259e1017eab09a236bcbcb9671b3ebc",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T02:58:51.000Z",
+      "author": "Cap Borba",
+      "message": "flake fix",
+      "sha": "cddb2af",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/cddb2af030f41cf9e1c1c78a615d7efb7c5abf83",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T02:56:13.000Z",
+      "author": "Cap Borba",
+      "message": "nodata fix",
+      "sha": "7088a8a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7088a8ada48c4f75ca39fba2fa6341f41e6aa6d4",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T02:19:39.000Z",
+      "author": "Cap Borba",
+      "message": "test fix",
+      "sha": "c98fcc8",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/c98fcc844057dac05f83903664cf5ea570917728",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-05-30T02:13:17.000Z",
+      "author": "Cap Borba",
+      "message": "new stuff and lint fix",
+      "sha": "f24276d",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f24276dcffc3ddeb18456c828d248592530e7f00",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-05-29T14:01:12.000Z",
