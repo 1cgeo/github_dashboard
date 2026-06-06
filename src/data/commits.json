@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-05T21:28:25.851Z",
+  "lastUpdate": "2026-06-06T11:38:01.974Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -7,7 +7,7 @@
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_ortoimagem": "2026-04-11T22:56:48.000Z",
+    "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-05-21T18:18:31.000Z",
     "1cgeo/doc_dgeo": "2026-06-05T11:55:18.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-04-24T18:26:32.000Z",
+    "dsgoficial/modelagens": "2026-06-05T22:04:01.000Z",
     "dsgoficial/configuracoes_producao": "2026-03-05T14:13:33.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-05-28T23:13:51.000Z",
@@ -38,11 +38,11 @@
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-02T16:35:12.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
-    "1cgeo/ebgeo_web@novo_360": "2026-06-03T17:09:44.000Z",
+    "1cgeo/ebgeo_web@novo_360": "2026-06-06T01:59:54.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3848,
+    "totalCommits": 3852,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -52,11 +52,11 @@
       "2025": 32
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 694,
+      "1cgeo/ebgeo_web": 695,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/ebgeo_web_2": 70,
       "1cgeo/ebgeo_web_2_backend": 44,
-      "1cgeo/doc_ortoimagem": 42,
+      "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
       "1cgeo/doc_dgeo": 478,
       "1cgeo/ferramentas_mgcp": 10,
@@ -64,7 +64,7 @@
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
       "1cgeo/ebgeo_web_2_admin": 22,
-      "dsgoficial/modelagens": 109,
+      "dsgoficial/modelagens": 111,
       "dsgoficial/configuracoes_producao": 200,
       "dsgoficial/ferramentas_edicao": 366,
       "dsgoficial/DsgTools": 611,
@@ -90,6 +90,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-06-06T10:18:10.000Z",
+      "author": "Maj Diniz",
+      "message": "300dpi",
+      "sha": "20a50b2",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/20a50b24e7011dcf2424896e075abe2805f07745",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-06T01:59:54.000Z",
+      "author": "Claude",
+      "message": "docs: expandir tutorial preenchendo lacunas e adicionar auditoria\n\nAudita o tutorial (public/docs/README.md) contra o codigo-fonte e preenche\nas funcionalidades nao documentadas:\n\n- Modulos prometidos e ausentes 6 (coordenadas/grade), 7 (Street View 360)\n  e 8 (mapeamento 3D Cesium).\n- Secoes militares vazias preenchidas: Seta, Linha de Limite, Frente Ocupada;\n  ampliadas Simbologia Militar e Medida de Coordenacao; adicionada Declinacao.\n- Ferramenta Setor, snapping, selecao avancada e seletor de base no Modulo 1.\n- Ferramentas de analise/medicao (LOS, Viewshed, distancia/area/angulo) e\n  Azimute & Distancia no Modulo 5.\n- Novos modulos 9 (Briefings) e 10 (processamento, menu de contexto, vetor\n  info, uso mobile).\n- Tabela completa de atalhos; CSV, Garmin KMZ, PDF avancado e tabela de\n  atributos na importacao/exportacao; referencia aos videos ja existentes.\n\nAdiciona docs/lacunas-tutorial.md com a analise de lacunas detalhada.",
+      "sha": "3d7afd8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3d7afd875504a71a480ce99359f62971f4b40caa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-06-05T22:04:01.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(conversor): corrige path relativo dos config_examples\n\nOs exemplos ficam em conversor/config_examples/, mas os mapping_file\napontavam para ../arquivos_mapeamento/ (um nivel), que nao resolve dali;\no correto e ../../arquivos_mapeamento/. Configs nao carregavam via\nload_config (a checagem de existencia do mapeamento falhava).\n\n- Corrige os 8 exemplos com mapping_file e os trechos do README.\n- Nota no README: mapping_file e relativo a pasta do config.\n- Teste de regressao test_all_example_configs_load: guarda o path correto\n  e carrega o subconjunto cujos mapeamentos existem (o exemplo multiescala\n  referencia mapeamento ausente no repo, fora de escopo).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "78ed635",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/78ed63599472b3b8f3c55817cc5243fda4095fcf",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-06-05T21:55:45.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(conversor): conversoes encadeadas via array `stages`\n\nPermite rodar varios mapeamentos em sequencia numa unica execucao,\nalimentando cada estagio em memoria, sem banco intermediario. So o\nestagio final escreve e honra batch_clip/segment_clip/reproject_to.\n\nCaso alvo: EDGV 3.0 Topo 1.4 -> EDGV 3.0 pura -> Shapefile por folha\nnum passo so (config_examples/postgis300topo14_shp300_batch_chained.json).\n\n- config.py: normaliza legado (mapping_file+direction) para stages de 1\n  item; valida direction/mapeamento por estagio; resolve paths por estagio.\n- main.py: run() vira laco de estagios; _build_quality_meta por estagio;\n  aviso quando um estagio converte 0 feicoes.\n- Retrocompatibilidade total: configs antigos seguem funcionando.\n- Testes (conversor/tests/test_chained.py, sem PostGIS): encadeado ==\n  dois passos manuais; legado == 1 estagio; validacoes; carga do exemplo.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "85ee497",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/85ee4978d5caa4d5e936bc2d31b2c35f0cc186d1",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "1cgeo/ferramentas_mgcp",
       "date": "2026-06-05T15:21:07.000Z",
