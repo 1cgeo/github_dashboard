@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-08T21:53:08.422Z",
+  "lastUpdate": "2026-06-09T12:42:01.230Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-08T15:41:39.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-09T05:03:54.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-06T01:59:54.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3857,
+    "totalCommits": 3862,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -85,11 +85,56 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 315,
+      "dsgoficial/pytorch_segmentation_models_trainer": 320,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-09T05:03:54.000Z",
+      "author": "Cap Borba",
+      "message": "fix",
+      "sha": "05bf903",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/05bf90385323621c6fd8fe7181e0a6c8fb8f2daa",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-09T05:03:06.000Z",
+      "author": "Cap Borba",
+      "message": "adding tutorial notebooks",
+      "sha": "a2531f6",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a2531f61b2793410fab8be5ad450682d812de7c7",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-09T04:44:05.000Z",
+      "author": "Cap Borba",
+      "message": "Add balanced dataset sampling pipeline with WeightedRandomSampler integration\n\n  Implements a two-signal patch weighting system to address class imbalance\n  in geospatial segmentation datasets:\n\n  - tools/sampling/: new package with mask_stats, class_freq_clustering (CLR+KMeans),\n    uniqueness (sklearn/faiss/hnsw backends), weight_calculator (6 strategies),\n    embedding_extractor (DINOv2, multi-worker DataLoader, parquet cache),\n    postgres_reader, sampling_config, and BalancedDatasetBuilder\n  - build-balanced-dataset CLI command; optional GeoJSON output for QGIS inspection\n  - Model.train_dataloader(): WeightedRandomSampler activated via\n    data_loader.weighted_sampler: true; reads sampler_weight column from dataset df\n  - HNSW backend (hnswlib) for O(N log N) kNN; sklearn backend now uses n_jobs=-1\n  - 108 new/updated tests; 100% coverage on all new modules\n  - Example configs: balanced_dataset_local.yaml, balanced_dataset_postgres.yaml,\n    weighted_sampler_segmentation.yaml\n  - Docs: website/docs/user-guide/balanced-dataset-sampling.md + link in\n    training-segmentation.md",
+      "sha": "0f56e9f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/0f56e9f8119445ad21d11883c6c5642ec4aeb5a6",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-09T01:23:51.000Z",
+      "author": "Cap Borba",
+      "message": "h3 filter",
+      "sha": "8b27e90",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8b27e90675fb699243770716e53fde53b09d833b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-08T17:38:36.000Z",
+      "author": "Cap Borba",
+      "message": "soft label",
+      "sha": "460fdb4",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/460fdb4e1335fd264b1a272c0ee50821887dd426",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-06-08T15:41:39.000Z",
