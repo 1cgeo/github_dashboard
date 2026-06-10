@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-09T21:50:41.738Z",
+  "lastUpdate": "2026-06-10T13:35:36.022Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,8 +15,8 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-06-07T14:42:24.000Z",
-    "dsgoficial/configuracoes_producao": "2026-03-05T14:13:33.000Z",
+    "dsgoficial/modelagens": "2026-06-10T13:22:59.000Z",
+    "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-07T14:28:23.000Z",
     "dsgoficial/sap": "2026-06-09T20:50:16.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-02-28T17:22:08.000Z",
+    "1cgeo/controle_acervo": "2026-06-10T12:01:34.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-02-06T17:43:13.000Z",
@@ -36,13 +36,13 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-09T20:25:28.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-10T03:26:19.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-06T01:59:54.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z"
   },
   "stats": {
-    "totalCommits": 3866,
+    "totalCommits": 3876,
     "commitsPerYear": {
       "2024": 1507,
       "2025": 1632
@@ -64,8 +64,8 @@
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
       "1cgeo/ebgeo_web_2_admin": 22,
-      "dsgoficial/modelagens": 112,
-      "dsgoficial/configuracoes_producao": 200,
+      "dsgoficial/modelagens": 113,
+      "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 366,
       "dsgoficial/DsgTools": 612,
       "dsgoficial/sap": 125,
@@ -74,7 +74,7 @@
       "dsgoficial/EBGeo": 72,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 75,
+      "1cgeo/controle_acervo": 81,
       "1cgeo/ferramentas_acervo": 16,
       "dsgoficial/pto_controle": 29,
       "dsgoficial/servico_autenticacao": 9,
@@ -85,11 +85,74 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 322,
+      "dsgoficial/pytorch_segmentation_models_trainer": 324,
       "1cgeo/geoswarm": 44
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/configuracoes_producao",
+      "date": "2026-06-10T13:23:39.000Z",
+      "author": "Maj Diniz",
+      "message": "atualiza regras",
+      "sha": "91588ae",
+      "htmlUrl": "https://github.com/dsgoficial/configuracoes_producao/commit/91588aeaf96c78b98b0f9bb60e8dfb9606dcf720",
+      "repoUrl": "https://github.com/dsgoficial/configuracoes_producao"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-06-10T13:22:59.000Z",
+      "author": "Maj Diniz",
+      "message": "remove 9999 duplicado",
+      "sha": "753204c",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/753204c58752667fbd3c3366365408d5ad157b4d",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-10T12:01:34.000Z",
+      "author": "Maj Diniz",
+      "message": "melhorias",
+      "sha": "e1c182a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e1c182af597a8d8849e26f6eefc7d13355f2f3bb",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-10T10:08:58.000Z",
+      "author": "Maj Diniz",
+      "message": "update claude.md",
+      "sha": "1350ab4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1350ab4a3bd57b9b029fe66fe7ef6997ccf94f5a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-10T10:07:38.000Z",
+      "author": "Maj Diniz",
+      "message": "reorganização",
+      "sha": "1c82be5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1c82be58a6ff618aee7260dce0cbd3f3650e9717",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-10T03:26:19.000Z",
+      "author": "Cap Borba",
+      "message": "coreset selection, mbtiles dataset and more fixes",
+      "sha": "dc903e8",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/dc903e8ef228a48f8d72761821b4a19db723d8be",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-10T02:04:03.000Z",
+      "author": "Cap Borba",
+      "message": "spatial component on coreset features",
+      "sha": "d04cb11",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d04cb1150b50d7149ce877663c896d235a21ba55",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
     {
       "repo": "dsgoficial/sap",
       "date": "2026-06-09T20:50:16.000Z",
@@ -2197,6 +2260,24 @@
       "repoUrl": "https://github.com/1cgeo/doc_dgeo"
     },
     {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-04-23T09:57:54.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca",
+      "sha": "cdbc56a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cdbc56ab8ce2e35f03dd77ccf456fca6c2d362af",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-04-23T09:25:28.000Z",
+      "author": "Maj Diniz",
+      "message": "reorganiza",
+      "sha": "da09b8c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/da09b8c11deb274a0cbf450ccc8dede8beda1679",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-04-22T18:33:27.000Z",
       "author": "Maj Diniz",
@@ -3770,6 +3851,15 @@
       "sha": "90a5855",
       "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/90a58553142595ba799fbb3f8658b1ff1ad0548d",
       "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-03-10T09:17:46.000Z",
+      "author": "Maj Diniz",
+      "message": "qgis4",
+      "sha": "2f2a826",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2f2a826cf83d483ed09cbd011cd86c94bdd17afe",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
     },
     {
       "repo": "dsgoficial/DsgTools",
