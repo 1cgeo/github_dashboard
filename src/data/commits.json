@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-14T16:27:09.572Z",
+  "lastUpdate": "2026-06-14T21:18:19.250Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-07T14:28:23.000Z",
-    "dsgoficial/sap": "2026-06-14T12:38:10.000Z",
+    "dsgoficial/sap": "2026-06-14T19:18:18.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -41,9 +41,9 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-14T15:38:53.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-14T10:37:42.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-06-12T22:10:08.000Z",
-    "dsgoficial/SAP_Operador@qgis4": "2026-06-14T12:38:18.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-14T19:52:27.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-06-14T20:41:56.000Z",
+    "dsgoficial/SAP_Operador@qgis4": "2026-06-14T19:18:25.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-13T12:22:15.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-14T15:14:01.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-14T14:42:15.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-14T17:44:21.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z"
   },
   "repoPrivate": {
@@ -105,7 +105,7 @@
     "1cgeo/chefe_dgeo": true
   },
   "stats": {
-    "totalCommits": 4512,
+    "totalCommits": 4522,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,11 +126,11 @@
       "1cgeo/doc_capacitacao": 8,
       "dsgoficial/modelagens": 116,
       "dsgoficial/configuracoes_producao": 201,
-      "dsgoficial/ferramentas_edicao": 441,
+      "dsgoficial/ferramentas_edicao": 442,
       "dsgoficial/DsgTools": 612,
-      "dsgoficial/sap": 136,
-      "dsgoficial/SAP_Gerente": 89,
-      "dsgoficial/SAP_Operador": 60,
+      "dsgoficial/sap": 139,
+      "dsgoficial/SAP_Gerente": 91,
+      "dsgoficial/SAP_Operador": 61,
       "dsgoficial/EBGeo_Desktop": 80,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
@@ -155,11 +155,101 @@
       "1cgeo/github_dashboard": 48,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 107,
+      "1cgeo/chefe_dgeo": 110,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-06-14T20:41:56.000Z",
+      "author": "1º Ten Marcel",
+      "message": "correção de bugs de pesquisa",
+      "sha": "8342202",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/83422026de3a24c2958272211ee50198ed39862a",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-06-14T20:18:01.000Z",
+      "author": "1º Ten Marcel",
+      "message": "1.31.13: adição de checkbox para mostrar inicialmente apenas os lotes ainda não finalizados nos metadados, mas permitindo mostrar todos.",
+      "sha": "8bab277",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/8bab2772d9e1d2cbef059a5db4657945149dd442",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-06-14T19:52:27.000Z",
+      "author": "1º Ten Marcel",
+      "message": "2.0.12: atualização da função html ao atualizar fontes usando o helper.",
+      "sha": "55fbe01",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/55fbe01c56b25173d57eb14c293d228af615570f",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-06-14T19:18:25.000Z",
+      "author": "Maj Diniz",
+      "message": "microcontrole",
+      "sha": "5e518c0",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/5e518c0cafaee9490125905a051ca80e9fc735fd",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-06-14T19:18:18.000Z",
+      "author": "Maj Diniz",
+      "message": "microcontrole",
+      "sha": "8902d54",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/8902d5446b164cd7394f6d8ac38b1c977ab1c068",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-06-14T18:13:41.000Z",
+      "author": "1º Ten Marcel",
+      "message": "merge alterações de campo",
+      "sha": "7f02ffa",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/7f02ffa62168fc478eec9504f9867d4d79b47878",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-14T17:44:21.000Z",
+      "author": "Maj Diniz",
+      "message": "proatividade.md: origin para a org 1cgeo (github.com/1cgeo/chefe_dgeo)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "65730a1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/65730a1b74fbfa41b5bb0de30391779fb503b0b1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-14T17:38:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-14: origin migrado para a org 1cgeo (github.com/1cgeo/chefe_dgeo)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0aff0b7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0aff0b73d332ff67e9cc6d2528261488f725fcaa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-14T17:37:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-14: SAP guarda o PIT completo (metas nao-producao via /pit_nao_producao), validado contra banco real\n\n- consultar-sap puxa /pit_nao_producao/<ano> e monta o EXEC_PIT inteiro (producao + nao-producao); fmt_nao_producao no snapshot reusa _md_table\n- pit.md vira definicao + ponteiro; wiki/sap.md e wiki/rtm.md descrevem a tabela pit generalizada (lote_id nulo = nao-producao) + pit_execucao_manual\n- DECISIONS 2026-06-14: commit no SAP, hardening da revisao (guardas deletePit/salvaExecucao, CHECK, remocao de copiar/pit-completo), validacao ponta a ponta\n- learnings: consultar-sap (campos confirmados no banco real, metodo de subir SAP local) e revisao-codigo (heuristica de tabela compartilhada + carry-forward/SUM)\n- MEMORY/USER: estado do SAP 2.3.1 (PIT completo) e workflow direto no master nos repos de producao\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "97d182a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/97d182a9b341692162cdf28b1aa7c4a247fae700",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-06-14T17:27:11.000Z",
+      "author": "Maj Diniz",
+      "message": "pit no SAP",
+      "sha": "4f33f31",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/4f33f315d46e778ba1346cf2ad17be2f5971e3cb",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-06-14T15:38:53.000Z",
