@@ -15,7 +15,7 @@ import {
   useMediaQuery,
   Stack
 } from '@mui/material';
-import { GitHub, Search } from '@mui/icons-material';
+import { GitHub, Search, Lock } from '@mui/icons-material';
 import _ from 'lodash';
 import PaginatedTable from './PaginatedTable';
 
@@ -42,7 +42,8 @@ function RepoCommitsTable({ data }) {
         name: repo,
         lastCommitDate: lastCommit.date,
         totalCommits: commits.length,
-        repoUrl: lastCommit.repoUrl
+        repoUrl: lastCommit.repoUrl,
+        isPrivate: commits.some(commit => commit.isPrivate)
       };
     });
 
@@ -61,6 +62,8 @@ function RepoCommitsTable({ data }) {
         ['desc']
       )
     : [];
+
+  const selectedRepoInfo = repos.find(r => r.name === selectedRepo);
 
   const columns = ['Autor', 'Mensagem', 'Data'];
   const columnWidths = ['20%', '60%', '20%'];
@@ -126,6 +129,7 @@ function RepoCommitsTable({ data }) {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <GitHub fontSize="small" />
               <Typography variant="subtitle1" noWrap>{option}</Typography>
+              {repo?.isPrivate && <Lock fontSize="small" color="warning" titleAccess="Repositório privado" />}
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <Typography variant="body2" color="text.secondary">
@@ -146,6 +150,7 @@ function RepoCommitsTable({ data }) {
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <GitHub fontSize="small" />
             <Typography>{option}</Typography>
+            {repo?.isPrivate && <Lock fontSize="small" color="warning" titleAccess="Repositório privado" />}
           </Box>
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
             <Chip 
@@ -204,6 +209,19 @@ function RepoCommitsTable({ data }) {
           }}
         />
       </Box>
+
+      {selectedRepoInfo?.isPrivate && (
+        <Box sx={{ mb: 2 }}>
+          <Chip
+            icon={<Lock />}
+            color="warning"
+            variant="outlined"
+            size="small"
+            label="Repositório privado: o link dos commits só abre para quem tem acesso no GitHub"
+            sx={{ maxWidth: '100%', height: 'auto', '& .MuiChip-label': { whiteSpace: 'normal', py: 0.5 } }}
+          />
+        </Box>
+      )}
 
       {selectedRepo && (
         <PaginatedTable

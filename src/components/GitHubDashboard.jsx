@@ -49,9 +49,11 @@ function GitHubDashboard() {
 
   useEffect(() => {
     try {
+      const repoPrivate = commitData.repoPrivate || {};
       const commits = commitData.commits.map(commit => ({
         ...commit,
-        date: new Date(commit.date)
+        date: new Date(commit.date),
+        isPrivate: repoPrivate[commit.repo] === true
       }));
       setProcessedData(commits);
     } catch (error) {

@@ -18,6 +18,7 @@ import {
 import { Person, Search } from '@mui/icons-material';
 import _ from 'lodash';
 import PaginatedTable from './PaginatedTable';
+import RepoChip from './RepoChip';
 
 const MAX_MESSAGE_LENGTH = 100;
 
@@ -83,9 +84,7 @@ function AuthorCommitsTable({ data }) {
         </Link>
       </TableCell>
       <TableCell style={{ width: columnWidths[1] }}>
-        <Link href={commit.repoUrl} target="_blank" rel="noopener">
-          <Chip label={commit.repo} size="small" variant="outlined" />
-        </Link>
+        <RepoChip repo={commit.repo} repoUrl={commit.repoUrl} isPrivate={commit.isPrivate} />
       </TableCell>
       <TableCell style={{ width: columnWidths[2] }}>{commit.date.toLocaleString('pt-BR')}</TableCell>
     </TableRow>
@@ -110,14 +109,12 @@ function AuthorCommitsTable({ data }) {
           {truncateMessage(commit.message)}
         </Link>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link href={commit.repoUrl} target="_blank" rel="noopener">
-            <Chip 
-              label={commit.repo} 
-              size="small" 
-              variant="outlined"
-              sx={{ maxWidth: '100%', overflow: 'hidden' }}
-            />
-          </Link>
+          <RepoChip
+            repo={commit.repo}
+            repoUrl={commit.repoUrl}
+            isPrivate={commit.isPrivate}
+            sx={{ maxWidth: '100%', overflow: 'hidden' }}
+          />
           <Typography variant="caption" color="text.secondary">
             {commit.date.toLocaleString('pt-BR')}
           </Typography>

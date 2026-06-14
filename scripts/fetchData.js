@@ -2,33 +2,33 @@ import fs from 'fs';
 
 const repositories = [
   { repository: '1cgeo/ebgeo_web', branch: '' },
-  { repository: '1cgeo/ebgeo_web', branch: 'camadas' },
   { repository: '1cgeo/ebgeo_web', branch: 'novo_360' },
   { repository: '1cgeo/servico_nomes_geograficos', branch: '' },
-  { repository: '1cgeo/ebgeo_web_2', branch: '' },
-  { repository: '1cgeo/ebgeo_web_2', branch: 'refactor' },
-  { repository: '1cgeo/ebgeo_web_2_backend', branch: '' },
   { repository: '1cgeo/doc_ortoimagem', branch: '' },
   { repository: '1cgeo/doc_topografica', branch: '' },
   { repository: '1cgeo/doc_dgeo', branch: '' },
   { repository: '1cgeo/ferramentas_mgcp', branch: '' },
+  { repository: '1cgeo/ferramentas_mgcp', branch: 'qgis4' },
   { repository: '1cgeo/mgcp', branch: '' },
   { repository: '1cgeo/doc_mgcp', branch: '' },
   { repository: '1cgeo/doc_capacitacao', branch: '' },
-  { repository: '1cgeo/ebgeo_web_2_admin', branch: '' },
   { repository: 'dsgoficial/modelagens', branch: '' },
   { repository: 'dsgoficial/configuracoes_producao', branch: '' },
   { repository: 'dsgoficial/ferramentas_edicao', branch: '' },
+  { repository: 'dsgoficial/ferramentas_edicao', branch: 'qgis4' },
   { repository: 'dsgoficial/DsgTools', branch: 'dev' },
   { repository: 'dsgoficial/sap', branch: '' },
   { repository: 'dsgoficial/SAP_Gerente', branch: '' },
+  { repository: 'dsgoficial/SAP_Gerente', branch: 'qgis4' },
   { repository: 'dsgoficial/SAP_Operador', branch: '' },
-  { repository: 'dsgoficial/EBGeo', branch: '' },
+  { repository: 'dsgoficial/SAP_Operador', branch: 'qgis4' },
+  { repository: 'dsgoficial/EBGeo_Desktop', branch: '' },
+  { repository: 'dsgoficial/EBGeo_Desktop', branch: 'qgis4' },
   { repository: '1cgeo/prototipo_busca_llm', branch: '' },
   { repository: '1cgeo/prototipo_colaboracao_tempo_real', branch: '' },
   { repository: '1cgeo/controle_acervo', branch: '' },
-  { repository: '1cgeo/ferramentas_acervo', branch: '' },
   { repository: 'dsgoficial/pto_controle', branch: '' },
+  { repository: 'dsgoficial/pto_controle', branch: 'qgis4' },
   { repository: 'dsgoficial/servico_autenticacao', branch: '' },
   { repository: 'dsgoficial/servico_edicao', branch: '' },
   { repository: '1cgeo/news_feed', branch: '' },
@@ -39,6 +39,18 @@ const repositories = [
   { repository: '1cgeo/prototipo_location_ar', branch: '' },
   { repository: 'dsgoficial/pytorch_segmentation_models_trainer', branch: '' },
   { repository: '1cgeo/geoswarm', branch: '' },
+  { repository: '1cgeo/tileclass', branch: '' },
+  { repository: '1cgeo/controle_orcamentario', branch: '' },
+  { repository: '1cgeo/ebgeo_360', branch: '' },
+  { repository: '1cgeo/ferramentas_ebgeo', branch: '' },
+  { repository: '1cgeo/0Bug_Report', branch: '' },
+  { repository: '1cgeo/0Bug_Report', branch: 'qgis4' },
+  { repository: '1cgeo/server-healthcheck', branch: '' },
+  { repository: '1cgeo/github_dashboard', branch: '' },
+  { repository: '1cgeo/pit_ia_2025', branch: '' },
+  { repository: '1cgeo/autolabeller', branch: '' },
+  { repository: '1cgeo/chefe_dgeo', branch: '' },
+  { repository: 'dsgoficial/curso_dsgtools', branch: '' },
 ];
 
 const authorMapping = {
@@ -137,6 +149,7 @@ async function getExistingData() {
         repoLastUpdate: Object.fromEntries(
           Object.entries(repoLastUpdate).map(([key, date]) => [key, new Date(date)])
         ),
+        repoPrivate: data.repoPrivate || {},
         commits: data.commits.map(commit => ({
           ...commit,
           date: new Date(commit.date)
@@ -160,8 +173,48 @@ async function getExistingData() {
   return {
     lastUpdate: defaultDate,
     repoLastUpdate,
+    repoPrivate: {},
     commits: []
   };
+}
+
+// Consulta a API do GitHub para descobrir quais repositórios são privados.
+// Mantém o valor anterior quando não consegue uma resposta definitiva, para
+// não perder a informação caso uma consulta falhe (ex.: rate limit).
+async function fetchRepoVisibility(existingRepoPrivate = {}) {
+  const repoPrivate = { ...existingRepoPrivate };
+  const uniqueRepos = [...new Set(repositories.map(r => r.repository))];
+
+  for (const repository of uniqueRepos) {
+    try {
+      const [owner, name] = repository.split('/');
+      const response = await fetch(`https://api.github.com/repos/${owner}/${name}`, {
+        headers: process.env.GH_PAT ? {
+          'Authorization': `token ${process.env.GH_PAT}`
+        } : {}
+      });
+
+      if (response.ok) {
+        const repo = await response.json();
+        repoPrivate[repository] = repo.private === true;
+      } else if (response.status === 404) {
+        // 404: o repo existe na lista, então é privado e a requisição não tem acesso.
+        // Se já soubermos a visibilidade, mantém; senão assume privado.
+        if (!(repository in repoPrivate)) {
+          repoPrivate[repository] = true;
+        }
+        console.log(`Visibilidade de ${repository}: 404 (sem acesso) -> privado=${repoPrivate[repository]}`);
+      } else {
+        console.error(`Erro ao consultar visibilidade de ${repository}: ${response.status} ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error(`Erro ao consultar visibilidade de ${repository}:`, error.message);
+    }
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+  }
+
+  return repoPrivate;
 }
 
 async function fetchCommits() {
@@ -170,6 +223,11 @@ async function fetchCommits() {
     const existingData = await getExistingData();
     console.log(`Global last update: ${existingData.lastUpdate.toISOString()}`);
     console.log(`Existing commits: ${existingData.commits.length}`);
+
+    // Descobre quais repositórios são privados (para o ícone de cadeado no dashboard)
+    console.log('\nConsultando visibilidade (público/privado) dos repositórios...');
+    const repoPrivate = await fetchRepoVisibility(existingData.repoPrivate);
+    console.log(`Repositórios privados: ${Object.values(repoPrivate).filter(Boolean).length}`);
 
     const newCommits = [];
     const updatedRepoLastUpdate = { ...existingData.repoLastUpdate };
@@ -300,6 +358,7 @@ async function fetchCommits() {
           date.toISOString()
         ])
       ),
+      repoPrivate,
       stats,
       commits: uniqueCommits.map(commit => ({
         ...commit,

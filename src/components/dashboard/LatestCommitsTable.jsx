@@ -1,10 +1,9 @@
 // Path: components\dashboard\LatestCommitsTable.jsx
 import React from 'react';
-import { 
-  Paper, 
+import {
+  Paper,
   Typography,
   Link,
-  Chip,
   TableCell,
   TableRow,
   Box
@@ -12,6 +11,7 @@ import {
 import { History } from '@mui/icons-material';
 import _ from 'lodash';
 import PaginatedTable from './PaginatedTable';
+import RepoChip from './RepoChip';
 
 const MAX_MESSAGE_LENGTH = 100;
 
@@ -47,9 +47,7 @@ function LatestCommitsTable({ data }) {
         </Link>
       </TableCell>
       <TableCell style={{ width: columnWidths[2] }}>
-        <Link href={commit.repoUrl} target="_blank" rel="noopener">
-          <Chip label={commit.repo} size="small" variant="outlined" />
-        </Link>
+        <RepoChip repo={commit.repo} repoUrl={commit.repoUrl} isPrivate={commit.isPrivate} />
       </TableCell>
       <TableCell style={{ width: columnWidths[3] }}>{commit.date.toLocaleString('pt-BR')}</TableCell>
     </TableRow>
@@ -79,14 +77,12 @@ function LatestCommitsTable({ data }) {
         >
           {truncateMessage(commit.message)}
         </Link>
-        <Link href={commit.repoUrl} target="_blank" rel="noopener">
-          <Chip 
-            label={commit.repo} 
-            size="small" 
-            variant="outlined" 
-            sx={{ maxWidth: '100%', overflow: 'hidden' }}
-          />
-        </Link>
+        <RepoChip
+          repo={commit.repo}
+          repoUrl={commit.repoUrl}
+          isPrivate={commit.isPrivate}
+          sx={{ maxWidth: '100%', overflow: 'hidden' }}
+        />
       </TableCell>
     </TableRow>
   );
