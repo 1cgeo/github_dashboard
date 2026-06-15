@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-15T15:50:24.101Z",
+  "lastUpdate": "2026-06-15T22:23:45.342Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-04-10T13:22:15.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-14T00:00:11.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-15T10:40:56.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-14T15:38:53.000Z",
     "1cgeo/geoswarm": "2026-04-20T16:02:06.000Z",
@@ -107,7 +107,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4541,
+    "totalCommits": 4542,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -146,7 +146,7 @@
       "1cgeo/produtos": 52,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 339,
+      "dsgoficial/pytorch_segmentation_models_trainer": 340,
       "1cgeo/geoswarm": 44,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 11,
@@ -225,6 +225,15 @@
       "sha": "021ee4d",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/021ee4ddb498ac51d1a05d7a535b6e2f4733b38d",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-06-15T10:40:56.000Z",
+      "author": "Cap Borba",
+      "message": "feat: add multiprocessing_context support to train_dataloader\n\nAllows setting multiprocessing_context (e.g. 'forkserver') via YAML\ndata_loader config to avoid CUDA-fork crashes when Lightning initializes\nCUDA before train workers are first spawned.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "1665ee0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1665ee0710161c7a179bcba9a05d917f8b0d38e0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
