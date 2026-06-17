@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-17T17:54:53.268Z",
+  "lastUpdate": "2026-06-17T22:05:59.128Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-14T23:19:06.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-15T15:14:56.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-17T21:26:09.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-15T13:20:53.000Z"
   },
@@ -107,7 +107,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4545,
+    "totalCommits": 4547,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -158,11 +158,29 @@
       "1cgeo/github_dashboard": 50,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 116,
+      "1cgeo/chefe_dgeo": 118,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-17T21:26:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-17: skill revisar-carta-pdf (revisao visual da folha da carta em PDF)\n\nNova skill que gera EM LOTE as imagens recortadas da folha A1 (titulo, municipios,\nlicenca, projeto, fases, info tecnica, 4 faixas marginais fora da moldura e o corpo\nem tiles) e revisa cada uma. Calibrada no padrao RDG 25k/50k/100k; moldura detectada\npor densidade de tinta; areas marginais por fracoes fixas, fases/info por ancora de\ntexto. Irma visual da revisar-carta (que confere JSON/texto). Vinculo reciproco nas\n\"Quando NAO usar\" e entrada no DECISIONS.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "c2d5461",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c2d54611b5e390611cef13b2d927c6b727d758d4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-17T21:07:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-17: dois briefs do MGCP (AGO baseline/NEARSPEC, CAN MVP/Goal 6) como corroboracao externa do espectro de produtos\n\nDois documentos de forum do MGCP apontados pelo chefe, tratados como corroboracao externa de doutrina ja existente (nao conhecimento novo).\n\n- Fontes verbatim em 03-Resources/mgcp/: AGO baseline/NEARSPEC (\"OFFICIAL: Sensitive REL to MGCP NATIONS\") e CAN MVP/Goal 6 (\"UNCLASSIFIED Releasable to MGCP Participants Only\"); classificacao no cabecalho, restritas ao vault interno.\n- Curadoria nas paginas existentes (sem pagina nova, escopo do chefe): secao \"Corroboracao externa\" em espectro-produtos e mgcp, nota no mapa-conceitos. NEARSPEC ~ carta ortoimagem/ponta simples do espectro; MVP em tiers ~ incrementabilidade Tipo I/II (RT 10/2020); distincao baseline x minimum viable.\n- Metodo (extracao de .pptx via zip/XML, manejo de fonte com caveat de classificacao) no learnings de extracao-documentos; decisao de processo em DECISIONS 2026-06-17.\n- lint da wiki verde (130 paginas, densidade 34.3, 0 quebrados/orfas/contradicoes/acentos).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "141fb1b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/141fb1b864895c88d5c63808a189b15cdac9eb19",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-06-17T12:01:07.000Z",
