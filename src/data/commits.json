@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-18T18:08:19.733Z",
+  "lastUpdate": "2026-06-18T22:15:54.435Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-06-15T13:09:13.000Z",
+    "dsgoficial/modelagens": "2026-06-18T18:28:17.000Z",
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-14T22:58:16.000Z",
@@ -41,14 +41,14 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-14T15:38:53.000Z",
     "1cgeo/geoswarm": "2026-06-16T11:34:55.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-14T19:52:27.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-18T18:28:51.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-06-14T20:41:56.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-06-14T19:18:25.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-13T12:22:15.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
-    "1cgeo/controle_orcamentario": "2026-06-15T12:43:17.000Z",
+    "1cgeo/controle_orcamentario": "2026-06-18T21:45:39.000Z",
     "1cgeo/ebgeo_360": "2026-06-06T11:07:31.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-14T23:19:06.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-17T21:26:09.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-18T22:08:12.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-15T13:20:53.000Z"
   },
@@ -107,7 +107,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4547,
+    "totalCommits": 4553,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,9 +126,9 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 117,
+      "dsgoficial/modelagens": 118,
       "dsgoficial/configuracoes_producao": 201,
-      "dsgoficial/ferramentas_edicao": 442,
+      "dsgoficial/ferramentas_edicao": 443,
       "dsgoficial/DsgTools": 613,
       "dsgoficial/sap": 140,
       "dsgoficial/SAP_Gerente": 91,
@@ -149,7 +149,7 @@
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
       "1cgeo/geoswarm": 46,
       "1cgeo/tileclass": 95,
-      "1cgeo/controle_orcamentario": 11,
+      "1cgeo/controle_orcamentario": 12,
       "1cgeo/ebgeo_360": 9,
       "1cgeo/ebgeo_backend": 5,
       "1cgeo/ferramentas_ebgeo": 28,
@@ -158,11 +158,65 @@
       "1cgeo/github_dashboard": 50,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 118,
+      "1cgeo/chefe_dgeo": 121,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-18T22:08:12.000Z",
+      "author": "Maj Diniz",
+      "message": "exportar-carta: exit code nao-zero no teardown do QGIS nao significa falha\n\nLote Palmas (4 folhas) saiu exit 5 mas o log marcou 4/4 com sucesso e os 4\nGeoTIFF sairam validos. Conferir a linha \"X/Y com sucesso\" e validar os\narquivos (gdalinfo), nao concluir falha pelo exit code.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01GBeLikv4StTYw9uNypztaH",
+      "sha": "ff3b7b6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ff3b7b6bbf83e07ec935dae8e39fdf5025a95dbe",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-18T22:03:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-18: lote orto Tubarao 25k de ponta a ponta + consertos do pipeline\n\nConvencoes da carta ortoimagem (regras do chefe): data_criacao = FINAL do\nimageamento (mosaico super-res); datum_vertical = \"Datum de Imbituba - SC\";\nobservacao FABDEM forma curta; collectiveTitle = \"Mapeamento Sistematico\".\nConsertos de skill: gerador JSON com coluna opcional \"mi\" (arquivo pelo MI,\ncampo inom = INOM completa); template orto de metadados embute a linhagem\n(4 processStep) no fallback; 1a execucao real do exportar-carta (QGIS 4.0,\nCarta Ortoimagem 3.0) confirmada nesta maquina.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01GBeLikv4StTYw9uNypztaH",
+      "sha": "04ce78a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/04ce78adbb42602df1c7df70ffa3a448170e0147",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-18T21:51:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-18: coluna \"Valor recolhido\" no RPCMTec (SCO + vault)\n\nO chefe adicionou a coluna \"Valor recolhido\" (credito recebido devolvido/\nrecolhido) nas tabelas 3.1, 3.2 e 3.7 do RPCMTec. Modelado como campo\ninformado na NC (orcamento.nota_credito.valor_recolhido, default 0), separado\nde valor_nc (recebido segue cheio); informativo, nao desconta do recebido.\n\nAtualizado no vault:\n- referencia rpcmtec-estrutura.md (colunas 3.1/3.2/3.7, nota devolucao, deltas)\n- skill consultar-orcamento (SKILL endpoints + script Python 3.1/3.2/3.7/resumo + learnings)\n- wiki controle-orcamentario e rpcmtec\n- DECISIONS (2026-06-18) e learnings da retrospectiva (fanout sistema+vault)\n- index.md (estatisticas do lint-wiki: 130 paginas, 0 quebrados)\n\nO sistema (controle_orcamentario) foi atualizado e commitado a parte (ALTER\naditivo aplicado no banco local sco). lint-wiki verde; guard de caminhos sem\nhit nos arquivos deste commit.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FVwiiV76ZwTYeREeCxGYFJ",
+      "sha": "6722170",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6722170a7e22e7c154c7e36e464dc613890fb556",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_orcamentario",
+      "date": "2026-06-18T21:45:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Adiciona coluna \"Valor recolhido\" na NC e nas tabelas 3.1/3.2/3.7\n\nO Chefe da DGEO passou a registrar no RPCMTec o credito recebido que foi\nrecolhido/devolvido. Modelado como campo informado na NC\n(orcamento.nota_credito.valor_recolhido NUMERIC(15,2) NOT NULL DEFAULT 0),\nseparado de valor_nc: o recebido continua cheio (a regra \"devolucao nao muda\no recebido\" segue valendo) e o recolhido e informativo.\n\n- Schema: ADD COLUMN valor_recolhido em er/orcamento.sql.\n- NC: schema Joi, INSERT/UPDATE e SELECTs (ctrl); campo no dialog e na list do client.\n- Relatorio: 3.1 agrega por ND com split PDR/Extra-PDR (mesmo recorte do\n  recebido, por data_emissao); 3.2/3.7 ganham a coluna \"Valor Recolhido\"\n  (logo apos \"Valor NC\"); Markdown e DOCX atualizados; pagina da Secao 3.\n- Docs: MODELO-DADOS, REQUISITOS (RF-NC-1/4, RF-REL-1/2/6, decisao 2026-06-18), CLAUDE.\n- Testes: backend mockado 220, integracao real 52, frontend 78 (verdes).\n\nMigracao aditiva (DEFAULT 0); linhas existentes ficam em 0.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FVwiiV76ZwTYeREeCxGYFJ",
+      "sha": "b130197",
+      "htmlUrl": "https://github.com/1cgeo/controle_orcamentario/commit/b13019742044e14a8fb96b6efdbf7bc47a31dce8",
+      "repoUrl": "https://github.com/1cgeo/controle_orcamentario"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-06-18T18:28:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "f089343",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/f08934332fab6a0a281165b3364bd632ece4e653",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-06-18T18:28:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "1266ae4",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/1266ae47f1564cdbe4a56d327775dcb730ab9024",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-06-17T21:26:09.000Z",
