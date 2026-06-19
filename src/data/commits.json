@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-18T22:15:54.435Z",
+  "lastUpdate": "2026-06-19T13:38:19.975Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-06-18T18:28:17.000Z",
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-06-14T22:58:16.000Z",
+    "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
     "dsgoficial/sap": "2026-06-14T22:58:49.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -38,12 +38,12 @@
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
-    "1cgeo/ebgeo_web@novo_360": "2026-06-14T15:38:53.000Z",
+    "1cgeo/ebgeo_web@novo_360": "2026-06-19T12:14:31.000Z",
     "1cgeo/geoswarm": "2026-06-16T11:34:55.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-18T18:28:51.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-19T12:04:56.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-06-14T20:41:56.000Z",
-    "dsgoficial/SAP_Operador@qgis4": "2026-06-14T19:18:25.000Z",
+    "dsgoficial/SAP_Operador@qgis4": "2026-06-19T12:17:24.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-13T12:22:15.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
@@ -57,9 +57,9 @@
     "1cgeo/github_dashboard": "2026-06-14T23:19:06.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-18T22:08:12.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-19T01:00:41.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-15T13:20:53.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-19T08:56:05.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -107,7 +107,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4553,
+    "totalCommits": 4599,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -117,7 +117,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 700,
+      "1cgeo/ebgeo_web": 735,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -128,11 +128,11 @@
       "1cgeo/doc_capacitacao": 8,
       "dsgoficial/modelagens": 118,
       "dsgoficial/configuracoes_producao": 201,
-      "dsgoficial/ferramentas_edicao": 443,
-      "dsgoficial/DsgTools": 613,
+      "dsgoficial/ferramentas_edicao": 444,
+      "dsgoficial/DsgTools": 614,
       "dsgoficial/sap": 140,
       "dsgoficial/SAP_Gerente": 91,
-      "dsgoficial/SAP_Operador": 61,
+      "dsgoficial/SAP_Operador": 65,
       "dsgoficial/EBGeo_Desktop": 80,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
@@ -151,18 +151,162 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 12,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 5,
+      "1cgeo/ebgeo_backend": 6,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 50,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 121,
+      "1cgeo/chefe_dgeo": 125,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-06-19T12:17:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'qgis4' of https://github.com/dsgoficial/SAP_Operador into qgis4",
+      "sha": "895b4a8",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/895b4a857664e6ecbb4b5a9426a0a987bf88fd9d",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-06-19T12:17:22.000Z",
+      "author": "Maj Diniz",
+      "message": "fix reviewtoolbar",
+      "sha": "945aef3",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/945aef363d1ce5ba86eb3e06fb0a7eb2a8a18aef",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-06-19T12:17:10.000Z",
+      "author": "Maj Diniz",
+      "message": "fix reviewtoolbar",
+      "sha": "bc22bf6",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/bc22bf6dfbadd9f8cce189cd79119b6c72dd25d4",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T12:14:31.000Z",
+      "author": "Maj Diniz",
+      "message": "fix build",
+      "sha": "abe839b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/abe839b2d5f2022c44fb984c0222f271173d56d8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-06-19T12:04:56.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "4588384",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/458838403c32dbecbd377ae50b19eed7b7c2e264",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T11:35:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'novo_360' into atualizacao_tutorial",
+      "sha": "a94ddda",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a94ddda5bd046ddeabe315c1aaf92678983b6854",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T11:32:53.000Z",
+      "author": "Maj Diniz",
+      "message": "atualiza versão nova",
+      "sha": "b6467e9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b6467e9441b1500796af103d86851e31d4ee7d8e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T11:25:29.000Z",
+      "author": "Maj Diniz",
+      "message": "atualiza o tutorial",
+      "sha": "aa809e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa809e75a9743628ce7c8dd976b4da8b53ca746c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-06-19T11:17:55.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix warning",
+      "sha": "468d97e",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/468d97e80533341a0d7f2bdd6c5856915dde0b4b",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-06-19T11:02:34.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix idioma para estatística de regra em conformidade com o DSGTools",
+      "sha": "31d647e",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/31d647eb9ebf367dc930455250df3931f23b2376",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T09:39:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/layercontrol' into novo_360",
+      "sha": "7ac2e4a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7ac2e4a7b20b147d48974e5b2a75b8bb368daa98",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-19T08:56:05.000Z",
+      "author": "Maj Diniz",
+      "message": "docs",
+      "sha": "525a355",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/525a3559cb2ce0c30585c4f130d999a47fbf1745",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-19T01:00:41.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-18: aprendizado de retrospectiva sob escrita paralela\n\nReler cada learnings imediatamente antes de editar (Edit \"File modified since read\"); acrescentar a propria corrida sem reconsolidar a das outras secoes; reconciliar fatos por condicao (acento no --set: PYTHONUTF8=1 vs corrompe sem ele); item \"pendente se X\" de outra secao disparado pela minha corrida.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0166zGNmuQu6mCpybTSLV9hL",
+      "sha": "45f6b24",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/45f6b24448f9b375f6205ff1d1ae48ec8f7f9a53",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-19T00:59:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-18: GeoTIFF da topo via GDAL do PDF + consertos de 1a-execucao do pipeline (Sao Luiz/Sao Braz)\n\n- exportar-carta (SKILL + learnings + scripts/pdf_para_geotiff.bat NOVO): na carta TOPOGRAFICA nao usar -et (o exportToImage re-renderiza todo o vetor a 300 DPI numa A1 e arrasta horas, ~10 GB de RAM, sem materializar o .tif; a orto fecha em minutos). Exportar so o PDF e derivar o GeoTIFF do PDF via GDAL: gdal_translate -oo DPI=300 -> gdalwarp -t_srs EPSG:4674 -> gdal_translate JPEG/YCbCr. Saiu 11,3 MB, 4674, neatline preservada, ~1 min. Os \"Dictionary key must be a name object\" do driver PDF do GDAL nao sao fatais.\n- carregar-bdgex (scripts + learnings): conserto do pareamento do vetor (1a carga real). O XML sai <MI>_vetor.xml mas o zip e <MI>.zip; o v2 nao tirava o _vetor. Deduzir com mi.replace(/(_vetor)?\\.xml$/i, \".zip\").\n- converter-modelagens (learnings): 1a corrida real Topo 1.4 -> SHP por moldura (batch_clip por mi); conserto do row.geometry (quebrava com moldura PostGIS, coluna geom -> gdf.geometry.name). Patch LOCAL no repo de producao modelagens, nao commitado (PR pelo chefe).\n- criar-metadados-xml (learnings): 1o fallback de uma TOPO; bbox VAZIO (decisao do chefe) e linhagem do Santiago (topo 4 passos, vetor 3 sem Edicao); acento nao passa por --set sem PYTHONUTF8=1. PENDENTE: embutir a linhagem nos templates topo/vetor (como ja no orto).\n- criar-json-edicao / pipeline-carta (learnings): plugin ferramentas_edicao agora 2.0.12 (choices/schema iguais); 1a corrida (quase) de ponta a ponta numa topo, cada passo revelou um conserto.\n- DECISIONS: decisao do chefe (GeoTIFF da topo via GDAL; bbox vazio; linhagem do Santiago) e os patches de repo de producao (iface headless no ferramentas_edicao; row.geometry no modelagens) que ficam para PR.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0166zGNmuQu6mCpybTSLV9hL",
+      "sha": "0506b5e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0506b5ed1baebb60226ce271f90ed629b0c442be",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-19T00:15:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-18: conversao Topo 1.4 -> Orto 2.5 e estrutura do 1t CO\n\n- converter-modelagens (SKILL + learnings): 1a execucao real contra PostGIS (topo14->orto25, 1s->1t Porto Alegre, 1065 feicoes). Duas armadilhas: (1) sem geoalchemy2 o to_postgis falha em TODAS as tabelas mas o relatorio diz \"Convertidas: N / Erros: 0\" (falso sucesso) -> validar contando no destino e instalar geoalchemy2; (2) PROJ poluido (PROJ_LIB apontando p/ o proj.db do PostgreSQL) -> setar PROJ_LIB/PROJ_DATA p/ o do pyproj. Topo->orto: muitas ignoradas (classes so-Topo) e esperado.\n- criar-bancos (learnings): usar overwrite=true para estruturar um banco que ja existe mas esta vazio (so CREATE DATABASE, sem PostGIS/schema edgv); seguro apos confirmar que esta vazio.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013PHXas1ZEibBvADx9XuRV4",
+      "sha": "ed9454b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ed9454bb69fc953baf4895fa987266e1ab677199",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-18T23:42:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-18: preparo da producao orto 1r Caxias do Sul\n\n- wiki/nomenclatura-carta.md (nova): regra de denominacao da folha (manual doc_topografica/doc_ortoimagem, secao \"Padronizacao de Nomes dos Produtos\") e como operacionalizar pelas localidades do banco; cross-link de carta-ortoimagem, carta-topografica e index.\n- criar-bancos: validado contra PostgreSQL real (banco de edicao Orto 2.5 em 31982, 69 colunas geometricas reescritas para 31982); armadilha do BOM no config sob PowerShell.\n- dsgtools-cli: habilitar o provider no perfil do qgis_process (QGIS 4.0 usa a pasta de config QGIS3); exemplo real do extractelevationpoints (ponto cotado) com a armadilha do MDE geografico.\n- super-resolucao: GeoTIFF de saida sai sem CRS embutido (atribuir 3857); mosaico de fundo por area util.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013PHXas1ZEibBvADx9XuRV4",
+      "sha": "e2701c7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e2701c70031065bd8be904e970d09ae8023cd7b3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-06-18T22:08:12.000Z",
@@ -200,6 +344,15 @@
       "repoUrl": "https://github.com/1cgeo/controle_orcamentario"
     },
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-18T21:35:10.000Z",
+      "author": "Maj Diniz",
+      "message": "export multiple",
+      "sha": "edcadd7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/edcadd7203d2c79e342e37c8f2a6c44352983508",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-06-18T18:28:51.000Z",
       "author": "Maj Diniz",
@@ -216,6 +369,51 @@
       "sha": "1266ae4",
       "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/1266ae47f1564cdbe4a56d327775dcb730ab9024",
       "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-18T15:37:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "08d1529",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/08d1529465c8f142161443f26a6bf9499e78691f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-18T14:46:10.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "eaabce7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eaabce7735d1e8c3a591a99d8dc4f9da3e591756",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-18T14:42:00.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "ad0e1b0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ad0e1b0698cf097276fd463e573c7fd931186c0c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-18T14:14:31.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "6cd633e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6cd633ecbe37af7c93a4239e45b3f2058a568c61",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T21:29:03.000Z",
+      "author": "Maj Diniz",
+      "message": "melhorias",
+      "sha": "b084313",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b084313c224185b94b32befca801e9067c428f5c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -236,6 +434,69 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T15:32:07.000Z",
+      "author": "1º Ten Alves Silva",
+      "message": "atualizacao texto tutorial e imagens, alem de alguns videos",
+      "sha": "4a3213b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a3213ba2f0da2c9c9fb59d9cad262ced9e87bae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T13:00:45.000Z",
+      "author": "Claude",
+      "message": "docs: fix drift across dev + user docs (multi-doc audit)\n\nAudited every project doc against current code (multiple agents) and fixed\nthe stale parts beyond the temporal module:\n\narchitecture.md:\n- Replace the stale \"Point Callout Mode\" section (pointMode/callout/leader\n  line — 0 matches in code) with the real \"Point Label\" model (showLabel,\n  labelSize, labelOutline*, zoom correction, point-label-layer).\n- Fix the inaccurate selectFeature() bullet (it only replaces the selection\n  set; panel open/close is event-driven).\n- Add the v2.1→v2.2 schema migration to the store subtree.\n\ncommon-tasks.md:\n- Fix the \"Working with Features\" API: removeFeature (not deleteFeature);\n  updateFeature/addFeature take the full feature object + optional mapName\n  (not featureId/newData/layerId).\n- Add v2.1-to-v2.2 to the migrations list (current target v2.2).\n\nnew-tool skill:\n- Base classes import from the '@tools' barrel (not '@tools/base_*.js').\n- Correct the attributes-panel name/signature\n  (add<Name>AttributesToPanel(panel, selectedFeatures, control,\n  selectionManager, uiManager, options)).\n- Expand the toolbar + map_sig.js registration steps (controlKey wiring,\n  SELECTION_CONTROLS / CONTROL_REGISTRY / controls map).\n\nstore-op skill:\n- Store-error events use emitStoreError(StoreErrorEvents.*, { reason })\n  from store-errors.js, not getEventBus().emit(EventTypes.*).\n\nCLAUDE.md:\n- --max-warnings 0 applies to ESLint only, not Stylelint.\n\nUser tutorial (public/docs/README.md):\n- CSV import formats (Lat/Long DD, Lat/Long GMS, MGRS, UTM — no Long/Lat).\n- PDF scale range up to 1:5.000.000 (not 1:1.000.000).\n- 360 navigation: W/A/S/D rotate (not translate), no R key; drag rotates\n  freely (no Ctrl-tilt); document M/O keys.\n\nTesting docs and the dev-doc feature coverage were verified accurate.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "0ed0612",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0ed0612d54e979eabd394042df601fe6023376c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T12:51:34.000Z",
+      "author": "Claude",
+      "message": "docs: document the temporal module across project docs\n\nThe temporal/timeline feature had no coverage in the project's own docs.\n\n- CLAUDE.md: add temporal feature data to the Data Model and a new\n  \"Temporal Module\" section (per-map config shape, pure-lens model,\n  playback hot-path rules, image-only derivation must-not-write-source).\n- .claude/rules/architecture.md: add temporal/ to the project tree,\n  temporal.operations.js to the store subtree, and the temporal events\n  (MAP_TEMPORAL_CHANGED / TEMPORAL_CONFIG_CHANGED / TEMPORAL_CURSOR_CHANGED)\n  to the Event Types reference.\n- public/docs/README.md (user tutorial): add \"Módulo 11: Linha do Tempo\"\n  covering activation, the timeline bar, temporal validity, trajectory\n  editing, settings/reschedule, and the auto-derived military attributes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "61a6195",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/61a6195836605f8527355c7ccfa1e29d0f9191aa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T12:40:32.000Z",
+      "author": "Claude",
+      "message": "docs(multiusuario): revisão geral — alinhar a spec ao código atual\n\nAuditoria seção a seção (múltiplos agentes) contra o código atual, corrigindo\no drift acumulado. Principais mudanças:\n\nAba Camadas: adiciona ações de grupo (visibilidade, bloqueio, expandir,\nselecionar, arrastar), arrastar feição entre camadas, zoom/legenda de camada\nde catálogo; corrige a \"Seção Análises\" (na verdade \"Camadas de Análise\",\npersistida por mapa) e renomeia \"Street View 360\" → \"Imagens 360\".\nAba Importar: adiciona \"Pontos por Coordenadas\" (batch).\nAba Exportar: corrige Garmin KMZ (tiles JPEG, não vetor) + área bbox; imagem\nsensível ao contexto (2D/3D/360).\nToolbar Militar: adiciona Declinação Magnética.\nToolbar Desenho/Utilitários: referência azimute (sem quadrícula); rótulo\n\"Selecionar (Q)\".\nGrade UTM: reclassificada 🟡 (estilo persistido por mapa, GRID_STYLE).\nCatálogo: tipos de filtro reais (3D/360/Análise/Dados); abrir 3D/360 é local.\nMenu de Contexto: adiciona Exportar QAN.\nPainel de Feição: remove \"reordenar fotos\" (inexistente); adiciona ícone de\nmarcador/upload e rotação de símbolo militar.\nTabela de Atributos: remove \"filtrar coluna\" e \"deletar feição\" (inexistentes).\nViewer 3D: validade temporal/estilo de marcador, estilo de medição, limpar/\nvoar câmera; corrige hash do deep-link (h/roll).\nStreet View 360: validade temporal de marcador.\nEditor de Briefing: remove duplicar slide / camada base / terreno / preview\n(inexistentes); unifica captura de posição (2D/3D/360); adiciona importar\nslides. Apresentação: corrige atalhos (→/D, ←/A).\nModais: escopo do exagero de terreno (Atlas); adiciona modais de pontos em\nlote e importar slides. Mapas: adiciona toggle temporal (ref §29).\nDeep-link/Mobile: corrige hash 3D e descrição dos FABs.\n\nRecalcula estatísticas: ~313 ações (~46% local / ~49% sync / ~5% destrutivo).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "e454531",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e454531233e73673b427a99f384384856306e88a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T12:24:10.000Z",
+      "author": "Claude",
+      "message": "docs(multiusuario): cobrir o módulo temporal na spec de integração\n\nAdiciona a seção 29 (Módulo Temporal) com as implicações multiusuário das\nnovas ações: ativar/desativar controle temporal por mapa, barra da linha do\ntempo (play/scrub/velocidade/revelar — estado local por usuário), validade\ntemporal e edição de trajetória da feição, vínculos automáticos\n(direção/velocidade só-exibição e GDH/DTG persistido) e o reagendamento em\nmassa (destrutivo, atômico).\n\nAtualiza também: awareness (instante/reprodução por usuário), tabela de\nresolução de conflitos (validade/trajetória, config temporal de mapa,\nreagendamento) e as estatísticas (nova linha + totais/percentuais).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "33131f7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/33131f753cf2bbf2303b6a7a7cae15b38669694d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T12:18:54.000Z",
+      "author": "Claude",
+      "message": "perf(temporal): trim per-frame and bursty-event overhead in playback path\n\n- visibility-filter: build the per-frame filter cache key with a delimiter\n  join instead of JSON.stringify (runs every frame during playback; layer\n  ids are plain strings, so the join is unique enough and far cheaper).\n- temporal-derivation: debounce the auto-gate rescan (150ms) so a burst of\n  LAYERS_CHANGED events (visibility/lock toggles) coalesces into one async\n  getData scan instead of one per event; clear the timer on destroy.\n- temporal-derivation: run the per-feature symbol regens concurrently\n  (Promise.all) in _onCursor and _restoreAll, so several symbols turning in\n  the same frame don't serialize blob generation.\n\nLeak audit found teardown already complete and idempotent across the module\n(map.on/off paired, rAF cancelled, timers/subscriptions tracked via\nevent-cleanup); no leak fixes required.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "3ff7aff",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3ff7aff7a7cebe801ebcedbf6bb21a36bf33a401",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T12:12:29.000Z",
+      "author": "Claude",
+      "message": "fix(temporal): close three correctness gaps found in code review\n\n- trajectory-edit-control: tear down edit listeners before re-arming in\n  show(), so re-rendering the panel for the same selected feature no longer\n  stacks map.on handlers or leaks the long-press cleanup.\n- temporal-derivation.service: close the auto gate synchronously when\n  temporal is disabled, before _restoreAll(), so a stray cursor event can't\n  re-derive over the just-restored canonical symbol image (the async\n  _refreshEnabled would otherwise re-open the gate).\n- feature.operations: re-derive the auto DTG/GDH amplifiers\n  (dateTimeGroup / gdhIni / gdhFim) inside shiftMapTemporalTimes, so\n  \"Reagendar\" no longer leaves timeline-bound DTG strings stale.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "6dfa64d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6dfa64d29f2cbb989ff350be0962b4b75bf9f0e0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-06-17T12:01:07.000Z",
       "author": "Cap Borba",
@@ -243,6 +504,132 @@
       "sha": "b0e1de5",
       "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b0e1de5c816aa89f1c7c02d6c2401d39bca4876e",
       "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T12:00:27.000Z",
+      "author": "Claude",
+      "message": "refactor(temporal): /simplify cleanups (reuse, dedup, hot-path normalize)\n\nApplied the safe findings from the /simplify review of the temporal module:\n\n- Reuse: temporal-model's local haversine/bearing now delegate to the shared\n  calculateDistance/calculateBearing (geometry-utils), via tiny {lng,lat} adapters.\n- Dedup: interpolateNormalized reuses segmentIndexAt instead of a copy-pasted\n  binary search.\n- Hot path: headingAt/speedAt split into *Sorted variants; the per-cursor\n  derivation now passes its already-normalized trajectory, dropping 2 redundant\n  re-sorts per symbol per pass.\n- Dead code: drop the unused exported averageSpeed (+ its test).\n\nSkipped (noted): merging the derivation's per-cursor getData into the render\nservice's per-frame pass (sharing one getData) — a hot-path architectural change,\nnot a cleanup; and collapsing the apply-scheduler flags — correctness-sensitive.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "0d4b1c8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0d4b1c8b782ad1960d17d6e43bc779d30864cc8c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T11:49:28.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): auto-derive symbol attributes from trajectory/timeline\n\nOpt-in \"Vínculos automáticos\" toggles on trajectory-capable symbol features:\n\n- Military symbol (dynamic, throttled): autoDirection / autoSpeed recompute the\n  Q direction-of-movement azimuth and Z speed from the trajectory heading/speed\n  at the cursor and re-render the symbol image during playback. New\n  TemporalDerivationService does this as an IMAGE-ONLY regen (generateSymbolBlob +\n  loadImageToMap) — no source/store writes, so it can't race the per-frame\n  geometry displacement and avoids IndexedDB churn. Throttle = heading quantized\n  to 5° (regen only when it changes) + an in-flight guard; canonical appearance is\n  restored when temporal is disabled. Gated so it's a no-op without auto features.\n- DTG/GDH (static): autoDtg keeps the dateTimeGroup (military) or gdhIni/gdhFim\n  (coordination) amplifiers formatted from temporalInicio/temporalFim (Zulu GDH),\n  re-derived whenever the temporal window changes.\n\nNon-destructive and off by default; editing a field manually overrides it.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "7c4de2d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7c4de2d55c1bcc456eaf656119eb4922db246edf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T11:37:02.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): pure helpers for trajectory heading/speed + DTG formatting\n\nFoundation for auto-deriving military-symbol / coordination-measure attributes\nfrom the trajectory and the timeline window:\n\n- headingAt(trajetoria, cursor): azimuth (0-360) of the bracketing segment.\n- speedAt(trajetoria, cursor): segment speed in m/s (0 for zero-duration).\n- averageSpeed(trajetoria): total distance / duration.\n- formatDTG(epoch, style): military (201400NOV24) / coordination (121400Z JUN)\n  Date-Time Group in Zulu.\n\nAll pure and unit-tested.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "e3704d3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e3704d359e3fc5d405e75fba69056a996cddf29c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T11:17:20.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): mutual exclusivity between tools and trajectory editing\n\nActivating any tool/viewer now stops trajectory editing, and entering the\ntrajectory append mode deactivates the active tool — so the two never capture\nmap events at once.\n\n- TrajectoryEditControl subscribes to the toolManager's toolActivated/\n  viewerActivated events and calls hide() (tears down handles, edit listeners\n  and add mode).\n- startAdding() calls toolManager.deactivateCurrentTool() first.\n- Wired by passing toolManager into createTrajectoryEditControl in map_sig.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "02312a5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/02312a5d3968d18b08f401694cfd5142671f8371",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T11:11:20.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): move trajectory add-mode toolbar to the active-tool chip slot\n\nThe Cancelar/Concluir bar shown while adding trajectory points now sits at the\ntop-center \"operation card\" position (matching .active-tool-chip) instead of\nbottom-center, and shifts with the sidebar/feature panel like the chip does\n(data-sidebar-state driven by sidebar.expanded || ui.featurePanelOpen, updated on\nUI_LAYOUT_CHANGED while the bar is shown).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "3982a4e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3982a4e7e86015f370774328f2629e15290a242b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T11:05:21.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): richer trajectory UX in the feature panel\n\nImprove the trajectory section of the feature attribute panel and link it to the\nmap editor and the timeline:\n\n- Stats line: time span (D+N / dates), total path distance and average speed,\n  from a new pure trajectoryStats() helper (count, duration, great-circle length).\n- Waypoint number is now a button that moves the timeline cursor to that\n  keypoint's instant (the unit jumps to that position).\n- Hovering a waypoint row haloes the matching vertex on the map via a new\n  TrajectoryEditControl.highlightVertex() (dedicated highlight layer).\n- Updated hints and row styling (hover state) to reflect the new map editing\n  (insert via midpoint, remove via right-click).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "fe41774",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fe4177469440c113bf94ec0fb886fbe55b25beca",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T10:59:28.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): line-style vertex editing for trajectories on the map\n\nThe trajectory editor now works like the line tool. Keypoints are rendered as a\nGeoJSON handle layer (numbered vertex handles + per-segment midpoint handles)\ninstead of per-keypoint DOM markers — cheaper for dense tracks and enabling\nmidpoint handles:\n\n- drag a vertex to move it (keeps its time);\n- drag (or click) a midpoint to INSERT a keypoint, timed at the average of its\n  neighbours so it stays chronologically ordered;\n- right-click or long-press (touch) a vertex to remove it;\n- vertex drags snap via the shared snapping service, like line editing.\n\nAppend mode (\"Adicionar no mapa\") is kept for extending the track at the cursor\ninstant. New pure geometry helpers (buildHandleCollection, moveKeypoint,\ninsertKeypointAtSegment, removeKeypoint) are unit-tested. Removes the now-unused\n.trajectory-point-marker DOM markers + CSS.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "398d08b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/398d08b46eceec5b5e9c518479facecce7f13525",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T10:43:39.000Z",
+      "author": "Claude",
+      "message": "fix(temporal): propagate temporal data through processing, imports & briefing\n\nSix fixes across the temporal/import/processing/briefing surfaces:\n\n1. Processing outputs now inherit temporal validity (was silently permanent).\n   New pure mergeTemporalWindows() in temporal-model: buffer/voronoi inherit the\n   source feature's [temporalInicio, temporalFim]; convex hull uses the UNION of\n   its inputs' windows (missing bound = unbounded → omitted). Trajetória not copied\n   (outputs are polygons).\n2. Processing inputs always read from the store (home geometry). The selected-only\n   path used live selection objects whose geometry is rewritten to the interpolated\n   position during playback; now it intersects stored layer features with selected\n   ids, so both paths use the authored location.\n3. .ebgeo exports the per-map temporal config whenever it differs from the default\n   (not only when ativo===true), so a configured-but-disabled relative map keeps its\n   modo/origem/unidade/bounds across round-trip.\n4. KML gx:Track timed tracks now become moving points like GPX (the conversion is\n   generic; renamed to _convertTimedTracksToMovingPoints, applied in readKML/KMZ).\n5. Imported trajectories are sanitized (sanitizeImportedTrajectory: coerce keypoint\n   times via toEpoch, drop invalid, decimate to 1 min) for any GeoJSON carrying a\n   trajetoria, matching the GPX treatment.\n6. Briefing: temporal playback is stopped when a presentation starts, so the cursor\n   no longer drifts between slides (each slide pins its own cursor).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "7634ef3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7634ef3a8b9e228c05324e957b41d0a9b011cc1c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T10:01:08.000Z",
+      "author": "Claude",
+      "message": "feat(temporal): make mode/unit/D-origin pure display lenses; add explicit Reschedule\n\nFixes the path-dependent data mutation when toggling between absolute/relative\nand changing the interval. Feature times (temporalInicio/Fim, trajectory t) are\nabsolute epoch ms and were silently shifted whenever the relative D-origin\nchanged — corrupting GPX/real timestamps and depending on the click path.\n\nNew model:\n- The map bounds are stored absolute and are the source of truth in both modes.\n  The relative Início/Fim inputs are a derived lens; editing them writes the\n  absolute bound. Changing the unit or the D-origin only re-labels the D+N axis\n  (offsets recompute) — it no longer rescales the window or moves any feature.\n- Changing \"Data de D\" never shifts features (pure display anchor).\n- Moving features in time is now an explicit \"Reagendar\" action: pick a new real\n  D-Day, confirm, and all features/trajectories shift by the delta while bounds +\n  origin move with them so the D+N picture is preserved. Not undoable (warned).\n\nSo toggling mode and changing the interval are fully non-destructive; only the\ndeliberate, confirmed Reschedule mutates feature times.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "32e1961",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/32e1961c73236b427ec9a7690e86a02729872694",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T09:37:22.000Z",
+      "author": "Claude",
+      "message": "perf(temporal): single per-frame trajectory normalize + 1-min GPX decimation\n\nTwo trajectory performance fixes, mainly for imported GPX tracks:\n\n- Render path normalized each feature's trajectory three times per frame\n  (usable check + resolveTrajectoryTarget + interpolatePosition, each a\n  filter/slice/sort). Normalize once per feature per frame and reuse via new\n  resolveTrajectoryTargetNormalized; interpolation now binary-searches the\n  segment so it scales to long tracks. Public model functions keep their\n  defensive contract (normalize then delegate).\n- GPX import now decimates trajectories to the finest timeline unit (1 minute)\n  via decimateTrajectory: sub-minute GPS fixes the cursor can never resolve are\n  dropped, endpoints preserved, no keypoint-count cap. Shrinks the trajectory,\n  the .ebgeo, and per-frame cost.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "339c4a0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/339c4a01153ad68edd46b35987518e277d922760",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T09:21:27.000Z",
+      "author": "Claude",
+      "message": "perf(temporal): divide show/hide step into sub-steps (half-unit default)\n\nThe unit-quantized show/hide could feel abrupt (features pop only on whole-unit\nboundaries). Divide each unit into TEMPORAL_RENDER_SUBSTEPS cells (default 2 →\nhalf-unit). Features now appear/disappear within half a unit of their real time\nwhile still rebuilding the filters only ~2x per unit (vs ~60 frames/sec).\nTrajectory movement keeps using the raw continuous cursor, so it stays smooth.\nThe value is a single tunable constant.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "8add38e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8add38ea2e25479aeac25495f35a94293938284b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T09:17:12.000Z",
+      "author": "Claude",
+      "message": "perf(temporal): step show/hide by timeline unit, keep trajectories smooth\n\nDuring playback applyTemporalState ran every animation frame, rebuilding the\n~45 layer filters ~60x/second even though feature show/hide only changes at\nunit boundaries (e.g. once per day in DIA mode) — the user's \"atualiza demais\".\n\nDecouple the two cadences:\n\n- Show/hide now uses a quantized window [start, end] snapped to the timeline\n  step (quantizeCursor, pure + unit-tested). A feature is visible when its\n  validity window overlaps the current step cell, so the filters rebuild only\n  when the cursor crosses a step boundary; the existing filter cache absorbs\n  every intra-step frame (the redundant per-frame invalidateFilterCache is gone).\n  Overlap semantics (vs plain instant sampling) keep sub-step-window features\n  from being skipped between samples.\n- Trajectory interpolation keeps using the raw continuous cursor, so moving\n  features stay smooth at the frame rate, independent of the show/hide step.\n\nThe timeline scrubber/label still advance every frame (cheap DOM), so playback\nstays smooth visually while the heavy work runs once per unit.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "cd72aa1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd72aa14ded99107421d4aa0af68370ad37dae20",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-17T09:01:07.000Z",
+      "author": "Claude",
+      "message": "perf(temporal): cut per-frame work during timeline playback\n\nWhile the timeline plays, applyTemporalState runs every animation frame.\nThree avoidable costs are removed:\n\n- updateTrajectoryPositions skipped the expensive async source.getData()\n  round-trip + setData on all three moving sources every frame even when\n  the map has no trajectory features. It now caches which sources actually\n  carry trajectories (rebuilt on every resync) and queries only those —\n  commonly none, making the call a no-op.\n- applyRevealDim swept all ~45 feature layers calling get/setPaintProperty\n  every frame even when reveal mode is off (the default). It now early-outs\n  unless dimming is active or needs restoring.\n- _scheduleApply could stack concurrent async applies when getData/setData\n  outran the frame budget. Applies are now guarded by an in-flight flag and\n  coalesced to a single trailing run at the newest cursor.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011eMR7iKRfrAN9ieshwcmrN",
+      "sha": "d3b6b56",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d3b6b56a2170417f135db2aad419088c3b4612a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-16T11:46:26.000Z",
+      "author": "Maj Diniz",
+      "message": "controle relativo",
+      "sha": "213aa24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/213aa24cf144e3b16ad4346c4248b1b396e717da",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/geoswarm",
@@ -270,6 +657,24 @@
       "sha": "4a90665",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4a9066577139b59d68ea732eb337ef6c56000dab",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-15T14:26:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "32d5bad",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/32d5badf361b06228196c2f5270ff25055873326",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-15T13:48:01.000Z",
+      "author": "Maj Diniz",
+      "message": "organização inicial",
+      "sha": "1440fd7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1440fd7e15bf81c81c008fc56c6e90bacc35e701",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_backend",
@@ -342,6 +747,15 @@
       "sha": "9338574",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9338574849b8fc52a7ff1d5f85a0a8ecc655342d",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-15T09:11:49.000Z",
+      "author": "Maj Diniz",
+      "message": "limpeza",
+      "sha": "587a61d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/587a61dd1e98d8760eb93a2f2f86df5c031c3579",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/github_dashboard",
