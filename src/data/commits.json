@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-19T21:14:35.541Z",
+  "lastUpdate": "2026-06-20T12:00:56.497Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -38,7 +38,7 @@
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
-    "1cgeo/ebgeo_web@novo_360": "2026-06-19T20:15:15.000Z",
+    "1cgeo/ebgeo_web@novo_360": "2026-06-19T23:29:25.000Z",
     "1cgeo/geoswarm": "2026-06-16T11:34:55.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-06-19T12:04:56.000Z",
@@ -57,9 +57,9 @@
     "1cgeo/github_dashboard": "2026-06-14T23:19:06.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-19T18:56:32.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-19T22:43:20.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-19T08:56:05.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-20T09:14:31.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -107,7 +107,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4615,
+    "totalCommits": 4620,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -117,7 +117,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 737,
+      "1cgeo/ebgeo_web": 739,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -151,18 +151,63 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 12,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 6,
+      "1cgeo/ebgeo_backend": 8,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 50,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 131,
+      "1cgeo/chefe_dgeo": 132,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-20T09:14:31.000Z",
+      "author": "Maj Diniz",
+      "message": "refazendo backend",
+      "sha": "91c4c4c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/91c4c4cc3b90e2dfb536891f2b0c94726b096147",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-19T23:33:52.000Z",
+      "author": "Maj Diniz",
+      "message": "reorganiza docs",
+      "sha": "b219aee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/b219aeec19eb205c5aad4de28b18f0fa78e8c788",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T23:29:25.000Z",
+      "author": "Maj Diniz",
+      "message": "layercontrol fix",
+      "sha": "951b99f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/951b99fc0c4d269ca5fd2ecf1faf19e6e25d33b3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-19T23:03:32.000Z",
+      "author": "Maj Diniz",
+      "message": "fix mosaic export",
+      "sha": "d0dd7bf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d0dd7bf95bce6e3ae8abadb5a885621eaa6715ec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-19T22:43:20.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-19: atribuicoes operacionais do Chefe da DGEO (lista oficial reconciliada com a wiki)\n\nO chefe trouxe uma lista de 33 atribuicoes do Chefe da DGEO (sem arquivo de\norigem). A wiki modelava a funcao so pelo esqueleto do relatorio (6 secoes do\nRPCMTec/RPCATec); incorporada a camada operacional sem reescrever o framing.\n\n- chefe-dgeo: nova secao \"Atribuicoes operacionais\" (coordenacao lateral/vertical,\n  instalacoes e logistica, capacitacao custeada que a DGEO recebe, proposicoes ao\n  escalao e a academia, comunicacao institucional).\n- glossario: PCPD, SCDP, ICN, EECN, PFC, PI, CELOTEX (termos confirmados pelo chefe).\n- capacitacao: distincao nova entre instrucao que a DGEO ministra vs a que recebe\n  (ICN/EECN custeadas, par do PDR); EV; temas de PFC/PI.\n- mapoteca-missoes: plotters (manutencao preventiva + estoque de papel/tinta) e o\n  ciclo das visitas institucionais.\n- governanca-ti: manutencao preventiva dos ativos da divisao explicita.\n- DECISIONS + lint-wiki/learnings (placar e duas preferencias de estilo da edicao).\n\nLint verde: 131 paginas, 4525 links, densidade 34.5 (era 34.2).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f5242a9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f5242a9e3b52e3879acaae9b8763b720311a5839",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/doc_dgeo",
       "date": "2026-06-19T20:34:00.000Z",
