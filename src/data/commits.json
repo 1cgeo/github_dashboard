@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-20T16:24:16.623Z",
+  "lastUpdate": "2026-06-20T21:23:16.458Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -42,8 +42,8 @@
     "1cgeo/geoswarm": "2026-06-16T11:34:55.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-06-19T12:04:56.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-06-19T20:20:36.000Z",
-    "dsgoficial/SAP_Operador@qgis4": "2026-06-19T18:40:26.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-06-20T17:43:14.000Z",
+    "dsgoficial/SAP_Operador@qgis4": "2026-06-20T16:16:54.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-13T12:22:15.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
@@ -59,7 +59,7 @@
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
     "1cgeo/chefe_dgeo": "2026-06-19T22:43:20.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-20T15:20:11.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-20T18:40:42.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -107,7 +107,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4624,
+    "totalCommits": 4629,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,8 +131,8 @@
       "dsgoficial/ferramentas_edicao": 444,
       "dsgoficial/DsgTools": 614,
       "dsgoficial/sap": 142,
-      "dsgoficial/SAP_Gerente": 93,
-      "dsgoficial/SAP_Operador": 68,
+      "dsgoficial/SAP_Gerente": 94,
+      "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 80,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
@@ -151,7 +151,7 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 12,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 12,
+      "1cgeo/ebgeo_backend": 15,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
@@ -163,6 +163,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-20T18:40:42.000Z",
+      "author": "Maj Diniz",
+      "message": "reorganiza SQL",
+      "sha": "59f3e67",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/59f3e67a278ff6abde8ad5a3f90ceed18aaf3091",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-20T17:58:44.000Z",
+      "author": "Maj Diniz",
+      "message": "tests",
+      "sha": "bcd061c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/bcd061c6a93120d373191d1f9b090d1c6d6a005c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-06-20T17:43:14.000Z",
+      "author": "1º Ten Marcel",
+      "message": "1.32.1: fix janela de aceitar conexão com banco",
+      "sha": "f561784",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/f5617844ecfb4c3693327135f7f8078384488f47",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-20T17:13:25.000Z",
+      "author": "Maj Diniz",
+      "message": "add tests",
+      "sha": "c3699fe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/c3699fe8759927fb6046aa255013e9315865ede2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-06-20T16:16:54.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix idioma",
+      "sha": "703adc9",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/703adc99f7130bbd4ad72e820cd4d92a8602dcf0",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
     {
       "repo": "1cgeo/ebgeo_backend",
       "date": "2026-06-20T15:20:11.000Z",
