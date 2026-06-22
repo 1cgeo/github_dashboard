@@ -3,6 +3,7 @@ import fs from 'fs';
 const repositories = [
   { repository: '1cgeo/ebgeo_web', branch: '' },
   { repository: '1cgeo/ebgeo_web', branch: 'novo_360' },
+  { repository: '1cgeo/ebgeo_web', branch: 'integracao_backend' },
   { repository: '1cgeo/servico_nomes_geograficos', branch: '' },
   { repository: '1cgeo/doc_ortoimagem', branch: '' },
   { repository: '1cgeo/doc_topografica', branch: '' },
@@ -57,8 +58,8 @@ const repositories = [
 const authorMapping = {
   'Raul Magno EB': '1º Ten Raul Magno',
   'raulmagno-eb': '1º Ten Raul Magno',
-  'Philipe Borba': 'Cap Borba',
-  'phborba': 'Cap Borba',
+  'Philipe Borba': 'Maj Borba',
+  'phborba': 'Maj Borba',
   'Felipe Diniz': 'Maj Diniz',
   'dinizime': 'Maj Diniz',
   'Marcel Fernandes': '1º Ten Marcel',
