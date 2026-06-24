@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-23T21:46:26.184Z",
+  "lastUpdate": "2026-06-24T12:23:31.172Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-06-23T20:45:09.000Z",
+    "dsgoficial/modelagens": "2026-06-24T10:58:14.000Z",
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
@@ -45,7 +45,7 @@
     "dsgoficial/SAP_Gerente@qgis4": "2026-06-20T17:43:14.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-06-20T16:16:54.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
-    "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-23T21:10:06.000Z",
+    "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-06-18T21:45:39.000Z",
@@ -59,8 +59,8 @@
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
     "1cgeo/chefe_dgeo": "2026-06-23T21:15:50.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-22T22:53:08.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-06-23T10:06:25.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-23T23:17:17.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-06-24T08:41:54.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4654,
+    "totalCommits": 4659,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 751,
+      "1cgeo/ebgeo_web": 753,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -127,14 +127,14 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 119,
+      "dsgoficial/modelagens": 120,
       "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 444,
       "dsgoficial/DsgTools": 614,
       "dsgoficial/sap": 142,
       "dsgoficial/SAP_Gerente": 94,
       "dsgoficial/SAP_Operador": 69,
-      "dsgoficial/EBGeo_Desktop": 81,
+      "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
       "1cgeo/controle_acervo": 93,
@@ -152,7 +152,7 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 12,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 21,
+      "1cgeo/ebgeo_backend": 22,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
@@ -164,6 +164,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-06-24T10:58:14.000Z",
+      "author": "Maj Diniz",
+      "message": "conversão masacode",
+      "sha": "4f7d911",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/4f7d911c775ba1d02be891607c1c6215b6a1ed3d",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-06-24T10:43:28.000Z",
+      "author": "Maj Diniz",
+      "message": "corrige conversão",
+      "sha": "42edea2",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/42edea25cbafc82127d3f8f5aa6801404394d9f5",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-24T08:41:54.000Z",
+      "author": "Maj Diniz",
+      "message": "fix test",
+      "sha": "415d8bb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/415d8bb6ded948f0841493e8e9b3128b684cea55",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-23T23:17:17.000Z",
+      "author": "Maj Diniz",
+      "message": "continuando integração",
+      "sha": "5711166",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/5711166038364ed4771bba81761513558c8dd486",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-23T23:17:06.000Z",
+      "author": "Maj Diniz",
+      "message": "continuando integração",
+      "sha": "d96740c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d96740cbc3477066ad50f755efb4c488c05b68a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-06-23T21:15:50.000Z",
