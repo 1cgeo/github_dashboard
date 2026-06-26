@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-26T12:15:36.399Z",
+  "lastUpdate": "2026-06-26T17:04:36.293Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-05-21T18:18:31.000Z",
-    "1cgeo/doc_dgeo": "2026-06-26T11:52:49.000Z",
+    "1cgeo/doc_dgeo": "2026-06-26T12:51:33.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
-    "dsgoficial/sap": "2026-06-19T20:21:56.000Z",
+    "dsgoficial/sap": "2026-06-26T16:18:44.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -48,7 +48,7 @@
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
-    "1cgeo/controle_orcamentario": "2026-06-26T12:06:51.000Z",
+    "1cgeo/controle_orcamentario": "2026-06-26T15:50:39.000Z",
     "1cgeo/ebgeo_360": "2026-06-06T11:07:31.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-26T09:58:39.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-26T16:56:23.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-23T23:17:17.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-24T08:41:54.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4681,
+    "totalCommits": 4690,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
-      "1cgeo/doc_dgeo": 484,
+      "1cgeo/doc_dgeo": 485,
       "1cgeo/ferramentas_mgcp": 12,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -131,7 +131,7 @@
       "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 445,
       "dsgoficial/DsgTools": 614,
-      "dsgoficial/sap": 142,
+      "dsgoficial/sap": 143,
       "dsgoficial/SAP_Gerente": 94,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
@@ -150,7 +150,7 @@
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
       "1cgeo/geoswarm": 46,
       "1cgeo/tileclass": 95,
-      "1cgeo/controle_orcamentario": 14,
+      "1cgeo/controle_orcamentario": 16,
       "1cgeo/ebgeo_360": 9,
       "1cgeo/ebgeo_backend": 22,
       "1cgeo/ferramentas_ebgeo": 28,
@@ -159,11 +159,92 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 150,
+      "1cgeo/chefe_dgeo": 155,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-26T16:56:23.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-26: migracao do SCA para producao (banco + app; server serve os 2 clients)\n\nBanco sca (PostGIS) migrado de localhost para o PostgreSQL de producao (10.25.163.12:5434), banco novo (legados acervo/acervo_old intactos); role sca_readonly criado; auth de producao (sca_web/sca_qgis, sem mudar codigo); app no PM2 (3015) servindo API + dashboard do acervo (/) + mapoteca (/mapoteca) do mesmo server (sem vite preview); local removido apos verificado. DECISIONS e wiki/controle-acervo atualizados; MEMORY flag SCA no ar; learnings da retrospectiva ganhou o playbook reusavel de migrar um sistema da DGEO para producao (SCO+SCA, 2x).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "bdf47e9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bdf47e94e813f1a677f7504438f0a6d45401bec0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-26T16:37:06.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-26: learning de processo - learnings nao commitado vira refem da reconciliacao paralela; commitar no mesmo turno e conferir por grep antes de prosseguir\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "352d3de",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/352d3dec7454d7509d39d6ac16f6597a7e6693d5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-26T16:35:45.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-26: CDGV vetorial 1l Iguacu + carga BDGEx + planilha de producao\n\nconverter-modelagens: PRIMEIRO CDGV SHP de carta SCN topo MULTI-FOLHA por generalizacao (1l, 8 folhas, folder_attribute=mi -> <MI>.zip); aux_moldura_a = 8 ignoradas (quadro nao vira camada CDGV); llp_area_sem_dados sem alvo Topo14<->3.0 (omissao padrao, so na carta matricial); gotcha do caminho do mapping_file relativo a pasta do config. (re-adicionada, perdida em reconciliacao paralela)\ncarregar-bdgex: montar pasta de carga da convencao nova de lote (XML_SHP separado, nome descritivo) pareando <MI>.zip + <MI>_vetor.xml por INOM; pre-validacao abortando no confirm sem subir.\natualizar-planilha-producao: 1a carga TOPOGRAFICA de 2 UUIDs (matricial+vetorial, \\n na celula via USER_ENTERED); pareamento por INOM porque o XML do lote nao e <MI>.xml; filtrar por MI+Produto exato (nao tocar a linha CDGV COMBATER).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "137885c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/137885c249e542ef9d8fde6b32dd7a241483780b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-06-26T16:18:44.000Z",
+      "author": "1º Ten Marcel",
+      "message": "rotas novas para gerencia de produto",
+      "sha": "4b10f8a",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/4b10f8a0df2d782a21cfa5322b9b2269333abab4",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/controle_orcamentario",
+      "date": "2026-06-26T15:50:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Armazena anexos no banco (BYTEA) em vez do filesystem\n\n- orcamento.arquivo: coluna conteudo BYTEA NOT NULL no lugar de\n  nome_armazenado; versão de schema 1.1.0 (versao.sql + config.js)\n- upload via multer memoryStorage; download por res.send(buffer);\n  remove a camada de disco (arquivo_storage.js) e a config STORAGE_PATH\n- NC/DFD: exclusão de anexo por ON DELETE CASCADE (sem limpeza de disco)\n- migra os 42 anexos existentes do filesystem para o banco\n- testes (unit, rota, integração) e CLAUDE.md atualizados\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0753fe8",
+      "htmlUrl": "https://github.com/1cgeo/controle_orcamentario/commit/0753fe87301bc7330508333bb1b64ad1e56480fc",
+      "repoUrl": "https://github.com/1cgeo/controle_orcamentario"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-26T15:15:04.000Z",
+      "author": "1º Ten Marcel",
+      "message": "retrospectiva 2026-06-26: cadastro dos primeiros lotes do PIT 2026 no SAP (1e CDGV lote 77 + Carta lote 78), UUID canonico via nova rota PUT /produto, finalizacao via modo local e UTs desbloqueadas\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>",
+      "sha": "1feedb4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1feedb4ee881ce358905345bc54208b3c55dbf37",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-26T13:10:11.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-26: carga da execucao 2026 no SCO + fix da Secao 3 + RPCMTec 2026 em resources\n\nCarga das NEs/liquidacoes 2026 no SCO a partir dos RPCMTec (Jan-Mai); 2 NCs que so constavam nos relatorios (001374, 401053); correcoes de liquidacao por mes (DJI junho, MundoGEO junho, DJI software abril, recolhido em 3 NCs). Fix do gerador da Secao 3 do SCO (recorte de data na 3.2/3.7; commit 3e81116 no controle_orcamentario), achado por cruzar a saida do SCO com o RPCMTec do mes. 5 RPCMTec 2026 transcritos em 03-Resources/rpcmtec/2026; abril/maio corrigidos pushados no doc_dgeo. Atualizados ncs.md/PROJECT/relatorios-mensais, wiki, subwiki e learnings.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5caca6d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5caca6dc7724c3a8358c76eceb90d1c2430193dc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_orcamentario",
+      "date": "2026-06-26T13:04:00.000Z",
+      "author": "Maj Diniz",
+      "message": "corrige relatório",
+      "sha": "3e81116",
+      "htmlUrl": "https://github.com/1cgeo/controle_orcamentario/commit/3e811168cedaf3dc5038e9df5cbaf1f346e473a8",
+      "repoUrl": "https://github.com/1cgeo/controle_orcamentario"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-06-26T12:51:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Atualiza RPCMTec maio/2026 (nova correcao)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "d587e97",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/d587e9741be24a3fa8298f16b0fd97b4710c0260",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "1cgeo/controle_orcamentario",
       "date": "2026-06-26T12:06:51.000Z",
