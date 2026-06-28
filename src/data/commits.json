@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-28T11:50:23.466Z",
+  "lastUpdate": "2026-06-28T16:16:29.624Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -59,8 +59,8 @@
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
     "1cgeo/chefe_dgeo": "2026-06-27T13:34:57.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-28T10:39:44.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-06-28T10:39:31.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-28T14:46:34.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-06-28T15:36:23.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4722,
+    "totalCommits": 4728,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 764,
+      "1cgeo/ebgeo_web": 768,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -152,7 +152,7 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 16,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 28,
+      "1cgeo/ebgeo_backend": 30,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
@@ -164,6 +164,60 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T15:36:23.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(boot): deep-link `?atlas=` anônimo perdia o prompt de login + ordem de validação do signup\n\n- index.js: captura os deep links (?atlas= / ?atlasPublico=) ANTES do `await statePromise`. O\n  statePromise (initializeWithLastActiveMap) emite MAP_LOCK_CHANGED, que faz o atlas-url-sync limpar\n  ?atlas para usuário anônimo — então ler a URL depois do await perdia o link (sem prompt de login).\n  Regressão introduzida pela serialização de boot do fix de \"mapa Principal fantasma\".\n- signup.modal: valida senha-conferência ANTES dos selects de posto/OM (mensagem correta; melhor UX).\n- browser-signup.spec: seleciona posto/OM (agora obrigatórios) nos dois testes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "00397f9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/00397f9716ff65696018c3a04c0250bfb7589290",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T14:46:48.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(admin): posto/OM via ranks+organizations (FK ids) + edição de basemap (Habilitado/Prioridade)\n\n- signup + admin \"Usuários\": os dropdowns de posto/OM passam a usar FK ids (rank_id/organization_id);\n  a busca/exibição segue mostrando os nomes (derivados pelo backend)\n- aba \"Pessoal\": gerencia ranks (/api/v1/ranks) e organizations (/api/v1/organizations) — não mais a\n  tabela genérica resources\n- api-client: métodos de ranks + organizations (list/create/update/delete)\n- Catálogo → Basemaps: \"Habilitado\" + \"Prioridade\" como campos de primeira classe (mesclados no\n  config ao salvar; o JSON avançado continua disponível)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "8b1b2b4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b1b2b4cd61124e80ccf1d72db9f69e45b7b80f7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-28T14:46:34.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(db): consolida migrations + normaliza posto/OM (ranks + organizations + FKs)\n\nConsolida as migrations (estamos em dev): funde os patches 006/007 nos baselines 001/003 e os\nremove. Tira posto/OM da tabela genérica `resources` e os modela corretamente:\n\n- ranks: NOVA tabela (001_core) para postos/graduações (de dominio.tipo_posto_grad); módulo\n  /api/v1/ranks com CRUD admin (soft-delete; FK users.rank_id)\n- organizations: tabela EXISTENTE vira a fonte das OMs (seed das 7 OMs); /api/v1/organizations já\n  tinha CRUD admin\n- users: posto_graduacao/organizacao_militar (texto livre) → rank_id/organization_id (FKs). As read\n  queries fazem LEFT JOIN para DERIVAR os nomes (token, presença e UI seguem vendo strings); as\n  write queries recebem os ids e re-join num CTE para o RETURNING continuar emitindo os nomes\n- config público: postos vêm de `ranks`, organizacoesMilitares de `organizations` (value = id)\n- basemaps OSM/imagens habilitados por padrão (folded de 007)\n\nVerificado: suíte completa do backend (1202) verde; DBs de dev/teste recriadas do baseline limpo.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "8792443",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/879244346d09af0eb172a24283258c6e5fa97e63",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T13:47:19.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor: remove header de atributos legado (morto, superado por feature-identification)\n\nO header editável antigo (createFeatureHeaderWithOptions / createEditableFeatureName →\n.feature-name-editable) era código morto em runtime: só executava dentro de\n`if (!options.hideHeader)`, e o único builder do painel (feature-panel-content.js) SEMPRE\npassa hideHeader:true. Foi substituído pelo componente feature-identification\n(.feature-identification-name). Estava import-vivo (logo invisível ao knip), mas runtime-morto.\n\n- feature-header.helpers: remove createEditableFeatureName + createFeatureHeaderWithOptions (mantém createFeatureOptionsButton + dropdown/conversões, que seguem vivos)\n- base-attributes-panel: remove createPanelHeader, getFeatureTypeDisplayName e FEATURE_TYPE_NAMES (mantém createInitialPropertiesMap + createActionButtons)\n- 19 painéis por tipo: removem o bloco de header morto / a chamada createPanelHeader + imports não usados (hideButtons preservado)\n- feature-panel-content: remove o flag hideHeader morto das chamadas createAttributePanel\n- barrel tool_manager/helpers: deixa de reexportar os símbolos removidos\n\n+13 / -713 linhas. Verificado: lint + 2387 unit + e2e (mega, feature-attributes, feature-panel-edits, military-tools).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "6b27b2c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6b27b2cabe413317f55bf2843631b77c8ad5849d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-28T13:34:21.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(domains): listas controladas posto/OM + habilita basemaps OSM/imagens\n\n- resources: categorias 'posto' e 'organizacao_militar' (migração 006; postos de dominio.tipo_posto_grad + OMs starter)\n- config público (GET /config): expõe postos/organizacoesMilitares para o formulário de cadastro anônimo\n- users/search: passa a casar também por posto_graduacao e organizacao_militar\n- basemaps: habilita OSM e imagens (Google) por padrão (migração 007) — antes apareciam no atlas-settings mas não no seletor\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "fb3fa92",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/fb3fa92b683970f69cce378e04f550195075dc56",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T13:34:11.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: listas controladas posto/OM + correções UX (signup, comentários, badges, F5, top-bar, basemaps, copy/paste)\n\n- Signup: posto/OM viram dropdowns controlados (de /config) e obrigatórios; modal mais largo + scrollbar verde\n- Admin: nova aba \"Pessoal\" para adicionar/editar postos/graduações e organizações militares; Users tab usa os mesmos dropdowns\n- Sharing: busca de pessoas mostra posto · OM em cada resultado\n- 3D/360: badges de contagem zeram no logout (assinam ALL_DATA_CLEARED)\n- Comentários: lista agrega todos os mapas, rotula o mapa de cada item e troca de mapa ao focar\n- Boot: serializa o store local antes do reconnect (corrige mapa \"Principal\" fantasma no F5)\n- Top bar: novo controle com o nome do atlas conectado, entre o sync-badge e o avatar\n- Atlas-settings: lista só basemaps habilitados (consistência com o seletor)\n- Ctrl+C/V: só sequestra com feição selecionada / clipboard com feição; copy/paste nativo volta a funcionar\n- Teste: corrige seletores do browser-collab-mega (painel feature-identification) + retry no passo de delete\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "3f163a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3f163a978b521d0fce3af173fcd80fd9b1b19d90",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_backend",
       "date": "2026-06-28T10:39:44.000Z",
