@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-27T21:10:36.251Z",
+  "lastUpdate": "2026-06-28T11:50:23.466Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
-    "dsgoficial/sap": "2026-06-26T16:18:44.000Z",
+    "dsgoficial/sap": "2026-06-27T22:56:52.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-06-16T11:34:55.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-06-27T16:09:03.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-06-27T19:31:33.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-06-27T22:56:57.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-06-20T16:16:54.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -59,8 +59,8 @@
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
     "1cgeo/chefe_dgeo": "2026-06-27T13:34:57.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-27T20:14:09.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-06-27T20:14:01.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-28T10:39:44.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-06-28T10:39:31.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4716,
+    "totalCommits": 4722,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 762,
+      "1cgeo/ebgeo_web": 764,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -131,8 +131,8 @@
       "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 446,
       "dsgoficial/DsgTools": 614,
-      "dsgoficial/sap": 143,
-      "dsgoficial/SAP_Gerente": 96,
+      "dsgoficial/sap": 144,
+      "dsgoficial/SAP_Gerente": 97,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
@@ -152,7 +152,7 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 16,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 26,
+      "1cgeo/ebgeo_backend": 28,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
@@ -164,6 +164,60 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-28T10:39:44.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): orientacao 360 sem photoName rejeitada na escrita; role no sharing_updated\n\n- applyOperation: um `orientation360` create SEM photo_name nao e mais\n  materializado em streetview360_data (fica no log append-only de operacoes, mas\n  nunca vira dado real). Uma orientacao e indexada por photoName; sem ele e\n  inutilizavel ao frontend e poluia o snapshot. O reshape do snapshot mantem o\n  descarte defensivo para dados legados. Repro test alinhado (0 linhas\n  materializadas + ausente do snapshot; camera_position, cujo fallback por id e\n  chave usavel, ficou intacto).\n- sharing.controller: o broadcast `sharing_updated` (user_added/user_updated)\n  carrega o `role` (toFrontendRole) para um peer conectado re-gatear a UI ao vivo\n  (downgrade/upgrade de papel sem reconectar).\n\nTestes: 491 (sync / sv360 / sharing) verdes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "d470b1a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/d470b1a857eb05fc94d723f4dccfe83cfcbf366f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T10:39:31.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: modos viewer/editor (Frente 8), presenca no share, correcoes da revisao\n\nFase D / Frente 8 — edicao vs visualizacao segura:\n- ui/view-mode.controller (classe is-view-only no body) + atalho Shift+E; auto\n  para papel sem-edicao via checkPermission; legenda read-only (view-mode.css\n  esconde toolbars de criacao + controles de edicao da arvore de camadas).\n- store-error-listener: toast de bloqueio diferencia lock (map_locked/\n  target_map_locked) de permissao insuficiente; debounce por tipo.\n- modals/sharing.modal: secao \"Vendo agora\" (presenceStore, live via\n  PRESENCE_CHANGED, exclui self) + dot de online nos membros; convite default =\n  Leitura (\"default abaixa, nunca eleva\"); guardas de re-render + subscribe().\n- keyboard-shortcuts: Delete bloqueado para papel sem-edicao (alem dos toolbars).\n\nBug — downgrade de papel AO VIVO: sync-engine consome `sharingUpdated` ->\nsessionContext.updateRole -> o modo seguro engata sem reconectar (admin ignora).\n\nCorrecoes da revisao de codigo (xhigh, 13 achados) e os testes correspondentes\n(view-mode, sharing-presence, collab-permissions, authz-ui, collab-helpers).\n\nDocs: 3 planos de UI consolidados em docs/ui-ux-ebgeo.md (a UI como construida).\n\nTestes: unit 2387 + e2e + lint verdes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "1db22a6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1db22a6d3984a58fa24be688d1ef5f01e1be5a4e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-27T23:19:29.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(atlas): endpoints de lixeira/restaurar\n\n- GET /atlas/trash: lista os atlas soft-deleted do proprio dono (registrado\n  antes de /:atlasId para casar a rota literal).\n- POST /atlas/:id/restore: owner-scoped atomico (WHERE owner_id AND\n  deleted_at IS NOT NULL -> nao-dono/inexistente => 404).\n- queries RESTORE_ATLAS / LIST_DELETED_USER_ATLAS + service + controller.\n- teste de integracao: trash + restore + authz (nao-dono nao restaura).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "d62ee1e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/d62ee1ec2a25bbf3cd25b32546a34fa6f60b61f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-27T23:19:11.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: deep-link de atlas, idle timeout, redesenho do admin e Atlas Drive\n\nFase A — URL por atlas (?atlas=&map=) + idle session timeout:\n- boot router com precedencias; deep-link/atlas-link + atlas-url-sync;\n  account/open-atlas.service (guard \"substituir local\" + reversao de origem\n  em falha de connect); resume pos-login; activateAtlasInitialMap(preferredMapId).\n- session/idle-timer (puro) + idle-timeout.controller (aviso + expira);\n  handler de auth-lost (401) no api-client.\n\nFase B — redesenho do painel admin (app-shell + rail + cards; admin-dom helpers)\n+ upload de midia do catalogo (thumbnail WebP embutido com cap; video URL p/ 3D).\n\nFase C — Atlas Drive (tela cheia substituindo o picker, testids preservados):\nabas/busca/cards, menu de acoes (renomear/duplicar/lixeira), aba Lixeira +\nrestaurar (apiClient updateAtlas/cloneAtlas/listTrashedAtlas/restoreAtlas).\n\nCorrecoes da revisao de codigo (14 achados): guard de perda de dados, recuperacao\nde connect falho, atlasPublico preservado ao limpar, a11y do Drive, fim do leak\nde listeners, toggle do menu, Escape do idle, busca na lixeira, replaceState.\n\nTestes: unit 2387 + e2e (Drive, admin, deep-link, idle, login) + lint verdes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "cf43968",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf43968866c20d22b566d4e05b0226af8ed85472",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-06-27T22:56:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Metadados orto: UI de classes complementares + editores estruturados\n\nSubstitui JSON livre por UI estruturada nos metadados da carta:\n\n- Novo widget MClassesComplementaresOrto: checklist das camadas opcionais\n  (classes complementares) por lote/produto, pre-marcado com o Padrao DSG;\n  ao salvar reusa ou cria a lista nomeada e grava o vinculo via API.\n- mInfoEdicao: \"Quadro de fases\" deixa de ser JSON livre (editor em arvore\n  fases/executantes); dados_terceiro e observacoes viram lista add/remover.\n- metadadoHelpers (puro, testavel): universo de classes opcionais,\n  resolveClassesListaId, quadroFases<->dict, cleanStringList.\n- sapHttp: 8 metodos para classes_complementares_orto e o perfil.\n- dockDirector: registro do novo widget no menu de metadados.\n\nCorrecoes da revisao: limpar tudo nao re-marca o Padrao (evita recriar o\nvinculo num 2o Salvar); guard de None em classes[]; commit da edicao inline\nantes de salvar; sem refetch global por troca de lote.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "444d571",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/444d571f4ec018cc10d8000f9d4436e63f50ed7d",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-06-27T22:56:52.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(perigo): limpa dependencias de FK antes de deletar na Zona de Perigo\n\ndeleteUTSemAtividade remove insumo_unidade_trabalho antes da unidade_trabalho\n(corrige o erro 23503 insumo_unidade_trabalho_unidade_trabalho_id_fkey).\n\ndeleteProdutosSemUT cascateia os 8 dependentes de nivel produto\n(controle_campo.relacionamento_campo_produto + 7 tabelas metadado.*) antes de\ndeletar o produto, e loga a contagem de cada um.\n\nTestes (vitest, banco mockado) fixam a ordem dos deletes e o curto-circuito;\num teste cruza a lista de cascata contra as FKs para macrocontrole.produto no\nschema (er/*.sql), para nao deixar uma FK futura reintroduzir o 23503.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0add262",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/0add262a6cfe1f9d41e02eb98686eb4b0c91a445",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "1cgeo/ebgeo_backend",
       "date": "2026-06-27T20:14:09.000Z",
