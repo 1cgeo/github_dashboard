@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-28T21:07:53.163Z",
+  "lastUpdate": "2026-06-29T14:09:19.293Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-06-26T16:57:42.000Z",
+    "1cgeo/controle_acervo": "2026-06-29T13:21:01.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-06-13T10:17:31.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-28T20:53:53.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-29T13:30:33.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-28T16:51:18.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-06-28T19:33:03.000Z"
+    "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4738,
+    "totalCommits": 4755,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 771,
+      "1cgeo/ebgeo_web": 776,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -137,7 +137,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 95,
+      "1cgeo/controle_acervo": 99,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 12,
       "dsgoficial/servico_edicao": 19,
@@ -152,18 +152,171 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 16,
       "1cgeo/ebgeo_360": 9,
-      "1cgeo/ebgeo_backend": 31,
+      "1cgeo/ebgeo_backend": 33,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 162,
+      "1cgeo/chefe_dgeo": 168,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-29T13:30:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-29: auditoria do acervo 250k (data_edicao + separacao de registros) e skill auditar-acervo\n\n- skill auditar-acervo (nova): processo de ponta a ponta, catalogar scans por visao -> cruzar com o SCA por sha256 -> corrigir data_edicao -> separar registros que bundlam duas edicoes; reusavel por escala, skill de ESCRITA com guardrails. Licao central: conferir coerencia .tif x .pdf antes de datar uma versao.\n- SCA: corrigidas 5 data_edicao (regra do chefe: edicao prevalece; impressao so sem edicao; atualizacao nunca); 4 \"correcoes\" minhas eram regressao (datei pelo .tif antigo bundlado) e foram revertidas. Os 4 registros bundlados (533/534/540/546) separados via a rota nova mover-arquivos (commit 5f9035d no repo do SCA), movendo o .tif para a edicao historica que ja existia vazia.\n- livro-razao: 2 eventos da classe datacao-edicao (frouxo, depois over-fit); recorrencia na mesma tarefa resolvida tornando a coerencia tif x pdf um portao da skill.\n- MEMORY (linha do SCA), wiki/controle-acervo, subwikis/sca/rotas e DECISIONS atualizados; guard de caminhos e lint-wiki ok.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "bc89506",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bc89506236d45ccd8c48f57587d85c019c0018a1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-29T13:21:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Rota mover-arquivos: reassocia arquivo a outra versao do mesmo produto\n\nPOST /api/produtos/mover-arquivos (admin) muda o versao_id de arquivos ja\ncadastrados, sem novo upload fisico. Necessario para SEPARAR registros que\nbundlam duas edicoes (a carga em massa associou um .tif antigo e um .pdf\nmoderno a mesma versao): o arquivo da edicao errada vai para a versao, em\ngeral historica, daquela edicao.\n\nO sistema nao tinha a peca: prepare-upload/version exige upload novo\n(arquivos.min(1)) e nenhuma rota alterava arquivo.versao_id (atualizaArquivo\nnao inclui versao_id em colunasArquivo; replace-files mantem versao_id fixo).\n\nOperacao pura de banco, transacional (UPDATE acervo.arquivo SET versao_id),\nsem upload_session. Guardas: versao de destino existe; arquivos existem;\nnenhum ja no destino; origem e destino do MESMO produto; nao esvazia a\norigem; respeita unique_file_per_version (checksum, versao_id). Seta\ndata_modificacao/usuario_modificacao_uuid. Modelo: atualizaVersao/deleteVersoes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5f9035d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5f9035d52c2d1d168cca3d0b7d35d4e2766132db",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-29T13:02:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-29: autoavaliacao PPSI (skill + subwiki ti/) e reconciliacoes plano-vs-realidade\n\n- Skill nova autoavaliacao-ppsi: pipeline semestral (preenche o .docx preservando estilo via content.py/fill_form.py/generate_md.py, revisao multiagente find->verify->reconcile, entrega DOCX+PDF). SKILL.md + learnings.md + scripts.\n- Subwiki nova subwikis/ti/ (handbook de dominio de TI-SI, fora do grep geral): framework PPSI 2.0, instrumento de 50 perguntas, planos PLSI/PLB/PDTIC consolidados com quadro de reconciliacoes. subwikis/README estendido (subwiki agora cobre handbook de dominio, nao so app com API/CLI).\n- Resultado do 1o ciclo JUN 26 em ciclo-2026/ppsi.md (indice geral 53%, plano de acao); componente no PROJECT.md e calendario corrigido (remessa 15 JUL/15 DEZ).\n- Wiki de TI com reconciliacoes plano-vs-realidade: corrige \"AES-256 nao implementada\"->em uso no Bacula; replica de failover do banco PostgreSQL; MFA central em uso; Gestor de SI = Chefe da DGEO; ponteiros para a subwiki/skill.\n- index.md: refresh das estatisticas (lint-wiki: 0 quebrados, 0 orfas, 0 contradicoes; 133 paginas).\n- DECISIONS e livro-razao (4 eventos) ficaram de fora por terem conteudo de outra secao nao commitado; entram com o commit dela.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f9352a7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f9352a73ba25714abf46ff7a552e9920a846c180",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-29T12:29:08.000Z",
+      "author": "Maj Diniz",
+      "message": "transforma editor de estilos de camada em painel inline da sidebar\n\nConverte o LayerStyleModal (overlay flutuante) em LayerStylePanel, um\npainel drill-in que assume a aba de Camadas: cabecalho \"Voltar / Estilo ·\nnome\" + rodape \"Restaurar padrao / Concluir\". Toda a logica de edicao\n(classificacao constante/categorizado/graduado, controles de cor com alpha,\nsliders, aplicacao ao vivo coalescida por frame, persistencia debounced em\nstyleOverrides) e preservada.\n\n- novo src/js/features_tab/layer-style-panel.component.js\n- catalog-layers.component.js resolve o host (.features-tab-content) a\n  partir da linha clicada e abre o painel\n- remove o modal antigo e seu export no barrel de modals\n- CSS movido de modals-redesign.css para features-tab.css, renomeado para\n  .layer-style-panel*, com regra de takeover (display:none !important nos\n  demais filhos) e animacao de entrada por transform\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "60772f0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/60772f0bd8b48950adf04ac6c78faab33ac6acb8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-29T11:18:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-29: seguranca de deps do SCA (bump axios 1.18.1, package-lock versionado) e metodo de triagem de vulnerabilidade\n\nRegistra a decisao e o metodo reusavel: o \"N low\" do Dependabot engana sem\nlockfile commitado (manifest-only); triar pelo runtime de producao vs dev/tooling;\nversionar o package-lock e pre-requisito para o Dependabot ser util. Detalhe e o\nfix do SCA em 1cgeo/controle_acervo commit ed8ba64.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "c947021",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c947021ce665b904a05c5abb1f3336d0d0762593",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-29T11:17:36.000Z",
+      "author": "Maj Diniz",
+      "message": "seguranca: bump axios para 1.18.1 (corrige advisories HIGH no runtime) e versiona package-lock.json\n\nO axios 1.13.5 (server/utils/http_client.js, runtime de producao, e tooling de\ncarga na raiz) caia na faixa vulneravel 1.0.0-1.15.2 (SSRF/proxy/prototype\npollution). Bump para 1.18.1, dentro de ^1.x (sem major). Login (que usa axios\npara o auth server) e leituras testados apos pm2 reload.\n\npackage-lock.json deixa de ser gitignored e passa a ser versionado (raiz, server\ne os dois clients): build reproduzivel e alertas do Dependabot precisos (sem\nlockfile, o Dependabot so via os package.json, dai os \"2 low\" enganosos).\n\nRestante do npm audit (eslint/babel dev; shell-quote/basic-ftp transitivos do\npm2 e do tooling de carga na raiz) nao esta no runtime de requisicoes do SCA e\nfica para depois.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "ed8ba64",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ed8ba64e5b7d7e5e937c883ba9c58d233d3229c2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-29T11:01:13.000Z",
+      "author": "Maj Diniz",
+      "message": "2026-06-29: fix do alerta \"104 com erro de exclusao\" do SCA (status EXCLUIDO vs ERRO_EXCLUSAO)\n\nDiagnostico do alerta do dashboard pedido pelo chefe: era bug de rotulo (todo\nsoft-delete gravava status 4 ERRO_EXCLUSAO em vez de 3 EXCLUIDO; o 4 e do job de\nintegridade). Fix em 1cgeo/controle_acervo (commit f7c0d3b) + backfill no banco.\n\n- DECISIONS: ponteiro \"a investigar\" da entrada de 2026-06-29 fechado como RESOLVIDO.\n- livro-razao: evento dado-errado (bug espelhado) -- eu propaguei o bug ao espelhar\n  deleteArquivos no processReplaceFiles; licao: codigo espelhado e autoridade sobre\n  COMO funciona, nao sobre se esta CORRETO.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "93f3553",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/93f355362e6ca71b89b904d83de09cae42949c2f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-29T11:00:01.000Z",
+      "author": "Maj Diniz",
+      "message": "arquivo/produto: exclusao normal grava status EXCLUIDO (3), nao ERRO_EXCLUSAO (4)\n\nTodo caminho de soft-delete (deleteArquivos, processReplaceFiles, e a exclusao\nde versao/produto em produto_ctrl) gravava tipo_status_id = ERRO_EXCLUSAO (4) no\nINSERT em acervo.arquivo_deletado. Como o dashboard (system_health) e o\ngetArquivosIncorretos contam status 4 como \"arquivo com erro de exclusao\", TODA\nexclusao normal aparecia como erro (alerta \"N arquivo(s) com erro de exclusao\").\n\nO status 4 (Erro na exclusao) e do job de verificacao de integridade\n(gerencia_ctrl), que o atribui so a arquivo deletado com problema fisico e\nreseta para 3 (Excluido) os que estao ok. A exclusao normal deve nascer\nEXCLUIDO (3).\n\nBackfill aplicado no banco de producao: arquivo_deletado status 4 -> 3 (o job de\nintegridade re-sinaliza qualquer erro fisico real na proxima rodada).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f7c0d3b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f7c0d3b55289994fc54bc44e5afc30839cc0e3e8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-29T10:54:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-29: rota replace-files no SCA (substituir conteudo de arquivo sem nova versao), aplicada a 4 cartas de Palmas\n\nSCA agora tambem e escrito/mantido por nos (carga e correcao via admin). Construida a rota POST /api/arquivo/prepare-upload/replace-files em 1cgeo/controle_acervo (commit 5ba8387) para corrigir PDF/GeoTIFF de uma edicao ja cadastrada sem criar nova versao; aplicada as 4 cartas de Palmas (ortoimagem 1-DSG).\n\n- DECISIONS 2026-06-29: a decisao, o mecanismo (delete+insert atomico por slot), o fix do check (nome_arquivo, extensao, versao_id) e a migracao do CHECK de operation_type.\n- wiki/controle-acervo: o SCA agora e escrito/mantido; rota replace-files para correcao de conteudo.\n- MEMORY: SCA ler + escrever/manter; codigo dos repos 1cgeo mantido por nos.\n- livro-razao: classe nova dry-run-raso + evento do 409 que eu podia ter previsto (dry-run de mutacao via API deve simular a validacao do destino).\n- wiki/index: bloco de estatisticas do lint atualizado.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "869bc6d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/869bc6dee1f415bfec71196d3b1a2c4835b81be9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-06-29T10:46:28.000Z",
+      "author": "Maj Diniz",
+      "message": "arquivo: rota replace-files para substituir conteudo de arquivo de versao existente\n\nSubstitui o conteudo (PDF/GeoTIFF/JSON/...) de arquivos de uma versao ja\ncadastrada SEM criar nova versao. Nova rota POST\n/api/arquivo/prepare-upload/replace-files (admin) + caso replace_files no\nconfirm-upload (processReplaceFiles): para cada arquivo, soft-delete do que\nocupa o slot (versao_id, nome_arquivo, extensao) + insert do novo, atomico na\nmesma transacao; upsert se o slot estiver vazio. O destination_path e o mesmo\ndo arquivo atual, entao a transferencia sobrescreve o fisico no lugar (sem\norfao). Ao contrario do prepare-upload/files, nao rejeita por colisao de\n(nome_arquivo, versao_id): arquivos irmaos de mesmo nome_arquivo (tif+pdf+json)\ncoexistem e ficam intocados ao substituir so um deles.\n\nCorrige tambem o check de colisao do prepare-upload/files: a chave fisica e\n(volume, nome_arquivo, extensao), entao o check passa a incluir extensao\n(IS NOT DISTINCT FROM, null-safe p/ Tileserver). Antes recusava adicionar um\nirmao legitimo (ex.: o .tif quando o .json de mesmo nome_arquivo ja existia).\n\nupload_session.operation_type passa a aceitar 'replace_files' (CHECK ampliado\nem er/acervo.sql; migracao equivalente aplicada no banco de producao).\n\ndocs/api_documentation.md documenta a rota nova.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5ba8387",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5ba83877e1dbad254f665dfdd143e202d8077b2f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-28T23:36:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-28: doc de metadados XML com 6 exemplos reais; o que o BDGEx preenche vs o que fornecemos (LI_Source sempre vazio)\n\nCorrecao de proveniencia (chefe): os 6 XML sao EXPORTS do BDGEx (pos-carga), nao o payload de upload. Tres campos sao preenchidos pelo BDGEx (graphicOverview, MD_DigitalTransferOptions, bbox da identificacao quando SCN, do INOM); no nao-SCN o bbox e nosso; LI_Source/sourceExtent sempre vazio (o cheio nas 2 cartas especiais POA e anomalia). Mantem a regra \"bbox vazio na SCN\" (2026-06-09) e a decisao do ET-RDG no especial topo (2026-06-19). 6 XML versionados como golden set. Evento de proveniencia no livro-razao; DECISIONS 2026-06-28.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "1f19494",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1f19494b049aa91e6c9246067d447caf945dd7fc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T22:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "style: margem no botão Entrar + sobe o card de comentário acima do marker\n\n- account.css: margin 5px em .account-control__btn--login.\n- comment-overlay.js: offset do popup de comentário 16→38 para o card não cobrir o pin de 30px\n  (folga de ~8px acima do marker).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "72edc61",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/72edc61d6df6c8bf967d9dc158732850d7a30e74",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T22:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(boot): deep-link de atlas não trava no loading; bare / abre o seletor de atlas\n\n(1) Logado, /?atlas=&map= abria o atlas mas o splash não saía: o openRemoteAtlas → clearAllDataStore\nrodava durante o boot, em corrida com o switchMap do handler de 'load', travando antes do\nhideLoadingScreen. initializeApp agora expõe bootRendered (resolve após o splash sair, até em erro) e o\nboot aguarda isso antes de qualquer open remoto.\n\n(2) A barra de endereços é a fonte da verdade: /?atlas=<uuid> carrega o atlas; um bare / (logado) abre o\nSELETOR de atlas em vez de reabrir o último (reconnectLastAtlas → openAtlasChooserOnBoot, descartando\ndados remotos antigos). O F5 segue reconectando porque o reload mantém ?atlas= na URL (caminho\ndeep-link); teste browser-f5-reconnect atualizado para um F5 fiel (page.reload()).\n\nVerificado: deep-link loaderPresent=false + online; bare / = picker/offline; regressão de boot 8/8.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "0a2cc7f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0a2cc7f5d3004b87d9d6b36f49941ee932678d93",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T22:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sidebar): rail de mapas recentes converge no mapa correto ao abrir/criar atlas\n\nAbrir/criar um atlas é uma sequência assíncrona (clear → connect → activate → switchMap → flush) e as\nleituras do rail (chaves de mapa + setting lastActiveMap) só estabilizam após os eventos tardios. O\nrail só ouvia LAYERS_CHANGED, cujo último disparo pegava leitura stale — deixando \"Principal\" no atalho\nenquanto a aba Mapas (que ouve MAP_LOCK_CHANGED / MAP_MODIFIED / CONNECTION_STATE_CHANGED /\nREMOTE_OPERATION_APPLIED) já mostrava o mapa real. Agora o rail ouve os mesmos eventos.\n\nVerificado: RAIL pós-fluxo = mapa correto (era \"Principal\"); regressão sidebar/maps 11/11.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "c1f292c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c1f292c02405a82149c717bc0d567e79c2f0f42b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-06-28T22:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): migração de schema só para repositórios antigos; novos criados na versão atual\n\nAbrir um projeto chama clearAllDataStore, que carimbava o store recém-esvaziado com a versão legada\n'1.7' e logo re-inicializava — disparando toda a cadeia de migração (no-op, 0 mapas) a CADA abertura.\nO mesmo no boot de usuário novo (clearLegacyStores). Um store limpo/novo é reconstruído já na versão\natual (getEmptyMapData = v2.2), então passa a ser carimbado com ATLAS_SCHEMA_VERSION. Migração só roda\npara repositórios antigos pré-existentes com dados numa versão suportada (caminho legado intacto).\n\nVerificado: abrir projeto não gera mais logs de migração (detectMigrationNeeded=false); 2387 vitest.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "8e9b902",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8e9b902e77130827d14ea81c86c7346dab072367",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-28T22:44:54.000Z",
+      "author": "Maj Diniz",
+      "message": "i18n: traduz mensagens de erro voltadas ao usuário para pt-BR\n\nMensagens de erro de auth/users/catalog/organizations que aparecem na UB (login, conta, painel\nadmin) estavam em inglês (\"Invalid credentials\", \"Username already exists\", etc.). Traduzidas para\npt-BR conforme o padrão do projeto. Mensagens internas/técnicas (guarda IDOR de sync, validação de\ngeometria, ingestão 360) ficam como estão. Teste auth-hardening atualizado para a nova mensagem.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "23c69f2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/23c69f23cebdeed0f84e8fafaf1d3846777eafca",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-06-28T22:44:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): grava ops de nível-atlas com o id do atlas (corrige 400 ao abrir atlas)\n\nA tabela de log `operations` tem `entity_id UUID NOT NULL`. Ops de configuração de nível-atlas\n(colorUsage / mapBadgeColors / terrainExaggeration) carregam o sentinela não-UUID `entityId='atlas'`,\nque falha a conversão para UUID (22P02) e faz o push inteiro retornar 400 — então essas configs\nnunca sincronizavam (erro de flush silencioso). Ao gravar no log, ops cujo targetId não é UUID são\nregistradas com o id do PRÓPRIO atlas (a entidade que afetam); ops com id UUID real ficam inalteradas.\n\nVerificado: op de setting passa a dar push 200; fluxo completo de abrir atlas todo 200; lado\ninbound/replay intacto (handler de setting aplica por entityType+data, não usa entityId); 1188 testes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DAmmHw6yiv8VKiceXgMhmC",
+      "sha": "fbe7ab8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/fbe7ab82948fed27b391bc477a4fd447f6e28468",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-06-28T20:53:53.000Z",
