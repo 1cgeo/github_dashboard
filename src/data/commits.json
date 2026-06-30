@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-06-30T12:14:07.106Z",
+  "lastUpdate": "2026-06-30T17:09:54.771Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
-    "dsgoficial/sap": "2026-06-28T19:10:47.000Z",
+    "dsgoficial/sap": "2026-06-30T12:16:34.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-06-29T18:58:11.000Z",
+    "1cgeo/chefe_dgeo": "2026-06-30T15:50:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4759,
+    "totalCommits": 4763,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,7 +131,7 @@
       "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 446,
       "dsgoficial/DsgTools": 614,
-      "dsgoficial/sap": 145,
+      "dsgoficial/sap": 146,
       "dsgoficial/SAP_Gerente": 98,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
@@ -159,11 +159,47 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 170,
+      "1cgeo/chefe_dgeo": 173,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-30T15:50:29.000Z",
+      "author": "Maj Diniz",
+      "message": "doc: receita reusavel de disseminacao de lote CT 25k (1b Tubarao)\n\n- converter-modelagens: receita banco de edicao (segment_clip+reproject por fuso) e CDGV SHP por folha (Topo1.4->3.0, folder_attribute=mi), com configs-template salvos, comando com PROJ_LIB/geoalchemy2 e validacao por comprimento/area.\n- carregar-bdgex: o zip vetorial e <MI>.zip (loader faz xml.replace(/(_vetor)?.xml$/,\".zip\")).\n- configurar-lote-sap: valores concretos das subfases do CDGV (148-166, fases 45/47/48) e o gotcha de geom POLYGON (ST_GeometryN) na criacao de UT.\n- wiki: tipo/nome da massa d'agua pela drenagem interna (com fluxo=Rio, isolada=Lago/acude; nome do rio dominante).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "696496d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/696496d2b57aeef767b0fadba9f24fef607102f5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-30T14:00:39.000Z",
+      "author": "Maj Diniz",
+      "message": "doc(criar-json-edicao): JSON de edicao e so da CARTA, nunca do CDGV/vetor\n\nO JSON de edicao e a config de exportacao da carta (PDF/GeoTIFF). CDGV/vetor\ntem so XML de metadados. Pareamento: carta = XML + JSON; CDGV = so XML.\nCorrecao do chefe apos eu gerar _vetor.json indevidos no 1b. Regra fixada na\nSKILL (Quando NAO usar), learnings e livro-razao.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "a6e9c8e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a6e9c8e0a138bd65a3202bf1d884e335738e4395",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-06-30T12:58:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-06-30: SAP gera JSON/XML do 1c conforme BDGEx (1a mudanca de codigo no dsgoficial/sap), exportacao CT mascaras minimas + GeoTIFF, carga CDGV/CT no BDGEx\n\n- DECISIONS: cadastro de metadado de edicao no SAP via rotas, linhagem das atividades reais (finalizar_modo_local, gotcha de fuso meio-dia UTC), configurar fases faltantes, e as correcoes de codigo do gerador (LI_Source branco, individualName, linhagem canonica PreparoCDG, territorio_internacional) commitadas no dsgoficial/sap.\n- learnings: criar-metadados-xml (formato canonico BDGEx + SAP gera), configurar-lote-sap (cadastro metadado, candidato a skill), exportar-carta (1a exportacao topo -dam + trap do .env + GeoTIFF), carregar-bdgex (staging matricial/vetorial do SAP), criar-json-edicao (Preparo, territorio_internacional).\n- MEMORY: passamos a manter o backend SAP; livro-razao: MI nao e toponimo (palavra-chave).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "22cec9b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/22cec9bed87ee90d64bfaafea64b64111d1ebd13",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-06-30T12:16:34.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(metadados): XML/JSON de edição conforme os XML reais do BDGEx\n\n- linhagem: descrições canônicas (PreparoCDG/DigitalizaçãoTela/ValidaçãoQGIS/\n  Edição) com rationale verbatim do BDGEx; fase sem mapeamento (Disseminação)\n  não entra na linhagem. Preparo passa a PreparoCDG (no lugar do antigo PDI).\n- LI_Source/sourceExtent: sempre em branco (o bbox só preenche a\n  identificationInfo, conforme o BDGEx).\n- individualName no formato do BDGEx (NOME em maiúsculas seguido de \" / ;\").\n- JSON de edição: territorio_internacional sempre emitido (false/true).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "05fb1d1",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/05fb1d1d15c810c08c484756c0bec94719ab018a",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "dsgoficial/modelagens",
       "date": "2026-06-29T20:26:45.000Z",
