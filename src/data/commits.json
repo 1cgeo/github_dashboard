@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-01T12:38:44.206Z",
+  "lastUpdate": "2026-07-01T17:21:44.686Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,13 +19,13 @@
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
-    "dsgoficial/sap": "2026-06-30T20:38:32.000Z",
+    "dsgoficial/sap": "2026-07-01T15:02:06.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-06-30T20:51:36.000Z",
+    "1cgeo/controle_acervo": "2026-07-01T15:53:13.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-06-13T10:17:31.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-01T10:16:20.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-01T16:48:02.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4773,
+    "totalCommits": 4785,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,13 +131,13 @@
       "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 446,
       "dsgoficial/DsgTools": 614,
-      "dsgoficial/sap": 147,
+      "dsgoficial/sap": 148,
       "dsgoficial/SAP_Gerente": 98,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 100,
+      "1cgeo/controle_acervo": 105,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 12,
       "dsgoficial/servico_edicao": 19,
@@ -159,11 +159,119 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 178,
+      "1cgeo/chefe_dgeo": 184,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T16:48:02.000Z",
+      "author": "Maj Diniz",
+      "message": "enxuga a Constituicao (CLAUDE.md) pelo padrao 2026: -37%, progressive disclosure\n\nAplica boas praticas de CLAUDE.md (pesquisa jun/2026: Anthropic + HumanLayer +\nguias): conciso e alto-sinal, detalhe situacional movido para docs referenciados\ncarregados sob demanda. CLAUDE.md 14136 -> 8889 chars (-37%), SEM perder guardrail.\n\n- Movido lossless: ensaio integral da doutrina (razao de ser + 6 principios +\n  humano-no-laco) -> doutrina.md; guia de worktrees paralelas ->\n  .claude/worktrees-guia.md. CLAUDE.md fica com os 6 principios condensados\n  (1 linha cada) + ponteiros.\n- Condensado: secoes de memoria, skills, proatividade/fim-de-sessao.\n- Mantidos inline e integrais: TODOS os guardrails (segredo, caminhos, fonte\n  primaria, escrita admin/menor privilegio, datas, em-dash, acentos, memoria\n  enxuta, Estado atual MM/AAAA) e os @imports (USER.md, MEMORY.md).\n- _DOUTRINA.md: ponteiro dos principios completos atualizado para doutrina.md.\n- DECISIONS.md: ADR registrado.\n\nAprovado pelo chefe (edicao de nucleo, principio 3).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "a9f443e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a9f443e6b25d35c9668661c19dbd29480d5f4ebb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T16:36:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-01: registra em DECISIONS o padrao \"Estado atual (MM/AAAA)\" e fecha o loop no livro-razao\n\n- DECISIONS.md: ADR da decisao do chefe (marcador perene com MM/AAAA, edicao do\n  nucleo CLAUDE.md + schema da wiki, check [8] no lint, higiene no mesmo ciclo).\n- livro-razao.md: o evento da contradicao nucleo-vs-schema (QGIS) marcado RESOLVIDO.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "1780e53",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1780e53b93adeed291279c3db9a5d6d1ed88b97b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T16:33:13.000Z",
+      "author": "Maj Diniz",
+      "message": "padrao \"Estado atual (MM/AAAA)\" + check [8] no lint + higiene (split learnings, poda MEMORY)\n\nDecisao do chefe (2026-07-01): o marcador \"Estado atual\" das paginas perenes\npassa a carregar mes/ano (MM/AAAA), o padrao daqui pra frente. Resolve a\ncontradicao nucleo-vs-schema achada na varredura QGIS (o CLAUDE.md pedia (AAAA),\no schema da wiki pedia sem ano).\n\n- CLAUDE.md (nucleo, com aval do chefe) e wiki/index.md (schema): novo padrao.\n- 73 paginas datadas com a data real do ultimo commit de cada uma (git, byte-level)\n  e 13 marcadores em formato antigo normalizados para MM/AAAA.\n- lint-wiki: check [8] (advisory) sinaliza marcador \"Estado atual\" sem MM/AAAA\n  (gotcha: o OK_RE aceita data no inicio do parenteses, nao exige o ) apos o ano).\n\nHigiene (a pedido do chefe):\n- learnings de lint-wiki dividido em camada quente (9.4KB, regras destiladas +\n  recentes) e references/learnings-detalhado.md (historico por sessao); lossless.\n- MEMORY.md podado de 5231 para 4832 chars (detalhe recuperavel movido para\n  wiki/subwikis/casa anual, mantido flag + ponteiro).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "6e96388",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6e96388160c5029d0786969dfacfb088b7a85ae7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T16:13:05.000Z",
+      "author": "Maj Diniz",
+      "message": "varredura QGIS 3.x->4: atualiza estado (edicao no QGIS 4, migracao concluida) + retrospectiva\n\nRastreio de info antiga sobre a versao do QGIS no vault (chefe informou:\na producao migrou para QGIS 4, a edicao esta no QGIS 4). Separado o estado\npresente (atualizado) do registro historico datado (mantido verbatim:\nhistorico de versoes do dsgtools, relatorios-201X, 03-Resources, 04-Archive,\nDECISIONS; e pisos de versao ainda validos em QGIS 4).\n\nWiki (estado atual -> QGIS 4, 3.24 legado): qgis, producao-cartografica,\nferramentas-edicao, folha-modelo, index, mapa-conceitos, ferramentas-pto-controle,\nstreetview-plugin, streetview-campo (kit de campo, confirmado pelo chefe);\nlinha-do-tempo ganha o fato datado da migracao (sem reescrever o lancamento).\n\nScripts SAP + subwikis/sap/rotas: spoof de login qgis 3.34.0 -> 4.0.0\n(seguro: usam sap_fg, cuja versao o backend nao checa).\n\nRetrospectiva: learnings de lint-wiki (metodo da varredura + candidato-a-check\ncorrigido, que contradizia o nucleo) e evento no livro-razao. Sinalizada uma\ncontradicao de governanca: CLAUDE.md manda \"Estado atual (AAAA)\" mas o schema\nda wiki (index.md L37) manda sem ano; marcadores deixados no formato do schema,\ndecisao ao chefe.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5232bc6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5232bc657a8a3175cd060940ad8c117ff79e8198",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-01T15:53:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(deps): elimina o alerta uuid aninhado via override do better-queue\n\nbetter-queue@3.8.12 fixa uuid@^9 (aninhado 9.0.1, afetado pelo\nGHSA-w5hq-g745-h8pq) e usa apenas uuid.v4() (nao explotavel: a vuln so\natinge v3/v5/v6 quando se passa buf). Em vez do downgrade que o npm\naudit propunha (better-queue 3.8.12 -> 3.8.4), forcei via \"overrides\"\no better-queue a usar o uuid ^13 ja corrigido do proprio server\n($uuid), deduplicando e mantendo a versao da lib.\n\nServer agora com 0 vulnerabilidades (antes 2 moderate).\n\nVerificado: npm audit limpo; smoke test do better-queue processa task\ncom uuid.v4() sobre uuid 13; testes de schema 150/150.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "76432de",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/76432dea6235ba79b04f47c751d1dcdbd1f9887a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-01T15:49:33.000Z",
+      "author": "Maj Diniz",
+      "message": "test: corrige teste obsoleto de prepareAddVersion (formato legado em versao regular)\n\nO trigger acervo.validate_version (fonte de verdade, er/acervo.sql)\nACEITA \"Xª Edição\" em versoes Regular (tipo_versao_id = 1): o acervo\nlegado e cadastrado assim. O teste antigo esperava rejeicao, um\ncomportamento que foi removido quando o schema passou a espelhar o\ntrigger (ambos os tipos aceitam os dois formatos). Atualizado para\nesperar aceitacao. A rejeicao de formato invalido segue coberta pelo\nteste \"should reject version format not accepted by the DB trigger\".\n\narquivo.test.js: 39/39.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "9fd64cc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9fd64ccc9883e0290f6820b983164799d6b22f4b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-01T15:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(deps): sobe pm2 6 -> 7.0.3 (raiz + server), fecha o js-yaml DoS\n\nAplica o major do pm2 (gerenciador de processo) diretamente, sem\nnpm audit fix --force, para nao arrastar junto o downgrade do\nbetter-queue.\n\nRaiz: 0 vulnerabilidades. Server: resta apenas o uuid aninhado do\nbetter-queue (nao explotavel: so dispara com buf em uuid v3/v5/v6,\nque a lib nao usa; o unico fix seria um downgrade).\n\nVerificado: pm2@7.0.3 ok, ecosystem.config.cjs carrega (app\ncontrole-acervo), testes unit do server 167/168 (mesma falha\npre-existente de arquivo_schema). Validacao final de deploy\n(pm2 startOrReload) fica para o host de producao.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "1afde3f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1afde3f408ba2b608ad2514ada58ebbcbe89f6e9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-01T15:42:05.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(deps): corrige alertas do dependabot (npm audit fix nao-breaking)\n\nRaiz: 11 -> 2 vulnerabilidades (todas as criticas e high resolvidas;\nresta o par pm2/js-yaml, que exige major).\nServer: 18 -> 4 vulnerabilidades (todas as high resolvidas; restam\npm2/js-yaml e o uuid aninhado do better-queue, ambos exigindo major).\n\nSomente package-lock.json alterado (resolucao dentro dos ranges semver\nja declarados; nenhum package.json mudou). acervo_client e\nmapoteca_client ja estavam limpos (0 vulnerabilidades).\n\nVerificado: testes unitarios do server 167/168 (a unica falha e um\nteste obsoleto pre-existente de arquivo_schema, alheio a esta mudanca).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f119ea8",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f119ea823a71aa45dd050d48e1da1f1457d9743c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T15:34:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-01: enriquece carta-ortoimagem e edgv-orto-30 (repos doc_ortoimagem/modelagens), resolve quase-duplicata edgv~edgv-orto-30 por diferenciacao",
+      "sha": "ce7ff90",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ce7ff907be6163a085e53ace23e25cbe306c4506",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T15:10:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-01: RPCMTec gerado pelos proprios sistemas (SCA cfb4ea2 + SAP e5d8da9), usuario Denner + turno Integral, fix diagnostico-raso",
+      "sha": "21469d0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/21469d0c33dccbb06db43bea89aca5889e740208",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-01T15:02:06.000Z",
+      "author": "Maj Diniz",
+      "message": "rpcmtec: relatorio da secao producao/pessoal (SAP) + data_entrega no Extra-PIT + fix StrictMode nos hooks de subfase/atividade\n\n- Novo modulo server/src/relatorio (GET /relatorio/rpcmtec/:ano/:mes e /docx,\n  admin-only): Estado do PIT (producao+nao-producao), 2.1, 2.2 (com UUID do\n  produto SAP), 2.3, 2.5, 2.6, 5.1, 5.2, Total de Capacitacao e Totais do\n  mes/ano. Reaproveita rh/campo/capacitacao/extra_pit/acompanhamento; gera DOCX\n  com a lib docx. Nova feature React client/src/features/rpcmtec (preview +\n  download) + rota + item de menu.\n- Extra-PIT: coluna data_entrega (migracao 232->233) para a 2.6 filtrar por mes;\n  campo no cadastro, coluna na lista e no relatorio.\n- Gerencia de campos: ordena por data de inicio (desc) + coluna Data.\n- Fix (dev/StrictMode): hooks useSubphases/useActivities cancelavam um cancel\n  token guardado em useRef no cleanup e nunca o recriavam, deixando a proxima\n  requisicao nascer cancelada (telas de subfase/atividade davam erro so em dev).\n  Removido o cancel-token-no-unmount (react-query ja descarta resultado obsoleto).\n- Bump de versao: SAP 2.3.2 -> 2.3.3 (config VERSION e MIN_DATABASE_VERSION;\n  seed er/versao.sql).",
+      "sha": "e5d8da9",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/e5d8da937afb3f9ee0017ccf778d142945b6a430",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-01T13:09:09.000Z",
+      "author": "Maj Diniz",
+      "message": "rpcmtec: nova secao acervo do RPCMTec (estado do acervo, mapoteca+insumos, LAI, totais) com export DOCX e preview no client\n\nNovo modulo server/src/relatorio (GET /rpcmtec e /rpcmtec/docx, admin-only),\nreaproveitando os controllers ja existentes de integracao/acervo/mapoteca.\nCobre estado do acervo por escala (% da ASC), produtos entregues por tipo,\ndetalhe 2.4/2.7 no formato historico do RPCMTec (Solicitante | Documento |\nQuantidade | Situacao, incluindo pedidos pendentes, nao so entregues),\ntotais de mapoteca/LAI e insumos de impressao. Nova pagina #/rpcmtec no\nmapoteca_client, mesmo padrao de toolbar/preview do RPCMTec do SCO.",
+      "sha": "cfb4ea2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cfb4ea2faffb2ba353fab25e16d3247c5c4d0783",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-01T10:16:20.000Z",
