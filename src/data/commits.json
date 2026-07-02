@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-07-01T21:42:10.997Z",
+  "lastUpdate": "2026-07-02T12:12:26.643Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-03-25T18:48:38.000Z",
+    "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-03-16T16:19:49.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -15,11 +15,11 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-01T20:49:37.000Z",
+    "dsgoficial/modelagens": "2026-07-01T21:47:14.000Z",
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
-    "dsgoficial/sap": "2026-07-01T15:02:06.000Z",
+    "dsgoficial/sap": "2026-07-02T09:53:43.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -29,7 +29,7 @@
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-06-13T10:17:31.000Z",
-    "dsgoficial/servico_edicao": "2025-11-11T10:26:46.468Z",
+    "dsgoficial/servico_edicao": "2026-07-02T09:47:39.000Z",
     "1cgeo/news_feed": "2024-01-01T10:26:46.468Z",
     "1cgeo/ferramentas_mapoteca": "2026-01-27T11:34:48.000Z",
     "1cgeo/projetos": "2026-06-27T13:01:01.000Z",
@@ -56,8 +56,8 @@
     "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-06-13T13:34:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-01T20:34:03.000Z",
+    "1cgeo/autolabeller": "2026-07-02T10:59:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-01T21:57:41.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4792,
+    "totalCommits": 4803,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 776,
+      "1cgeo/ebgeo_web": 779,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 109,
@@ -127,11 +127,11 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 124,
+      "dsgoficial/modelagens": 125,
       "dsgoficial/configuracoes_producao": 201,
       "dsgoficial/ferramentas_edicao": 446,
       "dsgoficial/DsgTools": 614,
-      "dsgoficial/sap": 148,
+      "dsgoficial/sap": 151,
       "dsgoficial/SAP_Gerente": 98,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
@@ -140,7 +140,7 @@
       "1cgeo/controle_acervo": 105,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 12,
-      "dsgoficial/servico_edicao": 19,
+      "dsgoficial/servico_edicao": 20,
       "1cgeo/news_feed": 0,
       "1cgeo/ferramentas_mapoteca": 14,
       "1cgeo/projetos": 29,
@@ -158,12 +158,111 @@
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 100,
-      "1cgeo/chefe_dgeo": 190,
+      "1cgeo/autolabeller": 102,
+      "1cgeo/chefe_dgeo": 191,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T10:59:29.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: plano de implementacao da constituicao v1.1\n\nFases 0-4 (export/dados, objetivo lexicografico, posicionador por\nregimes, validacao visual, plugin), veredito refazer/estender/manter\npor arquivo, ordem de ataque por impacto visual e riscos. Inclui o bug\nconhecido do render (0.1): whitelist das classes do produto — hoje\nexporta camadas carregadas no QGIS sem simbologia prevista.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "f4f2ce1",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/f4f2ce1c278247fc1c6c1f10d45d0fe34349a879",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T10:58:15.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: CONSTITUICAO v1.1 + regras por classe (Anexo D)\n\n- CONSTITUICAO.md: documento normativo do motor — restricoes invioláveis\n  (R1-R8), preferencias ordenadas (P1-P8), regras de texto, escada de\n  degradacao com supressao hierarquica, avaliacao lexicografica\n  (validade antes de score), regimes A-H, emendas. Anexo A = gap\n  analysis vs codigo atual. Exclusoes deliberadas: halo, repeticao.\n- docs/regras-por-classe.md: catalogo normativo das 73 classes do\n  produto (QMLs topoMap 1.4 + master EDGV 3.0 Topo 1.4.6) em 8 regimes,\n  com fontes por regra, excecoes transversais e notas de implementacao.\n- Fundamentos verificados: ET-RDG 2025 (norma vigente, substitui\n  T34-700), T34-700, MIL-T-89301A, Imhof/Yoeli/CMS/van Kreveld etc.\n- CLAUDE.md: referencia a constituicao.\n- .gitignore: data/qgis_poa/ (saida POA 1:25k, gerada).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "b8b1085",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/b8b1085ff905e04bd02111e27f137827a4bfa1f5",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-02T09:53:43.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(datas): trata YYYY-MM-DD como dia local em formularios e filtros\n\n- helpers toDateInputValue/dateInputToISO em utils/formatters (fuso\n  local; toISOString deslocava o dia em UTC-3)\n- campos/fotos: inicio/fim/data_imagem gravavam meia-noite UTC e a\n  exibicao mostrava o dia anterior ao escolhido no formulario\n- tracks: envia o dia cru para a coluna DATE, sem passar por UTC\n- extra-pit: data_entrega serializada como YYYY-MM-DD no servidor;\n  dialogo de edicao exibia o campo vazio ao receber ISO datetime\n- microcontrole: filtros padrao de data no fuso local (apos 21h a\n  data de hoje virava amanha)\n- rpcmtec: formatData parseia string so-data como dia local\n- test: payload do extra_pit_schema com data_entrega (falha\n  pre-existente do commit e5d8da9)\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "6572bdb",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/6572bdb205fcb15cc1986a83a28d3313a6f12d52",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-02T09:53:23.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(acompanhamento): corrige dias de atividade nos graficos de usuario/subfase\n\n- compara date com date no SQL (antes o dia de inicio de cada atividade\n  era perdido e atividades de um unico dia sumiam do grafico)\n- array_agg com ORDER BY (ordem dos segmentos nao era garantida e o\n  pos-processamento podia descartar dados silenciosamente)\n- agrupa por id de usuario/lote/subfase (homonimos nao se fundem)\n- client: parse de YYYY-MM-DD como dia local (tooltip mostrava o dia\n  anterior em UTC-3) e data final inclusiva no tooltip\n- situacao_subfase retorna bloco_id; client agrupa por id via Map\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "21a871d",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/21a871d902404e1be2ab135f116231daedc6e3ca",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/servico_edicao",
+      "date": "2026-07-02T09:47:39.000Z",
+      "author": "Maj Diniz",
+      "message": "migra serviço para QGIS4, atualiza bibliotecas e externaliza config\n\nQGIS4:\n- runner.js: ambiente OSGEO4W atualizado de QGIS3 (Qt5/Python39/grass78/\n  engines-1_1/perfil QGIS3) para QGIS4 (Qt6/Python312/grass84/engines-3,\n  GDAL em apps/gdal, PROJ_DATA), conforme os bin/etc/ini/*.bat do QGIS 4.0\n- config.env/create_config.js/README: defaults e textos para QGIS 4\n\nBibliotecas Node (server + root):\n- remove deps mortas/vulneráveis (xss-clean, multer 1.x, inquirer no server)\n- jsonwebtoken@9, bcryptjs@3, uuid@11, axios@1 (root), pg-promise@11\n  (corrige CVE de SQL injection)\n- mantém CommonJS onde a última major virou ESM (serialize-error@8,\n  nocache@3, inquirer@8 no root)\n- documentation/jsdoc/nodemon -> devDependencies; engines -> node >=18\n\nConfiguração externalizada para .env (com defaults no config.js):\n- QGIS_QT_DIR / QGIS_GRASS_DIR / QGIS_PYTHON_DIR / QGIS_PROFILE_PLUGINS_PATH\n  (deriva de FE_PATH), EXPORT_CONCURRENCY, PATH_EXPORT, RATE_LIMIT_*, CORS_ORIGIN\n- config.js valida e exporta os valores ja com defaults/coercao\n- adiciona server/config.env.example\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "a76beda",
+      "htmlUrl": "https://github.com/dsgoficial/servico_edicao/commit/a76bedaacf31c59537cb53cc2b8c313a7df4cd10",
+      "repoUrl": "https://github.com/dsgoficial/servico_edicao"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-02T09:08:22.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(charts): donut PieChart com rotulos de contraste e cores por tema (dark/light)\n\nReposiciona e torna legiveis os rotulos das pizzas (dashboard e estatisticas\ndos campos), afetando todos os usos via o componente compartilhado.\n\n- PieChart: pizza -> donut; rotulo interno agora e so a % com tinta de contraste\n  calculada por fatia (luminancia/WCAG) em vez de branco fixo (ilegivel sobre\n  amarelo/ciano/verde no light); nome vai para a legenda; fatias finas sem rotulo;\n  separacao de fatias (paddingAngle + traco na cor do papel); total no centro.\n- ProductionCharts: cores de status fixas -> theme-aware (verde/vermelho/azul por\n  modo), mantendo pizza e barras consistentes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "85ed45d",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/85ed45dbe15b0fdd7616e34028f0d1d41eb7d7b6",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-01T21:59:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: corrige vulnerabilidades restantes (vite major, quill) e versiona package-lock.json\n\n- vite ^5.4.0 -> ^8.1.2 e @vitejs/plugin-legacy ^5.4.0 -> ^8.1.0 (path traversal /\n  server.fs.deny bypass no esbuild/vite); build de produção validado com npx vite build\n- quill ^2.0.3 -> ^2.0.2 (XSS via export HTML, afeta só a 2.0.3; ainda não há release\n  mais nova publicada)\n- remove package-lock.json do .gitignore para o Dependabot refletir as versões corrigidas\n\nnpm audit: 0 vulnerabilidades. npm test: 1571/1571 passando.",
+      "sha": "4a444f8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a444f80b34756d2e957e05074d263de9c4ef18b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-01T21:57:41.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-01: revisao do mapeamento OSM (metodo dirigido por evidencia + osm_unmapped_tags) e pendencias do zoom_model resolvidas",
+      "sha": "f9dd146",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f9dd146eb143f4d3c4681d582e39f8cb08f87787",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-01T21:55:16.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: passa a versionar package-lock.json com fixes de segurança\n\nEstava no .gitignore; sem lockfile versionado o Dependabot não conseguia\nrefletir as versões corrigidas de jspdf, fastify, @fastify/static,\ndompurify e brace-expansion aplicadas via npm audit fix.",
+      "sha": "e34357b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e34357be235bb15eaf724589ea75e865133a7757",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-01T21:47:14.000Z",
+      "author": "Maj Diniz",
+      "message": "osm mapping: sincroniza a revisao do repo edgv_topo_20\n\nPropaga a revisao do mapeamento OSM->EDGV Topo 2.0 (commit e369476 em\ndinizime/edgv_topo_20): alinhamento 0.10.0 (metadata v0.10.0, natural=glacier\n-> vegetacao 1101, highway=road -> via tipo 0, area_edificada nao mapeia mais\nnome), surface value_map normalizado e completado nas 9 regras de via,\nrailway=monorail -> aeromovel (6), protect_class=6 -> UC generica (5). 275\nregras, sanity_check limpo.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "7b3205b",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/7b3205b1efed73a93737af4ca28805fd102f52c5",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-01T21:45:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'novo_360'",
+      "sha": "cce30e1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cce30e17470d8670ab6a410399df53a0f1d7556c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "dsgoficial/modelagens",
       "date": "2026-07-01T20:49:37.000Z",
