@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-02T16:54:56.138Z",
+  "lastUpdate": "2026-07-02T21:14:07.952Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -56,8 +56,8 @@
     "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-07-02T10:59:29.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-02T15:34:27.000Z",
+    "1cgeo/autolabeller": "2026-07-02T20:31:06.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-02T19:06:59.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4805,
+    "totalCommits": 4826,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -158,12 +158,57 @@
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 102,
-      "1cgeo/chefe_dgeo": 193,
+      "1cgeo/autolabeller": 122,
+      "1cgeo/chefe_dgeo": 194,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T20:31:06.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(codificacao 1.3.6): restricoes geometricas + raster informado por vetor\n\nDiretiva do editor (Art. 6): fonte GEOMETRICA com buffer de largura\nsimbolizada por classe, em vez de deteccao por cor.\n\n1. regimes.RESTRICTION_LAYERS: vias 0.9mm, ferrovia 0.8, energia/dutos\n   0.7 (linhas bufferizadas); edificacoes de area +0.4mm de margem\n   (poligono + contorno); massa d agua so a BORDA 0.35mm. Export gera\n   restrictions.geojson por folha; stamp_restrictions carimba no grid.\n2. RASTER INFORMADO POR VETOR: legibility.py rasteriza as verdades\n   vetoriais (restrictions/water/symbols + transform) e faz max() nas\n   bandas road_pattern/black_ink/water_fill — perfeitas POR CONSTRUCAO\n   onde ha vetor; cor cobre o resto (curvas, vegetacao).\n3. tools/validar_raster.py: valida bandas vs verdade vetorial.\n   ANTES: recall vias 7-16%, edificacoes 9-22%. DEPOIS: 100% em tudo.\n\nEpoca constituicao-v1.3.6. 18 folhas: 0 violacoes, 19 supressoes;\nprimeiro caso golden formalmente OK (1d6d22a7 a 96m do esperado).\nWriteback aplicado nos 4 bancos locais. 136 testes verdes.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "142bb87",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/142bb87844d62da4b5e5e8ff8de8f4fe9b626614",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T19:46:31.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(codificacao 1.3.5): corredores de vias carimbados no raster de custo\n\nCausa-raiz dos 3 cotados ruins de Foz (Art. 6, 2a rodada de IDs do\neditor): estradas nao pavimentadas/caminhos de FILL BRANCO eram\ninvisiveis a banda road_pattern (detecta casing preto + fill colorido)\n— o motor via papel limpo e sentava labels em cima.\n\n- regimes.ROAD_LAYERS (infra_via_deslocamento_l, infra_ferrovia_l) +\n  export_roads -> roads.geojson por folha.\n- evaluate.stamp_road_corridors: carimba as vias no raster de custo com\n  valor 1.0 e espessura 15px (~1,3mm: meia-largura + margem de\n  encostar); place carimba o mesmo raster antes do SAT.\n- Os 3 cotados (273, 291, 289) sairam das estradas (composite 0.00 sob\n  a tinta, ~1mm do ponto) e viraram casos de referencia permanentes no\n  tools/check_casos.py.\n\nEpoca constituicao-v1.3.5. 18 folhas: 1 violacao residual (R2 em PG,\nreparo esgotou passes — item do loop), 19 supressoes. POA urbana:\nscore caiu para -0.64 (ruas brancas carimbadas por toda a cidade —\navaliar visualmente se o rigor esta certo para area urbana). Writeback\naplicado nos 4 bancos locais. 136 testes verdes.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "0ad5616",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/0ad5616d9dfac45a5b081252746b641a3db7c52d",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-02T19:06:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-02: padrao de conteudo da carta topografica por escala (250k/100k/50k/25k)\n\nSerie de 4 paginas por escala como delta encadeado, ancorada nas tabelas oficiais de\naquisicao por escala do doc_topografica (fonte primaria) e cruzada com o benchmark\nOTAN/EUA (JOG/VMap L1 na 250k, MGCP/USGS na 100k-50k).\n\n- 250k: delta sobre a carta ortoimagem (cobertura terrestre, hidrografia/viario sem\n  filtro de nome, dutos, fisiografia, pontes).\n- 100k: delta sobre a 250k (densificacao, tunel, comunicacao, navegacao); rebaseada na\n  tabela DSG.\n- 25k: o modelo cheio (toda a EDGV Topo 1.4); 50k: simplificacao forte da 25k.\n- Correcoes factuais (fonte primaria): vala e alteracao fisiografica so 25k; duto so\n  combustivel; eclusa/plataforma ja na 250k.\n- Divergencias do chefe marcadas: antena/aerogerador ate 100k, caminho aereo na 100k,\n  passarela so 25k.\n- Livro-razao (codigo-real-manda: derivei antes de achar a tabela normativa) e regra de\n  autoria em wiki-schema. Lint limpo, guard de caminhos ok.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "581191a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/581191a330e702a608e2b492384aea2d1a6a7c71",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T16:34:14.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(codificacao 1.3.4): encostar em rodovia/edificacao custa; quadrante\nvira desempate leve\n\nTerceira ratificacao visual do editor (Art. 6):\n- Piso critico 1.0 + dilatacao ~0,4mm da mascara rodovia/tinta preta no\n  raster de legibilidade — ENCOSTAR tambem custa, nao so sobrepor.\n- Quadrante: penalidades 0/0.05/0.15/0.2 (era 0/0.15/0.5/0.7) — bem\n  menos prioritario que proximidade e nao-sobreposicao.\n- Curva de nivel segue quase livre (colored_lines peso 0.02, fora do\n  piso critico) — confirmado, nada a mudar.\n\nPENDENTE (pausado a pedido do usuario): recomputar legibilidade das 18\nfolhas + experimentos nos 4 datasets + check_casos + writeback. Comando:\n  for d in data/*/scenarios/*/; do $PY src/legibility.py --input\n    $d/raster/base_nolabels.png; done\n  DATA_DIR=data/<ds> bash src_qgis/run_experiment.sh 1.3.4  (x4)\n  python tools/check_casos.py; writeback nas 18 folhas.\n136 testes verdes.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "4dc040f",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/4dc040f3052cd2bd655f1c9cae33487cfed4eec0",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T15:52:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(codificacao 1.3.3): proximidade sem banda morta + rodovia/edificacao/\nsimbolos altamente penalizados\n\nSegunda ratificacao visual do editor (Art. 6):\n\n1. Curva P2 SEM banda morta: folga de ~1mm (abaixo, leve penalidade por\n   encostar no simbolo) e dai TODO mm adicional custa, inclinacao 2.0\n   ate o raio R7 — o mais perto que puder, maximizando legibilidade;\n   aumentar distancia nao e a regra. Espelhada no place.\n2. Piso das bandas criticas no raster de legibilidade: rodovia e\n   edificacao/tinta preta atravessam o power^3 com piso 0.85 — sentar\n   numa rodovia custava ~0.01 pos-transformacao, agora ~0.85 (worst-\n   glyph faz sobrepor rodovia/edificacao ser proibitivo na pratica).\n3. R2(b/c) implementado (Fase 0.3 simplificada): export gera\n   symbols.geojson por folha (edicao_simb_area/torre/direcao, cota\n   mestra, ponto de mudanca, sumidouro, ponto de controle — raio 1.2mm)\n   e marcadores de feicoes pontuais alheias (raio 0.35mm) viram gates\n   de tinta no evaluate e no place (steering caixa, reparo tinta).\n\nEpoca constituicao-v1.3.3. Rodada limpa nos 4 produtos: 18/18 folhas\nvalidas, 0 violacoes, 20 supressoes conscientes. Casos do editor:\ncotado 448474a5 a ~1mm do ponto, 1d6d22a7 a ~1.5mm. 136 testes verdes.\nWriteback aplicado nos 4 bancos locais.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "b41c350",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/b41c350ac6940a0dff06d46b9f92443229042755",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-02T15:34:27.000Z",
@@ -174,6 +219,69 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T15:18:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(codificacao 1.3.2): R8 agua + proximidade domina + distancias em mm de carta\n\nRatificacao visual do editor (Art. 6, casos de Foz do Iguacu com IDs e\ncoordenadas corretas):\n\n- R8 IMPLEMENTADO (Fase 0.6): export_data gera water.geojson por folha\n  (cobter_massa_dagua_a); gate no evaluate (tinta terrestre sobre agua =\n  invalido; isencoes WATER_OK_LAYERS em regimes.py) e no place (steering\n  por caixa, reparo por tinta como o evaluate).\n- Curva P2 nova: zero ate a distancia IDEAL do regime/camada, linear ate\n  o raio R7 — proximidade domina, quadrante e secundario (cotado ideal\n  0,6mm; localidade 1,5mm). Espelhada no place.\n- DISTANCIAS EM MM DE CARTA (papel), nao metros de terreno: R7/P2/raios\n  de candidatos escalam com a escala da folha — em 1:50k um raio de 150m\n  era menor que o proprio label de 8pt (200m de largura).\n- tools/check_casos.py: casos de referencia do editor verificaveis a\n  cada iteracao; secao no program_qgis.md.\n\nResultados: cotado 448474a5 de 200m+rodovia para ~2mm do ponto; cotado\n1d6d22a7 para 0,5mm; localidade 347b1338 de 11mm para ~4mm. 18/18 folhas\nvalidas; 18 supressoes conscientes (R8 e implacavel por regra do editor\n— recuperaveis pelo loop). 136 testes verdes. Writeback aplicado nos 4\nbancos locais para inspecao.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "4f065fc",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/4f065fc7b5de9d4a38f316b1d553d459201a15f0",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T14:19:58.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(4.1): justificativa por regime no writeback (A/C/poligonos = centro)\n\ncompute_justification agora consulta regimes.py: localidade, toponimo\nfisiografico, ilha e massa d agua recebem justificativa_txt=2 (centro)\nsempre — antes era derivada da posicao (Left/Right), deslocando o texto\nno QGIS em relacao a tinta decidida pelo motor. Writeback aplicado nas\n18 folhas dos 4 bancos LOCAIS (2364 labels).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "5cacd12",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/5cacd12b0cf0441465d0262b5cd1396556af696d",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T14:07:41.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(codificacao 1.3.1): convencao de poligono por regime (C dentro, D fora)\n\nO evaluate penalizava cantos-fora para TODOS os poligonos, contradizendo\no regime D (area-pequena: label FORA e o correto, Anexo D). Descoberto\npelo outlier MI_2846-2 de Itaipu: 20 edificacoes_a com conv=1.0 fazendo\nexatamente o que a constituicao manda. Agora por regime (excecao pista\nde pouso = neutro); place espelhado (convention_cost_polygon com layer).\nEpoca de score: constituicao-v1.3.1.\n\nResultados (4 datasets, 18 folhas, 0 violacoes): outlier -1.109 ->\n-0.482; Itaipu -0.529 -> -0.370; POA -0.526 -> -0.200; supressoes 8 -> 7.\n136 testes verdes.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "11e5f2c",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/11e5f2cee4d2404ec7de1cf3da94474db6b8541d",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T13:57:05.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: datasets Itaipu (50k generalizacao) e Porto Alegre (especial urbana)\n\n- export_data: nome de cenario sanitizado (molduras especiais tem\n  espaco no MI, ex. Especial 25k, que quebrava o loop bash).\n- program_qgis.md: 4 datasets obrigatorios no loop (18 folhas: 3 PG +\n  6 Tubarao + 8 Itaipu 50k/UTM21S + 1 POA urbana).\n\nEstado: 18/18 folhas validas (0 violacoes, CF 100%); 8 supressoes\nconscientes no total (7 Itaipu + 1 Tubarao); POA urbana com 0.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "1a64cac",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/1a64caca859b0ae9ee4df83ef6a3c7cf27729e5c",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T13:45:34.000Z",
+      "author": "Maj Diniz",
+      "message": "loop i1-i3 + registro de licoes no program_qgis.md\n\ni1 ACEITA (regime A alcance de editor: PG +5.7%, TB +4.1%).\ni2 rejeitada (nudge R6: candidato de deslocamento minimo vence posicoes\nmelhores no reparo). i3 rejeitada (gates aritmeticos no SA: restringir o\nespaco de busca piora — SA precisa atravessar regioes invalidas; mesma\nlicao do loop antigo). gitignore: data/itaipu, data/porto_alegre.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "c78829c",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/c78829c97723274cc4fbb5c005d17c932405ddef",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T13:35:06.000Z",
+      "author": "Maj Diniz",
+      "message": "loop-i1: regime A com alcance de editor (raios ate 140px + laterais)\n\nCandidatos centrados de localidade ate ~300m (editor: mediana 275m) +\nposicoes laterais centradas. Catraca lexicografica: violacoes 0 = 0,\nsupressoes 1 = 1; scores PG -0.2384 -> -0.2249 (+5.7%), TB -0.2531 ->\n-0.2428 (+4.1%).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "59f1e23",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/59f1e2396f9bab9cb604e4ac762463f15c3adb0a",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T13:27:13.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(fase2/3.3): regime C completo + Tubarao como 2o dataset + programa do loop\n\n- _clip_to_extent: poligonos que atravessam a moldura (lagoas, oceano)\n  geram candidatos na PARTE VISIVEL (centroide global caia fora -> R4).\n- _outside_polygon_candidates: fallback do regime C/D (fora do poligono,\n  sem tocar a borda) para labels que nao cabem dentro (lagoas estreitas).\n- program_qgis.md reescrito para a epoca constituicao-v1.3: catraca\n  LEXICOGRAFICA (violacoes primeiro, score depois), regimes A-E, dois\n  datasets obrigatorios (ponta_grossa + tubarao), direcoes de qualidade.\n- gitignore: data/tubarao/.\n\nTubarao (6 folhas litoral, 1121 features, 24 lagoas rotuladas + oceano +\n3 ilhas + 27 toponimos): valid=true nas 6, CF 100%. Lagoa do Imarui e\nOceano Atlantico posicionados na parte visivel. Ponta Grossa revalidado:\n0 supressoes (fallback recuperou Pista de laco/Aterro). Estado global:\n9 folhas validas, 1 supressao consciente total. 136 testes verdes.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "d653932",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/d65393267231fe43c9b60694ac27a112e9678bea",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-02T13:17:52.000Z",
       "author": "Maj Diniz",
@@ -181,6 +289,87 @@
       "sha": "014e24e",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/014e24ec8d312e6cef0b8c0e38881ba42c80c79e",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T13:13:20.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(fase2): place.py respeita os gates — primeira solucao VALIDA\n\n- Gates locais no place (espelho do evaluate via _build_gate_ctx):\n  steering lexicografico na selecao gulosa (_W_GATE=1000/violacao,\n  soft P4 para cruzar grid com a caixa).\n- Regime A (texto-e-a-feicao): candidatos CENTRADOS sobre/acima/abaixo\n  do ponto com raios amplos; SA com alvo centrado, straddle liberado e\n  sem quadrante; _convention_polish nao empurra A para TR.\n- Ancoras regime-aware (_anchor_x_for): center para A/C/poligonos.\n- Straddle do centro-x da feicao PROIBIDO para regimes nao-centrados em\n  todo o pipeline (a ancora borda-esq/dir nao representa straddle;\n  roundtrip place->evaluate quebrava com dx = largura do label).\n- Align interno multi-linha: glifos finais construidos com o MESMO\n  align do rebuild (center p/ regime A) — linhas internas deslocavam.\n- Fase 5 (_validity_repair): repara violacoes (micro-shifts ->\n  candidatos -> anel por regime) ou SUPRIME conscientemente (S1/S2,\n  menos importante cede primeiro), com margem de seguranca R6 (1.25px).\n- evaluate: stdout/stderr forcados a UTF-8 (JSON saia cp1252 no Windows).\n\nPonta Grossa (3 folhas): valid=true nas tres, 0 violacoes, CF 100%,\n2 supressoes reportadas. Quadrante das localidades 14%->27% vs editor.\n136 testes verdes (test_place atualizado: supressao e escape legitimo).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "d89651a",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/d89651a45f998ee50b14618894ddcbd5c70a063d",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T12:34:33.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(fase1): avaliacao lexicografica no evaluate.py (epoca constituicao-v1.3)\n\n- src/regimes.py (novo, FIXO): regimes A-H do Anexo D — justificacao,\n  quadrantes, raios R7 por regime/camada.\n- Gates de validade (Titulo II): R1 label x label, R2 tinta x textos\n  fixos, R3 propria feicao, R4 moldura, R5 contencao C/exterioridade D,\n  R6 grid x tinta de glifo (grid derivado do transform; ET-RDG 1km@25k,\n  2km@50k), R7 raio por regime, H3 obstaculos NUNCA omitidos/movidos\n  (numeracao interna do grid — regra da agencia).\n- Output: valid, n_violations, violations_by_rule, violations,\n  suppressed (S2), objective_epoch; TSV com epoca+violacoes.\n- Regras soft novas: P5 desambiguacao (ETA=2.0), P6 respiro 15% da\n  fonte, quadrante pelo CENTRO do label e so para regimes B/D,\n  justificacao centro para A/C, distancia por regime.\n- FIX de bug historico exposto pelo gate H3: contrato de ancora\n  unificado (y = topo da tinta; x = borda/centro conforme align).\n  O rebuild do evaluate ancorava pela origem da linha do engine —\n  todo label era avaliado ~1 leading abaixo de onde o place desenhava.\n  place: obstaculos fora dos updaters de ancora, ancora centro/topo.\n- Testes: tests/test_constituicao.py (gates, regimes, H3, supressao);\n  2 testes antigos atualizados a nova epoca. 136 passed, ruff limpo.\n\nExperimento #2 (Ponta Grossa): score medio -0.150; H3=0; violacoes\nrestantes do place soft: 47xR6, 18xR3, 3xR5, 2xR2 -> Fase 2.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "5f2c6f6",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/5f2c6f61b1de39de02207bf51c63e2601f72aded",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T12:13:47.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: baseline pre-constituicao do motor em Ponta Grossa + DATA_DIR no experimento\n\nExperimento #1 (3 folhas, raster corrigido): score medio -0.148,\nCF 98.5% (7 overlaps residuais). Distancia motor<->editor: cotados\nmediana 99m (quad 54%), localidades 311m (quad 14% — motor usa TR,\npratica e centrado/regime A). run_experiment.sh aceita DATA_DIR/\nSNAPSHOTS_DIR por env var.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "f6339f4",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/f6339f436fb67de1a3f94256c4d72eaa6fd581cb",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T12:05:14.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(export): resolver project_color() no render headless\n\nDuas causas para fills azuis (default QGIS) e curvas de nivel brancas\nno raster base:\n1. Os estilos do mapBuilder definem cores via data-defined\n   project_color(nome); a paleta salva no projeto de edicao nao contem\n   esses nomes. Como o nome embute o hex (..._#RRGGBB), a paleta e\n   reconstruida ao carregar o projeto (inject_project_colors).\n2. QgsMapSettings headless nao tem expression context — sem o escopo do\n   projeto, project_color() avalia NULL no render e o simbolo cai na\n   cor estatica de fallback. O desktop injeta o escopo via canvas;\n   agora _set_project_expression_context faz o mesmo.\n\nValidado em PONTA_GROSSA MI 2840-1-NE: cultivo com fundo claro +\npontilhado verde, curvas castanho (#955058), drenagem ciano.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "09cd81a",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/09cd81a3eae54c5f61ab1c28f225b67d81fb018c",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T11:41:10.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(0.1): whitelist das classes do produto no export (corrige bug do render)\n\nO export renderizava TODAS as camadas espaciais do projeto, inclusive\ninvisiveis (get_all_spatial_layers) — auxiliares como aux_moldura_a,\naux_grid_revisao_a, delimitadores, centroides e sap_local vazavam para o\nraster base. Agora so as 73 classes do produto (src_qgis/product_classes.py,\nfonte: QMLs topoMap 1.4 / Anexo D) entram no render, no font cache e no\nexport de features; a moldura e usada apenas para descobrir extents.\n\nFase 0.1 do plano da constituicao. gitignore: data/ponta_grossa/.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "89a7dae",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/89a7dae9a7ac234e8702410a422bf4a8e2dcbf85",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T11:37:17.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: v1.3 — universo de trabalho = texto_edicao; regra linear da hidrografia\n\nPremissa 8: o que rotular e decisao editorial (texto_edicao/campo-fonte);\no motor nunca cria rotulo de nome. Massa d'agua so recebe nome horizontal\n(lagos/represas/baias); rio de margem dupla e nomeado no trecho_drenagem\n(confirmado: 291 trechos Tibagi rotulados). Baseline reinterpretado:\nsupressoes reais ~85 edificacoes; ferrovia/cemiterios/pedreiras nao sao\nlegendados por pratica da agencia.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "752a1c1",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/752a1c1f901c5bcc62269efc5de7702fc3133d80",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T11:28:49.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: baseline do estado inicial de PONTA_GROSSA (base de teste)\n\nRaio-X do banco: 163 supressoes deliberadas (nome sem texto_edicao),\n295 posicoes manuais (100% de pontos cotados e localidades), 0 feicoes\ninvisiveis, justificativa centro nas localidades, quebras com wrap |,\n2 label_x corrompidos, R4 atual limpo. O trabalho manual do editor e a\nreferencia de comparacao para o motor.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "679fe40",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/679fe402cd418e9f04a0fca5fa721e9bae8d1307",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T11:22:28.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: emenda v1.2 — R4 vira regra de MOLDURA (nunca sair da folha da feicao)\n\nEm hipotese alguma o label sai da moldura da folha a qual a feicao\npertence, mesmo em area continua multi-folha com conteudo alem da\nborda. Gate contra o poligono de aux_moldura_a. Motivado pelo projeto\nPONTA_GROSSA (3 molduras 1:25k adjacentes).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "b0e6ba8",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/b0e6ba871a662080711d7176d9e31d2cbfea8ed5",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T11:15:06.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: limpeza do repo — remove plugin, sintetico, debug e docs defasados\n\nDecisao de projeto: sem plugin QGIS. O produto e o pipeline headless:\nprojeto QGIS (fornecido) -> export raster+features -> legibilidade ->\nplace (regras da constituicao) -> writeback no banco.\n\nRemovidos:\n- qgis_autolabeler/ (plugin inteiro) + tests/test_mirror_sync.py\n- pipeline sintetico: src/prepare.py, src/run_experiment.sh,\n  src/program.md, src/program_legibility.md (sem regimes/classes EDGV,\n  incompativel com o motor por regimes do plano)\n- src/render_base.py (script de console, superado por export_data.py)\n- tools/debug/ (11 scripts one-off; historico do git preserva)\n- docs defasados: proposal, roadmap-autoresearch, plano-implementacao\n  (superados por CONSTITUICAO.md + plano-implementacao-constituicao.md)\n- TESTE_QGIS.qgz untracked (segue no disco; *.qgz ja era gitignored)\n\nCorrigidos:\n- src_qgis/*.sh: caminho morto do conda (ProgramData) -> python.exe do\n  env em AppData (conda run engolia stdout)\n- CLAUDE.md reescrito para o fluxo headless, sem plugin/sintetico\n- design-decisions.md: secoes sinteticas removidas, aviso de defasagem\n  na curva de distancia (doc != codigo), refs atualizadas\n- pyproject.toml, tools/README.md, test_integrity.py (program_qgis.md),\n  plano/constituicao/regras sem mencoes a adapter/plugin\n\nValidado: pytest 124 passed, ruff limpo.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "5f769d0",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/5f769d066dbdae4276dbac6a97bb3070aa4043d0",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
     },
     {
       "repo": "1cgeo/autolabeller",
