@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-02T21:14:07.952Z",
+  "lastUpdate": "2026-07-03T12:13:01.174Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,10 +15,10 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-01T21:47:14.000Z",
+    "dsgoficial/modelagens": "2026-07-03T09:59:00.000Z",
     "dsgoficial/configuracoes_producao": "2026-06-10T13:23:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-06-19T12:17:10.000Z",
+    "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
     "dsgoficial/sap": "2026-07-02T09:53:43.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -41,8 +41,8 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-06-16T11:34:55.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-06-27T16:09:03.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-06-28T19:10:59.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-07-03T11:50:05.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-07-03T11:26:16.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-06-20T16:16:54.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -56,8 +56,8 @@
     "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-07-02T20:31:06.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-02T19:06:59.000Z",
+    "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-03T10:04:34.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4826,
+    "totalCommits": 4842,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -127,12 +127,12 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 125,
+      "dsgoficial/modelagens": 126,
       "dsgoficial/configuracoes_producao": 201,
-      "dsgoficial/ferramentas_edicao": 446,
-      "dsgoficial/DsgTools": 614,
+      "dsgoficial/ferramentas_edicao": 448,
+      "dsgoficial/DsgTools": 615,
       "dsgoficial/sap": 151,
-      "dsgoficial/SAP_Gerente": 98,
+      "dsgoficial/SAP_Gerente": 99,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
@@ -158,12 +158,156 @@
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 122,
-      "1cgeo/chefe_dgeo": 194,
+      "1cgeo/autolabeller": 132,
+      "1cgeo/chefe_dgeo": 195,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-03T11:51:01.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cli): redirecionar qgis_process para o perfil QGIS4\n\nO qgis_process 4.0 ainda resolve o perfil legado QGIS/QGIS3, enquanto o\nQGIS 4 Desktop usa QGIS/QGIS4 — desde o upgrade o CLI listava 0 algoritmos\n(provider invisivel). O CLI agora define QGIS_CUSTOM_CONFIG_PATH para o\ndiretorio do QGIS 4 quando ele existe (override manual continua valendo) e\no doctor mostra o caminho usado.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "73ff03c",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/73ff03cfd78e8cf2025d1a2ceb28125347884212",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-07-03T11:50:05.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: modo CLI headless (ferramentas_edicao_cli) via qgis_process\n\nMesmo modelo do dsgtools_cli: camada fina sobre o qgis_process oficial com\nlist/describe/run/doctor, parametros por KEY=VALUE, JSON ou stdin, e\nannotations.json opcional de conhecimento de dominio (semeado com os 3\nalgoritmos de rotulo). `run --project` carrega o projeto (obrigatorio para\nos algoritmos de rotulo, que renderizam off-screen).\n\nHabilitacao headless do provider:\n- metadata.txt: hasProcessingProvider=yes\n- editionPlugin.initProcessing() idempotente (qgis_process chama esse metodo\n  e nunca initGui) + locale None-safe no __init__ (crashava headless)\n- CLI define QGIS_CUSTOM_CONFIG_PATH=%APPDATA%/QGIS/QGIS4 automaticamente:\n  o qgis_process 4.0 ainda resolve o perfil legado QGIS3 e nao enxergava o\n  plugin instalado no perfil real do QGIS 4 Desktop\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "f3b08da",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/f3b08da0b60c5e5f123bcbbcb9c19c93cd0956f6",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-07-03T11:34:05.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: caixa por letra pela tinta real (tightBoundingRect nos dois eixos)\n\nA caixa horizontal de cada caractere era o advance completo — caixas de\nletras vizinhas se tocavam sem folga, e a linha do grid passando ENTRE duas\nletras era acusada como intersecao. Agora a caixa usa tight.x()/width()\n(side bearings fora; vao real de ~2-5px entre letras a 8pt/300dpi) e cobre\noverhangs de italico/'V' que antes vazavam. Espaco ja nao gerava caixa.\n\nAfeta identifyLabelOverlap, identifyLabelGridIntersection e\nidentifyLabelsOutsideGeographicBoundary (unico gerador compartilhado).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "4b8b67d",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/4b8b67d8ed5e3f3e6504a0bb4762a3107bf84139",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-03T11:26:16.000Z",
+      "author": "1º Ten Marcel",
+      "message": "gerencia de produtos",
+      "sha": "7f20166",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/7f20166833a016affa2fcb9f09ba8195894ced2b",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-03T11:05:04.000Z",
+      "author": "Maj Diniz",
+      "message": "emenda v1.3.8: caixas de glifo por tinta real + espaco sem tinta na legibilidade\n\nCaixas por letra medidas no bitmap (getmask2, cache) nos dois eixos: side\nbearings fora da caixa (vao real entre letras ~2.2px a 8pt — linha de grid\npassa ENTRE letras sem R6), overhangs de 'V'/italico dentro (recall\n0.988->1.000), '-'/'o'/'grau' sem cauda ate a baseline. IoU vs render\n0.404->0.466. Espaco vira caixa de layout sem tinta tambem na legibilidade\nsoft (ja valia nos gates). GlyphBox.lsb + lsb no labels.json: writeback ancora\npela borda de LAYOUT (min(x-lsb)) — sem isso os labels aplicados no QGIS\ndeslocariam +1.36px em media.\n\nBaseline v1.3.8 (18 folhas): 0 violacoes, 19 supressoes (mesmo conjunto),\nmedia -0.3647. Epoca de score nova — nao compara com v1.3.7 (-0.3680).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "fa8b433",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/fa8b433a16063fa568ea572951dbd6f650abce54",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-03T10:04:34.000Z",
+      "author": "Maj Diniz",
+      "message": "mudanças topo2",
+      "sha": "1016d73",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1016d73a788ad4dc42068d551c4c229b49b897ce",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-03T09:59:00.000Z",
+      "author": "Maj Diniz",
+      "message": "EDGV Topo 2.0 v0.11.0: vulcao/cratera, salar, vegetacao arbustiva\n\nSincroniza o modelo Topo 2.0 (master file + SQL) com a v0.11.0 e documenta no\nchangelog. Cobertura continental America do Sul:\n- tipo_elemento_fisiografico: 24 Vulcao, 25 Cratera (CHECK elemento_fisiografico _a/_p)\n- tipo_veg: 1005 Terreno exposto - crosta salina (salar), 1200 Vegetacao arbustiva\n\nSQL aplicado a mao preservando a correcao do 9999 duplicado da 0.10.0 (o mastergen\nainda reintroduz o bug ao regenerar; pendencia a parte, anotada no changelog).\nRegras de conversao para a EDGV 3.0 (crosswalk) ESPECIFICADAS no changelog secao 4,\na aplicar e validar com o conversor (vegetacao arbustiva -> veg_campo + porte Arbustiva,\nsem perda; salar e vulcao com perda documentada).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01ULUKbYMH9GdAuJf6M1Z4EY",
+      "sha": "7b96e9b",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/7b96e9bc501ada49ee599dfe8b1453439ea1d55f",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T23:26:10.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(loop 1.3.7): registro das iteracoes i5-i7 + estado pos-loop\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "1dc899e",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/1dc899e02319ff7e5d89f68b5c148d357032d56c",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T23:22:24.000Z",
+      "author": "Maj Diniz",
+      "message": "iter i7 (loop 1.3.7): legibilidade por glifo tambem na geracao inicial\n\nOs candidatos nascem avaliados pela mesma legibilidade do evaluate (pior\nglifo), usando os glifos relativos do variant (anchor 0,0) deslocados para\ncada candidato — o worst-block por bbox so resta no SA (inerte).\n\nCatraca: violacoes 0=0; score medio 18 folhas -0.3699 -> -0.3680;\nlegib 0.0876 -> 0.0860; prox 0.0060 -> 0.0039. Custo: 'Camara Municipal'\n(IT 2832-1, bolsao R1/R4 na borda) suprimida (18->19), compensada no score\nglobal. PG -0.192, TB -0.295, IT -0.483, POA -0.418.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "2a2806f",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/2a2806fbd85c16744f7ffe5f19a5795b560f8ac1",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T23:08:49.000Z",
+      "author": "Maj Diniz",
+      "message": "iter i6 (loop 1.3.7): legibilidade por GLIFO nas fases pos-glifos\n\nO proxy worst-block (3 blocos do bbox) dilui conflitos finos: inclui vaos\nentre linhas/letras e um glifo sobre via some na media do bloco enquanto o\nevaluate cobra o pior glifo ((1-w)*media + w*max, w=0.5). _glyph_legib\nespelha o evaluate e entra em _eval_candidate (opcional glyphs+glyph_origin)\nna descida de qualidade, no reparo, no polish, no greedy e no reassign —\na geracao inicial (sem glifos posicionados) mantem worst-block.\n\nCatraca: violacoes 0=0; score medio 18 folhas -0.3816 -> -0.3699;\nlegib 0.0931 -> 0.0876; prox 0.0091 -> 0.0060. PG -0.193, TB -0.287,\nIT -0.493, POA -0.416. Regressao i5 de MI_2846-2 revertida (-0.970 -> -0.858).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "297c49f",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/297c49facac1f65a364960dfa3aee253d9b510a4",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T22:55:06.000Z",
+      "author": "Maj Diniz",
+      "message": "iter i5 (loop 1.3.7): descida de qualidade determinista + proximidade P6 alinhada\n\n- Fase 4.5 _quality_descent: varredura label-a-label sobre candidatos\n  armazenados + micro-grade com energia ALINHADA ao score (legib worst-block,\n  overlap, prox, convencao, dist P2, clipping) + steer de gates; so aceita\n  melhoria estrita. Motivacao: SA global e peso morto (best_delta=0.0 em\n  folha esparsa e densa — i4 rejeitada e revertida, licao no registro).\n- proximity_cost espelha P6: respiro = max(4px, 15% da altura do maior\n  label do par) — piso fixo 4px deixava labels grandes empacotados.\n- Reparos cairam (POA 18->9); registro do loop 1.3.7 em program_qgis.md.\n\nCatraca: violacoes 0=0; score medio 18 folhas -0.3904 -> -0.3816;\nprox 0.0129 -> 0.0091. PG -0.210, TB -0.292, IT -0.507, POA -0.430.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "0e3a691",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/0e3a691434b78effba8a813cd81c8ba7de0d1181",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T22:37:09.000Z",
+      "author": "Maj Diniz",
+      "message": "iter i3 (loop 1.3.7): convencao (P1/regime) no custo do reparo\n\nO reparo ignorava convencao ao escolher entre candidatos validos e podia\ndesfazer o polish. _convention_px espelha o evaluate (quadrante TR/BR/TL/BL\n0/0.05/0.15/0.2, linha 0.5, regime C 1-corners/4, regime D corners/4 com\nD_INSIDE_ALLOWED) com peso 3 (o mesmo do score).\n\nCatraca: violacoes 0=0; score medio 18 folhas -0.3962 -> -0.3904;\nconvention_penalty 0.0534 -> 0.0500. PG -0.203, TB -0.311, IT -0.510,\nPOA -0.468.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "ce7cf28",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/ce7cf28cc868069ac744b9629928cda5fd2dbaa4",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T22:30:20.000Z",
+      "author": "Maj Diniz",
+      "message": "iter i2 (loop 1.3.7): reparo cobra distancia pela curva P2 real (proxy alinhado)\n\nO reparo escolhia posicao valida por legibilidade + 0.002/px de distancia,\nmas a banda de fuga da curva constitucional cobra ~0.042/px (20x) — labels\neram empurrados ao fundo da banda por ganhos marginais de legibilidade.\nAgora _dist_curve_px espelha distance_cost (ideal/pref/max com os mesmos\nclamps), incluindo o ramo de poligono (d/h*0.5 cap 5).\n\nCatraca: violacoes 0=0; score medio 18 folhas -0.4340 -> -0.3962;\ndistance_penalty medio 0.1177 -> 0.0583; legibilidade +0.012 ponderado\n(tradeoff previsto). PG -0.208, TB -0.317, IT -0.517, POA -0.471.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "00d38a2",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/00d38a23b5e60b4c806363bf476dae4304645c6e",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T22:23:37.000Z",
+      "author": "Maj Diniz",
+      "message": "iter i1 (loop 1.3.7): candidatos densos p/ regimes C/D + anel de fuga de poligonos\n\n- candidates_for_polygon: pole of inaccessibility + amostragem interior no\n  passo do label (grade 3x3 do bbox era cega em poligonos grandes/recortados)\n- _outside_polygon_candidates: caminhada pela borda real da parte visivel +\n  extra_gaps (anel de fuga ate o raio R7, espelhando o que pontos ja tinham)\n- diagnostico de supressao: histograma da regra que matou cada candidato\n- catraca: violacoes 0=0; score medio 18 folhas -0.4418 -> -0.4340;\n  supressoes 22 -> 18 (recupera Cais Embarcadeiro POA, 2 massas d'agua TB,\n  1 Represa de Itaipu IT)\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019WaxprCH2LaCcG5uA8sPPR",
+      "sha": "cddea10",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/cddea1001773f0b9656a4f5d13462762ff0e86a4",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T21:44:47.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(codificacao 1.3.7): raios em dois niveis + hierarquia preto>vias>arruamento + R2/R4 estritos\n\nQuarta ratificacao visual do editor (Art. 6), 5 diretivas:\n1. Raios PREF/MAX por regime e camada (regimes.py): cotado 4/8mm,\n   edificacoes 8/14mm — curva de distancia com degrau de fuga\n   (inclinacao 2.0 ate PREF, sobe a 6.0 ate MAX) espelhada em\n   evaluate.py e place.py.\n2. Hierarquia de restricao: preto-sobre-preto destroi o label —\n   edificacoes/ferrovia 1.0 (piso critico), vias 0.7,\n   arruamento/trilha (tipo 5-6) 0.45 via propriedade tipo no\n   restrictions.geojson.\n3. identificador_trecho_rod_p inviolavel: R2 de obstaculo por CAIXA\n   (nao so tinta) com margem 0.3mm.\n4. R4 estrito: gate contra poligono de moldura.geojson — label nem\n   parcialmente fora da moldura.\n5. Raster informado por vetor com mascaras graduadas (black -> piso\n   dilatado; graded aplicado apos o piso).\n\nReparo: anel de fuga (varre ate o raio MAX antes de suprimir;\nsupressoes 53->22) + varredura final S3 (violacao nunca sai no output).\n\nFix de roundtrip place->evaluate: anel de fuga gerava caixas com borda\na ~1e-14px do centro da feicao; round(2px) empurrava a borda para o\noutro lado e o rebuild realinhava com dx=+-largura (2 labels violando\nR2/R6/R8 pos-hoc). Teste de straddle com tolerancia 0.75px, cx pelo\ncentroid da geometria COMPLETA (espelho exato de determine_align),\nfolga 1.5px nos candidatos do anel, checagem ENC na varredura S3.\n\nEpoca constituicao-v1.3.7. 18 folhas: 0 violacoes, 22 supressoes\n(11 cotados, 6 massa dagua, 4 edificacoes, 1 area sem dados).\nScores: PG -0.225, Tubarao -0.336, Itaipu -0.590, POA -0.540.\nWriteback aplicado nos 4 bancos locais (0 falhas). 136 testes verdes.\nChangelog: entradas 1.3.4-1.3.7 adicionadas a tabela da CONSTITUICAO.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "5dec7a7",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/5dec7a798c087c16020c1d925cae0fd8812b1570",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-02T21:24:31.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: remove CI do GitHub (pedido do usuario — sem actions no repo)\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+      "sha": "9958bb2",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/9958bb221988afb19ebecc03025603e5c3f20a09",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
     {
       "repo": "1cgeo/autolabeller",
       "date": "2026-07-02T20:31:06.000Z",
