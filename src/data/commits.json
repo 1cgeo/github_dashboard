@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-04T16:08:01.324Z",
+  "lastUpdate": "2026-07-04T21:03:18.655Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-04T15:17:41.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-04T16:25:22.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4898,
+    "totalCommits": 4899,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -159,11 +159,20 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 215,
+      "1cgeo/chefe_dgeo": 216,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-04T16:25:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-04: padrao por classe das cartas topograficas por escala (EDGV Topo 2.0, exaustivo)\n\n- wiki/carta-topografica-25k/50k/100k/250k reescritas: as 40 classes da\n  Topo 2.0 em cada escala (feita/nao feita por tipo, limiares, discussao\n  de atributos), rebaseadas da 1.4 para a 2.0, fontes doc_topografica +\n  master_file_topo_20 + decisoes do chefe.\n- Decisoes 2026-07-04 (DECISIONS): transposicao ponte+tunel na 250k/100k\n  (viaduto inicia na 50k), edificacao de referencia na 250k, vau em massa\n  d'agua na 50k, ilha so com nome em todas, batimetria e obstaculo\n  terrestre fora da carta (vetores ebgeo), delimitacao fisica e trechos\n  de comunicacao so 25k, area verde 25k/50k, localidade_a alternativa,\n  gas 311/312 pela classe, alca qualquer escala, caixa de emprestimo 25k.\n- Revisao de consistencia por 4 subagentes Opus (posse disjunta de\n  classes + transversal): 2 quebras de monotonicidade corrigidas na 50k\n  (aerogerador 1701, antena 1301), patio, intro da 100k e 7 itens de\n  redacao/limiar; evento e licao no livro-razao.\n- lint-wiki: metodo de revisao de serie de doutrina no learnings; serie\n  carta-topografica-NNk excluida do dedup (esqueleto comum por design).\n- MEMORY: ponteiro do padrao por escala fechado.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PvzkWe6jwPqRWEiCnoHBuS",
+      "sha": "4cc255f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4cc255f9a7b877e2bace3d994a23fb422035505f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-04T15:17:41.000Z",
