@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-06T14:07:06.915Z",
+  "lastUpdate": "2026-07-06T17:48:03.830Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-03T18:43:35.000Z",
+    "1cgeo/controle_acervo": "2026-07-06T15:50:46.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-06-13T10:17:31.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-06T11:49:56.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-06T16:30:24.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4922,
+    "totalCommits": 4929,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -137,7 +137,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 107,
+      "1cgeo/controle_acervo": 109,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 12,
       "dsgoficial/servico_edicao": 20,
@@ -159,11 +159,74 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 227,
+      "1cgeo/chefe_dgeo": 232,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T16:30:24.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-06: limpeza/reconciliacao de 2 NCs de 2026 no SCO de producao\n\n- 2026NC401053: PDF anexado + reconciliada pela fonte primaria (data 07/05/2026, RO 2026RO001049, finalidade real)\n- 2026NC001374: removida em cascata (liq 52/40 + NE 2026NE000001 + NC); descentralizacao postal UG 160073->160382, nao DGEO/PDR\n- 2026 fecha com 34 NCs (R$ 558.557,55) e nenhuma NC sem PDF\n- learnings lancar-orcamento: levantar o app local (npx pm2), reconciliar backfill quando o PDF chega, cascata de delete bottom-up, GET/:id sem arquivo_nome, gotcha --data-file no Windows\n- livro-razao: escopo (anexei sem reconciliar, o chefe pegou); DECISIONS + snapshot ncs.md atualizados\n- fix falso-positivo do guard em resumir_commits.py (string \"diff:\\n\")\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "ba30923",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ba30923cd1235e28263f97b438f519e123747316",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T15:57:08.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-06 (cont.): split do learnings auditar-acervo (~13KB->11KB)\n\n- 5 gotchas de API menos frequentes movidos para references/learnings-detalhado.md\n  (lossless), com ponteiro na camada quente.\n- linha do prepare-upload/add_product atualizada: gap fechado (commit SCA 2011800,\n  o fluxo de upload agora carrega subtipo, cria Carta Militar num shot).\n\n--no-verify: guard bloqueado por falso-positivo em arquivo de sessao paralela\n(gerar-relatorio-dgeo/scripts/resumir_commits.py:203, 'diff:\\n'); meus 2 arquivos\npassam o check_caminhos independentemente.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "faf2414",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/faf241447f911922ea5d0aaae5624fd904cdef79",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-06T15:50:46.000Z",
+      "author": "Maj Diniz",
+      "message": "upload: fluxo prepare-upload/add_product carrega subtipo_produto_id\n\nFecha o gap deixado em 0913243: criar Carta Militar (subtipo 24) tambem pelo\nfluxo de upload de produto, nao so por produto_versao_historica.\n\n- acervo.upload_produto_temp ganha subtipo_produto_id (ALTER aplicado em producao).\n- prepareAddProduct (schema + INSERT no temp) e processAddProduct (INSERT final)\n  passam o subtipo do produto.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2011800",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/20118002dd5d5e07cef126f2e4eac1a35e932f75",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T15:45:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-06: resumo por repositorio na Secao 4.1 do RPCMTec (prep deterministica + subagente Sonnet 5)\n\n- skill gerar-relatorio-dgeo: novo scripts/resumir_commits.py (prep SEM API: triagem mensagem-boa x generica por commit, diff do GitHub so nas genericas, material por repo + manifesto). Sintese por subagente Sonnet 5 batelado no proprio Claude Code, nao API. SKILL.md secao 4 + learnings.\n- .env.example / env-guia.md: chave GH_PAT (token GitHub fine-grained Contents:Read-only para os diffs; valor so no .env gitignored).\n- Decisions 2026-07-06: metodo de duas partes (mensagem boa x diff da generica) + arquitetura subagente > API; validado jun/2026 (22% commits genericos, 104/106 diffs).\n- people/USER.md: preferencia subagente Sonnet > API direta para passo de LLM em skill (batelar p/ amortizar overhead; dar custo antes de escalar).\n- livro-razao: evento escopo (construi a versao API antes de confirmar a ferramenta com o chefe).\n- wiki/github-dashboard: commits.json.message alimenta o resumo da 4.1.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "87fbcdb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/87fbcdba538a8b6fa7facb3f12a9e0c8d86aa0a8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T15:40:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-06: SCA carta militar = produto proprio (subtipo) + cadastro Marcel 50k A-D2\n\n- DECISIONS 2026-07-06 (entrada + indice): mudanca de modelo do SCA (militar = produto proprio, identidade pelo subtipo; migracao em producao 210 backfill + 31 split; commit 1cgeo/controle_acervo master 0913243) e cadastro dos itens A-D2.\n- wiki/controle-acervo: unicidade agora inclui subtipo; militar = produto proprio; Estado atual (07/2026).\n- skill auditar-acervo/learnings: modelo militar SUPERADO (produto proprio); fluxo prepare-upload/files; ancorar no arquivo real (cross-check por checksum) apos o quase-erro de pasta.\n- livro-razao: evento proveniencia (pasta errada do artifact, auto-pego pelo checksum), 3a da classe.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "3f16f31",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3f16f311ece4bfdce1cc78e0e24c92bed311bd01",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T15:29:44.000Z",
+      "author": "Maj Diniz",
+      "message": "skill fazer-elogio: referencia elogiosa militar a partir das alteracoes (OCR + fanout por ano + ODT do modelo)",
+      "sha": "36dc1c7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/36dc1c7e50dc14856a8c2bc56dad7ddc032b33d2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-06T14:26:19.000Z",
+      "author": "Maj Diniz",
+      "message": "produto: identidade refinada pelo subtipo (carta militar = produto proprio)\n\nCarta militar (subtipo 24) passa a ser um PRODUTO distinto da carta civil no\nmesmo MI; a chave de identidade e o subtipo, nao o tipo (decisao do chefe).\n\n- acervo.produto ganha subtipo_produto_id (nullable): NULL = identidade so por\n  (mi,escala,tipo) (civil, que abrange subtipos 2/12 nas versoes); preenchido\n  quando o subtipo define o produto (24 = militar).\n- dominio.subtipo_produto.define_produto marca os subtipos que exigem produto\n  proprio (militar).\n- UNIQUE unique_produto_identidade (mi,escala,tipo,COALESCE(subtipo,0)) parcial\n  (mi NOT NULL); trigger validate_version passa a exigir coerencia versao<->produto.\n- Migracao 2026-07-06 (aplicada em producao): backfill de 210 produtos militar-puro\n  e split de 31 mistos (militar separado num produto proprio).\n- Loader (criaProdutoVersoesHistoricas, bulkCreateProducts) e schemas carregam\n  subtipo_produto_id. Testes do invariante + fixtures atualizados.\n\nPendente: fluxo prepare-upload/add_product (upload_produto_temp) ainda nao carrega\nsubtipo (a trigger bloqueia militar por esse caminho ate ser plumbado).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0913243",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0913243bf09a96d8bb5ab0d1912e6613656eeb2c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-06T11:49:56.000Z",
