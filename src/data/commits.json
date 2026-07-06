@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-05T21:07:09.841Z",
+  "lastUpdate": "2026-07-06T13:51:49.506Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,13 +9,13 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-07-03T17:03:53.000Z",
-    "1cgeo/doc_dgeo": "2026-07-05T19:01:34.000Z",
+    "1cgeo/doc_dgeo": "2026-07-05T23:13:19.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-04T21:56:31.000Z",
+    "dsgoficial/modelagens": "2026-07-05T23:11:27.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-03T20:01:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-05T16:40:51.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-06T11:49:56.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4916,
+    "totalCommits": 4922,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,12 +122,12 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 110,
-      "1cgeo/doc_dgeo": 492,
+      "1cgeo/doc_dgeo": 493,
       "1cgeo/ferramentas_mgcp": 12,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 134,
+      "dsgoficial/modelagens": 135,
       "dsgoficial/configuracoes_producao": 203,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
@@ -159,11 +159,65 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 223,
+      "1cgeo/chefe_dgeo": 227,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T11:49:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-06: colheita do BDGEx Op (subconjunto ASC por area+tipo)\n\nGeneraliza a skill baixar-acervo-bdgex para uma 2a instancia SIGWEB (BDGEx Op,\ncatalogo nacional): --env-prefix (chaves BDGEXOP_FONTE_*) no harvest/supervise e\n--tipo livre. Novo caminho de colheita dirigida por relatorio: filtrar_relatorio.py\n(filtro area+tipo, split vetorial/matricial) e build_index_from_relatorio.py\n(relatorio -> index). Recorte da ASC 1CGEO: 22 CDGV vetoriais + 337 matriciais\n(exclui imagem de satelite crua, MDS/MDT, radar), correcao de escopo do chefe.\n\nDoc: SKILL Procedimento B, learnings partido em camada quente + detalhe\n(demand-paging), env-guia e .env.example com BDGEXOP_FONTE_*, wiki/bdgex.md\n(Fonte Op e catalogo nacional), livro-razao (evento escopo 2026-07-06).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0192vf3YASsVyrN5q95k1wGK",
+      "sha": "c67c63e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c67c63efcd19d8d146e2ecf755cbd41168ca9ad9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-06T10:29:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-06: skill extrair-toponimos (2 passes Sonnet+Opus) + decisao/livro-razao\n\nExtracao de toponimos de cartas escaneadas para GPKG (ponto p/ horizontal, linha\np/ hidrografia/serra curva). Moldura pela georref, tile+grade, 2 passes (Sonnet\nem massa read-once + Opus so nas janelas incertas). Achados de modelo e gotchas\nde Workflow no learnings. Lote 50k fechado; 25k parcial (limite de sessao).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01JmMhfxC6NZ186vAiKEu6Qm",
+      "sha": "4b7a9e4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4b7a9e4cb90b5d825f6ab29548f71d20c547caa2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-05T23:16:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-05: learnings da transcricao do RT 08/2026\n\n- extracao-documentos: receita .docx (python-docx, iter_block_items em\n  ordem tabela/paragrafo), regra de preferir o .docx companheiro ao PDF\n  assinado para verbatim (apos conferir que batem), e convencao de\n  registro de relatorio novo no doc_dgeo (PDF por ano + linha na tabela).\n- wiki/index.md: bloco de estatisticas do lint-wiki (141 pag, 0 quebrados).\n\nSem correcao do chefe nesta sessao (nenhum evento no livro-razao).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5ENzDCL563ZSkpSk41efq",
+      "sha": "5d21c8d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5d21c8d631c04dfe1defd52f53ad4b9d5c634266",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-05T23:13:50.000Z",
+      "author": "Maj Diniz",
+      "message": "RT 08/2026 (Do MI a Base Continua): verbatim em resources + curadoria na wiki\n\nTranscricao verbatim do RT 08/2026 (corpo + Apendices A-G) em\n03-Resources/relatorios/, e atualizacao da documentacao:\n- base-continua: registra o RT 08/2026 como formalizacao do paradigma\n  (continuacao do RT 11/2025), no Estado atual e no Historico.\n- metadados-feicao: regra de confiabilidade (C.4), limiares da escala\n  maxima autoritativa (C.5) e a nova escala_minima_derivacao (C.6).\n- versionamento-geoespacial: estrutura de branches Kart (master/producao\n  + clones esparsos disjuntos) do Apendice G.\n- relatorios-2026 e linha-do-tempo: marco datado do ano.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5ENzDCL563ZSkpSk41efq",
+      "sha": "d675a06",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d675a065643a4d9c4fbb4024527bcabc9d80bb6a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-05T23:13:19.000Z",
+      "author": "Maj Diniz",
+      "message": "RT 08/2026 Do MI a Base Continua: PDF assinado + indice de relatorios\n\nAdiciona o Relatorio Tecnico 08/2026 (continuacao do RT 11/2025), que\nformaliza a virada de paradigma de producao da DSG (do MI a base continua),\ne o registra na tabela de 2026 do indice de relatorios.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5ENzDCL563ZSkpSk41efq",
+      "sha": "432a157",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/432a1577970e6f0ce9d88c0c07bd296ed9aba30f",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-05T23:11:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Sincroniza extension.sql da EDGV Topo 2.0 com o repo fonte\n\nTraz a secao 8 (qualidade persistida: confiabilidade, escala maxima\nautoritativa, escala minima de derivacao, data_confirmacao, linhagem_feicao,\ncompletude_subfase) alem das evolucoes pendentes desde o ultimo sync:\nmerge de preserva_geocodigo em preenche_metadado, inclusao das tabelas\nedicao_ e remocao do sufixo de codigo nos code_name de dominio.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "9ae9308",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/9ae9308303d953112271bdcff324b740b3faa9e3",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "1cgeo/geoswarm",
       "date": "2026-07-05T19:45:02.000Z",
