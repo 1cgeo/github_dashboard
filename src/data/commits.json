@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-07T12:31:05.643Z",
+  "lastUpdate": "2026-07-07T17:21:25.909Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-07T12:02:06.000Z",
+    "1cgeo/controle_acervo": "2026-07-07T16:07:56.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-06-13T10:17:31.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-07T12:01:00.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-07T16:08:07.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4934,
+    "totalCommits": 4936,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -137,7 +137,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 110,
+      "1cgeo/controle_acervo": 111,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 12,
       "dsgoficial/servico_edicao": 20,
@@ -159,11 +159,29 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 236,
+      "1cgeo/chefe_dgeo": 237,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-07T16:08:07.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-07 (cont.): re-verificacao por visao dos descartados do BDGEx Op\n\nO titulo do XML mente: os 5 \"ET-RDG\" eram Carta Militar e o \"institucional\"\nera orto de OM (so o selo revelou); as 18 aeronauticas carregadas como\nsubtipo NOVO 29 Carta Aeronautica. Estado final: lote 83 = 168 produtos,\nlote 84 = 22 CDGV, 190 no total, 0 sem geom/data. Achado de 1a classe no\nlearnings (classificar pelo selo, nao pelo metadado textual) + livro-razao.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0192vf3YASsVyrN5q95k1wGK",
+      "sha": "af0909f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/af0909f14533c9d30d288ff07af6518678c4eae3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-07T16:07:56.000Z",
+      "author": "Maj Diniz",
+      "message": "dominio: subtipo 29 Carta Aeronautica (tipo 7 tematica)\n\nSemeia no ER o subtipo criado na carga do BDGEx Op (ASC 1CGEO): as\ncartas aeronauticas (WAC/OACI/ONC/TPC/CAA) sao carta de verdade, so\nnao-SCN e de dominio aeronautico, entao subtipo proprio (define_produto\nfalse, geom pelo envelope do GeoTIFF, escala personalizada). Mesmo padrao\ndos subtipos 27/28. Tambem ignora o boot_no_cron.js (boot local admin).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0192vf3YASsVyrN5q95k1wGK",
+      "sha": "752caca",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/752caca58cf971e1171d81a1a0da6100ed15711a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-07-07T12:02:06.000Z",
