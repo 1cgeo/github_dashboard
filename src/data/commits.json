@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-08T16:44:35.643Z",
+  "lastUpdate": "2026-07-08T21:12:54.149Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -16,7 +16,7 @@
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2026-07-08T12:14:16.000Z",
-    "dsgoficial/configuracoes_producao": "2026-07-03T20:01:03.000Z",
+    "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
     "dsgoficial/sap": "2026-07-03T14:48:28.000Z",
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4944,
+    "totalCommits": 4945,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -128,7 +128,7 @@
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
       "dsgoficial/modelagens": 136,
-      "dsgoficial/configuracoes_producao": 203,
+      "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
       "dsgoficial/sap": 153,
@@ -164,6 +164,15 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/configuracoes_producao",
+      "date": "2026-07-08T20:31:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Topo 2.0: remove infra_obstaculo_terrestre e restaura subfases hidrografia/edificacao\n\n- Remove as 15 referencias orfas a infra_obstaculo_terrestre_p/l/a\n  (12 no lp_cdgv, 3 no lp_ct), espelhando a remocao da classe na\n  modelagem (modelagens@890a485).\n- Restaura na fase de extracao do lp_cdgv as subfases Extracao de\n  Elemento Hidrografico e Extracao de Edificacao, adotando subfases e\n  pre_requisito_subfase do Topo 1.4 (volta tambem a ordem Vegetacao ->\n  Planimetria). Adiciona 52 entradas de propriedades_camadas (20 hidro\n  + 32 edificacao), pulando infra_travessia_hidroviaria_p (inexistente\n  no Topo 2.0).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "70dce22",
+      "htmlUrl": "https://github.com/dsgoficial/configuracoes_producao/commit/70dce22fc1d6c2a4df0bf400b2f5a6387cc3712c",
+      "repoUrl": "https://github.com/dsgoficial/configuracoes_producao"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-08T12:27:32.000Z",
