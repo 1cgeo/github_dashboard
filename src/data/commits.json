@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-08T21:12:54.149Z",
+  "lastUpdate": "2026-07-09T17:25:36.148Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
-    "dsgoficial/sap": "2026-07-03T14:48:28.000Z",
+    "dsgoficial/sap": "2026-07-09T16:20:46.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-07-05T19:45:02.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-03T17:42:56.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-07-03T13:42:40.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-07-09T17:09:39.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-06-20T16:16:54.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-08T12:27:32.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-09T17:20:30.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4945,
+    "totalCommits": 4972,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,8 +131,8 @@
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
-      "dsgoficial/sap": 153,
-      "dsgoficial/SAP_Gerente": 100,
+      "dsgoficial/sap": 160,
+      "dsgoficial/SAP_Gerente": 110,
       "dsgoficial/SAP_Operador": 69,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
@@ -159,11 +159,254 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 244,
+      "1cgeo/chefe_dgeo": 254,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T17:20:30.000Z",
+      "author": "Maj Diniz",
+      "message": "wizard autossuficiente, a projeção da UT e os bugs que o teste real revelou\n\nRegistra a rodada que veio depois da retrospectiva, quando o chefe instalou o\nwizard e testou.\n\n- sap-gerente: o wizard \"Novo Lote\" agora é autossuficiente (5 telas próprias,\n  sem abrir as ferramentas antigas), com produtos por lista de MI e UTs das\n  folhas do lote num clique. 1.36.0 na branch qgis4.\n- sap: registrado o guard de escala do produto. O trigger chk_product_scale\n  nunca disparava, porque criaProdutos roda com session_replication_role em\n  'replica' e isso desliga os triggers de usuario.\n- sap (Projeção): explicitada a distinção que me fez errar. A GEOMETRIA da UT\n  é sempre 4326; o ATRIBUTO `epsg` dela é o do BANCO de produção (4674 na\n  extração, UTM só na edição). Fonte primária: doc_dgeo config_proj.md e\n  system_desc.md.\n- livro-razão: duas correções. Eu ia usar UTM como default, e a regra já estava\n  na nossa própria wiki, escrita por mim (o chefe desconfiou e mandou conferir\n  na doc). E o erro 500 ao criar bloco que ele viu era do MEU banco de teste:\n  fixtures com id explícito não avançam a sequence do SERIAL. O conserto e o\n  SQL de ressincronização ficaram em subwikis/sap/dev-local.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "4e9ea04",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4e9ea04036bd21ac9ba92d18a3d8793d0a2cc52b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T17:09:39.000Z",
+      "author": "Maj Diniz",
+      "message": "1.36.0 - tela 4: gera as UTs das folhas do lote num clique (1/4, sem sobreposição)\n\nPor padrão a tela 4 não pede mais camada nenhuma: gera as unidades de trabalho\na partir das folhas JÁ cadastradas no lote (as molduras dos produtos), com\ndivisão 1/4 e sem sobreposição, num clique. Depois é só editar os polígonos no\ncanvas e carregar. O modo antigo, a partir de uma camada de origem, continua\ndisponível na mesma tela.\n\nSobre a projeção, o chefe apontou o erro e a doc confirmou. O atributo `epsg`\nda unidade de trabalho NÃO é o da geometria (que é sempre 4326, doc_dgeo\ndocs/sap/system_desc.md), e sim o do BANCO DE PRODUÇÃO a que ela se associa\n(docs/sap/config_proj.md). E o banco da fase de Extração é Lat/Long, 4674 ou\n4326; só o da Edição é UTM (bloco \":::danger Sistema de Projeção do Banco\").\nComo o wizard cria um lote novo, que começa pela extração, o default passou a\nser 4674, editável.\n\nO UTM continua disponível, agora como opção explícita (\"Banco de edição: usar o\nUTM de cada folha\"): calcula o fuso SIRGAS 2000 de cada folha pelo centroide e,\nquando o lote cruza fusos, grava em cada UT o EPSG do seu. O centroide é\nconvertido para 4326 antes do cálculo, porque a camada de origem (ou a gerada,\nque herda o CRS do projeto) pode estar em UTM, e aí o centroide cru não é\nlongitude/latitude.\n\nmToolCtrl.createWorkUnitSimple passa a devolver a camada gerada, que era o que\nfaltava para corrigir o EPSG folha a folha. Ninguém usava o retorno antes.\n\nVerificado: o cálculo do fuso confere com os limites de cada zona (18S a 25S) e\ncom pontos conhecidos (Faxinal 22S, Manaus 20S, Boa Vista 20N, Recife 25S); a\ncobertura fora da faixa devolve None. O percurso das 5 telas segue íntegro. A\ngeração em si depende do DsgTools dentro do QGIS e não foi executada fora dele.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "b331921",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/b331921bbbfd8e918831295429538fa54285400e",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T16:46:12.000Z",
+      "author": "Maj Diniz",
+      "message": "1.35.1 - no modo lista de MI, o nome da folha fica em branco\n\nO topônimo da folha não se deduz do MI, e o wizard estava repetindo o MI no\ncampo nome. Agora envia nome vazio, para ser preenchido depois em Gerenciar\nProdutos. O aviso da tela diz isso, junto com o do uuid gerado.\n\nVerificado contra o backend local: produto.nome é nullable e o schema aceita\nstring vazia (Joi: required().allow('')); o POST responde 201 e grava \"\".\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "52d3c31",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/52d3c31249c2782524ce06432f7b73386599dda2",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T16:21:27.000Z",
+      "author": "Maj Diniz",
+      "message": "1.35.0 - produtos por lista de MI, avanço automático e ajustes de UI\n\nPedidos do chefe ao testar o wizard:\n\n- Cadastrar nova conexão já vem com o tipo \"Banco de dados PostGIS com\n  controle de permissões\" (dominio.tipo_dado_producao = 2), que é o do banco\n  de edição da produção.\n- Ao concluir a ação da tela 1 (criar lote) e da tela 2 (perfis e etapas), o\n  wizard avança sozinho. Idem nas telas 3 e 4, por coerência.\n- Sumiu a barra de rolagem desnecessária: o QStackedWidget reservava a altura\n  da MAIOR página. Agora só a página visível dita a altura.\n- Tela 3: o gerente escolhe a origem das folhas. Ou uma camada de molduras\n  (como antes), ou uma LISTA DE MI separada por vírgula. Por MI, escolhe-se\n  primeiro a escala, e o wizard gera as molduras com dsgtools:gridzonegenerator\n  (novo launcher GridZoneGenerator, que aceita índices separados por vírgula e\n  devolve inom e mi).\n\nDetalhes que o backend impôs, verificados contra ele:\n- o gridzonegenerator devolve POLYGON e o SAP recusa POLYGON no produto, então\n  a geometria é convertida para MultiPolygon antes de enviar;\n- o uuid do produto tem de ser um GUID válido, e não vem de planilha nesse\n  modo: é gerado (uuid4) e o gerente é avisado na tela;\n- a escala do produto tem de ser a do lote, então ela vem pré-selecionada pela\n  escala do lote e é validada antes de enviar.\n\nVerificado: 12 asserções novas do núcleo (parsing de MI com vírgula, ponto e\nvírgula, quebra de linha e repetido; mapa de escalas para o enum do DsgTools) e\no percurso das 5 telas segue íntegro. A geração de molduras depende do DsgTools\ndentro do QGIS e não foi executada fora dele.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "62fa552",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/62fa5523eb0937b96d1cfe9bc7c3551df2dc8281",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T16:20:46.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: produto com escala diferente da do lote entrava em silencio\n\nO trigger macrocontrole.chk_product_scale existe justamente para impedir isso\n(\"Scale inconsistency detected\"), mas nunca dispara na criacao pela API:\ncriaProdutos roda dentro de disableAllTriggersInTransaction, que faz\nSET LOCAL session_replication_role = 'replica' e desliga os triggers de\nusuario junto com os de acompanhamento.\n\nResultado: POST /projeto/produto aceitava produto com denominador_escala\ndivergente do lote, sem erro. A checagem volta no controller, onde sobrevive a\ndesativacao dos triggers.\n\nVerificado contra o backend local: produto 1:25.000 num lote 1:50.000 passava\ncom 201 e agora responde 400 com a escala citada na mensagem; produto com a\nescala do lote continua criando (201). Suite: 138 testes passando.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "7740ddf",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/7740ddff207a6e133d92edc5b3e3a631a17a57d2",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T14:30:46.000Z",
+      "author": "Maj Diniz",
+      "message": "1.34.0 - wizard autossuficiente: 5 telas próprias, não abre mais as ferramentas\n\nO wizard 1.33.x abria as telas de gerência (MLots, CreateProduct, ...) na ordem\ncerta. Na prática isso não simplificava: aquelas telas são catálogos CRUD\nfeitos para administrar (tabela com todas as colunas, editar e deletar por\nlinha), não para cadastrar um lote uma vez por semestre. E o wizard herdava os\ndefeitos delas: bastou abrir a primeira para cair no bug do createLabel com\ncoluna nula.\n\nAgora o wizard fala direto com a API e com o controller, em cinco telas:\n1. Lote, banco e bloco: um formulário só. Cria a conexão (se pedida), o lote e\n   o bloco, e reencontra cada um na relista (o POST não devolve o id). Some o\n   passo \"selecione na lista o lote que você acabou de criar\", que só existia\n   porque a ferramenta criava o lote sem contar ao wizard.\n2. Perfis e etapas: copia os 12 perfis de um lote-modelo da mesma linha (ou\n   avisa que é o primeiro lote da linha) e cria as etapas padrão em cada fase,\n   com o CQ sugerido JÁ selecionado. Antes o wizard sugeria \"Uma Revisão e uma\n   Correção\" no texto e a ferramenta abria em \"Sem controle de qualidade\".\n3. Produtos: automapeia os campos da camada pelo nome (uuid, nome, mi, inom,\n   denominador_escala, edicao) e barra o carregamento se faltar uuid, que é\n   canônico e vem da planilha de produção.\n4. Unidades de trabalho: gera, ESPERA a edição dos polígonos no canvas (é por\n   isso que o painel é ancorado e não modal), e só então grava. Avisa antes se\n   o lote já tem UT nas subfases escolhidas: a tabela não tem UNIQUE e carregar\n   de novo duplica em silêncio. O mapeamento de campos aqui é identidade,\n   porque a camada gerada já nasce com os nomes que o SAP espera.\n5. Atividades e resumo.\n\nAs ferramentas antigas continuam intactas, para ajuste fino, correção e os\ncasos que o wizard não cobre.\n\nVerificado: 24 asserções do núcleo, incluindo o PERCURSO completo das 5 telas\n(o teste que faltava e que teria pego o deadlock da versão anterior); e a\ncadeia das telas 1 e 2 exercitada contra o backend local, criando lote e bloco,\nreencontrando-os por nome, copiando perfis e gerando 4 etapas. As telas 3 e 4\ndependem de camada do QGIS e seguem sem execução fora dele.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "8bf891f",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/8bf891fe8629b02b0e735512278753cb52eedbc5",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T14:18:03.000Z",
+      "author": "Maj Diniz",
+      "message": "1.33.2 - createLabel quebrava a tela toda quando a coluna era nula\n\nMDialogV2/V3.createLabel passava o valor cru para textwrap.TextWrapper.wrap.\nColuna nula (um lote sem descrição, por exemplo) chega como None e o wrap\nestoura com \"'NoneType' object has no attribute 'expandtabs'\", derrubando a\nabertura da tela inteira, não só daquela célula.\n\nAs duas classes ja tinham validateValue() (None -> ''), usado nos itens de\ntabela mas nao no createLabel. Agora usa.\n\nAfeta todas as telas de tabela do plugin (Criar Lote, Criar Bloco, Criar\nProjeto, Gerenciar Produtos, ...): bastava um registro com campo de texto\nnulo para a tela nao abrir. Reproduzido: textwrap.TextWrapper(width=40).wrap(text=None).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "a9dde46",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/a9dde46ddcd82da38fff4d065b9dabf245954703",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T14:02:15.000Z",
+      "author": "Maj Diniz",
+      "message": "revisao multiagente do wizard: dois bugs bloqueantes e a licao de teste\n\nO wizard 1.33.0 era impossivel de concluir (deadlock no passo 8, loop no\nbotao de pular perfis) e duas conferencias mentiam. Corrigido em 1.33.1 no\ndsgoficial/SAP_Gerente.\n\nLicao de classe (learnings de revisao-codigo): maquina de estados se testa\nPERCORRENDO o caminho, nao consultando os predicados com estado montado a\nmao. Meus 31 testes passavam e nao pegaram nenhum dos dois. Corolario: campo\npreenchido depois da acao de um passo nao pode ser pre-condicao para abrir\nesse passo. E: revisores com lentes distintas acham coisas quase disjuntas;\no revisor de Qt derrubou 5 das 7 suspeitas que semeei, que e o esperado de\num revisor que nao e eco.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0e02a53",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0e02a5376c5667312c5dc79e20cfd7fafe4eeeed",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T14:00:01.000Z",
+      "author": "Maj Diniz",
+      "message": "1.33.1 - corrige o wizard: ele era impossível de concluir\n\nRevisão multiagente do wizard \"Novo Lote (guiado)\" (1.33.0), com cada achado\nreproduzido antes de corrigir. Dois eram bloqueantes.\n\nBLOQUEANTES\n- Deadlock no passo 8 (Carregar UT): `missingRequirements` exigia\n  `subphaseIds`, que só era preenchido dentro da conferência do PRÓPRIO passo 8.\n  Resultado: \"Abrir ferramenta\" recusava abrir o LoadWorkUnit (a única coisa\n  que grava a UT), e sem UT gravada a conferência também não passava. O wizard\n  não podia ser terminado. As subfases são escolhidas DENTRO da ferramenta, então\n  não podem ser pré-condição para abri-la.\n- Loop no botão \"não há lote-modelo\": `onSkipProfiles` marcava `profilesSkipped`\n  mas não `markDone(STEP_PROFILES)`, então `nextStep()` devolvia o passo 3 de\n  novo e o botão parecia não fazer nada.\n\nCONFERÊNCIAS QUE MENTIAM\n- O passo Perfis devolvia \"Perfis copiados do lote-modelo\" sem consultar nada:\n  dava para avançar sem sequer abrir a ferramenta. Agora confere de verdade,\n  por GET /projeto/configuracao/perfil_estilos filtrado pelo lote (verificado\n  contra backend local: barra antes da cópia, passa depois).\n- O passo Atividades também sempre passava. Como o SAP não tem rota de leitura\n  de atividade por lote, o wizard agora ADMITE isso e pede confirmação explícita,\n  em vez de afirmar o que não sabe.\n- O cliente HTTP devolve lista VAZIA quando a requisição falha (token expirado,\n  erro 5xx), sem levantar exceção. As mensagens diziam \"o lote ainda não tem X\"\n  onde a causa podia ser login expirado. Agora toda mensagem de vazio carrega a\n  ressalva (EMPTY_HINT).\n\nOUTROS\n- O combo do passo 1 nunca recarregava, então o lote recém-criado não aparecia\n  na lista e o passo era impossível de concluir. Novo botão \"Atualizar lista\".\n- Mensagens de sucesso eram apagadas no mesmo instante: `advance()` mostrava e\n  logo chamava `updateUi()`, que limpa o rótulo. Inclusive a confirmação final.\n  Agora a mensagem atravessa a troca de passo (`pendingMessage`).\n- O botão de pular perfis aparecia SEMPRE no passo 3, mesmo havendo lote-modelo:\n  um clique jogava fora os 12 perfis. Agora só aparece quando não há modelo.\n- Sem estado final: dava para reabrir \"Criar Todas as Atividades\" e duplicar as\n  atividades do lote. Concluído, os botões são desabilitados.\n- O passo 1 aceitava qualquer lote, inclusive um antigo em produção, e o wizard\n  carregaria UT e criaria atividades em cima dele. Agora confere se o lote tem\n  produtos/UTs e exige confirmação explícita.\n- O aviso de uuid faltante vivia no wizard e inspecionava um combo DIFERENTE do\n  que a ferramenta usa, logo não protegia nada. Movido para dentro do\n  CreateProduct, onde a camada é de fato escolhida, e agora BARRA o carregamento.\n- mDock.closeEvent só fechava QDialog; o wizard é o único tool QDockWidget e o\n  iface o reparenteia para a janela principal, então ficava órfão ao fechar o\n  painel do plugin.\n- Removido código morto: `parseScale` e `prepareProducts` (nunca chamados) e o\n  atributo `workUnitCountBefore` (escrito, nunca lido). `existingWorkUnitsBySubphase`\n  recebia como filtro as subfases das próprias UTs achadas, o que casava tudo\n  sempre; agora conta todas por padrão.\n\nVerificado: a máquina de estados percorre os 9 passos sem travar; o deadlock e o\nloop foram reproduzidos antes e não reproduzem depois; o passo de perfis foi\nexercitado contra o backend local. A camada Qt segue sem execução dentro do QGIS.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "209b3fa",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/209b3fa113ddb016379b88943e9802e688bbbd56",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T13:28:58.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki(sap): package.json alinhado a 2.3.4, a nota da divergencia ficou obsoleta\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "49de3b2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/49de3b2c3f2cabce929e6224f595d1f02d3422c5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T13:28:18.000Z",
+      "author": "Maj Diniz",
+      "message": "2.3.4 - alinha a versao do package.json com a do config.js\n\nO package.json (raiz e server) ficou parado em 2.2.4 enquanto o\nserver/src/config.js, que e quem o servico realmente usa (VERSION e\nMIN_DATABASE_VERSION), ja ia em 2.3.4. Ninguem le o package.json em runtime,\nentao a divergencia era so ruido, mas ruido que confunde quem for descobrir a\nversao do servico pelo lugar mais obvio.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "c6b8ff0",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/c6b8ff04cb889d66dd7fc1d72f2aeb15f9360939",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T13:26:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-09: consertos no SAP, wizard de lote e o ambiente que provou tudo\n\nConsolidação da sessão que começou como \"analisar o cadastro de lote\" e virou\nquatro consertos no backend (2.3.4), a rota GET /projeto/unidade_trabalho e o\nwizard \"Novo Lote (guiado)\" (SAP_Gerente 1.33.0).\n\nAprendizados de classe (learnings de documentar-repositorio):\n- `git ls-remote --heads` ANTES de analisar repo de terceiro. O master do\n  SAP_Gerente estava morto e um bug reportado nele já estava corrigido na\n  branch viva. Corolário novo: quando a doc contradiz o clone, pode ser o\n  CLONE que está errado (branch errada), não a doc.\n- Instalar do zero revela bug que banco migrado esconde. Em repo com\n  instalador mais migrações, montar o banco pelos dois caminhos e comparar\n  (inclusive os nomes das constraints).\n- Com ambiente local, a verificação por leitura vira prova de execução.\n\nCorreção registrada no livro-razão: criei feature branches nos repos da DSG\nquando people/USER.md JÁ dizia \"direto no master, sem feature branch\". Não foi\njulgamento, foi não ter lido a preferência do vault antes de aplicar o default\ndo harness. USER.md reescrito para \"branch PRINCIPAL, NUNCA feature branch\",\ncom o alerta de que principal nem sempre é master (qgis4 nos plugins).\n\nDoc rot corrigido: versões do gerente (1.33.0) em sap.md e sap-gerente.md,\nMIN_DATABASE_VERSION em sap-modelo-dados.md (dizia 2.3.1), entrada de\n2026-07-09 na linha-do-tempo, e a rota nova no catálogo subwikis/sap/rotas.md.\nA skill configurar-lote-sap ganhou o estado atual do backend (o passo copiar\nvirou atômico; há GET de UT, não de atividade).\n\nNova página subwikis/sap/dev-local.md: como levantar o SAP inteiro numa\nmáquina, com os gotchas (auth antes do SAP, proxy Squid em localhost, a suíte\nmocka o banco e não prova rollback).\n\nPoda: learnings de documentar-repositorio passou do teto e foi drenado\n(narrativa do Hootenanny movida para references/, lossless). Lint da wiki\nlimpo: 0 links quebrados, 0 órfãs, 0 contradições.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f69875f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f69875fde74611ed066864263c66c3f33f86ccc6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T13:18:15.000Z",
+      "author": "Maj Diniz",
+      "message": "doc: a branch viva é a qgis4, não o master\n\nO CLAUDE.md mandava ramificar de master, que está congelado na 1.31.6\n(PyQt5, último commit 2026-02-26). Corrigir bugs ali é consertar código que\nninguém executa: parte do que está no master já foi corrigido na qgis4.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "64a4da2",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/64a4da294e56868367a05a23adca949db32df2c3",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T13:14:38.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki+decisions: SAP 2.3.4 e o wizard \"Novo Lote (guiado)\"\n\n- sap: master em 2.3.4. A migração update_233_234.sql fecha a ultima brecha\n  de idempotencia dos perfis (perfil_requisito_finalizacao e perfil_fme eram\n  as duas unicas tabelas de perfil sem UNIQUE). O servico 2.3.4 recusa banco\n  2.3.3, entao a migracao roda antes do deploy.\n- sap-gerente: o wizard como primeiro item da aba Criacao/Configuracao, com\n  as tres protecoes que o fluxo solto nao da, e a razao de ser nao modal.\n- decisao 2026-07-09 (cont. 3) com as escolhas de schema (por que a coluna\n  ordem nao entra na chave) e de arquitetura (o wizard nao reimplementa\n  widgets, confere por GET).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5828336",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5828336778cf8420c579680dce970663c1452568",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T13:13:13.000Z",
+      "author": "Maj Diniz",
+      "message": "1.33.0 - wizard \"Novo Lote (guiado)\", painel ancorado na aba Criação/Configuração\n\nCadastrar um lote custava 9 diálogos soltos, sem ordem imposta e sem estado\ncompartilhado. Quem cadastra faz isso poucas vezes por ano, então o que se\nperde não é tempo de clique, é a ORDEM correta e as armadilhas do caminho.\n\nO wizard não reimplementa os widgets: abre cada um na ordem certa e depois\nCONFERE no backend que o passo aconteceu, em vez de confiar no clique.\n- lote: relista e reconhece pelo nome (o POST não devolve id)\n- conexão, bloco, etapas, produtos, UT: conferidos por GET\n- perfis: a cópia é atômica desde a 2.3.3, então a mensagem de sucesso basta\n\nFica ancorado à direita (QDockWidget), não modal, porque entre gerar e\ncarregar as unidades de trabalho o gerente EDITA os polígonos no canvas. Os\ndois passos continuam separados de propósito; o wizard só espera, com o botão\n\"Conferir e avançar\" validando a camada (feições, Polygon e não MultiPolygon,\nEPSG) antes de liberar o carregamento.\n\nAs três armadilhas que o fluxo solto não protege:\n- Carregar UT duas vezes DUPLICA em silêncio (a tabela não tem UNIQUE). O\n  wizard consulta GET /projeto/unidade_trabalho antes e exige confirmação.\n- Primeiro lote de uma linha nova não tem lote-modelo de onde copiar perfis.\n  O wizard detecta, explica e oferece seguir sem copiar, em vez de travar.\n- uuid do produto é canônico e vem da planilha. O wizard avisa quando a camada\n  não tem o campo, ou tem feições sem valor.\n\nVerificado: 31 asserções do núcleo (modules/sap/wizard, sem Qt) e ensaio das\nverificações contra o backend local, com dados reais: encontra o lote-modelo,\nbarra etapas e produtos ausentes, avisa da UT já existente. A camada Qt\ncompila, mas NÃO foi executada dentro do QGIS.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "e109b9b",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/e109b9b83125759ba40c143848b3c72cdeceddc5",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T13:00:22.000Z",
+      "author": "Maj Diniz",
+      "message": "2.3.4 - UNIQUE em perfil_requisito_finalizacao e perfil_fme\n\nEram as duas unicas tabelas de perfil sem restricao de unicidade. As outras\nnove ja tinham UNIQUE por catalogo x subfase x lote. Por isso copiar a\nconfiguracao de um lote para outro duas vezes DUPLICAVA linhas nessas duas,\nem silencio, enquanto abortava nas demais. Tornar a copia atomica (2.3.3) nao\nresolveu: atomicidade nao e idempotencia.\n\nChave escolhida seguindo o idioma do schema (catalogo x subfase x lote):\n- perfil_fme: (gerenciador_fme_id, rotina, subfase_id, lote_id). O par\n  gerenciador+rotina e o catalogo, como qgis_model_id em perfil_model_qgis.\n- perfil_requisito_finalizacao: (descricao, subfase_id, lote_id). Nao tem\n  catalogo, a identidade e a descricao.\n\nA coluna ordem NAO entra em nenhuma das duas de proposito: atualizaPerfilFME e\natualizaPerfilRequisitoFinalizacao reordenam por UPDATE em massa dentro de uma\ntransacao, e uma restricao sobre ordem colidiria no meio da reordenacao.\n\n- er/macrocontrole.sql: UNIQUE inline nas duas tabelas (instalacao nova).\n- version_update/update_233_234.sql: remove duplicatas ja existentes\n  preservando a linha mais antiga (menor id), cria as restricoes e faz o bump\n  do banco. Usa ADD UNIQUE sem nomear, para gerar o mesmo nome de constraint\n  do UNIQUE inline: banco migrado e instalacao nova ficam identicos.\n- er/versao.sql e config.js: 2.3.3 -> 2.3.4.\n\nVerificado contra PostgreSQL 17 + PostGIS 3.6 local:\n- migracao sobre banco 2.3.3 com duplicatas plantadas (5 requisitos, 3 FME)\n  deixa 3 e 2, preservando os ids mais antigos, e passa a recusar a duplicata;\n- instalacao nova a partir do er/ nasce com as mesmas restricoes, com nomes\n  identicos aos do banco migrado;\n- copiar a configuracao duas vezes deixa de duplicar: a 2a copia aborta e faz\n  rollback (antes gravava a 2a linha);\n- o servico sobe contra banco 2.3.4 e RECUSA banco 2.3.3, como esperado;\n- suite do repo: 138 testes passando.\n\nAtencao no deploy: exige rodar version_update/update_233_234.sql antes de\nsubir o servico.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "387fb62",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/387fb623eb58c636c0a6b7af787637fe03696b42",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T12:42:04.000Z",
+      "author": "Maj Diniz",
+      "message": "wizard de novo lote: núcleo de estado e regras (sem Qt), e getWorkUnitsByLot\n\nPrimeira parte do wizard \"Novo Lote\", que guia o cadastro de um lote do\ncomeço ao fim num painel não-modal, trocando flexibilidade por facilidade\npara quem cadastra poucas vezes por ano.\n\nEste commit traz só o núcleo, deliberadamente sem Qt e sem HTTP, para que a\nordem dos passos e as validações possam ser exercitadas fora do QGIS:\n\n- modules/sap/wizard/newLotWizardState.py: os 9 passos, as pré-condições de\n  cada um (nada de gerar UT antes de existir bloco e conexão), e as regras:\n  - existingWorkUnitsBySubphase: avisa que o lote já tem UT numa subfase.\n    macrocontrole.unidade_trabalho não tem UNIQUE, então repetir o\n    carregamento duplica em silêncio. Esta é a proteção principal.\n  - modelLotCandidates: espelha a regra do backend (mesma linha de produção,\n    nunca o próprio lote). Linha nova não tem candidato, e o wizard precisa\n    dizer isso em vez de travar.\n  - prepareProducts: uuid do produto é canônico e vem da planilha; quando\n    falta, gera uuid4 e AVISA que a reconciliação ficou pendente.\n  - validateWorkUnitLayer: recusa camada vazia, MultiPolygon (o backend exige\n    Polygon na UT) e camada sem EPSG. É o portão do passo \"conferir a camada\",\n    que existe porque Gerar UT e Carregar UT são dois passos DE PROPÓSITO: o\n    gerente edita os polígonos entre eles.\n\n- sapHttp.getWorkUnitsByLot: consome a rota GET /projeto/unidade_trabalho\n  (nova no backend), que é o que torna a checagem acima possível.\n\nVerificado: 31 asserções do núcleo passando, e a checagem de UT alimentada\ncom a resposta real da rota contra o backend local (lote com UT bloqueia,\nlote virgem libera).\n\nFalta a camada Qt (QDockWidget não-modal) e o registro no dockDirector.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "bc7db4a",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/bc7db4adaec648f11976d663e3f42d4589751a57",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T12:37:41.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: GET /projeto/unidade_trabalho, lista as UTs de um lote\n\nNao havia nenhuma rota de leitura de unidade de trabalho por lote: o modulo\nso expunha POST, PUT e DELETE. Sem isso, nao ha como um cliente saber se um\nlote ja tem UT numa subfase ANTES de criar novas, e a tabela\nmacrocontrole.unidade_trabalho nao tem restricao de unicidade: repetir o\nPOST duplica as UTs em silencio, sem erro.\n\nDevolve id, nome, epsg, disponivel, prioridade, subfase (id e nome), bloco\n(id e nome) e dado_producao_id, sem a geometria, que e pesada e nao serve a\nesse uso. Exige administrador, como as demais rotas de configuracao.\n\nVerificado contra o backend local (PostgreSQL 17 + PostGIS 3.6): lote com UT\ndevolve 200 e as tres UTs com suas subfases; lote sem UT devolve 200 e lista\nvazia; sem lote_id devolve 400 pelo Joi; sem token, 401. Suite: 138 testes\npassando.\n\nMotivacao: o wizard de cadastro de lote do SAP_Gerente vai usar esta rota\npara avisar o gerente antes de duplicar UT. O widget \"Carregar Unidades de\nTrabalho\" atual pode usar a mesma checagem.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "93c7db4",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/93c7db477b13e6409deb55b211c83fbe83d5324f",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T12:31:35.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki+decisions: consertos no SAP e o schema microcontrole que faltava no er/\n\nRegistra o achado que so uma instalacao nova revela: \"microcontrole\" nomeia\nduas coisas no SAP, o banco de telemetria (microConn) e um schema dentro do\nbanco do SAP (perfil_monitoramento, lido pelo sapConn). O segundo nunca\nesteve em er/, so na migracao 210_220, entao instalacao nova respondia 500\nna rota de perfil de monitoramento. Corrigido em dsgoficial/sap e verificado\ncontra PostgreSQL 17 + PostGIS 3.6 locais.\n\nDecisao 2026-07-09 (cont. 2) com o resto: branch viva dos plugins e a qgis4,\nos dois passos de UT sao deliberados, e o que ficou por consertar (as duas\ntabelas de perfil sem UNIQUE).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "d1047ce",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d1047ceb79d6ea313232186ee3039c3e4d97f1a6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T12:29:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: er/ nao criava o schema microcontrole, quebrando instalacao nova\n\nO schema microcontrole do banco do SAP (tipo_monitoramento e\nperfil_monitoramento) so nascia na migracao update_210_220.sql e nunca foi\ntrazido para o er/. Bancos migrados desde a 2.1.0 tem as tabelas; qualquer\nbanco criado do zero pelo create_config.js NAO tinha nem o schema.\n\nComo microcontrole_ctrl.getPerfilMonitoramento consulta\nmicrocontrole.perfil_monitoramento pela conexao do SAP (sapConn), numa\ninstalacao nova a rota GET /microcontrole/configuracao/perfil_monitoramento\nrespondia 500 (relacao nao existe). Era tambem a razao de copiar_monitoramento\nestar comentado em copiarConfiguracaoLote.\n\n- er/microcontrole.sql: cria o schema, tipo_monitoramento (com os dois\n  valores) e perfil_monitoramento, com o mesmo DDL da migracao, para que\n  instalacao nova e banco migrado fiquem identicos.\n- create_config.js: executa o novo arquivo depois de macrocontrole.sql, de\n  quem as FKs (subfase, lote) dependem.\n- projeto_ctrl: descomenta copiar_monitoramento, agora dentro da transacao.\n  Como usa a mesma sapConn, entra no mesmo rollback dos demais perfis.\n\nVerificado contra Postgres 17 + PostGIS 3.6 local: instalacao nova a partir\ndo er/ passa a criar a tabela; a rota responde 200 (antes 500); a copia de\nmonitoramento entre lotes irmaos funciona; e forcar conflito no monitoramento\nreverte tambem os estilos ja inseridos. Suite do repo: 138 testes passando.\n\nNao alterado: o banco de microcontrole (er_microcontrole/), que guarda a\ntelemetria e vive noutra conexao.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "8135b50",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/8135b50ccf075a89cc2fbb82d167972e7b15a7d9",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T12:08:26.000Z",
+      "author": "Maj Diniz",
+      "message": "constituicao: regra de nucleo \"fonte primaria antes de afirmar fato de codigo\"\n\nSobe ao CLAUDE.md, aprovada pelo chefe antes de gravar (principio 3, o nucleo nao\nse edita em silencio). Fica ao lado da regra irma de numero do ano, nas \"Regras\nsempre verdadeiras\":\n\n  Fonte primaria antes de afirmar fato de codigo: afirmacao sobre schema, dominio,\n  trigger, coluna ou contagem de classe de um modelo so se afirma ou grava apos\n  conferir no DDL/codigo, nunca a partir de prosa que descreve o codigo, INCLUSIVE\n  rascunho do proprio time no proprio repo do artefato (o rascunho e hipotese, nao\n  fonte). O sinal de alarme e o TEMA, nao a origem da fonte.\n\nPor que subiu: a familia \"o artefato/codigo real manda\" chegou a 9 ocorrencias no\nlivro-razao, 3 delas em 3 dias e em skills DIFERENTES (documentar-repositorio/gait\nem 07-07; analise-sap-gerente/branch-morta e producao-progressiva/rascunho-como-apoio\nem 07-09). Recorrencia DENTRO de uma skill = o learnings nao pegou; recorrencia ENTRE\nskills = lacuna de doutrina, e sobe.\n\nDiagnostico: a regra ja existia como evergreen no learnings da retrospectiva e mesmo\nassim nao disparava, porque o gatilho estava na ORIGEM da fonte (implicito: \"doc de\nterceiro\") quando deveria estar no TEMA da afirmacao. O caso de 07-09 prova: a fonte\nera rascunho do PROPRIO time, no PROPRIO repo, e mentia sobre o schema daquele repo.\n\nCriterio de falseamento (principio 5, orcar a variante que falha): se a classe\nreincidir depois desta regra, o problema nao e a regra e sim o momento em que ela e\nlida, e a resposta passa a ser mecanica (gate), nao guia.\n\n- DECISIONS 2026-07-09 (cont.) + indice.\n- learnings de retrospectiva: proposta -> aprovada e aplicada.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "7d25c96",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7d25c968efb784d4bbb2605a3d1253d10a99ba13",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T12:07:11.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: copiarConfiguracaoLote agora e atomico (envolve os INSERT numa transacao)\n\nOs 11 INSERT de perfil rodavam como chamadas independentes em\ndb.sapConn.any(), sem transacao. Falhar no 5o perfil deixava os 4\nanteriores gravados no lote destino, e o gerente ficava com uma copia\nparcial silenciosa.\n\nAgora tudo roda dentro de db.sapConn.tx: ou copia todos os perfis\nmarcados, ou nenhum. Como nove das onze tabelas de perfil tem\nUNIQUE(catalogo_id, subfase_id, lote_id), repetir a copia passa a dar\nrollback limpo em vez de gravar metade.\n\nA validacao inicial (lotes existem e sao da mesma linha de producao)\nsegue fora da transacao, por ser so leitura.\n\nNao resolvido aqui, e proposital: perfil_requisito_finalizacao e\nperfil_fme NAO tem UNIQUE, entao a copia repetida ainda pode duplicar\nlinhas nessas duas. Idempotencia plena exige ou migracao de schema ou\ndefinir no INSERT o que conta como \"ja copiado\"; e decisao de quem\nmantem o SAP.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5b60206",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/5b60206af51c8f2048599a225830785db4f659e3",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-09T12:06:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: operador de subtracao solto entre dois await em reshapeUnidadeTrabalho\n\nA expressao era `await db.sapConn.tx(...) - await handleRelacionamento(...)`:\nos dois await executavam, o resultado da subtracao virava NaN e era\ndescartado. Funcionava por acidente. Qualquer refactor que removesse o\nawait da primeira expressao mudaria a semantica em silencio.\n\nSem mudanca de comportamento: as duas chamadas continuam executando na\nmesma ordem.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "d414e6d",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/d414e6dbe0e7adab29b77f16c36bcacbfd74695c",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-09T12:05:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: valida escala do lote e prioridade do bloco antes de converter para int\n\nEm addLotForm.getData, `int(self.scaleLe.text())` era chamado sem que\nvalidInput checasse o campo de escala (ele nem estava na lista), entao\nescala vazia ou nao numerica estourava ValueError cru na cara do usuario,\nsem mensagem util. Em addBlockForm, validInput exigia prioridade nao\nvazia, mas nao numerica, com o mesmo efeito.\n\n- addLotForm: parseScale() exige inteiro POSITIVO (escala <= 0 violaria o\n  trigger chk_scale mais tarde, longe da causa) e entra em validInput.\n- addBlockForm: parseInt() aceita negativo, como o banco permite\n  (bloco.prioridade e INTEGER NOT NULL, sem CHECK >= 0).\n- Mensagens de erro dizem o que se espera, em vez de so \"Preencha todos\n  os campos!\".\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "30c4880",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/30c4880c19146f225821eb72d0de6f59392f4e64",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T12:04:20.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki+skill: corrige doc rot do SAP (branch qgis4 e o master morto)\n\nAo clonar SAP_Gerente e SAP_Operador para analisar o cadastro de lote,\ndescobri que o `master` dos dois plugins esta abandonado e que a branch\nviva e a `qgis4`. A wiki citava as versoes do master como correntes.\n\n- sap-gerente: branch qgis4 (1.32.3, Qt6); master parado na 1.31.6/PyQt5\n  desde 2026-02-26. Registra tambem que \"Gerar UT\" e \"Carregar UT\" sao\n  dois passos DE PROPOSITO (o gerente edita os poligonos entre eles) e\n  que \"Carregar UT\" nao e idempotente (unidade_trabalho sem UNIQUE,\n  duplica em silencio).\n- sap-operador: qgis4 em 3.30.0; master parado na 3.29.24.\n- sap: config.js declara VERSION 2.3.3 (package.json ficou em 2.2.4).\n  Marca a divergencia de versao em producao (2.3.1 na wiki, 2.3.2 nos\n  learnings, 2.3.3 no codigo) em vez de escolher: so o GET /api do SAP\n  vivo resolve, e a rede estava inacessivel em 2026-07-09.\n- configurar-lote-sap: o Modo A JA rodou contra producao (2026-06-26,\n  lotes 77 e 78), contradizendo o proprio SKILL.md. O que segue nao\n  validado e o contrato do POST de criar_projeto e o PUT /produto.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "07eaa17",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/07eaa178db68c3df5a1274862625cf760581327b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T12:02:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-09: producao progressiva da base continua (nivel derivado, ASC piloto)\n\nNova pagina wiki/producao-progressiva.md: o METODO de produzir a base continua,\nclasse a classe, em prosa e sem tabelas. Nenhuma classe comeca vazia; a feicao sobe\nde dado aberto (N0) a conflacao com cadastro oficial (N1), a IA (N2), a curadoria do\noperador (N3) e a reambulacao (N3+). Escrita por classe x EIXO de informacao\n(geometria, subtipo/atributo, nome, topologia), com o subtipo nomeado so onde quebra\no metodo: cadastro proprio, orfao, ou cego para a maquina. As 39 classes da v0.12.0.\n\nDecisoes (DECISIONS 2026-07-09):\n- o nivel N0-N3+ e DERIVADO dos metadados de feicao, nunca coluna propria. Zero DDL.\n- escopo executavel = ASC (RS/SC/PR); Brasil como horizonte, proposta a DSG.\n- granularidade classe x eixo; um trecho por subtipo daria 534 secoes quase iguais.\n\nCorrecao de rota dentro da sessao (livro-razao, 9a da familia \"codigo real manda\"):\napoiei a decisao numa frase do rascunho analysis/base_progressiva_ia_operadores.md\n(\"status_ciclo_vida ja modela os estados N0..N3\"). O edgv_topo_20_extension.sql diz\nque e FALSO: status_ciclo_vida e ciclo de vida, ortogonal a maturidade. No mesmo\narquivo, 2o erro ja propagado a wiki: a confiabilidade E persistida por trigger\ncomputa_qualidade(), com 4 codigos, e nao \"derivada em tile, escala 1-5\".\nA decisao segue certa e ficou mais forte; o fundamento foi reescrito, nao apagado.\n\nAchado que vale para todas as classes: a IA entrega a classe grossa (o valor_filtro),\nnao o subtipo (o codigo). O D_hier UNet devolve 6 classes; tipo_veg tem 24 codigos em\n13 filtros. Descer de \"floresta\" a densa/esparsa e limitacao de SENSOR, nao do modelo.\n\n- wiki: edgv-topo-20 atualizada a v0.12.0 (+8 codigos em tipo_edificacao, do stress\n  test do geoswarm); metadados-feicao corrigida (confiabilidade persistida);\n  base-continua e reambulacao-por-classe cross-linkadas; linha-do-tempo.\n- skills: learnings de documentar-repositorio (rascunho do proprio time e HIPOTESE;\n  extrair a verdade-base do master_file/DDL por script ANTES de ler a prosa do repo)\n  com drenagem da entrada do GAIT para a camada de detalhe (teto de 10 KB);\n  learnings de retrospectiva registra a recorrencia entre skills (3x em 3 dias).\n- livro-razao carrega tambem 2 entradas de sessao paralela (analise-sap-gerente),\n  ja completas; os arquivos wiki/sap*.md e configurar-lote-sap ficaram fora.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "c4ee3f8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c4ee3f8f6636d9a6f168b57e8cb91b9cfd1204d8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-09T11:55:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-09: reambulacao por classe/subtipo da EDGV Topo 1.4 (25k) vira pagina de wiki\n\nNova pagina wiki/reambulacao-por-classe.md: catalogo operacional da doutrina de\natributacao por relevancia, classe a classe e subtipo a subtipo das 38 classes da\nEDGV Topo 1.4, com o veredito de campo (Nao/De passagem/Eventual/Sim) por feicao,\nfocado na escala 25k. Verdade-base parseada do master_file da modelagem; espinha\ndoutrinaria no blog do chefe (2026-06-26) e em [[atributacao-relevancia]].\n\n- Integracao: index.md, mapa-conceitos.md, e backlinks reciprocos em\n  atributacao-relevancia, reambulacao e carta-topografica-25k.\n- lint-wiki verde (0 quebrados/orfas/acentos/quase-duplicatas).\n- learning de metodo em lint-wiki: catalogo por classe da EDGV via fan-out de\n  posse disjunta + acentuar a saida do agente antes de salvar.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "d9c20f8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d9c20f8d5cd99b74aef72bf695613c871d657af2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/configuracoes_producao",
       "date": "2026-07-08T20:31:03.000Z",
