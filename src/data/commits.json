@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-11T16:00:50.553Z",
+  "lastUpdate": "2026-07-11T20:55:45.905Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-10T19:29:33.000Z",
+    "dsgoficial/modelagens": "2026-07-11T19:11:34.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-11T14:13:28.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-11T19:47:01.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 4989,
+    "totalCommits": 4993,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -127,7 +127,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 137,
+      "dsgoficial/modelagens": 138,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
@@ -159,11 +159,47 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 267,
+      "1cgeo/chefe_dgeo": 270,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-11T19:47:01.000Z",
+      "author": "Maj Diniz",
+      "message": "conflacao-atributo-linha: refino anti-vazamento a+b (ancoragem de extremos + continuidade)\n\nO chefe pegou por visao a rede vazando a sigla para ramal/laco/paralela que encosta na via\n(inclusive o fid 446041, um laco isolado a 17m do eixo). Conserto: (a) ancoragem dos extremos\ndistinguindo divergencia (ramal) de offset constante (pista dupla, via D_WIDE), e (b) suporte\nponderado por colinearidade + portao de continuidade (auto exige vizinho colinear de mesma\nsigla, ou cobertura quase perfeita, ou estar colado no eixo). Validado por raster antes/depois\npor visao (via principal continua, so borda removida). Passo de verificacao por visao virou\nOBRIGATORIO na SKILL. Registrado no learnings e livro-razao (recorrencia metodo-incompleto 2x).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01W1jfXMfokC9Bj2mdEKsoxH",
+      "sha": "2aa62fa",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2aa62fa8ed21bc3f6fb0ed456af5da6a1850d373",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-11T19:11:34.000Z",
+      "author": "Maj Diniz",
+      "message": "sync(edgv_topo_20): master_file com descricoes + conversao JSONs realinhados\n\nEspelha o subconjunto do repo edgv_topo_20 para edgv_300_topo/2_0/:\n- master_file_topo_20.json: descricoes de classe, atributo e valor de dominio\n  (antes ~inexistentes), autoradas para o documento de especificacao ET-EDGV.\n- 5 conversao/*.json (mgcp-trd46, muvd-utrd, naturalearth, overture,\n  pg-edgv-300): realinhamento dos geradores e correcao de valores invalidos.\nSQL, changelog e extension inalterados (descricao nao muda o SQL).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5688070",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/5688070f734f88e5467535f35efcd9f83548c12b",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-11T19:06:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-11: ET-EDGV Topo 2.0, acento-ascii recorrente, achado-de-review nao-verificado\n\n- wiki/edgv-topo-20: registra o documento de especificacao ET-EDGV Topo 2.0 (docs/spec/, gerado do master file; descricoes passam a viver no master; cruzamento com a SPU 4.0 esgotado).\n- livro-razao: acento-ascii recorrente ao autorar prosa em repo externo (net mecanico vale em qualquer repo); consumo de agente em voo (so apos conclusao); geoswarm/achado-de-review registrado antes de verificar a conclusao no codigo consumidor (nao havia bug).\n- learnings/retrospectiva: sintese de gerar doc de especificacao do master file + orquestrar agentes de conteudo (audit de acento, aguardar conclusao, verificar conclusao do review no codigo que consome).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "c234ec4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c234ec4ab0ad9742c178e4bfc661ba4b917e7d73",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-11T18:45:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-11: conflacao de sigla executada + skill conflacao-atributo-linha\n\nAttribute Conflation portada do Hootenanny (0d52f55): pipeline vetorizado (subline\ncom gate angulo+distancia, propagacao em rede), calibrado, aplicado com proveniencia,\ncasos de revisao resolvidos por visao, 2a passada provando idempotencia. Nova skill\nconflacao-atributo-linha (metodo+learnings+scripts). Projeto futuro conflacao-hidrografia-nome.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01W1jfXMfokC9Bj2mdEKsoxH",
+      "sha": "5103a81",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5103a8151bd19965d7f29b27c501278522445bd8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-11T14:13:28.000Z",
