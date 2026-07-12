@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-12T11:15:17.609Z",
+  "lastUpdate": "2026-07-12T16:03:48.111Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -8,14 +8,14 @@
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
-    "1cgeo/doc_topografica": "2026-07-03T17:03:53.000Z",
-    "1cgeo/doc_dgeo": "2026-07-10T21:09:58.000Z",
+    "1cgeo/doc_topografica": "2026-07-12T15:38:35.000Z",
+    "1cgeo/doc_dgeo": "2026-07-12T15:38:21.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-12T10:27:18.000Z",
+    "dsgoficial/modelagens": "2026-07-12T14:09:20.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-12T10:14:35.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-12T15:51:01.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5005,
+    "totalCommits": 5013,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -121,13 +121,13 @@
       "1cgeo/ebgeo_web": 779,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
-      "1cgeo/doc_topografica": 110,
-      "1cgeo/doc_dgeo": 494,
+      "1cgeo/doc_topografica": 111,
+      "1cgeo/doc_dgeo": 495,
       "1cgeo/ferramentas_mgcp": 12,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 142,
+      "dsgoficial/modelagens": 143,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
@@ -159,11 +159,83 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 278,
+      "1cgeo/chefe_dgeo": 283,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T15:51:01.000Z",
+      "author": "Maj Diniz",
+      "message": "lint-wiki: conserta falso positivo do 'Estado atual' e allowlist de pares distintos por design\n\n- check [9]: buscar a data a PARTIR de \"Estado atual\" na linha; antes um MM/AAAA anterior na mesma linha (ex.: \"RT 01/2024\") era capturado no lugar do marcador, marcando pagina atual como vencida\n- check [7]: allowlist por PAR (edgv~modelagens, sap~sap-modelo-dados) - distintos por design, cada pagina segue checada contra todas as outras\n- index.md: bloco de estatisticas (0 advisories)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2bf0a09",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2bf0a09ebc8fda319d22afc4193cbba883731c73",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T15:46:15.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-12: skill atualizar-doc-publica (publicar conhecimento do vault nas docs Docusaurus com guardrails)\n\n- skill nova atualizar-doc-publica + learnings: metodo e guardrails de seguranca publica para levar conhecimento do vault aos sites doc_dgeo/doc_topografica/doc_ortoimagem; roteamento por dominio; fonte primaria para fato tecnico; validacao por build\n- livro-razao: conceito de dominio (reambulacao) roteado ao doc geral e corrigido para a doc do dominio\n- DECISIONS + decisions-2026: docs publicas como camada de publicacao do vault\n- wiki/et-rdg: lacuna do acervo (texto normativo ET-RDG/MTM DPS ainda ausente)\n- MEMORY: ponteiro dos 3 sites Docusaurus + skill\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "993134e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/993134e9ef8ff75870afb84c9a35616ee665ce42",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-07-12T15:38:35.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: reambulacao (estrategia, veredito por classe, contato com a prefeitura), regras MTM e BDGEx\n\n- reambulacao: nova pagina de estrategia (campo como ultimo recurso, atributacao por relevancia), veredito de campo das 38 classes e guia de contato com a prefeitura; reordenacao da secao\n- disseminacao: walkthrough do BDGEx Fonte (vetorial e matricial)\n- preparo: FathomDEM como MDT padrao e modelos geoidais\n- regras MTM: ponto cotado, tamanho de rotulo de localidade e rotulo de pista de pouso (a confirmar na ET-RDG vigente)\n- siglas: abreviaturas complementares\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "acff5ec",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/acff5ec1b022ad24b22908185bb04c854b4b5d86",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-12T15:38:21.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: MGCP, insumos de altimetria (MDE/MDT), terreno MASACODE, conversao OSM e termos genericos IBGE\n\n- nova secao MGCP (mgcp/intro): visao geral do programa (celula, escala, TRD 4.6, GAIT, ecossistema de repos)\n- nova secao Insumos (insumos/mde): GLO-30/FABDEM/FathomDEM, datum vertical, modelos geoidais e contaminacao de licenca\n- modelagens/masacode: de-para EDGV Topo 1.4 para MASACODE (terreno COMBATER), conferido no codigo\n- conv-mod: conversao OSM para EDGV, link MASACODE e nota de formatos suportados\n- glossario: secao de termos genericos de nomes geograficos (glossario IBGE)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5b2ad22",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/5b2ad22d3c3ce2fb6448abe09fe488e77dd6f6c6",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-12T14:09:20.000Z",
+      "author": "Maj Diniz",
+      "message": "sync EDGV Topo 2.0 (mirror do edgv_topo_20): gate de derivacao INDE/Militar (confiabilidade 5 niveis vira rotulo, linha_derivacao na escala_maxima, INDE Brasil-only) no extension; changelog, site ET-EDGV (HTML) e crosswalk Overture com correcoes de tipo/coluna",
+      "sha": "684ec46",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/684ec46803cf865184b41921248872b3aadc9a20",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T14:01:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-12: derivacao de produtos (INDE em 2 pernas colapsadas na escala_maxima, confiabilidade 5 niveis vira rotulo, INDE Brasil-only) + artigo derivacao-produtos + learnings de carga ETL Overture em escala",
+      "sha": "9f641ae",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9f641aec6250a32fccb23ed1a9117d5e2b80543d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T12:34:50.000Z",
+      "author": "Maj Diniz",
+      "message": "CLAUDE.md: ponteiros para as pecas novas do harness (nucleo, aval do chefe)\n\nSecao Referencias: aponta consultar-wiki + pagina de duas zonas/verdito temporal/\ngrafo tipado (via wiki-schema), DESAMBIGUACAO.md + lint_skills.py, e conventions/saida.md.\nDois bullets, sem inflar o sempre-carregado (a licao do thin harness).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2d51dc8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2d51dc8f760d115f2494289d00e7441a3bafc49b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T12:32:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-12: melhorias do harness a partir do gbrain + dedup doutrina.md\n\nInvestigacao do garrytan/gbrain com 5 agentes; 4 lotes implementados (periferia, testados):\n- gate de proatividade por severidade erro/aviso (fim do crying-wolf) + check de memoria acima do teto\n- pagina de duas zonas (## Historico append-only) + verdito temporal (CONTRADICAO/SUPERSESSAO/REGRESSAO/DEBATE) no lint-wiki\n- grafo de arestas tipadas (wiki_grafo.py, zero LLM) + skill consultar-wiki (citacao [[slug]] + bloco de lacunas)\n- DESAMBIGUACAO.md + lint_skills.py (colisao de gatilho) + routing-eval + conventions/saida.md\nNucleo (aval do chefe): doutrina.md deduplicado (so o porque; one-liners ficam no CLAUDE.md).\nRegistro em Decisions 2026-07-12.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "05bd6f5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/05bd6f57a68785c54868bd26a7b8f4cf4675106a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/modelagens",
       "date": "2026-07-12T10:27:18.000Z",
