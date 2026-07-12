@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-12T16:03:48.111Z",
+  "lastUpdate": "2026-07-12T20:56:21.516Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-12T14:09:20.000Z",
+    "dsgoficial/modelagens": "2026-07-12T19:16:39.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-05T19:45:02.000Z",
+    "1cgeo/geoswarm": "2026-07-12T20:27:13.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-03T17:42:56.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-10T12:33:41.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-12T15:51:01.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-12T20:42:06.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5013,
+    "totalCommits": 5024,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -127,7 +127,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 143,
+      "dsgoficial/modelagens": 147,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
@@ -148,7 +148,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 53,
+      "1cgeo/geoswarm": 54,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 17,
       "1cgeo/ebgeo_360": 13,
@@ -159,11 +159,110 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 283,
+      "1cgeo/chefe_dgeo": 289,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T20:42:06.000Z",
+      "author": "1º Ten Marcel",
+      "message": "retrospectiva 2026-07-12: lote Bento Goncalves (nomeacao de folha por localidade, -et da orto pode travar, calibracao do revisar-carta-pdf para Ortoimagem)\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "cb6cfff",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cb6cfffe8c7f6cc492252afc15ac861066b558b7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-12T20:27:13.000Z",
+      "author": "Maj Diniz",
+      "message": "reambulacao PR-SC: conserta SRID no join de municipio_gid + learnings dos agentes\n\n_batch_spatial_join (inserir_feicoes.py) cruzava municipios (4326) com\nfeicoes (4674) e deixava municipio_gid nulo por SRID misto; agora\ntransforma o ponto da feicao para o SRID dos limites (ST_Transform com\nST_SRID(m.geometry)). Atinge os coletores estaduais (nao carimbam o gid).\n\nLearnings (candidatos, para a /retrospectiva do geoswarm curar): coletor-municipal,\nsondador-geoportal-municipal, coletor-geoportal, redator/citador/verificador-relatorio,\nda sessao de reambulacao na area de foco PR-SC (32 municipios).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f6a385f",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/f6a385fb453b7de30941522069cf52568b8b7a24",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T20:26:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-12: GeoSwarm posto a servico da reambulacao (area foco PR-SC)\n\nArea de foco PR-SC (16 folhas 50k, 32 municipios): coleta municipal +\ngeoportais + complemento por relatorio. Aprendizados duraveis:\n- operar um repo vizinho de agentes Claude Code via subagentes general-purpose\n  fixados em sonnet que leem o AGENT.md do agente-alvo (sem headless aninhado)\n- complemento por relatorio: o relatorio de caracterizacao como seed para achar\n  o que falta na base (~100 feicoes de infra critica)\n- conserto do bug de SRID no geoswarm (limites 4326 x feicoes 4674)\n- molduras MI via UtmGrid direto quando o provider dsgtools nao carrega\n- cobertura coleta x reambulacao; CIGA e o unico geoportal aberto da regiao\n\nwiki/geoswarm.md, Decisions, learnings de retrospectiva e criar-molduras.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "a79bdc3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a79bdc36ff0609de27b0a4d565e7b3de1ad88267",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T20:05:16.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-12: edificacao Overture so classificada (flag --only-classified-buildings, 108k de 27,8M, zero tipo 0) + sigla/jurisdicao das rodovias por lineage SQL (route_ref + network do parquet)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019NrcubsGJVKVGki5HCvjKP",
+      "sha": "68cbf41",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/68cbf41c0ad9ba872380fc5539a37df906d9fc5e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T19:16:41.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-07-12: revisao dos nao-convertidos (road/unknown->via 0, hoods->localidade 8 Nome local)",
+      "sha": "6ce3384",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6ce3384fe06d27aeb315551d9f18f2da33d6da8d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-12T19:16:39.000Z",
+      "author": "Maj Diniz",
+      "message": "sync crosswalk (mirror): road_unknown->via 0, macrohood/microhood->localidade 8 Nome local",
+      "sha": "21912e7",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/21912e7a72478004e27d3101903b9e3f36d84409",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-12T18:44:54.000Z",
+      "author": "Maj Diniz",
+      "message": "sync changelog (mirror): limpar prosa; tipo_veg 195 estrutural (tabela + DDL)",
+      "sha": "c02c076",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/c02c0766c04d33bddcec55bf9f1dd0c65ee6d597",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T18:36:15.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-07-12: novo tipo_veg 195 Cult - Irrigacao desconhecida para a lavoura do Overture (supera a de 196)",
+      "sha": "6d44935",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6d44935c59d39fa7544d481e32b295661fa6c9bb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-12T18:36:13.000Z",
+      "author": "Maj Diniz",
+      "message": "sync EDGV Topo 2.0 (mirror): novo tipo_veg 195 Cult - Irrigacao desconhecida + crosswalk crop->195 (master/sql/changelog/site/crosswalk)",
+      "sha": "d1abbc5",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/d1abbc58930157c95694c091c50a1cf576792958",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-12T18:14:13.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-07-12: lavoura Overture (land_cover crop) mapeada para 196 Cult - Anual irrigado",
+      "sha": "0b3884b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0b3884b8bdeff5646d3746f2a93cdd3a4d11b05e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-12T18:14:11.000Z",
+      "author": "Maj Diniz",
+      "message": "sync crosswalk Overture (mirror do edgv_topo_20): land_cover crop -> 196 Cult - Anual irrigado",
+      "sha": "c144015",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/c14401585568e46691b37f17ffe4853dd272f8f5",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-12T15:51:01.000Z",
