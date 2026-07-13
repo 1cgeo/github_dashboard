@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-13T17:16:53.995Z",
+  "lastUpdate": "2026-07-13T21:01:09.028Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-07-12T15:38:35.000Z",
-    "1cgeo/doc_dgeo": "2026-07-13T01:33:23.000Z",
+    "1cgeo/doc_dgeo": "2026-07-13T20:55:48.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-03T11:51:01.000Z",
-    "dsgoficial/sap": "2026-07-13T00:22:06.000Z",
+    "dsgoficial/sap": "2026-07-13T20:48:14.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-07-12T22:07:14.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-03T17:42:56.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-07-13T01:38:33.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-07-13T20:47:00.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5037,
+    "totalCommits": 5040,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
-      "1cgeo/doc_dgeo": 498,
+      "1cgeo/doc_dgeo": 499,
       "1cgeo/ferramentas_mgcp": 12,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -131,8 +131,8 @@
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 465,
       "dsgoficial/DsgTools": 615,
-      "dsgoficial/sap": 162,
-      "dsgoficial/SAP_Gerente": 114,
+      "dsgoficial/sap": 163,
+      "dsgoficial/SAP_Gerente": 115,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
@@ -164,6 +164,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-13T20:55:48.000Z",
+      "author": "1º Ten Marcel",
+      "message": "remover imagem duplicada",
+      "sha": "dfb336b",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/dfb336bddf9ef361f44e517ac4d94f74f12f8c84",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-07-13T20:48:14.000Z",
+      "author": "1º Ten Marcel",
+      "message": "autocomplete para lote em campo",
+      "sha": "a4c536f",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/a4c536f4f2226d4f59c66b25c480732961444c2a",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-13T20:47:00.000Z",
+      "author": "1º Ten Marcel",
+      "message": "1.36.2: verificação de conexão com banco no novo lote (guiado), opção de selecionar tudo em subfases",
+      "sha": "c26b3eb",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/c26b3eb2e627bf295d94f763856e73143746adf9",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-13T12:44:26.000Z",
