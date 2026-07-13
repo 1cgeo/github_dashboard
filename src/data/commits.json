@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-13T12:35:44.787Z",
+  "lastUpdate": "2026-07-13T17:16:53.995Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-03T11:05:04.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-13T10:30:22.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-13T12:44:26.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5036,
+    "totalCommits": 5037,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -159,11 +159,20 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 132,
-      "1cgeo/chefe_dgeo": 292,
+      "1cgeo/chefe_dgeo": 293,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-13T12:44:26.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-13 (cont.): GSriver avaliado, o metodo de fusao para a conflacao\n\nO chefe apontou o GSriver (rede global por fusao HydroRIVERS v1 + OSM + GRIT,\nCC-BY 4.0) e perguntou se o metodo de casamento dele ajudaria a conflacao.\nVeredito: rejeitado como base (esqueleto v1/SRTM 90m, esparso > 50 km2,\ngeometria/nome do OSM fraco no Brasil); a HydroSHEDS v2 continua o v0. O valor\npara nos e o METODO: integrar os trechos em rio inteiro antes de casar (o passo\nintHydroRIVERS) e casar rio-a-rio, mais rejeicao de laco/paralela no match.\nAtaca na raiz o modo de falha que reprovou o piloto de sigla (lixo em\nfragmento) e resolve o descasamento de densidade v2 x BHAE. Registrado no\nlearnings da conflacao-atributo-linha, no projeto conflacao-hidrografia-nome,\nna wiki hidrografia-referencia e em DECISIONS. Ressalva: nao herdar os limiares\n(GSriver troca geometria, nos carimbamos nome).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018bs6yYjLxsGULCjCHrcBDd",
+      "sha": "4f08a1f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4f08a1fa6869db03ceec60ccd13daf0ba9b2c6f8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-13T10:30:22.000Z",
