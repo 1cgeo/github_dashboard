@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-16T16:20:54.159Z",
+  "lastUpdate": "2026-07-16T21:05:49.303Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-07-12T15:38:35.000Z",
-    "1cgeo/doc_dgeo": "2026-07-13T20:55:48.000Z",
+    "1cgeo/doc_dgeo": "2026-07-16T13:33:47.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-16T15:31:55.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-16T20:05:04.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5069,
+    "totalCommits": 5077,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
-      "1cgeo/doc_dgeo": 499,
+      "1cgeo/doc_dgeo": 500,
       "1cgeo/ferramentas_mgcp": 12,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -159,11 +159,74 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 303,
+      "1cgeo/chefe_dgeo": 310,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T20:05:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-16: conflacao de nome da hidrografia (ANA -> HydroSHEDS v2), a arquitetura rede-primeiro aprovada\n\nMetodo APROVADO pelo chefe (\"o melhor que a gente consegue fazer\"), validado em\nManaus (varzea) e Porto Alegre (terra firme). O que a sessao decidiu, no fundo:\na conflacao de atributo de linha tem DUAS arquiteturas, e escolher e o que decide\no resultado. Geometria-primeiro FALHOU (sigla, 2026-07-11); rede-primeiro\n(topologia declarada + invariante fisico, geometria so desempata) foi aprovada.\n\nAchado central: ANA (nuareamont) e HydroSHEDS (UPLAND_SKM) medem a MESMA grandeza\nfisica (area a montante, km2) e batem em 0,08% no Amazonas e 0,01% no Guaiba. Ela\nelimina 82% da rede antes de qualquer geometria e deixa 1,05 candidato por trecho.\n\nRegras que o chefe impôs por inspecao visual no QGIS (nenhuma metrica minha pegou):\narea e ANCORA na foz e nunca filtro (ela cresce da cabeceira para a foz); anti-paralelo\npor AVANCO na linha; CAMINHO MINIMO ate o desague declarado (o conector do Lago do\nAleixo esta a 643 m da linha, fora de qualquer buffer: topologia manda sobre geometria).\n\n- SKILL: as duas arquiteturas com a pergunta discriminante, o Procedimento A\n  (rede-primeiro) e a verificacao por selo fisico + duas janelas de terreno\n- learnings: demand-paging (quente 9,1 KB; piloto de sigla -> references/)\n- scripts/rede_hidro/: pipeline codificado (rede_nome.py, rede_valida.py; HIDRO_DIR)\n- wiki: CORRIGE a premissa da varzea (as bases DEM \"falham\" valia para a v1/SRTM;\n  na v2 quem esta melhor e a HydroSHEDS) + a divergencia medida (33 m terra firme\n  x 111 m varzea; os erros da ANA concentrados em Lago/Parana)\n- livro-razao: 5 correcoes, uma delas REINCIDENTE (comissao em massa, a mesma\n  classe que reprovou o piloto de sigla) e uma de raio de explosao (reacentuador\n  em arquivo compartilhado, revertido)\n\nNota: as entradas de Decisions/ desta sessao foram varridas para o commit 2a3bc00\nde uma sessao paralela (conteudo integro em HEAD).",
+      "sha": "39bdcbe",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/39bdcbe00c4571682a8cde3014fd8dedd5b280a2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T20:03:22.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo: 19 XML de CDGV da 50k + o achado estrutural do vetor ausente\n\nOs 19 XML foram repostos pelo vetorial do BDGEx e a classe \"XML duplicado\nentre produtos\" zerou no acervo inteiro. Na 50k o padrão é o inverso da 25k:\nlá a carta publicava o metadado do vetor, aqui o CDGV publica o metadado da\ncarta.\n\nMétodo que vale repetir: casar pelo checksum do .zip, não pelo nome. Cada folha\ntem dois vetoriais no dump e os nomes de folha divergem entre as gerações\n(\"TRÊS BOCAS\" x \"ENCRUZILHADA-S\"), então escolher pelo nome erraria.\n\nDuas regras do chefe registradas. A semântica das datas: data_criacao é a data\ndo DADO e data_edicao é quando o produto foi feito de fato — confirmada nos\ndados (a 2ª Edição do 2842-4 tem dado de 1959 e edição de 2004). E o modelo: o\nCDGV é o equivalente vetorial de uma carta específica, com os mesmos atributos\ne associado a ela; uma folha com carta de 1980 e de 2025 deve ter duas versões\nde CDGV.\n\nAchado estrutural, não tratado: os 713 CDGV da 50k têm uma só versão cada, e o\nvetor da carta antiga nunca foi cadastrado — 131 folhas na 50k, 599 só-antigo\nna 25k, 45 na 250k. Os 19 XML eram a ponta. Plano de 4 fases aprovado,\ncomeçando pelo levantamento só-leitura.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2a3bc00",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2a3bc00d8dcae8397591b8ea85b3734958ddd04b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T19:24:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-16: auditoria do acervo (250k/100k/25k/50k) e a regra de datação\n\nA lição central da sessão é do chefe e virou o topo do learnings de\nauditar-acervo: a ordem de precedência para datar (campo \"Data de Edição\" >\nnota \"Última edição em...\" > fase da tabela > impressão), que vale pelo LAYOUT\nda carta e não pelo tipo de produto, e cujo corolário é que o bloco manda\ninteiro — \"Data de Criação\" também. Registrado o custo de não tê-la: 14 das 16\ndatas da 25k tiveram de ser desfeitas horas depois, inclusive revertendo um\ngrupo onde o SCA original estava certo.\n\nOutras regras codificadas: o checksum é sinal de mão única (igual prova igual,\ndiferente não prova nada); o órgão data a prancha mas não prova edição\ndiferente; estendida x encartada e o hábito de gravar o veredito em\nmetadado.variante, que é o antídoto do retrabalho; produto.nome é rótulo de\nbusca, não dado cartográfico; e renderizar a página inteira em vez de recortar\npor coordenada.\n\nLivro-razão: 8 eventos. Dois deles são recorrência de regra que já existia e\nnão disparou, e estão em \"O que falha\" da retrospectiva:\n- escopo-de-propagação-incompleto chegou a 4 instâncias em skills diferentes.\n  Proposta de subida ao núcleo registrada, aguardando aval.\n- \"commit atômico sob committer paralelo\" existia e mesmo assim usei add -A.\n\nAchado de harness: o hook pre-commit não rodava neste clone (core.hooksPath\napontava para .git/hooks). Ativado; os commits seguintes já mostram o guard.\n\nPoda: MEMORY.md 4897 -> 4710 (o gotcha do curl drenado para a wiki, onde o\ndetalhe já era mais completo). lint-wiki zerado em todas as classes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "dd1d278",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dd1d2780c44fa96efdf246643979a50687743d10",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T19:18:40.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo 50k (datas) + a regra de precedência, que desfez parte da 25k\n\nA lição central da sessão veio do chefe: a ordem de precedência para datar é\n(1) campo \"Data de Edição\", (2) nota \"Última edição em...\", (3) fase \"Edição\"\nda tabela, (4) impressão. E vale pelo LAYOUT, não pelo tipo de produto — o\n2842-4 é topográfica e o 2868-3 é ortoimagem, e ambos seguem o campo porque\nambos têm o bloco.\n\nCorolário, também dele: o bloco manda inteiro. \"Data de Criação\" governa a\ndata_criacao igual. Eu havia aplicado só metade e deixado a data_criacao errada\nem 3 de 4 — erro de rigor, não de leitura: eu tinha lido as duas datas e até\nsinalizado uma das divergências antes de seguir em frente.\n\nA regra desfez 14 das 16 datas que eu aplicara na 25k horas antes, incluindo\nreverter o grupo 2906, onde o SCA original estava certo e eu piorei: troquei\n2018 por 2017 pela fase e ainda baixei a data_criacao de seis versões.\n\n50k, datas: 6 aplicadas (2834-3, 2913-3, 3030-1, 3030-2, 2868-3, 2842-4) e\n7 falsos positivos de 13 — o pior índice das quatro escalas, quase sempre por\nchamar o ano do levantamento de edição. O par 3030 é encartado (veredito do\nchefe) e o veredito ficou gravado em metadado.variante.\n\nMétodo que funcionou: renderizar a página inteira e deixar os agentes acharem\no bloco. Meus recortes por coordenada erraram a região duas vezes hoje.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "71878ac",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/71878acac2d66b2f6529982e1cc2ae07eed9cf76",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T19:04:12.000Z",
+      "author": "Maj Diniz",
+      "message": "catalogar-cds-acervo: projeto novo, 134 CDs catalogados (0001-0150)\n\nCataloga os CDs antigos que estao sendo copiados para o servidor (197 de\n1000+). Entrega: 134 CDs avaliados um a um (todos de 0001 a 0150), 96,1 GB,\numa pagina por CD mais INDICE, ACIONAVEIS, PROBLEMAS, METADADOS_FOTOS e\nACHADOS, na subpasta CATALOGO da raiz (chave ACERVO_CDS_DIR, nova).\n\nPrincipio que governa o acervo: nada se confirma sem abrir o arquivo. As\ncinco camadas de rotulo erraram cada uma pelo menos uma vez, verificado:\nmetadados.txt que descreve outro CD (0031 traz o texto do 0019, 0032 o do\n0059, byte a byte), nome de pasta que mente (0048 \"rincao\" e Saica), extensao\nque nao diz o formato e diverge dentro do mesmo CD, extensao que codifica o\ndatum (.s69 = SAD-69, .cal = Corrego Alegre), e sufixo _GEO sem GeoTIFF.\n\nNome + tamanho nunca decide descarte, so hash decide: o DGN aloca em bloco\nfixo, entao 294 desenhos entre 0036 e 0039 tem nome e tamanho identicos com\nconteudo diferente. Um agente recomendou o descarte por nome+tamanho; teria\napagado 294 revisoes unicas.\n\n18 CDs estao vazios, 8 deles sem rotulo, 17 do Projeto COPEL / Telemaco\nBorba (midia da mesma epoca degradando junto: priorizar a copia dos que ainda\nleem). Neles o metadados.txt inverte de vilao para heroi, e o unico registro\ndo que existiu.\n\n268 fotos aereas ganharam metadado de fonte primaria, lido por visao na tarja\ngravada na imagem. Os 9 CDs chamados PARANAGUA sao, pela margem, do projeto\nCOPEL. O gargalo delas e a grade, nao o metadado: falta o foto-indice, e o CD\nque declarava um OVERVIEW esta vazio. O CD 0050 sao 2 frames ineditos do VOO\nAST-10, que alimentam o projeto grade-fotos-ast10.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "b0caebb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b0caebbfafe7ab4dada54fc4d0a064fc61ea0b0c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T18:13:13.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo: fecho da 25k — arquivo vazio, pasta de produção 2024 e expurgo do lote PCI ESSLOG\n\nResolvido o único item que faltava e que eu tinha deixado escapar: o\nCO_2823-1-SE_1dsg.pdf de 0 bytes. A carga registrou o vazio (checksum da\nstring vazia no banco), não foi corrupção posterior. Minha varredura só cobria\n250k/100k e eu não a repeti ao entrar na 25k; depois de repor, varri os 7.441\narquivos da escala: zero vazios, zero ausentes.\n\nA pasta de produção apontada pelo chefe (INSUMOS_SHARE, Produtos_2024/\n2024_CI_CMS_Orto) passou no teste de proveniência — o PDF dela bate byte a\nbyte com o do SCA nas folhas já completas — e resolveu mais duas versões\nincompletas:\n- 2823-1-SE: anexados o tif e o xml que faltavam.\n- 2946-1-SO: conteúdo substituído pelo do CGEO. Por decisão do chefe a versão\n  da ESSLog é tratada como se nunca tivesse existido, então continua 1-DSG só,\n  redatada para 2024-07-11 pelos campos impressos.\n\nExpurgo do PCI ESSLOG: não era um projeto, era o lote 26, e continha\nexatamente essas duas versões. Migradas para o lote 27 (2024_CI_CMS_Orto, que\nagora tem as 17 folhas da pasta), palavras-chave alinhadas com as irmãs e o\nlote 26 deletado.\n\nGotchas: replace-files é upsert por slot (repõe o que existe, insere o que\nfalta); a rota é /api/projetos/lote, no plural; e ao repor ou anexar é preciso\nconferir o tipo_arquivo_id contra as versões irmãs — deixei dois \"Arquivo\nprincipal\" no 2823-1-SE e corrigi.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2b9ccc7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2b9ccc7d1056578ba4b2b46c1ac7e08448ac526f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T17:26:41.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo: 25k fechada — 16 datas, 7 XML, 4 variantes e mais 2 falsos positivos\n\nEscala escolhida medindo o trabalho REAL (25k ~32 x 50k ~76): o master engana\nporque os nomes dominam a contagem e a camada de dados não é contada. A 50k\ntem 32 grupos de raster compartilhado e 19 de XML duplicado; a 25k tinha 2 e 7.\n\nAplicado:\n- 16 datas. Dois clusters em direções opostas, por causas diferentes: o 2891\n  pegava o ano da Aquisição/Reambulação, o 2906 pegava o ano da nota vermelha.\n  Nas 6 do 2906 a data_criacao foi baixada, onde o CHECK exigia.\n- 7 XML das Cartas Topográficas repostos pelos originais MATRICIAIS do BDGEx:\n  a CT publicava o metadado do CDGV. A classe zerou na 25k (restam 19, na 50k).\n- 4 vereditos de raster gravados em metadado.variante.\n- v4655 (1ª Ed 1952 sem arquivo) convertida em Registro Histórico, pelo\n  precedente do 517.\n\nRegra nova (chefe): na Carta Ortoimagem manda o campo \"Data de Edição\", não a\nfase da tabela. MI 2952-1-SE -> 27/01/2026.\n\nRejeitados: 25 nomes e o bundling do MI 2857-2-NO. Neste, o chefe corrigiu que\nSTI é o ANTIGO e DCT o novo, e que é a mesma carta impressa duas vezes: as\ntabelas de fases são idênticas. Isso refina a lição — o órgão data a prancha,\nmas não prova edição diferente quando as fases batem.\n\nCodificado também: gravar o veredito é o antídoto do retrabalho (só 11 versões\ndo acervo tinham variante; a 50k tem 0 de 49), e o vocabulário estendida x\nencartada.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "bbdc936",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bbdc9363eeeeb26f457b906cdd1fcb914dc98074",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-07-16T15:33:34.000Z",
@@ -262,6 +325,15 @@
       "sha": "1f676e9",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1f676e99d618460d20315f2c8dce89af1a386ebd",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-16T13:33:47.000Z",
+      "author": "venturaluisbr",
+      "message": "Memória Escola Vale Verde",
+      "sha": "26f2d9f",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/26f2d9f19835da72cd1b1037c77d19d5b0066140",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
     },
     {
       "repo": "1cgeo/autolabeller",
