@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-16T11:44:46.129Z",
+  "lastUpdate": "2026-07-16T16:20:54.159Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-07-12T19:16:39.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-07-15T19:29:13.000Z",
+    "dsgoficial/DsgTools@dev": "2026-07-16T14:55:44.000Z",
     "dsgoficial/sap": "2026-07-13T20:48:14.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-12T22:07:14.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-07-03T17:42:56.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-07-16T15:33:34.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-13T20:47:00.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -56,8 +56,8 @@
     "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-07-16T10:35:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-16T08:58:43.000Z",
+    "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-16T15:31:55.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5052,
+    "totalCommits": 5069,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -129,8 +129,8 @@
       "1cgeo/doc_capacitacao": 8,
       "dsgoficial/modelagens": 147,
       "dsgoficial/configuracoes_producao": 204,
-      "dsgoficial/ferramentas_edicao": 465,
-      "dsgoficial/DsgTools": 617,
+      "dsgoficial/ferramentas_edicao": 466,
+      "dsgoficial/DsgTools": 624,
       "dsgoficial/sap": 163,
       "dsgoficial/SAP_Gerente": 115,
       "dsgoficial/SAP_Operador": 70,
@@ -158,12 +158,165 @@
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 134,
-      "1cgeo/chefe_dgeo": 300,
+      "1cgeo/autolabeller": 140,
+      "1cgeo/chefe_dgeo": 303,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-07-16T15:33:34.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(buildingGeneralization): fazer o deslocamento resolver conflito e não sinalizar à toa\n\nPrimeira execução real do algoritmo, que revelou três problemas.\n\nO deslocamento iterativo não resolvia conflito: ele parava em equilíbrio de forças\nantes de separar. A atração à origem é proporcional ao deslocamento e não some\nquando o overlap some, enquanto a repulsão tende a zero — com símbolo de 27 m, um\npar a 10 m estacionava em ~25,4 m e seguia em conflito. Num aglomerado 3x3 o\nalgoritmo relatava \"Convergiu\" com todos os 9 conflitos abertos, e quem resolvia\nera a busca em grade da fase seguinte, que só salvava 4 e ocultava outras 4 sem\nnecessidade. A atração passa a agir apenas quando não há conflito, para a\nedificação relaxar de volta à origem depois de resolvida, e a repulsão ganha uma\nmargem para o par ultrapassar o limiar em vez de descansar sobre ele. O mesmo\naglomerado agora resolve na iteração 3, com as 9 preservadas e deslocamento máximo\nde 32 m dentro do limite de 50.\n\nA resolução de visibilidade sinalizava edificação sem problema: noSpace é calculado\nantes de qualquer ocultamento, com todas as vizinhas ainda em volta, e nunca era\nreavaliado. Uma não-genérica cujos conflitos sumiram porque as genéricas vizinhas\nforam ocultadas ainda saía nas flags. Como conflito ativo vazio já significa que a\nedificação está boa onde está, noSpace sai da condição.\n\nA mensagem dizia \"Convergiu na iteração N\" quando na verdade estagnava, o que\nescondia o primeiro problema. Passa a informar quantos conflitos restaram.\n\nAcrescenta ainda COMMIT_CHANGES, desmarcado por padrão para manter o comportamento\nde deixar as alterações pendentes para revisão, sem o qual não havia como exercitar\no algoritmo fora da interface, e sem o qual a mensagem afirmava \"Aplicadas N\nalterações in-place\" sem que nada chegasse ao disco.\n\nO random global dá lugar a um gerador próprio com semente fixa, e o empurrão do\ncaso degenerado sorteia o ângulo em vez do par (x, y), que fazia a magnitude variar\nconforme a direção.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "e181413",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/e1814131c339487db34d1b90113ebdb912dfa35d",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T15:31:55.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo: RELATORIO_DADOS em 250k/100k — 3 achados, 3 resolvidos\n\nAs 6 checagens do relatório foram reproduzidas no banco filtrando as duas\nescalas, em vez de deduzir a escala pelo número do MI (o relatório trunca a\nlista de XML em 12 de 27 e o findings_dados.json não veio na pasta). Três das\nseis classes vieram limpas: os itens 1, 2 e 3 são todos 25k/50k.\n\nAplicado:\n- MI 2799 (100k): rótulos 2ª e 3ª trocados (1972 estava como 3ª e 1994 como\n  2ª). O UNIQUE (produto_id, versao, subtipo) barra a troca direta, então\n  passou por um rótulo temporário. A classe \"ordinal x ano\" ficou zerada.\n- MI 2866/2867 (100k): os dois XML eram byte-idênticos e ambos descreviam\n  Canoinhas. Os ZIP estavam certos — só o metadado estava trocado. Repostos os\n  dois pelos originais da colheita do BDGEx via replace-files.\n\nFechado sem escrita: os pares 2956/2957 e 2882A/2897 são prancha estendida\n(veredito do chefe), o que zera os rasters compartilhados pendentes.\n\nDescoberto de raspão, e por decisão do chefe NÃO tratado: a carga reserializa\no XML e perde valores (bounding box, transferSize). Os dois repostos\nrecuperaram ambos. Alcance não medido.\n\nLição (correção do chefe): o checksum é sinal de mão única. Igual prova\nconteúdo igual; diferente não prova nada — dois escaneamentos da mesma prancha\ndivergem no byte. Eu estava usando \"os tif diferem\" como evidência contra a\nprancha estendida.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "ee676da",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ee676daeaf8f2fc2d8ab2935070a535323330db2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T14:55:44.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(generalizeContourLines): segmentar curvas fechadas e corrigir filtro por parte\n\nAo final da preparação, cada curva fechada é segmentada em dois arcos: um anel\ncomeça e termina no mesmo ponto, o que é uma autointerseção. Cada arco sai como\nfeição própria, porque mantê-los no mesmo multipart deixaria a feição ainda\ncomeçando e terminando no mesmo ponto, que é o que a segmentação existe para\ndesfazer.\n\nO _geometryToPolyline devolvia apenas a primeira parte de uma geometria\nmultiparte, então o fechamento era decidido por ela enquanto o comprimento media a\ngeometria inteira — o filtro de perímetro mínimo comparava coisas diferentes. Dá\nlugar a _toPolylineParts e _dropSmallClosedRings, que avaliam e medem parte a\nparte.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "56cb671",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/56cb671120d5367adc65be3e3a943a34bed657bc",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T14:55:35.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(terrainHandler): recompor curvas fechadas antes de validar o terreno\n\nA preparação entrega os anéis segmentados em dois arcos abertos, que é o formato\ndo dado que chega à validação na produção. Topo de morro e fundo de depressão são\nreconhecidos por is_closed, então sem o anel fechado não há topo a validar, e um\nerro real de atribuição de depressão passava como \"tudo certo\" — a validação não\nfalhava, ela silenciava.\n\nO runDSGToolsMergeLines já rodava antes da validação, mas não recompõe um anel a\npartir de dois arcos: com dois arcos formando um quadrado, ele devolve as duas\nfeições separadas tanto com allowClosed=True quanto com False. O par\nnative:dissolve pelos atributos que importam e native:mergelines devolve o anel\nfechado, e é o que passa a ser usado. O contourid é atribuído depois da mesclagem,\npara identificar a curva já inteira, já que o dissolve descarta campos e todo o\nresto do fluxo depende dele.\n\nOs campos preservados no dissolve vêm do getFieldsToPreserveOnMerge, de modo que\na expressão de depressão continua determinando o agrupamento.\n\nOs fixtures de terreno tinham anéis intactos e escondiam o problema. Os dois\nfixtures segmentados acrescentados reproduzem o dado real: sem esta correção,\ndepressao_nao_marcada_com_aneis_segmentados não acusa o erro.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2cc8678",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/2cc8678404623e97cd60ca19a3920e2fac1499e4",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T14:53:38.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo 100k: 3 datas aplicadas e 2 falsos positivos do relatório rejeitados\n\nAplicado (backup das linhas; só data_edicao + auditoria mudaram):\n- MI 2979/2980/2981 (v6194/5/6): 2023-01-01 -> 2022-12-01\n\nUsou-se o MÊS impresso (\"Edição | 12/2022\" na tabela FASES DA PRODUÇÃO),\nnão 2022-01-01 como o relatório sugeria. Corroboração independente: o CDGV\nirmão da mesma folha já estava em 2022-12-01. A causa do erro original foi a\nnota \"Última edição em 10 de maio de 2023\", que fica FORA da tabela.\n\nRejeitados:\n- MI 2783: o relatório afirmava Primeira Edição 2003, mas as três linhas da\n  tabela são iguais e leem 2002. O SCA já estava certo. Chefe confirmou.\n- os 5 achados de NOME: o relatório puxa ora para o nome antigo, ora para o\n  novo, conforme a edição que o agente abriu. produto.nome é rótulo de BUSCA\n  (só buscaProdutos o lê); situacao_geral não devolve nome e\n  produtos_finalizados usa v.nome. A versão já carrega o título fiel de cada\n  época, então são todos rename_folha, como o 517.\n\nLimite do princípio das cartas (correção do chefe): o \"EDIÇÃO 2-DSG\" impresso\nestá ERRADO, o correto é 1-DSG. familiaVersao conta \"Nª Edição\" e \"N-DSG\" como\nfamílias separadas, então a 1ª Edição de 1981 não entra no contador DSG. O\nprincípio vale para o conteúdo cartográfico, não para a convenção de versão.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "121c6ea",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/121c6ea5df9bef1400692776d83c657d51eda71e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-16T14:30:48.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: remove PLANO_OTIMIZACAO_LABELS.md (premissa medida e descartada)\n\nO plano propunha reformar a busca de place.py por otimizacao discreta conjunta\n(modelo de alternativas, grafo de conflitos, solver exato por componente, LNS).\nA medicao de M0 (2026-07-16) matou a premissa:\n\n- grafo de conflitos JA decomposto: maior componente = 3 feicoes (Ponta Grossa)\n  e 9 (Porto Alegre, urbano denso); 79%/50% das feicoes isoladas. A LNS nao tem\n  cliente e o solver exato tem pouco a fazer;\n- overlap = 0.0 e conflict_free = 1.0 nas 4 bases: o score e ~99% custo unario.\n  A reforma resolvia disputa entre labels, que este corpus nao tem;\n- a cascata atual ja e MELHOR que o melhor candidato discreto (folga -0.016 em\n  POA): um solver discreto sobre os candidatos atuais regrediria;\n- o teto real (varredura densa +-40px) e +0.028/+0.034 e vem da GERACAO de\n  candidatos, nao da busca.\n\nRemovido a pedido. Nada se perde: o documento completo (1105 linhas, com as\nsecoes 0.3-0.5 que registram a medicao, o experimento revertido e o episodio do\nbaseline sem epoca) segue no historico —\n`git show 983167e:PLANO_OTIMIZACAO_LABELS.md`.\n\nO conhecimento que precisa sobreviver ficou onde e consultado:\n- CLAUDE.md, secao \"Medicao de viabilidade da reforma do otimizador\": os numeros\n  e a conclusao, com o ponteiro para o historico;\n- CONSTITUICAO.md changelog 1.4: a evidencia que motivou P4 no score;\n- docs/plano-implementacao-constituicao.md: Fase 2 registra medido-e-descartado;\n- tools/m0_measure.py e m0_headroom.py: o metodo, reprodutivel.\n\nReferencias ao arquivo atualizadas nos 4 documentos que apontavam para ele.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "3326326",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/3326326f6eda82403970fbc5d9fb25fc311e5f2f",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-16T14:21:53.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: baseline v1.4.0 fechado nas 4 bases + notas de desempenho e operacao\n\nBaseline da epoca corrente (18 folhas, todas validas, 0 violacoes, CF 1.0):\n\n  base           folhas  score       grid(P4)   v1.3.9 (outra epoca)\n  ponta_grossa   3       -0.191380   0.000000   -0.191380\n  porto_alegre   1       -0.436075   0.009630   -0.416815\n  tubarao        6       -0.301073   0.002127   -0.296151\n  itaipu         8       -0.471500   0.004012   (nunca medido)\n\nO delta contra 1.3.9 e exatamente -THETA*grid: a mesma colocacao, agora cobrada\npelo P4 que o objetivo ignorava. Ponta Grossa nao muda (nenhum label otimizavel\ncruza o grid); quanto mais densa a folha, menos alternativa livre de grid sobra.\nItaipu ganha baseline pela primeira vez — as tentativas anteriores morreram\nantes de agregar.\n\nTambem anotado na CLAUDE.md:\n- desempenho: ~31s/folha (era ~93s); onde estao os proximos gargalos conhecidos\n  (_validity_repair reconstruindo STRtree por movimento; greedy ignorando a\n  arvore no teste de R1).\n- operacao: nao editar src/ com experimento rodando (set -e + python novo por\n  cenario mata o run); e `cmd | tail` reporta o exit code do tail — conferir o\n  results.tsv antes de acreditar em \"sucesso\".\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "dfc2df3",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/dfc2df353a7da4709f4dd49f84bac0c0436d0db6",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T14:18:20.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(generalizeContourLines): corrigir filtro de tamanho mínimo e atributação\n\nO filtro de curvas fechadas media o perímetro com QgsDistanceArea no CRS de\norigem e comparava com um mínimo em metros. Sem elipsoide no contexto — o padrão\ndo qgis_process e de projeto novo —, a medida sai em unidades de mapa, então uma\nentrada geográfica devolvia frações de grau para qualquer anel. Como todo valor\nficava abaixo do mínimo, toda curva fechada era descartada em silêncio: num teste\ncom dois anéis de 13,9 km e 7,0 km em SIRGAS 2000, a saída vinha vazia. Como o\ndado EDGV é normalmente geográfico, o caso comum era o destrutivo. A geometria\npassa a ser projetada antes de medir, aproveitando a transformação que a\ngeneralização já fazia, e o comprimento sai em metros.\n\nO tamanho mínimo passa a ser derivado da escala, 12 mm de perímetro: 300 m em\n1:25.000, 600 m em 1:50.000, 1200 m em 1:100.000 e 3000 m em 1:250.000. O\nparâmetro em metros foi substituído por um de escala, seguindo a convenção do\nextractElevationPoints. É mudança incompatível, mas o default anterior de 200 m\nnão correspondia a escala alguma.\n\nA atributação gravava indice e depressao fixos:\n\n- depressao saía sempre 2, destruindo a atribuição da entrada, de modo que o\n  identifyterrainmodelerrorsalgorithm depois acusava toda depressão como não\n  marcada. Passa a vir de uma expressão, e o agrupamento que precede a mesclagem\n  passa a considerá-la: agrupar só por cota juntaria uma curva de depressão com\n  uma normal de mesma cota e perderia a atribuição de uma das duas.\n- indice saía sempre 2, então nenhuma curva era mestra. Passa a ser calculado a\n  partir da equidistância, uma a cada cinco curvas.\n\ndentro_massa_dagua segue fixo em 2, por ora.\n\nAcrescenta dsgtools_cli/tests/test_contour_prep_algorithms.py, com 8 testes que\nexecutam o algoritmo de ponta a ponta sobre fixtures em CRS geográfico.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "60c8fed",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/60c8fed9e1b2518fcecfa15e7afa793a154115a1",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-16T13:52:20.000Z",
+      "author": "Maj Diniz",
+      "message": "perf: R1 por aritmetica de retangulos — place.py 3x mais rapido, saida identica\n\nPerfil de uma folha de Ponta Grossa (128 labels) acusou 5,1 MILHOES de\nconstrucoes de shapely_box e 4,6 milhoes de intersection: ~63% do tempo. A\nfonte e _r1_signature, que construia `shapely_box(*other)` DENTRO do laco, para\ncada label — e _r1_not_worse a chama DUAS vezes por proposta, a partir de 5\nchamadores (incluindo os lacos internos do SA). E o caminho mais quente do\nmotor.\n\nAs caixas sao todas alinhadas aos eixos: para elas a area de intersecao e\nexatamente o produto das sobreposicoes em x e y. Troca de shapely por\naritmetica pura.\n\nMedido (mesma folha, sem profiler): 93s -> 31s (3x), com saida BYTE A BYTE\nidentica (128 labels, labels.json igual) — otimizacao pura, nao mudanca de\ncomportamento.\n\nTambem: _r1_signature passa a importar R1_EPS_PX2 de gates.py em vez do 0.5\nhardcoded (deriva registrada em PLANO_OTIMIZACAO_LABELS.md 3.3.3). Valor\nidentico, uma fonte so.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "780ea03",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/780ea03d99cc6628876ca2c3cab2a436d0811326",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T13:47:06.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(extractElevationPoints): não gerar ponto cotado múltiplo da equidistância\n\nUm ponto cotado com o mesmo valor de uma curva de nível é erro, e o\nidentifyterrainmodelerrorsalgorithm o acusa. O gerador tinha duas proteções, mas\nnenhuma era garantia e as três fugas eram silenciosas:\n\n- findNearbyNonMultiplePixel devolvia o próprio pixel múltiplo quando não achava\n  vizinho utilizável dentro do raio de busca, como num platô plano em cota redonda.\n- Pelo mesmo caminho, um platô maior que o raio devolvia o múltiplo mesmo havendo\n  pixel válido mais adiante.\n- maskContourIntervalMultiples devolve o raster sem máscara quando todo pixel é\n  múltiplo, para não zerar a região inteira.\n\nE não havia filtro na escrita do sink, de modo que qualquer uma dessas fugas\nchegava à saída. Em MDE inteiro isso não é hipotético: cerca de um pixel em cada\ndez é múltiplo de 10.\n\nfindNearbyNonMultiplePixel passa a devolver None quando não há pixel utilizável, e\nquem chama descarta a feição. Como a garantia precisa valer para todos os caminhos\nde geração, a única escrita no sink passa a descartar cotas múltiplas, avisando\nquantas e por quê — inclusive as vindas da máscara que desiste, mantida porque\nzerar a região quebraria o cálculo a jusante.\n\nAcrescenta tests/test_extractElevationPoints.py, com 14 testes que falham no\ncódigo anterior.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "bf1ce6b",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/bf1ce6b56914b36776e61a952e770ced1b8abf12",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-16T13:41:02.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo 250k: 3 datas corrigidas, edição 1973 do MI 547 e o precedente rename_folha\n\nReconferência por visão dos 4 acionáveis da 250k do relatório de 2026-07-10,\ncom o sha256 de cada arquivo casando com acervo.arquivo.checksum antes de ler\n(prova de que se leu o arquivo daquele registro). SCA local contra o banco de\nprodução; backup das linhas e pg_dump validado antes de mexer.\n\nAplicado (data_edicao, whole-object, canário no 536 primeiro):\n- MI 536 e 536A: 1996 -> 1998 (prancha \"CARTA ESPECIAL MIR-536 e 536 A\")\n- MI 542: 1980 -> 1973\n\nNas três a carta só imprime IMPRESSÃO (edição sem ano) e o valor errado vinha\nde planilha_asc, não da carta. A nota vermelha do 536 (\"atualizada em 1998\")\nnão foi usada: atualização nunca data.\n\nMI 547: cadastrada a edição de 1973 que faltava (versão 7244), da prancha\nestendida do 542. A visão confirmou contra o precedente: a prancha de 2001\ntraz o 547 como encarte (só a faixa com terra), e a de 1973 contém essa faixa\ninteira. renumerar-versoes deslocou 1981->2ª e 2001->3ª.\n\nMI 517: achado do relatório REJEITADO como rename_folha, nada escrito. A\nv2489 (1963, Clevelândia) já é Registro Histórico correto e a v2436 (1995) já\nse chama União da Vitória: a folha foi renomeada, corrigir o produto.nome\napagaria informação. Precedente para os 6 casos análogos da 100k.\n\nPrincípio do chefe registrado: seguir fielmente as CARTAS, sempre.\n\nGotcha novo: o versao_id do confirm-upload não é o id de acervo.versao.\nAchado aberto: 187 versões tipo 2 com arquivo, aguarda decisão.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "1f676e9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1f676e99d618460d20315f2c8dce89af1a386ebd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-16T13:28:57.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: motor de fonte deixa de depender do sys.path (validade nao podia variar)\n\nBUG: a escolha do motor de fonte era\n    try: from font_calibration import CalibratedFontMetricsEngine as _Engine\n    except ImportError: from font_metrics import FontMetricsEngine as _Engine\ne font_calibration.py importava `src.font_metrics` (absoluto), que so resolve\ncom a RAIZ do repo no sys.path. Logo o motor dependia de COMO o modulo era\ncarregado:\n  - `python src/evaluate.py` (pipeline): sys.path[0]=.../src -> ImportError\n    -> FontMetricsEngine;\n  - import/heredoc com a raiz no path -> CalibratedFontMetricsEngine.\n\nOs dois NAO sao equivalentes nem sem calibracao: o calibrado sobrescreve\ncreate_label_geometry. No MESMO labels.json de Porto Alegre:\n  FontMetricsEngine           -> score -0.436075  grid 0.009630  valid=True\n  CalibratedFontMetricsEngine -> score -0.453192  grid 0.012979  valid=False (R6:2)\nUm veredito de VALIDADE mudando conforme a forma de invocar e um furo em O2/O5.\n\nCORRECAO: font_metrics.select_engine_class() decide pela regra ja documentada —\ncalibrado SSE existir data/font_calibration.json, com caminho ancorado no REPO\n(nao no cwd). evaluate.py e place.py passam a usa-la. O JSON nao existe hoje,\nentao o pipeline mantem FontMetricsEngine: score INALTERADO (-0.436075\nconferido), sem mudanca de epoca.\n\nfont_calibration.py: import tolerante aos dois contextos, mantendo\n`src.font_metrics` PRIMEIRO — inverter cria duas instancias do modulo e quebra\nisinstance(g, GlyphBox) para quem importa `src.font_calibration`.\n\nTestes (149): test_engine_selection_is_deterministic compara o motor obtido com\ne sem a raiz no sys.path (subprocessos); test_engine_follows_calibration_file\nfixa a regra documentada. test_evaluate_imports_font_metrics passa a guardar o\ncontrato real (select_engine_class) em vez do texto do import antigo.\n\nERRATA: a analise avulsa que reportei antes (\"3 labels de POA pagam P4\",\n\"R6 deixando passar violacao\") saiu de heredocs que usavam o motor CALIBRADO —\nou seja, nao era o que o pipeline ve. O pipeline sempre foi consistente consigo\nmesmo e NAO ha violacao de R6 escapando. As medicoes de tools/m0_*.py nao sao\nafetadas: rodam como `python tools/...`, sem a raiz no path, logo com o mesmo\nmotor do pipeline.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "e35f4a3",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/e35f4a30ea8cb670f14c956a6bff833a49639276",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T13:11:24.000Z",
+      "author": "Maj Diniz",
+      "message": "test(terreno): cobrir validação de depressão e padronizar execução dos testes\n\nAcrescenta duas camadas de teste para o modelo de terreno, que não tinha nenhuma\nem funcionamento:\n\n- tests/test_terrainHandler.py: 25 testes de lógica pura, com grafo e bandas\n  montados à mão (o __post_init__ do TerrainModel roda o pipeline inteiro de\n  processing, inviável em teste unitário).\n- dsgtools_cli/tests/test_terrain_algorithms.py: 8 testes que executam o algoritmo\n  de ponta a ponta, headless, via dsgtools_cli. Todos falham no código anterior.\n\nAs flags são verificadas por quantidade e pelo texto do reason, não por golden de\ngeometria. Cada fixture contém uma única classe de erro, porque validate() para na\nprimeira encontrada — um fixture com erro de banda nunca chega a validar depressão.\n\nRemove os golden de identifyterrainmodelerrorsalgorithm e seu bloco de parâmetros.\nEstavam congelados desde 2020 e descreviam a implementação anterior: as mensagens\nque esperavam só existiam em SpatialRelationsHandler.validateTerrainModel, e o bloco\nainda passava TOPOLOGY_RADIUS, parâmetro que não existe mais, sem passar\nGROUP_BY_SPATIAL_PARTITION, obrigatório — o teste não chegava a executar.\n\nAcrescenta tests/run_local.py para rodar os testes dentro do QGIS sem Docker e sem\ninstalar nada, com código de saída utilizável em automação, e um tests/README.md\nque registra as duas formas de execução e o estado conhecido dos módulos.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "9285125",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/9285125dfcebda1b2fb68406806ce5531d51e805",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T13:11:09.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(terrainHandler): corrigir validação de depressão e de ponto cotado\n\nO atributo de depressão era lido mas quase não era usado:\n\n- O heightRange dos nós era lido com terrainGraph[node], que no networkx é a\n  adjacência e não os atributos do nó, então a leitura sempre devolvia None e a\n  propagação de faixas por banda nunca rodava.\n- A validação de ponto cotado nunca consultava a depressão: numa calota aceitava\n  [h-threshold, h+threshold], a união dos dois sentidos, de forma que uma cota de\n  95 dentro de um topo fechado por 100 passava batido. Agora a atribuição de\n  depressão define o sentido da faixa.\n- O filtro de múltiplos do intervalo truncava a cota com to_int, flagando 100.4\n  como múltiplo de 10.\n- O merge de linhas mandava o campo de depressão para a blacklist, então curvas\n  com atribuição divergente eram mescladas e o valor sobrevivente saía da ordem de\n  iteração. Os campos referenciados pela expressão passam a compor a chave.\n\nCorrige também um falso positivo: a região externa ao anel mais externo tem grau 1\ne curva fechada, e era lida como calota. A distinção agora é por contenção no anel.\n\nA verificação de atribuição passa a cobrir toda curva fechada cujo sentido do\nterreno seja determinável, e não apenas a mais interna, de modo que curvas de\ndepressão aninhadas mais externas também são validadas.\n\nRemove ainda 439 linhas inalcançáveis do spatialRelationsHandler\n(SpatialRelationsHandler.validateTerrainModel e sua cadeia exclusiva), substituídas\npelo TerrainModel em 2024 e sem chamadores desde então.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "ebbca6d",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/ebbca6d8d55ded9cdf111b733374d1d85e2bb929",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-07-16T13:10:42.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(graphHandler): ignorar nós com geometria nula ao montar estruturas auxiliares\n\nTrechos com geometria nula/vazia produzem vertex_pos NULL no \"extract specific\nvertices\", o que corrompia o índice da hashDict. Passa a pular esses nós e avisar\nquantos foram ignorados.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "97b3a6d",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/97b3a6d3837c56114a607a0280e26ff753d2d519",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-16T12:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "emenda 1.4: P4 (grid x caixa) entra no score — epoca constituicao-v1.4.0\n\nO QUE: evaluate.py ganha compute_grid_penalty (THETA=2.0). Ate 1.3.9 o grid so\nexistia no objetivo como gate duro R6 (tinta); a preferencia por nao cruzar a\nCAIXA (P4, Titulo III) nao era medida.\n\nPOR QUE: o proxy de place.py honrava P4 (_W_GRID_SOFT=50) enquanto o score era\ncego a ela. Otimizar o score 1.3.9 com mais forca significava ABANDONAR P4 —\nmelhorar o numero e piorar a carta. Caso previsto em O4 (divergencia entre\nscore e olho = defeito do OBJETIVO).\n\nEVIDENCIA (medida): alargar a busca local de ~+-16px para +-40px sob 1.3.9\npiorou Ponta Grossa de -0.191380 para -0.213389 (legibilidade +0.017, convencao\n+0.005, contra distancia -0.009): ~2% dos labels eram arrastados para longe so\npara desviar do grid. No mesmo diagnostico ficou verificado que NAO era o proxy\n(pesos identicos; legibilidade e distancia com correlacao 1.000 e vies 0.0000;\nround-trip labels.json com erro 0.00px), isolando P4 como unica divergencia.\n\nCODIFICACAO: os dois niveis de P4 sao graduados pela FOLGA ate a tinta mais\nproxima (vao de palavra/entrelinha e largo; vao entre letras e estreito):\n0 sem cruzamento, GRID_CROSS_BASE=0.4 por vao largo, ate 1.0 rente a letra.\nContinuo de proposito, para dar gradiente a busca. Grid derivado de\ntransform.json (nota (i) do R6), a mesma fonte do gate R6.\n\nRESULTADO: score de Ponta Grossa INALTERADO (-0.191380) — entre os 105 labels\notimizaveis, zero cruzam o grid: o motor ja honrava P4 pelo proxy. Os 50 labels\ncom P4>0 sao todos obstaculos (numeracao do grid, sobre a linha por definicao),\nque o H3 exclui do score. A emenda nao move o resultado atual; fecha a porta\npela qual a busca escapava.\n\nPENDENTE: ratificacao visual (O4) de THETA e GRID_CROSS_BASE — sao primeira\ncalibracao, nao resultado medido. E a fonte vetorial edicao_grid_edicao_l\n(Fase 0.4) no lugar do grid derivado da escala.\n\nTambem nesta mudanca (anotar o estado atual):\n- CLAUDE.md: estado real (2026-07-16), avaliacao lexicografica, formula com P4,\n  layout de dados data/<base>/, DATA_DIR, baseline v1.3.9, achados de M0 e a\n  regra operacional de epoca (arquivar TSV + reexecutar corpus).\n- CONSTITUICAO.md: changelog 1.4 (E2: o que, por que, evidencia), codificacao\n  sob P4, e Anexo A com R6/P4 saindo de \"inexistente\" para implementados.\n- docs/plano-implementacao-constituicao.md: aviso de defasagem — 1.1 feito,\n  1.2 P4/P5 feitos, 1.5 parcial (supressao sem motivo), Fase 2 remetida ao\n  PLANO_OTIMIZACAO_LABELS.md.\n- 4 testes novos de P4 (147 no total): sem cruzamento nao penaliza; cruzando\n  penaliza entre piso e teto; P4 e preferencia e nunca violacao; vao largo\n  custa menos que rente a letra.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "983167e",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/983167e269eccddf7bb88dd5a41283d648f72451",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-07-16T12:09:59.000Z",
+      "author": "Maj Diniz",
+      "message": "M0: medicao de viabilidade — a premissa do plano nao se sustenta\n\nFerramentas (so leem; nao tocam place.py/evaluate.py):\n- tools/m0_measure.py: histograma de componentes do grafo de conflitos\n- tools/m0_headroom.py: teto do ganho por escolha de posicao, medido com os\n  PRIMITIVOS do evaluate.py (nao com o proxy), com varredura densa opcional\n\nAchados (secao 0.3 do plano):\n- grafo ja decomposto: maior componente = 3 feicoes (Ponta Grossa) e 9 (Porto\n  Alegre, urbano denso); 79% / 50% das feicoes isoladas. A LNS (M4) nao tem\n  cliente e M3 tem pouco a fazer.\n- overlap = 0.0 e conflict_free = 1.0 nas 4 bases; o score e ~99% custo unario.\n  A reforma foi desenhada para disputa entre labels, que este corpus nao tem.\n- universo discreto atual e PIOR que a cascata (folga -0.016 em POA; a cascata\n  vence o melhor candidato discreto em 171/209 labels). Um solver discreto\n  sobre os candidatos atuais regrediria.\n- folga real (varredura densa +-40px): +0.028 (POA) a +0.034 (PG) — teto\n  otimista, e esta na GERACAO de candidatos (M6), nao na busca.\n\nExperimento revertido pela catraca (secao 0.4):\n- busca por padrao multi-escala (+-40px) no _quality_descent piorou Ponta\n  Grossa de -0.191380 para -0.213389.\n- causa medida: nao e o proxy (pesos identicos; legibilidade e distancia com\n  correlacao 1.000 e vies 0.0000; round-trip labels.json com erro 0.00px), e\n  sim _gate_steer_cost, que carrega P4 (_W_GRID_SOFT=50.0) — termo que o\n  evaluate.py NAO pontua. Entre posicoes validas P4 e o unico termo que varia,\n  com peso 2 ordens de grandeza acima da legibilidade.\n- logo: otimizar o score atual com mais forca significa ABANDONAR P4 — melhora\n  o numero e piora a carta. Caso previsto em O4. Completar o objetivo (P4,\n  Fase 1.2 do plano da Constituicao) precede intensificar a busca.\n\nBaseline v1.3.9 (epoca corrente, TSVs antigos arquivados como *_v1.3.8.tsv):\nponta_grossa -0.191380 | porto_alegre -0.416815 | tubarao -0.296151\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "46977d5",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/46977d5f83be3ff1a2d638d295118fe655372a21",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
     {
       "repo": "1cgeo/autolabeller",
       "date": "2026-07-16T10:35:42.000Z",
