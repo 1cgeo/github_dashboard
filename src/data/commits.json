@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-17T11:25:26.190Z",
+  "lastUpdate": "2026-07-17T16:19:32.609Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-07T16:07:56.000Z",
+    "1cgeo/controle_acervo": "2026-07-17T13:34:17.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-06-13T10:17:31.000Z",
@@ -39,10 +39,10 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-12T22:07:14.000Z",
+    "1cgeo/geoswarm": "2026-07-17T14:33:45.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-16T15:33:34.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-07-13T20:47:00.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-17T10:32:39.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-17T14:23:41.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5079,
+    "totalCommits": 5083,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -132,12 +132,12 @@
       "dsgoficial/ferramentas_edicao": 466,
       "dsgoficial/DsgTools": 624,
       "dsgoficial/sap": 164,
-      "dsgoficial/SAP_Gerente": 115,
+      "dsgoficial/SAP_Gerente": 116,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 111,
+      "1cgeo/controle_acervo": 112,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 12,
       "dsgoficial/servico_edicao": 20,
@@ -148,7 +148,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 55,
+      "1cgeo/geoswarm": 56,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
       "1cgeo/ebgeo_360": 13,
@@ -159,11 +159,47 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 311,
+      "1cgeo/chefe_dgeo": 312,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-17T14:33:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Coleta 5 UFs + MGCP: conserta cadeia de falhas silenciosas, C03/C04, relatorios\n\nAcervo 78k -> 210k. As correcoes tem um padrao comum: ferramenta reportando\nsucesso sem verificar efeito. Todas foram achadas conferindo o BANCO, nunca\npelo stdout.\n\nFalhas silenciosas corrigidas:\n- conflacao_osm: Overpass sem User-Agent devolve 406; o erro virava \"0 elements\"\n  e parecia resultado legitimo. A conflacao com OSM NUNCA inseriu nada desde que\n  existe. + rotacao de 4 espelhos (o principal cai com 504/429).\n- db.atualizar_coleta: nao checava rowcount e imprimia OK para UPDATE de 0 linhas\n  -> 676 feicoes C22 e todo o complemento-relatorio ficaram sem coleta.\n- coletas_tipo_check: AGENTE_TIPO caia no default 'outros', que a constraint\n  rejeitava -> agente nao mapeado nunca registrava coleta (migration: 29->37).\n- regeocodificar importar: lia rowcount DEPOIS do RELEASE SAVEPOINT (que zera)\n  -> \"Atualizadas: 0\" enquanto o banco era atualizado normalmente.\n- geocodificar: circuit breaker so cortava 429, nao timeout. Photon morto queimava\n  60s/endereco. Corte agora e simetrico (nao ha provedor primario confiavel:\n  de manha Nominatim dava 429 e Photon respondia; a tarde o oposto). 60s -> 1,9s.\n- listar_municipios --near: ordenava por CENTROIDE -- devolvia \"Careiro da Varzea\"\n  para o centro de Manaus. Agora point-in-polygon + fallback ao poligono, com\n  campo `metodo`. E a ferramenta que a regra #4 do nucleo manda usar.\n- pipeline step5: regeo estourava com --pais sem --uf (pressuposto BR-centrico),\n  marcando coleta como erro apos a insercao ter funcionado.\n\nModelagem (aprovado pelo usuario):\n- C03/Organizacao Militar -> constr_edificacao 1718. Nao havia classe para\n  quartel/batalhao/pelotao; so `Junta Militar` (JSM = alistamento municipal)\n  chegava ao 1718. Destravou 5 OMs de fronteira (66 BI/Jauru, Corixa, 3 PEF\n  Pacaraima, 22 BI, 5102 Escuadron/VEN) e expos o 5102 classificado como\n  \"Batalhao PM\".\n- coletor-comum.md: validacao obrigatoria de COORDENADA (3 armadilhas medidas:\n  coordenada invariante entre paginas = rodape -- CBM-MT servia o Palacio\n  Paiaguas em todas as 20 paginas; embed com zoom mundial -- Bonfim/RR no\n  Pacifico; centroide disfarcado -- origem_coord=centroid no CNIEP). Inclui o\n  contra-exemplo: 4 unidades a >120 km da sede estavam TODAS certas.\n\nWiki nova: osm-overpass (UA/406, out geom vs out center, espelhos), censo-suas\n(publica lat/lon; coordenadas destruidas por locale em 3 formatos), igvsb\n(IDE morta mas instituto vivo; sem base oficial na escala 25k), guyana (sem IDE\ngovernamental; limites GADM grosseiros -- filtrar por geometria).\n\nlivro-razao: 9 eventos meus. O padrao: acreditei no relatorio da ferramenta em\nvez de olhar o banco -- exit 0, contador zerado, saida que eu mesmo filtrei\nescondendo o ABORT, log vazio por lock orfao, e \"0 elements\" do Overpass.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DN913qWnxsBjJBy49E2qp4",
+      "sha": "47f2398",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/47f23982613e3b70a93ced1f883bea7d9adf3dee",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-17T14:23:41.000Z",
+      "author": "Maj Diniz",
+      "message": "AST-10 = Aerial Squadron Team 10 (corrige a glosa deduzida, agora com fonte)\n\nO vault expandia AST-10 como \"American South Territory, paralelo 10\" em dois\narquivos, um deles a wiki perene. O chefe corrigiu para \"Aerial Squadron Team 10\"\ne o PDF que ele apontou fecha a questao com a frase literal:\n\n  \"the execution of the project was in charge of the 10th Group of the Air Survey\n   Squadron of the North American Air Force (Aerial Squadron Team 10 - USAF - AST10)\"\n\nCruz & Silva, \"The clouds against progress\", Brasiliana v.10 n.2, 2021, p. 242\n(creditando Mello, 2018, p. 18). https://tidsskrift.dk/bras/article/view/128402\n\nDe quebra mata o \"paralelo 10\": as areas 1-8 do voo cobriram o Centro-Sul ao sul\ndo paralelo 14. Entra tambem o contexto da mesma fonte (inicio em julho de 1964,\nEMFA + IAGS, com IBGE/DSG/DHN/ROTAER/ON no grupo de gestao).\n\nDuas linhas no livro-razao:\n- a glosa vivia DENTRO de um bloco marcado \"fonte primaria: tarja do mosaico 5031\",\n  colada entre parenteses na sigla, e herdou por vizinhanca a credencial dos itens\n  ao lado (AF-63-32, 1370 P.M.W., F/L 6\"), esses sim lidos da tarja. Regra: dentro\n  de bloco \"fonte primaria: X\" so entra o que foi lido em X.\n- a busca web quase virou prova falsa: plantei \"Aerial Squadron Team\" na query e o\n  sumarizador devolveu o proprio termo como se fosse achado; outra busca anunciou\n  \"Perfect! I found the information\" citando um PDF que nao contem \"AST\". Sumario de\n  busca e prosa sobre fontes, nao fonte.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5b947f2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5b947f291db79c04baeddfc6305f2256e2ccdf5d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-17T13:34:17.000Z",
+      "author": "Maj Diniz",
+      "message": "produto: update passa a escrever subtipo_produto_id, com trava contra pinar subtipo conflitante\n\nA rota POST /produtos/produtos ja aceitava subtipo_produto_id na criacao, mas\nprodutoAtualizacao nao tinha o campo e o ColumnSet do atualizaProduto tampouco.\nO campo entrava na criacao e nunca mais podia sair: um PUT com o subtipo errado\nrespondia 200 \"Produto atualizado com sucesso\" sem alterar nada, um sucesso\nsilencioso.\n\nIsso deixava sem conserto pela API o produto cadastrado com o subtipo errado. O\ntrigger acervo.validate_version le produto.subtipo_produto_id e recusa qualquer\nversao de subtipo divergente, entao um produto mal pinado rejeita para sempre\nversoes legitimas de outra geracao (ex.: um vetorial ET-EDGV 2.1.3 num produto\nfixado em ET-EDGV 3.0), sendo que dominio.subtipo_produto.define_produto e falso\npara as duas geracoes: elas devem coexistir no mesmo produto.\n\nFixar um subtipo que as versoes existentes contradizem nao falharia aqui, e sim\nna proxima carga, longe da causa. Por isso o update valida contra as versoes ja\ncadastradas e recusa com 400. Passar null (despinar) e sempre permitido: e o\nestado da maioria dos produtos e o que permite guardar mais de uma geracao.\nOmitir o campo preserva o valor atual.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "4f5cc10",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4f5cc10d6a3c543a744c05cb913ff52caf7bbf8c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-07-17T12:03:26.000Z",
+      "author": "1º Ten Marcel",
+      "message": "1.36.3: atualização do configuração de camadas e ferramenta de pesquisa.",
+      "sha": "d01cb63",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/d01cb637e69028719b5200d9a740f94c248c035f",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
     {
       "repo": "dsgoficial/sap",
       "date": "2026-07-17T11:05:54.000Z",
