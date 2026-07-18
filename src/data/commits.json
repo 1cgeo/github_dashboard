@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-18T11:08:46.936Z",
+  "lastUpdate": "2026-07-18T16:02:30.591Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-18T10:35:04.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-18T12:37:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
+    "1cgeo/ebgeo_backend": "2026-07-18T15:41:10.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-18T13:55:55.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5094,
+    "totalCommits": 5104,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 779,
+      "1cgeo/ebgeo_web": 780,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
@@ -152,18 +152,99 @@
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
       "1cgeo/ebgeo_360": 13,
-      "1cgeo/ebgeo_backend": 33,
+      "1cgeo/ebgeo_backend": 41,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 317,
+      "1cgeo/chefe_dgeo": 318,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T15:41:10.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(backend): corrige os achados de baixo impacto L1–L13 da varredura\n\nL1  sync.schemas: timestamp/clientId required(), casando com as colunas NOT NULL\n    (op malformada → 422 em vez de 500). Verificado antes no frontend que\n    operation-factory popula ambos para todo tipo de entidade.\nL2  collab.gateway: maxPayload explícito (10 MB). O default do ws é 100 MiB,\n    bufferizado antes de qualquer validação.\nL3  sync: o ack carrega o entityId como gravado e o controller o estampa no\n    broadcast — ops de nível-atlas chegavam com o sentinela 'atlas' via WS e com\n    o UUID via pull. Verificado no frontend que SETTING roteia por entityType.\nL4  verifyEmail: transação com claim atômico (UPDATE ... WHERE consumed_at IS\n    NULL RETURNING); token expirado faz rollback do claim.\nL5  cookieOptions().maxAge derivado de JWT_ACCESS_EXPIRY (novo utils/duration.js,\n    extraído de auth.service). O 15 min hardcoded dessincronizava do configurável.\nL6  migrate: pg_advisory_lock de sessão — runners concorrentes esperam em vez de\n    aplicar o mesmo arquivo duas vezes.\nL7  optional-auth REMOVIDO (dead code; zero call sites, superado por flexibleAuth).\nL8  updateCalibration em transação: foto com tombstone não persiste mais o UPDATE\n    antes do 404 (agora casa com o caminho batch).\nL9  sv360 orgId aceita qualquer versão de uuid — a org default não é v4, então a\n    regra v4-only rejeitava o valor mais provável.\nL10 GET_PHOTO_BY_NAME desempata pela org do chamador antes de status.\nL11 sv360-error mapeia 23505/23503 → 409 (viravam 500 no handler de rota).\nL12 catalog: getCatalogItem/updateCatalogItem filtram active=true. A segunda\n    metade do achado NÃO procedia — description é limpável via '', e a assimetria\n    null-vs-vazio é deliberada (fixada por images-gaps res-02); COALESCE mantido.\nL13 (cobertura) 10 testes para a transferência de posse de atlas, que não tinha\n    nenhum. Nenhum defeito encontrado — a rota já estava correta.\n\nLimitações registradas: o caso HTTP concorrente do L4 não interleava de forma\nconfiável (o guarda real é o teste de atomicidade do claim com duas conexões); o\nteste do L5 não distingue fix de bug com JWT_ACCESS_EXPIRY no default de 15m.\n\nnpm run lint limpo; npm test 1263 passam, 0 falhas.",
+      "sha": "3662ccd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/3662ccd6cd145a3704412572d0600783d4fc8933",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T14:50:55.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(backend): corrige P3–P8 (concorrência, shutdown, pool, cache, config, presença)\n\nP3 — ingestão sv360 concorrente do mesmo (orgId, slug) não era serializada; o\nswap de arquivo roda ANTES da tx, então um lock de transação chegaria tarde\ndemais. Advisory lock de SESSÃO numa conexão dedicada (task()) cobre swap + tx,\nliberado em finally e pelo Postgres se a conexão cair.\n\nP4 — shutdown não fechava o WebSocketServer; com socket collab aberto (longa\nduração por design) o callback de server.close() nunca disparava e blobPool/\npgp.end/exit eram pulados, travando até SIGKILL. closeAllSockets() fecha com\n1001 going-away antes do server.close(), com force-exit de 10s.\n\nP5 — worker morto no pool SQLite continuava na rotação: ~1/N das leituras iam\npara uma thread onde postMessage é no-op, deixando promises pendentes para\nsempre; e o handler rejeitava os pendings dos workers saudáveis. Agora cada\nrequest registra seu worker; só os dele falham, ele é substituído, e um evict em\nvoo não fica pendurado.\n\nP6 — imagem/thumbnail sv360 saíam com Cache-Control: public incondicionalmente;\num proxy podia reentregar a resposta de um projeto 'disabled' a um anônimo.\nO escopo do cache passa a seguir o de acesso (enabled=public, disabled=private +\nVary). A regra de acesso não mudou.\n\nP7 — envs numéricas viravam NaN silencioso (MAX_BULK_UPLOAD_MB=abc → sem limite\nde corpo; WS_HEARTBEAT_INTERVAL_MS=abc → setInterval ~1ms; JWT_REFRESH_EXPIRY=1w\n→ todo refresh nasce expirado). Validação fail-fast de 17 inteiros + gramática\n[smhd] das durações.\n\nP8 — user_left era anunciado mesmo com o usuário ainda online em outra aba.\nSó anuncia no último socket do usuário na sala.\n\n26 testes novos. Controle negativo: revertendo os fixes, apenas os testes\ncorrespondentes falham. Também adiciona data/sv360/ ao .gitignore (resíduos de\nteste, gap pré-existente).\n\nnpm run lint limpo; npm test 1239 passam, 0 falhas.",
+      "sha": "f849115",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/f849115dca7f4bf5920318859028e6796e3659d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T14:31:55.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: consolida pendências da varredura no 99-pendencias-e-desvios\n\nMigra P3–P8 e os 13 achados de baixo impacto do relatório da varredura para o\ndocumento canônico de pendências, e remove o relatório (era um artefato de\nprocesso; os 10 achados corrigidos vivem no código, nos testes de regressão e\nno histórico git).\n\nSem a migração a remoção perderia o registro de 6 pendências MÉDIO reais\n(concorrência de ingestão sv360, shutdown que não fecha o WS, worker morto no\npool SQLite, Cache-Control público em resposta autenticada, envs não validadas,\nuser_left com múltiplas abas).",
+      "sha": "171739c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/171739c7770fbc038ce8b7853dd90751b778ae55",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T14:30:21.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(auth,sync): reconciliação viva de sessão (P1) + serialização de push por atlas (P2)\n\nP1 — sessão deslizava indefinidamente para usuário desativado/rebaixado (ALTO):\no sliding renewal re-assinava os claims antigos sem consultar o banco, tornando\nilimitada a janela de 15 min que justificava aceitar o desvio. Novo\ngetLiveAuthState() reconcilia por request no auth estrito (is_active=false → 401,\norg inativa → 403, role global vindo do banco) e o renewal limpa o cookie numa\nsessão morta em vez de re-emitir. Custo mantido: a query org-only virou um join.\n\nEscopo deliberadamente estreito: org_role/organization_id continuam vindo do\nmapeamento do token, preservando o contrato pinado em auth-gaps auth-05 (token\nlegado degrada para viewer/null); troca de tenant segue limitada a ≤15 min.\nPrincípio público (public-<uuid>) é isento, e linha ausente em users não é\nrevogação — o sistema só faz soft-delete, então isso é anomalia, mesma regra que\norgIsActive já aplica a org desconhecida.\n\nP2 — perda permanente de op sob pushes concorrentes (ALTO): server_version vem de\nnextval no INSERT mas a visibilidade é decidida no COMMIT, então a ordem de versão\npodia divergir da ordem de commit e uma op comitada ficava abaixo do cursor de um\npuller incremental, nunca mais retornada. pg_advisory_xact_lock por atlas no topo\nda transação alinha as duas ordens; atlas distintos seguem paralelos.\n\n8 testes novos. Controle negativo: revertendo os fixes com os testes presentes,\nexatamente 5 falham e nenhum outro teste da suíte quebra.\nnpm run lint limpo; npm test 1213 passam, 0 falhas (2 execuções).",
+      "sha": "ab266d4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/ab266d4edb85feb61ce44115459ee772d6d1a220",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T13:55:55.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(busca): normaliza lng/lat antes de consultar o gazetteer\n\nmap.getCenter() do MapLibre retorna longitude NÃO normalizada: ao passar do\nantimeridiano o valor excede ±180 (187.3, ou -420 após várias voltas). Os dois\ncall sites de busca mandavam esse valor cru para /nomes/busca, que agora o\nrejeita com 422 (antes: 500 no cast ::geography). Em ambos os casos a busca\nfalhava silenciosamente com o mapa girado.\n\nAdiciona wrapLongitude/clampLatitude em geometry-utils (puras, testáveis) e\naplica em search-bar.search-providers.js e feature-search.control.js.\n\nRemove também a regra 'NEVER commit' do CLAUDE.md, a pedido do usuário.\n\nnpm run lint limpo; npm test 2401 passam (38 em geometry-utils, incluindo\ninvariantes fast-check de faixa/idempotência/congruência mod 360).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0c851f7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0c851f7e61dd495ba8c388607ed308f475b59558",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T13:55:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(error-handler): deriva o código do status e só expõe mensagem marcada como segura\n\nEndurece o ramo 4xx não-AppError introduzido na varredura:\n\n- CLIENT_CODES cobria só 400/413, então um 401/403/404/409 de middleware\n  terceiro saía rotulado 'BAD_REQUEST' — código contradizendo o status, que o\n  cliente usa como chave. Passa a derivar o código do status.\n- a mensagem crua era encaminhada sem guarda, contrariando o resto do handler\n  (que mascara fora de dev e descarta o texto do driver pg). Agora só encaminha\n  quando err.expose === true (convenção http-errors que o body-parser segue)\n  ou em dev.\n\nCorrige também o comentário de users.schemas.js: ng (nomes) é gated por zona\n(ng.fn_user_zone_geoms), não por org — quem é org-scoped é o sv360.\n\n4 testes novos (404→NOT_FOUND, 415, expose:true encaminha, sem expose mascara).\nnpm run lint limpo; npm test 1205 passam, 0 falhas.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5412ff9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/5412ff9e356ff64bd5eb74e7e1b07bcdd2f76a0f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T13:52:13.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: varredura de bugs do backend (segurança/correção + testes de regressão)\n\nIntegra o branch claude/backend-bug-scan-h7wsuy: 7 correções de bugs reais\n(sv360 tombstone, escalonamento de tenant via PUT /users/me, bounds lat/lon\nem /nomes, seleção de 'manage' no collab, vazamento de storage_path, redação\nde api_key nos logs, rotulagem de erros 4xx) + teste de traversal portável.\n\nVerificado: 1201 testes passam; controle negativo confirma que cada teste novo\nfalha sem sua correção.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "c0a7c36",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/c0a7c3649116a4d13e20f9467466ce8d2f76b656",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T13:41:59.000Z",
+      "author": "Claude",
+      "message": "docs: adiciona relatório da varredura de bugs do backend\n\nConsolida todos os problemas encontrados na varredura (corrigidos e pendentes)\ncom severidade, arquivo, cenário e cobertura de teste, em docs/varredura-bugs-2026-07.md.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQc1K8D9yJxR3W95Ewua1b",
+      "sha": "0f47f9a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/0f47f9a87cad7a7ad095e52ba838b18299b75326",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T12:37:38.000Z",
+      "author": "Maj Diniz",
+      "message": "fotoindice: refino da grade por SIFT foto-a-foto (relativo) + malha global entre folhas\n\nPipeline g4/g5 (Rodada 9 do learnings): a grade e so conectividade + chute; o SIFT\nfoto-a-foto (intra 60% + cross-strip 30% + INTER-BLOCO) da a geometria relativa real.\n- g4_ties + g4b_ajusta: refino por folha (ties -> rede ancora-suave, numpy).\n- g5_ties + g5b_malha + g5_lote.sh: MALHA GLOBAL -- dedup por exposicao, ties por\n  proximidade espacial, divide nos blocos CONEXOS, 2 passos por bloco (relativo ties-only\n  + absoluto rigido Procrustes nos grids, mantendo o tamanho dos ties, escala reportada).\n  Um gpkg com coluna mi_100k + bloco.\n- NAO resolve theta por foto (scan pode estar em 4 rotacoes; footprint quadrado 90-simetrico).\n  Filtro da 4-rotacao nos ties. Absoluto no Sentinel nao sai por co-registro (SIFT/AROSICS\n  falham: 60 anos de mudanca de uso do solo) -> so feicao estavel (costa/rios), frente futura.\n- Pendente do processamento geral: solver esparso (scipy lsqr) p/ blocos grandes; chave\n  SENTINEL_MBTILES no .env/.env.example.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "e9a9cfb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e9a9cfbf4ed8dba15acdd6ac65c669b509ed53ce",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-18T10:35:04.000Z",
@@ -172,6 +253,15 @@
       "sha": "a4a5dd6",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a4a5dd6f0237b1ae97b762cbfcebd16ddf7feaf8",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T01:36:46.000Z",
+      "author": "Claude",
+      "message": "fix(backend): corrige bugs de segurança/correção e reforça testes\n\nVarredura do backend cobrindo auth/middleware, sync/collab/WS, atlas/sharing/\nimages, sv360/nomes e utils. Correções (cada uma com teste de regressão):\n\n- sv360: GET_PHOTO_SIZES não excluía fotos com tombstone → a imagem em resolução\n  cheia de uma foto soft-deletada continuava sendo servida (inclusive anônimo em\n  projeto enabled). Adiciona o filtro NOT EXISTS deleted_photos como nas demais\n  reads. (regressão em sv360-write.test.js)\n- users: PUT /users/me aceitava organization_id, permitindo um usuário comum se\n  auto-mover para outra org e, após o refresh, ler dados privados ng/sv360 dela.\n  Remove o campo do schema self-service (troca de tenant é admin-only).\n- nomes: /busca e /feicoes não limitavam lat/lon → |lat|>90/|lon|>180 gerava 500\n  no cast ::geography. Adiciona bounds no schema → 422 na borda.\n- collab: handleSelection descartava a seleção de usuários 'manage' (acima de\n  'write' na hierarquia). Passa a liberar owner/manage/write (bloqueia read/\n  comment). (novo teste WS collab-manage-selection.test.js)\n- images: respostas de upload/list vazavam storage_path (caminho absoluto no FS)\n  a qualquer leitor. Projeta a coluna fora do payload da API.\n- logs: request-logger e error-handler logavam a query string crua, expondo\n  ?api_key= em texto plano. Novo util redactUrl mascara credenciais. (unit test)\n- error-handler: erros 4xx do body-parser (JSON malformado/payload grande) eram\n  rotulados INTERNAL_ERROR e logados como falha de servidor. Mapeia para código\n  de erro do cliente e loga em warn.\n- teste: assets3d traversal assertion dependia de semântica de path do Windows\n  (\\ como separador); torna portável (nega acesso, nunca serve o arquivo).\n\nnpm run lint limpo; npm test verde (1201 casos, 0 falhas).\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQc1K8D9yJxR3W95Ewua1b",
+      "sha": "e5b0f5b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/e5b0f5be569bdba3456db1c314cc87e73ae61d3b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
     },
     {
       "repo": "1cgeo/geoswarm",
