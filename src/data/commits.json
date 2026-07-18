@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-17T21:01:28.955Z",
+  "lastUpdate": "2026-07-18T11:08:46.936Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-17T20:44:20.000Z",
+    "1cgeo/geoswarm": "2026-07-17T21:58:32.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-16T15:33:34.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-17T20:42:45.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-18T10:35:04.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-06-28T22:44:54.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-06-29T12:29:08.000Z"
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5090,
+    "totalCommits": 5094,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -148,7 +148,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 60,
+      "1cgeo/geoswarm": 61,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
       "1cgeo/ebgeo_360": 13,
@@ -159,11 +159,47 @@
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 314,
+      "1cgeo/chefe_dgeo": 317,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T10:35:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-18: revisao quarentena AST-10 (georef rotacionado, mosaico-de-faixa nas ralas, fix PROJ+gsd)\n\n- fotoindice-para-poligonos: Rodada 8 no learnings + g1b_mosaico_faixa.py novo (ancora\n  a faixa inteira via mosaico, para folha rala; anchor de foto isolada e espuria).\n- g1_ancoras_sift: gsd por hypot(gt1,gt2) (georef rotacionado dava gsd~0 -> OOM) +\n  params SIFT afrouxaveis por env (GRADE_SIFT_CONTRAST/RATIO/MINMATCH).\n- Achado-chave: proj.db do PostgreSQL sequestrava o gdalwarp CLI dos georef UTM de\n  engenharia do operador (era isso, nao o metodo, que travava as ralas); PROJ_LIB->QGIS.\n- PROJECT.md grade-fotos-ast10: desfecho (20 folhas c/ grade; 3 georref manual do chefe;\n  5 ralas fechadas; 6 por dado/borda).\n- livro-razao: declarar limite-de-dado cedo demais (3x na sessao; causa era infra/config).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "a4a5dd6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a4a5dd6f0237b1ae97b762cbfcebd16ddf7feaf8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-17T21:58:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconcilia divergencia com origin: fix SRID no join municipio_gid + guarda regeo + wiki CIGA\n\nApos merge da instancia paralela (origin/main canonico), cherry-pick cirurgico:\n\n- inserir_feicoes.py: _batch_spatial_join mantem a correcao Raposa (maior\n  intersecao p/ area/linha) do origin, mas remove o ST_Transform(feicao, 4326).\n  Os limites (paises/estados/municipios) e as feicoes estao TODOS em 4674 (ver\n  criar_banco.sql) -- transformar um lado gerava erro de SRID misto em toda\n  insercao que resolvia municipio_gid, e desabilitava o GIST de m.geometry.\n\n- regeocodificar.py: trava de sanidade 5km no cmd_importar -- so aceita o ponto\n  regeocodificado se cair ate 5km do municipio da feicao (ST_DWithin geography),\n  evitando enderecos genericos que casam a 10.000km. Mantido o cmd_atualizar do\n  origin (recalculo de confianca_score).\n\n- wiki: pagina ciga-sc (plataforma multi-tenant SC), caminho FUNAI WFS 1.0.0/JSON\n  e ARMADILHA da camada MMA:cnuc_2026_03_atualizado corrompida (geometria\n  deslocada 1 linha) em limites-especiais-federais; entrada no index.\n\nMigracoes de banco aplicadas separadamente (adicionar_pais_estado_coletas.sql,\nampliar_coletas_tipo.sql).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0124bTwKyoLSGuLLL7eh59Ug",
+      "sha": "29568db",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/29568db32d52a29767ae58bc84a9c9d3f58d9fc9",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-17T21:35:55.000Z",
+      "author": "Maj Diniz",
+      "message": "auditar-acervo: split demand-paging do learnings (25KB -> 17KB, lossless)\n\nReceitas longas (cadastrar edicao antiga MI 547, trocar rotulos MI 2799),\nnarrativas (leitura inventada, GRAVE o veredito, preferencia do chefe integral)\ne 4 gotchas longos (rotulo/trigger, visao carta a carta, checksum mao unica,\nfolha litoranea) movidos VERBATIM pro references/learnings-detalhado.md; regra\ndistilada + ponteiro no quente. Nada perdido (detalhado +13KB).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "22ebb78",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/22ebb78fd6fece8372c982b5decd772b4fd40e99",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-17T21:20:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-17 (cont.): revisao logica por invariantes + bateria reutilizavel\n\nRevisao adversarial da coerencia interna do acervo (33 invariantes, 6\nperspectivas) pos-campanha do vetor ausente: achou 3 defeitos reais que os\nchecks pontuais nao pegavam e corrigiu (5f insumo pra folha vizinha deletado,\n4e 12 PDFs retipados pra principal, 1g 435 vetores receberam mi da carta-irma).\n7 lentes largas triadas como nao-defeito; 301 cartas sem vetor sem nada\ncarregavel no BDGEx.\n\nBateria virou script da skill (scripts/invariantes_logicos.py), somente-leitura,\nDEFECT/REVISAR/INFO, conexao pela chave CONTROLE_ACERVO_CONFIG. Vereditos das\nlentes largas gravados no learnings pra nao reinvestigar do zero.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "21d7c89",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/21d7c896f081b9716c23aaa3423d5f0122c19589",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/geoswarm",
       "date": "2026-07-17T20:44:20.000Z",
