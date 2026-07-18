@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-18T16:02:30.591Z",
+  "lastUpdate": "2026-07-18T20:55:40.400Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-17T21:58:32.000Z",
+    "1cgeo/geoswarm": "2026-07-18T16:32:25.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-16T15:33:34.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-18T12:37:38.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-18T19:26:09.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
-    "1cgeo/ebgeo_backend": "2026-07-18T15:41:10.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-18T13:55:55.000Z"
+    "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-18T19:51:27.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -108,7 +108,7 @@
     "1cgeo/ebgeo_backend": true
   },
   "stats": {
-    "totalCommits": 5104,
+    "totalCommits": 5134,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -118,7 +118,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 780,
+      "1cgeo/ebgeo_web": 804,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
@@ -148,57 +148,327 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 61,
+      "1cgeo/geoswarm": 63,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
       "1cgeo/ebgeo_360": 13,
-      "1cgeo/ebgeo_backend": 41,
+      "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 51,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 318,
+      "1cgeo/chefe_dgeo": 323,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:51:27.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: retrospectiva — constituição, livro-razão e a lição da verificação\n\nReescreve CLAUDE.md como constituição (87 linhas): seis princípios\ncondensados, armadilha e convenção que diverge do default. O que se deriva\nlendo o código sai daqui e vai para .claude/rules/architecture.md (modelo de\ndados, modos de aplicação, invariantes do módulo temporal).\n\nO livro-razão ganha os 5 eventos da sessão e revela recorrência: três\n`verificacao-fantasma` e dois `teste-que-nao-prende` com a MESMA raiz, uma\nchecagem que não checa. Recorrência entre classes é lacuna de constituição,\nnão de skill, então virou seção própria no CLAUDE.md com as três formas\nobservadas: verificação que chega depois da ação, subconjunto tratado como\nconjunto, e cobertura vazia passando verde.\n\nTorna mecânica a regra \"sem em-dash\", que estava enunciada no wiki-schema e\nviolada em toda parte, inclusive na página que a enuncia. Regra escrita e\nignorada treina o agente a ignorar regra escrita: virou aviso do lint_wiki e\no CLAUDE.md foi limpo (11 -> 0).\n\nMEMORY.md corrigido onde contradizia a realidade (docs/guias/ não existe\nmais) e acrescido do gate de lint antes do commit.\n\nnpm run lint limpo; 114 arquivos / 2408 testes passando, rodados ANTES do\ncommit e em comando separado.",
+      "sha": "edf6a27",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/edf6a27d4eca26041980faa437c51b666a21c384",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:44:50.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: revisa a wiki sob o critério \"o código já é a evidência\"\n\nReescreve 63 das 64 páginas cortando o que a leitura do código resolve\nsozinha (listas de rotas, campos, colunas; narrativa de fluxo; shape que o\nJoi já declara) e mantendo só o que o código não conta: o porquê e a\nalternativa rejeitada, a armadilha, o contrato congelado, o não-óbvio que\natravessa arquivos. 9.398 -> 3.979 linhas.\n\nAposenta docs/deploy.md, último dos documentos originais, absorvendo-o em\ndocs/wiki/deploy-backend.md. Ele estava errado em 7 pontos verificados\ncontra o código: engines >=20.0.0 (é 20.19.0, o piso do --env-file-if-exists),\nCORS_ORIGIN default 8080 (é 3000, a origem do Vite) e obrigatória em prod\n(dizia que só DATABASE_URL/JWT_SECRET eram), defaults absolutos de\nMAP3D_TERRAIN_URL/SV360_SERVICE_URL, ordem de shutdown e ausência de\nforce-exit, \"não há .github/\" e caminhos relativos ao pacote backend.\n\nReancora 1.054 citações no caminho real do arquivo: a revisão as encurtou\npara o basename, o que é legível mas inverificável pelo teste de\nintegridade. As 41 genuinamente ambíguas (config.js, index.js) ficam curtas\nem vez de adivinhadas.\n\nContradições pendentes: 41 -> 13. As demais apontavam para guias já\nabsorvidos, então viraram nota histórica; as 13 restantes são sobre código\nvivo e continuam visíveis.\n\nnpm run lint limpo; 114 arquivos / 2408 testes passando.",
+      "sha": "f60f23a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f60f23af42a75e78e33abf703425d6103fc636bd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:30:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(test): corrige lint no teste de integridade de docs\n\nCommitei o arquivo sem rodar o lint antes — dois erros reais: import não usado\n(relative), Buffer sem import explícito no ambiente node do vitest, e uma regex\ncom caractere de controle que o eslint barra. A faixa \\x00-\\x7F virou a faixa\nASCII IMPRIMÍVEL (' ' a '~'), que é o que um slug pode conter de qualquer forma.\n\nRegistro do desvio: rodei 'npm run lint' NA MESMA linha do commit, então o\nresultado apareceu depois que o commit já tinha passado. Verificação que chega\ndepois da ação não é verificação.",
+      "sha": "10e507d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/10e507d686b25f9ab5b01040b0f62859a707a856",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:28:49.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(wiki): critério \"o código já é a evidência\" + skill lint-wiki\n\nCRITÉRIO. O wiki-schema ganha a regra que decide tudo o mais e que distingue\nesta wiki de um vault comum: o repositório está aqui do lado, então uma página\nsó se justifica onde a leitura do código NÃO resolve. Teste por parágrafo: um\nengenheiro competente, lendo o código, chegaria nisso sozinho? Se sim, corte.\nProsa que reconta código é pior que ausência: custa manutenção, apodrece a cada\nrefatoração e compete com o código pela autoridade (e perde, porque só o código\nexecuta). Entra: o porquê, a alternativa rejeitada, a armadilha, o contrato\ncongelado, o não-óbvio que atravessa arquivos, o custo escondido.\n\nLINT-WIKI. Skill de auditoria com script sem dependência. Erros: wikilink\nquebrado, órfã, contradição pendente, duplicata provável (Jaccard >= 0.45).\nAvisos: integração fraca, sobreposição alta, \"pouco porquê\" (o aviso que\noperacionaliza o critério acima) e página que não cita nenhum arquivo de código.\n\nNasceu de um defeito meu: a semeadura dividiu os documentos em 6 fatias para\nparalelizar, fatias diferentes escreveram o mesmo conceito com slugs diferentes,\ne o dedup por slug não via. Só apareceu porque fui olhar a lista na mão — que\nnão escala.\n\nBUG REAL ENCONTRADO PELA WIKI. Entre as contradições marcadas na semeadura:\n`project-picker.modal.js:370` fazia `perm === 'owner' || perm === 'write'`,\nescondendo \"Renomear\" do co-Gestor, embora o backend aceite o PUT dele. É a\nMESMA armadilha de lista fechada que silenciou a presença de seleção no\nservidor, agora no frontend. A revisão multi-agente de código não pegou; a wiki\npegou. Corrigido.\n\nRUÍDO SEPARADO DO SINAL. A primeira auditoria acusou 125 erros, dos quais 117\neram contradições contra guias que tinham acabado de ser apagados — a wiki já\nafirma o que o código faz, então viraram nota histórica. Restam 12 pendências\nlegítimas sobre código vivo, todas visíveis e nenhuma escondida.",
+      "sha": "38772c5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/38772c5ee956368158325601f711920d136984e6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T19:26:09.000Z",
+      "author": "Maj Diniz",
+      "message": "recuperacao do GAP completa: 1078 recuperadas, cobertura 90,8% (CAT1+CAT3+orfas)\n\nEvolucao do motor de recuperacao ate o resultado final grade_MALHA_v2.gpkg\n(6817 malha + 1078 recuperadas: 954 OK/confiavel=1, 82 fraca, 42 so-seed).\n\n- g6a: deteccao de gap por FAIXA+moldura (nao por CSV) -> cobre CAT1 E CAT3\n  nao-catalogada. Faixa vem do mapa global exp2fa (g6_exp2fa.py: placed + todos\n  os CSVs) ou INFERIDA do vizinho de exposicao (o nome legado _<EXP>.tif quase\n  sempre nao traz a faixa). Cache de features compartilhado com a malha.\n- Alvo = TODAS as molduras (nao so as com grade): as folhas ORFAS (2955/2964/\n  2956/2957) entram pelo mesh sem georref, porque as faixas continuam de\n  vizinhos posicionados. F3 (georref manual) ficou dispensavel.\n- g6b: guard de outlier (solve que foge >2x lado da semente volta a semente,\n  qa=longe) -> outliers 15->4.\n- Loop-until-dry 6 rodadas (667->161->69->22->23->12): promove fraca->OK\n  (OK 897->954). Falta ~796 = limite de DADO (faixa sem placed / sem vizinho).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "37036b5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/37036b5171038ae37cf56a77853fcacf4c8ed342",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:23:24.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a wiki passa a ser A documentação; guias absorvidos e removidos\n\nConsolidação em duas fases, multi-agente.\n\nFUNDIR — a semeadura tinha dividido os documentos em 6 fatias temáticas para\nparalelizar, e fatias diferentes escreveram o MESMO conceito com slugs\ndiferentes. O dedup por slug não pegava isso: 4 páginas sobre presença, 2 sobre\no canal WS, 2 sobre LWW, 2 sobre a fila, 2 sobre o atlas, 2 sobre permissões,\n2 sobre local-vs-remoto. É o modo de falha que o próprio wiki-schema.md nomeia\n(\"o agente é bom auditor e arriscado como autor solto\") e no qual eu caí depois\nde escrevê-lo. 7 clusters fundidos com instrução de SOMAR sem repetir, não\nescolher a melhor: cada versão tinha material que as outras não tinham.\n\nABSORVER — um agente por documento original (21) procurando o que ficaria de\nfora, com foco no gênero REFERÊNCIA, que páginas de conceito tendem a não\ncarregar e que não se deriva rápido do código: tabela de rotas, shape congelado,\ncódigo de erro, exemplo de payload, limite numérico. Achou 41 lacunas reais,\nconcentradas em snapshot/pull, autenticação, REST de atlas, deploy, config e\n360. Todas aplicadas antes da remoção — a preocupação se confirmou.\n\nRemovidos: docs/guias/ (17), arquitetura-sync, visao-e-principios, ui-ux-ebgeo,\nacoes-interface-multiusuario. 307 citações a eles nas seções \"Fontes\" viraram\nnota de origem histórica; 207 wikilinks foram redirecionados para as páginas\ncanônicas.\n\nResultado: 66 páginas, 9.773 linhas (contra 21 documentos e 12.835 linhas), sem\nperda de referência auditada. O git guarda os originais.\n\nUma página fundida vale destaque: presenca-colaborativa encontrou contradição\nREAL entre doc e código — arquitetura-sync afirmava \"tudo é keyed por clientId\",\nmas os frames do backend mandam userId na maioria dos casos, e é exatamente aí\nque o caminho quebra. Está marcado com [!CONTRADICAO] na página.\n\nVerificado: 7 checagens de integridade passando (caminho citado existe, link\nresolve, wikilink resolve, sem acento em slug, tetos de MEMORY.md e CLAUDE.md).",
+      "sha": "fe3cfd4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fe3cfd44c61c23e98a01ff8fd1666ea9451d3df1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:13:11.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(wiki): semeia 73 páginas a partir dos 21 documentos existentes\n\nWorkflow multi-agente: 6 agentes mapearam fatias temáticas dos guias e docs de\narquitetura, identificando entidades e conceitos que merecem página própria (uma\npor conceito, não uma por documento); um agente por página escreveu o conteúdo,\ncom instrução de conferir no CÓDIGO REAL e marcar [!CONTRADICAO] onde a\ndocumentação divergisse; um agente montou o índice por área.\n\nTrês defeitos na saída, corrigidos: um caminho de código errado\n(src/js/store-origin.js -> src/js/store/store-origin.js), um wikilink literal\nescrito em prosa no índice, e um link para página que não foi criada. O teste de\nintegridade pegou os três — foi para isso que ele existe.\n\nA wiki NÃO substitui os guias ainda. Antes de removê-los é preciso auditar\ncobertura: os originais misturam explicação (que a wiki absorve bem) com\nREFERÊNCIA (tabela de rotas, shape congelado, códigos de erro, exemplos de\npayload), e página de conceito tende a não carregar o segundo gênero.",
+      "sha": "b940288",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b9402889b41a1ffdcd91e905b3dc0ac33156305e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:07:19.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(wiki): schema de manutenção + índice provisório\n\nRegras perenes de como a wiki é mantida, separadas do diretório de páginas:\no que entra (domínio e arquitetura, nunca o que o código diz sozinho), tipos de\npágina (conceito/entidade/síntese), forma (slug ASCII, resumo de uma linha,\ncitar arquivo:linha), e a classificação de contradição antes de sobrescrever\n(contradição real vs supersessão temporal vs debate intencional).\n\nRegistra também o limite honesto do agente na wiki: bom AUDITOR (órfã,\nduplicata, contradição), arriscado como AUTOR solto — página gerada sem\nancoragem no código produz volume plausível e não verificado.\n\nO teste de integridade pegou três defeitos meus enquanto eu escrevia estes\npróprios arquivos: referência a docs/wiki/index.md antes de ele existir, e dois\nwikilinks escritos como EXEMPLO em prosa que o teste (corretamente) não\ndistingue de link real.",
+      "sha": "317da89",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/317da89888399615e31aa3f474bdb0d678c658f6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T19:05:48.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(memoria): instala a camada de memória do projeto\n\nAdapta a organização do vault chefe_dgeo (comprovada em operação) para\ndesenvolvimento de software. O que muda por ser software, e não gestão:\n\n- o princípio 2 (\"o laço se alimenta da realidade\") ganha três vozes concretas:\n  o CÓDIGO REAL (não a prosa que o descreve), o TESTE (não a intenção), e o\n  COMPORTAMENTO OBSERVADO (não o exit 0);\n- o princípio 5 (\"melhoria por seleção\") ganha gesto canônico: o CONTROLE\n  NEGATIVO — reverter o fix e confirmar que o teste falha;\n- o princípio 1 (\"competência só compõe se codificada\") ganha ordem de\n  preferência: teste de regressão > regra > learning > página.\n\nArquivos:\n- docs/doutrina.md — os seis princípios, texto integral, traduzidos;\n- MEMORY.md — fatos duráveis do sistema, com separação explícita FATO vs ESTADO\n  (estado apodrece em dias e envenena decisão futura, porque o agente não\n  distingue crença desatualizada de contexto legítimo);\n- livro-razao.md — espelho das CORREÇÕES, com gate \"onde a lição foi\n  codificada?\" e 6 eventos reais desta sessão já registrados;\n- docs/decisions/ — log de decisões com gatilho estreito, as duas primeiras\n  entradas (monorepo por subtree; documentação concentrada + memória);\n- .claude/skills/_DOUTRINA.md e .claude/skills/retrospectiva/ — a retrospectiva\n  emite DELTAS revisáveis, nunca reescreve MEMORY.md (consolidação por reescrita\n  degrada a memória a cada rodada, e a degradação é invisível porque o resultado\n  sempre parece mais limpo);\n- tests/unit/docs-integridade.test.js — a documentação passa a ser verificada\n  por teste: caminho citado existe, link resolve, wikilink resolve para página\n  existente, MEMORY.md e CLAUDE.md cabem nos tetos que o Claude Code carrega.\n\nO teste nasceu de um defeito real desta sessão: o doc que se dizia \"referência\núnica\" documentava permissão de 3 níveis quando o CHECK tem 5, e foi esse modelo\nmental que silenciou a seleção do co-Gestor. Nenhum teste pegava.",
+      "sha": "e5194d3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e5194d33a92e755600b3067533680276a1b9da27",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:55:48.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: concentra a documentação em docs/\n\nOs 17 guias de integração saem de backend/docs/implementado/ para docs/guias/, e\no deploy vai para docs/deploy.md. A documentação do monorepo passa a ter UMA casa\nem vez de duas, o que era resquício de quando eram dois repositórios.\n\nPrepara também a estrutura da camada de memória: docs/wiki/ e docs/decisions/.\n\n38 links relativos foram reescritos (backend/README.md, backend/CLAUDE.md e os\npróprios guias). Verificado: 0 links markdown quebrados no repositório.",
+      "sha": "4a18802",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a188022d3d712bba015cbf008cedec3089b65c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:47:32.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(config): backend passa a expressar fontes raster-dem por TEMPLATE\n\nComparação do `/api/config` servido contra um config.js REAL de produção\n(pré-backend) revelou que o backend não conseguia expressar o shape que o deploy\nde verdade usa.\n\nO frontend repassa `map2d.terrainSource` VERBATIM para `map.addSource()`, e o\nMapLibre aceita duas formas NÃO intercambiáveis:\n  TileJSON  { url: 'https://…/tiles.json' }\n  template  { tiles: ['https://…/{z}/{x}/{y}'], minzoom, maxzoom }\nSó a primeira era emitida. O deploy real usa a segunda\n(`/cms/martin/fathom_terrain/{z}/{x}/{y}`, minzoom 0, maxzoom 12), então migrá-lo\npara a config vinda do backend quebraria terreno e hillshade — a URL iria parar\nem `url:` e o MapLibre não a resolveria. A presença de `{z}` distingue as duas;\nnovas envs TERRAIN_/HILLSHADE_MINZOOM/MAXZOOM completam a forma de template.\n\nTambém nesta leva, ambos vindos da mesma comparação:\n\n- MAP3D_TERRAIN_URL sai do default `http://localhost/terrain/tilesets/terrain`\n  (absoluto, sem porta, inexistente) para VAZIO, e `terrain.enabled` passa a ser\n  derivado da presença da URL. Antes era fixo em `true`, então toda instalação\n  sem essa env pedia ao Cesium um provider inalcançável. Produção configura o\n  valor (relativo: /cms/terrain-cesium/), então lá nada muda.\n- CORS_ORIGIN default corrigido de `http://localhost:8080` (a porta do PRÓPRIO\n  backend — uma origem que nunca faz requisição cross-origin) para `:3000`, a do\n  frontend, alinhando com o .env.example.\n\nVerificado: template e TileJSON emitem shapes distintos e corretos; backend 1265\ntestes; lint limpo.",
+      "sha": "dacce1f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dacce1ff7e7509221ba6e13efe4c2427f3c54c13",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:35:56.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(config): SV360_SERVICE_URL passa a ter default RELATIVO\n\nMesmo defeito do SEARCH_API_URL, um nível mais sutil: o sv360 é um módulo DESTE\nbackend (montado em /api/v1/sv360 no app.js), mas o default era a URL ABSOLUTA\n`http://localhost:3000/api/v1/sv360`. Note a porta: 3000 é o VITE, não o backend\n(8080). Funcionava por acidente — o Vite faz proxy de /api para cá — e num deploy\nreal ou era configurado à mão ou o browser chamava o próprio host.\n\nPassa a `/api/v1/sv360`, o mesmo padrão que ASSETS_3D_BASE_URL já usava\ncorretamente. A env var permanece, para o caso de o 360 ser servido de outra\norigem. O template de tiles MVT herda o valor, então também vira relativo.\n\nVerificado no ambiente real: /api/config publica serviceUrl e tiles relativos, e\ntanto /api/v1/sv360/projects quanto /api/v1/nomes/busca respondem 200 pelo proxy\ndo Vite (o caminho que o browser usa).\n\nbackend 1265 testes; lint limpo.",
+      "sha": "4a7ea63",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a7ea637c581eaeaeb6ef3c87faf1fc8851bb812",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:25:55.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(search): remove SEARCH_API_URL — o gazetteer É este backend\n\nA busca de topônimos é servida por `GET /api/v1/nomes/busca` deste mesmo\nbackend, mas havia um `SEARCH_API_URL` configurável cujo default apontava para\n`http://localhost:3001/busca` — um serviço que nunca existiu. O frontend fazia\nfetch ABSOLUTO nessa URL, dava ERR_CONNECTION_REFUSED, e como os dois call sites\ntoleram erro (try/catch e agregador de providers), a busca simplesmente nunca\nretornava nada, em silêncio, em todo ambiente de dev.\n\nBackend:\n- `SEARCH_API_URL` / `searchApiUrl` removidos de config.js e .env.example;\n- `config.service.js` mantém a chave `search` (faz parte do shape CONGELADO)\n  mas VAZIA — sem `apiUrl`;\n- `config.admin.schemas.js` deixa de aceitar `search.apiUrl`.\n\nFrontend:\n- novo `search/gazetteer-url.js` deriva a rota de `resolveBackendBaseUrl()`, a\n  mesma base que o resto da API usa — funciona no dev (proxy `/api` do Vite),\n  em produção (mesma origem) e no E2E (que injeta `__EBGEO_BACKEND_URL__`);\n- `search-bar.search-providers.js` e `feature-search.control.js` passam a usá-la;\n- o gate de `search-bar.component.js` não exige mais `config.search.apiUrl`;\n  ligar/desligar continua sendo `features.apisearch`;\n- painel admin perde o campo \"API de busca (URL)\" (o toggle permanece).\n\nTambém remove o proxy `/busca` do vite.config.js, que apontava para o PRÓPRIO\nVite (localhost:3000) — auto-proxy sem guarda de recursão.\n\nDocs atualizados: deploy.md, 10-config.md, 13-nomes-geograficos.md, README.\n\nVerificado no ambiente real: `/api/config` publica `search: {}`; a busca\nresponde 200 pelo proxy do Vite (caminho do browser) e 422 para q < 3 chars.\nlint limpo nos dois; frontend 2401 testes; backend 1265 testes.",
+      "sha": "4d36ede",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4d36edece451479ba078d6de3aeae506fa5c5a70",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:12:29.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: elimina a conflação \"offline\" × \"anônimo\" em todo o repositório\n\nA revisão multi-agente levantou 12 achados de documentação com UMA causa raiz:\nos docs afirmam que o app \"funciona 100% sem backend\", mas `src/js/index.js`\nimplementa boot FAIL-FAST — 3 tentativas de GET /api/config e, sem resposta,\nshowUnavailableScreen() e return, antes de initServices() e do mapa. O\n`src/js/config.js` é um shell sem dado de deploy; não existe fallback estático.\n\nA distinção correta, aplicada em todos os arquivos:\n - caminho ANÔNIMO (sem login, backend no ar) — funciona, e continua sendo\n   cláusula normativa que nenhuma mudança pode quebrar;\n - caminho OFFLINE (sem backend algum) — não existe mais.\n\nTrês eram descrições factualmente ERRADAS que induziam a escrever código morto:\n - 10-config.md mandava \"sempre tenha um fallback: o config.js local cobre o\n   backend fora do ar\" — o fallback não existe;\n - visao-e-principios.md dizia \"à prova de falha: backend fora ⇒ segue no config\n   estático\" — o oposto exato do código;\n - 11-seguranca-hardening.md prescrevia usar GET /health no boot para escolher\n   online/offline — o frontend não chama /health em lugar nenhum (grep = 0).\n\nO Invariante 1 foi DELIMITADO, não apagado: \"nunca torne o servidor pré-requisito\nde uma ação de edição que hoje funciona localmente — exceção única e deliberada:\no bootstrap de config\". Apagá-lo perderia a regra que ainda vale; deixá-lo como\nestava mantinha uma afirmação falsa colada nela.\n\nArquivos: CLAUDE.md, README.md, .claude/rules/architecture.md,\ndocs/{visao-e-principios,arquitetura-sync,ui-ux-ebgeo}.md, backend/CLAUDE.md,\nbackend/README.md, backend/docs/implementado/{00,08,10,11}.\n\nlint limpo; frontend 2401 testes; nenhum link markdown quebrado.",
+      "sha": "8092039",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8092039493f4f82d749dda6a5bd1fcc8ea31a747",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T18:10:05.000Z",
+      "author": "Maj Diniz",
+      "message": "recuperacao do GAP: lote F1+F2 rodado (849 fotos) + cache/anchors + helper\n\nMotor g6 rodado no acervo: 849 fotos digitalizadas sem footprint recuperadas\n(701 OK confiavel=1, 91 fraca, 57 so-seed confiavel=0). grade_MALHA_v2.gpkg =\n6817 malha + 849 (colunas origem/qa/confiavel). Cobertura 78,4% -> 88,2%.\n\n- g6a: cache de features compartilhado com a malha (rodadas 2-3 instantaneas) +\n  ancoras parametrizaveis (GAP_ANCHORS) p/ o loop-until-dry crescer o conjunto.\n- g6_anchors.py (novo): init/append/merge do lote; append promove as OK a ancora\n  e acumula recovered_all; merge monta grade_MALHA_v2 com confiavel=1 so p/ qa=ok.\n- Loop convergiu 547->109->45 ancoras OK/rodada. Driver-por-CSV cobre a CAT1\n  (96%); CAT3 nao-catalogada e F3 (folhas orfas) a seguir.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "ac1d02e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ac1d02e0e7a14198b6ba26e933718a67bc72ed95",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:09:33.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: remove v20.md, artefato baixado por um agente da revisão\n\nO CHANGELOG_V20.md do Node foi baixado para verificar em que versão o flag\n--env-file-if-exists entrou; entrou no commit anterior sem querer.",
+      "sha": "d11b582",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d11b58282b5f6b7ce2b20dca178adcc3e5a0e010",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T18:09:25.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: corrige achados da revisão multi-agente (a maioria, regressões minhas)\n\nRevisão em 5 frentes com verificação adversarial por achado: 59 levantados,\n42 confirmados. A maior parte são defeitos que EU introduzi nesta sessão.\n\nP0 — esgotamento de pool (o mais grave, meu):\n`pushOperations` tomava o advisory lock por atlas DEPOIS de abrir a transação,\nou seja, segurando uma conexão do pool durante toda a espera — e sem timeout.\nPior: o dispatcher WS chamava handleOperation SEM await, então um único cliente\nem rajada abria N pushes concorrentes. Com poolMax=10, dez pushes no mesmo atlas\ntravavam o processo inteiro, inclusive /auth/login e o /health (que usa o mesmo\npool e ficaria pendurado na fila em vez de responder 503).\n - `SET LOCAL lock_timeout = '5s'` antes de esperar; 55P03 vira 503 retentável\n   (novo ServiceUnavailableError).\n - mensagens de um socket agora processadas EM SÉRIE (promise encadeada), e\n   handleMessage passa a aguardar operation/operations/sync_request.\n\nP0 — a reconciliação viva (P1) não alcançava o WebSocket (buraco no meu fix):\n`reconcileAuthorization` só chamava orgIsActive. Um socket JÁ ABERTO sobrevivia\nà desativação da conta indefinidamente (deleteUser revoga só o refresh token), e\n`resolvePermission` devolvia 'owner' em qualquer atlas a partir do papel do\nTOKEN — admin rebaixado mantinha acesso total. Agora usa getLiveAuthState:\nis_active=false → 4003, org inativa → 4003, e o papel global vem do banco.\n+3 testes (conta desativada, admin rebaixado, e o caso de org corrigido: a org\nvem do BANCO, não do claim do socket).\n\nP0 — lock de sessão do sv360 podia vazar para o pool (meu):\no unlock só era logado em erro e o retorno nunca era inspecionado. Se falhasse\nsem derrubar a conexão, ela voltava ao pool COM o lock preso e o slug ficava\ntravado para sempre. Agora inspeciona o retorno e, no pior caso, chama\npg_advisory_unlock_all().\n\nP0 — evict do pool SQLite contado em dobro (meu):\num worker que ackava e depois morria era contado duas vezes (ack + _replaceWorker),\ne evict() resolvia com outro worker ainda segurando o handle — justo antes de um\nrename atômico. Contador virou Set de workers pendentes (idempotente).\n\nP1 — ambiente de dev (todos meus, do commit anterior):\n - `--env-file-if-exists` só existe a partir do Node 20.19.0, não 20.12: engines\n   subiu. A faixa 20.12–20.18.3 abortava com \"bad option\", exit 9.\n - dev-db.js derivava a URL de superusuário por regex `/postgres$`, que vira\n   no-op com query string ou /template1 — aplicando ALTER/CREATE EXTENSION no\n   banco ERRADO. Agora usa new URL() preservando query params.\n - dev-db.js ignorava DATABASE_URL (a fonte única que config.js exige), podendo\n   provisionar um banco e as migrações irem para outro. Agora deriva dela.\n - identificadores SQL por interpolação em 7 sites → pgp.as.name.\n\nP4 — .gitignore da raiz sombreava backend/package-lock.json (regra não ancorada).\nInerte hoje (arquivo rastreado), mas `git add backend/` o ignoraria em SILÊNCIO\ne o `npm ci` do Dockerfile quebraria. Negação explícita adicionada.\n\nlint limpo nos dois pacotes; backend 1265 testes, 0 falhas.",
+      "sha": "93d205b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93d205b26883d7dca6263866367cc7dbbc36359d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T17:41:13.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(backend): ação `recreate` no dev-db para schema defasado\n\nAs migrações são rastreadas por NOME DE ARQUIVO, não por conteúdo. Quando\n001–005 foram consolidadas/reescritas no lugar (pré-release), todo banco criado\nantes disso ficou preso no schema antigo — com o runner reportando alegremente\n\"already applied\". O sintoma é uma tabela que some do nada: o banco de dev tinha\n`resources` (antigo) e não `basemaps`, então GET /api/config respondia 500 e,\ncomo o boot do frontend é fail-fast, o app não subia.\n\n`node scripts/dev-db.js recreate` derruba conexões, dropa e recria com o dono\ncorreto. Só faz sentido em DEV — em produção um schema defasado se resolve com\nmigração nova (forward-only), nunca com drop.\n\nCorrige também um `none` num SELECT (pg_terminate_backend retorna uma linha por\nconexão derrubada) — mesmo erro que já havia aparecido no lock de sync e no de\nmigração.",
+      "sha": "0d074c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0d074c62a12f2c651e763f06631329c3c09e55b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T17:35:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(backend): torna o ambiente de dev levantável\n\nTrês defeitos impediam subir o backend em dev, encontrados ao testar de verdade:\n\n1. .env.example tinha a topologia INVERTIDA — PORT=3000 (a porta do Vite) e\n   CORS_ORIGIN=http://localhost:8080. O vite.config.js faz proxy de /api para\n   :8080 e serve o app em :3000, ou seja, exatamente o contrário. Quem seguisse o\n   exemplo subia o backend na porta do Vite e o proxy apontava para o vazio — e o\n   boot do frontend é FAIL-FAST em GET /api/config, então o app caía na tela\n   \"EBGeo indisponível\" sem pista da causa. Corrigido e documentado no arquivo.\n\n2. O backend NUNCA carregou .env — não há dotenv, ele lê process.env direto. Os\n   testes funcionam porque o runner injeta as variáveis e o Docker passa por env,\n   mas `npm run dev` a partir de um .env nunca funcionou, apesar de o .env.example\n   mandar copiá-lo. start/dev/db:migrate/db:seed passam a usar\n   --env-file-if-exists=.env (Node 20.12+, já usado em test:quick), que carrega em\n   dev e é no-op em prod. engines: >=20.12.0.\n\n3. Não havia provisionamento do banco de DEV. No Postgres 15+ só o dono do banco\n   cria no schema public; o runner de testes acerta isso por acidente (cria o\n   ebgeo_test conectado COMO o papel da aplicação, que vira dono), mas um banco de\n   dev criado pelo postgres fica com dono errado e db:migrate falha com\n   \"permissão negada para esquema public\". Novo scripts/dev-db.js (npm run\n   db:setup) espelha o caminho de teste: cria o banco com o dono certo, ajusta o\n   dono do schema, reatribui objetos pré-existentes (NÃO-DESTRUTIVO — só troca\n   dono) e pré-cria as extensões espaciais com superusuário.\n\nVerificado no ambiente real: db:setup ajustou 27 objetos sem perder dados\n(2 usuários e 1 atlas preservados) e o backend responde 200 em /api/v1/health.\nlint limpo nos dois pacotes; backend 1263 testes passando.",
+      "sha": "685c222",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/685c222939e43e3badd02f8e736de9bf617d5969",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T17:21:38.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: unifica a documentação em torno do monorepo\n\nREADME e CLAUDE.md da raiz passam a descrever os dois pacotes (web na raiz,\nbackend em backend/) em vez de tratar o servidor como repositório separado, com\nos comandos de monorepo (install:all, dev:all, test:all, lint:all) documentados\nao lado dos que rodam só o frontend — e a nota de que só o backend exige\nPostgreSQL/PostGIS.\n\nCLAUDE.md da raiz aponta para backend/CLAUDE.md (que continua sendo o contrato de\ncomportamento de quem mexe no servidor) e registra que mudança cruzando os dois\npacotes deve ser verificada dos dois lados no mesmo commit — o que o monorepo\npassou a permitir, com o E2E como guarda da fronteira.\n\nCorrige 4 referências de caminho que o monorepo quebrou:\n- backend/CLAUDE.md apontava para ebgeo_web/docs/proposta-observabilidade-sync.md,\n  arquivo que NÃO EXISTE (referência já estava quebrada) → docs/arquitetura-sync.md\n- docs/visao-e-principios.md → backend/README.md\n- docs/arquitetura-sync.md (2×) → src/js/store/sync/ e backend/src/\n\nVerificado: lint limpo; varredura de links markdown relativos sem quebras.",
+      "sha": "4bba6a0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4bba6a017898e3cfff73645478283a32e65741cd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T17:19:29.000Z",
+      "author": "Maj Diniz",
+      "message": "chore(monorepo): integra o backend e unifica boot, lint e testes\n\nO backend passa a viver em backend/ (histórico preservado via git subtree, os 44\ncommits continuam alcançáveis — mantêm os caminhos originais, então use\n'git log --all -- src/...' ou o SHA; --follow não atravessa o enxerto).\n\nDestrava o E2E: tests/e2e-ui/constants.js e tests/e2e/global-setup.js fixavam\n'C:/Users/diniz/OneDrive/Desktop/Desenvolvimento/ebgeo_backend' — caminho\nabsoluto da máquina de um dev. Na prática as 108 specs de Playwright e o e2e do\nvitest só rodavam ali, e nunca em CI. Agora resolvem backend/ a partir do próprio\nrepo, com EBGEO_BACKEND_DIR como override. Verificado: browser-collab-mega passa.\n\nScripts de raiz para levantar/validar tudo de um lugar:\n  install:all · dev:backend · dev:all (concurrently) · test:backend · test:all\n  lint:backend · lint:all\n\neslint da raiz passa a ignorar backend/ (tem config própria).\n\nVerificado: lint limpo nos dois · frontend 2401 testes · backend 1263 testes ·\nbrowser-collab-mega verde.",
+      "sha": "7c55026",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7c5502673f1f8e92b99246c70e9663c6b4efa5bf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T17:12:00.000Z",
+      "author": "Maj Diniz",
+      "message": "Add 'backend/' from commit '9e7d11d3749ecc5ce49523aad18ea4dca97aae4a'\n\ngit-subtree-dir: backend\ngit-subtree-mainline: 0c851f7e61dd495ba8c388607ed308f475b59558\ngit-subtree-split: 9e7d11d3749ecc5ce49523aad18ea4dca97aae4a",
+      "sha": "e30622c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e30622cc66b98d92037ee393316939442f0948e0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T17:11:51.000Z",
+      "author": "Maj Diniz",
+      "message": "test: usa domínio de exemplo em vez do hostname de produção\n\nO fixture de CORS_ORIGIN fixava https://ebgeo.eb.mil.br. Um teste não deve\ndepender do hostname real de produção, e o backend passa a viver num repositório\npúblico — troca pelo placeholder ebgeo.example.mil.br já usado no restante do\ncódigo.",
+      "sha": "9e7d11d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/9e7d11d3749ecc5ce49523aad18ea4dca97aae4a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T17:03:57.000Z",
+      "author": "Maj Diniz",
+      "message": "motor de recuperacao do GAP (g6a/g6b) validado no piloto 2959\n\ng6a_gap_ties.py (cv2) + g6b_gap_solve.py (scipy): recupera fotos digitalizadas\nsem footprint inserindo-as na malha como nos novos, com as posicionadas FIXAS.\n\n- gap real = foto do CSV presente no disco (exp_path) e nao posicionada (o flag\n  escaneada do CSV e stale). Exposicao unica+sequencial substitui o catalogo.\n- seed pela estrutura: regressao 1D pos(exp)=a*exp+b na reta da faixa.\n- ties SIFT along-track (mesma faixa) + CROSS-STRIP (placed vizinho de faixa\n  diferente) -> ancora o run. Na 2959: ties gap<->placed 9->77, OK 7->27.\n- solve: posicionadas fixas, so o gap e incognita; sparse lsqr + Huber; QA por\n  foto (inserida/fraca/estimada).\n\nPiloto 2959: 41 gap -> 27 OK + 14 fraca + 0 so-seed, fileiras coerentes.\nMetodo no learnings (Rodada 10).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "f7ed91f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f7ed91f25b5cb12a4b62e7e3b06bf161145900fa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T16:54:55.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: remove contagens de teste dos guias\n\nAs contagens envelhecem sozinhas — foi assim que surgiram os dois números\ndivergentes (1159 e 1140) encontrados na revisão. O comando continua descrito;\nquem quiser o número roda 'npm test'.",
+      "sha": "b892d30",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/b892d3071ff517db4c6390047628c4665cea5e2f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T16:41:27.000Z",
+      "author": "Maj Diniz",
+      "message": "plano de recuperacao do GAP de fotos AST-10 (aprovado) + registro da malha global\n\nGAP medido: 1874 fotos digitalizadas sem footprint (21,6%). CAT1 882 (folha tem\ngrade), CAT2 165 (folha sem grade), CAT3 827 (nao catalogada). Por estrutura:\n828 inseriveis diretas, 1039 em runs, 7 sozinhas.\n\nPlano aprovado (a malha e o motor; semeia pela sequencia de exposicao, resolve\nCAT3 sem catalogo): F1 insercao direta -> F2 runs/faixas (ancora cross-strip) ->\nF3 georref das folhas orfas pelas cruzetas -> F4 residuo marcado. Piloto 2938/2937.\nRegistrado em PROJECT.md + DECISIONS 2026-07-18.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "c4b284a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c4b284a59136cc27e34ade2d75080ed4f90840e3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_backend",
+      "date": "2026-07-18T16:40:34.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: corrige o vocabulário de permissões, consolida pendências no README e remove o 99\n\nO 99-pendencias-e-desvios.md se anunciava como a referência única para quem\nintegra, mas documentava a permissão por atlas como owner/write/read — três\nníveis. O real são CINCO (CHECK: read|comment|write|manage + owner sintetizado).\nAs palavras 'manage' e 'comment' não apareciam uma única vez no arquivo. Essa é\na mesma lacuna mental que silenciou a seleção do co-Gestor (handleSelection com\n!== 'owner' && !== 'write'): quem implementasse um gate lendo o doc reproduzia\no bug. O mesmo erro estava no README (hierarquia, diagrama de resolução, matriz\nde rotas), em 02-atlas-basico (matriz de permissões) e na mensagem WS connected.\n\nCorrigido em todos os pontos, com a hierarquia explicitada e um aviso contra\nlistas fechadas de permissão — inclusive no CLAUDE.md, que é o contrato de\ncomportamento de quem escreve o código.\n\nOutras correções de fato:\n- 'locked é advisory, o sync nunca bloqueia escrita' estava em 04-websocket e no\n  README; o lock de MAPA é imposto (409) desde jun/2026. Só camada/grupo/feição\n  individual seguem advisory.\n- Rotas de sharing exigem 'manage' (não owner); push de sync é gateado em\n  'comment' (não write), com imposição por op — ambos estavam errados na tabela.\n- validateEnvVariables descrito como validando 4 variáveis; hoje são 20+ knobs\n  numéricos e as durações JWT (só as URLs de serviço seguem sem fail-fast).\n- Citava um middleware 'authorize' que nunca existiu neste código.\n- Contagens de teste obsoletas e divergentes entre si (1159/1140 → 1263/126).\n\nO 99 foi removido. Antes disso, seu conteúdo vivo foi migrado:\n- follow-ups abertos (single-instance, admin de acesso 3D/grupos, auditoria\n  parcial, URLs sem fail-fast, índice GIN) → README 'Gaps Conhecidos';\n- comportamentos intencionais (LWW por ordem de chegada, 360 sem broadcast,\n  remetente HTTP no próprio broadcast, hard-delete de projeto 360, janela de\n  crash da ingestão) → nova tabela no README;\n- rotas 360 inexistentes (nearby/metadata/position) → 16-streetview-360;\n- avisos que só interessam a quem edita o código (truncateCoords não é dead\n  code; o predicado de acesso do catálogo é duplicado em dois CTEs) → comentário\n  no PRÓPRIO código, onde não se perdem.\n\n44% do 99 era changelog datado; o histórico dos fixes vive no git, nos testes de\nregressão e no código.\n\nnpm run lint limpo; npm test 1263 passam, 0 falhas; nenhum link markdown quebrado.",
+      "sha": "5042439",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/504243917604d9cc488766f7dc03fc423ede532c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-18T16:32:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Export: filtro --foco, desvio aux_revisao e caminho MGCP TRD 4.6\n\nTrabalho pendente na arvore de sessao anterior, versionado como estava.\n\n- exportar_edgv --foco: recorta a exportacao pela camada foco_molduras\n  (area de interesse), com --foco-apenas-mi / --foco-excluir-mi para\n  separar sub-conjuntos (ex.: molduras BR excluindo o bloco MGCP, ou so\n  o MGCP). feicoes e foco_molduras estao ambas em 4674, ST_Intersects\n  direto.\n\n- exportar_edgv, desvio aux_revisao: feicao sem local confirmado\n  (confianca muito_baixa, ou metodo_geo centroide/centroide_municipio)\n  deixa de entrar na classe EDGV autoritativa como se tivesse sido\n  levantada, e vai para aux_revisao_{p,l,a} com a classe pretendida\n  registrada na justificativa. O operador reambula/geocodifica e promove.\n\n- exportar_trd46 + geoswarm_trd46_subcategorias: caminho de exportacao\n  para o modelo MGCP TRD 4.6 (bloco MGCP-W058N06), espelhando\n  edgv_subcategorias.py. Escopo deliberadamente restrito as 56\n  (categoria, subcategoria) que ocorrem no bloco -- o resto do acervo vai\n  para EDGV Topo 2.0, nao para TRD46. Modelagem do TRD46 difere do EDGV:\n  edificacao nao tem classe por tipo, e uma classe generica al015 com o\n  uso no atributo FFN. 7 das 56 entradas marcadas FLAG (sem classe MGCP\n  exata, pedem confirmacao do operador).\n\nVerificado: py_compile dos 3, import do crosswalk (56 entradas, 7 FLAG),\ne dry-run de exportar_edgv --foco (roda, 4.668 feicoes no foco).\nNAO verificado: insercao real em banco EDGV e o export TRD46 ponta a\nponta (exige o banco trd46_mgcp). O dry-run reporta aux_revisao=0 por\nconstrucao -- o desvio exige conexao EDGV (tabelas_edgv is None no\ndry-run); no foco ha 26 feicoes que seriam desviadas.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MHkKARZJyzvP3jbJRzBcaU",
+      "sha": "8038ce8",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/8038ce8808fc38aea1ab54b042e5a8e2ae8ee96e",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-18T16:30:59.000Z",
+      "author": "Maj Diniz",
+      "message": "Conserta join SRID (bug latente) e crosswalk de QIDs do Wikidata\n\nSondagem da Wikipedia como insumo de energia (C08) revelou dois bugs.\n\n- inserir_feicoes._batch_spatial_join: o commit 29568db removeu o\n  ST_Transform justificando que limites e feicoes estao todos em 4674\n  \"ver criar_banco.sql\". O banco REAL tem paises/estados/municipios em\n  4326 (geometry_columns) e feicoes em 4674 -- o ST_Intersects abortava\n  com \"mixed SRID geometries\" em TODA insercao que resolvesse\n  municipio_gid. Latente: nenhuma insercao rodou depois daquele commit,\n  entao quebraria a proxima coleta. Agora le ST_SRID(municipios) do\n  banco uma vez e transforma o lado da feicao (preserva o GIST, funciona\n  nas duas hipoteses). Testado: join volta a rodar, 404 nulos restantes\n  sao todos genuinamente fora da malha (offshore).\n\n- conflacao_wikidata: 7 dos 34 QIDs apontavam para entidades erradas --\n  Q53706 (\"roubo\") como Heliporto, Q1442020 (esquiador suico) como\n  Terminal Rodoviario, Q188860 (\"biblioteca\" de software) e Q1353170\n  (desambiguacao) como Termica, Q786014 (\"area de descanso\") como PCH,\n  Q15911738 (hidreletrica) como Solar, Q1329623 (centro cultural) como\n  Crematorio. Bloco C08 reconstruido a partir dos P31 reais de itens BR;\n  Centro Cultural e Crematorio corrigidos; +Mirante, +subclasses de\n  aeroporto/porto. Mesmo bug de SRID no join de UF deixava todas as\n  feicoes com uf=\"\" (except engolia o erro).\n\n- Guarda: conflacao_wikidata.py --validar-qids confere rotulo real e\n  contagem no pais. QID errado nao gera erro -- essa e a armadilha.\n\nDry-run C08: 288 feicoes, 0 sem fonte_url/coordenada/id_externo,\n0 fora do bbox BR. Nao inserido no banco.\n\nRetrospectiva: cura os candidatos de 07-17 (coletor-municipal,\nregeocodificador), wiki/fontes/wikidata.md com a cobertura medida\n(Wikipedia e ponto cego em subestacao/linha -- isso esta no SIGEL e no\nOSM), gazetteer e desambiguacao de NDC em wiki/ufs/guyana.md, 2 eventos\nno livro-razao.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MHkKARZJyzvP3jbJRzBcaU",
+      "sha": "9ba2207",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/9ba2207f7f21dfbc1cfeaa324edeab809e189e20",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T16:29:44.000Z",
+      "author": "Maj Diniz",
+      "message": "malha global AST-10: solver esparso + ancora distribuida + portao de confiabilidade\n\nRodado o pipeline de malha (g5_ties + g5b_malha) no acervo inteiro: 182 folhas,\n6817 fotos unicas, 16771 ties (2306 inter-bloco), 39 blocos conexos. 4 blocos\nrefinados (93,4% das fotos), 35 mantidos no georef de entrada.\n\n- g5b: relativo por solver ESPARSO (scipy lsqr, escala p/ blocos de milhares);\n  absoluto por similaridade com escala grampeada [0.90,1.10] + rotacao grampeada.\n- ANCORA DISTRIBUIDA por foto no grid inicial (absoluto considerando o bloco\n  todo): consertou a deriva das pontas do b0 (desloc medio 5931->1917 m, >20km\n  17->0), sem tocar o encaixe dos ties (residuo no piso).\n- PORTAO de confiabilidade: so refina bloco N>=40 E residuo<=600; fracos mantem\n  a grade inicial (cruzetas). Litorais diagonais (b4-b7) sao faixas reais.\n- g5_ties: memoria-consciente (so pontos SIFT, solta imagem, NFEAT capado) +\n  cache de features em disco (restart resume). Rodar destacado (Start-Process).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "b9b26cb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b9b26cb5757c34e93c18e97bbf8174a1cd106b65",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-18T15:41:10.000Z",
       "author": "Maj Diniz",
       "message": "fix(backend): corrige os achados de baixo impacto L1–L13 da varredura\n\nL1  sync.schemas: timestamp/clientId required(), casando com as colunas NOT NULL\n    (op malformada → 422 em vez de 500). Verificado antes no frontend que\n    operation-factory popula ambos para todo tipo de entidade.\nL2  collab.gateway: maxPayload explícito (10 MB). O default do ws é 100 MiB,\n    bufferizado antes de qualquer validação.\nL3  sync: o ack carrega o entityId como gravado e o controller o estampa no\n    broadcast — ops de nível-atlas chegavam com o sentinela 'atlas' via WS e com\n    o UUID via pull. Verificado no frontend que SETTING roteia por entityType.\nL4  verifyEmail: transação com claim atômico (UPDATE ... WHERE consumed_at IS\n    NULL RETURNING); token expirado faz rollback do claim.\nL5  cookieOptions().maxAge derivado de JWT_ACCESS_EXPIRY (novo utils/duration.js,\n    extraído de auth.service). O 15 min hardcoded dessincronizava do configurável.\nL6  migrate: pg_advisory_lock de sessão — runners concorrentes esperam em vez de\n    aplicar o mesmo arquivo duas vezes.\nL7  optional-auth REMOVIDO (dead code; zero call sites, superado por flexibleAuth).\nL8  updateCalibration em transação: foto com tombstone não persiste mais o UPDATE\n    antes do 404 (agora casa com o caminho batch).\nL9  sv360 orgId aceita qualquer versão de uuid — a org default não é v4, então a\n    regra v4-only rejeitava o valor mais provável.\nL10 GET_PHOTO_BY_NAME desempata pela org do chamador antes de status.\nL11 sv360-error mapeia 23505/23503 → 409 (viravam 500 no handler de rota).\nL12 catalog: getCatalogItem/updateCatalogItem filtram active=true. A segunda\n    metade do achado NÃO procedia — description é limpável via '', e a assimetria\n    null-vs-vazio é deliberada (fixada por images-gaps res-02); COALESCE mantido.\nL13 (cobertura) 10 testes para a transferência de posse de atlas, que não tinha\n    nenhum. Nenhum defeito encontrado — a rota já estava correta.\n\nLimitações registradas: o caso HTTP concorrente do L4 não interleava de forma\nconfiável (o guarda real é o teste de atomicidade do claim com duas conexões); o\nteste do L5 não distingue fix de bug com JWT_ACCESS_EXPIRY no default de 15m.\n\nnpm run lint limpo; npm test 1263 passam, 0 falhas.",
       "sha": "3662ccd",
-      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/3662ccd6cd145a3704412572d0600783d4fc8933",
-      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3662ccd6cd145a3704412572d0600783d4fc8933",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
-      "repo": "1cgeo/ebgeo_backend",
+      "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-18T14:50:55.000Z",
       "author": "Maj Diniz",
       "message": "fix(backend): corrige P3–P8 (concorrência, shutdown, pool, cache, config, presença)\n\nP3 — ingestão sv360 concorrente do mesmo (orgId, slug) não era serializada; o\nswap de arquivo roda ANTES da tx, então um lock de transação chegaria tarde\ndemais. Advisory lock de SESSÃO numa conexão dedicada (task()) cobre swap + tx,\nliberado em finally e pelo Postgres se a conexão cair.\n\nP4 — shutdown não fechava o WebSocketServer; com socket collab aberto (longa\nduração por design) o callback de server.close() nunca disparava e blobPool/\npgp.end/exit eram pulados, travando até SIGKILL. closeAllSockets() fecha com\n1001 going-away antes do server.close(), com force-exit de 10s.\n\nP5 — worker morto no pool SQLite continuava na rotação: ~1/N das leituras iam\npara uma thread onde postMessage é no-op, deixando promises pendentes para\nsempre; e o handler rejeitava os pendings dos workers saudáveis. Agora cada\nrequest registra seu worker; só os dele falham, ele é substituído, e um evict em\nvoo não fica pendurado.\n\nP6 — imagem/thumbnail sv360 saíam com Cache-Control: public incondicionalmente;\num proxy podia reentregar a resposta de um projeto 'disabled' a um anônimo.\nO escopo do cache passa a seguir o de acesso (enabled=public, disabled=private +\nVary). A regra de acesso não mudou.\n\nP7 — envs numéricas viravam NaN silencioso (MAX_BULK_UPLOAD_MB=abc → sem limite\nde corpo; WS_HEARTBEAT_INTERVAL_MS=abc → setInterval ~1ms; JWT_REFRESH_EXPIRY=1w\n→ todo refresh nasce expirado). Validação fail-fast de 17 inteiros + gramática\n[smhd] das durações.\n\nP8 — user_left era anunciado mesmo com o usuário ainda online em outra aba.\nSó anuncia no último socket do usuário na sala.\n\n26 testes novos. Controle negativo: revertendo os fixes, apenas os testes\ncorrespondentes falham. Também adiciona data/sv360/ ao .gitignore (resíduos de\nteste, gap pré-existente).\n\nnpm run lint limpo; npm test 1239 passam, 0 falhas.",
       "sha": "f849115",
-      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/f849115dca7f4bf5920318859028e6796e3659d7",
-      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f849115dca7f4bf5920318859028e6796e3659d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
-      "repo": "1cgeo/ebgeo_backend",
+      "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-18T14:31:55.000Z",
       "author": "Maj Diniz",
       "message": "docs: consolida pendências da varredura no 99-pendencias-e-desvios\n\nMigra P3–P8 e os 13 achados de baixo impacto do relatório da varredura para o\ndocumento canônico de pendências, e remove o relatório (era um artefato de\nprocesso; os 10 achados corrigidos vivem no código, nos testes de regressão e\nno histórico git).\n\nSem a migração a remoção perderia o registro de 6 pendências MÉDIO reais\n(concorrência de ingestão sv360, shutdown que não fecha o WS, worker morto no\npool SQLite, Cache-Control público em resposta autenticada, envs não validadas,\nuser_left com múltiplas abas).",
       "sha": "171739c",
-      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/171739c7770fbc038ce8b7853dd90751b778ae55",
-      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/171739c7770fbc038ce8b7853dd90751b778ae55",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
-      "repo": "1cgeo/ebgeo_backend",
+      "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-18T14:30:21.000Z",
       "author": "Maj Diniz",
       "message": "fix(auth,sync): reconciliação viva de sessão (P1) + serialização de push por atlas (P2)\n\nP1 — sessão deslizava indefinidamente para usuário desativado/rebaixado (ALTO):\no sliding renewal re-assinava os claims antigos sem consultar o banco, tornando\nilimitada a janela de 15 min que justificava aceitar o desvio. Novo\ngetLiveAuthState() reconcilia por request no auth estrito (is_active=false → 401,\norg inativa → 403, role global vindo do banco) e o renewal limpa o cookie numa\nsessão morta em vez de re-emitir. Custo mantido: a query org-only virou um join.\n\nEscopo deliberadamente estreito: org_role/organization_id continuam vindo do\nmapeamento do token, preservando o contrato pinado em auth-gaps auth-05 (token\nlegado degrada para viewer/null); troca de tenant segue limitada a ≤15 min.\nPrincípio público (public-<uuid>) é isento, e linha ausente em users não é\nrevogação — o sistema só faz soft-delete, então isso é anomalia, mesma regra que\norgIsActive já aplica a org desconhecida.\n\nP2 — perda permanente de op sob pushes concorrentes (ALTO): server_version vem de\nnextval no INSERT mas a visibilidade é decidida no COMMIT, então a ordem de versão\npodia divergir da ordem de commit e uma op comitada ficava abaixo do cursor de um\npuller incremental, nunca mais retornada. pg_advisory_xact_lock por atlas no topo\nda transação alinha as duas ordens; atlas distintos seguem paralelos.\n\n8 testes novos. Controle negativo: revertendo os fixes com os testes presentes,\nexatamente 5 falham e nenhum outro teste da suíte quebra.\nnpm run lint limpo; npm test 1213 passam, 0 falhas (2 execuções).",
       "sha": "ab266d4",
-      "htmlUrl": "https://github.com/1cgeo/ebgeo_backend/commit/ab266d4edb85feb61ce44115459ee772d6d1a220",
-      "repoUrl": "https://github.com/1cgeo/ebgeo_backend"
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ab266d4edb85feb61ce44115459ee772d6d1a220",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_web",
