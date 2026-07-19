@@ -53,6 +53,7 @@ const repositories = [
   { repository: '1cgeo/autolabeller', branch: '' },
   { repository: '1cgeo/chefe_dgeo', branch: '' },
   { repository: '1cgeo/fotos_aereas', branch: '' },
+  { repository: '1cgeo/ia_vegetacao', branch: '' },
   { repository: 'dsgoficial/curso_dsgtools', branch: '' },
 ];
 
