@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-19T11:12:42.078Z",
+  "lastUpdate": "2026-07-19T16:02:12.897Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-19T10:46:25.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-19T15:11:49.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-18T19:51:27.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-19T14:03:09.000Z",
     "1cgeo/fotos_aereas": "2026-07-15T17:29:42.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5161,
+    "totalCommits": 5178,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 804,
+      "1cgeo/ebgeo_web": 816,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
@@ -163,13 +163,67 @@
       "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 327,
+      "1cgeo/chefe_dgeo": 332,
       "1cgeo/fotos_aereas": 13,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T15:11:49.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas-militares-piloto: Overture carregado, OSM sai de escopo local\n\nOverture: 203.625 feicoes em 32 tabelas no edgv_overture, das 6 folhas, com\nrecorte pelo poligono do buffer de 1 km. Hidrografia (HydroSHEDS v2 para\ngeometria + ANA para nomes) entra como PRONTA, informada pelo chefe.\n\nOSM sai do escopo local por decisao do chefe: sera feito no CGEO com FME para a\nAmerica do Sul inteira. Registra POR QUE a tentativa local nao seguiu -- o\ncaminho do repo e um PythonCaller do FME (ausente na maquina), e o contorno\nesbarrou na FONTE, nao no mapeamento: Overpass recusou o User-Agent generico e\ndepois caiu por timeout nos tres espelhos, e o Geofabrik divide o Brasil por\nREGIAO, trazendo ~1,6 GB para recortar seis folhas.\n\nRegistra a armadilha que custou uma carga errada: o overture_to_edgv.py nao tem\nparametro de banco, le DB_NAME do ambiente e cai no default edgv_topo_20 (a base\ndo Sul). Evento no livro-razao com a licao: ao chamar ferramenta de terceiro que\nescreve, ler a funcao que ABRE A CONEXAO, nunca inferir o destino da lista de\nargumentos.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "148837a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/148837a37cc4abfd773a129686f3af80db8289bb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T14:12:04.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas-militares-piloto: bancos de carga e estado dos temas\n\nRelevo (curvas de 10 em 10 m do FathomDEM) e o geoswarm na regiao das 6 folhas\nentram como PRONTOS, informados pelo chefe. Tres das quatro decisoes em aberto\nfecham: fonte fora do Sul (carga por folha), escala (a da moldura) e relevo.\n\nRegistra os dois bancos locais (edgv_overture criado com as 98 tabelas do DDL\nTopo 2.0; edgv_osm a criar) e a carga POR FOLHA com buffer de 1 km -- um bbox\nunico envolvendo as seis cobriria de Roraima ao litoral de PE.\n\nAnota a correcao do filtro espacial: o download_overture_sul.py do repo filtra\npor CONTINENCIA, o que num bbox de folha descartaria toda rodovia, rio ou area\nque cruza a borda; o driver usa INTERSECAO. Vale portar se a carga por folha\nvirar padrao.\n\nAbre a decisao 5, que a carga tripla torna inevitavel: sem regra de precedencia\ne casamento entre Overture, OSM e geoswarm (o Overture inclusive deriva do OSM),\na mesma feicao entra tres vezes.\n\nChaves PG_LOCAL_* catalogadas no .env.example (valor so no .env).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "7a71538",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7a71538915a593018c470e38ef1f004ea762ae7a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-19T14:03:09.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(backend): corrige 35 achados da auditoria, com teste e controle negativo\n\nPrimeira leva de correcoes da varredura de tres eixos. Cada achado seguiu o\nmesmo protocolo: teste RED confirmado ANTES do fix, controle negativo depois\n(reverter o fix derruba o teste), suite cheia verde. Backend de 1265 para 1432\ntestes; frontend 2419.\n\nPerda de dado e disponibilidade:\n- Slides nunca persistiam no Postgres (tres defeitos em serie; o primeiro\n  escondia os outros dois). Descobriu ainda que slide.mapId (cliente, NOME) e\n  slides.map_id (servidor, UUID) sao homonimos de sentido oposto: a associacao\n  slide<->mapa nunca funcionou. O servidor agora traduz nos dois sentidos.\n- Erro de stream derrubava o processo inteiro em quatro sitios (novo\n  utils/stream-file.js).\n- Crash no upgrade do WebSocket de colaboracao.\n- CREATE de entidade soft-deletada era no-op silencioso: o Ctrl+Z perdia dado.\n- PK de catalog_layers era (id) com ids de catalogo globais: so o primeiro mapa\n  gravava (migracao 006).\n- Um unico PUT de config, gerado pelo proprio painel admin, derrubava o boot\n  para todos, anonimo inclusive.\n\nSeguranca:\n- Rotacao de refresh token virou claim atomico; janela de graca de 10s para\n  rajada concorrente, com os dois lados testados.\n- trust proxy ausente fazia todo limitador por IP virar balde global; o efeito\n  agudo era lockout de conta, nao DoS.\n- Token de visitante de link publico lia qualquer atlas publico.\n- Senha em texto claro no log a cada 422 do Joi.\n- Autoria de comentario espacial vinha do payload do cliente.\n- Import de atlas escrevia dentro de atlas de terceiros.\n- Conta desativada seguia lendo nome geografico privado.\n- Link de verificacao aceitava host vindo de header do cliente.\n\nAuditoria e permissao:\n- Sharing e zonas passaram a registrar trilha (migracao 007).\n- Merge de mapa exige manage e respeita cadeado; o caminho real do cliente\n  (combine local) tambem foi gateado.\n- org_role nunca era escrito por caminho nenhum: gate de escrita do sv360 era\n  codigo morto. Agora editavel pelo painel admin.\n- Auto-transferencia de posse respondia 200 sem transferir, orfanando o atlas.\n\nMailer:\n- nodemailer nao estava no package.json: a verificacao de conta por e-mail\n  nunca funcionou em nenhum ambiente. Instalado e endurecido (falha de envio\n  contida, para nao virar oraculo de existencia de conta).\n\nQuatro testes de caracterizacao que afirmavam o defeito como comportamento\nesperado foram invertidos; o padrao esta catalogado em testes-backend.md.\n\nEntrega da auditoria e ponto de retomada em auditoria-continuacao.md.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01JTbh3A54pMY2FFy9rQpVjT",
+      "sha": "1d23ac9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1d23ac9a0ab738540b300570e1cab97bd210a42b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T13:55:14.000Z",
+      "author": "Maj Diniz",
+      "message": "projeto: cartas militares piloto (6 folhas MI, amostra nacional)\n\nAbre 01-Projects/cartas-militares-piloto como fonte unica do projeto de\nproduzir a carta militar (estado expedito derivado da base continua) para as\n6 folhas do molduras_mi.gpkg: 5 em 25k e 1 em 50k, em 6 biomas diferentes\n(Amazonia x2, Mata Atlantica, Caatinga, Cerrado, Pantanal), nenhuma na ASC.\n\nACHADO QUE DEFINE O ESCOPO: a carga da base continua (Overture -> Topo 2.0) foi\nfeita para o bbox -57,7/-34,0/-48,0/-22,5, ou seja, o Sul; nenhuma das 6 folhas\ncai nele (a 1644-1-SE encosta na longitude mas esta ~12 graus ao norte).\nConferido no download_overture_sul.py do repo edgv_topo_20. Logo o projeto nao\ne derivar de base pronta, e construir a base para estas folhas e derivar.\n\nRegistra o estado por tema (cobertura PRONTA nas 6, com a ressalva do residuo\nmedido; hidrografia, viario, edificacoes, localidades, limites e relevo a\nfazer), a cadeia de producao, as tres pendencias do ferramentas-edicao que a\ndoutrina do produto exige (tarja de maturidade, aviso de completude, quadro de\natualidade e proveniencia) e quatro decisoes em aberto.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "3263803",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3263803ba4224da5d1705733b3575d95fdf5b6e9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T13:40:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-19 (cont. 2): a regua da cobertura e o polygonize\n\nTerceiro bloco. O chefe apontou o identifyGapsAndOverlapsInCoverageAlgorithm do\nDsgTools (inspirado no GAIT) e a regua dele reprovou o que eu ja tinha dado por\nbom: onde minha medicao por uniao acusava 12 fendas, o histograma de arestas\nacusou 4.759 arestas impares.\n\nwiki/vetorizacao-cobertura-ia ganhou duas secoes:\n\n- A REGUA: histograma de arestas com chave canonica (aresta interna aparece 2x;\n  impar = fenda/sobreposicao; vertice intermediario = \"1 vertice a mais ou a\n  menos\", que e o MESMO fenomeno). Medir pela uniao e cego porque o GEOS snapa\n  a diferenca submilimetrica; e a isencao de borda escondia ~960 poligonos\n  abaixo do limiar (desnecessaria, ja temos buffer de 1 km).\n\n- A MONTAGEM: toda fusao decide ROTULO, nunca une geometria (unir remove\n  vertice colinear que um TERCEIRO vizinho mantem). NODATA entra como regiao em\n  vez de virar buraco a tapar; remonta-se com polygonize sobre linework nodado\n  com snap-rounding. Medido: sobreposicao e multiparte zerados, degenerados\n  5.490 -> 72, invalidas 64 -> 2, impares 12.776 -> 1.879, fendas 828 -> 9.\n\nDois eventos no livro-razao, os dois REINCIDENCIA: medir com ferramenta que\nconserta o defeito (3a vez hoje da familia \"dei por verificado o que nao medi\")\ne apontar causa sem testar (4x na mesma investigacao).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "ee5193f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ee5193f7278de88675fc6b682ec26b097f6ef82f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T12:44:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-19 (cont.): suavizacao estilo FME e fechamento de fenda\n\nSegundo bloco da sessao, depois que o chefe reprovou o traco do Chaikin\n(\"esta feia, nao esta natural\"). O duravel, todo medido:\n\nCadeia Douglas + NURBfit alternados (n2-d2-n2-d5-n2-d2), escolhida em bancada\ncontra sete alternativas. O ajuste tem de APROXIMAR (vertices como pontos de\ncontrole), nao interpolar: interpolar reproduz os cantos da escada que o\nDouglas deixou. O `s=1.0` do nurbfit do DsgTools e calibrado para curva de\nnivel e destroi arco curto (area a 45,6%). Douglas grande DEPOIS do ajuste\napaga a suavizacao (num pixel de 10 m um d8 devolve reta), mas um Douglas\npequeno no fim e obrigatorio: 11.406 vertices sem ele contra 94 com d2.\n\nFenda: cobertura cartografica nao tem buraco, entao todo anel interior da\nuniao e fechado mergeando no vizinho por prioridade vegetacao > edificada >\nagua (decisao do chefe). Sliver numerico nao se caca com mais uniao, que gera\noutros; a correcao e grade de precisao de 1 mm em UTM ate a escrita.\n\nDois eventos no livro-razao, um deles REINCIDENCIA no mesmo dia da familia\n\"dei por verificado o que nao medi\": introduzi a suavizacao de no ligada por\npadrao e rodei o lote sem reauditar (976 feicoes abaixo do limiar). Parametro\nnovo entra desligado.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "ab4ac69",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ab4ac69e6391bae77de9d247baf296edf291fdb9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-19T10:46:25.000Z",
@@ -243,6 +297,51 @@
       "repoUrl": "https://github.com/1cgeo/github_dashboard"
     },
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-19T00:15:54.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: registra a licao de verificacao da rodada de collab\n\nTres suites cheias seguidas: 238/1 falha/2 flaky -> 239/0/2 -> 240/0/1.\nO flaky restante muda de spec a cada rodada, que e contencao de recurso,\nnao defeito.\n\nA licao de metodo, no livro-razao: --repeat-each isolado (15/15) nao\nsubstitui a suite cheia para teste de concorrencia. Os dois defeitos que\nintroduzi passavam isolados e so cairam sob carga.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "e1bb74e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e1bb74eff4d1d6cea34a074aebbdc5674b04f861",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T23:49:22.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(e2e-ui): openClient espera o mapa do atlas ficar ATIVO\n\nO helper abria o atlas e devolvia o cliente na hora, mas o app ativa o\nmapa do atlas de forma ASSINCRONA. Sob carga o spec comecava com o peer\nainda no mapa local, e a primeira assercao caia lendo \"Principal\" onde\nesperava o compartilhado, antes de o teste ter feito qualquer coisa.\n\nFoi o unico flaky que se repetiu nas DUAS suites cheias\n(maps-layers:139); o outro flaky mudou de spec entre as rodadas, que e a\nassinatura de contencao de recurso, nao de defeito especifico.\n\nCorrecao na origem (openClient + reopenPeer via fixture), nao na primeira\nassercao de cada spec: a lacuna era do harness e alcancava todo spec de\ncolaboracao. `expectMapName` e opcional, entao quem chama openClient\ndireto segue igual.\n\nVerificado: maps-layers 3/3 com --repeat-each=3.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "dcdb523",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dcdb523afbf06070a5f2d3728c3515e26b3b384d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T23:18:08.000Z",
+      "author": "Maj Diniz",
+      "message": "test(collab): compara cliente e servidor na MESMA amostra\n\nA suite cheia reprovou o teste novo do F5, e a causa era defeito meu, nao\ndo produto: eu lia o vencedor do Postgres UMA vez e depois cobrava os\nclientes contra esse retrato. O ledger da execucao mostrava uma op da\nfeicao ainda em `enqueued_not_flushed`, ou seja, havia operacao pendente\nalem da que eu esperei o ack; ela descarrega na reconexao pos-F5 e move o\nvencedor DEPOIS da leitura. Os clientes convergiam para o valor novo e\ncorreto enquanto a assercao exigia o antigo.\n\nO erro estava nos quatro testes, nao so onde estourou: todos fixavam o\nvencedor antes. Extrai `convergedValue`, que amostra servidor e clientes\nJUNTOS e so aceita o instante em que todos concordam. A alegacao passa a\nser a que interessa (cliente e servidor concordam), imune a um flush\ntardio, e divergencia permanente continua falhando, agora nomeando os\ndois lados.\n\nVerificado isolado com --repeat-each=2 (10/10). O teste real e a suite\ncheia, que roda a seguir.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "eda25b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eda25b3a7bdc1be51bad2303540129b7f5abc023",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T22:39:15.000Z",
+      "author": "Maj Diniz",
+      "message": "test(collab): migra os specs restantes para o harness full-chain\n\nCinco specs saem do `pollPeerFeature` para as assercoes de cadeia\ncompleta (`expectFullSync`/`expectFullSyncDelete`/`expectNotSynced`), que\nverificam IDB do autor -> transporte -> Postgres -> sinal -> IDB do peer,\ne nao so o store em memoria do peer.\n\nImportante: o ganho NAO e a espera deterministica, que ja existia. O\n`pollPeerFeature` ja chama `waitForRemoteEntity` por dentro. O ganho e a\nverdade-terreno de Postgres e IndexedDB.\n\n- point-icon-update: as duas trocas de propriedade viraram passagens de\n  cadeia distintas, com clearTraces entre elas (sem isso entityId +\n  operationType nao identifica qual das duas ops resolver). As checagens\n  de valor (markerSymbol, fillColor) foram preservadas, nao substituidas.\n- symbol-snapshot-regen: create migrado com skipRender (simbolo militar\n  renderiza por camada de icone, nao por source GeoJSON). O poll do peer\n  REABERTO ficou como estava de proposito: aquele cliente recebe a feicao\n  por SNAPSHOT, nao por operacao, entao nao ha span de op para percorrer\n  e o expectFullSync falharia por ausencia de span, nao por defeito.\n- permissions: caminho negativo, usa expectNotSynced (nunca\n  expectFullSync, que inverteria o teste). `expectBlockedAt` nao serve\n  aqui e isso foi verificado no codigo: `guardWrite` bloqueia no store\n  ANTES de qualquer despacho, entao nao existe span de drop com motivo de\n  permissao. A tentativa bloqueada agora usa id proprio, o que permite\n  afirmar por id a ausencia no peer E no IDB do proprio escritor.\n- p8-undo-local: create/delete migrados; o passo do undo no-op ficou fora\n  do DSL negativo de proposito, porque ali a feicao deve PERMANECER em\n  todo mundo e `expectNotSynced` afirma ausencia, invertendo o teste.\n- mega (fase 4 do harness de demo): tinha o MESMO predicado frouxo da\n  crdt-conflict, terceira ocorrencia da mesma classe. Corrigido do mesmo\n  jeito, sem remontar o spec, que e uma sessao continua feita para rodar\n  headed.\n\npresence-live-cursors fica como esta: ali o pollPeerFeature e\npre-condicao do passo de presenca, nao a alegacao do teste. Motivo\ncomentado no arquivo para ninguem \"corrigir\" por simetria.\n\nControle negativo do spec de permissoes (teste negativo que passa e o que\nmais merece desconfianca): com `guardWrite` desarmado, 2 dos 3 casos\nFALHAM; o terceiro passa com razao, porque testa negacao no servidor por\nHTTP e nao depende da guarda do cliente. Restaurado, 3/3.\n\nVerificados contra stack real: crdt-conflict 5, point-icon 1,\nsymbol-snapshot 1, permissions 3, p8-undo 1, mega 1.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "da9087c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/da9087c846befe5930e747403fe7a7dc5c6b4b8a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T22:28:26.000Z",
+      "author": "Maj Diniz",
+      "message": "test(collab): convergencia se afirma contra o servidor, nao entre clientes\n\nO flake da crdt-conflict nao era lentidao: era o predicado. O teste\nesperava ate \"A e B mostrarem a mesma cor\" e so entao cobrava que o\nPostgres batesse. Concordancia entre clientes NAO e convergencia: existe\njanela em que a op de A ja se propagou para os dois enquanto a de B ainda\nesta em voo, e ambos legitimamente exibem a cor de A antes de o vencedor\nreal chegar. O poll saia nessa parada de caminho; sob carga a janela\nalarga e ele saia mais cedo ainda. A falha observada foi exatamente essa\n(clientes #ff0000, Postgres #0000ff).\n\nAgora a ordem inverte: espera as duas ops serem ackadas, le do Postgres\nQUEM venceu, e exige que os dois clientes terminem nesse valor. Fica\ndeterministico e mais forte, porque passa a distinguir \"transitorio\" de\n\"divergencia permanente\", que e bug de produto. O mesmo predicado frouxo\nexistia no teste de geometria; corrigido junto.\n\nA ancora e em dois passos porque os estagios sao chaveados diferente:\n`enqueue` carrega entityId, `push.ack` so carrega opId (o servidor acka\npor operacao). Achei isso depois de uma tentativa errada de esperar\npush.ack por entidade, que retornava null.\n\nSegunda causa, do driver de UI: `selectAndRecolorUI` fazia select e\nrecolor num gesto so, e a update remota do peer re-renderizava o painel\nno meio, derrubando a selecao. Nenhuma operacao era enfileirada. Select\npassa a ser em serie (quando ainda nao ha update concorrente) e so o\ncommit da cor fica paralelo, que e a concorrencia que o teste precisa.\n\nTestes novos:\n- o vencedor SOBREVIVE ao F5 dos dois clientes (convergencia so em\n  memoria nao e convergencia: reaparece divergente no proximo boot)\n- conflito de TRES clientes converge para um unico vencedor (com dois,\n  \"convergiu\" e \"um sobrescreveu o outro\" sao indistinguiveis)\n\nVerificacao: 15/15 com --repeat-each=3, zero flaky (antes: 1 flaky em 15).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "37194d7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/37194d7e0dd600291d48a256fb6555031872daab",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-18T22:08:05.000Z",
       "author": "Maj Diniz",
@@ -250,6 +349,60 @@
       "sha": "0fc38d9",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0fc38d956f9ce2cebfdd9813d22367e973a68c59",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T21:36:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(e2e-ui): webServer chama o script do proprio pacote\n\nO playwright.config roda com cwd em frontend/ e chamava `npm run dev:web`,\nque so existe na RAIZ. Ao dividir os package.json na mudanca para\nfrontend/, o script do pacote web voltou a se chamar `dev`, e o webServer\nmorria com \"Process from config.webServer was not able to start\".\n\nAqui `npm run dev` e o vite do pacote, nao o stack completo da raiz; o\nbackend descartavel ja e subido pelo global-setup.\n\nSuite: 238 passed, 1 skipped (condicional, com motivo), 1 failed em\nbrowser-collab-crdt-conflict.spec.js:56, que passa isolado (3/3) e ja\nconsta na memoria do projeto como flake de contencao sob suite cheia.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "b938db8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b938db84b8f7b8d300d3653074668bec91ffb336",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T21:08:26.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): config-contract afirma o shape e o invariante, não o deployment\n\nAs duas falhas eram do teste, não do código. Ele foi escrito quando\nSEARCH_API_URL e MAP3D_TERRAIN_URL tinham default absoluto para\nhttp://localhost, que só \"funcionava\" por acidente do proxy do Vite.\nEsses defaults foram corrigidos (search.apiUrl removido de vez, o\ngazetteer É este backend; terreno passou a default vazio), e o teste\nficou para trás afirmando o mundo anterior. Passava só num host\ntotalmente provisionado.\n\n- `search`: em vez de exigir apiUrl string não-vazia, afirma a AUSÊNCIA\n  do campo. Reintroduzir o :3001 que nunca existiu agora quebra o teste.\n- `terrain`: em vez de `enabled === true`, afirma o invariante\n  `enabled === Boolean(url)`, que é o que o config.service garante e vale\n  configurado ou não.\n- `tileServerUrl`: string, podendo ser vazia, porque vazio é o sinal\n  deliberado de \"não configurado\".\n\nControle negativo feito: com `enabled: true` forçado e `search.apiUrl`\nreintroduzidos no backend, as duas asserções falham; restaurado, passam.\n\nSuíte e2e-vitest: 165/165.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "14f703f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/14f703f722b8aca811ddc18c28254c36192ff49b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T20:38:05.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(e2e): resolve o backend a partir da raiz do monorepo\n\nOs dois harnesses de E2E subiam dois niveis para achar `backend/`, o que\napontava para a raiz quando o pacote web morava la. Depois do movimento\npassaram a procurar `frontend/backend/` e a suite inteira morria no\nimport do pg-promise, antes de qualquer teste.\n\nSao tres niveis agora: tests/e2e[-ui]/ -> tests/ -> frontend/ -> raiz.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "bea296f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bea296f7859576eae80b73acfe42fadcb3ebde0f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T20:31:11.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor: move o pacote web para frontend/, espelhando backend/\n\nA raiz misturava 12 itens do pacote web com 9 do monorepo. Agora os dois\npacotes são simétricos e autocontidos (package.json, node_modules e\n.gitignore próprios), e a raiz só orquestra, delegando com --prefix.\n\nDeliberadamente SEM npm workspaces: isso mudaria como as dependências do\nbackend são instaladas, e a suíte dele exige PostgreSQL+PostGIS com\nsuperusuário, que não dá para verificar aqui. Mudança não verificável não\nentra junto com uma que já é grande.\n\nO que o movimento quebrou, e como apareceu:\n- RAIZ do docs-integridade apontava para frontend/ e a lista de documentos\n  vigiados ZEROU. Quem acusou foi o guarda \"lista os documentos vigiados\n  (contra a lista esvaziar em silêncio)\", escrito para exatamente isso.\n- o hook de lint procurava eslint na raiz; passou a subir do arquivo até o\n  pacote que CONFIGURA o linter. Ele reportou \"Lint NAO rodou\" em vez de\n  passar calado, que era o objetivo do desenho.\n- deploy.sh apontava para ./dist e chamava `vite` direto, contando com um\n  node_modules/.bin que agora é o da raiz. Passa por frontend/dist e npm.\n\nE um buraco que só apareceu por causa disso: a regex do docs-integridade\nexigia a crase logo após a extensão, então TODA citação no formato\n`arquivo:linha` escapava da checagem. Eram 1116 não verificadas contra 210\nverificadas, e `arquivo:linha` é justamente o formato que o wiki-schema\nmanda usar. Sufixo de linha virou opcional na regex; as 1116 entraram e\npassaram. Todas as citações foram reancoradas resolvendo cada caminho\ncontra o disco (zero ambíguas), e as que apontavam para o backend viraram\nexplícitas em vez de depender do fallback do teste.\n\nCusto permanente aceito: `git log -- frontend/src/...` não enxerga o\nhistórico anterior ao movimento (use --follow, ou o caminho antigo).\n\nRemovido a pedido: o hook PreToolUse de arquivo protegido.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "1ab95eb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ab95eb442df2a02244a8bd9a95361a657112cc4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T20:17:21.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: dois modos de execução, remove o server morto e limpa a wiki\n\nScripts: `npm run dev` agora sobe o stack inteiro (era `dev:all`), `build`\ncompila de verdade (era `build_dev`) e `deploy` publica (era o `build`,\nque disparava o deploy.sh em produção com nome de compilador). Peças\nsoltas viraram `dev:web` e `dev:backend`.\n\nRemovidos:\n- server/server.cjs e as 3 dependências de produção que só ele usava\n  (fastify, @fastify/static, @fastify/compress). Prod é nginx servindo o\n  symlink; nada mais referenciava o arquivo além de `npm start`.\n- `npm run preview` e o bloco `preview` do vite.config: serviam o dist/\n  sem o proxy de /api, e como o boot é fail-fast em GET /api/config a\n  app só conseguia mostrar \"EBGeo indisponível\". Modo quebrado, não modo.\n\nplaywright.config aponta para `dev:web`, não para `dev`, que hoje subiria\num segundo backend por cima do descartável do global-setup.\n\nWiki: os 81 em-dash saíram das 19 páginas que os tinham (inclusive as 10\nda própria página que enuncia a regra). 41 viraram dois-pontos, 16\nponto-e-vírgula, 13 vírgula, 6 frase nova, 5 parênteses. O índice perdeu\nas 9 entradas duplicadas que sobraram da consolidação (presenca-\ncolaborativa aparecia 4 vezes na mesma seção); a repetição entre \"Por\nonde começar\" e as seções temáticas fica, que é on-ramp deliberado.\n\nREADME descrevia o frontend como \"não precisa de banco\", o que o boot\nfail-fast desmente desde a integração do backend.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "ab3c9a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ab3c9a9eb52a2253af5fccf21599cd5a1a26c845",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-18T20:08:23.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: conserta os hooks mortos e poda a raiz do repositório\n\nOs dois hooks do .claude/settings.json nunca funcionaram: liam\n$TOOL_INPUT_FILE_PATH, variável que o Claude Code não define (a entrada\ndo hook vem por JSON no stdin), e o de bloqueio usava exit 1, que não\nbloqueia. A proteção de deploy/ e o lint a cada escrita, ambos prometidos\nna constituição, eram ficção. Reescritos em .claude/hooks/*.js e provados\npor sonda.\n\nAuditoria do .claude/ contra o código, com as correções:\n- architecture.md listava 4 papéis de sessão onde há 6 (faltavam manager\n  e commenter): a mesma lista fechada que a constituição proíbe por já\n  ter causado bug real duas vezes\n- architecture.md dizia token em memória e, 20 linhas abaixo, em\n  localStorage; o código faz localStorage\n- metadado de sync de feição são 3 campos, não 6 (só Atlas/Map/Group\n  levam os 6)\n- a receita de migração omitia subir ATLAS_SCHEMA_VERSION, sem o que a\n  migração nova nunca roda, em silêncio\n- a árvore de 92 linhas de src/js/ tinha apodrecido (faltavam admin/ e\n  session/ inteiros) e era recontagem de ls: substituída pelo não-óbvio\n- a regra de import por alias contradizia o código (64 de 567 arquivos\n  usam ../../, nada enforça): reescrita como convenção para código novo\n\nPoda da raiz: prepare-deploy.js e o workflow de GitHub Pages eram um par\nmorto (o script nem executa sob \"type\": \"module\", e sua premissa de\nconfig estático morreu com o boot fail-fast em /api/config). Removidos\ncom .mcp.json, launch.json (vite na porta 3001, que fura o proxy de dev)\ne o tutorial solto em deploy/, absorvido em docs/wiki/deploy-web.md.\nsettings.local.json sai do versionamento.\n\ndocs-integridade agora varre .claude/agents também: era a borda por onde\nos erros de agente escapavam.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uHkDEywJDBBEtbxBJMc1q",
+      "sha": "6febcca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6febcca8bf41df7e618e4181d7b4b19967169424",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_web",
