@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-19T16:02:12.897Z",
+  "lastUpdate": "2026-07-19T20:56:25.654Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-19T10:08:41.000Z",
+    "dsgoficial/modelagens": "2026-07-19T17:57:48.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-16T14:55:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-19T15:11:49.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-19T19:33:10.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-19T14:03:09.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5178,
+    "totalCommits": 5185,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,7 +131,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 149,
+      "dsgoficial/modelagens": 153,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 466,
       "dsgoficial/DsgTools": 624,
@@ -163,13 +163,76 @@
       "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 332,
+      "1cgeo/chefe_dgeo": 335,
       "1cgeo/fotos_aereas": 13,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T19:33:10.000Z",
+      "author": "Maj Diniz",
+      "message": "IBGE: as nove bases sao UMA familia; BC250 fechada, BC100 e BC25 mapeadas\n\nMedido abrindo cada dump, nao pelo nome da pasta: a BC100 Roraima (ET-EDGV\n2.1.3, shapefile) e a EXCECAO, e as outras oito bases sao ET-EDGV 3.0 com dump\nPostGIS. O crosswalk cresce por incremento (71 -> +43 na BC100 -> +62 na BC25) e\no executor e UM, importado e parametrizado por escala.\n\nBC250 nacional CONCLUIDA: 71/71 regras, 1.844.920 linhas, reconciliacao exata\n(1.843.242 feicoes de origem = 1.843.242 selecionadas), 13 testes de metadado\nem 100% das linhas, e a unica geometria invalida e herdada da fonte. Publicada\nno Drive com md5 conferido.\n\nProcesso padrao codificado em verificar_e_backup.py: base que nao passa na\nverificacao NAO e arquivada, senao o backup vira o registro duravel de um\ndefeito.\n\n4 duplicatas provadas por ST_Equals, nao presumidas. Decisao do chefe: curva de\nnivel fora do escopo (ja ha FathomDEM), registrada como lacuna de ESCOPO.\n\nLivro-razao: tres eventos, e o primeiro e o mais duro. Escrevi um mapa de\ndominio POR ANALOGIA violando a regra de ouro que eu mesmo impus a todos os\nagentes (\"todo codigo vem de consulta real\"), e o mesmo defeito produziu falha\nruidosa num estado (15.862 feicoes perdidas) e corrupcao SILENCIOSA em quatro\n(200.577 vias com \"A SER PREENCHIDO\" onde a fonte dizia \"Desconhecida\"). As\nregras escritas pelos agentes, com validacao, nao tiveram esse defeito.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "a16fae7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a16fae75d02ee448071d58d580e2d43d6d8fcea0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T17:57:48.000Z",
+      "author": "Maj Diniz",
+      "message": "sync crosswalk Overture: 7 regras novas (espelha 1cgeo/edgv_topo_20)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "7accfc1",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/7accfc125b47c26a887f97b0d691333638271eef",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T17:57:15.000Z",
+      "author": "Maj Diniz",
+      "message": "BC100 Roraima convertida + lacunas do crosswalk do Overture corrigidas\n\nBC100 RR inteira na Topo 2.0 (edgv_ibge_bc100_rr, 93 regras, 158.397 linhas).\nCorrige uma suposicao registrada antes: um crosswalk NAO serve a todas as\nescalas do IBGE, porque a BC100 e ET-EDGV 2.1.3 e nao tem uma tabela em comum\ncom a 3.0 da BC250.\n\nQuatro decisoes do chefe sobre fonte sem discriminador, e a doutrina do tipo\nfisico aplicada com um obstaculo real: ALTURAMEDI e 100% nula, entao o criterio\nvirou CLASSIFICA e a justificativa virou empirica (cerrado vira arbustiva\nporque nenhuma feicao da camada e arborea, nao porque \"cerrado e arbustivo\").\n\nOverture: 6.991 de 206.909 feicoes nao convertiam; 733 eram lacuna real\n(vegetacao vetorial do tema `land`, gerador, estacionamento). Sete regras\nnovas, testadas rodando o motor de casamento do proprio ETL.\n\nWiki: secao nova em metadados-feicao sobre converter fonte externa usando o\nmecanismo do modelo (`fontes`, `atributos_originais`, a conta da confiabilidade\nque o trigger faz) em vez de improvisar.\n\nLivro-razao: tres eventos. Dry-run que montava o SQL e nunca o submetia (5\ninstancias da familia \"dei por verificado o que nao medi\" no mesmo dia);\ncontagem pelo rowcount, que o trigger explode_geom falseia; e quase alterar\nregras certas por causa de um bug no MEU teste.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "6097468",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6097468ba7cc4f12e37d4a8694dc52c9ab1cc0b8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T16:56:01.000Z",
+      "author": "Maj Diniz",
+      "message": "BC250 nacional -> Topo 2.0: crosswalk fechado e linhagem pelo mecanismo do modelo\n\nRegistra a conversao da BC250 inteira (71 tabelas, todas as classes) para o\nbanco edgv_ibge_bc250, as 6 decisoes estruturais do chefe e o principio geral\nque saiu delas (converter sempre a partir da classe mais especializada).\n\nA decisao central foi disparada por uma pergunta do chefe (\"olhe a sql de\nextension\"): linhagem nao se improvisa, usa-se o mecanismo que o modelo ja tem.\nO edgv_topo_20_extension.sql traz `fontes` (JSON com metodo_aquisicao,\nescala_fonte, id_externo e atributos_originais, que preserva o registro de\norigem inteiro), os campos de qualidade e os triggers explode_geom e\ncomputa_qualidade. Duas consequencias que valem para toda conversao futura:\nnao existe \"atributo descartado\", e nao se grava confiabilidade nem\nescala_maxima_autoritativa (o trigger as computa da acuracia).\n\nLivro-razao: dois eventos novos. Improvisei mecanismo que o modelo ja tinha\n(familia \"ler o artefato inteiro antes de construir em cima\"), e dei\nprecedencia silenciosa a constante sobre mapeamento no executor, o que gravava\n745 pontes como fixas anulando um mapa correto que ja existia.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "c601656",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c601656fbcd147bfda588f9656ddceacbc4064fb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T16:55:49.000Z",
+      "author": "Maj Diniz",
+      "message": "sync edgv_topo_20: aux_pista_pouso_p + particao de tipo por primitiva\n\nEspelha 1cgeo/edgv_topo_20@c5a7169. Fonte e o repo edgv_topo_20; aqui e copia.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "7384ff9",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/7384ff9293c711d1522664623a99575605921f9b",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T16:00:30.000Z",
+      "author": "Maj Diniz",
+      "message": "sync EDGV Topo 2.0 (mirror): convencao de ponte generica -> 203 Ponte fixa\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "325afe1",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/325afe18c1d443461bbdc0a8bde46f35f03bf5b7",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T15:55:35.000Z",
+      "author": "Maj Diniz",
+      "message": "sync EDGV Topo 2.0 (mirror): aux_elemento_viario_p\n\nEspelha a classe auxiliar nova do repo fonte (1cgeo/edgv_topo_20): absorve a\nobra de arte viaria que a fonte modela como PONTO, que se perderia porque\ninfra_elemento_viario e linha na Topo 2.0. Inclui o changelog com as duas\nlacunas do dominio tipo_elemento_viario registradas como achado.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "b85818b",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/b85818bcc2682e13bf29ac512d5a4092d38ae45b",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-19T15:11:49.000Z",
