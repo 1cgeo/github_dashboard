@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-18T20:55:40.400Z",
+  "lastUpdate": "2026-07-19T11:12:42.078Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-12T19:16:39.000Z",
+    "dsgoficial/modelagens": "2026-07-19T10:08:41.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-16T14:55:44.000Z",
@@ -54,13 +54,15 @@
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
     "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
-    "1cgeo/github_dashboard": "2026-06-22T09:00:40.000Z",
+    "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-18T19:26:09.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-19T10:46:25.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-18T19:51:27.000Z"
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-18T19:51:27.000Z",
+    "1cgeo/fotos_aereas": "2026-07-15T17:29:42.000Z",
+    "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -105,10 +107,12 @@
     "dsgoficial/curso_dsgtools": true,
     "1cgeo/autolabeller": true,
     "1cgeo/chefe_dgeo": true,
-    "1cgeo/ebgeo_backend": true
+    "1cgeo/ebgeo_backend": true,
+    "1cgeo/fotos_aereas": false,
+    "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5134,
+    "totalCommits": 5161,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -127,7 +131,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 147,
+      "dsgoficial/modelagens": 149,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 466,
       "dsgoficial/DsgTools": 624,
@@ -156,14 +160,97 @@
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 3,
-      "1cgeo/github_dashboard": 51,
+      "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 323,
+      "1cgeo/chefe_dgeo": 327,
+      "1cgeo/fotos_aereas": 13,
+      "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T10:46:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-19: cobertura por IA da regua de escala ao GPKG EDGV\n\nSessao de pipeline completo (MapBiomas 10 m -> generalizacao -> GPKG cobter\nTopo 2.0) mais duas decisoes de modelo. O duravel:\n\nwiki/vetorizacao-cobertura-ia: alternativa ao GRASS reconstruindo a topologia\npor ARCO em Python puro (medida: sobreposicao zero, area a 0,00005%); a regua\nde suavizacao em MILIMETROS NA ESCALA e nao em metros fixos; a moldura do\nraster nao se suaviza (unica fronteira sem compensacao); area geodesica e nao\nprojetada, com a MESMA regua nas duas etapas; e a correcao da propria pagina:\nos \"6% de auto-interseccao\" nao sao inerentes ao chaiken, sao sintoma de\nsuavizar demais (zeraram com a regua certa).\n\nDecisions: vegetacao por TIPO FISICO (restinga sai, 15 classes) e o novo\ntipo_veg 198 Cult - Pastagem cultivada, com a nao-decisao deliberada de manter\nos 4 toponimos legados do dominio.\n\nlivro-razao: 4 eventos, um deles recorrencia da familia\nescopo-de-propagacao-incompleto (verifiquei a area minima so no raster e dei o\nvetor por verificado; o chefe cobrou e a auditoria achou defeito real).\n\nconverter-modelagens/learnings: o que dispara na hora de executar.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "3a4cedd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3a4cedd095b2c7473dea2382df07945680200900",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T10:08:51.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki: vegetacao por tipo fisico (restinga sai do esquema, 15 classes)\n\nRegistra o principio do chefe (2026-07-19): a vegetacao classifica-se pelo tipo\nfisico (porte e fisionomia), nunca por termo local ou bioma. Restinga foi\nremovida do esquema expandido pelo mesmo criterio que ja barrava cerrado e\ncaatinga, e o esquema cai para 15 classes.\n\nAnota tambem que o criterio condena, no tipo_veg da Topo 2.0, os quatro valores\nque sao toponimo e nao fisionomia (401 Restinga, 501 Campinarana, 701 Cerrado,\n801 Caatinga), cujos equivalentes fisicos ja existem no dominio.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "0c82c36",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0c82c36c3d79e3bee89b91bf9cc99a391d03d1ea",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T10:08:41.000Z",
+      "author": "Maj Diniz",
+      "message": "sync EDGV Topo 2.0 (mirror): tipo_veg 198 Cult - Pastagem cultivada\n\nEspelha 60f703f do repo fonte (1cgeo/edgv_topo_20): novo valor 198 no dominio\ntipo_veg, mais os crosswalks EDGV 3.0 (cultivo_predominante=24 <-> 198) e OSM\n(landuse=meadow -> 198), a spec regerada e o changelog.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "b718b7a",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/b718b7a3644e68f7ab2f3ca774273237f7ba466b",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-07-19T10:08:41.000Z",
+      "author": "Maj Diniz",
+      "message": "esquema expandido: remove restinga (15 classes), vegetacao por tipo fisico\n\nPrincipio do chefe (2026-07-19): a vegetacao classifica-se pelo TIPO FISICO\n(porte e fisionomia), nunca por termo local ou bioma. Restinga e toponimo\nlitoraneo, nao fisionomia: fisicamente e campo, arbustiva ou floresta SOBRE\nAREIA, e o que a distingue e o substrato.\n\nO argumento que fecha: o MapBiomas ja separa por porte (49 Arborea, 50\nHerbacea) e eramos NOS que colapsavamos as duas no toponimo, jogando fora\ninformacao fisica que a fonte entregava pronta. Agora 49 -> floresta e\n50 -> campo, que e onde ja caiam antes da expansao.\n\nO esquema cai de 16 para 15 classes, com indices contiguos (arbustiva 15 -> 14).\nO eixo ANTROPICO (pastagem, cultivo, reflorestamento) nao e afetado: vale por\nUSO, nao por fisionomia, e os dois eixos convivem.\n\nPropagado: constants.py (nomes, LUT, NUM_CLASSES_EXPANDED), docs 06 e 07,\nREADME e o cache_mapbiomas.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "bd6afb1",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/bd6afb15c37e070e1481c1f4b62afc9f5fc14dd2",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T09:50:08.000Z",
+      "author": "Maj Diniz",
+      "message": "sync EDGV Topo 2.0 (mirror): revisao do mapeamento OSM\n\nEspelha os tres commits do repo fonte (1cgeo/edgv_topo_20) que o mirror nao\ntinha: 52746c4 e 9b4ea26 (revisao do mapeamento OSM, 2026-07-14) e 03af182\n(correcao da conversao, 2026-07-15). O mirror estava parado em 2026-07-04.\n\nOs demais arquivos espelhados (sql, extension, changelog, master_file e as\noutras sete conversoes) ja estavam identicos.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "16d6533",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/16d6533e5db40df9e442bb4a758a7bfa256cfd49",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T09:03:12.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki: portal de fotos aereas + segmentacao de cobertura (DV3Inject, 4 insumos)\n\nDuas paginas novas a partir dos repos recem-clonados:\n- portal-fotos-aereas: site de consulta/download das fotos historicas\n  (pronto e testado, ainda sem publicacao e so com dados de demonstracao).\n- segmentacao-cobertura-ia: o modelo D_Hier DV3Inject destacado do\n  portfolio, com arquitetura, resultados, limitacoes e o esquema de 16\n  classes.\n\nAtualiza projetos-ia, que registrava so a versao de 3 insumos do RT 05/2026\n(72,91% / +14,56 pp); agora os dois cortes convivem rotulados, com o final\nem 74,3% / +16,0 pp. Corrige tambem a contagem de entradas do\ngithub-dashboard (39 -> 54, estado 07/2026).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "fe6fafc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fe6fafcd04f41fc40c4c4c2cd0c51cd64b223880",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-07-19T08:55:52.000Z",
+      "author": "Maj Diniz",
+      "message": "monitorar 1cgeo/ia_vegetacao\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5395af5",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/5395af52d930f20288129a049f7c3793bc56fe0f",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-07-19T08:53:18.000Z",
+      "author": "Maj Diniz",
+      "message": "monitorar 1cgeo/fotos_aereas\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "1c61fd4",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/1c61fd46813f9d25b168a1aad754e9a92472427b",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-18T22:08:05.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-18 (cont.): grid manual + enriquecimento + georref por poucas ancoras\n\nConsolida os achados da sessao apos a recuperacao do gap (trabalho em scripts do\nscratchpad + gpkg no acervo; aqui vai a documentacao durável).\n\n- PROJECT.md: grid manual de producao (grid_fotos_aereas.foto_a: 8994 footprints\n  AST-10, so cross-check, mais grosso e menos completo que a nossa base) +\n  enriquecimento grade_MALHA_v4 (13 atributos a 99% dos CSVs + timestamp do manual;\n  missao 1% so por visao) + piloto de georref VERDADEIRO por poucas ancoras (b1:\n  4 ancoras+afim -> 1456 fotos a 250m; limite ~1-2km com 5 ancoras esparsas).\n- learnings Rodada 11: georref por poucas ancoras -- ancoras NAO-COLINEARES,\n  afim>similaridade (anisotropia), TPS p/ warp nao-linear, limite = densidade de\n  controle; Itaipu=limite de dado; HSfM/DEM-para-DEM p/ orto verdadeiro.\n- DECISIONS 2026-07-18 (cont.) + livro-razao: descartar a ancora nao-colinear como\n  outlier (concordancia de pontos colineares nao valida geometria 2D).\n\nPendencia de curadoria: learnings.md a 24KB precisa de demand-paging split (adiado;\ndetalhado tem mojibake pre-existente, split e tarefa dedicada).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CjHgV27nWahBdJ9qMapjmb",
+      "sha": "0fc38d9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0fc38d956f9ce2cebfdd9813d22367e973a68c59",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-18T19:51:27.000Z",
@@ -930,6 +1017,123 @@
       "repoUrl": "https://github.com/dsgoficial/DsgTools"
     },
     {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T17:29:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ajustes de UX: zoom sem ctrl, fontes menores, limpar consulta ao trocar de ferramenta, revelar grades intersectadas e centralizar X do chip\n\n- create-map: cooperativeGestures desativado (zoom com scroll/pinca sem ctrl)\n- base.css: root font-size 87.5% para reduzir a escala geral\n- app-controller: trocar de ferramenta limpa a consulta; ao concluir a consulta, exibe no mapa apenas as grades dos projetos intersectados sem liga-los (escondidas ao limpar), highlight inalterado\n- components.css: X do botao de fechar ferramenta desenhado em CSS (barras cruzando no centro), corrige descentralizacao do glifo\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "dd37919",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/dd3791980199f2e0788017f90f5bbc69c6959404",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T14:28:49.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: refina fluxo de consulta e inspecao",
+      "sha": "1b5501a",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/1b5501a9b4ea47d4a756f3320b3cb6e4e7e654ab",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T14:14:52.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: registra auditoria completa de ui e ux",
+      "sha": "a2df955",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/a2df95553613028479b5826f89888a8cf8f71bee",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T14:13:10.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: revisa interface e experiencia responsiva",
+      "sha": "b983b92",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/b983b922a2fe629350cbb55c5135858f852a96e5",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T13:50:57.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: adiciona temas claro e escuro persistentes",
+      "sha": "e92e33c",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/e92e33c097930565938753814f9dd0cb9f670c83",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T13:42:55.000Z",
+      "author": "Maj Diniz",
+      "message": "chore: remove integracao continua",
+      "sha": "1ba0da4",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/1ba0da4b64fa6decec45724e9c145f874a8bd430",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T13:40:26.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: prepara portal para producao",
+      "sha": "42b22dc",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/42b22dc1e3f433861e0bb8a311098c1605121983",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T13:11:15.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: completa resultados relatorio e downloads",
+      "sha": "b9ce4eb",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/b9ce4eb0d175df68f7dcc701b1462662263eed31",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T13:05:24.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: adiciona ferramenta poligonal customizada",
+      "sha": "4b19b8b",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/4b19b8bd064a0d7f6ffb2cba28227b46a66e2b07",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T13:00:17.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: implementa consulta espacial por ponto",
+      "sha": "a4fe70c",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/a4fe70c38f291e2dd4fc7dd1ff486aa698ea19d2",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T12:54:15.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: adiciona mapa catalogo e dados demonstrativos",
+      "sha": "b93eceb",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/b93eceb7372d99a71605acf447215b685c2e00a5",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T12:44:35.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: cria fundacao segura da aplicacao",
+      "sha": "7ecd5cf",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/7ecd5cf4f0c4f4b02407f65e8762133d21bfddd2",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-15T12:33:03.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: adiciona plano completo do portal",
+      "sha": "3d7244a",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/3d7244a7ed24ded1b66f10a592f7601b44e6be5b",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
       "repo": "1cgeo/autolabeller",
       "date": "2026-07-14T22:16:59.000Z",
       "author": "Maj Diniz",
@@ -1036,6 +1240,51 @@
       "sha": "c26b3eb",
       "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/c26b3eb2e627bf295d94f763856e73143746adf9",
       "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-07-13T16:02:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Segunda leva de classes: area umida, mangue, restinga e arbustiva (16 classes)\n\nDecisao para a expansao nacional: adiciona 4 classes com rotulo fraco no MapBiomas\n10 m, levando o esquema expandido a 16 classes.\n\n- area_umida <- MapBiomas 11 (Campo Alagado e Area Pantanosa)\n- mangue     <- MapBiomas 5\n- restinga   <- MapBiomas 49 + 50 (arborea + herbacea)\n- arbustiva  <- MapBiomas 4 (Formacao Savanica): a savana NAO vira classe propria,\n               alimenta a arbustiva, que assim absorve cerrado/caatinga; a anotacao\n               refina caso a caso.\n\nRejeitados: savana como classe propria, mineracao (30), floresta alagavel (6),\naquicultura (31), densa/esparsa, subtipos raros de terreno exposto, campinarana, neve.\n\n- constants: EDGV_NAMES_EXPANDED e LUT com 16 classes (todos os 20 codigos do 10m mapeados)\n- docs 06/07 reescritos (Brasil todo, acentuados) com a decisao\n- 04_cache_mapbiomas e README atualizados para 16 classes\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5af7cb6",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/5af7cb6364d2c092c2829f4d95d92153edf8d714",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-07-13T15:54:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Arroz como classe (12 total), doc de expansao com foco Brasil, acentos e transcricoes\n\n- constants: esquema expandido vira 12 classes (arroz separado, MapBiomas 40);\n  pavimentacao herda prior de area_edif (24), cultivo perene herda de cultivo (19)\n- 04_cache_mapbiomas: flag --expanded gera o cache no esquema de 12 classes (10m)\n- docs 06/07 reescritos com argumentacao NACIONAL (Brasil todo, nao so o Sul)\n- acentuacao correta do portugues em todos os documentos (README, CLAUDE, docs/)\n- reference: transcricoes .md do RT 05, RT 04 e da apresentacao; README das figuras\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5dcfc73",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/5dcfc7382419247e759d1ba1026e49578fdd809b",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-07-13T15:34:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Esquema expandido (11 classes) para a expansao nacional + analise MapBiomas\n\nAdiciona 5 classes decididas para o Brasil todo: pavimentacao, areia,\nreflorestamento, cultivo perene e pastagem. Analise dos codelists do MapBiomas\ngrounded no dado real (codigos do 10m Colecao 2 presentes:\n[3,4,5,6,9,11,12,15,19,21,23,24,25,29,30,31,33,49,50]):\n\n- areia (23), reflorestamento (9), pastagem (15): rotulo fraco ja no 10m.\n- cultivo perene (36): ausente no 10m (cai em 19); precisa do MapBiomas 30m.\n- pavimentacao: sem codigo MapBiomas (24 agrega predio+asfalto); so RGB/DINOv3.\n\n- src/veg/constants.py: EDGV_NAMES_EXPANDED + MAPBIOMAS_TO_EDGV_EXPANDED (prontos,\n  ainda nao treinados; exige reanotar + retreinar)\n- docs/07_esquema_expandido.md: analise, esquema alvo e custo por classe\n- docs/06 e README apontam para a decisao\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "e7b43d7",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/e7b43d74315c1f023f6fa7640aecb423e8e21ce6",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-07-13T15:29:02.000Z",
+      "author": "Maj Diniz",
+      "message": "Corrige a fonte do AlphaEarth: Source Cooperative (tge-labs/aef), nao Earth Engine\n\nOs embeddings AEF foram baixados de https://data.source.coop/tge-labs/aef/v1/annual/\n(COGs por zona UTM, HTTPS direto), nao exportados do Google Earth Engine. Atualiza\ndocs/03_dados.md, o script 02_download_aef.py e o README.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "fcfc451",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/fcfc4519b892e9cdf2f891470924d77c577b5e9b",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-07-13T15:23:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Repositorio inicial: extracao de cobertura por IA (D_Hier DV3Inject)\n\nVersao final e reprodutivel do metodo de segmentacao de cobertura terrestre\n(6 classes EDGV) do 1o CGEO/DGEO, na configuracao com DINOv3 (modelo w50_combo,\nmIoU 74,3% / +16,0 pp sobre o MapBiomas, K=5).\n\n- src/veg: biblioteca limpa (constants, config, metrics, losses, dataset, model)\n- pipeline/data_prep: preparo dos dados em sequencia (01 RGB, 02 download AEF,\n  03 cache AEF, 04 MapBiomas, 05 DINOv3, 06 splits)\n- pipeline/training: treino de 1 fold + validacao cruzada K=5\n- pipeline/inference: inferencia de cena inteira (separada do treino)\n- docs: metodo, arquitetura+ablacoes, dados (onde baixar DINOv3/AlphaEarth),\n  setup, resultados e discussao de expansao de classes (codelist Topo 2.0)\n- reference: RT 05/2026, RT 04/2026, apresentacao MundoGeo 2026 e figuras\n- config-driven (config.yaml), sem caminhos de maquina embutidos\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "b8e8ae0",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/b8e8ae02072bec0372db01c33978a783a41f8894",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
