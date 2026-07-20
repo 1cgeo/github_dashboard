@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-19T20:56:25.654Z",
+  "lastUpdate": "2026-07-20T12:21:14.351Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
     "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-19T17:57:48.000Z",
+    "dsgoficial/modelagens": "2026-07-19T21:41:29.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-16T14:55:44.000Z",
@@ -39,8 +39,8 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-18T16:32:25.000Z",
-    "1cgeo/ferramentas_mgcp@qgis4": "2026-06-05T15:21:07.000Z",
+    "1cgeo/geoswarm": "2026-07-20T00:42:46.000Z",
+    "1cgeo/ferramentas_mgcp@qgis4": "2026-07-19T22:30:24.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-16T15:33:34.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
@@ -57,11 +57,11 @@
     "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-19T19:33:10.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-20T09:01:10.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-19T14:03:09.000Z",
-    "1cgeo/fotos_aereas": "2026-07-15T17:29:42.000Z",
+    "1cgeo/fotos_aereas": "2026-07-20T11:53:43.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
   "repoPrivate": {
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5185,
+    "totalCommits": 5198,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -127,11 +127,11 @@
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
       "1cgeo/doc_dgeo": 501,
-      "1cgeo/ferramentas_mgcp": 12,
+      "1cgeo/ferramentas_mgcp": 13,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
       "1cgeo/doc_capacitacao": 8,
-      "dsgoficial/modelagens": 153,
+      "dsgoficial/modelagens": 154,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 466,
       "dsgoficial/DsgTools": 624,
@@ -152,7 +152,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 63,
+      "1cgeo/geoswarm": 64,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
       "1cgeo/ebgeo_360": 13,
@@ -163,13 +163,130 @@
       "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 335,
-      "1cgeo/fotos_aereas": 13,
+      "1cgeo/chefe_dgeo": 344,
+      "1cgeo/fotos_aereas": 14,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T11:53:43.000Z",
+      "author": "Maj Diniz",
+      "message": "prepara o portal para implantacao em intranet e corrige o escopo da consulta\n\nQuatro mudancas, motivadas pela primeira implantacao real (intranet do EB,\nservida por nginx sobre HTTP, com o acervo verdadeiro no lugar do mock).\n\n1. urls.js aceita HTTP de MESMA ORIGEM. Antes, geojson/thumbnail/download/style\n   exigiam HTTPS salvo em localhost, entao o config nem carregava num site HTTP\n   interno: quebrava em basemap.styleUrl antes de o mapa existir. Recurso de\n   mesma origem nao e downgrade nem terceiro, ja chega pelo mesmo canal da\n   pagina. HTTPS continua exigido para qualquer host diferente.\n\n2. A consulta desenha SO as coberturas que intersectaram. Antes, um projeto\n   desligado atingido pela busca tinha a camada inteira ligada, e o mapa passava\n   a exibir todos os footprints do voo em vez do que respondeu. Agora ha uma\n   camada propria de resultados, colorida por projeto, abaixo do realce.\n\n3. Consulta em duas etapas por geometria de cobertura. Buscar em todo o catalogo\n   continua valendo, mas deixa de baixar a grade de todos os projetos: primeiro\n   testa a geometria contra o contorno de cada voo. Projeto sem cobertura, ou\n   cuja cobertura falha, e MANTIDO no escopo: a etapa serve para economizar,\n   nunca para esconder um voo.\n\n4. Lista de resultados sob demanda, em lotes de 40 com IntersectionObserver.\n   Uma area grande devolvia milhares de cartoes com miniatura de uma vez.\n\nInclui docs/plano/12-implantacao-intranet-eb.md com as decisoes da implantacao\ne as pendencias, e testes novos para o escopo por cobertura e para o HTTP de\nmesma origem (73 testes no total).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "7c55e9d",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/7c55e9d15dce64aea6704f703665f979905f93b4",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-20T09:01:10.000Z",
+      "author": "Maj Diniz",
+      "message": "atualiza o piloto: fase de aquisicao fechada, 13 bancos e 6 milhoes de feicoes\n\nO PROJECT.md tinha virado um empilhamento de fotografias datadas que\nenvelheceram: dizia \"dois bancos\", \"carga em curso\", \"recarga em curso\", e\nnumeros do Overture anteriores a recarga. Reescrito com medicao feita nos\nbancos, nao de memoria.\n\nInventario novo com as 13 bases (5.999.527 feicoes): BC250 nacional, BC100 de 7\nestados, BC25 de RJ e SC, Overture, Open Buildings, as fontes oficiais de area\nespecial e toponimo em edgv_oficial_br, e o geoswarm conflado. Falta o OSM, que\nsai pelo CGEO com FME.\n\nCorrige um numero que eu vinha repetindo errado: o IBGE BNGB no edgv_oficial_br\nsao 517.278 feicoes, nao 91.840 (aquilo era uma tabela so).\n\nRegistra as ressalvas por base em vez de afirmar \"auditoria aprovada\" em bloco:\no edgv_oficial_br com 362.714 sem acuracia (fonte nao publica) e o\ngeoswarm_foco como unico banco arquivado com reprovacao conhecida, incluindo as\n911 feicoes com perda real de atributo.\n\nMove a conflacao de item de lista para A pendencia do projeto: nao falta mais\ndado, falta fundir, e 13 bancos separados nao sao a base continua.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "b79e0b9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b79e0b90bed77c4f396cdc158bbe25e2bd405dcf",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-20T08:56:36.000Z",
+      "author": "Maj Diniz",
+      "message": "corrige duas afirmacoes que a reversao tornou falsas, e registra 2 eventos\n\nPROJECT.md do piloto: a secao da carga errada do Overture dizia que \"o chefe\ndecidiu deixa-las\", o que deixou de valer quando as apagamos, e ficou no arquivo\npor uma sessao inteira. Corrigido, com o numero real (202.439 mais 1.224, contra\nos 163.795 que eu reportara e que eram so UMA tabela) e o total da carga boa\n(204.395), que faltava.\n\nwiki/edgv-topo-20: separa o MODELO (producao corrente) do BANCO homonimo, que\nfoi dumpado e apagado da maquina em 2026-07-19 e hoje so existe como dump no\nDrive, ainda sem teste de restauracao.\n\nlivro-razao: presumi o fim de um pg_dump e publiquei arquivo com 63% do\nconteudo; e o verificador reprovando 3 bases em 24h por premissa que so vale\npara conversao do IBGE.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "b4cf77b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b4cf77b3a0ef29882cce897c4298920d9ed647d2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-20T08:39:00.000Z",
+      "author": "Maj Diniz",
+      "message": "conserta duas frases que a troca em massa do nome do banco inverteu\n\nO replace cego de edgv_ibge_bngb para edgv_oficial_br atingiu tambem as\nfrases que FALAVAM SOBRE o nome antigo, e elas passaram a afirmar o contrario\ndo que dizem: o PROJECT.md ficou com \"Banco edgv_oficial_br (o nome ficou\nestreito)\" e com a pendencia \"o banco precisa ser renomeado, porque\nedgv_oficial_br deixou de descrever o conteudo\". Ambas descreviam justamente\no problema que a renomeacao resolveu, e foram commitadas assim.\n\nA pendencia da frente foi reescrita com o que de fato continua aberto: a\nlimpeza dos nomes das parcelas, a filtragem das 762 aldeias cuja posicao\ncontradiz a TI que declaram, e a lacuna do Para.\n\nLivro-razao: replace em massa e seguro em REFERENCIA e perigoso em PROSA.\nO dry-run dos conversores passou limpo e nao diria nada sobre isso.",
+      "sha": "01d937e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/01d937e8e35cf513bf06ec3f631201bd9ad36911",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-20T00:42:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Fechamento de lacunas nas 6 folhas de foco + taxonomia ferroviaria\n\nCampanha sobre a auditoria das folhas 0013-2-NO, 0577-4-NO, 1371-2-NO,\n1439-2, 1644-1-SE e 2239-2-NO (RR/AM/PE/TO/MT).\n\nDado (PostGIS, nao versionado): 206.205 -> ~228k feicoes nas 5 UFs;\n3.187 -> 4.918 dentro das molduras; subcategoria vazia 29.634 -> 9.536.\n\nTaxonomia (core, aprovado pelo usuario 2026-07-19)\n- C06 ganha Ferrovia (infra_ferrovia tipo 7), Bonde (5), Linha Metroviaria\n  (8), Girador Ferroviario (infra_elemento_infraestrutura 1701) e Oficina\n  Ferroviaria (constr_edificacao 2320). Codigos conferidos no edgv_topo_20.sql\n  da DSG, nao inferidos.\n- NAO criadas, por verificacao: Patio Ferroviario (sem classe na Topo 2.0, a\n  subcategoria ficaria sem destino no export) e Passagem de Nivel (vetada pelo\n  usuario e ja descartada em 2026-07-17). Ambos os vetos registrados no\n  categorias.md para nao serem re-litigados.\n- Crosswalk: 263 -> 269 regras.\n\nCodigo\n- classificar_subcategorias.py (novo): classificacao determinista por nome,\n  dry-run por padrao, valida cada regra contra edgv_subcategorias.py no boot.\n  20.075 feicoes classificadas sem recoleta.\n- extrair_peeringdb.py: emitia latitude \"\" em vez de null, o que fazia o\n  pipeline pular a geocodificacao e a insercao descartar 45 feicoes em\n  silencio. Corrigido e reprocessado.\n- matching.py: coletor-datacenters registrado como grupo de fonte proprio\n  (peeringdb), para nao inflar corroboracao contra a ANATEL.\n\nMemoria\n- 83 candidatos curados em 14 agentes; 6 paginas de wiki novas (bdgex-dsg,\n  telegeography, capes-sucupira, ibama-ctf-app, geonames, tre-justica-eleitoral)\n  e 8 atualizadas; 3 paginas de UF novas. lint_wiki limpo.\n- livro-razao: 8 eventos, com duas recorrencias que mudam abordagem em vez de\n  so renotar (OSM como fonte de limite C22 no mesmo agente; SRID divergente ja\n  registrado em 07-18 mas em arquivo que agente nao le).\n\nPendente de aval do usuario (nao aplicado): SRID dos limites administrativos\nno postgis.md (4326 real vs 4674 documentado); regra \"camada nacional != dado\nestadual\" no coletor-comum.md; conflito falso em infraestrutura serializada\nno matching.py; ambiguidade de Biblioteca entre C02 e C05.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NWJmMpPcoVP6QnrqCKVtm8",
+      "sha": "f29855f",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/f29855f0adfb172cc5364afef32622f21b2c1234",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T23:57:03.000Z",
+      "author": "Maj Diniz",
+      "message": "banco renomeado para edgv_oficial_br, e o FDW como retrato do momento\n\nedgv_ibge_bngb deixou de descrever o conteudo quando entraram MMA, FUNAI e\nINCRA. Renomeado para edgv_oficial_br, que nomeia o PAPEL e nao a primeira\nfonte carregada. Os 4 servidores FDW e as 880.442 feicoes sobreviveram ao\nALTER DATABASE; as 17 referencias literais ao nome antigo foram atualizadas\ne os 4 conversores rodam com as mesmas contagens de antes.\n\nLivro-razao: IMPORT FOREIGN SCHEMA e um retrato do momento, entao tabela\ncriada na origem depois da primeira importacao fica invisivel e a regra nao\nroda em SILENCIO, porque o executor a classifica como \"nao se aplica a esta\nbase\", mensagem que e legitima em crosswalk compartilhado. Aconteceu duas\nvezes no mesmo dia. Licao: aviso que e \"normal\" num cenario vira camuflagem\nnoutro; conferir por PRESENCA do esperado, nao por ausencia de erro.",
+      "sha": "9cd6a54",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9cd6a54fbca0e1c7487ead6de3de650ab08afae6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T23:54:02.000Z",
+      "author": "Maj Diniz",
+      "message": "FUNAI: 4.728 aldeias carregadas, e o Para e lacuna de servico\n\nCarga integral das aldeias em llp_localidade_p tipo 9, por decisao do chefe:\nsem filtro, sem deduplicacao. A duplicacao com o BNGB e baixa (143 de 4.728,\ne 4.007 sem nada num raio de 2 km) porque a base do IBGE praticamente nao\nenxerga aldeia indigena.\n\nTres defeitos da fonte entram como fila declarada, com destaque para 762\naldeias (16%) que caem FORA do poligono da TI que elas mesmas declaram, 344\ndelas a mais de 10 km e algumas em outro estado. cod_ti e vinculo\nadministrativo, nao garantia espacial, e a distancia a TI declarada e a regua\nde confianca pronta para a filtragem futura.\n\nPara dos assentamentos: a lacuna e do SERVICO, nao do dado. A camada responde\nzero enquanto o PA tem 38 mil parcelas no mesmo acervo. O dado existe numa\nrepublicacao da EPE (1.059 no PA), mas e outra safra, entao mantem-se a\nlacuna declarada em vez de misturar safras e gravar linhagem de segunda mao.",
+      "sha": "ad36127",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ad36127c4609e5319bfd504960ba5bc53cf177e1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T23:44:32.000Z",
+      "author": "Maj Diniz",
+      "message": "INCRA: territorios e a parcela certificada como fonte de toponimo\n\n439 quilombolas (tipo 3) e 6.444 assentamentos (tipo 4) fecham o\nllp_limite_especial_a em 15.784 feicoes de quatro fontes oficiais, com 14 dos\n17 codigos do dominio preenchidos.\n\nDecisao do chefe, contraria a minha recomendacao e a uma exclusao ja\ndocumentada: a parcela certificada entra em constr_area_uso_especifico_a\ntipo 4 como fonte de nome de fazenda (130.863 feicoes nos 6 estados do\npiloto). O argumento contrario fica registrado na nota do crosswalk. So entra\nparcela COM nome, o que exigiu o operador {preenchido: true} na gramatica de\nfiltro do executor.\n\nDuas correcoes de medicao minhas no livro-razao, ambas da familia da regua\ncega: \"nome 100% preenchido\" era 39,1% (contei tags que o MapServer omite\nquando vazias, e amostrei o unico estado cheio), e \"paralelo atrasaria as\nduas cargas\" era o contrario (5s contra 10s medidos).\n\nLacuna da FONTE registrada: o Para tem zero assentamentos no servico.",
+      "sha": "78d7edc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/78d7edc1b482edca652455d6d51175b4fc58f3cc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ferramentas_mgcp",
+      "date": "2026-07-19T22:30:24.000Z",
+      "author": "1º Ten Marcel",
+      "message": "0.1.17: scripts para gerar linhas e centroides e reclassificação de polígonos voltados para a modelagem do MGCP",
+      "sha": "b75cf69",
+      "htmlUrl": "https://github.com/1cgeo/ferramentas_mgcp/commit/b75cf69d25639aa14ef878bf5c77cd8462f6c652",
+      "repoUrl": "https://github.com/1cgeo/ferramentas_mgcp"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-19T21:41:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Topo 2.0: tipo_limite_especial +1 (4 Assentamento rural)\n\nEspelho da alteracao feita no repo edgv_topo_20. Codigo 4 escolhido por\nadjacencia semantica ao 2 (terra indigena) e ao 3 (territorio quilombola),\nformando o bloco dos territorios de destinacao fundiaria especial antes do 5\ne do bloco contiguo 24 a 35 do SNUC. Justificativa e ressalva no changelog.\n\nOs quatro arquivos comuns aos dois repos voltam a bater byte a byte. A ET em\nHTML foi regerada pelo build.py a partir do master file, nao editada a mao.",
+      "sha": "a1e69be",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/a1e69be938916dbb7990d735e28df65e76eb5764",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T21:40:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-19 (cont. 5): gazetteer e areas especiais oficiais\n\nBNGB do IBGE (150.445 nomes -> 517.278 feicoes, 13 classes) mais as fontes\noficiais de area especial num banco unico: CNUC 3.237 UCs e FUNAI 661 TIs.\nINCRA (quilombola e assentamento) em carga.\n\nModelo: novo codigo 4 Assentamento rural em tipo_limite_especial, por\nadjacencia semantica ao 2 e ao 3, propagado ao DDL, ao master file, ao\nchangelog e a ET regerada, com espelho no repo modelagens.\n\nLicao de classe que custou uma carga inteira: rotulo de CRS nao e evidencia\nde coordenada. As 3.237 UCs entraram com latitude no X e passaram por\nchecagem de CRS, dry-run com EXPLAIN e auditoria de linhagem sem disparo,\nporque nenhuma dessas camadas olha para geografia. Conserto: WFS 1.0.0\n(sempre lon/lat) e guard de retangulo que aborta fora do envelope do Brasil.\n\n6 entradas no livro-razao, sendo duas de familia ja recorrente hoje\n(\"dei por verificado o que nao medi\" e \"licao codificada em um script nao\nprotege os outros\").",
+      "sha": "0fe78fc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0fe78fc46dd5c86d559b97491f65824a8bdb21d5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T21:24:18.000Z",
+      "author": "Maj Diniz",
+      "message": "colecao de insumos FECHADA: 12 bancos, 5,5 milhoes de feicoes com linhagem\n\nTodas as bases continuas que o IBGE publica estao convertidas para a Topo 2.0,\numa por banco: 250k nacional, 100k em 7 estados, 25k nos 2 que existem. Com\nOverture e Open Buildings, 12 bancos e 5,5 milhoes de feicoes, 11 publicados no\nDrive com LEIA-ME que declara o que ficou de fora e POR QUE (curva de nivel por\ndecisao do chefe, 4 duplicatas provadas por ST_Equals, 165.827 pontos de\ntopologia de rede, cauda longa de POI comercial).\n\nGoogle Open Buildings v3 entra com metodo_aquisicao 8 (Extracao automatica),\ndistinto do 5 do IBGE e do 4 do Overture: e esse campo que, num conflate, dira\nque pegada de IA perde para base autoritativa. tipo 0 (Edificacao generica, nao\n9999, porque a fonte nao classifica uso) e acuracia NULA de proposito -- o\n`confidence` publicado e confianca do MODELO, nao acuracia posicional.\n\nContraprova que validou o recorte, e que vale como metodo: comparado ao Overture\nnas mesmas folhas, o Open Buildings acha 20-35% MAIS edificacoes nas areas\npovoadas e MENOS no sertao pernambucano. Numeros fora dessa faixa teriam\nindicado recorte errado.\n\nWiki (perene): fontes-insumos ganha a secao das bases do IBGE, com o achado de\nque sao UMA familia e com as inconsistencias MEDIDAS do produtor -- a BC25 SC\nnao tem malha viaria urbana e a do RJ tem 378.217 trechos, a serializacao do\nmesmo atributo varia entre estados, e a camada \"Nao SNUC\" contem unidades do\nSNUC. O IBGE nao e consistente nem dentro da mesma escala: cada base se mede,\nnao se presume pela irma.\n\nCORRECAO DO CHEFE registrada: as bases sao independentes e a verificacao nao\ncompete com a carga; rodar em fila era desperdicio que eu vinha praticando sem\nnecessidade.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "200ee36",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/200ee361c51695e1a0e90f25c612ad8a9145c273",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-19T21:17:53.000Z",
+      "author": "Maj Diniz",
+      "message": "livro-razao: mensagem de commit descrevendo intencao em vez do diff\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J1wt9NAthPSbp9xU77JqHp",
+      "sha": "71470da",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/71470dac846f7e753521e435b4f63b2c881ba066",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-19T19:33:10.000Z",
