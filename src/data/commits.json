@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-07-20T16:28:10.560Z",
+  "lastUpdate": "2026-07-20T21:16:44.071Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
+    "1cgeo/ebgeo_web": "2026-07-20T18:32:30.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-03-16T16:19:49.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-07-12T15:38:35.000Z",
-    "1cgeo/doc_dgeo": "2026-07-20T14:06:46.000Z",
+    "1cgeo/doc_dgeo": "2026-07-20T20:11:33.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -57,11 +57,11 @@
     "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-20T15:52:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-20T20:37:22.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-19T14:03:09.000Z",
-    "1cgeo/fotos_aereas": "2026-07-20T16:12:30.000Z",
+    "1cgeo/fotos_aereas": "2026-07-20T17:45:19.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
   "repoPrivate": {
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5206,
+    "totalCommits": 5214,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,11 +122,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 816,
+      "1cgeo/ebgeo_web": 817,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
-      "1cgeo/doc_dgeo": 502,
+      "1cgeo/doc_dgeo": 503,
       "1cgeo/ferramentas_mgcp": 13,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 346,
-      "1cgeo/fotos_aereas": 19,
+      "1cgeo/chefe_dgeo": 347,
+      "1cgeo/fotos_aereas": 24,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-20T20:37:22.000Z",
+      "author": "Maj Diniz",
+      "message": "HIFLD: o precedente-cautelar da base continua (o content manager que morreu)\n\nPagina de wiki hifld-licoes-base-continua a partir do artigo do Project\nGeospatial sobre o desligamento do HIFLD Open (DHS, 26/08/2025). Segue a\nconvencao das paginas de licao de sistema externo (banner de REFERENCIA,\nprecedente hootenanny/gait). A licao central: o risco de morte de uma base\ncontinua e institucional, nao tecnico; e o unico do elenco de precedentes\nque foi desligado. Ligada em base-continua e gestor-de-conteudo (onde entra\ncomo o precedente-cautelar), index e mapa de estatisticas do lint.\n\nRetrospectiva: conserta link quebrado pre-existente em edgv-topo-20\n(cartas-militares-piloto e projeto, nao wikilink) e registra no livro-razao\no desvio acento-ascii (autorei a pagina inteira em ASCII, pego pelo lint),\ncom nota no learnings da retrospectiva (o passo de acento vale para a minha\npropria autoria, nao so saida de agente).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "6c95413",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6c954132f0a54ed127ab0a2c6495a7c9648aa827",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-20T20:11:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Ordens de Serviço 07 e 08/2026 (Cascavel-PR e Porto União-SC)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5f600ff",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/5f600ff8de62fb3c78d7c7bf524d0c5c659efabb",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-20T18:32:30.000Z",
+      "author": "Maj Diniz",
+      "message": "adiciona exportação de KMZ vetorial para Google Earth\n\nNova opção na aba Exportar que gera um KMZ vetorial de um mapa escolhido,\npreservando estilo, imagens e atributos. Distinta do KMZ Garmin existente,\nque é raster (GroundOverlay de tiles JPEG).\n\nEstrutura: Document -> Folder por camada -> Placemark por feição, com\nestilos deduplicados por assinatura e assets (PNGs, fotos) deduplicados\npor identidade dentro do zip.\n\n- geometrias complexas (círculo, elipse, setor, retângulo, flecha) já são\n  Polygon/MultiPolygon reais no GeoJSON e vão direto para KML\n- símbolos militares, medidas de coordenação e ícones de ponto viram PNG\n  no KMZ, referenciados por IconStyle\n- feições image viram GroundOverlay; o LatLonBox é recalculado a partir de\n  width/height/size com correção de cos(lat), pois selectionBox é o AABB\n  expandido pela rotação e não corrige aspecto fora do equador\n- fotos anexadas (properties.images) entram no zip e aparecem no balão\n- atributos customizados vão para ExtendedData e para o balão\n\nKML não tem dasharray nem hachura. Tracejado é simulado fatiando a\ngeometria, com o padrão normalizado pelo comprimento da linha (linha e\npolígono não guardam createdAtZoom, e um zoom fixo faria uma linha\ndesenhada ampliada sair como traço único). Hachura degrada para\npreenchimento sólido, registrada em ExtendedData.\n\nMódulos puros (kml-style, kml-geometry, kml-balloon, kml-document,\nkmz-feature-types) são testáveis em node; o acoplamento a DOM/IndexedDB\nfica isolado em kmz-assets e kmz-export.service.\n\nInclui teste de regressão para a conversão de tipo de armazenamento\n(plural, irregular) para tipo de origem (singular).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "29eb106",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/29eb106693fbff16e3554960acb6daebf11992bb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T17:45:19.000Z",
+      "author": "Maj Diniz",
+      "message": "script de publicacao que nao pisa no catalogo de producao\n\nPublicar com `cp -r dist/* <destino>` copiou o public/config.js do repositorio,\nque e o catalogo de DEMONSTRACAO, por cima do catalogo de producao do servidor.\nO portal voltou a mostrar a Brasilia 1958 ficticia no lugar dos cinco voos\nreais. O acervo em data/ escapou por acaso, porque os ids diferem.\n\nO README do catalogo ja advertia sobre isso e nao protegeu, porque o deploy era\num comando digitado a mao toda vez. A regra so vale se algo a fizer cumprir.\n\nO script copia apenas index.html e assets/, por lista de PERMISSAO e nao de\nexclusao, para que um arquivo novo em public/ nao passe a ser publicado sem\nalguem decidir. Recusa-se a rodar se o destino nao tiver config.js (caminho\nerrado) ou se o config.js de la for o de demonstracao (estrago ja feito, avisa\nem vez de piorar). Limpa assets orfaos, que vinham se acumulando a cada build.\n\nConfere no fim que todo asset pedido pelo index.html chegou. Isso importa porque\no nginx responde 200 com text/html para asset faltando, pelo fallback de SPA:\na falha ficaria muda, que e a mesma armadilha do content-type do .geojson.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "8eae0de",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/8eae0ded20d0bbb65f6b4c756811960e28491af5",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T17:45:07.000Z",
+      "author": "Maj Diniz",
+      "message": "download vira lista rebaixavel, e nao mais fila de mao unica\n\nO estado do download era um cursor (currentIndex) que so sabia onde a fila\nparou. Se a conexao caisse na foto 3, o cursor JA tinha passado dela e nao havia\ncomo voltar: a unica saida era refazer a consulta inteira.\n\nAgora e um conjunto de chaves ja acionadas. Cada fotografia ganha a sua linha,\nbaixavel em qualquer ordem, marcada com visto depois de vir e SEMPRE clicavel de\nnovo, que e exatamente o que salva quem perdeu o arquivo no meio.\n\nO relatorio PDF ganha a mesma linha. Ele dispara sozinho ao ficar pronto, mas\nisso acontece uma unica vez. Guardamos os BYTES e nao a object URL, porque a URL\ne revogada 30 segundos depois: guarda-la daria um botao que parece funcionar e\nfalha calado. Cada clique monta um blob novo do MESMO arquivo, sem regerar o\nrelatorio, para o que se confere bater com o que ja estava em maos.\n\nCorrige tambem \"Limpar consulta\", que limpava a geometria do ponto e do poligono\nmas nao a do GeoJSON importado: o desenho e o aviso \"Consultando por <arquivo>\"\nsobreviviam a uma busca que ja nao existia.\n\nO aviso falado fica so na contagem. Marcar a secao inteira como aria-live faria\no leitor de tela reler a lista a cada clique, inutilizavel com centenas de\nresultados.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "2a525df",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/2a525dffafb97b2331a12b47045c2761be674a4d",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T17:44:39.000Z",
+      "author": "Maj Diniz",
+      "message": "consulta por GeoJSON importado: poligonos, linhas e pontos\n\nImportar um arquivo passa a ser uma forma de consulta, ao lado do clique e do\ndesenho de area. Aceita FeatureCollection, Feature e geometria solta, simples ou\nmultipla, achatando GeometryCollection recursivamente.\n\nCada geometria e testada contra o indice espacial POR SI. Usar a caixa\nenvolvente do conjunto anularia a filtragem quando as geometrias estao distantes\nentre si, que e justamente o caso de um arquivo com varios poligonos esparsos.\n\nGeometria inutilizavel e descartada COM AVISO na tela, nunca em silencio: quem\nimporta precisa saber que parte do arquivo nao entrou na consulta.\n\nImportar e acao, nao modo, e por isso fica FORA do gerenciador de ferramentas.\nA janela de escolha de arquivo e assincrona, e o gerenciador desativava a\nferramenta logo depois de abri-la, removendo o <input> do DOM antes do evento\nchange. O resultado era a importacao nao fazer nada, sem sequer dar erro.\n\nO PDF passa a percorrer qualquer geometria, nao so poligonos, para desenhar o\nesquema de uma consulta importada.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5b5d5e1",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/5b5d5e1a835050216282cae26f118d534f120ff1",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T16:57:31.000Z",
+      "author": "Maj Diniz",
+      "message": "resultados agrupados por aerolevantamento, colapsaveis, e menos ruido de estado\n\nTres ajustes pedidos apos o primeiro uso do portal em producao, com os cinco voos\nno catalogo.\n\n1. A linha de estado do projeto so aparece quando diz algo. \"Pronto\" e \"Nao\n   carregado\" descrevem o cache interno, nao o que o usuario ve no mapa, e\n   ocupavam a linha a toa. Ficam \"Carregando grade...\", \"Erro ao carregar\" e\n   \"Grade visivel\".\n\n2. O resumo da busca conta os AEROLEVANTAMENTOS, nao so as fotografias: \"7\n   fotografias encontradas, em 2 aerolevantamentos\". Saber que a area cai em mais\n   de um levantamento diz que ha mais de uma epoca disponivel para aquele lugar,\n   que e o que quem procura no acervo quer saber.\n\n3. Os resultados passam a ser agrupados por aerolevantamento em secoes\n   COLAPSAVEIS, com o nome do voo e quantas fotografias dele entraram. Com o\n   AST-10 no catalogo isso muda o uso: antes, uma busca que pegasse dois voos\n   obrigava a rolar por centenas de fotos de um para chegar ao outro.\n\nDois cuidados na implementacao: a contagem por grupo e calculada de TODOS os\nresultados e aparece de imediato, mesmo com os cartoes ainda entrando em lotes de\n40; e a renderizacao sob demanda continua valendo, com os lotes indo para o grupo\ncerto em vez de uma lista corrida.\n\nTres testes novos: contagem de aerolevantamentos no singular e no plural,\nagrupamento com a contagem de cada grupo, e colapso de um grupo sem afetar os\nvizinhos. 97 testes no total.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "b32afc2",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/b32afc293a1cec6db87566a66bd190b6185d405e",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T16:33:40.000Z",
+      "author": "Maj Diniz",
+      "message": "aceita octet-stream no GeoJSON: nenhum voo carregava em producao\n\nA extensao .geojson nao esta no mime.types padrao do nginx (nem da maioria dos\nservidores), entao o arquivo e servido como application/octet-stream. A checagem\nde content-type reprovava qualquer tipo sem \"json\" no nome, e com isso NENHUM\naerolevantamento carregava na primeira subida em producao. Medido no servidor:\n\n  /data/<projeto>/footprints.geojson  ->  application/octet-stream\n  /osm-style.json                     ->  application/json\n\nO .json passava, o .geojson nao.\n\nA checagem existe para pegar servidor que devolve PAGINA DE ERRO no lugar do dado\nrespondendo 200, e para isso basta rejeitar html e xml. octet-stream significa\napenas \"nao sei o tipo\", que e a resposta normal para um arquivo valido, e\nreprova-lo quebra o portal em qualquer instalacao padrao. Quem julga o conteudo\nde fato e o JSON.parse logo abaixo, que continua no lugar.\n\nSeis testes novos: aceita octet-stream, json, geo+json com charset e tipo vazio;\nrejeita HTML servido com status 200; e rejeita conteudo que nao e JSON mesmo com\ncontent-type tolerado.\n\nContinua valendo declarar o tipo certo no servidor, que ainda habilita gzip nos\nGeoJSON (o do AST-10 tem 5,9 MB e comprime muito bem).\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "259e44c",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/259e44c1cc61001b765b4d1518120092974e981c",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
     {
       "repo": "1cgeo/fotos_aereas",
       "date": "2026-07-20T16:12:30.000Z",
