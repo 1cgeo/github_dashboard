@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-20T12:21:14.351Z",
+  "lastUpdate": "2026-07-20T16:28:10.560Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-01T21:59:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-07-12T15:38:35.000Z",
-    "1cgeo/doc_dgeo": "2026-07-17T17:47:42.000Z",
+    "1cgeo/doc_dgeo": "2026-07-20T14:06:46.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -57,11 +57,11 @@
     "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-20T09:01:10.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-20T15:52:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-19T14:03:09.000Z",
-    "1cgeo/fotos_aereas": "2026-07-20T11:53:43.000Z",
+    "1cgeo/fotos_aereas": "2026-07-20T16:12:30.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
   "repoPrivate": {
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5198,
+    "totalCommits": 5206,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
-      "1cgeo/doc_dgeo": 501,
+      "1cgeo/doc_dgeo": 502,
       "1cgeo/ferramentas_mgcp": 13,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 344,
-      "1cgeo/fotos_aereas": 14,
+      "1cgeo/chefe_dgeo": 346,
+      "1cgeo/fotos_aereas": 19,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T16:12:30.000Z",
+      "author": "Maj Diniz",
+      "message": "portal funciona servido em subcaminho, nao so na raiz do host\n\nO portal passa a ser servido em http://<host>/fotos_aereas/ e nao mais na raiz.\nCom o build anterior isso quebrava em dois pontos:\n\n1. base ABSOLUTA. O build emitia /assets/... , que num subcaminho aponta para a\n   raiz do servidor e nao carrega. Agora a base padrao e RELATIVA (./), o que\n   funciona na raiz, em /fotos_aereas/ ou em qualquer outro subcaminho, sem\n   precisar informar o caminho no momento do build e sem que o endereco entre em\n   arquivo nenhum. VITE_BASE_PATH continua disponivel para forcar outra base.\n\n2. o catalogo era resolvido contra o ORIGIN. Em src/main.js o config.js era\n   montado com `new URL(BASE_URL + 'config.js', window.location.origin)`, ou seja\n   contra a raiz do host; com base relativa isso buscaria o catalogo na raiz do\n   servidor. Passa a resolver contra window.location.href, a propria pagina.\n\ntheme-init.js saiu de public/ para src/. Em public/ ele e copiado verbatim e a\nreferencia %BASE_URL%theme-init.js nao resolvia num build de base relativa (o\nVite tentava resolve-lo como modulo e o build falhava). Em src/ o Vite o processa\ne reescreve o caminho. Ele NAO foi embutido no bundle principal nem inline: fica\nno chunk de entrada de 13 KB, entao o tema continua sendo aplicado cedo, e inline\nseria barrado pela CSP script-src 'self'.\n\nVerificado servindo o diretorio publicado sob um subcaminho: o index carrega, as\nduas referencias resolvem dentro do subcaminho, e config.js, osm-style.json e os\nGeoJSON tambem. Prova negativa: nada responde na raiz do host.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f82993f",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/f82993fdb213ddc75718e1e135a2fda376353ef8",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-20T15:52:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-20: portal de fotos aereas publicado, e o juizo do refino de grade\n\nSessao longa: implantacao do Portal de Fotografias Aereas na intranet e publicacao\nde 5 voos (10.584 fotos, ~58 GB), com refino de grade por SIFT em 4 deles.\n\nAprendizado central, na skill fotoindice-para-poligonos (Rodada 13 + regra no\ncorpo da SKILL): o casamento SIFT da a FORMA, mas rotacao e escala absolutas vem\nda GRADE, que carrega o controle cartografico. Sem Procrustes iterativo, um vies\nde 3% vira deslocamento FALSO de quilometros nas pontas -- e eu ENTREGUEI o Butia\nassim antes de perceber. E nenhum refino se entrega sem TESTE INDEPENDENTE de\nregularidade: metrica interna mede coerencia, nao acerto. O teste aprovou o FAB e\nreprovou o SACS, que eu teria publicado pior do que estava.\n\nwiki/portal-fotos-aereas.md reescrita: dizia 'nao esta publicado e nao tem dado\nreal', agora descreve os 5 voos, a cadeia de preparacao e os limites por voo.\n\n4 eventos no livro-razao, com destaque para dois de familia ja conhecida ('dei por\nverificado o que nao medi') e um novo de ferramental: o PowerShell 5.1 codificou o\nconfig.js inteiro em dobro numa troca trivial.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "a8fd4a4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a8fd4a49ab7f2726cea6b49a7d17809ba40e5aeb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T15:48:00.000Z",
+      "author": "Maj Diniz",
+      "message": "versiona o catalogo de producao, com os cinco aerolevantamentos publicados\n\nO config.js de producao vivia SO no servidor, sem backup nem historico. Ele\ndescreve cinco voos com metadados lidos das tarjas dos foto-indices e das grades,\ntrabalho que se perderia junto com o share. Passa a ser versionado em\ncatalogo/config.producao.js.\n\nO public/config.js continua sendo o catalogo de DEMONSTRACAO, com dados ficticios,\ne e o que o build serve. O de producao e copiado para a raiz do diretorio publicado\ncomo config.js, e o portal o carrega em runtime, sem rebuild.\n\nEstado publicado, validado com o codigo real da aplicacao (zero arquivos\nreferenciados ausentes em todos):\n\n  cib-butia-2001   Campo de Instrucao de Butia 2001      45 fotos\n  saica-2001       Saica 2001                           130 fotos\n  fab-pr-1976      FAB/DSG 1976                         400 fotos\n  sacs-1975        SACS 1975                           2058 fotos\n  ast10-1964       AST-10 1964-1966                    7951 fotos\n                                                     -----------\n                                                      10584 fotos\n\nO arquivo nao contem endereco interno: todas as URLs de dado sao relativas. O\nREADME ao lado registra essa regra e as demais que o catalogo precisa respeitar.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "86bb463",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/86bb463bda4f3e5db00a6d9dffff4f6220d41e97",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-20T14:47:33.000Z",
+      "author": "Maj Diniz",
+      "message": "historia da fotogrametria no Brasil: os grandes voos e a linhagem da DSG\n\nPagina de wiki nova, curada do artigo de Daniel Carneiro da Silva\n(RBGeo v.3 n.2, 2015): as quatro eras da tecnica, a linhagem do\nSGE/DSG (Missao Cartografica Austriaca, estereografo Wolf\nautomatizado por Benjamin Arcoverde Cavalcanti, DL 243/1967) e os\ntres grandes voos que explicam o acervo historico que hoje\ndigitalizamos: Trimetrogon 1943-45, AST-10-USAF 1964-67 e RADAM 1971.\n\nDivergencia registrada, nao resolvida em silencio: foto-indice data o\nAST-10 gaucho em 1964-1966 (do proprio material) e o artigo da\n1964-1967 para o levantamento nacional, com ~1.447 folhas 100k.\nRecortes diferentes; o numero nacional so se afirma citando a fonte.\n\nLigada em index, mapa-conceitos, foto-indice, portal-fotos-aereas e dsg.\n\nRetrospectiva: a preferencia do chefe (\"nao precisa botar em\nresources\") vira regra na skill extracao-documentos. 03-Resources e\npara a fonte IRRECUPERAVEL (documento interno, minuta, PDF sem\npublicacao formal); publicacao externa com identificador estavel\n(ISSN, DOI, norma) dispensa transcricao, porque a referencia\nbibliografica ja devolve o leitor a fonte.",
+      "sha": "5bcc59d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5bcc59da927cb5b83af202321b0b5a83dd362d88",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-20T14:06:46.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa de orientacao da EXPOEx 2025 (PDF do percurso e OCAD editavel)\n\nAdiciona a pagina do mapa usado na atividade pratica do estande,\ncom o PDF pronto para impressao e o arquivo-fonte .ocd para\nreaproveitamento em edicoes futuras.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "5e101b7",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/5e101b776b6871063dacdb3b37bfc4917f81230a",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T13:39:01.000Z",
+      "author": "Maj Diniz",
+      "message": "PDF: atribuicao junto do mapa e licenca uma vez, nao por fotografia\n\n1. A atribuicao do mapa-base sai logo abaixo do mapa que ela atribui. No fim do\n   relatorio ela ficava solta, longe daquilo a que se refere.\n\n2. A licenca deixa de repetir em cada fotografia. Ela e a mesma para todo o\n   aerolevantamento e ja consta no bloco do projeto; repetir por item so alongava\n   o relatorio sem acrescentar informacao.\n\nNao entra aqui, por ser dado e nao codigo: os titulos das fotografias saiam sem\nacento (\"Campo de Instrucao de Butia\") porque os GeoJSON publicados foram gerados\nem ASCII. Corrigido na geracao dos dados, fora do repositorio.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "17c0d96",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/17c0d96857dbedb1aaec06ffbc8d7a3b4531ed11",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T13:09:02.000Z",
+      "author": "Maj Diniz",
+      "message": "consulta substitui a anterior por inteiro e o mapa mostra so o que foi encontrado\n\nQuatro correcoes de interacao, todas apontadas no uso real do portal.\n\n1. Desenho pela metade deixava lixo no mapa. Ao desativar a ferramenta de area no\n   meio do desenho, o deactivate chamava render() sem limpar o modelo, entao os\n   vertices e a linha de preview ficavam desenhados sem nada que os controlasse.\n\n2. O mapa passa a mostrar SO o que a consulta encontrou, mesmo dos projetos\n   ligados. Antes, a grade cheia de um voo ligado competia visualmente com o\n   resultado e escondia justamente a resposta pedida. Ao limpar a busca, os\n   projetos ligados voltam a aparecer.\n\n3. Clicar no mapa com uma area ja concluida nao fazia nada: o onClick retornava\n   cedo no estado complete. Agora descarta a busca atual e comeca outro poligono,\n   que e o mesmo gesto da consulta por ponto.\n\n4. Consulta por ponto depois de uma por area deixava o poligono desenhado. Criado\n   um caminho unico de \"preparar nova busca\" que zera resultados, realce, fila de\n   download E a geometria da OUTRA ferramenta. Vale nos dois sentidos.\n\nRessalva: sao mudancas de gesto, e os testes do repo sao unitarios. Nenhuma das\nquatro tem cobertura automatizada da interacao em si; a validacao foi manual.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "f49f627",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/f49f62726136d91b5935158340795f3e06d0d501",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-07-20T12:23:09.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa de referencia no PDF, consulta por ponto como padrao e sidebar mais larga\n\nAjustes pedidos apos o primeiro teste do portal com dados reais.\n\n1. O relatorio em PDF ganha MAPA. Antes era um croqui vetorial sem contexto\n   geografico, e coberturas soltas no vazio nao dizem onde ficam. Agora o\n   relatorio compoe os tiles do MESMO mapa-base configurado (le a URL do estilo,\n   nada hardcoded) e embute a imagem. A projecao do croqui passou de\n   equirretangular para Web Mercator, a dos tiles, sem o que a sobreposicao\n   vetorial nao assentaria sobre o fundo. Escala, legenda e avisos ganharam\n   tarja clara para permanecerem legiveis sobre imagem.\n   Falhar na captura NAO impede o relatorio: sem tiles, sai o croqui vetorial.\n\n2. ACENTOS no PDF. As strings fixas do gerador estavam em ASCII (Relatorio,\n   selecao, Periodo, Licenca). A fonte sempre suportou Latin-1, tanto que o\n   titulo vindo do config ja saia acentuado. Corrigidas. De quebra, o tipo da\n   consulta deixa de aparecer com o nome do tipo GeoJSON e passa a ser descrito\n   como ponto ou area desenhada, que e linguagem de usuario.\n\n3. Consulta por ponto vira o PADRAO do mapa, sem botao. Clicar consulta, sempre;\n   nao ha modo a habilitar, entao tambem nao ha aviso fixo sobre o mapa nem\n   cursor de mira. So o desenho de area continua sendo modo, porque muda o que o\n   clique faz, e ao sair dele o padrao volta sozinho.\n\n4. Sidebar 50% mais larga (25rem para 37,5rem), com teto em vw para nao engolir\n   o mapa em tela estreita.\n\n5. Ficha do voo enxuta: saem metodo de posicionamento, dimensao do footprint e\n   detalhes de arquivo do download. Fica a ressalva de que o contorno e\n   aproximado, que e informacao para o usuario e nao detalhe interno.\n\nTestes novos cobrem a projecao Mercator (ida e volta), o ajuste de proporcao da\ncaixa, o teto de tiles, a degradacao sem template, e o PDF com varios projetos\nmisturados, que expos a falta de legenda de cores (corrigida). 88 testes.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+      "sha": "9d1a348",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/9d1a3483e2dd798ff1461559dda1d0a46f4a2ff2",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
     {
       "repo": "1cgeo/fotos_aereas",
       "date": "2026-07-20T11:53:43.000Z",
