@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-20T21:16:44.071Z",
+  "lastUpdate": "2026-07-21T11:51:04.443Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-20T18:32:30.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,11 +9,11 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-06-06T10:18:10.000Z",
     "1cgeo/doc_topografica": "2026-07-12T15:38:35.000Z",
-    "1cgeo/doc_dgeo": "2026-07-20T20:11:33.000Z",
+    "1cgeo/doc_dgeo": "2026-07-20T22:05:21.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
-    "1cgeo/doc_capacitacao": "2026-03-18T14:43:33.000Z",
+    "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2026-07-19T21:41:29.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-20T00:42:46.000Z",
+    "1cgeo/geoswarm": "2026-07-20T23:10:29.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-19T22:30:24.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-16T15:33:34.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5214,
+    "totalCommits": 5217,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,11 +126,11 @@
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
-      "1cgeo/doc_dgeo": 503,
+      "1cgeo/doc_dgeo": 504,
       "1cgeo/ferramentas_mgcp": 13,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
-      "1cgeo/doc_capacitacao": 8,
+      "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 154,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 466,
@@ -152,7 +152,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 64,
+      "1cgeo/geoswarm": 65,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
       "1cgeo/ebgeo_360": 13,
@@ -170,6 +170,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/doc_capacitacao",
+      "date": "2026-07-20T23:32:58.000Z",
+      "author": "1º Ten Marcel",
+      "message": "disponibilização dos dados do cfc 2025",
+      "sha": "b58b405",
+      "htmlUrl": "https://github.com/1cgeo/doc_capacitacao/commit/b58b405b6828155d2734d6cc62ccbe234ff111bc",
+      "repoUrl": "https://github.com/1cgeo/doc_capacitacao"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-20T23:10:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Cruzamento HIFLD x Topo 2.0: +4 subcategorias com codigo dedicado\n\nAvaliacao do catalogo PRESERVADO do HIFLD Open (SeerAI inventory, 355\ncamadas) contra a EDGV Topo 2.0 (master_file v0.14.0). 4 subcategorias\nnovas, todas com codigo dedicado ja existente no modelo -- so nao\nestavam no crosswalk:\n\n- C16 Poco de Petroleo    -> constr_extracao_mineral 8   (upstream ANP)\n- C18 Estacao Fluviometrica -> constr_ocupacao_solo 1610 (rede telemetrica ANA/CPRM)\n- C19 Armazem Frigorifico -> constr_deposito 111         (cold storage)\n- C09 Assembleia Legislativa -> constr_edificacao 1309   (distinto de Camara 1308)\n\nReverte a lacuna \"Estacao telemetrica\" decidida em 2026-07-17: o modelo\ntinha codigo dedicado 1610 o tempo todo (decisao tomada sem varrer o\ndominio). Regenera conversao_geoswarm_pg-edgv-topo20.json (273 regras) e\nregistra o evento no livro-razao.\n\nItens avaliados e NAO modelados: EPA RMP/risco quimico (sem classe hazmat;\nso Industria Quimica C14/1024) e Truck Driving Schools (sem codigo, so\ngenerico 525). Nursing Homes/Dialysis/Shelter/terminais: classe ja existia.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DswM7jvPRSD5NDNMYm9BhB",
+      "sha": "1b5322f",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/1b5322f5ac7f4e595967dd7f08048b26f218e791",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-20T22:05:21.000Z",
+      "author": "1º Ten Marcel",
+      "message": "Padroniza nomes de arquivos e corrige refs cruzadas em relatorios\n\n- Renomeia arquivos de relatorios/arquivos para snake_case minusculo\n  (certificados, folder IME, banners 1CGEO); remove numeros do nome\n  dos certificados DSGTools/SAP; corrige rotulos SAP/DSGTools trocados\n- Adiciona 9 arquivos novos (banners, faixas/placas do museu, folders,\n  panfletos, planta) na tabela de arquivos_dgeo.md\n- Remove coluna Responsavel (vazia) das tabelas de arquivos_dgeo.md\n- Verificacao cruzada relatorios/apresentacoes/arquivos:\n  remove duplicata 2021/rt10 (identica a 2022) e planilha .ods orfa de 2017;\n  adiciona apresentacao \"Visita Gen Furlan\" em apresentacoes.md\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>",
+      "sha": "3713f27",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/3713f2738c112fc0ae6d3ecb2ca6dbd6fb7eb21f",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-20T20:37:22.000Z",
