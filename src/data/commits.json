@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-07-22T21:19:17.942Z",
+  "lastUpdate": "2026-07-23T11:54:40.054Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-07-20T18:32:30.000Z",
+    "1cgeo/ebgeo_web": "2026-07-22T23:47:57.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-03-16T16:19:49.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-14T14:15:52.000Z",
-    "1cgeo/ebgeo_360": "2026-07-03T16:33:06.000Z",
+    "1cgeo/ebgeo_360": "2026-07-22T23:19:59.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-19T08:55:52.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-22T15:18:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-22T22:22:58.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-19T14:03:09.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5233,
+    "totalCommits": 5239,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 817,
+      "1cgeo/ebgeo_web": 820,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 43,
       "1cgeo/doc_topografica": 111,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 65,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 18,
-      "1cgeo/ebgeo_360": 13,
+      "1cgeo/ebgeo_360": 15,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,67 @@
       "1cgeo/github_dashboard": 53,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 355,
+      "1cgeo/chefe_dgeo": 356,
       "1cgeo/fotos_aereas": 28,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-22T23:47:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Catalogo: ordena sempre por data decrescente e uniformiza a data exibida\n\nO catalogo mistura dois formatos de data: modelos 3D em DD/MM/YYYY (config.data_captura)\ne projetos 360 em ISO YYYY-MM-DD (captureDate da API). O parseDate so entendia DD/MM/YYYY,\nentao uma data ISO virava NaN, e um comparador que retorna NaN corrompe a ordenacao inteira\n(Array.sort fica indefinido). A ordem por data era imprevisivel, mais visivel ao filtrar.\n\n- parseCatalogDate: le os dois formatos e retorna null (nao NaN) para o indefinido.\n- sortByDateDesc: mais recente primeiro, sem data por ultimo, estavel, nunca NaN; ordena uma\n  copia. Usada no getAllItems e reaplicada no modal apos filtrar/buscar, para a grade ser\n  SEMPRE decrescente por data com ou sem filtro de tipo (o usuario abre e ve os novos no topo).\n- formatCatalogDate: exibe tudo como DD/MM/YYYY no card, acabando com os dois formatos lado a\n  lado; string inparseavel passa intacta.\n\nTestes novos (catalog-sort.test.js): os dois formatos intercalados, sem data por ultimo,\nestabilidade, nao-mutacao, e a formatacao. 1769 -> 1773 testes, lint limpo.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPzEjkiUAnKhMuqkxoHRhd",
+      "sha": "6106fe7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6106fe7a69e4ede37b10296ea3cd5ba7be7a7096",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-22T23:20:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Conserta o crash que impedia o marcador 360 de desenhar, e remove o lixo do modelo antigo\n\nBug grave: navigator.render() chamava this.updateGroundCursor(), metodo removido na\ntroca do marcador mas cuja chamada ficou. Como render() roda no loop sem try/catch, isso\nlancava TypeError todo frame e abortava antes de renderer.render(): o overlay de\nmarcadores de navegacao NUNCA desenhava no visualizador 360. Os testes nao pegaram porque\nexercitam layoutDirections/projector isolados, nunca o render() completo.\n\nConserto (paridade com a calibracao do ebgeo_360, que nao tem cursor-nearest): remove o\nsistema de cursor-nearest inteiro (a chamada morta updateGroundCursor, o\nfindNearestMarkerToPointer orfao, o campo cursorNearestTargetId, o branch de clique morto\nque referenciava renderer.groundCursor). O navigator do web fica igual ao do 360.\n\nLixo do modelo de chao removido (o 360 ja nao tinha):\n- projector: screenToGround e isInFOV mortos; DEFAULT_CAMERA_HEIGHT (constante nunca\n  definida) tirada do viewer, e com ela o import orfao de NAV_CONSTANTS.\n- hit-tester: 4 helpers mortos (findClosest, getMarkersNear, getVisibleMarkers,\n  getDistanceToMarker).\n- docstrings/comentarios que descreviam o ground cursor removido.\n\nFiacao: handler de clique do minimapa ganha try/catch e guard de e.features;\nonPointerMoveGlobal removido (forcava relayout do minimapa a cada mousemove, redundante\ncom o loop que ja chama updateCurrentHeading so quando a camera muda).\n\nParidade do marcador com ebgeo_360 mantida (cross-check numerico, zero divergencia).\nVerificacao: 1761 testes, lint limpo nos arquivos tocados.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPzEjkiUAnKhMuqkxoHRhd",
+      "sha": "695ceb1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/695ceb13f1675ea999a301b74499cde5da565829",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-22T23:19:59.000Z",
+      "author": "Maj Diniz",
+      "message": "Revisao pos-marcador: conserta 4 bugs e remove o lixo do modelo antigo\n\nAchados de uma revisao multiagente do repo apos a troca do marcador.\n\nBugs:\n- preview-viewer: visao traseira renderizava em NaN (HORIZON_BASE_OFFSET_REL e\n  placement.rise eram referencias mortas do modelo de chao). Passa a projetar pela\n  elevacao, como o navigator principal.\n- app.js: ao voltar a Projetos e reentrar, currentPhotoId ficava velho e a foto nova\n  entrava girada em vez de lon=0. Gate no `initialized`.\n- migrate.js: um JSON sem bloco `camera` derrubava a migracao inteira (meta.camera.lat\n  sem guard). Pula com aviso. E cam.cameraHeight || ... passa a ?? (0 legitimo).\n\nDoc (CLAUDE.md): remove as duas mencoes de is_manual e os 5 endpoints que o arquivo\ndocumentava sem existirem (/height, /distance-scale, /marker-scale, PUT/DELETE override).\n\nLixo removido:\n- queries.js: 3 prepared statements mortos (batchUpdate camera_height/distance_scale/marker_scale).\n- connection.js: 4 migracoes de startup redundantes com o schema.sql.\n- navigator: estado de camera morto (currentYaw/Pitch/Fov) + updateCameraState no-op;\n  banners vazios e docstrings do modelo de chao. viewer: currentMeshRotation* mortos.\n- painel: aparato inteiro do ground-grid; overrideSig morto no buildStructureSignature.\n- state.js: campos vestigiais (camera_height/distance_scale/marker_scale, overrides de alvo,\n  setFromClickMode). Agora so mesh rotation y/x/z e hidden sao editaveis.\n- calibration.js docstring; index.html CSS duplicado; settings docker orfaos; CLI usage do\n  migrate; teste enganoso (distance_scale:0.01) e banners de teste mortos.\n\nVerificacao: 202 testes, lint e lint:calibration limpos (0 warnings), knip limpo, zero residuo.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPzEjkiUAnKhMuqkxoHRhd",
+      "sha": "2d6bcb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/2d6bcb5287e267c954f65bf244cd4d05ba52177b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-22T22:24:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Marcador relativo, grafo so-importado, e saida do Docker\n\nEspelha o novo marcador do ebgeo_web na calibracao (paridade conferida por cross-check\nnumerico, zero divergencia) e assenta a doutrina importar-e-pronto do grafo.\n\nMarcador (public/calibration/js):\n- faixa relativa no horizonte no lugar do chao simulado; azimute + distancia-como-ordem.\n- effectiveRank/HORIZON_DISTANCE_RANK_WEIGHT, esfera armilar, hit-test melhor-match.\n- 6 sliders por foto caem para 3 (so mesh rotation y/x/z); overrides inertes no desenho.\n- continuidade de direcao ao trocar de foto (mantem o rumo do mundo, nao zera o lon).\n\nGrafo e dados:\n- recalculate-targets.js DELETADO: o grafo entra pelo migrate e nada o regenera dentro\n  do sistema, entao nao ha recalculo destrutivo de que proteger o trabalho manual.\n- coluna is_manual REMOVIDA (schema, migracao, insertTarget, SELECTs, API, ETag): nada em\n  runtime ramificava nela; is_original ja da os dois estados que importam. Coluna deixada\n  inerte em bancos ja migrados (sem DROP). Ver DECISIONS do vault 2026-07-22 (cont. 5).\n- ingestao aceita pose por quaternion (scripts/lib/orientation.js).\n\nInfra:\n- Dockerfile, Dockerfile.tippecanoe e docker-compose.yml removidos; sobe por npm start com\n  .env na raiz (.env.example novo). lint:calibration cobre public/.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPzEjkiUAnKhMuqkxoHRhd",
+      "sha": "cde49e8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/cde49e835e69a45bebc34c15a1a8b2fde5926434",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-22T22:23:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Marcador de navegacao: faixa relativa no horizonte, continuidade de direcao e hover bidirecional\n\nSubstitui o modelo de chao simulado por uma faixa relativa ancorada no horizonte\ncorrigido. O marcador usa so o azimute (robusto) e a distancia como ordem, nunca como\ncomprimento na tela; camera_height, terreno, distance_scale, marker_scale e os overrides\npor alvo deixam de alcancar o desenho. Tamanho e altura decaem pela mesma razao, o que\ngarante por uma desigualdade unica (raio0 <= (1-decaimento)*banda) que o centro de todo\nicone cai fora do disco do da frente, para qualquer quantidade, mantendo todos clicaveis.\nUm termo de distancia (peso 0,5 de posto) faz um alvo isolado longe ainda ler como longe.\n\n- projector: effectiveRank, angularRadiusDeg, elevationDeg com clamp de teto, projectOnHorizon.\n- navigator: layoutDirections agrupa por sobreposicao real de icone e encerra fila por legibilidade.\n- renderer: esfera armilar, rankOpacity; hit-tester: melhor-match por distancia/raio.\n- Sincronia de hover minimapa<->360 nos dois sentidos; continuidade de direcao ja existente\n  ao navegar entre fotos.\n\nEspelhado com ebgeo_360/public/calibration/js; paridade conferida por cross-check numerico.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPzEjkiUAnKhMuqkxoHRhd",
+      "sha": "a0f5c25",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a0f5c2515ce43001c4e02c9fa3a9a0437a50a10e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-22T22:22:58.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-22: o marcador vira faixa relativa, o grafo do 360 passa a so-importar, e a coluna is_manual cai\n\nSessao de trabalho no ebgeo (repos ebgeo_web e ebgeo_360, commitados a parte).\n- Decisions 2026-07-22 (cont. 5): grafo de navegacao importado uma vez, nunca\n  recalculado dentro do sistema; recalculate-targets.js deletado e is_manual removido.\n- wiki/ebgeo-360: modelo de projecao reescrito (faixa relativa no horizonte no lugar\n  do chao simulado), recalculate-targets deletado, is_manual removido, 3 sliders, Docker fora.\n- wiki/ebgeo-web: marcador relativo, paridade por cross-check numerico, continuidade de\n  direcao e hover bidirecional.\n- livro-razao (cont. 11): defendi a necessidade de is_manual antes de rastrear o consumo.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPzEjkiUAnKhMuqkxoHRhd",
+      "sha": "bc1f6cd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bc1f6cd742fb2f11595a248091e1b54849ed3ac5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/produtos",
       "date": "2026-07-22T16:10:36.000Z",
