@@ -1,0 +1,21 @@
+{
+  "name": "dashboard-cli",
+  "version": "1.0.0",
+  "description": "Interface de linha de comando do github_dashboard, desenhada para agentes (agent-first). Irma do dashboard web: a tela serve humanos, o CLI serve agentes.",
+  "type": "module",
+  "main": "dash.js",
+  "bin": {
+    "dash": "./dash.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "github_dashboard",
+    "CLI",
+    "agent-first",
+    "RPCMTec"
+  ],
+  "author": "DSG/1CGEO",
+  "license": "MIT"
+}

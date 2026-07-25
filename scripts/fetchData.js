@@ -1,6 +1,15 @@
 import fs from 'fs';
+import { pathToFileURL } from 'url';
 
-const repositories = [
+// Este arquivo tem dois papeis: e o script que o GitHub Actions roda 3x ao dia
+// para atualizar o src/data/commits.json, e e a FONTE VIVA do contrato (a lista
+// de repositorios acompanhados, o mapa de autores e os filtros de commit).
+// O dashboard_cli/ importa essas constantes daqui em vez de copia-las, porque
+// contrato copiado apodrece em silencio: repo novo ou militar novo passariam a
+// existir aqui e nao la. Por isso o fetch so dispara quando o arquivo e
+// executado DIRETAMENTE (ver o rodape), nunca quando alguem o importa.
+
+export const repositories = [
   { repository: '1cgeo/ebgeo_web', branch: '' },
   { repository: '1cgeo/ebgeo_web', branch: 'novo_360' },
   { repository: '1cgeo/ebgeo_web', branch: 'integracao_backend' },
@@ -57,7 +66,7 @@ const repositories = [
   { repository: 'dsgoficial/curso_dsgtools', branch: '' },
 ];
 
-const authorMapping = {
+export const authorMapping = {
   'Raul Magno EB': '1º Ten Raul Magno',
   'raulmagno-eb': '1º Ten Raul Magno',
   'Philipe Borba': 'Maj Borba',
@@ -106,11 +115,11 @@ const authorMapping = {
   'kretzer': "Alu Kretzer",
 };
 
-function normalizeAuthorName(author) {
+export function normalizeAuthorName(author) {
   return authorMapping[author] || author;
 }
 
-function shouldIncludeCommit(commit) {
+export function shouldIncludeCommit(commit) {
   if (commit.commit.author.name === 'dependabot[bot]') {
     return false;
   }
@@ -126,7 +135,7 @@ function shouldIncludeCommit(commit) {
   return true;
 }
 
-function getRepoKey(repository, branch) {
+export function getRepoKey(repository, branch) {
   return branch ? `${repository}@${branch}` : repository;
 }
 
@@ -387,12 +396,19 @@ async function fetchCommits() {
   }
 }
 
-// Verificar e usar token do GitHub
-if (process.env.GH_PAT) {
-  console.log('Using provided GitHub token');
-} else {
-  console.log('No GitHub token found. Requests will be rate-limited.');
-  console.log('To increase rate limits, set the GH_PAT environment variable.');
-}
+// So busca da rede quando alguem roda `node scripts/fetchData.js`. Importar o
+// arquivo (o que o dashboard_cli faz para ler o contrato) nao dispara nada.
+const executadoDireto = process.argv[1] &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
 
-fetchCommits();
+if (executadoDireto) {
+  // Verificar e usar token do GitHub
+  if (process.env.GH_PAT) {
+    console.log('Using provided GitHub token');
+  } else {
+    console.log('No GitHub token found. Requests will be rate-limited.');
+    console.log('To increase rate limits, set the GH_PAT environment variable.');
+  }
+
+  fetchCommits();
+}
