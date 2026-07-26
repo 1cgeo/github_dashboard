@@ -1,9 +1,9 @@
 {
-  "lastUpdate": "2026-07-26T11:24:08.978Z",
+  "lastUpdate": "2026-07-26T16:06:03.271Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-24T21:35:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
-    "1cgeo/servico_nomes_geograficos": "2026-03-16T16:19:49.000Z",
+    "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-07-23T13:18:17.000Z",
+    "1cgeo/ebgeo_360": "2026-07-26T14:44:30.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-25T22:50:59.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-26T15:58:00.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T10:55:24.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T14:30:10.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5352,
+    "totalCommits": 5362,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,8 +122,8 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 853,
-      "1cgeo/servico_nomes_geograficos": 28,
+      "1cgeo/ebgeo_web": 854,
+      "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
       "1cgeo/doc_dgeo": 508,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 65,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 16,
+      "1cgeo/ebgeo_360": 19,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,103 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 396,
+      "1cgeo/chefe_dgeo": 401,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-26T15:58:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-26 (cont. 2): o piloto escolhe o Opus, acha dois furos na minha regua, e o resto vira projeto pausado\n\nPILOTO DE DOIS MODELOS. Tres arquivos (103,5 KB, 272 violacoes) pelo mesmo prompt\nem Opus 5 e Sonnet 5, em copias isoladas:\n\n               Opus 5    Sonnet 5\n  violacoes    41        86\n  tokens       332.169   522.315\n  ferramentas  153       343\n  relogio      33,6 min  60,8 min\n  bytes        -135      -169\n  perda de fato nenhuma  nenhuma\n\nUSE OPUS, e o resultado e contraintuitivo. O Sonnet gastou 57% mais tokens e 2,2x\nmais chamadas para METADE da melhoria, e ainda SUBIU a voz passiva (41 para 46). A\nvantagem de preco por token some no consumo maior: por violacao resolvida ele e\n22% mais barato no promocional e 17% mais CARO no preco cheio, que entra em\n2026-09-01.\n\nDOIS FUROS MEUS NA REGUA, achados PELO piloto e conferidos por mim antes de\naceitar:\n- o bloco com 2+ \";\" fora de parenteses registrava so `lista_inline` e PULAVA\n  frase longa, paragrafo longo e \";\" de oracao. No vault: 290 blocos cegos, 360\n  violacoes de tamanho escondidas, e o `maior_frase` daquele bloco virava zero.\n  Nasceu de um conserto certo levado longe demais: o certo e mudar COMO medir (no\n  bloco enumerado, cada ITEM por si) e nunca DESLIGAR a medicao.\n- frase comecada por `codigo` inline nao era frase nova, porque eu trocava o\n  inline code por espaco e o split exige maiuscula depois do ponto. Duas frases\n  contavam como uma e inflavam o tamanho.\nMais o falso-positivo que os DOIS agentes acharam independentemente:\n`transformador` e o equipamento da subestacao, nao adjetivo de venda.\n\nBASELINES CORRIGIDOS em tres arquivos, porque os que eu reportei estavam\nsubestimados: nucleo de 0,20 para 0,29, CLAUDE.md de 0,15 para 0,19, wiki 1,74,\nskills 2,02, projetos 2,15, subwikis 1,76, Decisions 2,88.\n\nAPLICADOS no vault os tres arquivos do Opus, conferidos ANTES de sobrescrever\n(guard limpo, 46 wikilinks intactos, nenhum numero ou data perdido, releitura do\ndisco): producao-progressiva 111->25, cartas-militares-piloto 74->12,\nconflacao-atributo-linha 87->4.\n\nO RESTO VIRA PROJETO PAUSADO por custo, com recorte medido em\n01-Projects/vault-em-pts: falta wiki (163 arq), skills (141), 01-Projects (15) e\nsubwikis (23), a ~11,6M tokens ou ~US$ 93 no Opus. Fora do escopo por decisao:\nDecisions e livro-razao sao registro historico append-only, 03-Resources e\nverbatim.\n\nTRES LICOES no livro-razao e nos learnings:\n- quando se cria excecao numa metrica, a excecao muda a FORMULA, nunca desliga a\n  medicao; medicao desligada nao aparece como zero suspeito, aparece como sucesso\n- o autorrelato de um subagente vale o que vale o instrumento que voce deu a ele:\n  o Opus reportou \"250 para 19\" e o real era 272 para 41, com a regua cega que EU\n  entreguei. Remeca o trabalho do agente antes de aceitar\n- custo de trabalho agentico escala com TURNOS, nao com tamanho do insumo. Orcei\n  ~$32 e o medido extrapola para ~$93, porque nao modelei 124 Edits num agente so\n  (o agente consumiu ~10x o tamanho do proprio arquivo). O lever nao e o modelo:\n  e script antes de agente, Edits maiores, e LOTE por agente (342 agentes\n  pagariam 13,7M tokens so de overhead)\n\nABERTA sem resposta: a granularidade (1 agente por arquivo x por lote). O braco\nsolo foi lancado e o chefe o interrompeu por custo antes de medir; a regua da\ncomparacao fica montada no PROJECT.md.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "abd5c00",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/abd5c00b3d8fddc7f601a7dcfccf59a3ea9df2b7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-26T14:44:30.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): modo mapa do projeto\n\nTecla M ou botao no painel: o projeto inteiro numa planta MapLibre, para\nrevisar em largura em vez de caminhar pelo grafo foto a foto. Pontos\ncoloridos por estado de revisao, com a foto aberta destacada; clicar abre\num card com a previa, os tres angulos e \"Entrar na foto\" — que passa por\nnavigateToPhoto, entao o dialogo de alteracoes nao salvas continua valendo.\n\nGET /api/v1/projects/:slug/map devolve tudo de um projeto so. Arrays\ncurtos em vez de GeoJSON completo: com 12 mil fotos, repetir as chaves de\nFeature/geometry/properties em cada uma inflaria o corpo a toa.\n\nO tracado e desenhado duas vezes, com opacidade cruzada: por baixo dos\npontos acima do zoom 17,5 e por cima abaixo de 16,5. Abaixo do 17 as\nfotos se tocam na tela (15 m viram 6,8 px no z16, e o raio do ponto ja e\n5 px), entao uma linha por baixo fica invisivel justamente na escala em\nque a forma do levantamento e o que interessa.\n\nDuas armadilhas do MapLibre que custaram caro:\n\n- interpolate de zoom precisa ser a expressao MAIS EXTERNA. Com um case\n  por fora, a propriedade fica invalida e a camada inteira para de\n  renderizar, sem erro no console.\n- as fontes so existem depois do evento load. O fetch do projeto chega\n  antes, e getSource() devolvia undefined — agora o load vira promise e\n  corre em paralelo com o fetch.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CyykDpyJU2Dw7qxE43Xise",
+      "sha": "58b3cd9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/58b3cd9f5d3a4d86a0edf48c25609fb2dc0414bb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-26T14:44:14.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(tracks): guarda o tracado de captura no banco e gera o PMTiles dele\n\nproject_tracks passa a guardar a linha por projeto — a MESMA geometria do\nfotos_linha.pmtiles, so que atribuida. O PMTiles em si nao serve para\nconsumo por projeto: e um arquivo unico com os 28 juntos, e os 21\nanteriores a 2026 estao todos como origem='legado', sem como separa-los.\n\nimport-tracks.js popula a tabela, preferindo o geojson original do\nlevantamento e caindo para o decode do PMTiles nos projetos cujo geojson\nnao existe mais aqui. As feicoes legadas nao dizem de quem sao, entao\ncada vertice vota no projeto dono da foto mais proxima: o pior vertice\ncai a 28 m de uma foto do projeto escolhido, com mediana de 3,5 m.\n\ngenerate-pmtiles.js passa a montar as DUAS camadas a partir do banco,\ninvertendo a dependencia. O ciclo antigo — decodificar o PMTiles,\nmesclar o geojson do lote novo, re-encodar — empurrava a geometria por\nmais uma simplificacao a cada importacao.\n\nDuas flags decidem se a linha bate com a fonte:\n\n- -z14 em vez de -zg. O tippecanoe quantiza a geometria a resolucao do\n  tile mais fino; no z11 herdado cada unidade valia ~5 m, no z14 vale\n  ~0,55 m, bem abaixo dos 13-19 m entre fotos consecutivas.\n- --no-line-simplification. Ele simplifica ate no zoom maximo: sem essa\n  flag, 305 dos 1.437 vertices do DCMun ficavam a mais de 1 m de\n  qualquer vertice gravado — o comprimento total sobrevivia, as curvas\n  viravam retas. Com ela, o pior desvio em DCMun/AMAN/Faxinal e 0,44 m,\n  que e so a grade do z14.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CyykDpyJU2Dw7qxE43Xise",
+      "sha": "c946a96",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/c946a96f6720cfd42adc27acd2d6df86e8eba1dc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-26T14:43:57.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(migracao): importa DCMun, substitui AMAN e endurece a leitura do disco\n\nDCMun (1.235 fotos) e substituicao do AMAN pelo lote streetviewaman\n(11.756 -> 12.334 fotos). O AMAN novo e a mesma captura reexportada mais\nduas campanhas de 2025: 1.858 dos 2.219 nomes em comum tem coordenada\nidentica, e o time_img mostra as tres datas.\n\nLeitura resiliente do disco de origem, que e a causa raiz de uma falha\nreal: a migracao do AMAN perdeu 8.972 das 11.756 imagens com\n\"UNKNOWN: unknown error, read\", e as MESMAS leituras passaram depois,\numa a uma. Agora sao 8 tentativas com espera dobrando ate 30s, e\ndeteccao de drive desconectado — sonda o diretorio a cada 5s por ate\n30 min em vez de gastar as tentativas contra um caminho morto.\n\nimport-geojson-photos.js importa fotos que tem JPG e ponto no\nfotos.geojson mas nenhum arquivo de metadado, e por isso o migrate\n(que percorre a pasta de METADADOS) nunca viu — 578 das 12.334 do AMAN.\nO heading sai do rumo para a proxima foto na ordem do time_img: usar a\nordem da LineString erraria 180 graus, porque 209 dos 445 segmentos\nestao desenhados contra o sentido do percurso. Medido contra as 11.753\nfotos que tem heading, o erro fica em 1,3 grau na mediana.\n\nA etapa de imagem procura toda foto sem BLOB, nao so as recem-inseridas:\ninserir as linhas antes de converter deixava fotos orfas se o drive\ncaisse no meio, porque a re-execucao as considerava importadas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CyykDpyJU2Dw7qxE43Xise",
+      "sha": "180cadd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/180cadd0dd2c3a353edb7259d19dee64beccd0fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/servico_nomes_geograficos",
+      "date": "2026-07-26T14:30:30.000Z",
+      "author": "Maj Diniz",
+      "message": "feat!: busca por tres chaves e correcao do acervo\n\nAlinha o servico do EBGeo antigo ao padrao de busca do backend novo (ebgeo_web).\n\nsrc/index.js: a ordenacao de /busca deixa de ser soma ponderada de seis criterios\ne passa a TRES CHAVES LEXICOGRAFICAS - relevancia em faixa (com containment\nvalendo casamento pleno), categoria (tipo_peso >= 1.0, ou seja, Cidade), e\ncombinacao de importancia com proximidade (gaussiana com plato de 10 km) - mais\ndesempate por trigrama, que existe por determinismo e nao por qualidade.\n\nA doutrina: vence a feicao de maior importancia mais proxima do local, com a\nimportancia sendo CATEGORICA. Cidade vem primeiro independente da distancia.\nNuma soma, distancia suficiente sempre compra a diferenca de categoria, porque\nas duas moram na mesma unidade; uma chave lexicografica nao se compra.\n\nO predicado tambem troca similarity(...) > 0.25 pelo OPERADOR % com\nSET LOCAL pg_trgm.similarity_threshold = 0.25 numa transacao. Funcao e opaca ao\nplanner e forcava varredura sequencial da tabela inteira; o operador alcanca o\nindice GIN, que existia e estava ocioso. Os dois andam juntos: o default da\nextensao e 0.3, entao remover o SET LOCAL aperta a busca em silencio.\n\nO campo score segue saindo em [0,1]: e a tupla codificada numa base que preserva\na ordem, entao ORDER BY score DESC e a ordem das chaves.\n\ndev/ (novo): diagnostico.sql (somente leitura) e atualizar-acervo.sql\n(transacional, idempotente). No acervo de 2026-07-23:\n\n  linhas ................ 81.964 -> 52.420\n  duplicatas exatas ..... 29.544 (36%) -> 0\n  tipo_peso obsoleto .... 2.016 -> 0\n  no piso 0.1 ........... 31.198 (38,1%) -> 11.821 (22,6%)\n  sem cluster_id ........ 21.703 -> 0\n\nO tipo_peso passa a casar PALAVRA. O CASE antigo comparava o tipo por IGUALDADE\ncontra uma lista escrita SEM acento ('Represa/acude com fluxo', hifen ASCII em\n'Aglomerado rural isolado - Povoado'), enquanto o vocabulario real e acentuado e\nusa travessao: por isso 38% do acervo caia no piso, incluindo 3.087 povoados,\n999 lagos e 796 represas. A assinatura da funcao nao muda, entao o trigger\nexistente continua funcionando sem ser tocado.\n\nA dedup inclui a COORDENADA na chave, entao so colapsa linhas no mesmo ponto.\nVerificado comparando acervo completo e deduplicado, ambos com clusters\nrecomputados: 0 localidades perdidas, 0 inventadas, estrutura de clusters\nidentica. O que muda e a numeracao, porque ST_ClusterDBSCAN numera por ordem de\nlinha; cluster_id e rotulo, nao identidade.\n\nVerificado subindo o servico contra uma copia do banco: buscando \"Altamira\" com\no mapa em cima de Altamira do Parana, a Cidade vem em primeiro, e os scores\nbatem digito a digito com os do backend novo.\n\nCLAUDE.md e er/criterio_busca.md atualizados: o segundo descrevia os seis pesos\ne a compressao de tipo por zoom, que nao existem mais.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d662298",
+      "htmlUrl": "https://github.com/1cgeo/servico_nomes_geograficos/commit/d662298806e8b3cfe1e89ed853782a4c0feabad8",
+      "repoUrl": "https://github.com/1cgeo/servico_nomes_geograficos"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T14:30:10.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(nomes)!: a busca ordena por tres chaves, nao por soma ponderada\n\nA ordenacao de GET /nomes/busca era uma soma de 7 criterios com pesos somando\n1.00, herdada verbatim do servico_nomes_geograficos. Agora sao tres chaves\nlexicograficas: relevancia em faixa, categoria, e combinacao de importancia com\nproximidade. Medido contra um conjunto dourado de 584 casos em 13 familias:\naprovacao de 81,5% para 92,6%.\n\nA doutrina, declarada: vence a feicao de MAIOR IMPORTANCIA mais PROXIMA do\nlocal, com a importancia sendo CATEGORICA e nao de entidade. Cidade vem primeiro\nindependente da distancia, e nao existe ranking entre cidades.\n\nPOR QUE CHAVES E NAO SOMA: numa soma, e tambem num produto, distancia suficiente\nsempre COMPRA a diferenca de categoria, porque as duas moram na mesma unidade.\nNao existe peso que torne \"cidade\" incomparavel: so torna caro. Uma chave\nlexicografica nao se compra. Na familia que pergunta se uma Cidade do mesmo nome\na ~330 km aparece no topo: 85,7% com a soma (recalibrada ou nao), 47,6% com o\nproduto multiplicativo e decaimento gaussiano que e o padrao da industria, e\n100% com as tres chaves.\n\nJunto vao:\n\n- Migracao 009: tipo_peso passa a casar PALAVRA e nao substring. O LIKE '%rio%'\n  da 004 achava \"rio\" dentro de cemiteRIO, aviaRIO, aterro sanitaRIO e supeRIOr,\n  e eram 658 linhas do acervo real ranqueadas como hidrografia sem ser. Aparecia\n  no produto: o top-5 de \"brasilia\" trazia \"Agro - Aviario\" com peso de rio.\n- O zoom_factor que neutralizava tipo_peso em zoom alto foi REMOVIDO: ele\n  contradiz a chave de categoria frontalmente. O teste que o assertava foi\n  reescrito para assertar o oposto, e hoje prende que o gap Cidade x Cemiterio\n  NAO muda com o zoom.\n- LEAST(...,700) no expoente do decaimento. O Postgres LANCA erro em underflow\n  de float em vez de saturar em zero, e com zoom 16 um candidato a 300 km da\n  expoente 4096, derrubando a requisicao inteira com 22003. Achado rodando a\n  query real contra o acervo real; nenhum teste de unidade pegaria.\n- dev/: importador do gazetteer legado, gerador do conjunto dourado e calibrador\n  (ablacao, busca no simplex com holdout, comparacao de modelos de ordenacao).\n- Wiki: ranking-busca-toponimos reescrita, e calibracao-busca-toponimos nova com\n  o metodo (por que peso nao vira assert, a armadilha do conjunto vacuo, a\n  ablacao como meta-teste do proprio conjunto).\n\nO campo `score` segue no contrato congelado e segue em [0,1]: a tupla e\ncodificada numa base que preserva a ordem, entao ORDER BY score DESC E a ordem\ndas chaves e quem consome le um numero decrescente, como antes.\n\nVerificado: lint limpo nos dois pacotes, 2661 web + 2585 backend + 169 e2e\nverdes, e controle negativo em cada chave (apagar a chave deixa o teste\nvermelho). O controle negativo pegou um teste meu quase vazio: o caso de\ncategoria a 40 km passava COM e SEM a chave, porque a 40 km o decaimento\ncontinuo ja favorece a Cidade sozinho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9e41be1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9e41be152f3ade96362c40998c61eb03899fbfdc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-26T14:05:18.000Z",
+      "author": "Maj Diniz",
+      "message": "nucleo em PTS (cont.): o worktrees-guia que ficou fora do commit anterior\n\nMesma troca byte-neutra do \";\" que junta oracao por ponto. Ficou de fora por\nesquecimento meu na lista de caminhos explicitos do commit 3dc83a6, nao por\ndecisao. O arquivo tira 0,00 na regua.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cfd91c2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cfd91c25be549feb2cc31817b2589e9c2638cb61",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-26T14:04:54.000Z",
+      "author": "Maj Diniz",
+      "message": "nucleo em PTS: a constituicao passa de 2,05 para 0,15, em 2 bytes menos\n\nPrimeira aplicacao do PTS ao proprio nucleo, com as duas restricoes do chefe:\nmanter a densidade e nao aumentar o tamanho.\n\nResultado: nucleo de 1,52 para 0,20 violacoes por 100 palavras. CLAUDE.md de\n2,05 para 0,15, com a maior frase caindo de 75 para 30 palavras. Nenhum arquivo\ntem mais frase acima do teto. Os tres arquivos SEMPRE-INJETADOS somam 8 bytes\nMENOS que antes (CLAUDE.md -2, MEMORY.md 0, USER.md -6); as referencias sob\ndemanda somam +27, pagos por tres restauracoes de fidelidade descritas abaixo.\n\nO metodo que fez caber: trocar por ponto o \";\" que junta oracao e byte a byte\nneutro (\"; x\" vira \". X\") e sozinho resolveu 59 das 95 violacoes. Quebrar frase\nlonga tambem sai quase de graca quando o corte substitui um conectivo. So\nautomatizei o que o linter ja julga sem ambiguidade (bloco com exatamente um \";\"\nfora de parenteses); o resto foi caso a caso.\n\nConferido contra perda: diff de tokens em cada arquivo, com toda palavra ausente\njustificada como gramatica ou sinonimo. Tres restauracoes por fidelidade, apos a\nprimeira conferida:\n- \"realizado\" volta em proatividade.md. E o marcador LITERAL do calendario e o\n  gate_proatividade.py le por ele: trocar por \"feito\" fez a doc apontar para um\n  marcador inexistente. Virou regra nova no padrao (\"nunca troque a palavra que e\n  DADO\") e armadilha na skill revisar-escrita.\n- \"anti-vazamento\" volta como descritor do guard.\n- a tese do _DOUTRINA.md desce do titulo (que virou nome curto) para o corpo.\n\nSEIS erros de gramatica meus no linter, todos falsos-positivos achados medindo o\nnucleo, todos consertados na ferramenta e nunca reescrevendo texto correto:\n- \";\" dentro de parenteses separa qualificacao enumerada, nao junta oracao\n- `estar` + participio e passiva de ESTADO (\"o remoto esta configurado\" nao\n  esconde agente); so `ser` e `ficar` ficam no gatilho\n- o teto de 6 frases e de PARAGRAFO, nao de item de lista: bullet ja E a lista\n  vertical que a regra 4.3 pede, e cobrar ali punia o proprio conserto (minhas\n  quebras subiram paragrafo_longo de 1 para 6)\n- extensao de arquivo (.py, .json) nao e abreviacao: protege-la fundia\n  \"wiki_grafo.py. O diretorio\" numa frase de 50 palavras que nao existia\n- \"publica\"/\"especifica\"/\"media\" sao palavras legitimas sem acento (verbo\n  publicar, verbo especificar, ingles), e flagra-las acusa prosa correta\n- a lista de excecao passou a comparar sem acento, senao \"rigido\" nao pega \"rígido\"\n\nLicao gravada no learnings: metrica que discorda do seu julgamento sobre um caso\nque voce conhece bem e hipotese sobre a METRICA, nao veredito sobre o texto.\n\nAs 19 violacoes que sobram sao INTENCIONAIS e ficam declaradas em\nconventions/escrita.md, cada uma com o custo que a justifica: enumeracao em linha\ncorrida com \";\" em arquivo sempre-injetado (lista vertical custa bytes), o\naforismo dos seis principios (o paralelo \"codificada, nunca lembrada\" e a forma),\n\"metrica a maximizar\" (termo de Goodhart), \"estado da arte\" (preferencia do chefe\ndita com precisao) e o marcador \"realizado\". Regra da lista: excecao sem custo\nnomeado e desculpa, e desculpa fossiliza.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3dc83a6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3dc83a6c79830e0d433b25e539cdeec3c9dcb044",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-26T13:40:35.000Z",
+      "author": "Maj Diniz",
+      "message": "poda: USER.md volta para dentro do teto (corta a duplicata do nucleo)\n\nFicou em 4.960 de ~6.000 (83%, acima do gatilho de ~80%) ao ganhar a preferencia\nde norma no nucleo. Cortada a duplicata: o paragrafo sobre confirmar escala e\ncusto antes de lote grande virou regra do CLAUDE.md em 2026-07-25, e o CLAUDE.md\ntambem e injetado em toda sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d2a8a08",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d2a8a0850d757df2297f7a33499bb5d65c55d72f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-26T13:39:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-26: o vault ganha um padrao de escrita verificavel por maquina (PTS)\n\nAdota o PTS (Portugues Tecnico Simplificado) como o jeito padrao de escrever\ntudo no vault, adaptado do ASD-STE100 (o ingles controlado da industria\naeroespacial). Entra no NUCLEO com aval explicito do chefe.\n\nO que decidiu nao foi o pedigree do padrao: e que a maior parte das regras dele\ne verificavel por MAQUINA, entao virou regua executavel em vez de guia de estilo.\n\nFonte primaria: PDF oficial da Issue 9 (2025-01-15, 434 paginas), nao a\ntranscricao do video que trouxe a ideia. Rendeu dois fatos que a transcricao\nerrava: sao 875 palavras aprovadas (nao 900) e o padrao original NAO proibe o\nem-dash, so o ponto e virgula (a proibicao do em-dash e nossa, anterior).\n\nAdaptar nao foi traduzir. O `;` de enumeracao e legitimo em portugues (copiar a\nproibicao do STE gerou 2.547 falsas violacoes); tres vicios sao so nossos\n(gerundismo, burocrates de oficio, o \"se\" que apaga o agente); e os tetos sobem\nde 20/25 para 25/30 porque o portugues pede ~25% mais palavras.\n\nPiloto medido ANTES de fixar teto, em ~500 mil palavras: wiki 1,80 | skills 1,96\n| projetos 2,58 | decisoes 2,82 | texto de FORA 3,00. Contra a expectativa, o\nnosso problema nao e juridiques, e PERIODO LONGO. Os tetos caem no percentil 85\nde cada corpo, ou seja, cobram a cauda e nao a norma.\n\nNovos:\n- .claude/skills/conventions/escrita.md: o padrao (regras por secao, lexico\n  \"nao X use Y\", modos estrito/temperado, zonas de excecao, autolint)\n- .claude/scripts/lint_escrita.py: a regua (21 categorias, violacoes por 100\n  palavras, dependencia zero)\n- .claude/skills/revisar-escrita/: o metodo (SKILL.md, learnings, routing-eval)\n- wiki/portugues-tecnico-simplificado.md: conceito, origem e evidencia\n\nQuatro consertos na propria regua, todos achados olhando a AMOSTRA e nao o\ntotal; o mais instrutivo: o padrao tirava 2,70 no proprio linter por CITAR as\npalavras que proibe (mencao nao e uso). Os cinco arquivos novos zeram, e a\nsaida.md caiu de 2,62 para 0,26.\n\nAprendizados desta sessao no livro-razao e nos learnings: pedido que diz \"em\ntudo\" ou \"padrao\" e pedido de NUCLEO (2a instancia, o chefe teve que mandar);\nherdar regra por referencia nao substitui enuncia-la; nao copiar para\n03-Resources fonte que ja tem URL estavel; a regra de nucleo \"o retorno da\nferramenta e eco, nunca prova\" vale para escrita em ARQUIVO (um script meu\nimprimiu \"substituido\" sem ter gravado); e zero inesperado de um detector e\ndefeito ate prova em contrario (o stdin no Windows vinha em cp1252).\n\nNAO reproduzido em portugues o experimento controlado do autor do video\n(-74% no Claude, -50% no gpt-5.5): fica como backlog, nao como nosso numero.\nA correcao do vault inteiro fica para depois, fora deste commit.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1b5f340",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1b5f340304331b7c45626f62027a914da1fc1a13",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-26T10:55:24.000Z",
