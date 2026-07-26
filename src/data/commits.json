@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-25T20:58:43.620Z",
+  "lastUpdate": "2026-07-26T11:24:08.978Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-24T21:35:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-25T14:41:52.000Z",
+    "1cgeo/controle_acervo": "2026-07-25T21:25:34.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -48,7 +48,7 @@
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
-    "1cgeo/controle_orcamentario": "2026-07-25T12:26:21.000Z",
+    "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
     "1cgeo/ebgeo_360": "2026-07-23T13:18:17.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-25T19:14:05.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-25T22:50:59.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-25T19:43:27.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T10:55:24.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5343,
+    "totalCommits": 5352,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 848,
+      "1cgeo/ebgeo_web": 853,
       "1cgeo/servico_nomes_geograficos": 28,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 122,
+      "1cgeo/controle_acervo": 123,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -154,7 +154,7 @@
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
       "1cgeo/geoswarm": 65,
       "1cgeo/tileclass": 95,
-      "1cgeo/controle_orcamentario": 20,
+      "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 16,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 394,
+      "1cgeo/chefe_dgeo": 396,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T10:55:24.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(dev): importa o config.js legado para o catalogo do backend\n\nO catalogo do backend novo so tinha os placeholders da migracao 003 (2 data\nlayers e 3 analysis layers apontando para localhost, 1 tileset de exemplo),\nenquanto o config.js estatico do branch main carregava o acervo real: 6 camadas\nde analise, 6 de dados, 98 modelos 3D e os 5 basemaps com miniatura .webp. A\ncapacidade de servir tudo isso ja estava implementada (config e JSONB e o\nconfig.service faz {id, name, ...config}); o que faltava era o dado.\n\nO script le o config.js de origem e faz upsert em basemaps, analysis_layers,\ndata_layers e tilesets, mais o documento parcial de config_settings.app_config\n(app, features, map2d). E por esse override que apisearch e grid voltam a true\nsem mexer no config.static.js, ou seja, sem mudar o default de quem nao tem\noverride.\n\nFica de fora, de proposito: services.tileServerUrl, map2d.terrainSource,\nmap2d.hillshadeSource e map3d.providers sao URLs de deploy que o backend resolve\npor env, e grava-las no banco congelaria la o endereco que o env existe para\nvariar por ambiente. Tambem search.apiUrl (o gazetteer e este backend) e\nstreetView360 (shape mudou para MVT).\n\nDry-run e o default; escrever exige --apply. Antes de gravar ele acusa o item\nque o backend aceitaria mas que nao funciona do outro lado, com destaque para o\ncaso silencioso: listAnalysisLayers FILTRA camada sem bounds de 4 posicoes, ou\nseja, ela some do /api/config sem erro nenhum.\n\nUma pegadinha de ambiente ficou codificada como guarda: no Git Bash o MSYS\nconverte --assets3d-base=/api/v1/assets3d em C:/Program Files/Git/api/v1/...\nantes do node ver o argumento. A reescrita rodaria inteira, sem erro, e gravaria\n98 urls quebradas; agora aborta.\n\nVerificado por caminho independente do writer: payload montado pelo proprio\nconfig.service.js do backend, nao pelo SQL do script.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0618e0c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0618e0cdd4badab117bf6b608967e19d9a6d11d8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T08:59:05.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: poda o livro-razao e registra a decisao do cartao sem miniatura\n\nLIVRO-RAZAO: 86 eventos -> 68, e o corte tem um criterio, nao um alvo.\n\nDoze linhas de 2026-07-19 usavam taxonomia de BUG (idor x2, credencial-em-log x2,\nrace, rate-limit-inefetivo, validacao, permissao-invertida, crash-uncaught,\ninvariante-violado, lacuna-adjacente, sucesso-falso). Descreviam defeitos do PRODUTO,\nnao desvios de como o trabalho foi conduzido, e vivem integras em bugs-backend.md\n(117 achados, com mecanismo, correcao do verificador e nota de fix, todas conferidas\npor grep antes de sair daqui). Eram 14% dos eventos e nenhuma dizia nada sobre um\nhabito: diluiam exatamente o sinal de recorrencia que o arquivo existe para dar.\n\nPara nao voltar, a regra entrou no proprio arquivo, na secao COMO USAR: achado de\nproduto nao entra; se a linha nao descreve algo que eu faria de novo, ela nao pertence\nao livro-razao. Re-anotar seria o erro que o proprio arquivo condena.\n\nMais seis eventos de classe UNICA e ja codificada viraram sintese, que e a regra de\npoda que o arquivo declara (\"classe resolvida e sem reincidencia vira uma linha de\nsintese\"): aprovacao-presumida, default-irreal, eco-de-sessao, gate-inalcancavel,\nrisco-aceito e assimetria-entre-superficies. As sete classes que sobram tem 2+ eventos\ncada e ficam CRUAS, porque e nelas que a recorrencia se le: verificacao-fantasma (24),\nteste-que-nao-prende (14), regressao-propria (11), doc-sobre-codigo (7),\ncobertura-vazia (6), contrato-implicito (4), premissa-inventada (2).\n\nDECISAO REGISTRADA: cartao de atlas sem miniatura do mapa (C2 descopado). Era decisao\nNEGATIVA viva so numa nota de sessao, que e onde esse tipo de decisao some, e sem ela\na proxima pessoa reabre a discussao do zero. O motivo real da recusa nao e custo, e\nenvelhecimento: miniatura de mapa mente sem avisar. Fica registrado tambem que a\nminiatura que EXISTE no projeto e a do CATALOGO (data URL, teto de 256 KB), coisa\ndiferente, para nao mandarem procurar infra que nao existe.\n\nVerificado: docs-integridade 8/8, lint-wiki com 0 erros, zero em-dash nas linhas novas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018Sr6baa1Xbhbv6VbVHxfQ2",
+      "sha": "dece452",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dece4525f161fd15cbe80277be422ffaf02ec02b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T01:05:11.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): renova o access token ANTES de usar, e conserta o 404 do deep link\n\nOs dois vieram da checagem, pedida pelo usuario, de se os 115 fixes da auditoria\nquebraram a interacao com o frontend. Nao quebraram: as mudancas de contrato foram\nalinhadas nos dois pacotes no mesmo commit, e todo entityType que este cliente emite\ncai em APPLIABLE_TARGETS. Sobraram dois pontos acionaveis.\n\n413 QUE O CLIENTE NAO SABE TRATAR\n`uploadImage` monta o fetch a mao e nao tem retry de 401 nenhum; e o /images/bulk so\nganha o parser de 50MB quando o flexibleAuth ja anexou principal verificado, entao\ntoken expirado faz um lote acima de 10MB bater no teto global e responder 413. Nada\nno cliente reage a 413, e o 413 volta igual em toda tentativa.\n\nTentei consertar no servidor primeiro (401 antes de escolher o parser) e MEDI que nao\nfunciona: com megabytes em voo o Node destroi o socket e o cliente le ECONNRESET em\nvez do status. O caso anonimo de corpo pequeno responde 401 em 2ms e teria me deixado\nconcluir o contrario. Drenar o corpo devolveria o status ao custo de deixar chamador\nanonimo empurrar os 50MB, que e a amplificacao que aquele guarda existe para impedir.\nRevertido, e resolvido no cliente: `_ensureFreshAccessToken` le o `exp` do proprio\ntoken (sem verificar assinatura, que e trabalho do servidor) e renova com 30s de\nfolga. Ela e a unica parte do cliente que confia no relogio LOCAL, entao se desarma\nsozinha: token recem-emitido que ainda se le vencido significa relogio divergente, e\ninsistir rotacionaria a familia uma vez por requisicao sem nunca ser estrangulado\n(o refreshLimiter so cobra falha).\n\n404 DO DEEP LINK\nA escada 404/403 funde de proposito \"atlas nao existe\" e \"existe mas voce nao tem\nvinculo\". \"Projeto nao encontrado\" seco mandava o usuario cacar erro de digitacao num\nlink correto: passou a \"Projeto nao encontrado ou sem acesso\".\n\nCITACOES DA WIKI\nAs 79 linhas inseridas em api-client.js deslocaram 36 citacoes por numero de linha em\n16 documentos vigiados. Remapeadas pelo diff posicional (insercao pura = mapa exato) e\nconferidas lendo o destino. Doze delas ja apontavam para o lugar errado antes desta\nsessao; corrigidas de fato, porque deslocar numero errado o faz parecer recem-conferido.\n\nVerificado: lint limpo nos dois pacotes, `npm test` da raiz exit 0 (frontend 2661,\nbackend e e2e 169 verdes), lint-wiki com 0 erros. Controle negativo em duas rodadas:\ndesligar as duas chamadas de renovacao derruba 3 casos, desligar so a rendicao por\nrelogio derruba 1.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018Sr6baa1Xbhbv6VbVHxfQ2",
+      "sha": "326c39d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/326c39d683cee79d51988fab1461ed382b19981b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-25T23:09:54.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: fecha os 41 achados de severidade baixa; auditoria zerada\n\nVerificados os 41 contra o CODIGO por tres auditores de leitura, nao contra o\nrelatorio: 13 ja estavam corrigidos, 5 parciais, 23 vivos. Os vivos foram atacados\npor seis agentes em arquivos disjuntos.\n\nO ACHADO SOBRE NOS MESMOS: dois defeitos tinham virado CONTRATO VERDE esta semana.\nO vazamento do `sharing_updated` ganhou, por um teste escrito nesta auditoria, uma\nassercao exigindo que um observador `read` recebesse `userId`+`permission` de todos\nos membros; e o rebaixamento por `?api_key=` invalido estava caracterizado com o\ncabecalho dizendo \"isto e caracterizacao, nao correcao\". E o ponto cego estrutural\nn.2 do relatorio acontecendo DENTRO da remediacao. Os dois so puderam ser\nconsertados invertendo o teste no mesmo commit.\n\nVAZAMENTO E AUTHZ\n- `sharing_updated`: os tres frames que NOMEIAM um membro passam a ir so para\n  `manage` e acima, mais os sockets do proprio afetado. O controle negativo testou\n  tambem a correcao OBVIA E ERRADA (`skipReadOnly`), que derruba os mesmos casos\n  porque os tres niveis do meio continuam recebendo E o afetado deixa de receber o\n  proprio frame. Trocar a entrega tornou VACUO um teste vizinho, cuja testemunha\n  `read` calada deixou de provar coisa alguma.\n- api key invalida deixou de derrubar sessao valida para anonima.\n- `err.message` cru do Postgres nao chega mais ao cliente em tres superficies (WS,\n  lote de imagens, calibracao 360). O caso caro era o CAMINHO ABSOLUTO DO DISCO\n  vazando dentro de um 201.\n\nCORRIDAS E TRANSACAO\n- Transferencia de posse: escopada por `owner_id` com checagem de `rowCount`. A\n  correcao que EU sugeri (comparar o dono lido no inicio da transacao) foi recusada\n  com razao de MVCC: sob READ COMMITTED as duas transacoes leem o dono\n  pre-transferencia antes de qualquer escrita. Medido: a minha versao dava 4\n  vencedores em 8 de 8 execucoes.\n- `PUT /config/admin` em transacao. O `SELECT FOR UPDATE` que eu sugeri tambem\n  estava errado: FOR UPDATE tranca LINHAS, e no primeiro save nao existe linha.\n- `active_sessions`: paramos de escrever, por decisao. A tabela fica, sem escritor,\n  com o porque no ponto de uso; as funcoes orfas foram REMOVIDAS, porque escritor\n  exportado de tabela write-only e convite a chama-lo.\n\nESTADOS ORFAOS\n- Merge deduplica por chave logica antes de mover, e as duas queries de snapshot\n  ganharam ORDER BY. Comentarios espaciais passam a seguir suas feicoes.\n- Imagem orfa: DELETE compensatorio (a transacao NEM tornaria atomico, porque o\n  arquivo e escrito antes do COMMIT).\n- Admin restaura atlas da lixeira, por statement SEPARADO: tornar o original\n  nulavel transformaria a unica guarda anti-IDOR da rota em algo que um controller\n  desliga passando null.\n\nVALIDACAO\n- Chave de topo desconhecida no config admin passa a ser rejeitada; o teste que\n  \"cobria\" isso era degenerado e so o caso MISTO distingue rejeitar de descartar.\n- `assertValidGeom` classifica por SQLSTATE, com o codigo de parse MEDIDO contra o\n  PostGIS. A inducao da falha usa uma funcao que SOMBREIA a do PostGIS e so levanta\n  em chave sentinela, entao os casos diferem apenas no codigo de erro.\n- Thumbnail do 360 exige webp por magic bytes e teto proprio, antes do ingest.\n- `entityType` desconhecido vira recusa POR OPERACAO. Fechar o schema com `.valid`\n  foi recusado: seria o quarto poison batch permanente no mesmo arquivo.\n\nVerificado com a arvore quieta: lint limpo nos dois pacotes, frontend 2654, backend\n2575, e2e 169, cobertura 98,14 linha / 89,28 branch / 97,77 funcao.\n\nInventario: bugs 115/116 (o unico aberto e o 113, MITIGADO e nao fechado por\ndecisao), testes 185/185, documentacao 155/155.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018Sr6baa1Xbhbv6VbVHxfQ2",
+      "sha": "0e9166d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e9166d25c5a58f62bf73db65850d4fd6734b1ce",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-25T22:50:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-25 (cont. 2): o portal do acervo vira plano, e o levantamento acha o que ja estava pronto\n\nSessao de discussao e planejamento do portal do acervo na web (mapa, catalogo,\nbusca, download e atendimento de pedido da mapoteca). Nada implementado, por\ndecisao do chefe.\n\n- 01-Projects/portal-acervo/PROJECT.md: fonte unica do projeto. Estado conferido\n  no codigo do SCA, decisoes do chefe com data, pendencias separadas entre as que\n  bloqueiam e as que nao bloqueiam, quatro fases com a ordem justificada, riscos e\n  um achado colateral.\n\n- Skill nova planejar-mudanca-sistema: o metodo de conduzir a discussao e o plano\n  de uma mudanca num sistema nosso, do levantamento no codigo ate o PROJECT.md.\n  Nasce porque a classe ja recorreu (agent-first, perfil de acesso, agora o\n  portal) e porque o prefixo comum das tres e justamente o planejamento.\n\n- wiki/controle-acervo.md: secao nova sobre armazenamento e download. Tres fatos\n  duraveis que o levantamento provou: o servidor le todos os volumes e nunca\n  escreve neles; excluir arquivo no sistema nao apaga o arquivo do volume; e as\n  camadas do mapa sao views materializadas que entregam credencial de banco a\n  quem tem so perfil de consulta. Mais a nota de que atender pedido so existe no\n  plugin, embora o servidor e as funcoes de servico do client ja estejam prontos.\n\n- livro-razao (cont. 14): numa sessao de discussao eu fechei duas respostas\n  seguidas pedindo sinal verde para construir, e o chefe teve que dizer duas\n  vezes que era so o plano.\n\n- retrospectiva/learnings: o check_caminhos.py varre so arquivo VERSIONADO, entao\n  projeto novo nao rastreado passa batido e o guard responde OK sem te-lo lido.\n\nlint_skills sem erro e sem colisao para a skill nova; lint_wiki zerado nos 11\nchecks; guard rodado tambem direto nos arquivos novos.",
+      "sha": "ed159bc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ed159bc9351eab8c42fd23b7fd6c7804d5d70de6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-25T21:31:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-25 (cont.): o acesso aos sistemas vira perfil por modulo\n\nO trabalho da sessao: SCO e SCA (acervo e mapoteca) trocaram o booleano\n`administrador` por perfil POR MODULO (consulta, operador, gerente) mais UM\nadministrador global, com concessao pela tela de usuarios. Commitado e\npublicado nos dois repos (controle_orcamentario 9d0846f, controle_acervo\n1b3f8ec); falta conceder os perfis nominais e implantar.\n\nO que entra na memoria:\n- wiki/controle-acesso.md, pagina nova e perene: identidade e central (auth),\n  autorizacao e local de cada sistema; os tres niveis, o que cada um permite por\n  modulo, e a superficie publica DECLARADA (integracao, localizador do pedido).\n  Ligada do index, do mapa de conceitos e das paginas dos quatro sistemas.\n- MEMORY.md ganha o fato duravel e foi PODADO de volta para 4776 bytes (estava\n  em 4884, acima do gatilho de 4800).\n- Skill nova portar-perfil-acesso: o metodo, com o SAP e o auth pendentes, que\n  sao justamente os proximos usos.\n- Livro-razao com duas correcoes de primeira classe desta sessao.\n\nAs duas licoes que valem mais que o codigo:\n- Perguntar a TOPOLOGIA ALVO antes de desenhar a estrutura. Propus tres modelos\n  (administrador por modulo, depois um modulo `sistema`, depois o certo) porque\n  extrapolei o sistema atual; a pergunta que decidia tudo era \"esses cinco\n  sistemas continuam cinco?\", e a resposta (viram um so) invalidava\n  administrador por area. Quando o chefe descreve o sistema, ele frequentemente\n  esta descrevendo o que QUER, nao o que ha.\n- Classificacao em massa precisa de duas redes: o dry-run legivel E os testes\n  que ja existem. O dry-run de 178 rotas passou pelos meus olhos sem pegar que a\n  automacao fechara a consulta publica de pedido pelo localizador (o cliente\n  civil acompanhando o proprio pedido, sem conta). O teste pegou. Excecao que\n  ninguem escreveu em teste e a que a varredura apaga.\n\nlint-wiki zerado nos 11 checks; guard de caminhos OK.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01RU4DCmME7KHkCEpLK5kvTL",
+      "sha": "8fad8ca",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8fad8cac204cf451119f7d672352f1faf3c0a959",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-25T21:25:34.000Z",
+      "author": "Maj Diniz",
+      "message": "feat!: acesso por perfil POR MODULO, com um administrador global\n\nAte aqui o SCA so distinguia \"administrador\" de \"usuario logado\", e o corte era\npor verbo HTTP: GET para qualquer logado, escrita so para admin. Cadastrar um\npedido da mapoteca pedia o mesmo poder que apagar o acervo inteiro.\n\nAgora o acesso tem duas pecas: `administrador` continua global (passa em\nqualquer modulo, e nao existe administrador de modulo) e `dgeo.usuario_perfil`\nguarda o nivel da pessoa POR MODULO, hierarquico: 1 consulta, 2 operador,\n3 gerente. Acervo e mapoteca sao modulos DISTINTOS de proposito: quem atende a\nmapoteca nao cataloga o acervo, e ha teste provando isso.\n\n`dominio.modulo` e tabela, e nao CHECK, porque a plataforma vai absorver o\norcamento e depois a producao: acrescentar um modulo passa a ser INSERT.\n\nverifyPerfil(minimo, modulo) substitui o par verifyLogin/verifyAdmin e le o\nBANCO a cada requisicao, e nao o token. Isso conserta de graca a revogacao:\ndesativar usuario ou rebaixar perfil valia so quando o token expirasse.\n\nClassificacao das 178 rotas (103 do acervo, 75 da mapoteca): leitura, busca,\ndashboard e download em consulta; catalogar produto, versao, arquivo, volume e\nprojeto em operador; excluir, auditoria e diagnostico em gerente; views\nmaterializadas, limpeza de download e usuarios no administrador. Na mapoteca,\nimprimir e dar baixa em material sao do operador e cadastrar pedido, cliente e\nanexo sao do gerente. Volume de armazenamento exige operador ate para LER,\nporque guarda caminho de rede. Os GET de dominio, que eram ANONIMOS por omissao,\npassam a exigir consulta; /api/integracao segue publico por decisao anterior, e\na consulta do pedido pelo LOCALIZADOR tambem, que e o cliente acompanhando o\nproprio pedido sem ter conta (o teste pegou essa regressao).\n\nA concessao e pela tela: GET /usuarios devolve `perfis` como mapa por modulo,\nPUT /usuarios/:uuid aceita `perfis` (nivel 1-3, ou null para revogar) e dois\ncatalogos novos alimentam os selects. O mapoteca_client ganhou pagina /usuarios\ncom um select por modulo; o acervo_client, uma com os selects direto na linha.\nO plugin ferramentas_acervo troca `admin_only` booleano por `perfil_minimo`.\n\nMigracao aditiva e idempotente, SEM backfill de proposito: administrador nao\nprecisa de linha, e conceder em massa numa migracao seria ampliar acesso sem\ndecisao. ATENCAO ao deploy: hoje qualquer logado LE o acervo e IMPRIME na\nmapoteca, entao os perfis precisam ser concedidos na tela junto com o deploy.\n\nVerificado contra Postgres real: 365 testes do server (11 do perfil por modulo e\nda concessao), 71 de cada CLI, build dos dois clients. A migracao foi aplicada\nDUAS vezes num banco descartavel partindo do schema do master, com o resultado\nlido de volta, inclusive o mesmo usuario com perfis distintos nos dois modulos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01RU4DCmME7KHkCEpLK5kvTL",
+      "sha": "1b3f8ec",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1b3f8ec3cc950c744e30f6d8df318de980b49756",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-25T21:24:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: fecha os 2 medios que restavam (35 e 64); os outros 9 estavam refutados\n\nVerificados os 11 contra o CODIGO, nao contra o relatorio: oito ja estavam\nfechados, um esta parcial por decisao registrada, e dois eram reais.\n\n35 — a revogacao em massa nao alcancava quem ja tinha access token vivo, e o\nproblema nao era a janela de 15 min: a sliding session do `flexibleAuth` RE-EMITIA,\nentao apos detectar reuso de refresh token (o sinal de roubo) o token roubado se\nrenovava indefinidamente. O comentario do codigo prometia \"forcando novo login\".\n\nMarcador `users.sessions_valid_from` (migracao 008) gravado no MESMO UPDATE da\nrevogacao, por CTE modificadora: os quatro chamadores ficaram cobertos sem quatro\nedicoes, e o controle negativo discrimina POR chamador. Recusa no `auth` estrito, na\nrenovacao deslizante e no handshake do socket.\n\nA decisao `<=` contra `<` e o miolo, e o argumento decisivo nao e o obvio: o `iat`\ntem resolucao de SEGUNDO, e com `<` a reproducao NATURAL do proprio achado (login,\nrevogacao, replay) roda dentro de um segundo e volta 200 — um fix que o teste do\nproprio bug nao enxerga. Descoberto por falha ao escrever o teste. Ha caso unitario\nisolando `iat` IGUAL ao corte, o unico que separa as duas regras.\n\nEscopo declarado, nao silenciado: socket ja aberto nao cai e rotas so sob\n`flexibleAuth` honram o token ate o `exp`, ambos limitados por JWT_ACCESS_EXPIRY. O\nque era ILIMITADO acabou, e ha teste prendendo esse limite.\n\n64 — `GET /api/config` e anonimo, fazia 8 consultas por chamada, sem memoizacao nem\nteto, e e o endpoint cujo fracasso impede o boot do frontend (fail-fast). Caminho\nbarato para derrubar o produto inteiro.\n\nAntes de cachear, a premissa de risco foi VERIFICADA: o payload nao varia por\nchamador, e o overlay de atlas-settings (o vetor de vazamento entre inquilinos) e\naplicado no CLIENTE. Medido, nao estimado: 8 consultas por requisicao viram 0 nas\nseguintes, e 10 concorrentes frias caem de 80 para 8, porque a entrada guarda a\nPROMESSA em voo e nao o valor — guardar o valor deixaria descoberta justamente a\njanela da rajada. Invalidacao na ESCRITA (11 caminhos enumerados, cada um com teste\nque afirma o VALOR visto depois), preservando o `no-cache` deliberado.\n\nO agente foi honesto sobre o limite da propria prova: o E2E passa mas nao prova o\nteto, porque o limitador pula sob NODE_ENV=test. Trocou por tres provas reais, entre\nelas medir a suite de boots em navegador real (pico de 31 contra teto de 600).\n\nTambem nesta rodada: o `configLimiter` nasceu em arquivo proprio (o rate-limit.js\nestava em edicao paralela) e foi dobrado para junto dos outros quatro, porque as tres\nhelpers eram copias verbatim e o envelope 429 e contrato documentado. E o\n`backend/README.md` mandava procurar uma pasta `docs/guias/` inexistente, a mesma\nfrase que ja fora corrigida no CLAUDE.md do pacote.\n\nVerificado: lint limpo nos dois pacotes, frontend 2654, backend 2495, e2e 169,\ncobertura 98,02 linha / 88,98 branch.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018Sr6baa1Xbhbv6VbVHxfQ2",
+      "sha": "39580e9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/39580e9248583a57797f12674051d99f09d5615f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_orcamentario",
+      "date": "2026-07-25T21:22:38.000Z",
+      "author": "Maj Diniz",
+      "message": "feat!: acesso por perfil no modulo, com um administrador global\n\nO SCO era admin-only: TODA rota de dados exigia administrador, entao lancar uma\nnota de credito pedia o mesmo poder que resetar senha e apagar o PDR. Agora o\nacesso tem duas pecas: `administrador` continua global (passa em qualquer\nmodulo, e nao existe administrador de modulo) e `dgeo.usuario_perfil` guarda o\nnivel da pessoa POR MODULO, hierarquico: 1 consulta, 2 operador, 3 gerente.\n\n`dominio.modulo` e tabela, e nao CHECK, porque a plataforma vai absorver acervo,\nmapoteca e producao: acrescentar um modulo passa a ser INSERT.\n\nverifyPerfil(minimo, modulo) substitui o par verifyLogin/verifyAdmin e le o\nBANCO a cada requisicao, e nao o token. Isso conserta de graca a revogacao:\ndesativar usuario ou rebaixar perfil valia so quando o token expirasse.\n\nClassificacao das 83 rotas: leitura em consulta; lancamento de NC, empenho,\nliquidacao, recebimento, DFD e meta em operador; delete e o PDR (que e o\nplanejamento aprovado do ano, nao rotina) em gerente; configuracao, escrita de\ndominio e usuarios no administrador. Os 8 GET de dominio, que eram ANONIMOS por\nomissao, passam a exigir consulta.\n\nA concessao e pela tela: GET /usuarios devolve `perfis` como mapa por modulo,\nPUT /usuarios/:uuid aceita `perfis` (nivel 1-3, ou null para revogar) e dois\ncatalogos novos alimentam os selects sem a tela decorar codigo.\n\nMigracao 1.5.0 aditiva e idempotente, SEM backfill de proposito: administrador\nnao precisa de linha, e dar consulta automatico a quem hoje nao le nada seria\nampliar acesso dentro de uma migracao. Quem nao e admin ja nao conseguia nada\naqui, entao nada regride; a concessao vira ato explicito na tela de usuarios.\n\nO orcamento_cli RECUSAVA o login de quem nao fosse administrador, o que anularia\nos perfis novos: agora autentica qualquer um e informa o perfil na sessao.\n\nVerificado contra Postgres real: 252 testes unitarios e 65 de integracao (13 do\nfluxo de perfil), mais 81 do client. A migracao foi aplicada DUAS vezes num\nbanco descartavel partindo do schema do main, com o resultado lido de volta\n(versao, dominios, zero backfill, administradores preservados, unicidade e FK).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01RU4DCmME7KHkCEpLK5kvTL",
+      "sha": "9d0846f",
+      "htmlUrl": "https://github.com/1cgeo/controle_orcamentario/commit/9d0846f49ec553369a7176562e8ff218ccf5e0eb",
+      "repoUrl": "https://github.com/1cgeo/controle_orcamentario"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-25T19:43:27.000Z",
