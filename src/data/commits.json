@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-07-26T16:06:03.271Z",
+  "lastUpdate": "2026-07-26T21:04:52.252Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-07-24T21:35:24.000Z",
+    "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-07-26T15:58:00.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T14:30:10.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5362,
+    "totalCommits": 5365,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 854,
+      "1cgeo/ebgeo_web": 857,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
@@ -170,6 +170,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T18:45:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix 360",
+      "sha": "c7ed7e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7ed7e7f3d68f6c703fbce3fb32cd473769c0a70",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T18:13:27.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: corrige o que o dado real falsificou e codifica a licao de verificacao\n\nWiki (contradicao tem precedencia sobre novidade)\n- streetview-360: /projects tem contrato proprio e NAO e a linha do\n  Postgres. A pagina descrevia a coluna (`center_long`) de um jeito que\n  dava a entender que a linha saia crua, e saia.\n- streetview-360: id de foto e v4 OU v5, com o motivo (o acervo legado e\n  v4); slug de thumbnail aceita underscore, com o motivo.\n- streetview-360: fotos_linha vem de sv360.tracks, e a sintese antiga\n  passa a ser o fallback documentado, com o custo dela.\n- ingestao-projetos-360: registra tracks, thumbnails e o modo --link do\n  ETL, e o indice que a reingestao exige em escala real.\n\nMemoria\n- MEMORY.md, dois deltas em Armadilhas: esperar evento de disparo unico\n  e corrida que trava para sempre (o padrao certo ja existia no repo,\n  em map_3d.js:waitForGlobal); e sonda que faz import() no dev server\n  pode receber outra instancia do modulo, por causa do ?t= de HMR.\n- CLAUDE.md ganha duas formas novas de verificacao-fantasma. A classe ja\n  tinha 24 eventos e recorreu tres vezes nesta sessao, entao a doutrina\n  manda subir o nivel em vez de re-anotar: uma medicao de algo\n  probabilistico nao e medicao, e o instrumento pode estar medindo outra\n  copia do sujeito.\n- backend/CLAUDE.md: o head de migracao dizia 005 quando ja era 009.\n  Trocado por \"confira com ls\", que nao envelhece.\n- livro-razao: quatro eventos, incluindo o que doi mais (verifiquei uma\n  corrida uma vez, deu verde, e declarei resolvido).\n\ndocs-integridade ganha `formatProject` como simbolo externo deliberado:\no guarda pegou a citacao, e ele estava certo, ela vive no repo do estudio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0efc14d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0efc14d6ef484aa7785869ac3f56dab993b8a0c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-07-26T18:13:07.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sv360)!: absorve o acervo 360 real e conserta o que so o dado real revelou\n\nImporta o index.db legado (28 projetos, 98.690 fotos, 624.003 targets,\n3.236 trechos) e fecha os defeitos que apareceram quando o modulo deixou\nde ver so fixture. O `!` e pelo shape de GET /sv360/projects.\n\nBackend\n- /sv360/projects devolvia a linha crua do Postgres. O contrato e o do\n  servico legado que o frontend consome: camelCase, coordenadas\n  aninhadas em `center`. Quebrava os tres consumidores de uma vez e em\n  silencio. Nenhum teste prendia a forma; agora prende.\n- id de foto passa a aceitar v4 alem de v5: o acervo legado e 100% v4\n  (98.690/98.690), e o guarda so-v5 respondia 422 em toda foto migrada\n  enquanto /projects listava tudo. O nibble nunca foi controle de acesso.\n- slug de thumbnail aceita underscore, que 14 dos 28 projetos usam. O\n  charset agora e o mesmo de sanitizeSlug, que e o contrato real.\n- 010: sv360.tracks. Trecho de trajeto e dado de origem, nao derivavel\n  da ordem das fotos; sintetizar uma polilinha por projeto salta entre\n  percursos (1pef tem 34). O tile prefere os trechos e mantem a sintese\n  como fallback para projeto sem track.\n- 011: indice em sv360.targets(target_id). As duas FKs sao ON DELETE\n  CASCADE e o Postgres nao indexa a coluna referenciante; sem ele o\n  purge do merge varre a tabela por foto. Purgar `alegrete` ficou preso\n  10+ min e passou a 0,6 s. Vale igual para o upload admin.\n- ETL vira a ferramenta da migracao (`npm run sv360:import`): absorve\n  tambem thumbnails e tracks, e ganha `--link` (hardlink NTFS) porque um\n  acervo real sao dezenas de GB e duplica-los pode nao caber no disco.\n\nFrontend\n- tile MVT relativo nao resolve no worker do MapLibre: a camada 360\n  nunca aparecia. Concatenacao, nao `new URL`, que percent-encodaria {z}.\n- o visualizador navega por NOME e pedia /photos/:uuid (422). Passa a\n  escolher a rota pela forma do identificador, num ponto so.\n- PHOTO_PROPERTY era 'photo_uuid', nome do PMTiles legado que nao existe\n  em feicao nenhuma: clicar numa foto no mapa 2D nunca abria o 360.\n- hover no minimapa reusava o pino direcional; vira anel, sem seta.\n- remove o cone de visada: segunda marca para o mesmo fato.\n- seta de borda passa a GIRAR a camera em vez de viajar. Ela aponta para\n  algo fora de vista; ir para la teleporta para um lugar nunca visto.\n- minimap-sync esperava um evento de disparo unico sem re-checar, entao\n  travava para sempre quando o `load` passava antes do listener. Como o\n  await esta na cadeia de abertura, o link compartilhado abria preto em\n  ~metade dos boots (3/8 antes, 20/20 depois), sem erro nenhum.\n- deep link 3D trocava o viewer por um sleep de 500 ms e descartava a\n  camera compartilhada em silencio ao expirar.\n\nVerificacao: lint limpo nos dois pacotes, backend 2588/2588, frontend\n2691/2691, e2e de 360 7 passam / 1 pula. Cada teste novo com controle\nnegativo. O 3D esta coberto so por teste unitario: nao ha tileset nesta\nmaquina para verificar ponta a ponta.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d307cc7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d307cc7a8d016aac5a0e2db900c83a77a4f1504f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-26T15:58:00.000Z",
