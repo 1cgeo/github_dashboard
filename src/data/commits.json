@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-27T17:02:36.357Z",
+  "lastUpdate": "2026-07-27T21:16:31.294Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -12,7 +12,7 @@
     "1cgeo/doc_dgeo": "2026-07-27T14:49:02.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
+    "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2026-07-25T12:12:06.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-27T15:18:43.000Z",
+    "1cgeo/controle_acervo": "2026-07-27T18:36:50.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-07-27T15:31:41.000Z",
+    "1cgeo/ebgeo_360": "2026-07-27T18:44:03.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-27T15:57:20.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-27T18:38:06.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5395,
+    "totalCommits": 5403,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -129,7 +129,7 @@
       "1cgeo/doc_dgeo": 510,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
-      "1cgeo/doc_mgcp": 35,
+      "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 158,
       "dsgoficial/configuracoes_producao": 204,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 140,
+      "1cgeo/controle_acervo": 144,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 20,
+      "1cgeo/ebgeo_360": 21,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 410,
+      "1cgeo/chefe_dgeo": 412,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-27T18:44:03.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): faixa de coleta como unidade de revisao e de default\n\nUma faixa e uma SESSAO DE GRAVACAO — uma corrida continua do veiculo — e e a\ngranularidade em que a calibracao e constante, porque e a granularidade em\nque a montagem da camera nao muda. Medido no faxinal, o unico projeto com\ncalibracao real vinda de quaternion: desvio de mesh_rotation_y de 0,60 grau\nDENTRO da faixa contra 8,40 entre as medias das faixas, amplitude 316,4 a\n344,0. Por isso \"Aplicar ao Projeto\" e grosso demais — um valor unico erra\n~20 graus nas faixas do outro extremo.\n\nA fronteira sai do identificador de sessao que o equipamento gravou no\noriginal_name, e NAO de um corte por intervalo de tempo. As fotos sao\ndisparadas por distancia (passo mediano 13,5 m), entao um veiculo parado num\nsemaforo produz um intervalo longo sem deslocamento nenhum: um corte por gap\npartiria a faixa no sinal vermelho, e o limiar teria de ser diferente para\ntransito urbano e para area militar. Dois padroes cobrem o acervo inteiro,\ncom zero nomes nao reconhecidos em 90.433 fotos:\n\n  MULTICAPTURA_<sessao>_<quadro>              -> mc:9468\n  PIC_<processamento>_<inicio>_output_<quadro> -> ts:2026-05-05T16:46:57\n\nSao DUAS datas no nome PIC_: a primeira e o processamento, a segunda o\ninicio da sessao. Pegar a errada agruparia por lote de exportacao.\n\nA ordem de revisao muda junto, e esse era o problema maior. sequence_number\ne uma BFS do grafo de navegacao (migrate.js:354), nao a ordem de captura:\nandar por ela trocava de faixa em 89,9% das fotos consecutivas no santana,\n75% no faxinal, 60,5% no uruguaiana. O operador reajustava o mesmo parametro\npara frente e para tras o tempo todo. getNextPhotoId agora anda dentro da\nfaixa por run_position e so passa para a proxima faixa com pendencia quando a\natual acaba — medido no navegador, 0% de troca de faixa em 300 passos contra\n40% na ordem antiga. A primeira navegacao mostra o tamanho do desvio: de\nFaxinal_0001 a proxima e Faxinal_1976, 1.975 posicoes a frente na ordem velha.\n\ngetPrevPhotoId de proposito NAO pula para a faixa anterior: voltar e o gesto\nde \"revi algo errado agora ha pouco\", e saltar de faixa tiraria o operador do\ncontexto sem ele pedir.\n\napplied_rotation_* em capture_runs e REGISTRO, nao heranca: o batch por faixa\nescreve direto em photos, que continua sendo a unica verdade da calibracao. A\ncoluna existe para a interface dizer \"faixa calibrada em 337 graus\".\n\nDuas armadilhas que so aparecem na segunda execucao:\n\n- derive-runs precisa soltar photos.run_id ANTES de apagar as faixas. O\n  caminho inverso passa na primeira rodada, quando run_id ainda e todo NULL,\n  e so quebra a chave estrangeira na segunda.\n- idx_photos_run nao pode viver no schema.sql, que roda ANTES do bloco de\n  migracoes: num banco existente as colunas ainda nao existiriam ali.\n\nFica registrado o que NAO entrou: captured_at (do time_img da fonte) esta\nvazio. Ele nao serve para achar a fronteira — serve para ordenar DENTRO da\nfaixa. Sem ele a ordem sai do numero do quadro, que acerta o corpo da\ndistribuicao (passo p50 14,3 m contra vizinho real de 13,9 m no santana) mas\nerra na cauda (p99 de 192 m e saltos de 2,3 km no AMAN). derive-runs ja\nprefere captured_at quando ele existe, entao a importacao da fonte melhora a\nordem sem exigir mudanca de codigo.\n\nEstado atual: 401 faixas para 90.428 fotos. O banco de producao ainda nao foi\nmigrado nem derivado — npm start aplica a migracao, npm run derive-runs\npopula as faixas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "653f8d1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/653f8d1a5739f5f2f1a89c0ed7d8a05b4d0f80af",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T18:38:06.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings: a nota sobre crase em template literal vira verificacao que roda\n\nRepeti o MESMO erro uma hora depois de anotá-lo, na mesma sessão. Isso prova que\na nota não previne: o gesto de comentar código com crase é automático demais.\n\nA entrada passa a trazer o comando mecânico (`node -e \"require(...)\"` por arquivo\neditado, e um `rg` para varrer a classe), em vez de só descrever o erro. Lição de\nsegunda ordem registrada junto: quando a mesma classe reincide na mesma sessão, o\nconserto não é reescrever a nota, é trocar a nota por uma verificação que roda.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "242fe44",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/242fe447db5ada61da040fd0e5a7e271986b399e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T18:36:50.000Z",
+      "author": "Maj Diniz",
+      "message": "test(mapoteca): guardas de rota para o D-1 e para a populacao do tempo medio\n\nUltimos dois testes resgatados do branch fix/datas-de-calendario-e-lista-de-pedidos,\nportados a mao porque o arquivo do branch e anterior a fusao e derrubava os 51.\n\n- Data pura do formulario volta no mesmo dia, conferida no DETALHE e na LISTA,\n  que leem por consultas diferentes e por isso precisam de guarda cada uma.\n- O `data_entrega` passa de `toContain` para `toBe`. O toContain passava tambem\n  com timestamp em UTC, que e exatamente o que produz o D-1: a assercao fraca\n  deixava o defeito passar.\n- O tempo medio conta so militar nas tres linhas do cartao. Falsifiquei tirando\n  o predicado: o teste reprova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3c66c92",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3c66c9235ac5df497249f7c5704d5cff43f91abd",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T18:30:00.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapoteca): data de pedido vira DATE, e a conta de dias para de depender do fuso\n\nResgate do branch fix/datas-de-calendario-e-lista-de-pedidos, que ficou de fora\ndo master e trazia mais do que o conserto de fuso ja aplicado em 1d5691b.\n\nO QUE FALTAVA. `data_pedido` e `data_atendimento` sao TIMESTAMPTZ, entao o type\nparser do OID 1082 (que consertou as colunas DATE) nao as alcanca. Elas tem tres\nefeitos, e o terceiro e silencioso: filtroAno e filtroPeriodoMes comparam a\ncoluna com make_date(), e a conversao usa o fuso da SESSAO, entao um pedido de\n1o de janeiro pode cair no ano errado do relatorio.\n\nA MIGRACAO. Entra `migrations/2026-07-26_pedido_datas_calendario.sql`, idempotente,\ncom cast por AT TIME ZONE 'UTC' (o cast no fuso local erraria quem gravou em UTC).\nRodei a conferencia previa que ela mesma exige, contra o banco de producao: as\n116 linhas de data_pedido e as 85 de data_atendimento tem hora 00:00:00 em UTC,\nentao nenhuma carrega um instante de verdade e o cast nao perde nada.\n**Ela NAO foi aplicada em producao**: vai junto com o deploy, que e do chefe.\n\nONDE EU DIVIRO DO BRANCH. Ele reescreveu a aritmetica como `data_atendimento -\ndata_pedido`, que so vale DEPOIS da migracao. Isso cria risco de ordem no deploy:\nmedi, e `EXTRACT(EPOCH FROM (date - date))` NAO existe, entao aplicar a migracao\nantes de subir o codigo quebraria o dashboard do servidor em execucao, e subir o\ncodigo antes da migracao quebraria do outro lado. Escrevi na forma\n`data_atendimento::date - data_pedido::date`, que vale nos DOIS esquemas. Provado\ncontra producao: media de 10,54 dias no esquema atual e 10,54 no futuro\n(tabela temporaria ja migrada), e a consulta antiga reprovando sobre DATE.\n\nO er/ ACOMPANHA. `er/mapoteca.sql` passa as duas colunas para DATE, senao\ninstalacao nova diverge de banco migrado. Os 636 testes constroem o banco a\npartir do er/, entao eles rodaram contra o esquema JA em DATE.\n\nCONSERTO DE DADO, independente da migracao: a media por tipo de cliente somava o\nCIVIL, enquanto a media geral e a mensal, no mesmo cartao, contavam so o militar.\nAs tres linhas nao fechavam entre si. Faltava o predicado PEDIDO_MILITAR.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f0d3975",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f0d39752d3c1e6f0602ed33143a6f0b1896411d6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T18:13:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-27 (cont. 7): a licao mais cara do dia foi nao olhar os branches\n\nA sessao consertou interface da mapoteca, dois achados de seguranca e o D-1 das\ndatas. O aprendizado que sobrevive nao e nenhum deles: e que refiz do zero um\ntrabalho que ja existia pronto num branch da vespera, e que trazia MAIS do que\neu fiz.\n\nConserto de classe na skill planejar-mudanca-sistema: o passo de levantamento\npassa a mandar listar os branches antes de escrever qualquer linha, com os\ncomandos. \"Codigo real\" nao e so a branch principal, e o `git log` do master nao\nmostra trabalho nao mergeado.\n\nDuas licoes de metodo no learnings da revisao-codigo:\n- teste de AUSENCIA passa por acidente, porque ausencia e o estado padrao de\n  quase tudo. Um dos meus cinco testes novos passava com e sem o conserto,\n  porque a fixture tinha 2 linhas e o componente escondia a paginacao sozinho\n  abaixo de 5. Todo teste novo se prova desfazendo o conserto que ele guarda.\n- crase em comentario dentro de template literal de JS fecha a string. Quebrou\n  169 testes de uma vez, com o erro longe da causa.\n\nSubwiki do SCA: nasce a secao do D-1 (DATE contra TIMESTAMPTZ, por que o defeito\nsome na maquina de quem desenvolve, e a pendencia das duas colunas TIMESTAMPTZ\nque o conserto nao alcanca). Nasce tambem a secao do repositorio PUBLICO, com o\nguard e a pegadinha do hooksPath por clone. Tres fatos CONTRADITADOS pela sessao\nforam reescritos, nao acrescentados ao lado: o mapoteca_client nao existe mais,\na leitura por HTTP passou a ser provada (31 checagens), e a tensao entre\nETIMEDOUT e 404 estava em alvos diferentes.\n\nMEMORY.md: sai o log de um conserto de 2026-07-25 (a lista negativa proibe log\nde trabalho concluido), entram dois fatos que mudam comportamento, o\ncontrole_acervo ser publico e a regra de listar branches. Fica em 5.318 bytes.\n\nVerificado: lint-wiki com zero erro em todas as 11 checagens, indice de skills\nregenerado e dentro do orcamento (83% de corte, 6.468 tokens por sessao), guard\nde caminhos limpo em 526 arquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bda832e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bda832eaad6e8fc06518783d705e1f80eb4e2fcb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T18:03:13.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(mapoteca): saida discreta da consulta de pedido de volta para a entrada\n\nA consulta por localizador e rota PUBLICA, e quem caia nela por engano ficava\nsem caminho de volta, a nao ser editando a URL. Agora tem um link no rodape do\ncartao, com seta e peso leve de proposito: a acao principal da tela e consultar\no pedido, nao entrar no sistema.\n\nO teste cobre os dois estados da tela, COM e SEM localizador na URL, porque so o\nsegundo tem o campo de busca vazio e o cartao muda de conteudo.\n\nConferido no navegador: da ficha do pedido, o link leva de volta as duas portas\nde entrada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "fb48e1a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/fb48e1a55406480ebc008b9b1eb8732dfa543348",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T17:59:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapoteca): duas portas de entrada, detalhe do pedido legivel e o D-1 da data\n\nCONSERTO DE DEFEITO: a \"Data de entrega\" mostrava D-1.\nA coluna e DATE, mas o driver a convertia para um objeto Date na MEIA-NOITE\nLOCAL DO SERVIDOR, e a resposta ia serializada em UTC. Com o servidor em UTC e o\nnavegador em UTC-3, a data 2026-01-14 virava '2026-01-14T00:00:00.000Z' e a tela\nmostrava 13/01. Em UTC-3 o defeito some, e foi por isso que passou despercebido:\nquem desenvolve esta em UTC-3, quem implanta esta em UTC. Conserto em\ndatabase/db.js, com um type parser para o OID 1082 que devolve a string crua.\nDATE nao tem hora nem fuso, entao converter para instante era o erro de origem.\nVale para toda coluna DATE do sistema, nao so para essa tela.\n\nSESSAO: o conserto anterior estava PELA METADE. O servidor passou para 8h, mas o\nclient gravava a expiracao como \"agora + 1 hora\", fixa no codigo, e continuaria\ndeslogando em 1h. Agora ela sai do claim exp do proprio token, entao os dois\nlados nao divergem mais. Sem exp legivel, cai em 1h, como antes.\n\nTELA DE ENTRADA: duas portas lado a lado, cada uma dizendo PARA QUEM e. Quem\ntrabalha na DGEO entra com usuario e senha; quem pediu carta acompanha pela\nchave do comprovante, sem conta, pela rota publica que ja existia e nao tinha\ncomo ser alcancada daqui. As duas ficam visiveis de uma vez: esconder uma atras\nde aba obriga a pessoa a adivinhar em qual metade ela se encaixa.\n\nDETALHE DO PEDIDO: quatro cards lado a lado viravam colunas de 330px, e quase\ntoda linha \"rotulo ... valor\" quebrava. Agora sao duas colunas. Valor com mais\nde 45 caracteres empilha e alinha a esquerda; abaixo disso segue na mesma linha.\nA decisao e automatica, pelo tamanho do texto: marcar campo a campo errava nos\ndois sentidos, deixando o campo vazio ocupando duas linhas para mostrar um traco.\n\nPEDIDOS: sai a coluna ID, entra a coluna Tipo e um filtro Todos/Militar/Civil\n(militar e tipo_cliente 1 a 3), com contador que diz quanto o filtro escondeu. A\ntabela passa a oferecer 50 e 100 por pagina.\n\nCONTATO DO PEDIDO: a coluna mapoteca.pedido.ponto_contato JA EXISTIA de ponta a\nponta, e nenhuma migracao foi precisa. Faltava o servidor devolver tambem o\ncontato geral da OM e a tela distinguir os dois, que era o pedido real.\n\nRELATORIOS: a tela sai do menu. As rotas do servidor FICAM, porque o CLI as usa\n(mapoteca relatorio <aba> --ano), entao os CSVs anuais no formato da planilha da\nASC continuam acessiveis.\n\nVerificado: 322 testes do client e 636 do servidor. Os testes novos guardam a\nausencia dos paineis e a presenca dos dois caminhos. O de expiracao e o do type\nparser foram falsificados de proposito, desfazendo o conserto, e reprovaram.\nAs quatro telas conferidas no navegador contra o dado de producao, incluindo a\nconsulta publica de ponta a ponta, sem sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1d5691b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1d5691bb6f637a9f5afa2c0775367b2c23acc217",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/doc_mgcp",
+      "date": "2026-07-27T17:51:25.000Z",
+      "author": "1º Ten Marcel",
+      "message": "merge documentações alegranzi",
+      "sha": "a5669ad",
+      "htmlUrl": "https://github.com/1cgeo/doc_mgcp/commit/a5669ad9692761edf5358b40bf359262aef4d10f",
+      "repoUrl": "https://github.com/1cgeo/doc_mgcp"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-27T15:57:20.000Z",
