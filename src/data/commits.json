@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-27T12:58:34.969Z",
+  "lastUpdate": "2026-07-27T17:02:36.357Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-24T13:21:01.000Z",
-    "1cgeo/doc_dgeo": "2026-07-27T10:36:54.000Z",
+    "1cgeo/doc_dgeo": "2026-07-27T14:49:02.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-25T21:25:34.000Z",
+    "1cgeo/controle_acervo": "2026-07-27T15:18:43.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-07-26T14:44:30.000Z",
+    "1cgeo/ebgeo_360": "2026-07-27T15:31:41.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-27T10:43:09.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-27T15:57:20.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5370,
+    "totalCommits": 5395,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
-      "1cgeo/doc_dgeo": 509,
+      "1cgeo/doc_dgeo": 510,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 123,
+      "1cgeo/controle_acervo": 140,
       "dsgoficial/pto_controle": 38,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 19,
+      "1cgeo/ebgeo_360": 20,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,238 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 404,
+      "1cgeo/chefe_dgeo": 410,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T15:57:20.000Z",
+      "author": "Maj Diniz",
+      "message": "correcao: o vault NAO esta inteiro em PTS, falta o wiki/ (164 arquivos, 3.768 violacoes)\n\nO commit 9817bfc e a versao anterior do PROJECT.md declararam \"CONCLUIDO\" e \"o\nvault inteiro\". Errado. O `wiki/` nunca entrou em nenhuma das 33 ondas, e e o\nMAIOR corpo do vault: 164 arquivos, 1,75 MB, 239.945 palavras, mais que os cinco\ncorpos ja feitos somados.\n\nCausa: montei os lotes a partir da tabela de baseline do proprio PROJECT.md e\nsegui corpo a corpo conforme o chefe pedia, sem voltar a tabela para conferir o\nque sobrava. Cada onda fechou com numero certo, e a soma das ondas certas virou\numa conclusao errada.\n\nO PROJECT.md volta a EM ANDAMENTO, com a correcao declarada no topo, o que falta\nmedido e orcado (~5,6M tokens, ~44 lotes) e o perfil de vicio do wiki (frase\nlonga, ponto e virgula e voz passiva sao 83% do total; so 5 acentos comidos e 6\nem-dashes). Acrescentado o cuidado especifico do corpo: densidade de [[links]] e\na metrica central da wiki e link quebrado e ERRO de lint, entao todo lote roda o\nlint_wiki depois.\n\nPlacar honesto de todo .md versionado: 395 arquivos, 9.403 violacoes, 1,26 por\n100 palavras. Fora de escopo por decisao ficam 03-Resources e livro-razao, com\n3.489. Em escopo sobram 5.914, das quais 3.768 no wiki/.\n\nMEMORY.md corrigido pela mesma razao. Evento no livro-razao, classe nova: a\nconclusao de projeto se declara enumerando os corpos do escopo um a um, nunca\nsomando o que foi feito, porque \"inteiro\" e afirmacao sobre o COMPLEMENTO do\ntrabalho e complemento nao se verifica olhando o trabalho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a3153c7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a3153c71494f05027e7d0ef74469b12e3baf69d5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T15:51:03.000Z",
+      "author": "Maj Diniz",
+      "message": "o vault inteiro passa pelo PTS: 194 arquivos, de 1,95 para 0,51 por 100 palavras\n\nRetomada e fechamento do projeto vault-em-pts, com 33 agentes Opus em lotes de\ncerca de 40 KB e cerca de 6,2M tokens.\n\nCorpos, medidos com a MESMA regua nos dois lados:\n- subwikis (23 arquivos): 358 para 33\n- 01-Projects (14): 590 para 36\n- Decisions (2): 3.126 para 681\n- .claude, skills e agentes (147): 3.914 para 1.339\n\nO Decisions entra no escopo por decisao explicita do chefe, superando em parte a\ndecisao de 2026-07-26. So a FORMA muda: substancia, razao de descarte e citacao\nverbatim ficam intocadas. Congelados de proposito os 241 titulos de entrada, que\nsao chave de enderecamento, e o frontmatter das skills, que e gatilho do roteador.\n\nMetodo, agora na SKILL.md da revisar-escrita:\n- lote por agente, nunca arquivo por agente (overhead fixo de ~40k por subagente)\n- arquivo grande recortado em pedacos fisicos, com a costura provada byte a byte\n  antes de qualquer edicao, para dois agentes nunca escreverem no mesmo arquivo\n- instrucao comum num ARQUIVO lido pelos agentes, nao repetida em cada prompt\n- remontagem que RECUSA escrever se reprovar em cinco eixos\n\nDoze consertos no lint_escrita.py, todos por evidencia convergente de agentes\nindependentes, cada um com a razao comentada no codigo. Prova de que a regua nao\nfoi cegada: num texto sintetico com todos os vicios ela ainda tira 29,85.\n\nBrecha do guard anti-vazamento fechada, com aval do chefe: prefixo de sub-rede\ninterna com tres octetos passava, porque a regra exigia os quatro. Conserto em\ntres pecas, com janela de duas linhas no contexto. As duas linhas afetadas foram\nredigidas e passaram a citar a chave DGEO_NET_CIDR, sem perder o conserto que\nensinavam.\n\nLearnings da revisar-escrita partido em camada quente e detalhada. Tres eventos\nno livro-razao: verificador proprio reprovando tudo duas vezes, congelamento que\npreservou o defeito, e correcao errada por snapshot contaminado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9817bfc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9817bfc5224a520d9a9be3b691e310804efde5e5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-27T15:31:41.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(calibracao): tira o custo quadratico do painel em projetos grandes\n\nO painel travava por segundos a cada clique nos projetos grandes, e a\ncausa era uma so: applyTargetedUpdates varria todos os itens da lista de\nfotos e, para cada um, procurava a foto por busca linear na lista. Medido\nno navegador contra o acervo real, por notificacao de estado:\n\n  uruguaiana (9.636 fotos)          6.016 ms\n  santana_livramento (17.590)      10.335 ms\n\nE disparava a CADA mudanca de estado — clique em marcador, release de\nslider, selecao de alvo — porque todo notify passa por ali. Agora o\nrealce toca no maximo dois itens, achados por seletor de atributo: 0,1 ms.\nA busca linear em state.js virou indice (id -> foto, id -> posicao), e a\ncontagem de revisadas soma o delta em vez de recontar a lista.\n\nA lista de fotos saiu do innerHTML do painel para uma regiao propria.\nA assinatura de estrutura inclui os targets, que mudam a cada foto, entao\nnavegar reconstruia os 17.590 itens junto — sem necessidade, porque a\nlista e a mesma. Separadas, a navegacao so reposiciona o realce\n(conferido no navegador: 0 reconstrucoes da lista, 1 do corpo).\n\nO seletor de projetos baixava o acervo inteiro para desenhar barras de\nprogresso: /projects/:slug/photos uma vez por projeto, 90.433 fotos e\n11,6 MB de JSON em 28 requisicoes, para somar 27 pares de inteiros. Agora\n/projects/review-stats agrega tudo numa varredura: 2 requisicoes, 4 KB.\n\nDuas armadilhas nessa separacao:\n\n- os caches de render sao por DOM. Voltar aos projetos e reentrar recria\n  os containers, e uma assinatura sobrevivente convenceria o painel de que\n  o DOM ja estava certo — deixando-o vazio. initPanel zera os quatro.\n- o listener da lista precisa ficar no container persistente. Re-anexa-lo\n  em attachEvents acumularia uma copia por render do corpo, e cada clique\n  navegaria N vezes.\n\nFora do caminho quente: o preview-viewer renderizava WebGL mais o canvas\n2D de marcadores a 60 fps sem parar, inclusive escondido e atras do mapa\ndo projeto — agora tem dirty-check, como o viewer principal ja tinha. E\nsetViewDirection refazia um querySelector e tres escritas de estilo por\nframe com a camera parada.\n\nFica registrado o que NAO foi mexido: a visao traseira carrega a imagem\nem 7680x3840 num painel de 576x396 (113 MB de textura na GPU, segunda\ncopia da foto que o viewer principal ja tem). O preview de 512x256\nborraria; o certo seria uma qualidade intermediaria no banco, o que mexe\nna migracao e troca qualidade visual por memoria.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "93eb4af",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/93eb4af29c79af562b7c7f469a4cd4d5dbae0966",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T15:18:43.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapoteca): o dashboard perde sete paineis, e a sessao passa de 1h para 8h\n\nCorrecoes de interface pedidas pelo chefe em 2026-07-27, todas conferidas na\ntela contra o dado de producao.\n\nDASHBOARD\n- Sai o card \"Em Andamento\". Ele nao era so redundante com \"Pendentes\": era\n  CONTIDO nele. O servidor conta pendentes como pre-cadastramento + documento\n  recebido + em andamento, entao somar os cards contava o mesmo pedido duas\n  vezes. Hoje os dois mostravam 31, porque as outras duas situacoes estao\n  zeradas, e foi assim que a duplicidade ficou visivel.\n- Saem a tabela \"Pedidos Pendentes\", a secao \"Plotters\", o grafico \"Entregas por\n  Tipo de Midia\" e a tabela consolidada de entregas por mes. Com elas saem\n  quatro requisicoes por carga, e mais quatro a cada refetch de 60s.\n- O \"Resumo Anual\" passa a abrir a pagina. E o numero de que a DGEO presta\n  contas, entao vem antes do movimento do dia a dia.\n- \"Clientes Mais Ativos (Top 10)\" nao pagina mais, porque a consulta ja limita\n  em 10: paginar de 5 em 5 escondia metade de uma lista que cabe na tela.\n  Ganha a coluna \"Impressoes\" e o total da secao no cabecalho (1.301 hoje).\n\nCLIENTES\n- Sai a coluna ID, que e chave interna. O id segue na URL do detalhe.\n- \"Em andamento\" vira Sim ou Nao. A CONTAGEM exata continua no detalhe do\n  cliente, que ja a mostra num card, e isso importa: tres clientes tem mais de\n  um pedido em andamento, com maximo de 3.\n\nSESSAO\n- O JWT era fixo em '1h' e nao ha renovacao, entao a pessoa era deslogada no\n  meio do trabalho. Passa a `JWT_EXPIRACAO`, com padrao de 8h. Medido depois:\n  o token novo vale 8 horas.\n\nNovo em `impressao_item`: a soma por cliente sai de\nimpressao_item -> produto_pedido -> pedido, contando folhas IMPRESSAS, que e\ndiferente de produtos pedidos.\n\nVerificacao: 313 testes do client e 632 do servidor. Os cinco testes novos\nguardam a AUSENCIA dos paineis, senao eles voltam em silencio. O de paginacao\nnasceu VAZIO e so foi descoberto porque reintroduzi o defeito de proposito: com\n2 clientes no mock, o rodape se esconde sozinho abaixo de 5 linhas e o teste\npassava dos dois jeitos. Com 10 clientes, ele reprova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "10db3bd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/10db3bdc2879443b44a787a5db8fed952a8e5fd0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-27T14:49:02.000Z",
+      "author": "1º Ten Marcel",
+      "message": "organização de documentos legados",
+      "sha": "8fbd382",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/8fbd382dddea5320ad448dedbdde9361a6ae1497",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T14:48:45.000Z",
+      "author": "Maj Diniz",
+      "message": "vault em PTS: 36 arquivos passam pela regua, de 1,62 para 0,21 por 100 palavras\n\nPassada de Portugues Tecnico Simplificado nas subwikis e nas casas de projeto.\nO gesto e sempre o mesmo: quebrar a frase que carregava tres ideias, trocar o\nponto e virgula que juntava oracoes por ponto final, virar a voz passiva e abrir\nem lista o paragrafo que era enumeracao disfarcada de prosa.\n\nMedido arquivo a arquivo com `lint_escrita.py`, comparando a versao anterior\n(git show) com a nova. Os 36 melhoraram e NENHUM piorou. Media de 1,62 para 0,21\nviolacoes por 100 palavras. A maior queda e a do 01-Projects/grade-fotos-ast10,\nque era o pior arquivo do vault, de 4,47 para 1,65 em 8.194 palavras.\n\nFica passivo conhecido para a proxima passada, os tres que seguem acima de 0,9:\nsubwikis/ti/ppsi-instrumento.md (1,74), grade-fotos-ast10 (1,65) e\n01-Projects/ciclo-2026/pca.md (0,96).\n\nO padrao arruma a FORMA, nunca a substancia: nenhum fato, numero ou decisao\nmudou nesta passada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4f21e75",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4f21e7534f8429222e6fbc3f64b28bfc7bb0a1c1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T14:44:30.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(deps): zera as 9 vulnerabilidades sem quebrar a API do ZIP\n\nO caminho obvio nao servia. O `npm audit` aponta `archiver@8` como conserto,\nmas a 8 e ESM pura e SUMIU com o export chamavel: `archiver('zip', ...)` virou\nas classes `Archiver`/`ZipArchive`, e as duas exportacoes em ZIP do acervo\nquebram no boot. Isso e reescrita de API, nao bump de versao.\n\nAs 7 vulnerabilidades da subarvore do archiver vinham todas da mesma raiz, o\n`brace-expansion` (DoS por expansao exponencial). Corrigir a raiz por `overrides`\nzera as 7 e nao encosta na API.\n\nUm segundo override foi preciso, e e a parte que quase passou batido: forcar\n`brace-expansion@5` sozinho QUEBRA o `minimatch@5` que vem sob o `readdir-glob`,\nporque ele faz `require('brace-expansion')` esperando a funcao direta, e a versao\n5 exporta `{ expand }` nomeado. Com isso o `npm audit` dizia \"0 vulnerabilities\"\nenquanto o `archive.glob()` estourava \"expand is not a function\". O override\nescopado `readdir-glob > minimatch@^10.2.5` fecha o buraco.\n\nFora da subarvore: `swagger-jsdoc` 6.2.8 -> 6.3.0 (ja traz glob 11 e minimatch\n10 corrigidos), `body-parser` 2.2.2 -> 2.3.0 e `concurrently` 9.2.3 -> 9.2.4.\n\nAntes de mexer nas dependencias veio o teste, porque as duas rotas de ZIP nao\ntinham nenhum: `acervo_zip_ctrl.test.js` abre o ZIP na mao (diretorio central,\ncabecalho local) e DESCOMPRIME cada entrada, conferindo que os bytes voltam\niguais. Buffer com assinatura PK certa e conteudo corrompido passaria num teste\nde tipo e reprova neste. Ele passou contra o archiver 7 ANTES do upgrade, senao\nnao provaria nada.\n\nVerificado: 632 testes do servidor, 31 de 31 na fumaca contra o dado de\nproducao, `archive.glob()` exercitado sobre diretorio real, e as duas rotas de\nZIP baixadas e validadas pela `zipfile` da biblioteca padrao do Python, que e\nimplementacao independente da nossa. Auditoria em 0 nos tres pacotes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ae1f31f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ae1f31f28f012e8ad4aff3275969bce232b47550",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T14:28:55.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: bit de execucao no pre-commit, senao o Linux ignora o hook em silencio\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "af79c0d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/af79c0d45b1ecb00122b95b0a13124102b7ab6a2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T14:28:30.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(seguranca): tira a topologia da rede do repositorio publico e tranca a porta\n\nO repositorio e publico. Tres arquivos versionados traziam IP interno, porta do\nbanco acoplada ao host, o caminho UNC do compartilhamento do acervo e letras de\nunidade mapeada. Nenhuma senha vazou: `server/config.env` nunca foi commitado,\nconferido no historico.\n\nO valor sai, a CHAVE fica. `.env.example` nasce como catalogo comentado, sem\nvalor nenhum, e passa a ser o lugar onde se explica cada chave.\n\nE a regra deixa de depender de boa vontade: `scripts/check_vazamento.py` roda no\npre-commit (`.githooks/pre-commit`, fail-closed) e barra caminho de maquina, UNC,\nIP interno e segredo com valor. Provado com um vazamento sintetico, que ele\nabortou. Ele checa SO o que vaza, nunca estilo: o repositorio tem 221 em-dashes\nherdados, e guard que bloqueia todo commit ensina `--no-verify`.\n\nJunto, o que a leitura do banco de producao ensinou hoje: caminho UNC do Windows\nnao resolve em servidor Linux. Das 17.155 linhas de `upload_arquivo_temp`, as\n15.506 concluidas foram gravadas por processo Windows, e as unicas 4 de processo\nLinux falharam com \"Arquivo nao encontrado\". O conserto (montar por CIFS e gravar\no ponto de montagem na coluna) fica documentado onde quem for implantar procura.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0ec74bc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0ec74bc143d059787702a8813c63a46dc84b11b1",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T14:21:11.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-27 (cont. 2): o vault perde o arquivo morto, o perfil do usuario e a proatividade agendada\n\nOrganizacao do 01-Projects e poda de estrutura, por decisao do chefe.\n\n- carta-militar-reserva vira secao do cartas-militares-piloto (mesma cadeia de\n  producao; a Reserva foi a primeira folha a rodar a cadeia inteira).\n- conflacao-hidrografia-nome apagado. As 4 frentes abertas que so existiam la\n  foram para o learnings da skill conflacao-atributo-linha antes da remocao.\n- 04-Archive EXTINTO (4 itens, 1.349 linhas). Cai a regra \"nunca apague,\n  arquive\": a poda agora apaga e o git e o arquivo. Regra nova no CLAUDE.md e\n  no passo 12 da retrospectiva.\n- people/USER.md apagado com a pasta. Os 15 fatos redistribuidos pelo criterio\n  \"o que precisa valer sem consulta vai ao arquivo injetado\": 5 viraram regra do\n  CLAUDE.md, 5 ja estavam cobertos, 5 foram para wiki e convencoes.\n- proatividade.md, gate_proatividade.py e worktrees-guia.md apagados por desuso.\n  A proatividade passa a ser comportamento de sessao.\n\nVerificacao: nucleo em 0,21 (era 0,29) no lint de escrita, lint-wiki sem erro,\nguard anti-vazamento OK em 525 arquivos, indice de skills regenerado.",
+      "sha": "0f81306",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0f81306de3c629d87762962be5a968c0946843bf",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T14:07:40.000Z",
+      "author": "Maj Diniz",
+      "message": "perfis-acesso reflete o escopo atual, e o plataforma-dgeo sai\n\nO projeto de perfis nasceu para DOIS sistemas separados e hoje governa UM com\ntres modulos. O arquivo dizia \"branch sem commit\", \"SCA a fazer\" e descrevia a\ntela de concessao em triplicata, uma por client, quando ela virou uma so.\n\nO que ficou registrado, e e o valor do arquivo: a fusao foi o TESTE do desenho.\nEle previa em 2026-07-25 que absorver um sistema seria \"INSERT em dominio.modulo\nmais copia das linhas de perfil\", e foi exatamente isso. A previsao de\nviabilidade errou so para menos, em duas colisoes que so aparecem abrindo o\ncodigo (o `nome_abrev` de tipo_posto_grad divergindo em 5 de 19 codigos, e um\n`schema_validation.js` com o mesmo nome e contrato diferente nos dois repos).\n\nO risco central do projeto (\"a tropa fica sem acesso ate conceder perfil\") foi\nmedido e nao existe: os 7 usuarios dos dois sistemas sao administradores. Sobrou\nso o deploy do servidor, que vai junto com o da fusao.\n\nO plataforma-dgeo foi apagado a pedido do chefe. O registro integral da fusao\nvive na entrada de 2026-07-27 das DECISIONS, que e o lugar durável; o PROJECT.md\nera o rascunho de execucao de um trabalho que acabou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9fd72f2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9fd72f249879794974a89bb94f464d35e595b1fc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T14:02:42.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: fumaca dos tres modulos vira script, e a sidebar recolhida mostra so modulo\n\nA fumaca da fusao existia so como comandos soltos numa sessao. Agora e\nscripts/fumaca.py: 31 checagens de LEITURA contra os tres modulos, saindo com\ncodigo 1 se algo falhar, para servir de portao depois de todo deploy.\n\nDuas checagens valem a leitura, porque foram escritas depois de a versao ingenua\nfalhar em falso: a consulta publica por localizador usa um pedido REAL buscado\nantes (com codigo inventado ela mede o 404, nao a rota), e as colisoes de nome\n`/relatorio` e `/arquivo` sao exercitadas nos DOIS modulos, porque e o prefixo\n/api/orcamento/ que as faz conviver. Teste de fumaca com expectativa errada e\npior que nenhum: ensina a ignorar falha.\n\nSidebar recolhida: mostrava todos os itens de todos os modulos, o que sao mais\nde vinte icones sem rotulo e indistinguiveis. Passa a mostrar so o icone de cada\nmodulo mais os de plataforma. Recolhida ela e um seletor de modulo; aberta, e o\nmenu. Pedido do chefe ao usar a tela.\n\n309 testes no client. O comportamento da sidebar recolhida NAO tem teste: e\nCSS, e o jsdom nao aplica folha de estilo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1aa9907",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1aa9907e434624a5289903d38f146871095d722c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T13:52:20.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-27: a plataforma nasce, e a falha dominante e a doc que nunca rodou\n\nO SCO deixou de existir: virou o modulo `orcamento` do SCA. Um servidor, um\nbanco, uma interface web, tres CLIs. Banco de producao em 1.5.0 com os dados\nmigrados; falta so o deploy no servidor.\n\nMEMORIA. O MEMORY.md tinha um fato que a sessao DESMENTIU (\"nenhum CLI foi\nprovado contra producao por HTTP\"): os tres foram provados em leitura, e a\nescrita segue nao provada. Entrou a convergencia dos sistemas e saiu o detalhe\nque ja vive na wiki, para caber no teto (4.834 de 6.000).\n\nSUBWIKIS. `sco/`, `sca/` e `mapoteca/` descreviam o MESMO servidor e viraram um\n`subwikis/sca/` com uma pagina por modulo. O agente propos fundir so o SCO;\nrecusei, porque deixaria a mapoteca separada sendo modulo do mesmo servidor\ndesde antes. 17 arquivos com ponteiro atualizado; Decisions nao se reescreve.\n\nLICOES DE CLASSE (learnings da retrospectiva). Fundir dois sistemas nossos:\nmeca os USUARIOS antes de herdar o risco escrito (o risco \"a tropa perde acesso\"\nnao existia, e derruba-lo eliminou um deploy e uma migracao); quando dois\nagentes escrevem dois caminhos para o mesmo schema, verifique a CONVERGENCIA e\nnao cada um; dry-run de verdade numa API sem modo de teste e o PUT com os MESMOS\nvalores. Mais duas: documentacao que nunca foi executada e a falha dominante de\numa fusao, e costura de UI que nenhum teste CONSTROI entrega erro de construcao\nem producao.\n\nLIVRO-RAZAO, 4 desvios. O PROJECT.md afirmando o contrario do que eu fizera 40\nminutos antes (fonte unica desatualizada desliga a conferencia de quem le);\ncomponente removido com referencia orfa, que virou ReferenceError no navegador\ndo chefe depois de 303 testes verdes; um exemplo de comando que eu escrevi no\nREADME e nunca rodei; e a MESMA afirmacao errada (\"GET publico\") em tres\nartefatos, todos filhos de uma decisao de 2026-07-25 que ninguem varreu nos\nclientes.\n\nPODA. O learnings da retrospectiva cedeu 6 sinteses de classe (9.043 caracteres)\npara a camada de detalhe, com verificacao dos dois lados. Ele segue em 42 KB,\nquatro vezes o teto da camada quente: o split mais fundo fica proposto.\n\nWiki: 164 paginas, 5.693 links, zero quebrado. Skills: 0 erros, 0 avisos.\nGuard de caminhos: OK.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1aab905",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1aab905348ede465a1d05c7036dc6b8dff0ee636",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T13:51:40.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as duas decisoes de interface do chefe entram nas decisoes deliberadas\n\nQuem chegar depois vai olhar a sidebar com tres secoes colapsaveis e pensar em\n\"simplificar\" para um dropdown na navbar, e vai olhar a marca Admin ao lado do\nnome e pensar em virar coluna. As duas ja foram decididas e as duas tem motivo.\n\nO dropdown existiu por algumas horas em 2026-07-27 e foi recusado. Junto veio a\nregra que o desenho dele violava: a sidebar se monta uma vez e nunca se\ndesmonta, senao entrar em /usuarios apaga o menu do modulo.\n\nA coluna de administrador por modulo sugere que existe administrador de modulo,\nque e exatamente o que o modelo nao tem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1dec7e8",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1dec7e89b5a59150abba7dba930e4029e16cf018",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T13:45:30.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cli): o `dominio` do acervo e da mapoteca voltam a responder\n\nOs dois CLIs anunciavam \"GET publico, sem login\" e chamavam a rota sem token.\nAs rotas de dominio deixaram de ser publicas em 2026-07-25, quando o perfil por\nmodulo fechou o que era anonimo por omissao e nao por escolha. Desde entao\n`acervo dominio tipo_escala` e `mapoteca dominio tipo_cliente` davam 401 em vez\nde dado, e a ajuda do CLI afirmava o contrario.\n\nTrocado `http.requisitar` por `http.autenticada` nos dois, e corrigida a\nafirmacao em tres lugares. O indice OFFLINE (`acervo dominio` sem tabela) segue\nsem rede e sem login, que e o que ele sempre foi.\n\nE a terceira ocorrencia do mesmo defeito hoje: a documentacao de uma rota\nafirmando \"publico\" depois que a reforma de perfil a fechou. As outras duas\nforam na subwiki do orcamento e no orcamento_cli.\n\nProvado contra o servidor local apontando para o banco de producao: os tres\ndominios respondem. 71, 71 e 36 testes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ce6b56f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ce6b56f09ef3ee6e326ae7c475858c6c4314a974",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T13:35:58.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cli): os tres CLIs passam a aceitar as mesmas variaveis de ambiente\n\nO mapoteca_cli lia MAPOTECA_SERVER e SCA_URL, mas nao SCA_SERVER, que os dois\nirmaos aceitam. Com SCA_SERVER exportado, acervo e orcamento funcionavam e a\nmapoteca recusava. Ambiente unico que serve dois CLIs e falha no terceiro e\njustamente o tipo de drift que o padrao agent-first existe para matar.\n\nAgora a ordem e a mesma nos tres: --server, SCA_URL, SCA_SERVER, e no caso da\nmapoteca o MAPOTECA_SERVER continua aceito como legado.\n\nJunto: o README trazia `orcamento schema nota_credito` como exemplo, e o\nrecurso se chama `nc`. O comando so falhou quando foi executado de verdade.\nExemplo de documentacao que nunca rodou e afirmacao, nao prova.\n\nacervo_cli 71 testes, mapoteca_cli 71, orcamento_cli 36. Os tres provados\ncontra o servidor local apontando para o banco de producao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0102b24",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0102b24d162a966c15d6d22712f3d3cb61f0511a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T13:27:47.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: a plataforma DGEO nasce, com o SCO virando o modulo orcamento do SCA\n\nO Sistema de Controle Orcamentario deixa de existir como sistema separado. Um\nservidor, um banco, uma interface web, tres modulos: acervo, mapoteca e\norcamento.\n\nO que entrou:\n- servidor com 13 features do SCO sob /api/orcamento/, 67 rotas com o modulo\n  explicito no verifyPerfil, e um teste que le o fonte para fazer cumprir\n- schema orcamento (14 tabelas) no er/, versao unica 1.5.0, mais a migracao\n  aditiva e idempotente para o banco existente\n- interface UNICA em client/, servida na raiz, com sessao unica e troca de\n  modulo por rota. acervo_client e mapoteca_client apagados\n- orcamento_cli ao lado dos dois CLIs irmaos, com contrato do Joi vivo\n- CLAUDE.md de 555 para 131 linhas, com o detalhe migrado para o README\n\nEm producao, antes deste merge: banco levado de 1.0.0 a 1.5.0 e os dados\nmigrados (21 tabelas, 578 linhas, 54 anexos), conferidos por releitura no\ndestino e por consulta independente. O banco sco segue intacto como rede de\nprotecao.\n\n626 testes no servidor, 309 no client, 36 no CLI.\n\nFalta o deploy, que e ato do chefe na maquina do servidor.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0ac23d2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0ac23d2abd1fedbf44e6ea89828d1d182372ec8d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T13:25:33.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: administrador vira marca da pessoa, e nao uma coluna por modulo\n\nA tabela de usuarios escrevia \"Administrador\" numa coluna POR MODULO e ainda\ntinha uma coluna \"Administrador\" propria. Com os 5 usuarios de producao sendo\ntodos administradores, eram quatro colunas dizendo a mesma coisa.\n\nO erro nao era so visual, era de modelo: o administrador e GLOBAL e unico, uma\npropriedade da PESSOA, e nao um nivel dentro de cada modulo. Nao existe\nadministrador por modulo, e a tabela sugeria que existisse.\n\nAgora o nome carrega a marca \"Admin\", a coluna de cada modulo mostra\n\"Acesso total\" para o administrador e o perfil concedido para os demais, e a\ncoluna separada saiu.\n\nTres testes no lugar do que afirmava a redundancia: a marca aparece uma vez, a\npalavra \"Administrador\" nao aparece em coluna nenhuma, e quem nao e admin\nmostra o perfil real por modulo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7982fdb",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7982fdb3b2949543013c9a68a9884ca495f70806",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T13:25:21.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: a sidebar para de apagar o menu, e o seletor de modulo vira secao lateral\n\nDois defeitos que o chefe achou testando, e que tinham a mesma raiz: a sidebar\npertencia a UM modulo por vez.\n\n1) Entrar em Usuarios apagava o menu. A tela de usuarios e rota de PLATAFORMA,\nentao o layout chamava setModulo(null), e o setModulo limpava o nav inteiro e\nremontava so com a secao de plataforma. Nao era exclusivo do acervo: acontecia\nnos tres modulos.\n\n2) O dropdown de troca de modulo na navbar saiu, a pedido do chefe. No lugar, a\nsidebar lista os TRES modulos ao mesmo tempo, cada um como secao colapsavel. O\ncabecalho de cada um e um link para a home do modulo, e o chevron ao lado abre\ne fecha sem navegar. Entrar num modulo abre a secao dele e fecha as outras;\nrota de plataforma nao fecha nada.\n\nA sidebar passa a ser montada UMA vez e nunca se desmonta, o que mata a classe\ninteira do defeito 1.\n\nEfeito colateral necessario: a chave dos itens passou a carregar o modulo\n(`acervo:dashboard`), porque `dashboard` existe nos tres e um mapa unico os\nconfundia em silencio. activeIdFromPath acompanha.\n\nO LAYOUT AUTENTICADO NAO TINHA TESTE NENHUM. Nem navbar, nem main-layout: o\nconjunto que monta a interface chegava ao navegador sem cobertura, e foi por\nisso que uma referencia orfa ao seletor removido virou ReferenceError em\nproducao em vez de suite vermelha. main-layout.test.js monta o layout inteiro\nem 6 testes, e foi conferido reintroduzindo o defeito: os 6 falham com o mesmo\nerro que apareceu no console.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "25a8a46",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/25a8a46a93a66316d48e127966c473b6e68160bf",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T12:34:35.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: o CLAUDE.md encolhe de 555 para 131 linhas, e o detalhe vai para o README\n\nO CLAUDE.md tinha virado manual: estrutura completa do repositorio, stack,\ncomandos, tabela de rotas, banco, instalacao. Isso e referencia, nao instrucao,\ne ocupava contexto de agente toda sessao sem mudar decisao nenhuma.\n\nFica no CLAUDE.md so o que muda uma DECISAO de quem escreve codigo aqui: as\ndecisoes de design deliberadas (o que parece defeito e nao e), o modelo de\nautorizacao com a armadilha do modulo default, as regras de negocio da mapoteca\ne do orcamento, os padroes que todo codigo novo segue, e o que nao fazer.\n\nO README passa a ser a referencia, atualizada para o estado real: uma interface\nso em client/, tres CLIs de agente, o modulo orcamento na tabela de rotas, a\nordem do er/ com orcamento.sql, a versao 1.5.0 e a distincao entre er/\n(instalacao nova) e migrations/ (banco existente).\n\nConsertadas afirmacoes falsas que sobreviveram no README antigo: ele citava\nmapoteca/client/ (caminho que nao existia) e dizia que o build da mapoteca nao\nera servido pelo Express, o que deixou de ser verdade ha tempo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ccde359",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ccde359822a16eda153cee80a9ff04bd59a1a90a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T12:34:20.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(cli): orcamento_cli entra no SCA, apontando para /api/orcamento\n\nO CLI de agente do orcamento vem do repositorio do SCO e passa a ser irmao do\nacervo_cli e do mapoteca_cli, sobre a mesma API. Os caminhos ganham o prefixo\n/orcamento; /usuarios fica sem prefixo, por ser rota de plataforma.\n\nPor que o prefixo importa aqui mais que no client: /arquivo e /relatorio EXISTEM\nno acervo. Sem prefixo a chamada nao daria 404, acertaria a rota errada. Por\nisso comandos/relatorio.js e comandos/crud.js passam a derivar a base de\nrecursos.js, em vez de carregar caminho literal.\n\nO contrato continua saindo do Joi VIVO, agora lido de server/src/orcamento/.\nA lista de clientes de auth aceitos tambem sai do .valid() do login_schema, e\nnao de copia. Cache de sessao em ~/.sca, compartilhado com os dois CLIs irmaos:\num login serve os tres. Dependencia zero preservada.\n\nsco.js virou orcamento.js, seguindo acervo.js e mapoteca.js.\n\n36 testes passando, mais 2 novos de regressao da fusao. Provado contra o\nservidor real apontando para o banco de producao, so leitura.\n\nAchado que veio junto: GET /dominio nunca foi publico. A subwiki, as duas skills\ndo vault e o lib/regras.js diziam que era, e o dominio_route.js do proprio SCO\nja exigia perfil de consulta desde 2026-07-25. O comando dominio chamava sem\ntoken, o que daria 401.\n\nDois comentarios mortos no modulo orcamento diziam \"sistema admin-only, tudo com\nverifyAdmin\", falso desde 2026-07-25 e sobrevivente da fusao. Corrigidos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0cc4855",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0cc48559c684c1f12e22f2fe526fbb6b2214149f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T12:24:31.000Z",
+      "author": "Maj Diniz",
+      "message": "test: o dashboard deixa de passar com o grafico quebrado\n\nO jsdom devolve null em canvas.getContext('2d') e o Chart real estoura no\nprimeiro update com dado. O try/catch do load() engolia essa falha, entao o\nteste do dashboard do orcamento passava com o grafico NUNCA renderizando, e nao\nperceberia se ele parasse de renderizar em producao. Teste que nao pode falhar\nnao e teste.\n\nOs dois dashboards (orcamento e mapoteca) passam a usar o duble de chart.js que\nveio com o modulo acervo, e o do orcamento ganha uma assercao que so passa se o\ngrafico for montado DE VERDADE, com dataset nao vazio e valor maior que zero\nvindo da linha TOTAL da tabela 3.1.\n\nNenhum defeito estava escondido atras do try/catch: os dois passam com o\ncaminho do grafico exercitado. 305 testes no client.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "00907ba",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/00907bac2538a84aae4c6b1f1a012d09195877ea",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T12:22:51.000Z",
+      "author": "Maj Diniz",
+      "message": "feat!: uma interface web so, com os tres modulos dentro\n\nAte aqui o SCA tinha duas interfaces (acervo_client em / e mapoteca_client em\n/mapoteca) e o orcamento tinha a terceira, noutro repositorio. Na mesma origem,\nisso obrigava a mesma pessoa a logar duas vezes, porque cada client guardava a\nsessao com prefixo proprio no localStorage.\n\nAgora e um client so, em client/, servido na raiz. Trocar de modulo e trocar de\nrota (#/acervo/..., #/mapoteca/..., #/orcamento/...), sem recarregar e sem novo\nlogin. O seletor mostra so os modulos em que a pessoa tem perfil, e o\nadministrador global ve os tres sem ter linha de perfil nenhuma.\n\nPor onde o nucleo comum nasceu: mapoteca_client e orcamento_client tinham 43\ncaminhos em comum e 26 arquivos identicos byte a byte, contra 4 de 27 entre\nacervo_client e mapoteca_client. Construir a partir do par mais evoluido custou\nmenos que partir do client mais antigo.\n\nContrato para modulo novo em client/src/js/modules/registry.js: um manifesto por\nmodulo declara menu, rotas e o perfil minimo de cada uma, e o roteador nao\nprecisa ser tocado. Perfil de rota no client e so ergonomia; quem barra escrita\ncontinua sendo o verifyPerfil no servidor.\n\ntabs e export-bar subiram a componente de plataforma, vindos do acervo. A tela\nde usuarios virou uma so, com uma coluna por modulo. A consulta publica de\npedido por localizador continua sem sessao, agora como rota de plataforma.\n\nacervo_client e mapoteca_client foram apagados. O historico do git os guarda.\n\n53 arquivos e 304 testes no client, 52 suites e 626 no servidor. Fumaca real\ncontra o banco de producao: 5.741 produtos no acervo, 68 clientes na mapoteca,\n95 notas de credito e a secao 3 do RPCMTec no orcamento.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b165dc5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b165dc528f79df710f67034339411865e4441c27",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T12:02:11.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: o login devolve o catalogo de modulos, e nao so os perfis\n\nCom tres modulos na mesma interface, o seletor precisa do NOME de cada um. A\nrota que serve dominio.modulo (GET /usuarios/dominio/modulo) e verifyAdmin,\nentao quem tem so perfil de consulta nao consegue le-la, e a alternativa seria\ndecorar rotulo na tela, que e o que a regra do vault proibe.\n\nO catalogo vai no corpo da resposta, fora do token, pelo mesmo motivo que os\nperfis ja iam: o token diz quem a pessoa e, nunca o que ela pode.\n\nConferido numa resposta real do servidor, e nao so no teste com banco mockado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c151ca2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c151ca2f11f684e205e47db7465cdab5713c193c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-27T12:01:45.000Z",
+      "author": "Maj Diniz",
+      "message": "feat!: o SCO vira o modulo orcamento do SCA (servidor e schema)\n\nO Sistema de Controle Orcamentario deixa de ter servidor e banco proprios e\npassa a ser o modulo 3 da plataforma, ao lado do acervo (1) e da mapoteca (2).\nE o primeiro passo concreto da unificacao que o perfil por modulo ja mirava.\n\nServidor: 13 features vindas do SCO montadas sob /api/orcamento/, o que resolve\nas colisoes de nome com o acervo (dominio, relatorio, arquivo). As rotas /login\ne /usuarios do SCA passam a servir os tres modulos, e as do SCO foram\ndescartadas. As 67 rotas trazidas passam o modulo explicitamente no\nverifyPerfil: sem o segundo argumento elas cobrariam perfil no ACERVO, falha\nsilenciosa que o teste modulo_em_toda_rota.test.js passa a barrar lendo o fonte.\n\nutils/schema_validation.js tinha o mesmo nome e contrato DIFERENTE nos dois\nrepositorios: o SCA descarta chave desconhecida e responde 200, o SCO recusa com\n400 e sugere a chave parecida. Usar o do SCA afrouxaria em silencio o contrato\ndas 67 rotas, entao o do SCO foi preservado, isolado em orcamento/utils/.\n\nSchema: er/orcamento.sql com 14 tabelas, mais as 7 tabelas de dominio que so\nexistiam no SCO. Versao unica 1.5.0, decidida pelo chefe: o SCA salta de 1.1.0.\nA migracao 2026-07-27_fusao_orcamento.sql cobre o banco existente, e e aditiva e\nidempotente. Ela e o er/ foram conferidos por convergencia: instalacao nova\ncontra banco migrado dao 162 colunas, 141 constraints e 30 indices iguais.\n\n51 suites e 622 testes passando, incluindo dois novos que provam a razao de ser\ndo perfil por modulo: operador do orcamento nao escreve no acervo nem na\nmapoteca, e administrador global passa nos tres sem ter linha de perfil.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "56bf41c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/56bf41cfadc100e9fe234bc5b2aa18704add560a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-27T10:43:09.000Z",
