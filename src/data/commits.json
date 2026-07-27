@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-26T21:04:52.252Z",
+  "lastUpdate": "2026-07-27T12:58:34.969Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-24T13:21:01.000Z",
-    "1cgeo/doc_dgeo": "2026-07-24T13:19:50.000Z",
+    "1cgeo/doc_dgeo": "2026-07-27T10:36:54.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-03-06T13:09:58.000Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-20T23:10:29.000Z",
+    "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-07-25T14:39:14.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-26T15:58:00.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-27T10:43:09.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5365,
+    "totalCommits": 5370,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
-      "1cgeo/doc_dgeo": 508,
+      "1cgeo/doc_dgeo": 509,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 35,
@@ -152,7 +152,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 341,
-      "1cgeo/geoswarm": 65,
+      "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 19,
@@ -163,13 +163,58 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 401,
+      "1cgeo/chefe_dgeo": 404,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T10:43:09.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentacoes do 1 CGEO de 2021 a 2023 vao para a doc publica\n\nRegistra a decisao e sete aprendizados da campanha que levou nove\napresentacoes ministradas pelo 1 CGEO para o doc_dgeo (commit 02bd21e em\n1cgeo/doc_dgeo).\n\nO local nao foi criado, foi achado: a secao Apresentacoes Tematicas de\ndocs/relatorios/apresentacoes.md ja cobria 2023 a 2025 e faltava 2021 e\n2022. Essa rota faltava no roteamento da skill atualizar-doc-publica.\n\nO recorte veio de correcao do chefe no meio da tarefa (so o que o 1 CGEO\nministrou), que cortou 136 arquivos para 25 candidatos; a triagem por texto\ndo primeiro slide fechou em 9.\n\nDois aprendizados de guardrail. O guardrail generico de efetivo e nome cedeu\nao PRECEDENTE conferido no proprio site, porque os decks de 2024 e 2025 ja\npublicados trazem efetivo, PIT e nomes. O guardrail que pegou nao estava na\nlista: a tarja \"redistribuicao proibida\" mora no PIXEL do slide, entao achar\nexigiu renderizar a pagina, nao grepar.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "de9432a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/de9432a32805fc056f6c5905b2b2aadbcd26193b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-27T10:42:50.000Z",
+      "author": "Maj Diniz",
+      "message": "os sistemas da divisao viram plataforma, e o SCO entra primeiro\n\nRegistra o plano de fundir o SCO (controle orcamentario) como modulo dentro\ndo SCA (controle do acervo): um servidor, um banco, uma SPA so.\n\nTres fatos do levantamento mudaram o orcamento da mudanca. As permissoes ja\nsao o mesmo desenho nos dois repos, entao fundir e um INSERT de modulo mais\num UPDATE de modulo_id. O SCA ja serve dois clients web de um processo so.\nAs 14 tabelas de orcamento ligam usuario por uuid em 25 FKs e por id em\nnenhuma.\n\nA medicao que reordenou o plano: os bancos de producao estao atrasados e o\nSCA aborta o boot com banco abaixo da versao minima, entao nivelar producao\nvirou fase propria ANTES da fusao. Isso e divida aberta do perfis-acesso,\ncujo PROJECT.md e atualizado aqui.\n\nA SPA nasce do par mapoteca e orcamento (26 de 43 arquivos identicos byte a\nbyte), nao do acervo_client (4 de 27), que e o mais divergente e o alvo do\nportal-acervo.\n\nPlano integral em 01-Projects/plataforma-dgeo/PROJECT.md.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ddf73b4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ddf73b48b8a69bdd6d2fc8c515d95906ac01125e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-27T10:36:54.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentacoes: acervo do 1 CGEO de 2021 a 2023\n\nAdiciona 9 apresentacoes ministradas pelo 1 CGEO, vindas do acervo de\napresentacoes da DGEO. Preenche o buraco de 2021 e 2022 na secao\nApresentacoes Tematicas, que ja cobria 2023 a 2025.\n\nEntraram: Reu Ch OMDS 2021; Reu Cmdo DSG XLII de OUT22; Reu Ch DGEO 2022\n(principal, GT de Carta Ortoimagem e Programas Internacionais); visitas do\nGen Marcis de 2022 e 2023; Reu Ch DGEO 2023 (Programas Internacionais); e a\ncontribuicao BRA ao WG MGCP de Thinning and Generalization 1:250.000.\n\nAs datas dos arquivos vem do slide, nao do nome da pasta de origem, que\ndivergia em tres casos. Ficaram de fora as pecas de autoria de outras OM\n(DSG, 2 a 5 CGEO, IPHG) e as pecas estrangeiras do TG44 e do WG 250k.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "02bd21e",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/02bd21e6c891aa55e6b635650f796d8254d15162",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-07-27T10:31:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Wiki: fontes vivas de CANIE/CECAV, aerodromos ANAC e BCRS25 (SEMA/FEPAM)\n\nTriagem do acervo de PREPARO 2017-2019 do RS (X:\\INSUMOS_EXTERNOS_RS) contra\no radar, seguida da redescoberta das fontes originais (as do acervo estao\ndatadas; parte morreu).\n\nPaginas novas:\n- wiki/fontes/cecav-canie.md: cavidades naturais subterraneas. Todo o site\n  legado do CECAV devolve 404 e a pagina que o substituiu nao publica\n  download; o dado vivo esta no GeoServer da INDE (ICMBio:canie_052026_p,\n  30.746 registros, EPSG:4674, num_canie como id_externo). Registrados o\n  gotcha do filtro (estado por extenso, nao sigla) e o uso de nvl_valida\n  como eixo de confianca.\n- wiki/fontes/sema-rs.md: BCRS25 1:25.000 (ww2.fepam.rs.gov.br/bcrs25/),\n  6 ZIPs por secao EDGV 2.1.3 + GDB, listagem aberta. Rendimento por camada,\n  camadas vazias, o que esta fora de escopo e o encoding latin1.\n\nAtualizadas:\n- aisweb-decea.md: rota real dos aerodromos da ANAC. O portal gov.br cai em\n  CAPTCHA, mas os arquivos estao numa listagem aberta em\n  sistemas.anac.gov.br/dadosabertos (carga diaria). 3.848 privados, 0 sem\n  coordenada; primeira linha nao e cabecalho, DMS x LATGEOPOINT decimal\n  com virgula.\n- catalogos-nacionais.md: bloco \"Tecnicas de redescoberta\" (URL morta e\n  dataset mudado de casa; nome de camada da INDE carrega a data da carga;\n  CAPTCHA do gov.br x listagem de diretorio; fonte.txt de acervo antigo\n  como chave de busca).\n- ufs/rs.md, iede-rs.md, index.md: ponteiros para as paginas novas.\n\nRetrospectiva: veredito de producao vazio (nenhuma coleta desde 2026-07-17,\n0 pendentes, 0 mutacoes) -- nada a atribuir. Consertos do commit anterior\nreexecutados e OK (as 4 subcategorias resolvem para codigos EDGV distintos,\n1610 x 1614 preservado, conversao json em dia). Um evento de sessao no\nlivro-razao: propus insumos de acervo antigo sem verificar vigencia da fonte.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c29cf1f",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/c29cf1fd1943c9f3223dd06e45e08c2b403de942",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-26T21:58:15.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-26 (cont. 3): a listagem de skills sai da sessao e vira busca sob demanda\n\nO chefe mandou ler o artigo de context engineering da Anthropic (Thariq\nShihipar, 2026-07-24: 80% do system prompt do Claude Code cortado sem perda\nmedida) e depois formulou o problema: \"e mais importante ele saber o que\nconsultar do que sempre botar 13 mil tokens de entrada\".\n\nO ALVO NAO ERA O QUE EU ACHAVA. Medindo em vez de supor, o maior gasto fixo da\nsessao nao era a constituicao, eram as DESCRICOES das 53 skills: 30.879\ncaracteres, o dobro do CLAUDE.md.\n\nO MECANISMO, LIDO NO BINARIO 2.1.220 e nao na doc, que nao traz a formula:\n\n  orcamento_chars = janela_de_contexto(tokens) * 4 * skillListingBudgetFraction\n\nDe fabrica a fracao e 0.01 e o teto por skill 1536. Numa janela de 200k isso da\n8.000 caracteres e nos estouravamos quase 4 vezes: o Claude Code JA encurtava as\ndescricoes sozinho e em silencio, descartando primeiro as skills menos usadas.\n\nO DESENHO, tudo nativo (sem MCP, sem plugin):\n  41 skills em \"name-only\" (so o nome) por skillOverrides\n  12 mantem a descricao: as que respondem a pedido VAGO\n  _TEMPLATE fora da listagem\n  skill catalogo-skills + .claude/skills/INDEX.md como busca sob demanda\n  .claude/scripts/gerar_indice_skills.py gera o indice e mede o custo\n\nO CRITERIO DO CORTE NAO E FREQUENCIA DE USO. Duas reguas de uso falharam (contar\ninvocacao da ferramenta Skill deu 8 skills; contar mencao ao diretorio deu 53 de\n53, porque a retrospectiva e a lint-wiki tocam todas ao auditar). O que\nsobreviveu e QUEM NOMEIA O GATILHO: pedido que nomeia o sistema acha pelo NOME,\npedido vago precisa da DESCRICAO.\n\nMEDIDO com as routing-eval.jsonl que o vault ja tinha, 12 intentos em sessoes\nlimpas, leitura de arquivo permitida:\n\n  descricao cheia, sem roteador   31.286 chars   11/12\n  name-only sem roteador           5.302 chars    6/12\n  name-only mais roteador          5.393 chars   10/12\n\nCorte de 83% da listagem, ~6.500 tokens por sessao, ao preco de 1 acerto em 12\nnos casos mais dificeis. O chefe escolheu manter.\n\nTRES LICOES DA MEDICAO:\n- name-only sozinho DESTROI o roteamento nos clusters que colidem (11 para 6). O\n  nome resolve o tema, nunca a irma.\n- O roteador so funciona porque MANDA ler o indice e nomeia os temas de colisao.\n  A primeira versao, passiva, nunca disparava: modelo confiante responde direto.\n- A primeira eval proibia ferramenta, o que impedia o roteador de ler o indice.\n  Medir mecanismo SOB DEMANDA exige eval que permita a demanda (livro-razao\n  cont. 8, mesma familia da regua cega de horas antes).\n\nE uma reprovacao minha: anunciei uma causa raiz (a truncagem do indice em 150\nchars) antes de testa-la, e a remedicao com teto 320 reprovou (livro-razao\ncont. 9). Causa raiz se anuncia depois da medida.\n\nDESCARTADOS: skills-radar (MCP com BM25 mais embeddings, ganho parecido com 3 a\n9 s de latencia) e o defer_loading da Anthropic, que vale para ferramenta e nao\npara skill.\n\nPENDENTE COM O CHEFE: uma linha no CLAUDE.md apontando o indice endureceria o\nroteamento, porque o nucleo e injetado sempre. Nucleo so com aval (principio 3).\n\nWiki: pagina nova contexto-do-agente, ligada no index e no mapa-conceitos.\nSkill: passo 11 novo na fase 4 da retrospectiva (regenerar o indice e medir).\nLint: wiki 0 erros, skills 0 erros, guard OK (novos varridos a parte).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9153155",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9153155e4a5c634173f144fd1d1fe7981e5009d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-07-26T18:45:59.000Z",
