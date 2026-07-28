@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-27T21:16:31.294Z",
+  "lastUpdate": "2026-07-28T12:01:55.271Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-07-27T18:44:03.000Z",
+    "1cgeo/ebgeo_360": "2026-07-28T11:43:36.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-27T18:38:06.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-28T11:49:18.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5403,
+    "totalCommits": 5410,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 21,
+      "1cgeo/ebgeo_360": 25,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,76 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 412,
+      "1cgeo/chefe_dgeo": 415,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-28T11:49:18.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings: medir interface em aba oculta mede o instrumento\n\nDuas licoes da depuracao dos tres defeitos da interface de calibracao, mais os\ndois eventos no livro-razao. Escrito agora porque eu tinha AFIRMADO ao chefe que\nja estava escrito, e nao estava.\n\n1. Aba em segundo plano congela o requestAnimationFrame, e com ele o laco de\n   render. Medi o cone do minimapa assim, vi um congelamento, e anunciei que \"o\n   mecanismo esta correto neste build\". A afirmacao veio de um instrumento\n   morto: `document.visibilityState` dava `hidden` e um contador proprio\n   registrou zero quadros em 2 segundos. O defeito era real e apareceu quando\n   forcei um quadro. Familia de \"zero inesperado de um detector e defeito ate\n   prova em contrario\", agora com o detector sendo o navegador.\n\n2. Cache de modulo que sobrevive a uma reinicializacao SEM descarte. Dois\n   defeitos da mesma sessao, em modulos que nao se conhecem: a grade esferica e\n   o cone do minimapa. A regua que fica: cache de elemento do DOM pertence ao\n   INIT, nao ao dispose, porque confiar so no descarte assume que todo caminho\n   passa por ele, e sempre ha um que nao passa. E o sintoma que denuncia e\n   propriedade de estilo VAZIA, que significa escrita indo para outro lugar,\n   diferente de errada, que significa calculo ruim.\n\nO segundo evento do livro-razao e sobre tempo verbal: descrevi no passado um\nregistro que eu ainda nao tinha feito. Irmao de \"anunciei a causa raiz antes de\ntesta-la\" (2026-07-26).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "cc7b433",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cc7b43328214a9f42c0623ec89445a35ed301567",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-28T11:43:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(calibracao): o cone do minimapa, o contador da faixa e o aplicar por eixo\n\nTres defeitos que o chefe achou usando a interface.\n\n1. O TRIANGULO DO MINIMAPA nao girava. Entrando por /calibration/ e escolhendo\n   um projeto, o `transform` do cone ficava VAZIO: ninguem escrevia nele. O\n   `coneEl` e cache de modulo, resolvido uma vez, e o `disposeMinimap` o zerava.\n   Mas por esse caminho o minimapa e re-inicializado SEM descarte, entao o cache\n   continuava preso ao marcador anterior, que nunca entra no mapa. Zerado agora\n   no proprio `initMinimap`, junto com os ultimos valores aplicados: o cache\n   passa a nascer com o dono dele. Mesma familia do defeito da grade esferica.\n\n2. O CONTADOR DA FAIXA (`0/46`) ficava congelado enquanto o operador revisava.\n   Regressao introduzida no commit anterior: o contador nasce no desenho da\n   lista, e a lista NAO e redesenhada ao marcar revisada, de proposito (sao\n   17.590 itens no maior projeto). Agora ele e reescrito no lugar, recontando so\n   as fotos daquela faixa.\n\n3. APLICAR A FAIXA so aplicava os tres angulos de uma vez, o que obrigava a\n   levar junto um eixo que ja estava bom. Agora tem os quatro botoes do batch de\n   projeto (rotation_y, rotation_x, rotation_z e Todos), com os rotulos\n   acompanhando o valor corrente.\n\nVerificado no navegador pelo caminho que o chefe descreveu (seletor, depois\nprojeto): o cone acompanha o rumo grau a grau (-38 para -38), o contador vai de\n0/320 para 1/320, e os quatro botoes aparecem com o angulo certo. Lint,\nlint:calibration, 243 testes e knip passam.\n\nNota de metodo, para quem for depurar isto depois: a aba em SEGUNDO PLANO\ncongela o requestAnimationFrame, e com ela o laco de render do visualizador.\nMedir o cone assim mostra um congelamento que e do instrumento, nao do produto.\nForce um quadro antes de concluir.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "14b0919",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/14b09195bfcf1d97d744c7d97130a9462a2fce81",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-28T11:17:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-28: o SfM sai de cena por falta de paralaxe, e a auditoria olha o produto\n\nO piloto de OpenSfM fechou e reprovou, por uma causa que nao era nenhuma das\nduas que eu suspeitava. Nao e a base curta (o faxinal falhou a 28,6 m e o cica a\n12,5 m) nem a viatura (mascara-la nao mudou nada). O cica fechou em UMA\ncomponente com as 200 fotos e entregou trajetoria em LINHA RETA onde o GPS faz\ncurvas de 90 graus. Medido: zero pontos 3D a menos de 65 m das cameras, mediana\na 657 m, o que da 0,57 grau de paralaxe entre vizinhas. Translacao precisa de\nparalaxe, rotacao nao.\n\nMas as ROTACOES prestam, e a mascara ajudou muito nelas: o erro de azimute caiu\nde 8,43 para 4,62 graus e a deriva de 16,7 para 9,3. Com 4,62 o SfM e mais limpo\nque o proprio rumo do GPS. Ele serve de giroscopio, nao de mapa.\n\nDois achados de percurso que valem por si. As fotos tem dois brasoes carimbados\nno nadir, sempre nas mesmas coordenadas de pixel, respondendo por 5,8% das\nfeicoes. E a pasta masks/ do OpenSfM e letra morta na imagem do ODM\n(masking.py:69 tem um return antecipado), entao mascara posta ali seria ignorada\nem SILENCIO e o experimento daria falso negativo.\n\nNasceu o auditar.py, que confere os angulos GRAVADOS contra o Sol sem reexecutar\no ajuste. Ele reprovou quatro projetos que as reguas de INSUMO tinham aprovado.\nRegua de metodo: portao sobre o insumo e portao sobre o produto acham coisas\ndiferentes, e so o segundo fecha o laco.\n\nDois furos consertados no calibrar.py. O portao de cobertura contava deteccao\ndisponivel e nao a que sustenta o que vai ser escrito (no ciatalaia a cobertura\ndava 22,4% e o apoio real era 1,4%, com 19 fotos definindo 1.398). E faixa sem\nancora caia no bloco 0, o primeiro no tempo, em vez do mais proximo.\n\nTres erros meus no livro-razao, um deles caro: matei o servidor com\n`Get-Process node | Stop-Process -Force` e derrubei o proprio harness, porque o\nClaude Code roda em node. Mate pela porta, nunca pelo nome do executavel.\n\nMEMORY.md consolidado de 5.318 para 4.962 caracteres, ja com o fato novo dentro,\ne de 0,52 para 0,15 na regua de escrita. Saíram duas instrucoes imperativas que\npertencem as skills.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "23f9422",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/23f9422f1b04ee596c07c9d22bc752d331c502be",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-28T11:17:21.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): de onde veio o angulo, e a grade que sobrevive a troca de foto\n\nQuatro pedidos do chefe para o CQ manual que ele vai conduzir.\n\n1. A grade esferica sumia ao trocar de foto. `dispose()` destroi a cena a cada\n   troca, mas `gridVisible` e estado de modulo e sobrevive de proposito, para a\n   preferencia nao se perder. Sem recriar a geometria no `initViewer`, a caixa\n   ficava marcada e a grade ausente, e so voltava apertando G duas vezes. O\n   painel ainda guardava uma SEGUNDA copia do estado, que podia divergir: agora\n   o viewer e fonte unica e o painel se realinha com ele.\n\n2. `captured_at` nao era exposto em endpoint nenhum. Entrou na query da foto e\n   na da lista, nas duas respostas, e aparece abaixo do nome.\n\n3. Coluna `photos.calibration_source`, com migracao de startup. Diz o que\n   produziu o angulo daquela foto: `sol`, `imu`, `manual` ou nulo (o angulo veio\n   do bloco da faixa). TODA escrita de angulo pela API grava `manual`, nos nove\n   comandos de queries.js: mao humana derruba a origem automatica. O valor\n   tambem PROTEGE a foto, porque a calibracao solar do vault a pula.\n\n   A etiqueta de \"sem medida\" aparece so no cabecalho da foto atual, nunca na\n   lista: ela cairia em 54,4% das linhas do acervo, virando ruido, e a largura\n   dela empurrava o numero de sequencia para fora do painel.\n\n4. A lista de fotos passa a ser agrupada por FAIXA, colapsavel, com contador de\n   revisadas e quantas tem medida do Sol. So a faixa da foto atual abre, senao\n   um projeto de 17 mil fotos joga tudo no DOM. Como a lista nao e reconstruida\n   ao navegar (a assinatura ignora a foto atual, de proposito), a abertura da\n   faixa nova acontece no syncPhotoListHighlight.\n\nA faixa e a unidade certa porque o angulo varia menos de 1,1 grau dentro dela,\nmedido em 292 faixas, contra tolerancia de 15 graus em y.\n\nVerificado: lint, lint:calibration, 243 testes e knip passam; zero erro no\nconsole; a grade sobrevive a troca de foto pelo botao de navegacao; e o `manual`\nfoi provado chamando o endpoint e conferindo o valor gravado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "6d32909",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/6d32909f093b99a27ccbf7c9c0e26cd940cad9bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-28T08:07:08.000Z",
+      "author": "Maj Diniz",
+      "message": "skill: calibrar a orientacao de panoramas 360 pelo sol\n\nO sol e uma direcao conhecida do mundo, calculavel pela hora e pela posicao com\n0,0003 grau (NREL SPA). Comparar onde ele ESTA no panorama com onde DEVERIA\nestar da a orientacao da camera. Resolve onde IMU e horizonte por visao falharam.\n\nResultado da primeira aplicacao, em 2026-07-27: 20 projetos calibrados, 91.251\nfotos. Dessas, 31.549 com o angulo medido DIRETAMENTE do sol, 59.723 por\ninterpolacao suavizada e 8.439 refinadas pelo acelerometro nos quatro projetos\ncom giroscopio. Dois projetos foram RECUSADOS pelos portoes e nao gravaram nada.\n\nTres fases com cache proprio, para o lote ser re-executavel: varredura do sol,\nmedia da rajada do acelerometro (CAMM do gyro.mp4) e ajuste por Wahba/Kabsch com\nsegmentacao em blocos de montagem.\n\nSEIS portoes recusam gravar sozinhos, e cada um nasceu de um erro real desta\nsessao:\n  - sol abaixo do horizonte  hora errada faz o ajuste casar o sol com um ceu que\n                             nao existia; produziu inclinacao de 65 e 91 graus\n  - inclinacao acima de 35   sessao curta demais deixa a rotacao indeterminada\n  - residuo de bloco alto    ajuste que nao converge\n  - cobertura de sol baixa   projeto viraria so constante\n  - amostra pequena\n  - gabarito medido a mao    onde existir\n\nNao toca foto com calibration_reviewed=1, faz backup do index.db por projeto e\nconfere RELENDO o banco campo a campo depois de gravar.\n\nO `sondar.py` triagem em segundos quais projetos tem sol suficiente: o\nsanta_cruz foi capturado em dia encoberto, com 57% do ceu saturado e 1,5% de\ncobertura, e nenhum limiar conserta ausencia de informacao. O `resumo.py`\nreconstroi a tabela por projeto lendo o log.\n\nOs caminhos vem do .env (EBGEO360_DATA_DIR, MISSAO_*_DIR), nunca fixos no\ncodigo, e a pasta saida/ fica fora do git por ser derivada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "88c439d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/88c439d3d887c3b02d979de3e564695dcb91b24e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-27T23:16:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(captured_at): o time_img da fonte nao e epoch UTC, e o fuso nao e um so\n\nDuas correcoes na conversao de hora, as duas achadas por medicao.\n\n1. O `time_img` do geojson e o `time` dos csv precisam de -3 h alem do fuso.\n   Sem isso o levantamento aparecia indo ate as 21h e 22h, e o chefe confirmou\n   que nao houve coleta a essa hora.\n\n   O valor saiu de busca, nao de suposicao: deixando o desvio de relogio como\n   parametro livre num ajuste solar, tres projetos independentes convergiram em\n   -3,0 h EXATOS, e o residuo do ajuste desabou:\n     alegrete            32,61 -> 2,61\n     santana_livramento  24,36 -> 3,04\n     uruguaiana          21,99 -> 2,52\n   Corrigido, o dia de trabalho vai de 07h as 18h e a fracao de fotos com o sol\n   abaixo do horizonte cai de 21%-26% para 0%.\n\n   Controle: o faxinal e o saica tiram a hora do NOME do arquivo e nunca passam\n   por esta conversao. A mesma busca da desvio ZERO neles.\n\n2. `1pef` e `3pef` sao em Roraima, que e UTC-4, e estavam convertidos como UTC-3.\n   Conferido pela coordenada media: so esses dois ficam ao norte do equador\n   (lat +3,37 e +4,37). Os outros 26 projetos estao no Sul ou no Sudeste.\n   A lista e explicita porque os fusos do Brasil seguem fronteira de estado, e\n   nao meridiano; derivar da longitude erraria na divisa.\n\nEfeito no banco: 65.791 fotos de fonte externa reconvertidas, das quais 4.400\ntambem pelo fuso de Roraima. As 22.215 deduzidas do nome nao mudam, porque nunca\npassaram por conversao. A ORDEM das faixas nao muda, porque o desvio e constante.\n\nIsto quebrava a calibracao solar de forma silenciosa: hora errada move o sol\ncalculado de forma diferente a cada hora do dia, entao cada sessao recebia uma\nrotacao errada DIFERENTE e as sessoes discordavam entre si, com residuo baixo e\ninclinacoes de 65 e 91 graus.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "e2fb591",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/e2fb5918e48da6a0bb8b5a2c6f7fc8d8e63c0c70",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-07-27T21:24:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(faixas): hora de captura real, e a data certa do nome PIC_\n\nDuas coisas que se sustentam na mesma medicao.\n\n1. A PRIMEIRA data do nome PIC_ e o inicio da captura, nao o processamento.\n   O codigo usava a segunda, que e a costura do lote. O EXIF de 5.672 fotos do\n   faxinal decidiu: `primeira data + quadro * 4 s` cai a 2 s da hora real, com\n   100% dentro de 5 s, enquanto a segunda erra de 8 a 9 DIAS. Uma faixa gravada\n   como 2026-05-05T14:47:14 foi capturada em 2026-04-26T13:37:35.\n\n   As duas datas sao 1 para 1, entao o AGRUPAMENTO saia certo mesmo assim, e so\n   o started_at, o rotulo e a ordem do saica e que saiam furados. Agrupar certo\n   nao provava que a data estava certa.\n\n2. scripts/import-captured-at.js preenche photos.captured_at por tres fontes:\n   time_img dos fotos.geojson, coluna time/time_img dos csv do levantamento, e\n   --from-name, que deduz do proprio nome nos arquivos PIC_ (o intervalo de 4 s\n   vem do interval=\"4000\" que a camera grava no pro.prj, unanime nos 163\n   arquivos das tres missoes Insta360). Cobertura: 88.006 de 98.685 (89,2%).\n\n   Faixa cujo NOME nao carrega hora passa a herdar o started_at da foto datada\n   mais antiga dela. Basta UMA foto datada por faixa. Isso tirou 12 projetos da\n   ordem por tamanho: 22 sao cronologicos hoje, contra 10 antes.\n\nMedido e NAO adotado: reordenar as fotos DENTRO da faixa por hora. Em quatro\nprojetos com cobertura total (46.266 fotos) o reordenamento move de 0,00% a\n0,01% das fotos e deixa a distribuicao de passo identica, porque o numero do\nquadro ja e um contador de tempo. No faxinal, contra o EXIF, a ordem por quadro\ndeu 0 inversoes em 5.625 pares. A cauda gorda do passo e gap real de trajeto.\n\nFicam 10.679 fotos sem hora, todas MULTICAPTURA, que e o padrao sem hora no\nnome: aman 8.160, dcmun 1.235, 3pef 1.146, tubarao 114, blumenau 19, santiago 5.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012S2kho9988YESjYpUMd8tC",
+      "sha": "50fe14a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/50fe14ae7654f1dc2de022f8fdb21fbaeab7362f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
     {
       "repo": "1cgeo/ebgeo_360",
       "date": "2026-07-27T18:44:03.000Z",
