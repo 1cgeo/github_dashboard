@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-28T12:01:55.271Z",
+  "lastUpdate": "2026-07-28T16:44:36.869Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-24T13:21:01.000Z",
-    "1cgeo/doc_dgeo": "2026-07-27T14:49:02.000Z",
+    "1cgeo/doc_dgeo": "2026-07-28T13:33:59.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -25,9 +25,9 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-27T18:36:50.000Z",
+    "1cgeo/controle_acervo": "2026-07-28T15:10:34.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/pto_controle": "2025-11-11T10:26:46.468Z",
+    "dsgoficial/pto_controle": "2026-07-28T15:37:23.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
     "dsgoficial/servico_edicao": "2026-07-02T09:47:39.000Z",
     "1cgeo/news_feed": "2024-01-01T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-28T11:49:18.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-28T16:33:56.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5410,
+    "totalCommits": 5423,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
-      "1cgeo/doc_dgeo": 510,
+      "1cgeo/doc_dgeo": 512,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -141,8 +141,8 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 144,
-      "dsgoficial/pto_controle": 38,
+      "1cgeo/controle_acervo": 152,
+      "dsgoficial/pto_controle": 39,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
       "1cgeo/news_feed": 0,
@@ -163,13 +163,130 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 415,
+      "1cgeo/chefe_dgeo": 417,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-28T16:33:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-28 (cont. 2): a carga do legado carimbou producao moderna em carta antiga\n\n770 versoes do SCA corrigidas. 237 Carta Topografica de 2016 a 2020 estavam com\nsubtipo ET-RDG (norma de 2025) e rotulo 1-DSG (contador da producao moderna),\nvindas do lote 2017_SC_25K e dos dois de Backfill BDGEx. Junto foram os 213 CDGV\nligados, 14 cartas de trafegabilidade e 302 Carta Ortoimagem com N-DSG antigo.\nA fronteira 2021 foi MEDIDA no proprio acervo, nao arbitrada pela norma.\n\nCorrecao de metodo do chefe, que e o aprendizado maior: eu ia varrer 5.741\nprodutos pela API a 200 requisicoes por minuto, e a consulta de banco em leitura\nja estava na Referencia rapida da propria SKILL.md. O que me desviou foi o\nlearnings dizendo que as chaves DB_*_READONLY \"sairam do caminho\", verdade sobre\no VAULT que eu li como verdade sobre o mundo. A frase foi reescrita no ponto onde\nengana, e nasceu a secao \"Pergunta ANALITICA se responde por SQL\".\n\n- DECISIONS: entrada integral mais a linha do indice\n- learnings da auditar-acervo: tres secoes novas (SQL de leitura, o lote_id que\n  barra toda edicao de versao, o subtipo de era com a fronteira 2021), mais a\n  segunda poda de demand-paging (Presenca da FOLHA foi verbatim para o detalhado)\n- livro-razao: o evento da correcao de metodo\n- MEMORY.md: \"banco direto, nunca\" passa a distinguir escrita de leitura analitica\n- wiki/controle-acervo: a fronteira 2021 entre T34-700 e ET-RDG\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d962283",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d9622831ba57cfc3b5236eb502c61429864ebb3a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-28T15:37:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-28 (cont.): o pto_controle ganha CLI, e o que impedia era o id\n\nSessao no dsgoficial/pto_controle: branches, conserto dos ids, CLI headless\ne subwiki.\n\n- subwikis/pto-controle/cli.md: nova. Comandos, ambiente, os 15 ids, o\n  guardrail de senha e o que ficou sem prova. Nao repete o fluxo de campo\n  nem o contrato JSON/CSV, que ja estavam na wiki.\n- wiki/ferramentas-pto-controle: corrigida a afirmacao de que os fluxos\n  legados \"seguem preservados nas branches monograpy e testcafe\". A poda\n  de hoje tornou isso falso.\n- portar-agent-first/learnings: o dry-run contra o sistema vivo e teste do\n  SEU cliente; token KEY=VALUE e sempre texto, coaja pelo contrato; antes\n  de portar um plugin QGIS confira se os ids sao invocaveis; legibilidade\n  de id se recupera por resolucao de prefixo, nunca por mapa de apelidos.\n  Mais a licao que o chefe pegou: provei o headless e falei do ARTEFATO,\n  com a GUI quebrada por um enum Qt6 que o caminho headless nunca toca.\n- retrospectiva/learnings: script de edicao em massa que grava DEMAIS,\n  duas vezes na mesma sessao, as duas por regex larga. Faceta nova da\n  familia \"o retorno da ferramenta e eco\": ali a pergunta era \"gravou?\" e\n  aqui e \"gravou SO o que eu quis?\".\n- livro-razao: 4 eventos (edicao em massa, id que a regra do QGIS proibia\n  mostrado no preview de uma pergunta ao chefe, coercao por adivinhacao,\n  e a prova de superficie parcial).\n- MEMORY.md: 4.962 para 4.743 caracteres, abaixo do gatilho de ~80%.\n  O detalhe do acervo 360 e do PTS ja vive na wiki.\n\nlint-wiki limpo (164 paginas, 0 erro). Guard de caminhos OK.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f3108e6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f3108e6a71743ecff3191bd7699769ee88654cde",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pto_controle",
+      "date": "2026-07-28T15:37:23.000Z",
+      "author": "Maj Diniz",
+      "message": "CLI headless, ids invocaveis e conserto de enum Qt6\n\nO plugin nao era invocavel pelo qgis_process. O provider devolvia o\nid() == 'provider' generico do template, e os 15 algoritmos devolviam o\nTITULO HUMANO no name(), que num QgsProcessingAlgorithm e o identificador\ne nao o rotulo. O id real era \"provider:01 - Criar banco de dados\", com\nespaco e acento dentro. Pela caixa de ferramentas isso e invisivel,\nporque la se ve o displayName().\n\n- name() vira slug alfanumerico minusculo (a regra do QGIS) e o titulo\n  numerado desce para displayName(). A caixa de ferramentas nao muda, e a\n  ordem P01..P16 do manual continua.\n- provider id passa a 'ptocontrole'.\n- pto_controle_cli/: CLI headless sobre o qgis_process, irmao do\n  dsgtools_cli. doctor --fix, list, describe, run e cache. Contrato lido\n  ao vivo, sem catalogo pre-gerado; cache por impressao digital;\n  validacao local antes de executar; --dry-run.\n- A senha do PostgreSQL sai da linha de comando: o CLI le\n  PTOCONTROLE_DB_PASSWORD do ambiente e mascara o valor em toda saida.\n- Booleano coagido contra o CONTRATO. Um token KEY=VALUE e sempre texto,\n  e a string 'false' e nao-vazia, portanto verdadeira: IGN_PROC=false\n  faria o oposto do pedido, calado.\n- utils/wrapper.py: QLineEdit.Password nao existe em Qt6 e derrubava a\n  janela dos 6 algoritmos com senha. Agora QLineEdit.EchoMode.Password.\n- .dev/setup_dev_*: apontavam para o perfil QGIS3 legado, instalando o\n  plugin onde o QGIS 4 nao olha.\n\n100 testes. A guarda de ids le o fonte por ast e reprova quem colar um\ntitulo no name() de novo. A guarda de enum resolve cada acesso\nClasse.atributo contra o Qt vivo, num subprocesso do python do QGIS.\n\nProvado ao vivo: 15 algoritmos listados, contrato lido do plugin\ncarregado, e o validarestrutura (P02) executado headless com exit 0\nsobre arquivos/antes_processamento. Os outros 14 seguem sem prova de\nexecucao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b93abb4",
+      "htmlUrl": "https://github.com/dsgoficial/pto_controle/commit/b93abb431be9e3ec5ef9be902bc6b1d710f473ff",
+      "repoUrl": "https://github.com/dsgoficial/pto_controle"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T15:10:34.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acervo): quantitativo cruzado nos filtros da busca, e produto legivel na lista\n\nTres pedidos do chefe (2026-07-28) sobre a busca do acervo.\n\n1. PRODUTOS, NAO VERSOES\n\nA lista ja era por produto, com a ultima edicao no cartao. O que a fazia\nparecer uma lista de versoes era outra coisa: 51 pares de produtos em que a\nmesma folha existe como carta padrao E como Carta Topografica Militar. Sao\nprodutos distintos no SCA (produto.subtipo_produto_id difere), mas o cartao\nnao mostrava o subtipo, entao os dois saiam identicos. Sao 52 grupos que\nrepetem MI+tipo+escala no acervo inteiro, e TODOS os 52 se distinguem\napenas pelo subtipo. O cartao agora o mostra quando ele define o produto.\n\nJunto, um defeito latente que ninguem tinha reportado: a ficha\n(/produto/detalhado/:id) devolvia as versoes SEM ORDER BY nenhum, ou seja,\nna ordem fisica da tabela. O cartao promete \"ultima versao\" e a ficha\nentregava qualquer ordem. Agora ordena no servidor por data_edicao DESC\nNULLS LAST, id DESC, e a primeira ganha a marca \"Mais recente\". Ordenar na\ntela nao serviria: o plugin le a mesma rota.\n\n2. QUANTITATIVO EM CADA OPCAO, E UM FILTRO CRUZANDO O OUTRO\n\nRota nova GET /api/acervo/busca/facetas, com a mesma regra ja adotada no\nmapa da mapoteca: cada lista aplica os OUTROS filtros e nunca o proprio.\nAplicar tambem o proprio deixaria cada lista com uma opcao so, a que ja\nesta escolhida, e trocar de escala exigiria limpar antes.\n\nAs contagens saem do MESMO montarFiltrosBusca que alimenta a lista e a\ncamada do mapa, que e o que impede o numero da opcao de divergir do\nresultado. Verificado contra producao: soma dos tipos = 5.741 = acervo\ninteiro; com tipo=Carta Topografica, 1:25.000 (1147) devolve 1147,\nT34-700 (1765) devolve 1765, e assim por diante. Ha teste de rota\nguardando essa igualdade.\n\nOpcao zerada sai da lista. A excecao e a ESCOLHIDA: se o cruzamento a\nzerou, ela fica com \"(0)\", porque descartar desfaria em silencio o que a\npessoa pediu. Ha uma segunda excecao, so no subtipo: o que nao pertence ao\ntipo recem-escolhido e descartado de vez. Ele nao cruzou a zero, ele deixou\nde fazer sentido, e manter deixaria a busca com dois filtros que nunca se\ncruzam devolvendo zero sem dizer por que.\n\nO subtipo e contado nas duas origens (produto e versao), com\nCOUNT(DISTINCT produto.id), porque o filtro tambem casa nas duas: sem isso\na lista ficaria vazia justamente no caso comum, ja que\nproduto.subtipo_produto_id so vale quando o subtipo DEFINE o produto (367\nde 5.741).\n\n3. A SUGESTAO DE PALAVRA-CHAVE NAO CABIA NA TELA\n\nEra um <datalist>. O navegador escolhe sozinho quantas linhas mostrar, sem\nCSS que o alcance, e com as vinte etiquetas que a rota devolve ele abria\ncobrindo boa parte da tela. Virou um popover nosso, oito linhas e o resto\nrola por dentro.\n\nVieram junto tres coisas que o datalist nao dava: a contagem de usos como\ntexto de verdade (nele ia no atributo label, que so o Firefox mostra),\nsetas e Enter iguais em todo navegador, e a lista refeita a cada tecla\ncontra o servidor. Enter com o campo digitado aplica o texto como esta, de\nproposito: a sugestao vem limitada a 20 e o acervo tem mais etiquetas.\n\nSuites: 668 no servidor (55 arquivos) e 459 no client, todas passando.\nAtencao: `npx jest` direto da deadlock no banco de teste por paralelismo;\nuse `npm test`, que passa --runInBand.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8bbda71",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8bbda7102b8a05d838530d3e6af4c0055197517f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T15:09:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapoteca): o balao do mapa mostra todos os produtos sobrepostos\n\nA pergunta voltou: \"aparece mais de um poligono, talvez esteja mostrando\nversoes\". Nao esta. Medido contra producao, em 2026 sao 325 feicoes para\n325 produto.id distintos; a consulta agrega por prod.id, e a versao so\nexiste no caminho produto_pedido -> versao -> produto, nunca no resultado.\n\nO empilhamento tem duas origens, as duas legitimas:\n\n1. Aninhamento por escala. A 2952-1-SO (1:25.000) esta 100% contida na\n   2952 (1:100.000) e na 535 (1:250.000), e as tres sairam no ano.\n2. Carta Topografica e Carta Ortoimagem da MESMA folha, que no SCA sao\n   produtos distintos com contorno identico: 8 pares em 2026, o que da 317\n   geometrias distintas em 325 feicoes.\n\nO defeito de verdade era outro, e explica por que a tela parecia errada: o\nbalao mostrava so o produto do topo, enquanto a cor ali e a SOMA dos\npreenchimentos translucidos empilhados. A pessoa via um produto e um tom de\nazul que nao correspondia a ele. Agora o balao lista todos os produtos sob\no ponteiro, com cabecalho quando ha mais de um, e o tom passa a ter\nexplicacao na propria tela.\n\nA ordem da lista sai do fill-sort-key (menor area por cima), e nao do\nMapLibre, que nao promete ordem de desenho em e.features. Dedupe por id\nporque a feicao que cruza a borda de um ladrilho volta uma vez por pedaco.\n\nA medicao fica no CLAUDE.md para a pergunta nao precisar ser respondida\numa terceira vez.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8162a2e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8162a2edc8d78d02d6fea0e727b92c28827db91a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T14:36:29.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(server): a suite de testes volta a rodar, e sem flag experimental\n\nNenhum teste do servidor rodava nesta maquina. A causa era\nutils/serialize_error_loader.js: `serialize-error` e ESM puro desde a versao\n9, e entrava por import() dinamico. Dentro do contexto de VM do Jest, esse\nimport() so funciona com NODE_OPTIONS=--experimental-vm-modules; COM a flag,\no Jest 30 no Node 24 quebra antes, em ERR_VM_MODULE_NOT_MODULE. Sem saida\npelos dois lados, e como utils/app_error.js alcanca o loader, todo arquivo\nde teste morria no primeiro require, antes de rodar teste nenhum.\n\nTres mudancas:\n\n1. O loader tenta `require()` primeiro. O Node aceita require() de ESM sem\n   flag desde a 22.12, e o pacote nao tem top-level await. O import() fica\n   como fallback para Node anterior, disparado so em ERR_REQUIRE_ESM, entao\n   nada regride em maquina mais velha.\n\n2. No Jest, moduleNameMapper aponta `serialize-error` para um duble CJS em\n   __tests__/helpers/, como ja era feito com o `uuid`. Varios testes\n   unitarios ja dublavam o loader inteiro a mao por causa disso; o duble\n   central acrescenta cause, propriedades proprias e corte de ciclo. Em\n   producao vale a biblioteca de verdade.\n\n   Saiu o transformIgnorePatterns do serialize-error: sem babel configurado\n   ele nao transformava nada, so dava a impressao de resolver.\n\n3. A flag saiu dos cinco scripts de teste.\n\nCom a suite rodando, apareceram os defeitos que ela escondia:\n\n- os sete testes de entregas_geo que entraram no commit anterior liam\n  `res.body.dados` como se fosse o array de feicoes. O envelope poe o\n  payload em `dados`, e o payload deste endpoint TAMBEM tem um `dados`: as\n  feicoes estao um nivel abaixo. Corrigido com um helper e um comentario.\n\n- o rate limit de 200 por minuto era atingido no meio do arquivo de rotas da\n  mapoteca, e dali em diante tudo virava 429. O pior nao era falhar, era\n  fazer falhar teste QUE NAO MUDOU, so porque um teste novo entrou antes\n  dele no mesmo minuto: a suite dependia de ordem e de relogio. Desligado\n  sob NODE_ENV=test; ele protege contra abuso vindo da rede, que nao e o que\n  a suite imita.\n\nResultado: 55 suites, 663 testes, todos passando. Antes, zero rodavam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c1c3dce",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c1c3dcee8d3e41a33951b4645431b9eb579c9cb9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T14:19:28.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(mapoteca): ano de referencia na navbar, e o mapa das entregas\n\nO ano vira contexto de MODULO, como ja era no orcamento. Eram quatro\nseletores locais independentes (resumo anual, consumo, RPCMTec e detalhe\ndo material), todos nascendo no ano corrente: escolher 2025 num deles e ir\npara outro voltava a 2026 sem aviso. Agora ha um seletor so, na navbar, e a\nescolha sobrevive a navegacao e ao recarregamento.\n\nA mecanica virou fabrica em @store/year-store.js, e o orcamento passou a\nusa-la. A chave de localStorage e o evento sao namespaced por modulo, senao\nescolher um ano num modulo mudaria o outro sob os pes de quem troca pela\nsidebar. O seletor e o mesmo componente; a diferenca e de politica: no\norcamento o ano tambem decide ONDE se cadastra, e por isso ele oferece\n\"+ Outro ano\"; na mapoteca o ano so filtra o que ja aconteceu.\n\nFora do contexto de proposito: as listas de pedidos e de clientes, que sao\noperacionais e tem filtro proprio. Esconder o pedido do ano passado de quem\nesta atendendo o cliente seria perder trabalho, nao ganhar contexto.\n\nO mapa e a quinta aba do dashboard, logo depois do Resumo Anual: e a leitura\nespacial do MESMO numero, e nao um assunto novo. Uma feicao por produto,\npintada pela quantidade entregue. Sem filtro, o total das feicoes fecha\nexatamente com o cartao \"Produtos entregues\" (3119 exemplares em 325\nprodutos, medido contra producao em 2026-07-28).\n\nOs filtros (tipo, escala e OM) sao FACETADOS: cada lista aplica os outros\nfiltros e nunca o proprio, senao ela ficaria com uma opcao so, a que ja esta\nescolhida, e trocar de escala exigiria limpar antes. A contagem ao lado da\nopcao e, por construcao, o numero de produtos que o mapa desenha ao escolhe\nla. Quando o cruzamento zera a escolha atual, ela FICA na lista com \"(0)\",\nporque descartar desfaria em silencio o que a pessoa pediu.\n\nDois detalhes de desenho que custaram investigacao:\n\n- o rotulo sai de uma fonte de PONTOS. Rotulando o poligono, a mesma carta\n  aparecia duas vezes: o MapLibre corta o GeoJSON em ladrilhos e ancora o\n  texto por pedaco, entao a folha que cruza a borda ganha um rotulo de cada\n  lado, e a deduplicacao entre ladrilhos nao pega porque as duas ancoras\n  ficam longe. Ponto vem de ST_PointOnSurface, e nao de ST_Centroid, que cai\n  fora de uma folha em L.\n- o preenchimento e ordenado por area (fill-sort-key). O mapeamento e\n  aninhado por escala, e sem ordem a folha 1:250.000 cai por cima da\n  1:25.000 e a engole, inclusive para o clique.\n\nO MapLibre passou a sair de components/mapa/base.js, compartilhado com a\nbusca do acervo: estilo de fundo, fontes e o import() dinamico moram num\nlugar so. Em teste, maplibre-stub.js faz o papel da biblioteca, porque o\njsdom nao tem WebGL.\n\n449 testes no client. A suite do servidor continua sem rodar nesta maquina\n(jest com --experimental-vm-modules quebra no Node 24, pre-existente), entao\nos testes de rota novos nao foram executados; o que foi verificado foi o\ncontrolador direto contra o banco de producao, em leitura.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cda6322",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cda63220ed37b847a6e9c4dac5a9a88d19041bf4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-28T13:33:59.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: modelagens sem FME e glossarios consolidados\n\nModelagens:\n- conv-mod: vocabulario do arquivo de mapeamento corrigido de _ida/_volta\n  para _A/_B, conforme arquivo_mapeamento_schema.json e converter.py;\n  cabecalho do arquivo, cascata na ordem do codigo, mapeamento_multiplo,\n  concatenar, com_afixo_geom e com_schema; mapeamentos da Topo 2.0.\n- conversor-cli: conversor por linha de comando como forma padrao; mais os\n  4 exemplos de config que faltavam e o caminho para a Topo 2.0.\n- trd4_edgv30pro: reescrita para MGCP TRD 4.6 -> EDGV Topo 2.0 por linha de\n  comando; checklist de adaptacao preservado, com o marcador de estado.\n- repositorio: pagina nova sobre o git dsgoficial/modelagens (clone, ramo\n  master, mapa das pastas, DDL/extension/master file, mastergen, CI).\n  As demais paginas citam o caminho no repositorio, nao a URL do arquivo.\n- OSM segue documentado como a unica conversao que ainda depende do FME.\n- Removida a captura de tela do FME (img/fmetrd.png).\n\nGlossarios:\n- intro.md absorve os 54 termos genericos que estavam colados no fim do\n  glossario de producao (53 ja existiam la) e vira Glossario de Feicoes e\n  Nomes Geograficos; entradas novas para Meandro abandonado e para as\n  variantes regionais que so viviam entre parenteses.\n- glossario.md fica so com producao: duplicados fundidos (MDS, MDT, CDGV),\n  ordem alfabetica corrigida em I e W, letras vazias removidas, formato de\n  entrada padronizado, FME atualizado, EDGV Topo 2.0 e SCA acrescentados.\n\nBuild do Docusaurus validado (exit 0).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "dedbb77",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/dedbb77fc881f1df74c2f43c971bfaf49e4e3920",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T13:29:14.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(ui): barra de rolagem so quando o conteudo nao cabe\n\nDuas fontes de barra desnecessaria.\n\nO `#app` tinha `height: 100%`, e nao `min-height`. Com altura FIXA em 100%,\nqualquer descendente um pixel mais alto (arredondamento de fracao, borda, fonte\nque mede diferente) transborda e acende a barra numa pagina que caberia.\n\nA busca calculava a propria altura repetindo a aritmetica do layout: 100vh\nmenos a barra de navegacao menos duas vezes o padding do conteudo. Bastava um\ndos tres valores mudar (e o padding MUDA na tela estreita) para sobrar ou\nfaltar pixel. A altura passou para `.main-content--altura-fixa`, no elemento\nque ja conhece a navbar e o proprio padding: com `box-sizing: border-box`, uma\nlinha desconta o padding sem ninguem repetir a conta. A pagina so declara que\nprecisa da tela inteira, e desfaz a marca no cleanup, senao a rota seguinte\nherdaria a altura travada e perderia o rolamento normal.\n\nAcrescenta tambem o esqueleto de carregamento ANTES da primeira busca: ela so\nsai depois que os dominios dos filtros voltam, e nesse intervalo a lista nascia\nem branco, sem dizer se estava carregando ou se nao havia resultado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bcd1293",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bcd12930d854b21f69475a4fbd41110f3bfb75c5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T13:24:07.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acervo): busca textual e espacial, com mapa\n\nFase 3 do portal do acervo (chefe, 2026-07-25), sem download: a tela responde\n\"o que existe, e onde?\", entao lista e mapa dividem a tela em vez de serem duas\ntelas.\n\nSERVIDOR. O GET /acervo/busca ganhou recorte espacial (bbox da navegacao ou\npoligono desenhado), subtipo e palavra-chave. O `termo` passou a procurar\ntambem nas palavras-chave da versao: quem cataloga escreve a etiqueta ali, e\nignora-la fazia a busca parecer vazia para quem procurava pelo assunto. O\nrecorte usa `&&` antes do ST_Intersects, para o indice GiST atender a caixa\nantes de pagar geometria exata.\n\nO subtipo casa no produto E na versao: produto.subtipo_produto_id so e\npreenchido quando o subtipo DEFINE o produto (367 de 5.741), e o subtipo do dia\na dia vive na versao (T34-700 sozinho responde por 1.765 produtos).\n\nRotas novas: /acervo/busca/geometrias (a camada do mapa, sem paginacao),\n/acervo/busca/csv (exportacao, com `ids` para exportar so os selecionados) e\n/acervo/palavras_chave (sugestao das etiquetas em uso).\n\nA busca deixou de receber onze argumentos posicionais e passou a receber o\nobjeto ja validado pelo Joi. Acrescentar filtro no meio da fila deslocava todos\nos seguintes, e isso derrubou a rota com 500 durante o desenvolvimento.\n\nINTERFACE. Campo de busca no topo em toda a largura, filtros em faixa, e os\nresultados em cartoes. O filtro vive na URL, inclusive a area desenhada: toda\nbusca e um endereco que se manda por DIEx e sobrevive ao F5.\n\nA LISTA pagina, o MAPA nao. Sao duas chamadas com os mesmos filtros, porque\nvinte poligonos numa busca de oitocentos afirmam visualmente que o acervo tem\nvinte cartas ali. O acervo inteiro sai em 29 ms e 1,39 MB, entao cabe.\n\nO desenho de area segue o gesto do fotos_aereas, com a geometria e a maquina de\nestados portadas de la: vertice a vertice, previa seguindo o cursor, fechar no\nprimeiro vertice, Enter conclui, Backspace desfaz, Escape cancela, e vertices\narrastaveis. Veio junto a validacao (menos de tres vertices, vertice repetido,\narea nula, borda que se cruza), sem a qual o PostGIS recebe geometria invalida\ne a consulta falha em vez de devolver zero.\n\nA selecao e multipla e alterna, com barra propria, chips removiveis e uma ficha\nso que navega entre os selecionados. Clicar no cartao leva o mapa ate a carta;\napontar de um lado realca o outro. Em zoom proximo cada carta mostra o MI, ou o\nnome quando e produto especial sem MI (223 dos 5.741).\n\nO mapa so se reenquadra quando NINGUEM definiu area: existem produtos de\ncobertura nacional que intersectam qualquer recorte, e o extent de 22 produtos\nachados num quadrado de 15 km no RS vinha sendo o Brasil inteiro.\n\nMAPLIBRE. Unica dependencia de mapa, decidida pelo chefe. Entra por import()\ndinamico: pesa 1 MB contra 260 KB de toda a interface, e num import de topo\nquem abrisse o dashboard da mapoteca baixaria o mapa junto. Decisao registrada\nno CLAUDE.md.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3a5774f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3a5774ffb307e78a907ebdc1464e0a44143a973b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T13:23:39.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ui): perfis e importacao redesenhados, e dashboards em abas\n\nALTERACAO DE PERFIS. O <select> por modulo virou controle segmentado, com os\nquatro niveis a vista na ordem da hierarquia: conceder acesso passou de \"abrir\na lista, ler as opcoes, escolher\" para um clique, e a distancia entre \"Sem\nacesso\" e \"Gerente\" fica legivel sem ler rotulo por rotulo. A linha que muda se\nmarca com \"Consulta para Gerente\", e o botao diz \"Salvar 2 alteracoes\" e nasce\ndesativado. Antes, salvar sem mudar nada apenas fechava o modal, o que era\nindistinguivel de ter salvado. Login e posto entram no topo, porque nome tem\nhomonimo.\n\nIMPORTACAO DO AUTH SERVER. Era uma coluna crua de checkbox, sem busca, sem\ncontador e sem selecionar tudo, para uma lista que chega com a DGEO inteira.\nGanhou busca que ignora acento, selecionar/limpar, contador, e o aviso de que\nimportar NAO concede acesso a modulo nenhum, que e a confusao natural de quem\nimporta pela primeira vez. \"Selecionar todos\" respeita o filtro: marcar quem a\npessoa nem esta vendo seria surpresa num POST.\n\nDASHBOARDS EM ABAS. O do acervo ja era assim e o chefe aprovou; mapoteca e\norcamento seguem o mesmo principio. A mapoteca era uma pagina com nove\ngraficos, uma tabela e quatro secoes empilhadas, e toda visita buscava OS NOVE\nendpoints; virou Resumo Anual, Pedidos, Atendimento e Materiais, com o Resumo\nAnual abrindo a tela (chefe, 2026-07-27). O orcamento virou Visao Geral, PDR e\nExtra-PDR, e como as tres abas saem da MESMA consulta, a busca mora num store\nmemoizado por (ano, mes): trocar de aba nao refaz a consulta.\n\nSo a aba ativa existe no DOM, e o auto-refresh de 60 s recarrega apenas ela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3b28a88",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3b28a88412b4eaf85a27e4e623f7af3e515e9b2a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-28T13:23:18.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(permissoes): 403 para de derrubar a sessao, e a UI so mostra o que o perfil permite\n\nUma revisao das telas por perfil encontrou tres defeitos que se somavam.\n\n1. O api-client tratava 401 e 403 igual: limpava a sessao e mandava para o\nlogin com \"Sessao expirada\". Mas 403 aqui e o verifyPerfil dizendo que falta\nperfil para AQUELA acao, com a sessao viva. Quem clicava num botao que nao\npodia usar era expulso do sistema e perdia o que estava preenchendo. Agora o\n403 mantem a sessao e sobe a mensagem do servidor, que ja e especifica.\n\n2. Nenhuma pagina consultava o perfil: \"Novo\", \"Editar\" e \"Excluir\" apareciam\npara quem so tem consulta, nos dois modulos. Cada botao passa a seguir o nivel\nque a rota correspondente exige no servidor, inclusive nas excecoes: na\nmapoteca, transferir estoque e lancar consumo sao operador enquanto o resto e\ngerente; no orcamento, o PDR e gerente ate para criar. Quando a exclusao some,\na coluna de selecao em lote some junto, porque so existe para ela.\n\n3. O item \"Configuracao\" do orcamento nao repetia o `admin: true` da rota:\naparecia para todo mundo e o clique caia no 403. Em vez de corrigir o caso, a\nsidebar passa a derivar a visibilidade da propria rota (podeAbrirRota), e o\ndesencontro deixa de ser possivel. Um teste percorre todo item de todo modulo\nem quatro perfis.\n\nO wizard de pedido virou rota gerente: era consulta, entao quem nao podia criar\npercorria as tres etapas e so descobria no botao de confirmar.\n\nFecha tambem a defasagem do perfil guardado no login: GET /api/login/sessao\ndevolve o perfil atual (lendo o banco, nunca o token), e o client reconfere no\nboot e a cada 403. Mudou, a tela recarrega uma vez e volta coerente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1af23e9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1af23e92c7ce9b558abb90be886e18291220d92a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-28T13:21:05.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(insumos): metodologia de area edificada e MDE na raiz\n\nCadastra a geracao automatica de area edificada por densidade de\nedificacoes em PostGIS, a partir de vias do OSM e do Google Open\nBuildings.\n\nMove mde.md da pasta insumos/insumos duplicada para a raiz de insumos\ne ajusta a descricao da categoria, que agora cobre insumo de imagem e\nde terreno.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b03bacb",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/b03bacbc54f25851bd8376f1810c0400093aaa59",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-28T11:49:18.000Z",
