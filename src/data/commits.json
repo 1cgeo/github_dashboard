@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-28T21:13:27.333Z",
+  "lastUpdate": "2026-07-29T12:05:26.222Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,13 +9,13 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-24T13:21:01.000Z",
-    "1cgeo/doc_dgeo": "2026-07-28T18:54:15.000Z",
+    "1cgeo/doc_dgeo": "2026-07-29T10:03:45.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-25T12:12:06.000Z",
+    "dsgoficial/modelagens": "2026-07-29T08:16:21.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-25T10:44:10.000Z",
@@ -25,9 +25,9 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-28T19:29:08.000Z",
+    "1cgeo/controle_acervo": "2026-07-29T10:33:09.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/pto_controle": "2026-07-28T19:52:22.000Z",
+    "dsgoficial/pto_controle": "2026-07-29T10:03:33.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
     "dsgoficial/servico_edicao": "2026-07-02T09:47:39.000Z",
     "1cgeo/news_feed": "2024-01-01T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-28T19:52:26.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-29T10:04:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5440,
+    "totalCommits": 5447,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,12 +126,12 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
-      "1cgeo/doc_dgeo": 513,
+      "1cgeo/doc_dgeo": 514,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 158,
+      "dsgoficial/modelagens": 159,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 471,
       "dsgoficial/DsgTools": 625,
@@ -141,8 +141,8 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 157,
-      "dsgoficial/pto_controle": 44,
+      "1cgeo/controle_acervo": 159,
+      "dsgoficial/pto_controle": 45,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
       "1cgeo/news_feed": 0,
@@ -163,13 +163,76 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 422,
+      "1cgeo/chefe_dgeo": 424,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-29T10:33:09.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acervo): o servidor rele o volume e reconcilia checksum e tamanho\n\nA recompressao sem perda do acervo reescreve o GeoTIFF com COMPRESS=DEFLATE.\nO pixel continua identico, mas o SHA-256 do arquivo muda. Sem reconciliar o\nbanco, o plugin recusa o download (valida o checksum depois de copiar) e a\nverificacao de consistencia marca ERRO_CARREGAMENTO.\n\nPOST /api/arquivo/atualizar-checksum resolve isso. So a lista de ids viaja.\nO cliente NAO declara checksum nem tamanho: o servidor rele o arquivo no\nvolume, mede, e grava o que ele mesmo mediu.\n\nNao substitui prepare-upload/replace-files, que troca o ARQUIVO (id e uuid\nnovos, linha antiga para arquivo_deletado). Aqui o arquivo e o mesmo, so\nmudou o empacotamento, entao id, uuid_arquivo e historico de download ficam\nde pe. A trilha fica em data_modificacao, usuario_modificacao_uuid e no log,\nque registra o motivo obrigatorio e o hash antes e depois.\n\nLeitura e hash rodam FORA da transacao, pelo motivo de\ngerencia.verificarConsistencia: o calculo e longo e seguraria a conexao.\nArquivo ausente no volume aborta antes de gravar qualquer linha.\n\nPerfil administrador. Teto de 500 ids por chamada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6fa5f2c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6fa5f2c519b33b2a1d3b1e80d7f7b9b4bac3adf7",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T10:04:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-29: o ponto de controle vira acervo, e o alias colidiu duas vezes\n\nO SCA ganhou o schema `ponto_controle`, e a decisao de modelo cabe em quatro\nnaos: nao e acervo.produto (o produto tem geometria POLYGON NOT NULL, e a\ncontagem de produtos e numero de prestacao de contas), nao passa por\nacervo.versao (foi a FK versao_id NOT NULL de acervo.arquivo que decidiu a tabela\npropria), nao ha entidade missao (a missao E um acervo.lote) e nao e um quarto\nmodulo (o perfil e o do ACERVO). Os modulos com perfil proprio seguem tres.\n\nA importacao copia o desenho do upload do acervo, e nao inventa: duas fases, com\no servidor RELENDO cada arquivo no volume e recalculando o SHA-256 antes de\ngravar. O checksum que o plugin manda e afirmacao, nao prova.\n\nMigracao aplicada em PRODUCAO, com autorizacao do chefe. Ela foi ensaiada duas\nvezes, e a segunda e a que valeu: contra uma COPIA FIEL do banco vivo, porque o\ner/ nao o reproduz (ele recebeu remendo a mao). E a mesma licao de 2026-07-28 no\nbanco OSM, agora numa segunda tecnologia, e desta vez virou CODIGO no sistema\n(migrations/ensaiar_migracao.cjs), e nao metodo no vault.\n\nDOIS eventos no livro-razao, e o segundo e o que ensina.\n\nO primeiro: inventei os codigos de tipo_situacao em vez de le-los do DDL, e\ntroquei aprovado com reprovado nas cores do mapa. Codigo de dominio e fato de\ncodigo, e a regra do nucleo nao me disparou porque ela fala em schema e coluna.\n\nO segundo: dei nome proprio a `ST_X(geom) AS geom_longitude` porque a tabela ja\ntinha coluna `longitude`, escrevi a licao no comentario, e uma hora depois repeti\na colisao na MESMA consulta com `lote` e `projeto`. O comentario estava tres\nlinhas acima do erro novo. Vale inteira a licao de segunda ordem do comentario\nSQL com crase: quando a classe reincide na mesma sessao, o conserto nao e\nreescrever a nota, e trocar a nota por uma VERIFICACAO QUE RODA. Entrou um teste\nque semeia valores diferentes nos dois lados e exige os dois de volta,\nfalsificado recolidindo os aliases.\n\nWiki: secao nova em controle-acervo (registrando que NAO e um quarto modulo) e a\nsubwiki subwikis/sca/ponto-controle.md, com o modelo, as duas fases, a tela, o\ndashboard e como ensaiar a migracao.\n\nLearnings da revisao-codigo com cinco defeitos de classe da sessao, entre eles\n`disabled: false` que desabilita o botao e `toLocaleString` cortando em 3 casas\ndecimais numa ficha onde a casa decimal E o dado. Partido em camada quente e\ndetalhe, que era o que faltava desde que passou de 10 KB.\n\nCasa anual com o estado do banco em producao. MEMORY com dois fatos novos e duas\nreceitas podadas para a wiki.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "5db882e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5db882ef59016871ac7cc6fb9970e410d9cfd7a1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-29T10:03:45.000Z",
+      "author": "Maj Diniz",
+      "message": "pto_controle: o P17 gera o manifesto, e a importacao no acervo tem duas fases\n\nA pagina descrevia um zip por ponto, que deixou de existir em 28/07/2026. O\nacervo registra arquivo a arquivo, com tipo proprio e limite por ponto.\n\nDescreve o que o P17 entrega hoje (manifesto.json, o gpkg e uma pasta por ponto),\na tabela de como cada subpasta vira tipo no acervo, os dois parametros novos (o\nid do lote e o substituir), e quando o passo PARA em vez de gerar.\n\nDescreve tambem as duas fases da importacao: prepare-upload devolve o caminho de\ncada arquivo, quem importa transfere, e o confirm-upload rele cada arquivo no\nvolume e recalcula o SHA-256. O checksum do manifesto nao e prova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "a7fb28e",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/a7fb28ebb07314c21193f3ac626b1c95d92cf015",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pto_controle",
+      "date": "2026-07-29T10:03:33.000Z",
+      "author": "Maj Diniz",
+      "message": "P17 passa a gerar o manifesto da missao, e nao mais um zip por ponto\n\nO modulo de ponto de controle do Controle do Acervo ficou pronto, e ele registra\narquivo a arquivo, com tipo proprio e limite por ponto (maximo_por_ponto). Um zip\nchegaria la como um arquivo so, de tipo nenhum, e o acervo perderia justamente o\nque a estrutura de pastas carrega hoje.\n\nO P17 passa a emitir tres coisas: o manifesto.json (o corpo de\nPOST /api/ponto_controle/prepare-upload/missao), o gpkg da missao e uma pasta por\nponto com os arquivos achatados, prontos para copiar ao volume.\n\nA subpasta de origem some no caminho, e e de proposito: o que 3_Foto_Rastreio e\n7_Imagens_Monografia significavam vira tipo_arquivo_id no manifesto. E para isso\nque o dominio existe do outro lado. A traducao vive em prepareToSCA/manifesto.py,\npython puro para poder ser testada sem QGIS.\n\nDois parametros novos: o id do LOTE no acervo (a missao E um lote de um projeto\nmaior) e o substituir.\n\nO passo PARA antes de gerar quando um cod_ponto nao serve ao acervo (UF-HV-N ou\nUF-BASE-N, maiusculas, sem zero a esquerda) ou quando dois arquivos do mesmo\nponto colidem de nome em subpastas diferentes. Descobrir na geracao custa\nsegundos; descobrir na importacao custa a transferencia inteira. Arquivo fora da\nestrutura conhecida nao entra no manifesto e sai na lista de avisos.\n\nO checksum vai calculado aqui, sobre o arquivo que viaja, mas ele nao e prova: o\nservidor recalcula o SHA-256 no volume. O daqui e o que permite detectar a\ntransferencia que corrompeu.\n\nAcrescenta utils/missao.lonlat_de, o caminho de volta do ponto_gpkg: a posicao\nsai da GEOMETRIA, e nao das colunas latitude/longitude, que sao REAL e perdem\ncasa decimal (cerca de 1 cm na setima).\n\nTeste novo sobre a AMOSTRA do repositorio, e nao sobre pasta fabricada: e a\nestrutura real que se esta traduzindo. Ele pegou que 7_Imagens_Monografia guarda\nDOIS tipos (a vista aerea e as auxiliares). Fixa tambem os codigos de tipo e o\npadrao de cod_ponto contra o schema do SCA.\n\nProvado de ponta a ponta: o manifesto gerado por este codigo atravessou as duas\nrotas reais do acervo com 4 pontos, 76 arquivos e 54,7 MB, zero coluna\ndescartada.\n\n129 testes passando.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "1a5619b",
+      "htmlUrl": "https://github.com/dsgoficial/pto_controle/commit/1a5619b433e9950611a8135b285a2aca7e40764f",
+      "repoUrl": "https://github.com/dsgoficial/pto_controle"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-29T10:02:36.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ponto_controle): o modulo de ponto de controle, do schema a tela\n\nO plugin dsgoficial/pto_controle trocou o PostgreSQL por um GeoPackage por\nmissao, e o destino permanente passa a ser o acervo. Este commit traz o outro\nlado: onde a missao importada mora, como ela entra e como se consulta.\n\nMODELO, em quatro naos. Ponto de controle NAO e acervo.produto (o produto tem\ngeometria POLYGON NOT NULL e a contagem de produtos e numero de prestacao de\ncontas); um CHECK barra o tipo_produto_id = 10. NAO passa por acervo.versao, e\nfoi a FK versao_id NOT NULL de acervo.arquivo que decidiu a tabela de arquivo\npropria. NAO existe entidade missao: a missao E um acervo.lote. E NAO e um\nquarto modulo: o perfil que governa e o do ACERVO.\n\nReusa acervo.projeto, acervo.lote, volume_armazenamento e volume_tipo_produto\nsem tocar em nada. O cod_ponto e identidade global, como o MI/INOM.\n\nIMPORTACAO EM DUAS FASES, no molde do upload do acervo, e pela mesma razao: o\nconteudo nao passa pela API (uma missao de 100 pontos passa de 300 MB).\nprepare-upload/missao confere tudo e devolve o caminho de destino de cada\narquivo, sem gravar nada; confirm-upload RELE cada arquivo no volume, recalcula\no SHA-256 e grava o tamanho MEDIDO. O checksum do manifesto e afirmacao, nao\nprova. Arquivo que falta derruba a missao inteira.\n\nDuas transacoes, e nao uma: numa transacao so o rollback apagava o\nerror_message de cada arquivo e a sessao ficava sem pista do que falhou.\n\nTELA, replicando a busca do acervo e reusando as classes e a selecao dela:\nselecao multipla com chips, clicar no cartao seleciona e voa ate o ponto,\nrealce cruzado lista/mapa, so na area do mapa, exportacao do resultado inteiro\nou dos selecionados, navegacao entre as fichas. O mapa recebe TODOS os pontos\ndo filtro, por rota separada.\n\nOs filtros sao FACETAS: so aparece quem tem ponto, com o quantitativo entre\nparenteses, e cada lista aplica os OUTROS filtros e nunca o proprio.\n\nA ficha resolve os 14 dominios por LEFT JOIN derivado da lista de dominios, e\ntrata o codigo 9999 como campo VAZIO, porque no modelo do plugin ele e o nulo.\nNao mostra o caminho do arquivo no volume, e o servidor nem o envia.\n\nDASHBOARD: aba propria, mais a troca de dois cartoes da visao geral (saem total\nde usuarios e de projetos, entram pontos de controle e carregamento no mes,\neste contado em versoes).\n\nBANCO na versao 1.6.0. A migracao foi ensaiada por ferramenta nova do repo\n(migrations/ensaiar_migracao.cjs), que monta dois bancos descartaveis e compara\no migrado com o instalado do zero: 317 colunas, 346 restricoes, 206 indices e\n107 codigos iguais, passando duas vezes. Falsificada removendo uma coluna e um\ncodigo. Aplicada em PRODUCAO em 2026-07-29, com autorizacao do chefe.\n\nProvado de ponta a ponta com o manifesto real do plugin sobre a amostra do\nrepositorio: 4 pontos, 76 arquivos, 54,7 MB, oito tipos classificados certo.\n\nTestes: 701 no servidor, 507 no client.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "850fba4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/850fba459ca175d8bbf8698ce57217b15446099c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-07-29T08:16:21.000Z",
+      "author": "Maj Diniz",
+      "message": "espelho: crosswalk OSM do Topo 2.0 na rev 1.9\n\nSincroniza o subconjunto espelhado de dinizime/edgv_topo_20 (commit 79c5919).\nRev 1.9 fecha as lacunas de atributo que deixavam 9999 no banco: 57\natributos constantes e 14 mapeamentos por tag acrescentados em 41 regras,\ncom 296 regras antes e depois e zero remocao.\n\nOrigem: auditoria do banco OSM de producao em 2026-07-28, com 33 colunas e\n50.033.584 celulas em 9999. Conferido por md5 contra o repo de origem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012MANPmsehRgyJLA8NELZnE",
+      "sha": "ea01edd",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/ea01edde4c17b74075ceff8b19712ce8d1962a33",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T08:15:46.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-28: banco nao migra pelo changelog, migra pelo diff medido\n\nO ebgeo_osm_4674_edgvtopo20 (35 GB, 46,58 M feicoes) foi da revisao 0.9.0\npara a 0.15.0 e perdeu os 50.033.584 valores 9999 que carregava em 33\ncolunas. Migrado NO LUGAR, porque a coluna `fontes` guarda as tags OSM\noriginais e permite re-derivar atributo por SQL sem reconverter o PBF.\n\nO achado que mais generaliza: o changelog do repo parece roteiro de\nmigracao e nao e. Ele esquece remocao de classe, classe nova e a extension\ninteira. O roteiro sai do DIFF MEDIDO contra um banco de referencia criado\ndo zero, e a bancada do ensaio vem do pg_dump --schema-only da producao,\nporque nenhum commit do git reproduz um banco que recebeu remendo a mao.\n\nO segundo: 9999 em massa quase nunca e dado faltando. Sao 13.579.826\ntrechos de via sem ponte, tunel nem vau, onde o atributo NAO SE APLICA.\n\nWiki: corrigida a afirmacao de que o banco edgv_topo_20 nao existia mais na\nmaquina desde 2026-07-19. Ele existe, com 22,6 M de edificacoes.\n\nLivro-razao: tres eventos. O custo em DISCO nao foi a mesa antes de eu\ndisparar 70 GB de dump e restauracao (o chefe cobrou). Matei a propria\nverificacao tres vezes, encerrando sessoes por padrao de texto da consulta.\nE um grep encadeado virou falha falsa num passo que deu certo.\n\nLearnings da criar-bancos partido em camada quente e detalhe (19 para 11 KB).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012MANPmsehRgyJLA8NELZnE",
+      "sha": "5cdfd28",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5cdfd28cc8b377a8cc921e7231ab5a128c6d3645",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-07-28T19:59:37.000Z",
