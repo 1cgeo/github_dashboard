@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-29T16:26:14.935Z",
+  "lastUpdate": "2026-07-29T21:01:49.430Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-26T18:45:59.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-24T13:21:01.000Z",
-    "1cgeo/doc_dgeo": "2026-07-29T10:03:45.000Z",
+    "1cgeo/doc_dgeo": "2026-07-29T20:48:13.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -25,9 +25,9 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-29T15:25:24.000Z",
+    "1cgeo/controle_acervo": "2026-07-29T19:13:58.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/pto_controle": "2026-07-29T15:25:54.000Z",
+    "dsgoficial/pto_controle": "2026-07-29T16:21:36.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
     "dsgoficial/servico_edicao": "2026-07-02T09:47:39.000Z",
     "1cgeo/news_feed": "2024-01-01T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-29T15:30:59.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-29T20:52:57.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5455,
+    "totalCommits": 5466,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 112,
-      "1cgeo/doc_dgeo": 514,
+      "1cgeo/doc_dgeo": 515,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -141,8 +141,8 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 161,
-      "dsgoficial/pto_controle": 46,
+      "1cgeo/controle_acervo": 165,
+      "dsgoficial/pto_controle": 47,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
       "1cgeo/news_feed": 0,
@@ -163,13 +163,112 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 429,
+      "1cgeo/chefe_dgeo": 434,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T20:52:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-29 (cont. 10): o QGIS sai da LAI, e a imagem vaza o que o texto nao vaza\n\nA execucao do atendimento LAI passa ao portal de fotografias aereas, por\ndecisao do chefe. A doc publica foi reescrita (commit 4c97cf2 no doc_dgeo)\ne o vault acompanha.\n\n- DECISIONS ganha a entrada integral e a linha do indice;\n- wiki/lai-acesso-informacao troca os dois fluxos de QGIS pelo passo do\n  portal, e o modelo ODT fica registrado como peca que sobrevive;\n- wiki/portal-fotos-aereas e wiki/ferramentas-mapoteca acompanham nas duas\n  pontas (uma ganha o uso, a outra marca o algoritmo fora de uso);\n- MEMORY.md registra o portal como caminho da LAI;\n- atualizar-doc-publica ganha a classe \"substituir um metodo na doc\" e o\n  guardrail de imagem: nenhum guard le pixel, e a captura pasta.jpg\n  publicava o caminho de rede com IP interno na barra do Explorer;\n- a contradicao do MAPOTECA_SERVER passa a dizer o que foi medido e o que\n  segue aberto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7db4cfa",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7db4cfa6f276afe6daa4b8e38c4113ff5ff23635",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-29T20:48:13.000Z",
+      "author": "Maj Diniz",
+      "message": "LAI: a execução sai do QGIS e passa ao portal de fotografias aéreas\n\nO atendimento LAI deixa de usar o projeto modelo QGIS, o algoritmo\n\"1. Executa LAI em lote\" do plugin Ferramentas da Mapoteca e o Atlas do\ncompositor. A consulta da área, a separação das fotografias e o relatório\nde conferência passam ao portal de fotografias aéreas.\n\n- nova página \"Resposta pelo portal\": escopo, consulta por ponto, área ou\n  GeoJSON, conteúdo do ZIP e conferência antes de responder;\n- nova página \"Entrega e resposta\": documento de retorno, assinatura no\n  gov.br, envio em LAI/<ano>/<NUP> e resposta ao DIEx;\n- saem preparacao.md, resposta_lai_manual.md e resposta_lai_semiautomatica.md,\n  com os anexos e as telas do fluxo QGIS;\n- sai da doc pública o caminho de rede com IP interno, que estava na página\n  de preparação e na imagem pasta.jpg.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4c97cf2",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/4c97cf226571e8dbb21a77f200a714e1c8f4f31e",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T19:39:31.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-29 (cont. 9): a entrega da LAI vira skill, e a conferencia rasa passou por prova\n\nO repositorio de midias da DSG entra no vault (chaves REPOSITORIO_DSG_* no .env,\nsecao no env-guia). Nasce a skill entregar-lai, que cria a pasta do NUP em\nLAI/<ano>/, sobe a pasta de trabalho, gera o link publico e rele a entrega\ninteira no destino. Ela fecha o gesto manual que a convencao de envio da cont. 8\ndeixou em aberto, e o link volta para o SCA em localizador_envio.\n\nMedido, nao suposto: LAI tem 31,1 GB em duas casas, uma pasta por NUP, e o padrao\ndo nome mudou de ano (2025 prefixa \"LAI \", 2026 usa o NUP puro). A restricao real\ne a COTA, nao a banda: 318,1 de 350 GB usados, 31,9 GB livres.\n\nDecisao do chefe: link aberto, sem senha e sem prazo, porque o material e publico\npor lei. A contrapartida e conferir a pasta antes de subir.\n\nDois defeitos morreram no proprio ensaio, os dois de prova rasa passando por prova:\na releitura com Depth 1 declarou \"todos batem\" sem olhar dentro da subpasta, e\nreexecutar a entrega criava um segundo link publico na mesma pasta, com risco de\nmandar o errado ao cidadao. O primeiro e recorrencia da familia dry-run-raso\n(2026-06-29, 06-30, 07-03), agora do outro lado da mutacao.\n\nA wiki ganha duas CONTRADICOES pendentes, para o chefe resolver: a pagina dizia\nque a entrega vai em files/ENTREGAS (o repositorio da DSG nao tem essa pasta), e\na chave MAPOTECA_SERVER, citada em tres paginas, nao existe no .env.\n\nNenhuma pasta real tocada no desenvolvimento: os ensaios rodaram em LAI/_teste,\nremovida ao fim e confirmada por 404.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d646953",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d646953093e516df025ec12f9a2f36cfc32d4182",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-29T19:13:58.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: projeto e lote nomeiam o DADO, e sao compartilhados entre os modulos\n\nTres regras que a reorganizacao de 2026-07-29 deixou, e que nao estavam escritas\nem lugar nenhum:\n\n1. Projeto e o programa que produziu o dado, ou a familia quando nao ha programa.\n   Lote e o recorte dentro dele. Nome de campanha de carga (\"Backfill BDGEx\") diz\n   de onde veio, nao o que e, e nao ajuda quem procura carta. Tres projetos assim\n   foram dissolvidos, com 1.938 versoes redistribuidas.\n\n2. acervo.lote.id e referenciado por QUATRO tabelas em DOIS schemas, incluindo\n   ponto_controle.ponto. Lote sem versao no acervo pode ter centenas de pontos de\n   controle: quatro projetos que pareciam vazios guardavam 3.490. Antes de apagar,\n   consulte o schema por quem referencia, nao a tabela do assunto em que voce esta.\n\n3. palavras_chave foi esvaziado: 94% dos 1.805 termos duplicavam uma coluna, e\n   1.705 eram codigo de folha, que mi e inom ja indexam. Etiqueta que repete\n   coluna nao tem indice e mente quando o dado muda.\n\nOs lotes do Mapeamento Sistematico passam a se chamar SCN 1:25.000 e irmaos, em\nvez de 25k, e as datas de projeto e lote derivam das edicoes que eles guardam.",
+      "sha": "16ea166",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/16ea1664426baea4a5515e36063fb80c852544eb",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T19:12:30.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-29: o catalogo passa a descrever o acervo, e \"vazio\" depende da lente\n\nTres projetos chamados \"Backfill\" guardavam 1.938 versoes e agrupavam por\nCAMPANHA, nao por dado: um lote tinha carta militar de 1982, aeronautica de 1995\ne ortoimagem de 2020 juntas, unidas so por terem sido colhidas no mesmo dia.\nRenomear nao resolveria, porque o nome seguiria dizendo de onde veio. 1.994\nversoes redistribuidas por familia, 3 projetos dissolvidos, 56 versoes que\nestavam sem lote acolhidas, datas derivadas das edicoes.\n\nAs palavras-chave foram a zero: 94% das 1.805 distintas duplicavam uma COLUNA\n(1.705 eram codigo de folha, que mi e inom ja indexam). O sinal que sobrava\nvirou derivavel do projeto e do lote.\n\nA licao que fica veio do chefe: eu chamei quatro projetos de vazios olhando so\nacervo.versao, e eles guardavam 3.490 pontos de controle. Projeto e lote sao\nCOMPARTILHADOS entre os modulos desde a convergencia dos sistemas. \"Vazio\" e\nsempre relativo a lente: antes de podar, pergunte ao SCHEMA quem referencia a\nentidade, nao a tabela do assunto em que voce esta.",
+      "sha": "520f8f9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/520f8f93c62c1ccfeca4e7c74b11ee341b217e99",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-29T18:42:40.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: desenho de area e destaque do lugar viram componentes das duas telas\n\nO desenho de area saiu de busca/mapa.js para @components/mapa/desenho-area.js e\npassou a servir tambem o ponto de controle: mesmo gesto, mesmos atalhos, uma\nfolha de estilo so. A busca encolheu 317 linhas. No servidor o filtro geometria\nentrou no montarFiltros, que e compartilhado, entao alcancou a lista, a faceta,\no mapa e o CSV numa edicao so.\n\nO destaque do lugar filtrado pinta a borda do estado ou do municipio em vermelho\ne enquadra nela. Ele SUBSTITUI o enquadramento no extent do resultado, o que\nconserta um defeito antigo da busca: produto de cobertura nacional intersecta\nqualquer recorte, e o extent de uma busca por municipio podia ser o Brasil\ninteiro. A rota nasceu em modulo proprio porque o schema limites e dado de\nREFERENCIA: o acervo e o ponto de controle consultam, nenhum e dono.\n\nSo ponto APROVADO entra no acervo. A situacao virou constante, entao saiu do\nfiltro, da faceta, da cor do mapa e da pizza do dashboard.\n\nClicar num ponto voltou a selecionar. O mapa mostra o resultado inteiro e a\nlista pagina de 20 em 20; a pagina procurava os dados do ponto so na pagina, e\ncom 3.490 pontos 99,4% dos cliques morriam num if sem else. O promoteId, do\ncommit anterior, era o outro elo da mesma cadeia.\n\nServidor 742 testes, cliente 568. Os conjuntos novos foram falsificados um a um.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "15ca283",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/15ca2837a03e83147c6ac854c0b6c7a45226cb33",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T18:42:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-29 (cont. 7): dois modulos de mapa passam a ser compartilhados, e o clique quebrado era da pagina\n\nO desenho de area e o destaque do lugar saem da busca do acervo e viram\ncomponentes das DUAS telas. O schema limites ganha rota propria, porque e dado\nde referencia que o acervo e o ponto de controle consultam e nenhum e dono.\n\nO achado de metodo esta no livro-razao e no learnings da revisao-codigo:\nconsertei uma FATIA e declarei o TODO duas vezes no mesmo dia, e o chefe\nreprovou as duas. Defeito de interacao se prova percorrendo a cadeia inteira,\ndo evento a tela, e a prova mora no teste da PAGINA.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "f60684f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f60684fac283bc0ec4795e1b29b3f077cf069f92",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-29T18:09:20.000Z",
+      "author": "Maj Diniz",
+      "message": "acervo: o nome fisico ganha invariante proprio, e o 3f passa a medir a regra que o schema aplica\n\nTres invariantes novos (36 -> 39), na familia P7:\n\n  7a DEFECT  nome_arquivo diferente do que a regra calcula dos metadados atuais\n  7b DEFECT  nome nao computavel (rotulo de versao fora das duas formas canonicas)\n  7c REVISAR arquivo vivo com o nome de um arquivo deletado\n\nO nome fisico e derivado, e derivado envelhece: renumerar uma edicao ou corrigir\num subtipo muda o nome esperado e nao mexe no arquivo. Sem o 7a, a divergencia so\napareceria no dia em que alguem fosse baixar. A regra vive em\nacervo.nome_arquivo_padrao, a MESMA que a rota de renome usa, entao auditor e\nescritor nao podem divergir.\n\nNada de trigger: um que bloqueasse renumerar edicao travaria a operacao legitima.\nO invariante avisa, o humano decide, e a rota reconverge.\n\nO 3f estava errado, e nao o dado. Ele agrupava por (produto, versao) e ignorava o\nsubtipo, afirmando uma unicidade que o banco deixou de exigir em 2026-07-06,\nquando o subtipo entrou na identidade (unique_version_per_product e sobre\n(produto, versao, subtipo)). Acusava 18 falsos DEFECT: Carta Ortoimagem e\nOrtoimagem Especial da mesma folha, ambas \"1a Edicao\", que sao produtos distintos\ndentro do mesmo registro. Corrigido, da zero. Invariante DEFECT que mede regra\ndiferente da que o schema aplica envenena a auditoria inteira.\n\nO docs/regras_carga_produtos.md passa a descrever o padrao com subtipo, a funcao\ncomo fonte unica, os dois indices unicos e a rota de renome.",
+      "sha": "10cad20",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/10cad20079f0a03240f07e5697eb756ad703570d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-29T18:07:45.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-29: o nome do arquivo passa a carregar o subtipo, e quase apaguei o scan georreferenciado\n\nO acervo fecha o dia com zero rotulo fora do padrao (eram 347), zero CDGV\ndivergente da carta (eram 28), zero geometria fora da moldura do INOM (eram 316)\ne zero folha sobreposta (eram 559 pares).\n\nO nome fisico do arquivo passou a carregar o subtipo, e a regra saiu do cliente\npara o banco: uma funcao so, usada por quem escreve e por quem audita. Dois\nindices unicos passaram a impedir a colisao que ate ontem so um guarda de\naplicacao tentava evitar, e que um UPDATE direto contornava. 15.356 arquivos\nrenomeados em 45 minutos, zero falha.\n\nA licao que fica e de metodo: eu recomendei apagar 340 MB de scan afirmando que\no GeoTIFF era \"o mesmo conteudo do PDF\". Medi antes do passo irreversivel e a\nafirmacao era falsa, 4x mais pixels e georreferenciado. Antes de um passo sem\nvolta, a afirmacao que o JUSTIFICA e a que precisa de fonte primaria.",
+      "sha": "55a93be",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/55a93be3bdcbc17ccd907f758f652ef5cd41c805",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pto_controle",
+      "date": "2026-07-29T16:21:36.000Z",
+      "author": "Maj Diniz",
+      "message": "P14 sai do plugin: a lista de codigos disponiveis vira rota do Controle do Acervo\n\nO algoritmo lia a camada da missao ABERTA no QGIS, que conhece so os pontos\ndaquela missao. Ele declarava livre um codigo que outra missao ja tinha usado, e\no erro so aparecia na importacao, depois da medicao feita em campo. No SCA a\nbase e o acervo inteiro, com os 3.490 pontos.\n\nA numeracao dos algoritmos fica com BURACO no 14, de proposito, como ja tem no\n05 (passo externo). Renumerar os seguintes quebraria a correspondencia com o\nmanual, que e para o que esses numeros servem. O teste passou a cobrar isso.\n\nVai junto um defeito que a suite pegou e que eu tinha commitado vermelho: o\nannotations.json trazia `examples`, uma lista de linhas de shell, onde o CLI le\n`example`, um mapa de parametro para valor. O describe ignorava aquilo em\nsilencio, entao o exemplo do P17 nunca apareceria para ninguem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "0873d66",
+      "htmlUrl": "https://github.com/dsgoficial/pto_controle/commit/0873d66467b18265b263384b1730412e2cc46c8c",
+      "repoUrl": "https://github.com/dsgoficial/pto_controle"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-29T16:21:09.000Z",
+      "author": "Maj Diniz",
+      "message": "filtro por municipio e estado, e a lista de codigos disponiveis vira rota\n\nSchema `limites` novo, com os 27 estados e os 5.572 municipios da malha do IBGE\nsimplificada (23 MB no banco). Dado de REFERENCIA em schema proprio: o acervo e\no ponto de controle consultam, nenhum e dono. Sao as MESMAS malhas que o plugin\npto_controle usa, de proposito: com malhas diferentes o ponto cairia num\nmunicipio na monografia e em outro na tela. Banco em 1.8.0.\n\nO filtro e espacial contra `limites`, e NAO um campo do produto nem do ponto:\nnenhum dos dois guarda municipio, e guardar seria duas versoes da mesma verdade,\nque divergem no dia em que a malha mudar. Nao ha tabela de associacao\nmaterializada porque a medicao dispensou: com os 5.743 produtos e os 3.490\npontos em producao, filtrar por municipio custa 6 e 19 ms, e a faceta por estado\n50 ms. Materializar custaria manutencao para poupar milissegundos.\n\nO municipio so entra na lista de opcoes quando ha ESTADO escolhido: um combo com\nos municipios do pais inteiro nao ajuda a escolher.\n\nOs codigos de ponto disponiveis saem do plugin (era o P14) e viram rota mais\ntela. A razao e CORRETUDE: la a resposta saia da camada da missao aberta no\nQGIS, que conhece so os pontos daquela missao, entao declarava livre um codigo\nque outra missao ja tinha usado, e o erro so aparecia na importacao, depois da\nmedicao feita em campo. Aqui a base e o acervo inteiro. A resposta separa os\nBURACOS (numeros que ficaram para tras) dos PROXIMOS (a sequencia depois do\nmaior), que e a distincao que o CSV antigo misturava.\n\nTres defeitos anteriores, achados no caminho:\n\n- `acervo.nome_arquivo_padrao` existia so na migration e nunca foi para o `er/`:\n  banco atualizado tinha a funcao e INSTALACAO NOVA nao, e a auditoria quebrava\n  num banco recem-criado. Quem pegou foi o teste da auditoria.\n- o ensaiar_migracao.cjs comparava coluna, restricao e indice, e nao FUNCAO nem\n  GATILHO, entao aprovava exatamente o defeito acima. Passou a comparar os dois,\n  com o corpo e nao so o nome, normalizando fim de linha (com --er-de o git show\n  entrega LF e a copia de trabalho no Windows tem CRLF, e sem normalizar as 21\n  funcoes divergiam todas).\n- o setup do banco de teste tinha uma COPIA da ordem dos arquivos er/. Ao entrar\n  o limites.sql, tres testes morriam com \"relacao nao existe\" sem dizer que a\n  lista e que estava velha. Agora le a ordem do create_config.js, como o\n  ensaiar_migracao ja fazia.\n\nA validacao de estado_id e municipio_id mede a FORMA (quantos digitos) e nao a\nfaixa de codigos que existe hoje: municipio se cria e se funde, e um schema preso\na tabela do IBGE de 2022 recusaria um codigo legitimo amanha.\n\n15 provas novas no servidor e 6 no dialogo. As duas do filtro por municipio\nforam falsificadas removendo a condicao que restringe: ficaram vermelhas, e as\noutras 13 continuaram verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VQ7DMnLQjQ6uskV4Cg6rKn",
+      "sha": "6b1701b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6b1701be3cc60429f10417ba5e661ef345c64ab8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-29T15:30:59.000Z",
