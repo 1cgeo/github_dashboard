@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-30T21:15:57.583Z",
+  "lastUpdate": "2026-07-31T12:05:15.034Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-07-30T17:53:09.000Z",
+    "1cgeo/doc_dgeo": "2026-07-31T10:55:24.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-30T20:41:48.000Z",
+    "1cgeo/controle_acervo": "2026-07-31T11:32:35.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-30T19:42:21.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-31T10:54:53.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5501,
+    "totalCommits": 5522,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 519,
+      "1cgeo/doc_dgeo": 520,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 182,
+      "1cgeo/controle_acervo": 188,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,202 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 444,
+      "1cgeo/chefe_dgeo": 458,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T11:32:35.000Z",
+      "author": "Maj Diniz",
+      "message": "feat!: a meta do PIT sai do orcamento e vira dado de plataforma (banco 1.9.0)\n\nO PIT nao e artefato orcamentario: e o plano anual da Divisao. A tabela nasceu em\n`orcamento` so porque o primeiro consumidor foi o PDR. Enquanto morou la, a\nmapoteca nao a alcancava: em 2026-07-30 o pedido ganhou `meta_pit VARCHAR(10)`,\ntexto livre, com o codigo digitado a mao. Duas verdades sobre a mesma coisa, e o\nbanco nao cobrava nenhuma. Decisao do chefe, 2026-07-31.\n\nBANCO. `orcamento.meta_pit` virou `pit.meta`, schema proprio, pelo mesmo criterio\ndo schema `limites`: dado que varios consomem e nenhum e dono nao mora dentro de\num consumidor. As FKs de pdr_item e nota_credito seguem sozinhas no SET SCHEMA.\n`mapoteca.pedido.meta_pit` virou `meta_pit_id`, chave estrangeira.\n\nAPI. `/api/orcamento/metas` virou `/api/metas`, sem prefixo, como `/usuarios`.\nLer exige so login, porque todo modulo precisa oferecer a lista. Escrever exige\nadministrador global: o PIT muda uma vez por ano, vem de documento assinado, e\nerrar nele contamina os tres modulos.\n\nO contrato ESTRITO do corpo (chave desconhecida vira 400 com sugestao, em vez de\nsumir no stripUnknown) foi preservado. Para isso o validador saiu de\norcamento/utils/ para utils/schema_validation_estrito.js: nada nele e do\norcamento, e sem a mudanca a plataforma passaria a depender de um modulo. O\norcamento/utils/index.js continua sendo quem ESCOLHE o estrito, entao o contrato\ndas rotas daquele modulo nao mudou.\n\nTELA. \"Metas do PIT\" virou item de plataforma, ao lado de Usuarios, com filtro de\nano proprio (a navbar do orcamento nao existe fora dele). O colapsavel \"Orcamento\"\nsaiu: ficou com um filho so, e grupo de um item esconde a tela atras de um clique.\nO PDR subiu para o topo. O formulario do pedido troca o campo de texto por uma\nlista das metas do ano DO PEDIDO, e nao do ano corrente: editar um pedido de 2025\ntem de oferecer o PIT de 2025.\n\nO QUE O ENSAIO PEGOU. O ensaiar_migracao.cjs acusou 24 divergencias entre o banco\nmigrado e a instalacao nova: o RENAME TO da tabela nao renomeia a sequencia, a PK,\na unica, as NOT NULL nem as FKs. O banco funcionaria igual, mas os dois caminhos\ndeixariam de convergir. Corrigido, e agora os dois batem.\n\nA PRIMEIRA APLICACAO EM PRODUCAO ABORTOU, e foi o certo: a guarda viu 9 pedidos\ncom codigo sem meta correspondente e derrubou a transacao inteira. A causa era a\nmigracao procurar a meta indivisa por `item = '-'`. No banco o valor e NULO, e o\n'-' e o que o CLI e a tela IMPRIMEM. Corrigido aqui e no ensaio, que passou a\nsemear NULO como producao grava; sem isso ele seguiria aprovando o que producao\nreprova.\n\nProducao ja migrada e conferida por releitura: 9 pedidos convertidos com o codigo\npreservado, 17 itens de PDR e 50 NCs intactos, totais identicos.\n\nTestes: 858 no servidor, 674 no cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c4fe611",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c4fe61166f8f7a611165e733ffbb6619cce4cc29",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T11:31:55.000Z",
+      "author": "Maj Diniz",
+      "message": "RPNP e empenho abrem pelo saldo a liquidar, e o quitado desce\n\nO que importa nas duas listas e o que ainda deve dinheiro. A ordem era ano e\nnumero (empenho) e ano e id de cadastro (RPNP): nenhuma das duas diz nada sobre\no que precisa de acao, e espalhava o pendente entre o que ja fechou.\n\nAgora as duas abrem pelo maior valor a liquidar, e a linha sem saldo desce e\nfica esmaecida. Decisao do chefe, 2026-07-31.\n\nO empenho ganhou a coluna \"A liquidar\", que o backend nao devolve: sai da conta\nempenhado menos anulado menos liquidado. O liquido da anulacao e o que vale, ou\na NE anulada por inteiro ficaria eternamente \"em aberto\". Quem fechou troca o\nvalor por um chip \"Liquidada\".\n\nO data-table ganhou tres opcoes para isso:\n\n  defaultSort    ordem inicial, antes de qualquer clique no cabecalho;\n  sortValue      valor usado na ordenacao, quando row[key] nao serve;\n  rowClassName   classe extra do <tr>, para a tela marcar uma condicao.\n\nO sortValue nao e conforto. NUMERIC do PostgreSQL chega como STRING no JSON, e\ncomparada como texto '900.00' vinha antes de '1000.00': a lista abriria na ordem\nerrada, calada. O utils/format.js ganhou toNumber pela mesma razao, e toda tela\nque faz conta com dinheiro passa por ele.\n\nNulo passou a ir para o FIM em qualquer direcao: a linha sem valor nao e \"a\nmenor\", e a que nao responde ao criterio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a5c8cf3",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a5c8cf3168282681e9b1351eba20430bee289977",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-07-31T10:55:24.000Z",
+      "author": "1º Ten Marcel",
+      "message": "serv-auth para dentro de sap e reorder panel",
+      "sha": "abc8cf7",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/abc8cf7f986a14bd539b2ce35cc576b2f034ea8d",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T10:54:53.000Z",
+      "author": "Maj Diniz",
+      "message": "cruzar-mapoteca-sca: o SCA vira a terceira ponta, e o pedido sem DIEx e a classe que a carga perde\n\nAprendizados da sessao da mapoteca de 2026-07-31, que estavam pendentes na\narvore de trabalho.\n\nCom a aba META4_DETALHADA exportada pelo SCA, o cruzamento passa a ter tres\nfontes: a planilha (o que a operacao anotou), o RTM (o que se declarou) e o SCA\n(o que o sistema tem). Confira o gerador do arquivo antes de cruzar.\n\nO que ficou registrado: casar pela CHAVE e nunca por atributo que repete; listar\nos registros SEM chave de casamento antes de carregar um lote, porque eles somem\nem silencio em vez de dar erro; a coluna Meta sai do ODS como data; a marca\n\"Previsto no PIT\" da planilha nao decide; duas linhas do mesmo MI raramente sao\nduplicata; e o `pedido cadastrar` funde por uuid_versao ficando com a maior\nquantidade, nunca a soma.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017ZTdce9y2hSstz1LjzcGH5",
+      "sha": "7ec4650",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7ec4650761997fe1755789178eabb3596954e761",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T10:54:20.000Z",
+      "author": "Maj Diniz",
+      "message": "escrita: o exemplar do chefe reprova no nosso linter, e o teto de 25 nao descreve argumentacao\n\nO RT 08/2026 (Do MI a Base Continua), escrito a mao pelo chefe e apontado por\nele como o padrao a seguir, marca 3,18 violacoes por 100 palavras no\nlint_escrita.py, contra 2,72 do texto que revisei. O exemplar aprovado reprova\nna regua da casa: o numero mede aderencia, nunca qualidade.\n\nAchado contraintuitivo: o chefe escreve frase MAIS longa com MENOS conjuncao\nsubordinativa (1,27 contra 1,81 por 1.000 palavras). O comprimento vem da\narquitetura (aposto, dois-pontos, relativa, participio, ponto e virgula entre\nmembros paralelos), nunca de conectivo enfiado. E por isso que a rodada\nanterior fracassou ao buscar comprimento por conjuncao.\n\nEmenda ao CLAUDE.md proposta e AGUARDANDO AVAL: 40,3% das frases do RT estouram\no teto de 25 palavras. A regra, como escrita, reprova o melhor texto da casa.\n\nA evidencia medida fica aqui, e nao na regua, pela norma que o chefe fixou em\n2026-07-30. A conventions/escrita.md ja levou a regra na secao \"A frase longa\nque se sustenta\" (commit 2cc2913).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017ZTdce9y2hSstz1LjzcGH5",
+      "sha": "c1e7794",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c1e77949cdae36938ccd26429bd08a2e136158be",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T10:49:57.000Z",
+      "author": "1º Ten Marcel",
+      "message": "atualizar-dockers: skill nova para o server7, generalizada alem de doc_\n\nNasce a skill que descobre por pasta de /dados/dockers o mecanismo de\natualizacao (git pull + start_docker.sh, so docker-compose, ou nenhum),\nem vez de assumir so os cinco repos doc_*. Chaves novas no .env.example/\nenv-guia.md: GH_USER (login do PAT ja catalogado) e SERVER7_SSH_* para o\nacesso por senha ao servidor. Registrada em DECISIONS a troca fixa da\ncredencial do proxy do server7, autorizada na sessao apos o git pull\nfalhar com 407 em todas as pastas.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "7cba390",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7cba3904d08a880502d80dc19081cae9bb6c34b9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T10:20:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge origin/main (classes do livro-razao) e adota o schema novo\n\nO conflito era de SCHEMA, nao de conteudo: o remote passou o campo 3 do\nlivro-razao a ser a CLASSE, e as tres entradas locais ainda traziam narrativa\nali. Adotei o schema do remote. O detalhe das tres rodadas da revisao Finep, que\nmorava no campo 3, ja vive em .claude/skills/revisar-escrita/learnings.md, entao\nnada se perdeu.\n\nClassifiquei a entrada de 2026-07-31 como regua-cega: o linter mediu aderencia\ne o veredito dele virou qualidade.\n\nEntra tambem a auditoria de hoje: o bug de fuso D-1 do SCA persistiu dado\nerrado, e o conserto do driver em 2026-07-27 arrumou so a leitura. 32 das 44 NCs\nde 2026 tinham data divergente do PDF de origem, e foram corrigidas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3be5307",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3be5307f91dabc88e7acac0232a5ec34b384945a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T10:19:43.000Z",
+      "author": "Maj Diniz",
+      "message": "acervo_cli: layout_origem entra em `volumes listar`\n\nA coluna decide como o nome fisico do arquivo se le. Fora da projecao, quem\nopera lista os volumes, ve um nome fora do padrao e conclui que e defeito, sem\nnada na tela que explique.\n\nAconteceu comigo nesta sessao: li `volumes listar`, nao vi o campo e conclui que\no servidor rodava codigo velho. O campo estava gravado; a projecao e que o\nescondia. Coluna que muda a interpretacao das outras nao pode ficar so no --json.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1028b66",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1028b66770aa7163997423be697d3ec35e25c0d2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T10:18:21.000Z",
+      "author": "Maj Diniz",
+      "message": "volume que guarda o layout do fornecedor, e o renome que nao pode acontecer\n\nO nome fisico do acervo e derivado (acervo.nome_arquivo_padrao) e o diretorio e\nplano. Isso vale para o que a DGEO produz, porque quem produz controla o nome.\nNao vale para a entrega de convenio, por dois motivos que renomear nao resolve.\n\nO primeiro e irreversivel. Um .img do ERDAS guarda DENTRO de si o nome do .ige e\nos nomes das 30 entradas do .rrd. Nas entregas do Convenio RS o .img tem 34 KB e\no .ige tem 8 GB: o pixel inteiro esta no sidecar. Renomear o conjunto quebra a\nreferencia interna e o produto para de abrir, e nenhuma auditoria posterior pega\nisso. Hoje o `renomear-padrao` sem arquivo_ids moveria 1,9 TB e faria exatamente\nesse estrago.\n\nO segundo e de espaco. O volume JA contem a entrega, em LOTE_1..LOTE_5. Chegar\nao padrao exigiria achatar a arvore do fornecedor na raiz ou duplicar 1,9 TB.\n\nEntao o volume declara o que guarda. Com layout_origem, o nome fisico e o caminho\nrelativo de origem e o padrao derivado nao se aplica. O invariante 7a e o\nrenomear-padrao ignoram o volume, e o renomear-padrao continua ignorando mesmo\nquando o arquivo e pedido por id: sem isso a marca protegeria a varredura em\nmassa e deixaria passar a chamada dirigida, que e a que alguem faz para resolver\naquele arquivo ali.\n\nA marca e do VOLUME, nunca do arquivo. Um volume guarda o padrao do acervo ou o\nlayout de quem entregou, nunca os dois. Marca por arquivo viraria escape para\nnome improvisado, que e o que o 7a existe para impedir.\n\nO que nao muda: a unicidade fisica (volume, nome_arquivo, extensao), o sha256 que\no confirm-upload confere no volume, e os invariantes 7b e 7c.\n\nO PUT de volume ganhou preserveOmitted. Sem ele, a tela do dashboard, que nao\nconhece o campo, apagaria a marca ao editar o nome do volume, com 200 e sem\naviso. E a armadilha do PUT de 2026-07-25, e ela reaparece a cada coluna nova.\n\nEnsaiado com ensaiar_migracao.cjs --er-de HEAD: o banco migrado e o instalado do\nzero convergem, e a migracao passa duas vezes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "91eaebd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/91eaebd669c7b8f940a5101fb70c1470eca62b4d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T10:17:50.000Z",
+      "author": "Maj Diniz",
+      "message": "revisar-escrita: reescrever texto BOM e o defeito, e a passiva com agente sai da regua\n\nNa proposta Finep eu degradei um original bem escrito em tres rodadas,\nperseguindo a metrica: troquei subordinacao por parataxe, depois enxertei\nconjuncao para alongar frase (os subordinadores por 1.000 palavras saltaram de\n2,21 para 8,15). A metrica mede aderencia, nunca qualidade.\n\nMetodo novo na skill: decidir PRIMEIRO se o texto e bom. Sendo bom, o original\nvira base de estilo e a versao nova so entra onde acrescenta fato. Diagnostico\nbarato: contar subordinadores antes e depois, onde salto de 2x acusa enxerto.\n\nA conventions/escrita.md ganhou a secao sobre a passiva: a passiva com agente\nexpresso e padrao bom em portugues e deixa de ser cobrada. Fica so a de agente\napagado, e mesmo essa so em procedimento.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2cc2913",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2cc2913dbd32200b25c8e7b320b099edd472779d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T10:17:15.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: o pedido 83 fecha pelo despacho, e o referenciado do SPED nao e anexo\n\nO DIEx de encaminhamento promete um anexo que nunca existiu. As tres fontes\n(busca-anexos-externos, anexosExternos e anexosInternos do conteudo) vem\nvazias, e o proprio despacho de 22/04/2026 ja dizia isso. O despacho e a fonte\nprimaria do atendimento: a data_atendimento sai da providencia, nunca da\ndataHoraResolucao, e o prazoDespacho e prazo interno.\n\nNa wiki do SPED: o id de idsReferenciasSped vive no espaco do idDoc, nao no do\nid da busca. Passa-lo em /documento/{id}/imprimir/PDF acerta outro documento e\nvolta 400.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9a12e17",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9a12e17aa86b0ac9a83ea314675cb32d33c531aa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T00:25:06.000Z",
+      "author": "Maj Diniz",
+      "message": "livro-razão: 265 eventos ganham classe, e a família da verificação aparece com 42\n\nO chefe apontou que o arquivo crescia sem limite (264 KB, 265 eventos, 248 só em\njulho). O tamanho era o sintoma. O defeito era que 79% dos eventos não tinham\nclasse: o campo 3 do formato virou descrição livre e o vocabulário do cabeçalho\nparou de ser usado. Sem classe não há agrupamento, e sem agrupamento a\nrecorrência fica invisível, que é a única coisa que este arquivo existe para\nmostrar. A poda que a doutrina manda fazer nunca rodou, porque podar exigia ler\n264 KB e isso custa mais que o sinal.\n\nQuatro agentes reclassificaram os 265 eventos, um lote de ~65 KB cada. Eles não\neditaram nada, devolveram linha = classe. A mutação saiu de um script que troca\nSÓ o campo 3 e recusa gravar se qualquer outro campo mudar. Cobertura de 265 em\n265, zero problema. O arquivo caiu para 242 KB.\n\nDas 29 classes novas propostas ficaram 14, pela regra de que classe precisa de 2\nocorrências para existir. Singleton funde na família mais próxima, senão o\nvocabulário vira um nome por evento. São 36 classes em 10 famílias.\n\nO achado: a família VERIFICAÇÃO QUE NÃO PROVA soma 42 eventos, 16% do arquivo, em\ncerca de 37 áreas. São verificacao-vazia 19, regua-cega 13, sucesso-silencioso 8\ne autorrelato-como-prova 2. É a maior falha isolada do vault, e a proposta de\nnúcleo que a trata foi escrita quando se contavam 4 instâncias. Em segundo,\ncodigo-real-manda com 30 eventos em 24 áreas e 18 reincidências, apesar de a\nregra já estar no núcleo.\n\nQuatro travas contra o crescimento, no cabeçalho do arquivo: o lint_razao.py\nresponde recorrência sem ninguém abrir o arquivo, a classe vem do vocabulário, o\nevento é UMA linha, e o ano fechado vai para livro-razao-<ano>.md.\n\nErro meu registrado: a primeira versão do lint_razao.py descartava em silêncio os\n13 eventos escritos (cont.) sem número, e eu reportei 252 como se fosse o total.\nÉ regua-cega literal, cometida enquanto media regua-cega.\n\nO CLAUDE.md passou por revisão completa no mesmo turno. Saiu o SCO de três regras\n(virou módulo do SCA em 2026-07-27, e o núcleo mandava consultar sistema que não\nexiste), o verdito virou veredito, e seis justificativas históricas saíram pela\nregra que o chefe fixou hoje.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2b03683",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2b0368382542a93d9b2356e1a08796aef5e3c094",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T00:01:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-30 (cont. 8): o teto cai para 25, a passiva sai da árvore, e o PTS ganha âncora no EB10-IG-01.002\n\nO chefe mandou refinar o padrão de escrita com agentes e pesquisa de fora. Nove\nagentes, cerca de 1,1 milhão de tokens. O que sobreviveu à medição virou régua.\n\nO teto da prosa cai de 30 para 25 palavras. O 30 saía do percentil 85 do NOSSO\npróprio texto, ou seja, da régua se medindo por si mesma. Dez fontes externas\nconvergem em 20 a 25 e nenhuma apoia 30. Custo medido antes: a wiki sobe de 1,56\npara 1,98 por 100 palavras.\n\nA voz passiva sai do regex para a árvore de dependências do spaCy. O regex exigia\n\"ser\" colado ao particípio, então perdia \"foi rapidamente aprovada\" e toda a\npassiva reduzida. Na wiki foi de 626 para 1.350 achados.\n\nA promessa do agente de que a árvore dispensaria a lista de 134 exceções NÃO se\nconfirmou: medido aqui, o pt_core_news_sm ainda lê \"é requisito\", \"é legado\" e\n\"o realizado por mês\" como particípio. A lista fica e a árvore SOMA. Duas guardas\nsaíram da amostragem: só conta VerbForm=Part, e particípio com artigo antes é\nnome.\n\nQuatro itens do proselint (BSD-3) entram. Critério de admissão de regra, com a\ntabela de FONTE por categoria que não existia. Par pega/nao_pega por categoria,\nem fixtures/exemplos_pts.tsv, com teste que quebra se faltar exemplo. E três\ncategorias novas: grafia_inconsistente, repeticao e anotacao_esquecida. São 22\npara 25 categorias.\n\nA versão automática do grafia_inconsistente foi descartada por medição: acusava\nnome de repo contra slug de página, que são identificadores e não grafias. Voltou\nao par curado, e a varredura virou ferramenta de descoberta (--achar-grafia).\n\nDas 2.512 entradas do LanguageTool português entraram 11. Só 91 disparam aqui, e\na maioria é termo que usamos de propósito. O style.xml deles empurra usar para\nutilizar e pedir para solicitar, ou seja, fabrica burocratês.\n\nNão existe equivalente brasileiro ao ASD-STE100, mas o EB10-IG-01.002, Capítulo\nV, já obriga a DGEO a quatro regras do PTS (arts. 117, 119, 120 e 121). Isso\nconverte o padrão de preferência do chefe em cumprimento de norma.\n\nRecusados por medição: índice de legibilidade (penaliza o termo técnico correto),\nPorSimplesSent (domínio jornalístico, delta de 0,25 contra 2,27 do Manual da\nCâmara) e o experimento controlado, que o chefe cancelou.\n\nA camada sempre-injetada passou pelo padrão. Núcleo de 1,02 para 0,09 e MEMORY.md\nde 1,23 para 0,00, com zero fato perdido contra o HEAD em cinco eixos.\n\nCorreção do chefe registrada: a regra mora no documento, a razão mora na\nDecisions. Enunciar não é defender, e o arquivo que o harness injeta paga o custo\nem toda sessão.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "02c90f5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/02c90f55402396444faf499a60a254c04e64c01c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-30T23:29:08.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge origin/main (lint-escrita da sessao paralela)",
+      "sha": "35f8dfe",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/35f8dfe2a613382f871d94da2a1306b8c35a2df5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-30T23:28:37.000Z",
+      "author": "Maj Diniz",
+      "message": "2026-07-30 (cont. 7): revisar a ENTREGA, nao a gravacao, e deixar a auditoria provar a escrita seguinte\n\nA revisao dos oito itens da mapoteca contra o codigo achou duas falhas reais, e\nas duas passavam por prova que media a metade errada. A auditoria gravava a\nexclusao do pedido e o teste provava a gravacao; a tela parava no \"Pedido nao\nencontrado\" antes de montar o historico, entao o dado existia e ninguem o\nalcancava. Registrar o evento nao e entregar o historico.\n\nO residuo do item 3 era DADO. A regra de esconder so campo VAZIO protege o dado\ngravado, mas mantinha visivel o omds dos 33 pedidos civis, que guardava a\nconstante \"1o CGEO\". Limpo pelo verbo do CLI, que le, altera um campo e reenvia\no corpo completo, e nunca por UPDATE no banco: escrever por SQL fugiria da\nauditoria que este mesmo dia criou.\n\nA verificacao usou a propria auditoria. Em vez de comparar 25 campos contra uma\nfotografia minha, exigi que os 33 eventos trouxessem campos_alterados igual a\n['omds'], exatamente. Campo a mais tocado apareceria ali sozinho. E prova que o\nSISTEMA produz, e nao a que o escritor produz sobre si mesmo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "da0f552",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/da0f552b628e667152b1b71f60c654ddf1713907",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-30T23:20:58.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: o historico do pedido apagado deixa de ser inalcancavel, e a etiqueta ganha nome\n\nRevisao dos oito itens de 2026-07-30 contra o codigo, e nao contra o relatorio\nde quem os escreveu. Duas falhas reais.\n\nO PEDIDO APAGADO PERDIA METADE DO ITEM 8. O chefe pediu o historico de quem\nalterou, ADICIONOU e REMOVEU cada pedido. A remocao era gravada certo, e\nmapoteca.pedido_auditoria nao tem chave estrangeira para o pedido exatamente\npara sobreviver a ela, mas a tela parava no \"Pedido nao encontrado\" e voltava\nantes de montar o historico. O dado existia e ninguem alcancava. Agora o\ncaminho de erro monta a secao de historico do mesmo jeito.\n\nA ETIQUETA APARECIA COMO 'etiqueta_envio'. Faltava a entrada dela no mapa de\nnomes legiveis, entao a unica coisa que o item 6 pedia alem de salvar (o\nhistorico de quem alterou) saia com nome de coluna de banco. O rodape da secao\ntambem nao a citava.\n\nOs dois testes novos foram falsificados: desligar o conserto do pedido apagado\ndeixa o teste dele vermelho.\n\n664 testes de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "12b5976",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/12b5976aa78699275e45ceb13490813da2567491",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-30T23:06:27.000Z",
+      "author": "Maj Diniz",
+      "message": "lint-escrita: o acento para de duplicar o léxico, e dois pares esquecidos voltam a ser cobrados\n\nO léxico guardava as duas grafias de cada termo (\"incrivel\" e \"incrível\"). Além\ndo tamanho, o par esquecido virava buraco: só a forma ASCII de \"visando à\" e de\n\"a não ser que\" estava na lista, então a grafia certa escapava.\n\nAgora o casamento roda sobre uma DOBRA do texto (minúscula, sem acento, mesmo\ncomprimento, porque o --detalhe usa a posição do achado). O alt() gera a\nvariante ASCII das regex. Cada termo entra uma vez, com o acento certo.\n\nDuas fugas, de propósito: a família da passiva fica fora da dobra (\"é\" é verbo,\n\"e\" é conjunção), e o conjunto EXATO guarda o termo cuja grafia acentuada é\noutra palavra (\"evidencia\" o verbo contra \"evidência\" o substantivo).\n\nLéxico de 378 para 332 entradas, mais 34 grafias duplicadas fora das regex.\n_hits_lista e _hits_dict passam a chamar o mesmo _busca, e o sem_acento sai,\nporque era um segundo normalizador.\n\nProva: a versão do HEAD e esta rodaram sobre os mesmos 247 arquivos, nos dois\nmodos. As 21 categorias batem, menos duas, e as duas são conserto:\n- perifrase +12: \"visando à\" e \"a não ser que\" agora caem.\n- palavra_longa -12: \"inicia/finaliza\" (endpoint com barra) deixa de contar,\n  porque a família de dicionário passou a usar a fronteira que rejeita - _ /.\n\nEntra junto a colheita da skill ste-writing-pt-br: regra de anglicismo evitável\n(com a ressalva do empréstimo consolidado), proibição de contração informal e a\nseção \"O que não é vício\", que protege a nominalização técnica, a passiva sem\nagente definido e a palavra que é dado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7793569",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7793569c6f7bc5532256bf7547e44d2a5b28d209",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-30T22:52:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'main' of https://github.com/1cgeo/chefe_dgeo",
+      "sha": "7c529dd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7c529dd9aeb25b85d24eca4f342f7a5b7583d587",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-30T22:52:01.000Z",
+      "author": "Maj Diniz",
+      "message": "fix",
+      "sha": "5cddc6c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5cddc6c109a06d5b778435c6a70849e44798ab5d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-30T22:35:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-30 (cont. 6): a entrega sobe para o pedido, e o gatilho nao serve porque nao sabe quem mexeu\n\nOito ajustes da mapoteca do SCA, decididos pelo chefe contra medicao na producao\ne implementados no mesmo dia por nove agentes em cinco fases.\n\nDecisao integral em Decisions, com o raio de explosao das tres migracoes.\nSubwiki do SCA: o que e do pedido e o que e do item, a auditoria por backend, a\netiqueta salva e a fila sem Aguardando producao. Duas contradicoes consertadas\nla: data_entrega deixou de existir, e a pendencia das datas TIMESTAMPTZ estava\nresolvida desde 2026-07-26.\n\nLivro-razao, duas entradas. A primeira e recorrencia da MESMA classe no MESMO\nplano: propus estado mutavel com rastro (auditoria por gatilho, quantidade\nimpressa editavel) onde o chefe queria EVENTO nos dois casos. A pergunta que\nteria pego as duas antes de propor: quem e o ATOR deste fato, e a camada que\nescolhi o conhece? A segunda: o numero do plano envelheceu dentro da propria\nsessao, porque o committer paralelo mexeu na producao enquanto eu analisava.\n\nLearnings da planejar-mudanca-sistema: campo no nivel errado se prova por\nCONTAGEM DE DIVERGENCIA (1 pedido em 91 com duas formas, zero com duas datas);\nduas fontes que se copiaram nao sao duas fontes; e a secao nova sobre executar o\nplano em paralelo, onde o que da seguranca e o mapa de quem edita o que, e nao o\nnumero de agentes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "7550e96",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7550e96bdadeb640b6e23fb8211d180cb98f1860",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-30T22:35:31.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: a entrega sobe para o pedido, e toda escrita de pedido passa a ter autor\n\nOito ajustes pedidos pelo chefe em 2026-07-30, tres deles com migracao. As\nescolhas de desenho sairam de MEDICAO na producao, e nao de opiniao.\n\nENTREGA E DO PEDIDO, NAO DO ITEM. produto_pedido.forma_entrega_id e\nproduto_pedido.data_entrega foram apagadas; nasce pedido.forma_entrega_id, e a\ndata de entrega do pedido e a data_atendimento, que ja existia (o schema recusa\nde proposito uma coluna data_envio). A razao esta no numero: de 91 pedidos com\nitem, UM tinha mais de uma forma de entrega e NENHUM tinha mais de uma data. Os\nrelatorios ja tratavam os dois como nivel pedido, por COALESCE. A migracao e\ngenerica: maioria por contagem para a forma, e as outras vao para\nobservacao_envio; onde a data do item diverge da do pedido, a data do pedido\nmanda e a antiga vira nota em observacao_interna. Nao ha id de pedido no SQL.\n\nAUDITORIA POR BACKEND, NAO POR GATILHO (decisao do chefe). O gatilho ve a\nconexao do pool e nao o usuario da sessao HTTP, entao ele nao sabe quem apagou;\na alternativa seria SET LOCAL em toda transacao. No controller o usuarioUuid ja\nchega. Onze chamadas, todas dentro da transacao que ja existia, e os dois DELETE\npassaram a ler a linha inteira antes de apagar, senao a exclusao nao registra o\nque se perdeu. mapoteca.pedido_auditoria guarda dados_antes, dados_depois e\ncampos_alterados calculados por diff, nunca por lista digitada a mao.\npedido_auditoria.pedido_id nao tem chave estrangeira, de proposito: a linha tem\nde sobreviver ao pedido apagado, que e o evento que ela existe para guardar.\n\nO PRECO DE NAO USAR GATILHO e a rota nova que esquece de auditar, e quem o cobra\ne o teste de varredura: ele extrai as rotas de escrita do router VIVO e reprova\na que nao estiver coberta. Provado nao-vazio: desligar uma das onze chamadas\ndeixa dois testes vermelhos.\n\nIMPRESSAO E LIVRO-CAIXA. Nao existe rota de atualizar impressao_item, por\ndecisao do chefe: quem imprimiu 40 e quem imprimiu 10 lancam duas sessoes, e o\nhistorico mostra o resumo por pessoa. Correcao e apagar o registro errado e\nlancar o certo, e agora a exclusao fica auditada.\n\nOs outros quatro: Aguardando producao (7) sai da fila de atendimento, porque o\npedido espera carta que ainda nao existe, e a lista de Pedidos ganha filtro\nproprio para ele nao virar esquecimento; a EDICAO de pedido passa a distinguir\ncivil de militar como o assistente ja fazia, escondendo so campo VAZIO (os 33\npedidos civis tem omds preenchido, e esconder cego deixaria dado invisivel); a\netiqueta de envio passa a ser salva por pedido, com o Imprimir travado ate\nsalvar, inclusive na primeira abertura, para o impresso ser sempre o registrado;\ne registrar impressao entra na tela do pedido, com o dialogo compartilhado com a\ntela de atendimento.\n\nO mapoteca_cli entrou junto: ele tambem mandava data_entrega e forma_entrega_id\nno item, e teria quebrado contra o servidor novo.\n\nquantidade_fornecida CONTINUA existindo ao lado da soma das impressoes, por\ndecisao do chefe: uma e o que foi entregue, a outra e o que saiu do plotter. Em\n1.928 itens elas nunca divergiram, entao a tela mostra as duas e marca a\ndivergencia como alarme.\n\n849 testes de servidor, 662 de cliente e 74 do CLI. As tres migracoes passaram\njuntas pelo ensaiar_migracao.cjs com --er-de HEAD (banco migrado e banco novo\ncom o mesmo schema, e idempotentes) e ja estao aplicadas em producao, com backup\ndo schema antes e 24 conferencias de releitura no destino.\n\nFalta o deploy: o servidor implantado esta com o codigo velho e o banco novo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "ead5586",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ead5586da04ef664aef2d553a5e118e8049548e0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-07-30T20:41:48.000Z",
