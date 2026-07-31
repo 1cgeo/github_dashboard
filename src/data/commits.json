@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-31T12:05:15.034Z",
+  "lastUpdate": "2026-07-31T16:49:48.053Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-31T11:32:35.000Z",
+    "1cgeo/controle_acervo": "2026-07-31T16:22:50.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-31T10:54:53.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-31T14:40:50.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5522,
+    "totalCommits": 5539,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 188,
+      "1cgeo/controle_acervo": 193,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,166 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 458,
+      "1cgeo/chefe_dgeo": 470,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T16:22:50.000Z",
+      "author": "Maj Diniz",
+      "message": "data de projeto e lote parava de recuar um dia por chamada\n\nTres defeitos, achados operando o SCA em producao em 2026-07-31.\n\n1) DATA QUE ANDA PARA TRAS (o grave)\n\n`acervo.projeto` e `acervo.lote` guardam dia de CALENDARIO em coluna DATE. O\nJoi convertia 'AAAA-MM-DD' num Date de meia-noite UTC; o Postgres passava pelo\nfuso da sessao antes de gravar, e em UTC-3 o dia recuava. Como o GET devolve\n'AAAA-MM-DD', REENVIAR O QUE O GET DEU, sem mudar nada, tirava um dia.\n\nPeguei reparentando dois lotes do Convenio RS: os dois perderam um dia cada, e\nso apareceu porque reli o registro depois de escrever.\n\nO teste de tres voltas mostrou que era pior do que eu tinha diagnosticado:\n2020-01-01 virou 2019-12-28. Quatro dias em tres PUTs, ou seja, o POST TAMBEM\nperdia um dia. A correcao cobre os quatro schemas (projeto e lote, criacao e\natualizacao).\n\n`Joi.date().raw()` valida como data e devolve a STRING original, entao o\nPostgres faz o cast sem fuso no caminho. E o que `mapoteca.pedido` ja usava: o\npadrao da casa para dia de calendario existia, e projeto/lote tinham ficado\npara tras.\n\nNenhum teste pegava isso porque todos criavam e liam, sem REENVIAR. O round\ntrip e a unica forma que prova, e por isso e a forma dos tres testes novos.\n\n2) LEITURA DE CHECKSUM EM BLOCOS DE 64 KB\n\nO acervo mora em volume SMB, onde o custo por leitura e de rede. Medido contra\no volume de producao, em arquivos de 440 MB: 64 KB deu 80 MB/s, 1 MB deu 86,\n8 MB deu 89.\n\nSao 11%, e o comentario no codigo diz isso. Eu havia reportado que o servidor\nlia tres vezes mais devagar que meu leitor; era falso. A carga do LOTE_1\nvariou de 31 a 81 MB/s entre requisicoes, e a variacao e contencao do share.\nRegistrar o numero medido evita que o proximo volte aqui esperando milagre.\n\n3) TESTE DO CLI COM CONTRATO COPIADO\n\n`schema.test.js` congelava a lista de filtros de busca. O commit 6b1701b\nacrescentou sete filtros no servidor e derrubou o teste sem que nada estivesse\nerrado. Contrato copiado e exatamente o que o acervo_cli existe para nao fazer\n(principio 1 do README), e o teste fazia isso.\n\nAgora ele compara `camposDe` contra `describe().keys` do proprio Joi, que mede\no contrato real e nunca envelhece, mais um spot-check que impede a versao\ndegenerada (uma implementacao que devolvesse [] passaria contra um schema\nvazio).\n\nSuite: 867 testes. A unica suite vermelha e `miniatura.test.js`, que nao acha\no modulo `sharp` e nao vem deste trabalho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "956316d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/956316d2036c4f4d96bb4933210d6e115064e66c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T15:48:26.000Z",
+      "author": "Maj Diniz",
+      "message": "miniatura: o MDE deixa de sair em branco, e a Ortoimagem passa a ter imagem\n\nTres defeitos, dois deles ativos em producao desde a carga de hoje.\n\nMDS e MDT saiam EM BRANCO. A banda de um modelo de elevacao guarda altitude,\nnao intensidade de pixel: convertida direto para 8 bits, toda cota acima de 255\nvirava branco. Medido num MDT do acervo, altitude de 193 a 735 m produzia uma\nminiatura de 2 KB, que e o tamanho de uma imagem vazia. Agora o gerador detecta a\nbanda que nao e de 8 bits e estica por media +- 2,5 desvios, presa ao intervalo\nreal; o recorte por desvio existe para um pico isolado nao achatar todo o relevo.\n\nOrtoimagem nao tinha miniatura NENHUMA, porque nenhum arquivo dela e PDF ou TIF.\nO ERDAS `.img` entra na fila: sao 43064x48311 com os pixels num `.ige` de 7,4 GB\nao lado, e o GDAL entrega a miniatura em 6 s lendo a piramide.\n\nO GDAL serrilhava. O `-outsize` dele decima por vizinho mais proximo, e o texto\nda legenda virava papa. Ele passa a extrair ao DOBRO do alvo, com `-r average`, e\no `sharp` faz a reducao final com reamostragem de verdade. O texto volta a ser\nlegivel e o arquivo sai cerca de 25% menor (55 KB -> 41 KB de media).\n\nJunto vai um `GDAL_PAM_ENABLED=NO` que faltava: sem ele, pedir estatistica grava\num `.aux.xml` AO LADO DO ARQUIVO LIDO, dentro do volume do acervo, nas pastas de\nentrega do fornecedor.\n\nO MOTOR DE PDF NAO MUDA, e a investigacao fica registrada para nao se repetir.\nForam medidos tres substitutos que tirariam o poppler da lista de dependencias:\n`mupdf` e AGPL-3.0 e este repositorio e MIT; `pdf.js` e `PDFium` discordam do\npoppler no preenchimento das cartas topograficas (vegetacao, sombreado) arquivo a\narquivo e nos DOIS sentidos, com o PDFium desenhando mais em 4 das 9 cartas\nmedidas e o poppler em 2. Sem visualizador de referencia nao da para dizer qual\nacerta, e trocar o motor de 4.091 cartas para economizar um pacote de sistema e\ntroca ruim. O GDAL, pelo mesmo exercicio, provou-se INSUBSTITUIVEL: o `sharp` nem\nabre `.img` ou `.ecw`.\n\nA decisao de cor virou funcao pura e ganhou 11 testes, escritos sobre as sete\nformas de raster que existem de fato no acervo (medidas nos 292 arquivos que o\ngerador escolhe), e nao sobre caso inventado.\n\nResultado em producao: 4.439 miniaturas, zero erro, 239 MB.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "34af57e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/34af57e76d9f6f3b044a01853ca83a1c1a74dad2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T14:40:50.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: a segunda varredura acha o que a primeira deixou\n\nA pergunta do chefe (\"voce corrigiu todas as observacoes?\") achou o que\nfaltava. A primeira limpeza filtrou pedido.observacao por um padrao que\neu mesmo tinha escrito, e regex so acha o que voce ja sabe que existe.\n\nLendo as 74 observacoes uma a uma apareceram mais sete, e mais cinco em\nobservacao_envio: tarefa pendente (\"Conferir com o Cap MASSACANI\"),\nprazo interno da DSG, duvida sobre dois produtos com o mesmo MI e o \"NUP\ntorto\" que quebra a conferencia automatica. Tudo no campo que o\nsolicitante le.\n\nRegra que fica: quando o universo cabe numa tela, leia um a um; quando\nnao cabe, agrupe por texto identico e leia os grupos. E o criterio:\nverdadeiro nao basta para ser publico.\n\nDoze pedidos aparados, com a cauda inteira preservada no campo interno.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "cb38b07",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cb38b07607ebfb4c67644dab5547302a2943f866",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T14:33:38.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: o livro-caixa da impressao passa a cobrir o ano inteiro\n\nA carga de 23 JUL registrava impressao so para o proprio lote, e 456\nitens entregues depois (2.297 folhas) ficaram sem nenhum registro:\nmetade do ano com livro-caixa e a outra metade sem. Completado com a\nmesma nota do lote de julho, que diz o que o registro e: espelho do\nentregue, e nao sessao de impressao observada.\n\nA prova que vale e a igualdade item a item (soma das impressoes igual a\nquantidade entregue), e nao o total, que pode fechar por acaso.\n\nFecharam tambem o pedido 130, com o conjunto 1:50.000 da regiao de\nSaica, e o 79, com as 4 do CIBSB em 1:50.000 e as de 1:25.000\nregistradas como lacuna de catalogo.\n\nSobra um pedido militar Concluido com zero entregue, o 157, e a lacuna\ndo ano contra a planilha esta em 43 folhas, de 681 no comeco do dia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "ada95d0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ada95d0f8e1286289bd451bf6d016678f2f9822d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T14:26:16.000Z",
+      "author": "Maj Diniz",
+      "message": "a ficha do produto ganha a imagem da carta, e o Remetido sai da fila\n\nA ficha era uma pilha de linhas rotulo-valor sem hierarquia, e sem nada para\nolhar: quem procura carta no acervo reconhece a folha OLHANDO. Agora cada versao\nmostra a miniatura da propria carta, a mais recente maior, e a identificacao\nvirou uma faixa com MI e INOM grandes em fonte monoespacada. Os arquivos subiram\nna ordem de leitura; o metadado administrativo desceu para uma linha so.\n\nJunto vai um defeito antigo: o servidor sempre devolveu os relacionamentos da\nversao e a tela os DESCARTAVA. Eles sao a proveniencia da carta, aparecem agora\ncom o nome do produto relacionado (nao o id) e levam para a ficha dele.\n\nA miniatura mora em acervo.miniatura_versao (banco 1.10.0), tabela propria e nao\ncoluna em versao: SELECT v.* aparece em varias consultas e passaria a arrastar o\nBYTEA, e a versao nao tem onde guardar a procedencia da imagem. A linha existe em\ndois estados, garantidos por CHECK: ou tem imagem, ou tem o erro. Sem registrar a\nfalha, toda recarga tentaria de novo os mesmos arquivos quebrados. Os dois\nON DELETE CASCADE existem porque miniatura e dado derivado: sem eles, apagar\nversao ou arquivo passaria a falhar por violacao de restricao.\n\nA renderizacao sai de pdftoppm (PDF) e gdal_translate (TIF), sem dependencia\nnativa nova no Node, a 600 px no lado maior. Medido em 50 versoes de producao,\nsem falha: 55 KB por miniatura. Produto so vetorial nao entra, por decisao do\nchefe. A carga do acervo antigo e um script; o que entra depois e apanhado por um\ncron horario, e nao pelo confirm-upload, que renderizaria dentro de uma transacao\ne deixaria uma falha de imagem derrubar um upload que deu certo.\n\nRemetido (4) sai da fila de atendimento, por decisao do chefe. O pedido ja foi\nimpresso, etiquetado e despachado: as tres acoes que a tela oferece ja foram\nfeitas. Em producao era 1 pedido, contra 20 Em andamento. O preco, que e real:\nele passa a depender de alguem marcar Concluido pela lista de pedidos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e3b9d3c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e3b9d3cfc5a807e8e660e1aa5e4b4ee9755dc21b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T13:57:05.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: a anotacao de processo sai do campo que o cliente le\n\nA rota publica do localizador tem lista de colunas explicita, e e ela\nque diz o que e publico: observacao do pedido, observacao_envio e\nobservacao do item saem para o solicitante; observacao_interna nao.\n\nDos 770 itens com observacao publica, 666 eram contabilidade da carga\n(\"Linha da aba 2026Det\", \"DIEx linha 5\", \"Anexo do DIEx, ordem de\nprioridade 33\"). Os outros 104 carregavam fato, e foram recolhidos para\na observacao interna do pedido em vez de apagados.\n\nEm 23 pedidos de LAI cortou-se so a cauda \"Conferido no repositorio em\n30/07\", preservando a informacao de entrega que o cidadao precisa.\n\nPiloto de 10 antes de escalar, com backup integral gravado antes de\ntocar. A auditoria separou este trabalho do do chefe, que registrou uma\nimpressao na mesma janela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "e4ede29",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e4ede299e3e0de763ae01b1d6e4ae16ab50bea66",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T13:35:03.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: os 28 pedidos militares zerados, e o que separa fila de falha\n\nDezenove sao fila de trabalho legitima, com 1.545 folhas previstas e\nainda nao impressas: quinze rotulados PIT e Extra-PIT, e quatro DIEx de\njulho. Zero entregue neles e o estado certo.\n\nUm era falha de registro: o pedido 134 do COTER estava Concluido com os\ntres itens de Carana sem quantidade fornecida. Preenchido, 10 folhas. As\n2 que faltam sao Carana-SO, que o acervo nao tem.\n\nQuatro tem o DIEx anexado e mesmo assim nao se lancam. A licao e que ter\no documento nao basta: ele precisa nomear FOLHA. A lista do DIEx 4427 usa\no MI da folha 1:100.000 como nome de REGIAO, entao copiar a linha criaria\numa folha 2962 em 1:25.000, que nao existe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "c85b12b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c85b12b5f9914f0a1a417e1df4bc2d89fa95bc04",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T13:23:39.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: a ordem da lista no DIEx identifica o MI que a planilha errou\n\nO \"2996-5\" da planilha nao existe no SCN. A planilha copia as onze\nfolhas 299x do DIEx 1496 na mesma ordem, e onde o documento diz \"MINAS\nDE CAMAQUA 2996-3\" ela escreveu 2996-5. O pedido 73 fechou em 260\nfolhas, as 52 cartas com cinco exemplares que o DIEx pede.\n\nDois dos quatro casos de regiao nao eram de regiao: o DIEx 434 so\nprecisava de duas ortoimagens 1:25.000, e no 1830 a planilha inventou a\nfolha 2868-2 ao resolver a mao um MI repetido no documento (MAFRA e RIO\nNEGRO no mesmo 2868-1), quando a regra manda virar um item so.\n\nO DIEx 1605 fechou com o mosaico da Regiao de Saica. O 1951 pede tres\nregioes e so Saica tem mosaico no acervo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "528e411",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/528e41151bf953d2058ff1143a871668ef26506f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T13:12:17.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: o pedido 34 estava com o bloco de outro DIEx, e a carga o duplicava\n\nOs quatro itens de folha 1:25.000 do pedido 34 (DIEx 488) pertencem ao\nDIEx 2370, da mesma brigada, que ja existe como pedido 61 com os mesmos\nprodutos e quantidades. A carga de 23 JUL colou o bloco inteiro, folhas\ne data de entrega, no pedido errado.\n\nApagados os quatro, com o conteudo guardado antes, e a data corrigida de\n30 JUN para 13 MAI. O pedido 34 fica com as tres folhas do SESI que o\nDIEx pede.\n\nO DIEx 1715 fechou com as cinco folhas do Organizacoes Militares do Rio\nGrande do Sul, o terceiro modelo que o chefe apontou.\n\nFica exposto que a carga de impressao cobriu so o lote de 23 JUL: 451\nitens entregues, somando 2.287 folhas, nao tem registro em\nimpressao_item.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "64c4320",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/64c4320071a7964092b07c0fcfd65d71e280c3b6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T13:02:43.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: o chefe nomeia os produtos, e a lacuna cai de 681 para 60 folhas\n\nQuatro casos fecharam com o produto que o chefe apontou: o DIEx 103 com\no mosaico do CIBSB e o Campo de Instrucao de Santa Maria, o 1156 com os\nquatro quadrantes do Parque de Exposicoes Assis Brasil, o 488 com o SESI\nda 8a Bda, e o 1715 com os dois modelos ja lancados.\n\nO CIBSB entregue e o MOSAICO 1:50.000 (produto 4190, edicao 2024) e nao\na versao \"(especial)\" (3834, criacao 2024) que eu escolhera. Ano nao\ndesambigua quando um produto tem 2024 na criacao e outro na edicao.\n\nOnde a planilha e o DIEx brigam no numero, o documento manda: o 488 pede\ntres cartas e a planilha registra seis em duas linhas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "d9f1dc1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d9f1dc1f0481685eec5e86aea515d0ceb9a3ca8d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T12:49:06.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: os dez DIEx decidem caso a caso, e a carga corretiva volta com guarda\n\nNove dos dez DIEx que o chefe listou estavam anexados ao proprio pedido\nno banco, e o decimo saiu do SPED. Tres fecharam pelo documento: o 1496\n(52 cartas com cinco exemplares cada), o 6547 (5 cartas do CIBSB) e o\n1876 (15 do CIMH, que a planilha grafava CIHM). A lacuna contra a\nplanilha caiu de 249 para 119 folhas.\n\nA carga voltou com a guarda que faltava de manha: so cria item se o\npedido nao tiver nenhum para aquela folha, comparando MI, escala e tipo\nde produto. Zero duplicata, e nenhum pedido passou do que o DIEx pede.\n\nO DIEx 1433 inocenta o SCA: pede 40 cartas, o SCA tem 40 e a planilha\nconta 80 em duas linhas, uma por anexo.\n\nCinco casos nao se resolvem por lancamento, porque o DIEx nao nomeia\nfolha e sim regiao, modelo ou carta a produzir.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "740e348",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/740e348bfc58ef2f7fad0d2fcb6579eb23fc37ed",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T12:29:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "sha": "25c5b98",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/25c5b98c1818dea2e67c018f3ebbf449bc08eaa1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T12:29:07.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: o SPED fecha o ultimo pedido ausente, e o atendimento sem impressao ganha registro\n\nO DIEx 6186 saiu inteiro pela API do SPED, a partir do id que a URL do\ndocumento carrega: 20 folhas para o Exc Cbn Arandu 2026, que viraram o\npedido 157. Os itens ficam por lancar porque os 10 produtos sao\ndescritos por area e nao por folha do SCN.\n\nO DIEx 4425 nunca faltou. Meu cruzamento filtrava o SCA por ano e\nescondia o pedido de 2025 atendido em 2026: filtro de periodo num lado\nso da comparacao vira falso positivo.\n\nOs pedidos 111 e 112, LAI recebida por e-mail, passam a dizer que a\nentrega foi digital, na convencao que os outros 27 pedidos de LAI ja\nusam: forma de entrega vazia e a entrega contada na observacao de envio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "48c2cbd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/48c2cbd30cce09d521375d7a15f1588204ecc586",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T12:21:20.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix skill dockers",
+      "sha": "fcba593",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fcba5934b34f16fc6d9a6762e68c3b85cf595194",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T12:09:48.000Z",
+      "author": "Maj Diniz",
+      "message": "cliente da mapoteca ganha sigla, e o RPCMTec passa a chamar a OM pelo nome dela\n\nO RPCMTec lista o solicitante de cada pedido, e o nome por extenso nao cabe na\ncoluna: \"10o Batalhao Logistico\" ocupa a largura toda onde \"10o B Log\" diz o\nmesmo. O relatorio vai a DSG e quem le e militar. A sigla nao e abreviacao de\nconveniencia, e o nome corrente da unidade.\n\nA coluna e NULAVEL porque nem todo cliente e OM: o acervo atende orgao publico\n(UFRGS, COPEL, prefeitura), a Brigada Militar e o cidadao anonimo da LAI. O\nSELECT do relatorio cai no nome quando a sigla falta, e o teste prova os DOIS\nlados no mesmo mes. Um teste so do lado da sigla passaria com o COALESCE\nescrito ao contrario, e a linha do cliente civil sairia vazia em producao.\n\nO NULLIF(BTRIM(...)) existe porque string vazia nao e ausencia para o COALESCE,\ne a tela grava '' quando o usuario limpa o campo.\n\nO PUT ganhou preserveOmitted: a tela de cliente nao conhece o campo, e sem isso\neditar o endereco apagaria a sigla com 200 e sem aviso. E a armadilha do PUT de\n2026-07-25, e ela reaparece a cada coluna nova. Enquanto a tela nao souber do\ncampo, esta linha e a unica coisa entre a carga e o apagamento silencioso.\n\nEnsaiado com ensaiar_migracao.cjs --er-de HEAD: o banco migrado e o instalado do\nzero convergem, e a migracao passa duas vezes. Suite: 864 testes, 71 suites.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ccab364",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ccab364d0cdacb5892cefbb5ab6b515e4b018f1d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T12:06:48.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: 22 pedidos sem DIEx entram no SCA, e a carga por MI volta atras\n\nO pedido sem DIEx nao tinha chave de casamento, e por isso 22 dos 30\npedidos rotulados \"PIT NN\" e \"Extra-PIT NN\" nunca entraram na carga do\nano. Entraram hoje: 9 com entrega (432 folhas) e 13 em aberto.\n\nA lacuna contra a planilha caiu de 681 para 249 folhas, e os pedidos\nprevistos no PIT passaram de 3 para 16.\n\nO DIEx anexado ao pedido arbitrou as divergencias: ele mora em\nmapoteca.anexo_pedido.conteudo e decide caso a caso, ora contra a\nplanilha, ora contra o SCA.\n\nA carga corretiva das 249 restantes entrou e foi REVERTIDA inteira,\nporque MI mais escala nao identifica produto no acervo e a carga criou\nduplicata. Estado conferido de volta ao anterior.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012LXHsGQd45pTBcdnLXttnN",
+      "sha": "6a99cc0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6a99cc0034e65a9c1cc622df3208e20d938f702e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T11:57:33.000Z",
+      "author": "Maj Diniz",
+      "message": "rate limit: 200/min era teto de navegador num servico operado por lote\n\nO SCA tem dois tipos de cliente e so um deles cabia no limite. A tela do\ndashboard faz dezenas de chamadas e nunca chega perto de 200. O acervo_cli e os\ncarregadores trabalham na unidade do ACERVO, nao da tela.\n\nMover 348 versoes de lote sao 696 chamadas (um GET e um PUT por versao). A\noperacao morreu no terceiro minuto com 429, pela metade: 138 versoes migradas e\n210 nao. Estado partido no meio custa mais que lentidao, porque quem retoma\nprecisa reler o estado real para saber onde parou, e nem todo script faz isso.\n\n3.000/min (50/s) fica ordens de grandeza acima de qualquer uso humano e ainda\nlimita um flood. E aplicacao de intranet: o limitador nao e a defesa principal,\nele contem cliente com laco desgovernado, e para isso 3.000 serve como 200.\n\nstandardHeaders publica RateLimit-Limit/Remaining/Reset, para o cliente de lote\npoder pausar ANTES de bater no teto em vez de descobrir o limite pelo 429.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "884606b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/884606b59baba3f5090e5ae7e7efa9a8f3f67657",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-07-31T11:32:35.000Z",
