@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-07-31T16:49:48.053Z",
+  "lastUpdate": "2026-07-31T21:10:54.413Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-31T16:22:50.000Z",
+    "1cgeo/controle_acervo": "2026-07-31T20:39:19.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-07-28T19:59:37.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-07-31T20:18:13.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-31T14:40:50.000Z",
+    "1cgeo/chefe_dgeo": "2026-07-31T20:43:56.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5539,
+    "totalCommits": 5549,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -133,7 +133,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 159,
       "dsgoficial/configuracoes_producao": 204,
-      "dsgoficial/ferramentas_edicao": 471,
+      "dsgoficial/ferramentas_edicao": 472,
       "dsgoficial/DsgTools": 625,
       "dsgoficial/sap": 170,
       "dsgoficial/SAP_Gerente": 116,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 193,
+      "1cgeo/controle_acervo": 198,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,103 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 470,
+      "1cgeo/chefe_dgeo": 474,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T20:43:56.000Z",
+      "author": "Maj Diniz",
+      "message": "a palavra-chave achou um defeito, e o SCA foi ao ar\n\nMarcar `radambrasil` nas 42 folhas era tarefa de cinco minutos, e 16 delas\nfalharam com 409. A checagem de rotulo repetido do `atualizaVersao` ignorava o\nsubtipo e era mais rigida que a UNIQUE que dizia espelhar: produto com a Carta\nOrtoimagem SCN e a Especial, ambas \"1a Edicao\", nao podia ter NENHUMA das duas\neditada. Corrigido e implantado.\n\nDuas licoes de ferramenta foram para o learnings da atualizar-dockers: ler o\n.env sem `tr -d '\\r'` derruba o ssh com \"hostname contains invalid characters\",\ne conferir a IMAGEM por dentro antes de trocar o container prova o que o\n`git pull` nao prova (o build do client roda dentro do Dockerfile).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8e437cf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8e437cfac83fe1ebdceffd44cb9874e97cd48291",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T20:39:19.000Z",
+      "author": "Maj Diniz",
+      "message": "a colisao de rotulo de versao passa a olhar o subtipo, como a UNIQUE sempre olhou\n\nO `atualizaVersao` checava rotulo repetido por (produto, versao) e chamava isso\nde espelho da UNIQUE `unique_version_per_product`, que e (produto, versao,\nSUBTIPO). Sendo mais rigida que a constraint, ela recusava com 409 a edicao de\nQUALQUER versao de um produto que tenha duas versoes com o mesmo rotulo em\nsubtipos diferentes, que e arranjo legitimo e comum: Carta Ortoimagem SCN e\nEspecial na mesma folha, ambas \"1ª Edição\".\n\nApareceu ao marcar a palavra-chave nos 42 mosaicos RADAMBRASIL: 26 gravaram e\nos 16 que tem as duas versoes falharam. Nenhum deles tinha problema nenhum.\n\nO `acervo editar` tambem parou de esbarrar no proprio guardrail. Coluna BIGINT\nvolta como STRING no JSON (ela nao cabe no numero do JavaScript sem risco),\nentao o `lote_id` lido do servidor chegava \"107\" e o Joi `.strict()` do PUT o\nrecusava: ler-alterar-reenviar era impossivel em qualquer versao com lote. A\ncoercao vale SO para o que veio da leitura; string que o usuario digitou em\n--set continua sendo erro dele.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d773001",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d773001dce27d27947246b3c40cff8c3769ebbe8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-07-31T20:18:13.000Z",
+      "author": "1º Ten Marcel",
+      "message": "atualizacao cobter_vegetacao, constr_ocupacao_solo e adicao de novo grid para cartas militares",
+      "sha": "1529523",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/1529523e72724520438ed924cd0eca6763079dc1",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T19:07:32.000Z",
+      "author": "Maj Diniz",
+      "message": "o RTM de julho sai das fontes, e o anuario deixa de ser digitado\n\nTres abas do RTM (META4, EXTRA_PIT, o UUID da META6) e o Anuario Estatistico\npassam a sair de sistema. O que a sessao aprendeu, e que valia registrar:\n\n- a META4 ja saia pronta do SCA desde 29 JUL, e a skill nao sabia. Antes de\n  montar aba do RTM a mao, pergunte se o sistema ja a exporta;\n- a EXTRA_PIT tem DUAS fontes, e cruzar as duas foi o que mostrou que faltavam\n  20 lancamentos desde fevereiro, e nao os 6 do mes;\n- a data do Extra-PIT no SAP so existe com a granularidade da fonte: a secao\n  2.6 do RPCMTec da o MES, nunca o dia;\n- o uuid_versao do SCA e o MESMO identificador do BDGEx, e quando os dois\n  divergem manda quem publicou primeiro.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "702a4f4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/702a4f48832c6c98ba3000f97f2d2b02608e0692",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T19:04:45.000Z",
+      "author": "Maj Diniz",
+      "message": "o anuario estatistico sai do acervo, e o uuid da versao se acerta com o BDGEx\n\nDuas tarefas mensais que ainda se faziam a mao passam a sair do sistema.\n\nO ANUARIO ESTATISTICO (Tabela 5.4.9 do \"O Exercito em Numeros\") sobe para a\nDSG todo mes junto com o RTM, e ate agora se digitava. Agora sai por\nGET /mapoteca/relatorio/anuario (preview) e /anuario_ods (o arquivo), com\nbotao na aba RPCMTec e o verbo `mapoteca anuario`. O recorte e pela data de\nATENDIMENTO do pedido, e o padrao e o mes isolado.\n\nA parte dificil dele nao e somar: e dizer o que o acervo NAO sabe. Celula\nvazia quer dizer \"sem fonte no SCA\", celula zero quer dizer \"nao houve\nentrega\", e as duas aparecem juntas na mesma tabela. O `mapoteca.tipo_cliente`\nnao separa Regiao Militar de Estabelecimento de Ensino dentro das OM do EB,\nentao essas duas colunas saem vazias e o rodape do arquivo declara por que.\nCarta de orientacao, Mapa Indice, Mosaico e Ortofocarta nao tem tipo no\ndominio, e entrega desse feitio cai em Produtos Diversos: nada some.\n\nO UUID DA VERSAO passa a ser corrigivel, por rota propria. Ele identifica a\nversao nos dois lados, no acervo e na publicacao, e quando a carga no BDGEx\nvem antes da catalogacao (ou e refeita) quem ja atribuiu o numero e o BDGEx.\nO PUT de versao segue recusando a troca, e continua certo: la o campo chega\njunto de doze outros. A troca deliberada vai por POST /produtos/versao/uuid,\nem lote, com motivo obrigatorio, e o numero antigo fica no metadado da versao.\nO item de pedido da mapoteca acompanha por ON UPDATE CASCADE.\n\nDe quebra, o ods_export ganhou titulo e rodape (o Anuario precisa dos dois), e\no guardrail do acervo_cli parou de exigir confirmacao no --dry-run, que era o\ncontrario do que a propria mensagem dele oferecia.\n\nTestes: 900 no servidor, 698 no client. A migracao passou no ensaiar_migracao\n(migrado == instalacao nova, e idempotente).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5505e74",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5505e74a41abe5e431d475aa981c1322091caca6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T17:33:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-31: a ficha do acervo ganha imagem, e a amostra de oito nao era o universo\n\nA sessao entregou a miniatura do produto no SCA e a reforma das duas fichas\n(acervo e ponto de controle), mas o que fica aqui e o que sobrevive a elas.\n\nMEMORIA SEMANTICA\n- wiki/controle-acervo: a miniatura como conceito, e POR QUE a pilha de\n  renderizacao e a que e. O chefe pediu para reduzir dependencia de binario\n  externo, e a medicao inverteu o pedido: o GDAL nao sai, porque so ele le\n  ERDAS .img e GeoTIFF Float32. Fica tambem a pendencia aberta de que o\n  download em PRODUCAO nao funciona, com a razao.\n- wiki/ti-infraestrutura: o NTP do servidor de dockers, e a armadilha do\n  padrao (timesyncd vazio cai no ntp.ubuntu.com, que resolve para IPv6 e nao\n  roteia; fica `active` sem nunca sincronizar). Mais o estado do container do\n  SCA sem os volumes do acervo.\n- subwikis/sca/rotas-acervo: a tabela, a rota da imagem com o cache proprio,\n  as duas bocas que preenchem e por que nenhuma delas e o confirm-upload.\n\nMETODO (o que muda como eu trabalho)\n- planejar-mudanca-sistema/learnings, tres entradas. Amostra de 8 virou\n  afirmacao sobre 292, e a distribuicao era outra (o chefe corrigiu). Escolhi\n  um indicador que nao conseguia enxergar o que eu estava afirmando, e o\n  empate dele quase me fez trocar o motor de PDF de 4.091 cartas. E a\n  observacao de que o pedido de otimizacao rendeu tres defeitos fora do\n  escopo, dois ativos em producao.\n- atualizar-dockers: a skill mandava usar um PuTTY que nao existe mais na\n  maquina. Trocado pelo OpenSSH do Git Bash com SSH_ASKPASS, que nao instala\n  nada. Entrou tambem o passo de CONSTRUIR ANTES DE DERRUBAR, porque o\n  start_docker.sh do controle_acervo apaga a imagem antes do build e um build\n  que falhe deixa o servico sem para onde voltar.\n- env-guia: caminho de Windows em `.env` vai com barra normal. Entre aspas\n  duplas o dotenv expande escape, e `\\bin` virou um backspace que custou 262\n  falhas silenciosas numa carga.\n\nLIVRO-RAZAO\nQuatro eventos. `verificacao-vazia` chegou a 23 eventos em 20 areas, e duas\ndas quatro sao dela: conferi que a chave do `.env` existia, e nao que ela\nRESOLVIA; conferi a tela sem rolar, e o defeito morava na rolagem. A classe\natravessa areas demais para tratar skill a skill, e a proposta de texto para o\nCLAUDE.md foi levada ao chefe, sem editar o nucleo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bfe3010",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bfe3010353e80f581b64cc59c7d79ca5d050a417",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T17:20:53.000Z",
+      "author": "Maj Diniz",
+      "message": "ficha do ponto de controle: o mapa responde onde o ponto fica\n\nMesma reforma da ficha do acervo, pedida pelo chefe. A ficha era uma pilha de 56\nlinhas rotulo-valor, todas com o mesmo peso: a latitude com oito casas decimais\nsaia igual ao \"Fuso\", e os arquivos ficavam no fim, depois de sete blocos.\n\nO LUGAR. Um ponto de controle E uma coordenada, e a ficha nao dizia onde aquilo\nfica: para saber, era preciso copiar o par e colar noutro programa. Um mapa abre\njunto do resumo. E o que a miniatura da carta e para o acervo, a resposta que o\ntexto nao da. Nao custa download extra: a tela de pontos ja carrega o MapLibre\npara o mapa da lista, entao aqui o modulo vem do cache.\n\nA HIERARQUIA. Coordenada, altitude, metodo e data sobem para a faixa de fatos,\ncom o valor grande e o rotulo pequeno. Os ARQUIVOS sobem logo depois, porque sao\no que a pessoa veio buscar. A monografia passa na frente do pacote: e ela que se\nabre para conferir o ponto, e o pacote de 20 MB e o que se baixa depois de\ndecidir. Os sete blocos de detalhe descem, que e onde se confere.\n\nCOPIAR A COORDENADA. Um ponto de apoio existe para ser usado noutro programa. O\nbotao copia o par CRU, com ponto decimal e todas as casas, e nao o texto\nformatado da tela: virgula decimal ou casa perdida viram erro de metros.\n\nAs classes `ficha-*` vem do acervo e NAO sao copiadas: as duas fichas moram no\nmesmo modulo e na mesma folha de estilo.\n\nDOIS DEFEITOS, e o segundo so apareceu porque o primeiro foi testado.\n\nO interruptor \"Mostrar campos nao preenchidos\" era `sticky` e passava por cima do\nconteudo ao rolar, com o fundo cobrindo so parte da largura (chefe: \"fica voando\nquando da scroll down\"). Em vez de sangrar o fundo ate as bordas da area\nrolavel, a causa saiu: ele so governa os blocos de detalhe, entao agora fica\nimediatamente acima deles e rola junto.\n\n`Number(null)` e ZERO, e nao NaN. Um ponto sem coordenada nenhuma abriria o mapa\nna posicao (0, 0), no golfo da Guine, com toda a confianca do mundo. Achado pelo\nteste do caso \"sem coordenada\", que so existe porque o mapa passou a existir.\n\nJunto vai o alinhamento da faixa de fatos (`align-items: start`), que conserta\ntambem a ficha do acervo: o metodo de posicionamento quebra em tres linhas, e o\n`stretch` padrao fazia os fatos de valor curto descerem para a base da linha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d906ce0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d906ce0db8dbdb2295237287e96058aee39d5f2c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-07-31T17:08:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-07-31: o acervo aprende a guardar o layout de quem entregou\n\nCinco decisoes (cont. 22 a 26) e a licao que atravessa todas: o acervo passou a\nreceber dado que NAO se pode normalizar sem quebrar.\n\nO `.img` do ERDAS tem 34 KB e guarda dentro de si o nome do `.ige` de 8 GB, onde\nestao todos os pixels. Renomear para o padrao derivado quebraria o produto, e\nnenhuma auditoria pegaria. Dai o `layout_origem` no volume e o registro SEM copia\nde byte, com o `confirm-upload` validando o sha256 do arquivo onde ele ja esta.\nConceito na wiki (controle-acervo), metodo e custo medido no learnings da\ncadastrar-acervo.\n\nO que a memoria ganhou, em uma linha, porque o resto e pesquisavel: a excecao ao\nnome derivado existe e tem nome.\n\nSEIS CORRECOES NO LIVRO-RAZAO, e duas familias reincidem:\n\n- `verificacao-vazia` (2 hoje, 5 no mes): o Joi aprovava produto com hash\n  parcial, porque schema mede FORMA e nao completude; e eu testei a pagina\n  achando que testava o `mapa.js`, que nao tinha teste nenhum. A pergunta que\n  pega as duas: o que falha se eu reverter isto?\n- `regua-cega` e `afirmado-sem-medir`: conclui que o codigo nao tinha subido\n  medindo o servidor ERRADO (o SCA_URL aponta producao) com um cliente que\n  filtrava a coluna, e derrubei o servidor do chefe a toa. E disse \"tres vezes\n  mais devagar\" a partir de uma amostra, quando medir dava 11%.\n- `alvo-largo-demais`: replace por regex sobre arquivo que eu mesmo tinha acabado\n  de editar, duas vezes no mesmo dia. Regra nova: replace em massa roda ANTES da\n  edicao a mao, nunca depois.\n\nPODA: learnings da cadastrar-acervo estava em 31,8 KB e foi para 15,3, com cinco\nsessoes datadas indo para a camada de detalhe. Split lossless conferido por\ntamanho (37.266 -> 37.290, os 24 a mais sao o cabecalho do indice novo).\n\nEntram tambem tres arquivos da sessao paralela (lancar-orcamento, rotas-orcamento\ne controle-orcamentario), a pedido do chefe.\n\nlint-wiki zerado nos onze checks. MEMORY.md em 4.791 de 6.000.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3734055",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3734055ce9ae6814247e43bef36ef9bfef231259",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T17:07:40.000Z",
+      "author": "Maj Diniz",
+      "message": "ponto de controle acompanha o gesto da busca, e o pintor do botao vira compartilhado\n\nO chefe pediu a mesma inversao das duas telas: o cartao abre a ficha, o botao do\nrodape seleciona. Elas ja compartilham cartao e barra de selecao, entao gesto\ndiferente entre uma e outra seria a pessoa reaprendendo a interface ao trocar de\naba.\n\n`pintarBotaoSelecao` sobe para `selecao.js`, ao lado da `criarSelecao` que as duas\nja importam. Duplicar as quinze linhas faria as telas divergirem no primeiro\najuste, e o `aria-pressed` e justamente o tipo de detalhe que se corrige num lado\ne esquece no outro.\n\nMutacao: revertendo o gesto do cartao, cai o teste que descreve o comportamento\nnovo. Suite do client: 690 testes, 73 arquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "768f413",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/768f4132898deac7e00089f9ce49020b6678f9a5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-07-31T16:45:42.000Z",
+      "author": "Maj Diniz",
+      "message": "busca do acervo: o clique no mapa pega a pilha inteira, e o cartao abre a ficha\n\nTres mudancas pedidas pelo chefe em 2026-07-31, e as tres saem do mesmo fato: a\nsobreposicao deixou de ser excecao neste acervo.\n\n1) O CLIQUE NO MAPA PEGA TODOS OS POLIGONOS SOB O CURSOR\n\nA mesma folha tem Carta Topografica, CDGV, Ortoimagem, MDS e MDT, e os cinco\ngravam a MESMA moldura por INOM. Depois da carga do Convenio RS isso virou o\ncaso comum, nao o raro.\n\nLendo so `features[0]`, o clique escolhia um deles por um criterio que nao\naparece na tela (a ordem de desenho) e os outros quatro ficavam INALCANCAVEIS\npelo mapa: nao existia ponto onde clicar para chegar neles.\n\nA pilha vai inteira, deduplicada (o MapLibre repete a feicao que cai em mais de\num ladrilho) e na ordem de cima para baixo, que e a que a pagina usa para\ndecidir qual cartao destacar.\n\nA selecao e TUDO OU NADA (`alternarVarios`): se a pilha ja esta toda marcada, o\nclique tira a pilha toda; senao, completa. Alternar item a item faria o\nresultado depender do estado anterior de cada poligono, e o mesmo clique\nremoveria uns e acrescentaria outros. Quem clicou pediu \"estes\", nao \"inverta\ncada um destes\".\n\n2) O CARTAO DA LISTA ABRE A FICHA\n\nO cartao mostra um resumo, e o gesto natural sobre um resumo e \"quero ver o\nresto\". Ele continua levando o mapa ate a carta: fechada a ficha, o poligono ja\nesta enquadrado atras dela.\n\n3) O BOTAO DO RODAPE, QUE ERA \"FICHA\", VIROU O DE SELECAO\n\nEle e botao de ESTADO, entao carrega `aria-pressed` e troca rotulo e icone. Sem\no aria-pressed o leitor de tela anuncia a mesma coisa no item marcado e no\ndesmarcado, e quem nao ve a cor do cartao nao sabe o que ja escolheu. O\n`min-width` no CSS existe porque \"Selecionar\" e \"Selecionado\" tem larguras\ndiferentes, e sem ele o rodape dancava a cada clique.\n\n`busca-cartao__ficha` continua no CSS: a tela de PONTO DE CONTROLE usa a mesma\nclasse e nao entra nesta mudanca.\n\nO QUE ESTAVA SEM TESTE. O `mapa.js` da busca nao tinha arquivo de teste nenhum,\nentao a logica do clique (a parte que de fato mudou) nao seria coberta pelos\ntestes da pagina, que chamam o callback direto. `mapa.test.js` entra cobrindo\npilha, ordem, ladrilho repetido, feicao sem id e clique no vazio.\n\nAchado de brinde: `enquadradoProduto` ficava fora do reset do dublê e vazava\nentre testes. So aparece quando alguem afirma sobre ele, e foi o que aconteceu\nao inverter o gesto do cartao.\n\nMutacao: revertendo o `features[0]` e o gesto do cartao, caem 6 testes, os\nmesmos 6 que descrevem o comportamento novo. Suite do client: 690 testes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5b682a1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5b682a185b4d8eeb890ac37504a202bc9a16a219",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-07-31T16:22:50.000Z",
