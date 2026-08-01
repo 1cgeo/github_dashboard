@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-01T16:05:32.743Z",
+  "lastUpdate": "2026-08-01T20:59:30.107Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-01T15:45:46.000Z",
+    "1cgeo/controle_acervo": "2026-08-01T20:09:41.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5552,
+    "totalCommits": 5561,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 201,
+      "1cgeo/controle_acervo": 210,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -170,6 +170,87 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T20:09:41.000Z",
+      "author": "Maj Diniz",
+      "message": "o ponto de controle chega ao QGIS, e o mapa embutido vira camada\n\nO plugin nao alcancava o schema `ponto_controle`: treze rotas, dado puramente\ngeoespacial, zero superficie no programa em que ele se le melhor. Esta e a parte\nde CONSULTA -- busca e download. A importacao da missao continua no plugin de\nponto de controle, com o GeoPackage validado em campo.\n\nEspelha a tela web (client/.../pages/ponto_controle/) gesto por gesto, e pelo\nmesmo motivo que ela espelha a busca do acervo: quem ja usa o sistema nao deve\naprender nada novo aqui. Mesmos filtros com quantitativo, mesmo \"so na area do\nmapa\", mesma exportacao, mesma leitura de cor por situacao. A ficha segue a\nhierarquia que ela ganhou em 2026-07-31 (fatos no topo, arquivos logo depois,\nblocos de conferencia embaixo), com as regras que sao faceis de perder: 9999 e\ncampo VAZIO e nao valor, e a coordenada que vale e a da GEOMETRIA -- as colunas\n`latitude`/`longitude` do plugin sao REAL, e na setima casa decimal isso ja e\n1 cm.\n\nTRES DIFERENCAS, todas por estar dentro do QGIS:\n\n1. O MAPA NAO E EMBUTIDO, E O CANVAS. A web desenha um MapLibre porque o\n   navegador nao tem mapa; aqui ele ja existe. \"Ver no mapa\" entrega uma CAMADA\n   categorizada por situacao, que se filtra, estiliza e cruza com o resto do\n   projeto. Usa /posicoes e nao a pagina: paginar o mapa afirma visualmente que\n   a consulta tem 50 pontos quando tem 500.\n2. O DOWNLOAD E EM LOTE. Na web se baixa um por vez, que e o que um navegador\n   faz bem. A pergunta de quem trabalha com apoio de campo e \"me da o pacote\n   destes trinta pontos\", e a resposta sai numa subpasta por ponto -- espelhando\n   como o servidor os guarda no volume, senao dois pontos com arquivo de mesmo\n   nome se sobrescreveriam em silencio.\n3. NAO HA IMPORTACAO. Um botao dela aqui prometeria um caminho que esta tela\n   nao tem.\n\nO download_file passa a honrar o Content-Disposition quando o destino e uma\nPASTA. Isso nao importava com um arquivo por vez; no lote, trinta pacotes\nchegariam sem extensao e ninguem saberia qual e .zip e qual e .7z. Le o\n`filename*` (RFC 5987) ANTES do `filename` ASCII, que e o que preserva o acento.\nEle passa a devolver o caminho escrito em vez de True, e continua falsy no erro:\n`if not ok:` segue valendo.\n\ngui/mapa_utils.py sai daqui porque a busca do acervo e a de ponto de controle\nfazem o mesmo gesto, e a busca passou a usa-lo em vez da copia. O bbox REPROJETA\nsempre: num projeto em UTM, mandar o extent cru enviaria metros, e o servidor\nrecusaria por estar fora do intervalo de latitude e longitude, com uma mensagem\nque nao explica que o problema e o CRS do projeto. O mesmo vale para enquadrar a\ncamada e para o \"ir ao ponto\".\n\nPerfil de CONSULTA no modulo acervo, como as rotas: ponto de controle e uma tela\ndo acervo, e nao um modulo proprio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01RmMzibEFmhUyzPPVA7E2x9",
+      "sha": "afa9ce2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/afa9ce240170438cc66b709f95fe45b40f711a5c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T19:40:23.000Z",
+      "author": "Maj Diniz",
+      "message": "o plugin da mapoteca volta a ser um cliente do modulo dele, e a fila para de esconder o pedido atrasado\n\nTres coisas quebravam trabalho de verdade, e as duas primeiras o plugin nao\nconseguia contornar sozinho.\n\nA confirmacao do download saia por POST /acervo/confirm-download, que e\nverifyPerfil('consulta') SEM modulo, ou seja, consulta no ACERVO. Quem atende\npedido tem operador na MAPOTECA e pode nao ter perfil nenhum no acervo: ele\nchegava ao fim de um download bem-sucedido e levava 403, os PDFs ficavam na\npasta, os tokens ficavam 'pending' e o cleanup_expired_downloads os marcava como\n'failed' 24h depois. O historico registrava falha em toda impressao que dera\ncerto. Agora e POST /mapoteca/impressao/confirmar_download, com o MESMO\nacervoCtrl.confirmDownload: acervo.download e uma tabela so, e duas\nimplementacoes divergiriam na primeira coluna nova. O teste guarda o 403 da rota\ngemea de proposito, porque o test_user da semente tem perfil nos dois modulos e\npor isso o caso real nunca aparecia.\n\nA tela lia GET /mapoteca/pedido, que passou a filtrar pelo ano de contexto do\nmodulo. O plugin nao tem seletor de ano, entao o pedido de dezembro ainda aberto\nem janeiro sumia sem aviso. Agora le /pedido/em_aberto, e junto saiu a constante\nSITUACOES_INATIVAS que vivia em Python: ela ja estava dois commits atras,\noferecendo para impressao o Remetido e o Aguardando producao.\n\ngetPedidoById era a quinta consulta que parte do item do pedido e a unica que\nescrevia a escala a mao. A mesma carta de escala personalizada saia \"Escala\npersonalizada\" ali e \"1:30000\" no download_impressao, e o avulso saia nulo ali e\n\"Sem escala\" la -- as duas telas que o plugin mostra na mesma sessao. Passou a\nusar os fragmentos, os quatro JOINs manuais viraram JOIN_PRODUTO_ITEM e o\ndenominador_escala_especial, que ninguem consumia, saiu.\n\nO item AVULSO tambem deixou de ser anunciado como \"sem PDF no acervo\":\nprepareDownloadImpressao devolve item_avulso e avulso_descricao, porque avulso\nnunca tera arquivo e item do acervo sem PDF e falta de verdade.\n\nNo plugin, alem disso: entrada barrada com explicacao para quem nao tem operador\nna mapoteca (em vez da janela vazia e um 403 atras do outro), fila ordenada por\nprazo com atraso e urgencia visiveis, filtro por localizador/cliente/documento,\nforma de entrega na tela, pasta lembrada entre sessoes, e o manifesto passa a\nlistar o pedido INTEIRO e a levar o localizador no nome -- dois pedidos na mesma\npasta se sobrescreviam.\n\ncore/api_client.py e core/file_transfer.py voltam a acompanhar o plugin do\nacervo, sem o cache de dominios, cujas rotas sao todas do acervo e voltariam 403\npara este usuario. Saiu o que nao tinha chamador: os sinais login_successful e\nfile_complete, has_active_threads e a estimativa de 10 MB inventada para arquivo\nde tamanho desconhecido.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e292106",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e2921065fd5ef299f8aa17884163d960cf159533",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T19:39:56.000Z",
+      "author": "Maj Diniz",
+      "message": "plugin do acervo: o que era copia entre dialogos vira modulo compartilhado\n\nQuatro modulos novos concentram o que estava repetido em cada dialogo: o cache\ndas listas de dominio de uma sessao, mais as constantes de codigo que viviam\ncomo numero magico (core/dominios.py); o par prepare/confirm do upload\n(core/upload_flow.py); a leitura da camada tabular do QGIS (gui/camada_modelo.py);\ne os campos do acervo (gui/campos_acervo.py).\n\nOs dialogos em lote, o de adicionar produto e os de versao passam a chamar esses\nmodulos em vez de carregar cada um a sua copia.\n\nEntram junto as telas de auditoria, de catalogacao de produto ja no volume e de\nnome padrao, e a edicao de volume ganha o layout_origem.\n\nDo lado do servidor, gerencia_ctrl acompanha, e contrato_leitura_escrita ganha\nos casos do que a tela le e escreve.",
+      "sha": "08117d7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/08117d7571d06b35f2d653708fdebca863053c13",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T19:39:47.000Z",
+      "author": "Maj Diniz",
+      "message": "guard: letra de unidade e UMA letra, e \"para:\\n-\" nao e caminho\n\nO bloqueio veio de uma mensagem em portugues: \"...localizar o arquivo de origem\npara:\\n- \" casava a regra de drive local como se `a:\\n-` fosse um caminho -- o\n\"a\" de \"para\", mais o escape de linha, mais o marcador de lista. O piso de dois\ncaracteres de caminho, que ja existia contra `:\\n`, nao alcanca este caso porque\no hifen da lista completa o par.\n\nToda frase terminada em \"para:\", \"pasta:\" ou \"mapa:\" seguida de `\\n-` cai no\nmesmo lugar, entao o remedio e a regra, e nao um `path-ok` na linha: marcador\nespalhado por falso positivo recorrente e o que ensina a ignorar o guard.\n\nO lookbehind nao afrouxa nada. Caminho real (\"C:\\Users\", \"dir=D:\\dados\",\n\"Y:\\share\") sempre traz aspas, espaco, sinal ou inicio de linha antes da letra,\nnunca outra letra.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e3a9174",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e3a9174f72301ac89f27c6ab9401eee02dacbed7",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T18:33:05.000Z",
+      "author": "Maj Diniz",
+      "message": "@\na lapide do arquivo excluido vira um modulo so, e para de custar uma ida ao banco por arquivo\n\nO bloco que copia o arquivo para acervo.arquivo_deletado e leva os downloads\njunto estava em TRES lugares (deleteArquivos, deleteVersoes, deleteProdutos),\ncom 21 colunas escritas a mao em cada copia. So o primeiro tinha teste, e por\numa rota, que provava a contagem e nao as colunas.\n\n1. O teste veio ANTES: __tests__/integration/exclusao_acervo.test.js, 10 casos\n   cobrindo os tres caminhos. Ele prova que toda coluna e copiada, que o status\n   vira EXCLUIDO, e que cada download vai para a lapide do SEU arquivo -- com\n   quantidades DIFERENTES de download por arquivo, que e o que faz uma troca de\n   vinculo aparecer. Achou de saida um comportamento que eu nao previa: a regra\n   de sequencia X-SIGLA recusa apagar a 1-DSG enquanto existir a 2-DSG.\n\n2. A extracao: arquivo/arquivo_deletado.js, na feature dona de acervo.arquivo,\n   pelo mesmo desenho de mapoteca/query_fragments.js.\n\n3. O N+1: como todo dado da lapide sai da propria acervo.arquivo, virou\n   INSERT ... SELECT com CTE. Apagar um produto com 400 arquivos era 2.000 idas\n   ao banco dentro de uma transacao, e passou a 4, independente da quantidade.\n\nO pareamento download -> lapide casa por uuid_arquivo (UNIQUE em acervo.arquivo),\ne nao pela ordem em que o banco devolve os ids: por ordem funcionaria hoje e\ntrocaria os downloads de dois arquivos no dia em que o plano mudasse, sem erro\ne com as contagens ainda batendo.\n\nJunto: o comentario do invariante 3c apontava er/acervo.sql:116 e o CHECK esta\nna 123. Referencia por numero de linha apodrece; trocada pela criacao da tabela.\nEra a unica citacao arquivo:linha em comentario no repositorio.\n\nserver/src/produto/produto_ctrl.js  -155 linhas\nserver/src/arquivo/arquivo_ctrl.js   -64 linhas\n\n471 (rapido) + 442 (banco) + 687 (client) + 181 (CLI) = 1.781 testes passando.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "7036fc2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7036fc25f93c5153afa19a3d9147d673abaf8e74",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T18:08:23.000Z",
+      "author": "Maj Diniz",
+      "message": "limpa comentarios",
+      "sha": "cf40c8a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cf40c8a821ed937b1b900cb314e25c5858f29840",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T17:36:55.000Z",
+      "author": "Maj Diniz",
+      "message": "o repositorio perde 7 mil linhas de bloat, e a suite de teste passa a provar o motivo da recusa e a rodar em pacotes\n\n1) DOCUMENTACAO. `docs/` sai inteiro (5 arquivos, 4.402 linhas). CLAUDE.md vai de\n364 para 178 linhas e README.md de 433 para 313: as decisoes ficam todas, o que\nsai e a narrativa da medicao, que ja vive no git. O CLAUDE.md ganha secoes\n(autenticacao, interface, mapa, busca, RPCMTec, acervo, dependencias) porque a\nlista corrida de 30 bullets ja nao se navegava.\n\n2) CODIGO MORTO. O achado grande e `utils/ods_export.js`, que perde 269 linhas:\nquando o Anuario e o RTM passaram a sair de semente (2026-08-01), o construtor de\n.ods do zero -- criarOds, sendOds, estilos, celula, letraColuna, partesData --\nficou sem nenhum chamador. Sobrou o ZIP, que e o que os dois geradores usam; cada\num tem o proprio escaparXml. Junto caem COLUNAS_ANUARIO_ODS e COLUNAS_META4_ODS,\nque alimentavam esse construtor, mais `utils/escape.js` (arquivo inteiro, sem um\nso importador), getAnuario, getDominiosPontoControle, PRODUTO_INOM, os cinco\nbg*.svg que nada referencia e a referencia a src/js_docs no package.json, que\naponta para pasta inexistente. O `.dev/` duplicado sai de dentro do plugin, e nao\nda raiz: o da raiz liga os DOIS plugins, o de dentro so ligava um.\n\n3) A SUITE RODA EM DOIS PACOTES, com um banco POR WORKER. Eram 366 segundos para\nqualquer mudanca, porque os arquivos de banco compartilhavam um `sca_test` so e o\ncleanTestData() faz TRUNCATE nas tabelas inteiras: dois workers em paralelo\napagariam os dados um do outro. Agora o globalSetup monta um TEMPLATE e clona\nsca_test_1..N dele (CREATE DATABASE ... TEMPLATE e copia de arquivo; rodar os\ner/*.sql N vezes sairia mais caro que serializar), e worker_db.js escolhe o banco\npelo JEST_WORKER_ID. test:rapido 3s, test:banco 181s, suite inteira 183s.\n\nQuem entra em qual pacote sai de LER O FONTE, e nao de uma lista, que seria\ncopia. Sao DOIS sinais: alem de helpers/db, vale helpers/app, porque o getApp()\ndele chama db.createConn(). O routes/auth.test.js usa so o segundo, e com um\nsinal so ele caiu no pacote rapido e derrubou o worker em vez de falhar com\nassercao.\n\n4) TESTE DE SCHEMA PROVA O MOTIVO. `expect(error).toBeDefined()` passa quando o\nfixture quebra por outro campo: medido no schema de arquivo, o caso do tileserver\npassava igual com o `nome` quebrado, entao a regra do titulo nao estava guardada.\nO helper __tests__/helpers/joi.js confere error.details[0], que com o abortEarly\ndo Joi e o PRIMEIRO erro. Os 8 arquivos de schema vao de 177 casos para 116, e o\nreforco achou tres coisas: `arquivos_ids: []` e recusado por\narray.includesRequiredUnknowns e nao pelo .min(1) que esta no schema (o item\ndeclarado .required() cobra antes); versaoRelacionamento usa a outra construcao e\nda array.min; e a UNIQUE da NC responde 409, nao 400.\n\nSaem tambem os ~25 casos que exercitavam o Joi e nao a gente (should require\nnome, should reject negative page), o http_code.test.js inteiro (afirmava que\nhttpCode.OK === 200 e exigia \"exatamente 11 codigos\", friccionando para\nacrescentar codigo sem provar nada) e o caso do format.test.js que aceitava as\nduas respostas possiveis, entao nao podia falhar.\n\n5) O ORCAMENTO GANHA TESTE CONTRA BANCO DE VERDADE. Ate agora nenhum SQL do\nmodulo era executado em teste nenhum: os 13 controllers rodavam contra mockDb, o\nque prova o mapeamento de parametro (nota_empenho_id -> notaEmpenhoId, bug real\ncom o $<param> do pg-promise) e nada sobre a consulta --\nexpect.stringContaining('INSERT INTO orcamento.rpnp') passa com o SQL inteiro\nquebrado. O integration/orcamento.test.js cobre SO o que exige banco: as regras\ndentro de db.conn.tx com agregacao lida do banco (o teto da liquidacao, a soma\ndas alocacoes da NE), a traducao de UNIQUE e FK do PostgreSQL para status\nlegivel, e o encadeamento NC -> NE -> liquidacao. O caso que so o banco pega: duas\nliquidacoes de 600 num empenho de 1000, cada uma cabe e a soma nao.\n\n6) DOIS DEFEITOS PRE-EXISTENTES, achados ao rodar. O dublê do MapLibre nao tinha\nMarker, e o mini-mapa do ponto de controle estourava dentro do on('load')\nassincrono: o client passava com 25 rejeicoes penduradas, que e onde uma falha de\nverdade passaria despercebida. E a suite dos CLIs nao estava ligada a script npm\nnenhum, entao um teste do orcamento_cli vinha falhando sozinho desde 2026-07-31,\nquando as metas do PIT sairam do modulo: o lib/recursos.js acompanhou e o teste\nnao. Criado o `npm run test-cli`.\n\nServidor 903/903, client 687/687, CLIs 181/181.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a6339c9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a6339c9b2eee641f0f469d71f6336a45471956da",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T16:07:04.000Z",
+      "author": "Maj Diniz",
+      "message": "remove os dois scripts de server/dev/\n\n`add_comments.js` e `copy_to_src_total.js` eram utilitarios de uma so vez, da\nepoca em que o codigo foi reorganizado (c4d8503). Nao sao chamados por script de\npackage.json, por teste nem por nenhum modulo do servidor.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "dd9aecf",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/dd9aecf0a43fc274a9ca037daebfb2a7a8cce341",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T16:06:28.000Z",
+      "author": "Maj Diniz",
+      "message": "observacao do RTM vira so o DIEx, a 3.4 troca o documento pelo codigo da LAI, e o avulso deixa de aparecer como \"null\"\n\nTres ajustes pedidos pelo chefe depois de ver o relatorio com dado de producao.\n\n1) A COLUNA \"Observacoes\" DA ABA META4 LEVA SO O DIEx do pedido, e fica em\nbranco quando nao ha. Ela juntava o DIEx com a observacao do ITEM, e a observacao\ndo item e anotacao de quem imprimiu (\"Planilha anexa, linha 2 (INOM SG-21-Z-D).\nVersao 2a Edicao...\"), que nao e o que a aba do RTM documenta. Quem precisa dela\ncontinua tendo o CSV, que a traz em coluna propria. Medido: as 25 linhas do DIEx\n1687-3a Secao/3o RCG passam a trazer so o DIEx.\n\n2) A 3.4 (LAI e orgaos publicos) troca \"Documento de solicitacao\" por CODIGO DA\nLAI e ganha DESCRICAO. O DIEx e o encaminhamento interno da DSG e nao identifica\na manifestacao -- dois pedidos podem vir no mesmo --, enquanto o NUP do Fala.BR\n(60143.003284/2026-31) identifica e e por onde se responde ao cidadao. A\ndescricao e o que a pessoa pediu (\"Fotos aereas do municipio de Gravatai-RS\").\nA grade da coluna acompanha: a Descricao e a mais larga porque e prosa, e a\nlargura total continua a do modelo (9825).\n\n3) O ITEM AVULSO DEIXA DE SAIR COM ESCALA NULA. Ele nao aponta produto do\nacervo, entao `prod.tipo_escala_id` e nulo e a tela mostrava a palavra \"null\":\nera a fatia `null` do grafico \"Entregas por Tipo de Produto x Escala\" do\ndashboard da mapoteca, com 4 pedidos e 252 produtos. O tipo ja caia num balde\nexplicito (\"Impressao avulsa\") e a escala tinha ficado sem o dela.\n\nO COALESCE foi para o fragmento ESCALA_DISPLAY_ITEM, e nao para a consulta que\napareceu quebrada: a pergunta e sempre a mesma, \"como se ESCREVE a escala deste\nitem\", e deixa-la no chamador foi o que permitiu quatro consultas acertarem e uma\nesquecer. As cinco consultas que usam o fragmento passam a escrever \"Sem escala\".\n\nServidor 975/975, client 687/687.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8b45cec",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8b45cec4b900601bc6abaf33d189fa8160713573",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-01T15:45:46.000Z",
