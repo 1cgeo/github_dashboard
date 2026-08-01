@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-01T11:21:05.324Z",
+  "lastUpdate": "2026-08-01T16:05:32.743Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-07-31T20:39:19.000Z",
+    "1cgeo/controle_acervo": "2026-08-01T15:45:46.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5549,
+    "totalCommits": 5552,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 198,
+      "1cgeo/controle_acervo": 201,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -170,6 +170,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T15:45:46.000Z",
+      "author": "Maj Diniz",
+      "message": "tres numeros do RPCMTec so se provaram errados contra producao, e o RTM passa a sair da semente\n\nRestaurado o backup de producao (96 tabelas, 117.276 linhas) e gerado o relatorio\nem cima dele, tres numeros que passavam nos testes e pareciam plausiveis na tela\nestavam errados. Os tres sao da mesma familia: um campo que EXISTE mas nao quer\ndizer o que o relatorio precisa.\n\n1) A 3.3 EXTRA-PIT SAI DO GERADOR. Ela vinha de `previsto_pit = false`, e esse\ncampo e FALSE por default em 142 dos 158 pedidos de producao, porque quase\nninguem o preenche. A tabela listava 23 pedidos em julho/2026 onde a edicao real\ntraz 1, e a 3.1 dizia 485 produtos Extra-PIT onde a real diz 0. O Extra-PIT do\nRPCMTec e a excecao AUTORIZADA (o modelo tem coluna \"Documento autorizacao\"), e o\nSCA nao guarda o que a distingue de um pedido comum fora do PIT. As duas linhas\nde Extra-PIT da 3.1 cairam junto. Decisao do chefe.\n\n2) A % DA ASC PASSAVA DE 100. O numerador era o acervo INTEIRO, que guarda folha\nde fora da nossa area: a 1:50.000 Carta Topografica dava 943 sobre 927, ou 101,7\npor cento, num relatorio que o chefe assina. Agora `limites.area_suprimento`\nrecorta a conta (o poligono oficial do 1o CGEO, 694.301 km2, 61 pontos, semeado\nno er/ porque tem 2 KB). Com o recorte a 1:50.000 da 927 sobre 927 e a 1:250.000\nda 49 sobre 49 -- os dois fecham EXATAMENTE com o universo do RT 11/2025, e e\nessa coincidencia que prova que o poligono e o criterio (ST_Intersects) estao\ncertos. ST_Intersects e nao \"centro dentro da area\": o centro da 43 na 1:250.000,\nporque a folha de borda tem o centro fora.\n\n3) A VERSAO PLANEJADA ENTRAVA COMO PRODUTO ENTREGUE. Ela e a folha que o acervo\nainda VAI produzir, cadastrada para o item do pedido apontar; como acervo.versao\nexige data_edicao, grava-se a data do CADASTRO. Sem corte, uma promessa de\nproducao entrava como entrega: das 24 versoes com data_edicao em julho/2026, 16\neram planejadas -- 24 produtos anunciados onde foram 8, e 294 no ano em vez de\n278. As 16 nao tem NENHUM arquivo, contra 7.148 de 7.148 das regulares. Corrigido\nem integracaoCtrl.getProdutosFinalizados, o que conserta junto a rota publica do\nvault da DGEO, que tinha o mesmo engano.\n\nDepois das tres, a 2.2, a 2.4 e o \"no mes\" da 2.7 passam a fechar entre si, o que\nantes nao acontecia.\n\nA 2.2 e a 2.4 SAEM do gerador, por decisao do chefe: por enquanto elas nao vem do\nSCA. Sobram 13 subsecoes.\n\nA 3.4 ganha o CODIGO DA LAI: o NUP do Fala.BR (60143.003284/2026-31), que\nidentifica a manifestacao na Ouvidoria e e por onde se responde ao cidadao. E\nacrescimo ao modelo, que tem tres colunas; em producao 27 dos 33 pedidos civis\ntem NUP.\n\nO RTM (aba META4_DETALHADA) passa a sair de SEMENTE, como o Anuario. O conteudo\nja batia com o modelo -- as 15 colunas, o numero como numero, a data como data --\nmas o envelope nao: o modelo traz settings.xml (painel congelado, zoom) e\nConfigurations2/, e o gerador anterior montava o arquivo do zero e nao tinha\nnenhum dos dois. A semente e o arquivo real com as 1.628 linhas de dados\nremovidas: 29 KB contra 3,5 MB, e sem nome de OM nem quantidade entregue, que\nnao entram em repositorio publico. As DUAS rotas que exportam a aba\n(/api/rpcmtec/rtm/ods e /api/mapoteca/relatorio/impressao_detalhada_ods) chamam o\nmesmo gerador e produzem arquivo IDENTICO, provado por hash: dois caminhos para o\nmesmo arquivo com formatos diferentes e a divergencia que esta fusao existiu para\nacabar.\n\nNa tela, o Anuario vira so DOWNLOAD (o destino dele e uma aba de planilha, que se\nconfere no proprio arquivo) e o RTM ganha botao ao lado.\n\nServidor 975/975, client 687/687.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b702ee0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b702ee05d74a699ab27011d7137be5b26a350233",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T14:35:33.000Z",
+      "author": "Maj Diniz",
+      "message": "o RPCMTec vira um gerador so, fora dos tres modulos, no formato do documento da Divisao\n\nO relatorio era gerado em DOIS lugares que nao se conheciam: server/src/relatorio/\n(acervo e mapoteca) e server/src/orcamento/relatorio/ (o PDR). Cada um tinha a\npropria numeracao de secao, o proprio DOCX e a propria tela, e quem montava a\nedicao mensal colava um arquivo no outro, no Word, todo mes.\n\nO RPCMTec e o relatorio da DIVISAO: a mesma edicao fala de acervo, mapoteca e\norcamento, e o chefe assina uma so. Vai para server/src/rpcmtec/, sob\n/api/rpcmtec, com tela de plataforma em #/rpcmtec, e a edicao mensal muda de\norcamento.relatorio_rpcmtec para rpcmtec.edicao. Mesmo criterio que tirou\npit.meta do orcamento em 2026-07-31.\n\nA guarda e verifyAdmin, e nao verifyPerfil: o relatorio cruza os tres modulos e\ntraz valor de credito, de empenho e de liquidacao, e nao existe perfil de modulo\nque sirva de guarda para ele.\n\nA FORMATACAO E MEDIDA, e nao escolhida. As constantes de rpcmtec_docx.js sao\nvalores lidos do OOXML de \"RPCM Tecnico Julho_2026.docx\": Calibri, 12pt no titulo\ne no cabecalho da tabela e 10pt no corpo, preenchimento DDD9C4, borda de 1pt,\nlayout fixo com recuo -141, pagina Letter com margem superior de 990, e uma grade\nde coluna propria por subsecao (elas nao sao proporcionais entre si). Saem as 16\nsubsecoes que o SCA preenche INTEIRAS; o que fica de fora esta listado com o\nmotivo no ctrl e aparece na tela, para ninguem procurar o que nao existe.\n\nO ANUARIO ESTATISTICO passa a sair da planilha-SEMENTE da DSG, em vez de ser\nredesenhado. modelos/anuario_estatistico_5_4_9.ods e a edicao real de junho de\n2026, versionada: gerar e trocar so o valor das celulas da matriz no content.xml\ne reescrever o resto byte a byte (16 das 17 entradas saem identicas). Antes ele\nera montado do zero e tinha os numeros certos sem ser o arquivo da DSG, cujo\ndestino e uma aba conferida linha a linha. Toda celula de valor e reescrita,\ninclusive as que dao zero: deixar de escrever uma deixaria ali o numero da\nsemente num relatorio de outro mes. As formulas da semente viram valor de\nproposito -- ela traz Exercito = SUM(RM:EE) em varias linhas, e RM e EE sao\njustamente as duas colunas que o SCA nao sabe preencher.\n\nO QUE NAO FOI JUNTO: a execucao por ND que alimenta as tres abas do painel do\norcamento. Ela virou /api/orcamento/dashboard/execucao_nd, com\nverifyPerfil('consulta','orcamento'), porque o painel quer NUMEROS quebrados em\nPDR e Extra-PDR com linha de total, e o relatorio quer a visao do PDR ja\nformatada. Servir os dois da mesma rota obrigaria a guarda mais fraca a valer\npara as duas.\n\nmapoteca.tipo_material ganha categoria_id (Papel/Tinta/Outro), que e o que separa\nas tabelas 7.2 e 7.3. E COLUNA, e nao regra sobre o nome: \"comeca com Cartucho\"\nacerta o catalogo de hoje e cai calado no primeiro \"Tinta preta 300ml\". O default\ne Outro, para que material sem categoria fique FORA das duas tabelas -- faltar de\numa tabela e visivel, aparecer na errada nao e.\n\nLACUNA CONHECIDA, declarada na tela e no CLAUDE.md: \"Estoque mes anterior\" e\n\"Previsao de falta de estoque\" saem '-'. O estoque guarda so o saldo de hoje, e o\nvalor NAO e derivavel de estoque atual + consumo do mes, porque a conta ignora as\nentradas.\n\nDe quebra, er/limites.sql passa a declarar o PostGIS. Ele usa geometry e roda\nANTES de er/acervo.sql, o unico arquivo que criava a extensao: instalacao nova\npelo create_config.js morria em 'tipo \"geometry\" nao existe'. O banco de teste\nnao pegava porque o globalSetup do Jest cria as extensoes antes do laco.\n\nBanco em 1.11.0. As duas migracoes foram ensaiadas nos dois caminhos (banco\nantigo migrado e instalacao nova), inclusive nos NOMES de restricao: o SET SCHEMA\nherdava relatorio_rpcmtec_*, e a instalacao nova gera edicao_*.\n\nOs dois CLIs acompanham: `acervo rpcmtec` gera o relatorio inteiro (--docx,\n--anuario) e `orcamento secao3` sai, respondendo com a instrucao certa em vez de\n\"comando desconhecido\".\n\nServidor 962/962, client 687/687.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1e167e8",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1e167e8c5cd8f60b7dbafba614456f0c157152d4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-01T14:32:19.000Z",
+      "author": "Maj Diniz",
+      "message": "produto que ja esta no volume se cataloga por rota propria, e quem mede o hash e o servidor\n\nO layout_origem (2026-07-31) resolveu o NOME do arquivo de convenio. O custo do\ncaminho ficou de fora, e e o que POST /api/arquivo/catalogar/product resolve.\n\nPassar pelo par prepare-upload/confirm-upload cobrava por um trabalho que nao\nacontece nesse volume, porque nada se copia:\n\n  1. Duas leituras integrais do mesmo byte. O cliente lia o arquivo para\n     declarar o checksum e o confirm-upload lia tudo de novo para conferir uma\n     copia que nunca houve. Medido no LOTE_1 do Convenio RS: 362 GB relidos a\n     31-81 MB/s, de 1h20 a 3h so de releitura.\n  2. Essa releitura rodava DENTRO da transacao, aberta por horas. Queda de rede\n     no arquivo 900 de 1.000 desfazia os 899 anteriores, sem retomada parcial.\n  3. A checagem de espaco livre media a coisa errada: os bytes ja estao no\n     disco, o que falta e o registro.\n  4. O volume saia de volume_tipo_produto.primario, e aqui o volume e dado de\n     entrada. Como idx_unique_primario so admite um primario por tipo, catalogar\n     num volume que nao fosse o primario daquele tipo era impossivel.\n\nAgora o servidor le UMA vez, fora de transacao, e grava o checksum e o tamanho\nque ele mesmo mediu; a transacao abre so para os INSERTs. O cliente nao declara\nchecksum nem tamanho_mb, e manda-los e 400: descartado em silencio, ele\nacreditaria ter gravado o que mandou. Mesma politica do /atualizar-checksum.\n\nA rota so aceita volume com layout_origem = true. E essa a porta que a impede de\nvirar atalho para pular a validacao de transferencia no acervo comum.\n\nNao afrouxa nada que nao dependa de copia: unicidade fisica, identidade do\nproduto, sequencia de versao e existencia do arquivo continuam valendo. A\nidentidade e a sequencia viraram helpers compartilhados com o\nprepare-upload/product, em vez de uma segunda copia da regra.\n\nJunto vem a validacao de travessia de caminho em utils/caminho_volume.js, que\nNAO existia: path.join nao protege contra \"..\", e com a subpasta do fornecedor\nvirando o caso normal o corpo da requisicao escolheria qualquer arquivo da\nmaquina.\n\nCobre so produto novo; versao e arquivo avulsos continuam no prepare-upload.\nSem migracao: nenhuma coluna nova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0bb03cb",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0bb03cb2c45e600277dbfc686633797d99bb442a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-07-31T20:43:56.000Z",
