@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-02T16:04:54.921Z",
+  "lastUpdate": "2026-08-02T21:01:17.703Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-02T15:07:47.000Z",
+    "1cgeo/controle_acervo": "2026-08-02T19:21:32.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-02T13:07:07.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-02T19:38:14.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5567,
+    "totalCommits": 5571,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 214,
+      "1cgeo/controle_acervo": 217,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,49 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 475,
+      "1cgeo/chefe_dgeo": 476,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-02T19:38:14.000Z",
+      "author": "Maj Diniz",
+      "message": "o SCA vira dono da identidade e do rastro, e o auth sai da conta dele\n\nO PROJECT.md dizia \"falta absorver o sap e o servico-autenticacao\". Metade disso\ndeixou de valer em 2026-08-02: o SCA guarda o hash da propria senha, valida o\nlogin sozinho e cadastra usuario pela propria tela. Ele nao depende mais de outro\nprocesso para subir. O auth continua no ar para o SAP e o Gerenciador FME, entao a\npergunta mudou de lugar, e o texto foi reescrito no lugar de ganhar uma ressalva.\n\nEntra a secao \"O que o SCA leva pronto para a fusao\", com os dois ativos que o\nprojeto herda:\n\n- identidade, com bcrypt de custo 10, o mesmo do auth. A migracao de hash entre os\n  dois bancos ja aconteceu uma vez e ninguem trocou de senha por causa dela, o que\n  responde na pratica qual implementacao sobrevive a fusao;\n- rastro de mudanca, em `auditoria.evento`: uma tabela para os tres modulos e a\n  plataforma, escrita pelo backend dentro da transacao da mudanca, 41 tabelas por\n  142 pontos de registro, estado anterior e posterior em JSONB.\n\nO SAP nao tem equivalente. `acompanhamento.login` guarda o login e\n`controle_campo.track` o rastro de campo; nao ha tabela do estado anterior de um\nregistro. Absorve-lo e linha nova em `dominio.modulo` mais entrada no mapa, nao\nmodelo novo, que e a mesma propriedade do perfil por modulo.\n\nItem 10 reescrito: nao ha mais uma fonte so de identidade, e as duas divergem na\nprimeira troca de senha de qualquer lado. Item 11 registra que o rastro ja\nescolheu o UUID, sem FK de proposito, para o evento sobreviver a exclusao da\npessoa. Item 15 novo (o rastro nao expira e ninguem particionou a tabela, adiado\npor falta de volume medido), com o antigo 15 renumerado e o ponteiro acertado.\n\nNada afirmado de memoria: 41 tabelas e 142 pontos pelo mapa e pelo grep do\nservidor, ausencia de AUTH_SERVER no config.js, coluna sem FK e sem particao no\ner/auditoria.sql, 1.786 eventos por consulta ao banco restaurado, e as tabelas do\nSAP pelo er/ do repo. lint_escrita cai de 0,31 para 0,23 por 100 palavras; as\nquatro violacoes restantes sao anteriores a esta edicao. Guard limpo.\n\nFica em aberto: wiki/servico-autenticacao e wiki/controle-acesso ainda descrevem o\nauth como identidade central do SCA, e a linha-do-tempo nao tem a entrada de\n2026-08-02 sobre isso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CNignzB6xHTW478pwY19op",
+      "sha": "da9f86b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/da9f86b9c6ff5cf1ab76386ef8a3636c7c28e00a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T19:21:32.000Z",
+      "author": "Maj Diniz",
+      "message": "o RTM sai dos pedidos e vira acumulado ate o mes, na tela do RPCMTec\n\nDuas mudancas do chefe, e as duas sao sobre o mesmo envio mensal para a DSG.\n\n1. O BOTAO DA PLANILHA DO RTM SAI DA TELA DE PEDIDOS. Ele morava la desde\n   2026-07-29 com a razao de que \"a planilha sai dos pedidos, e e nesta tela que\n   se esta quando se percebe que falta lancar algo\". O envio para a DSG, porem, e\n   montado na tela do RPCMTec, onde ja estavam o Anuario e o DOCX -- e aquela\n   tela so tem seletor de ANO, entao era o unico lugar em que o RTM nao teria\n   como respeitar o mes.\n\n   A ROTA `/api/mapoteca/relatorio/impressao_detalhada_ods` continua no servidor,\n   anual, para agente e CLI. O que saiu foi o caminho do client: o botao, a\n   funcao do service e a entrada na fabrica de mocks.\n\n2. O RTM PASSA A SER ACUMULADO ATE O MES. Escolher 2026 com marco traz janeiro,\n   fevereiro e marco. Ate aqui o `mes` chegava a rota e era IGNORADO\n   (`const { ano } = req.query`): trocar o mes devolvia sempre o mesmo arquivo do\n   ano inteiro, e nada na tela dizia isso.\n\n   E o UNICO dos tres downloads que acumula. O DOCX e o Anuario ja eram do MES e\n   nao mudaram -- conferido antes de mexer, e por isso nao ha commit para eles.\n   O rotulo do botao carrega o mes escolhido (\"Baixar RTM ate Agosto\"), porque o\n   botao e o unico lugar em que essa diferenca aparece: \"Baixar RTM (ODS)\" ao\n   lado dos outros dois se leria como se os tres fossem do mesmo periodo.\n\n   O nome do arquivo tambem leva o mes. Dois arquivos de 2026 com o mesmo nome e\n   conteudo diferente e o jeito certo de mandar o errado para a DSG.\n\nO recorte usa `p.data_pedido`, que e a MESMA coluna que o filtro de ano ja usava:\nacrescentar o corte de mes numa coluna e trocar a coluna sao mudancas diferentes,\ne a segunda mudaria em silencio o que a aba conta. O `mes` e opcional em\n`getRelatorioPedidosDetalhado`, entao sem ele nada muda -- que e o caminho da\nrota gemea da mapoteca.\n\nO filtro cumulativo ja existia em `query_fragments.filtroPeriodoMes`, com o modo\n`cumulativo` documentado como \"acumulado no ano ate o mes, como exige o RPCMTec\".\nEle so nao estava sendo usado aqui.\n\nVerificado contra o backup de producao: mes 3 devolve 45 KB, mes 6 devolve 65 KB\ne mes 12 devolve 70 KB, e a rota gemea da mapoteca continua nos mesmos 70 KB do\nano inteiro. Tres casos novos em routes/mapoteca.test.js provam o acumulado, o\nlimite superior inclusivo, o nao vazamento para o ano seguinte e o caminho sem\nmes. 906 testes do cliente, 731 do servidor, guard limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CNignzB6xHTW478pwY19op",
+      "sha": "24f17e9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/24f17e9595401f461563ea9f5bc56ad1f0410ca8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T19:02:20.000Z",
+      "author": "Maj Diniz",
+      "message": "o historico do pedido vira o historico de toda ficha, e a varredura pergunta o que mudou\n\nO chefe gostou da secao \"Historico do pedido\" e pediu mais dela. Ela ja era o\ncomponente compartilhado `components/historico/`, e por isso acrescenta-la a\ncada ficha e uma linha de import e uma de montagem: e exatamente o que um\ncomponente compartilhado existe para permitir, e o motivo de nao te-la copiado\nquando o pedido a ganhou.\n\nEntrou em sete lugares, e o AGREGADO de cada um decide o que ele reune:\n\n  cliente        cadastro do cliente\n  material       o tipo, o estoque e o consumo -- inclusive o que o gatilho do\n                 banco descontou, que aparece com origem \"Efeito no banco\"\n  plotter        o equipamento e as manutencoes\n  nota_empenho   a NE, o rateio por NC, as liquidacoes e os recebimentos\n  dfd            o DFD e os itens dele\n  nota_credito   a NC\n  usuario        o cadastro, o perfil por modulo e a senha\n\nNas fichas que sao PAGINA a secao entra aberta, no fim. Nos tres que sao DIALOGO\n(DFD, NC e usuario) ela entra RECOLHIDA e so na edicao: o dialogo ja e um\nformulario cheio, e aberta ela cobraria uma consulta de quem so veio corrigir um\ncampo. Num cadastro novo nao ha o que mostrar.\n\nOnde a ficha se remonta a cada salvamento (material e plotter), o historico e\nmontado DENTRO do `load`, porque a pagina nao guarda um `root` persistente; onde\nha `root` (cliente e NE), ele fica FORA, senao seria destruido e refeito a cada\nedicao.\n\nNA RASTREABILIDADE, o combo de ORIGEM deu lugar a SISTEMA e SUBSISTEMA (chefe).\nOrigem responde \"por qual porta a mudanca entrou\", que e pergunta de quem depura\no sistema; quem procura uma alteracao pergunta O QUE foi alterado. A origem\ncontinua no rastro e agora aparece LEGIVEL no detalhe do evento (\"Entrou por:\nInterface web\"), onde vinha crua.\n\nO subsistema DEPENDE do sistema, e a lista de cada um vem do servidor: sem a\ndependencia o combo ofereceria \"Notas de credito\" a quem filtrou a mapoteca, e o\ncruzamento devolveria vazio sem dizer por que. Trocar de sistema descarta um\nsubsistema que nao existe no recorte novo, pelo mesmo motivo. Os dois combos so\noferecem o que EXISTE na tabela: o que nunca gerou evento nao entra para virar\nfiltro que sempre devolve vazio.\n\nO sistema aparece SEMPRE, mesmo com uma opcao so: para o gerente de um modulo ele\ndiz de que recorte a tela esta falando, e esse recorte e do servidor, nao dele.\n\nVerificado contra o backup de producao: 1.786 eventos, `entidade=pedido` devolve\nos 1.786 e `entidade=cliente` devolve 0. 906 testes do cliente, 731 do servidor,\nguard limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CNignzB6xHTW478pwY19op",
+      "sha": "e27c4ff",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e27c4ffa03361d97bb86bd54e0cc2f4d33feee83",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T18:54:34.000Z",
+      "author": "Maj Diniz",
+      "message": "o sistema passa a guardar o que mudou, e a tela passa a dizer de que para que\n\nAte aqui o SCA respondia \"quem mexeu por ultimo\" e nada mais: a coluna de\nescrituracao guarda o ULTIMO que alterou, e a alteracao seguinte a sobrescreve.\nQuem mudou o valor da NE na semana passada, e para quanto, nao sobrevivia. E o\nDELETE apagava tudo. So o pedido da mapoteca tinha historico (2026-07-30).\n\nAgora ha `auditoria.evento`: UMA tabela para os tres modulos, escrita pelo\nBACKEND dentro da transacao da mudanca. Gatilho nao serve porque o Postgres ve a\nconexao do pool e nao a sessao HTTP (decisao do chefe, repetida em 2026-08-02); o\npreco e a rota nova que esquece de auditar, e quem cobra e um teste de varredura\npor modulo, que le o router de verdade.\n\nNumeros: 41 tabelas declaradas no mapa de entidades, 142 pontos de registro, 119\nrotas repassando o contexto. Promover alguem a administrador global e conceder\nperfil de modulo, que nao deixavam rastro nenhum, agora registram quem concedeu e\nqual era o valor anterior.\n\nO DEFEITO QUE ORIGINOU O TRABALHO era de LEITURA, e nao de gravacao. A tela do\npedido mostrava `campos_alterados.join(', ')`, ou seja o nome da coluna do banco\n(\"situacao_pedido_id, prazo\"), enquanto `dados_antes` e `dados_depois` chegavam\nna resposta e eram jogados fora. Hoje a linha diz\n\"Situacao: Em producao -> Concluido\", sem clique. O diff sai PRONTO do servidor:\nsao ~60 tabelas e ~25 dominios, e a tela de rastreabilidade mistura os tres\nmodulos numa pagina so, entao o cliente precisaria de todos os catalogos,\ninclusive dos modulos que a pessoa nao usa.\n\nO que NUNCA entra no JSON, e quem tira e o `sanitizar.js` e nao o chamador: o\nhash da senha, o `conteudo` BYTEA dos anexos e valor acima de 8 kB. A ordem e\ndiff primeiro e sanitizacao depois, senao a troca de senha deixaria de aparecer\n(nulo comparado a nulo nao acusa nada).\n\n`auditoria` e o unico schema sem UPDATE e sem DELETE para o usuario da aplicacao:\numa trilha que a propria aplicacao reescreve nao prova nada.\n\nDE CARONA, 33 funcoes ganharam transacao. Nao e efeito colateral:\n`nota_credito.deletar` fazia quatro comandos em quatro conexoes, e entre a\nchecagem de dependencia e o DELETE cabia outra requisicao criando a NE que a\nchecagem acabara de nao achar.\n\nTambem entram, a pedido do chefe: \"Usuarios\" virou secao de SISTEMA na sidebar,\nlogo depois do orcamento, com o dashboard (era \"Acessos\") na frente; e a tela de\nrastreabilidade foi revista olhando a tela de verdade, porque a barra de filtros\nnascia da `.filtro-barra` generica e escrevia \"Campo alterado\" duas vezes, e a\ncoluna do diff dava sete linhas de altura por evento, o que tirava da tela a\nunica coisa que ela precisa ser: varrivel.\n\nVerificado: 731 testes rapidos, 639 de banco, 906 do cliente, guard limpo. O\nensaio da migracao passa com --er-de HEAD (148 colunas, 69 restricoes, 42\nindices; migrado igual ao novo, e idempotente). O `ensaiar_migracao.cjs` aprendeu\na aceitar CADEIA de migracoes por causa deste par: a primeira sozinha para em\n1.13.0 e o er/ ja esta em 1.14.0, e a segunda sozinha nao provaria a sequencia.\n\nAplicado num backup de producao: 1.786 eventos do `mapoteca.pedido_auditoria`\nmigrados, tabela antiga derrubada, banco em 1.14.0.\n\nPENDENTE DE CONFIRMACAO DA CHEFIA, as duas registradas no codigo:\n- sem expurgo automatico e tabela nao particionada (particionar depois custa\n  migracao de dados);\n- teto de 8 kB por valor de geometria (subir depois nao recupera o que ja foi\n  gravado resumido).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CNignzB6xHTW478pwY19op",
+      "sha": "5812a0f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5812a0f62157106432161d26de707e4dfd745921",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-02T15:07:47.000Z",
