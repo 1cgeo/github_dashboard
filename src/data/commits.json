@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-01T20:59:30.107Z",
+  "lastUpdate": "2026-08-02T11:20:55.185Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-01T20:09:41.000Z",
+    "1cgeo/controle_acervo": "2026-08-02T10:48:07.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5561,
+    "totalCommits": 5563,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 210,
+      "1cgeo/controle_acervo": 212,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -170,6 +170,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T10:48:07.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no upload web vira uma chamada so, e quem nomeia o arquivo passa a ser o servidor\n\nO primeiro desenho do envio pela web reusava a maquina de sessao do plugin: tres\nchamadas (prepare, PUT dos bytes, confirm) e quatro tabelas _temp. O par\nprepare/confirm existe para cobrir a janela em que o PLUGIN sai para copiar os\nbytes por conta propria; no navegador os bytes vem DENTRO da requisicao, entao\nnao ha janela e nao ha o que a sessao cubra. E o mesmo raciocinio que o\n/catalogar/product ja registrava, e ignora-lo cobrava caro: sessao abandonada\nvirava linha pendurada em upload_session e .parcial no volume ate o cron de 24 h.\n\nHoje sao TRES rotas, uma requisicao cada, e a tela do assistente e a mesma nas\ntres:\n\n  POST /api/arquivo/upload-web/produto   produto novo + versao + arquivos\n  POST /api/arquivo/upload-web/versao    versao nova, com arquivos\n  POST /api/arquivo/upload-web/arquivos  arquivos em versao que ja existe\n\nA terceira e o que COMPLETA a versao PLANEJADA, que nasce sem arquivo de\nproposito e o recebe nesta MESMA versao quando a producao termina. Ela NAO muda\no tipo da versao: \"Planejada\" e \"Regular\" dizem coisas diferentes sobre a\npromessa, nao sobre ter byte, e o RPCMTec conta produto entregue por tipo de\nversao. E o volume dela e o dos arquivos que a versao JA TEM, e nao o primario\ndo tipo: a unicidade de nome fisico vale POR VOLUME, entao metade da versao num\nvolume e metade noutro deixaria de ser protegida contra colisao.\n\nO NOME FISICO NAO VEM MAIS DO CLIENTE. Ele sai de acervo.nome_arquivo_padrao, a\nmesma funcao que o invariante 7a usa para auditar -- \"auditor e escritor sao a\nmesma regra\" ja estava escrito em renomearPadrao, e o desenho anterior o\ncontrariava. O custo era medivel: cada envio pela web criava uma linha de DEFECT\nno 7a. Medido em 2026-08-02, um arquivo entrou como `carta_ensaio` onde o padrao\npedia `CT_s12_2757-1-NE_1dsg`. Pela mesma razao o cliente nao declara mais a\nEXTENSAO (ela sai do arquivo enviado; declarada, poderia dizer tif num PDF).\nMandar nome_arquivo, extensao, checksum ou tamanho_mb e 400.\n\nO padrao da UM nome por versao, e quem separa os arquivos e a extensao: dois\narquivos da mesma versao com a mesma extensao sao RECUSADOS, e nao\ndesambiguados com sufixo -- um _2 faria o escritor nomear diferente do que o\nrenomear-padrao e o 7a esperam.\n\nAchado ao testar: o teto do multer TRUNCA o fluxo em vez de derruba-lo. Sem\nconferir `stream.truncated`, o pipeline termina normal e o arquivo entra pela\nmetade, com um checksum calculado sobre a metade -- valido para sempre, e nada\ndepois o acusa.\n\nJunto:\n- produto e versao num passo so pela tela, com o produto PENDENTE ate a rota que\n  cria os dois: gravar antes deixaria casca sem versao a cada desistencia;\n- o parametro `web` das funcoes de prepare saiu (virou codigo morto), e com isso\n  a checagem de travessia de caminho passou a valer tambem no caminho do plugin;\n- o cancel-upload voltou a nao tocar em disco: a sessao agora so existe no fluxo\n  do plugin, onde o servidor nunca escreveu nada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "0272231",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0272231db83e1debea8284ef86c64a98f11b4546",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T09:15:51.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no acervo passa a se escrever pela web, e o servidor aprende a gravar no volume\n\nAte aqui o modulo acervo do client era 100% leitura, e todo cadastro passava\npelo plugin do QGIS, que exige QGIS instalado e acesso SMB ao volume. Quem nao\ntinha os dois nao catalogava nada.\n\nO metodo de definir a GEOMETRIA sai da ESCALA, e nao da vontade de quem\ncadastra: folha do SCN nasce do MI/INOM, calculado; fora do SCN vale o canto,\ncom desenho livre como escape. Nascendo do identificador, geometria, MI, INOM e\nescala ficam coerentes por construcao, e os invariantes 1d, 1e, 1g, 1h e 1i\ndeixam de ter como falhar em produto novo.\n\nutils/scn.js faz a decomposicao do SCN em SEGUNDOS DE ARCO (em grau, o 1/3 do\nnivel de 1:100.000 nao tem representacao binaria exata). Os tamanhos que ele\nproduz sao os do invariante 1e, e a profundidade em tokens mapeia para\ntipo_escala_id pela regra do 1d: sao a mesma regua. Conferido contra os 3.624\npares MI/INOM inteiros, com ida e volta exata.\n\nMI <-> INOM e TABELA, e nao formula: os CSV de utils/scn_dados/ vem do DSGTools\ne carregam a licenca de origem (GPL-2.0), com LICENSE-DSGTOOLS e atribuicao ao\nlado. Folha fora do territorio brasileiro nao tem MI, e \"esta folha nao tem MI\"\ne resposta, nao erro.\n\nO upload web reusa a maquina de sessao inteira, sem migracao: o servidor grava\nem <destino>.parcial e renomeia no fim, medindo o SHA-256 no MESMO passo da\nescrita. O cliente nao declara checksum nem tamanho (manda-los e 400), e o\nconfirm-upload pula a linha ja medida, senao refaria os 362 GB do LOTE_1 dentro\nda transacao.\n\nTres defeitos que so apareceram ao usar a tela:\n\n- data de versao recuava um dia. Joi.date() converte AAAA-MM-DD em meia-noite\n  UTC e a coluna e TIMESTAMP WITH TIME ZONE: edicao pedida em 01/08 voltava\n  31/07. O custo nao era a tela -- data_edicao e o que conta produto entregue no\n  MES, e por ele o RPCMTec. Agora e Joi.date().iso().raw(), o padrao da casa.\n- um Escape fechava TODOS os modais empilhados. modal-base.js passa a manter uma\n  pilha, e so o do topo responde ao Escape e ao Tab.\n- o rotulo do mapa da busca duplicava na folha que cruza ladrilho. Passa a sair\n  de fonte de PONTOS (ST_PointOnSurface), como o mapa da mapoteca ja fazia.\n\nJunto: POST /produtos/versao_planejada, GET /produtos/folha, produto_id\ninexistente devolve 404 nomeando o id em vez de 500, e as tres normalizacoes de\nMI viram uma so em utils/mi.js.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "38c8b72",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/38c8b72f9e5464972f9139105cf0fcb90d793195",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-01T20:09:41.000Z",
