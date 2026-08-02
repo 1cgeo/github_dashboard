@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-02T11:20:55.185Z",
+  "lastUpdate": "2026-08-02T16:04:54.921Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,13 +19,13 @@
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-25T10:44:10.000Z",
-    "dsgoficial/sap": "2026-07-25T19:10:01.000Z",
+    "dsgoficial/sap": "2026-08-02T13:06:40.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-02T10:48:07.000Z",
+    "1cgeo/controle_acervo": "2026-08-02T15:07:47.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-07-31T20:43:56.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-02T13:07:07.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5563,
+    "totalCommits": 5567,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -135,13 +135,13 @@
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 472,
       "dsgoficial/DsgTools": 625,
-      "dsgoficial/sap": 170,
+      "dsgoficial/sap": 171,
       "dsgoficial/SAP_Gerente": 116,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 212,
+      "1cgeo/controle_acervo": 214,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,49 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 474,
+      "1cgeo/chefe_dgeo": 475,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T15:07:47.000Z",
+      "author": "Maj Diniz",
+      "message": "a administracao do acervo sai do QGIS e vira tela, e a auditoria ganha rede\n\nVolume de armazenamento, volume x tipo de produto, projeto e lote so existiam no\nplugin do QGIS, o que exigia QGIS instalado para uma tarefa sem nada de\nespacial; as rotas sempre estiveram no servidor. Viram UMA tela com abas\n(`#/acervo/administracao`), e nao quatro itens de menu: sao cadastros que se leem\nJUNTOS, e a associacao volume x tipo nao se confere sem a lista de volumes.\n\nJunto vem a auditoria dos invariantes na web (`#/acervo/auditoria`), o grupo de\nDiagnostico e a aba de Manutencao. Os detalhes de desenho e as razoes de cada\nguarda estao no CLAUDE.md.\n\nInvariantes: entram 2e, 3i, 3j e 4h, e 4a/4f/4g passam a excluir o tileserver.\nO tileserver nao e byte no volume, e URL: o `er/acervo.sql` EXIGE dele checksum,\ntamanho e volume nulos, por CHECK. Sem o filtro os tres acusavam DEFECT em todo\ntileserver do acervo, um DEFECT que nao pode zerar porque zera-lo violaria o\nschema. Ninguem tinha percebido porque nao havia tela onde a contagem ficasse na\ncara.\n\nAchados da revisao desta leva, corrigidos aqui:\n\n- O caminho de FALHA do renome era codigo morto. `POST /arquivo/renomear-padrao`\n  responde HTTP 200 com `success: false` quando parte do lote falhou, e poe o\n  resultado inteiro em `dados`, com o `detalhe` dizendo QUAL arquivo travou. O\n  `api-client` tratava `!success` como excecao e descartava `dados`, entao o\n  ramo `if (d.falhas) { mostrarFalhasRenome(d) }` nunca rodava: um lote com uma\n  falha em quinhentos anunciava \"0 renomeado(s)\", porque o contador soma depois\n  do `await` que lancou, e nao dizia qual arquivo era. O teste nao pegava porque\n  mockava o SERVICO, e o duble resolvia onde o real rejeitava. Entra\n  `apiPostComFalhaParcial`, com teste no nivel do FETCH, que e a unica altura em\n  que o envelope existe. Erro de HTTP continua lancando.\n- `limite` do renome clampado na tela (1..5000). O campo e `type=number`, e\n  `min`/`max` do HTML nao impedem digitar: 6000 voltava um 400 com a mensagem\n  crua do Joi, e 0 virava 500 em silencio pelo `|| 500`. Mesmo cuidado que o\n  campo de ids do checksum ja tinha.\n- Dois em-dash em JSDoc, que o CLAUDE.md proibe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CNignzB6xHTW478pwY19op",
+      "sha": "5d1127a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5d1127a091cc6ce6b19809397ff308626392c29c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-02T14:48:15.000Z",
+      "author": "Maj Diniz",
+      "message": "a autenticacao vem para dentro, e o SCA passa a ser dono da identidade\n\nAte aqui `dgeo.usuario` era um ESPELHO: o SCA nao sabia validar uma senha, e\ntodo login virava um POST no Auth Server externo, noutro processo e noutro\nbanco. Isso custava tres coisas. O SCA nao subia com o outro servico fora do ar\n(`main.js` chamava `verifyAuthServer` antes de `startServer`). Cadastrar gente\nera trabalho em DOIS sistemas: criar la, importar aqui. E \"trocar a minha senha\"\nera uma tela que o SCA nao tinha e, do jeito que estava, nunca poderia ter.\n\nO catalogo de APLICACOES do Auth Server nao veio junto, por decisao do chefe:\nele existe porque aquele servico atende o SAP e o Gerenciador FME tambem, e\naqui a lista fechada tem duas linhas. Por isso `dgeo.login.cliente` e VARCHAR e\nnao tabela de dominio: a lista vive no Joi de `login/login_schema.js`, e a rota\nso grava o que ela mesma acabou de aceitar.\n\nO que muda:\n\n- `dgeo.usuario.senha` guarda o hash bcrypt e `dgeo.login` guarda o historico\n  de acesso. Banco na 1.12.0.\n- A coluna `senha` e ANULAVEL nos dois caminhos, e nao ha `SET NOT NULL` como\n  passo final, embora ele tenha sido planejado: `er/` declararia a coluna\n  obrigatoria e a migracao nao, e o `ensaiar_migracao.cjs` existe para provar\n  que atualizacao e instalacao nova convergem. \"Cadastrada e ainda sem senha\n  local\" virou estado de primeira classe: o login responde \"procure um\n  administrador\" em vez de \"senha invalida\", e a tela marca quem esta assim.\n- Ha UM caminho de conferencia de senha e um so de geracao de hash\n  (`login/senha.js`). `usuario/` importa dali em vez de chamar bcrypt por conta\n  propria: dois lugares escolhendo o custo divergiriam no primeiro ajuste.\n- Excluir usuario quase sempre falha, e esta certo: quem ja trabalhou no sistema\n  se DESATIVA. O 23503 vira frase que diz isso, em vez do 500 cru da FK.\n- Area Usuarios na interface, com gestao e o painel de acessos, mais a tela do\n  proprio perfil, que e o unico caminho para alguem trocar a propria senha.\n- `auth_cli` novo, no padrao da casa, e `scripts/copiar_usuarios_auth.js` para a\n  copia dos hashes entre os bancos, em ensaio por padrao.\n- Saem `AUTH_SERVER`, `USE_PROXY`, o `axios` e `server/src/authentication/`. O\n  plugin do QGIS perde Importar e Sincronizar, que chamavam rotas que sumiram.\n\nDois consertos que a suite cobrou pelo caminho e nao sao da fusao:\n\n- `cleanTestData` passou a restaurar os usuarios da semente. Um teste rebaixava\n  o `test_admin` e derrubava com 403 todos os seguintes, em arquivo que ninguem\n  tinha tocado.\n- Teto do pool sob teste. Sao dois pools por arquivo vezes os workers, e os dois\n  arquivos de teste novos levaram um arranjo que ja estava no limite para o\n  outro lado: hooks estourando 5s, cada hora num arquivo.\n\nATENCAO NO DEPLOY: entre aplicar a migracao e rodar a copia dos hashes, ninguem\nentra. Rode `scripts/copiar_usuarios_auth.js` em ensaio contra uma copia de\nproducao antes de usar `--aplicar`.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CNignzB6xHTW478pwY19op",
+      "sha": "6d37c58",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6d37c589f510908b8f39864874a46a7cbb42c542",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-02T13:07:07.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no RPCMTec tem NOVE secoes, e a skill de monta-lo a mao sai\n\nA numeracao mudou entre janeiro e julho de 2026 e ninguem tinha percebido.\nMedido no OOXML da edicao de julho/2026: nove secoes e 30 tabelas, contra as seis\nestaveis de fev/2025 a jan/2026. Quase toda subsecao mudou de lugar (lote 2.1 para\n2.3, mapoteca 2.4 para 3.2, PDR 3.x para 4.x, efetivo 5.1 para 6.1, divulgacao 6.x\npara 8.x) e nasceram a Secao 3, a 7 e a 9.\n\nO defeito era invisivel porque o vault CONCORDAVA consigo mesmo: a wiki, a\nreferencia da skill e os gatilhos diziam todos \"2.4 mapoteca\". Nada divergia,\nentao nada acusava. So o documento real reprovou, e por acaso, enquanto eu media o\nOOXML para copiar formatacao.\n\nPor decisao do chefe, a skill `gerar-relatorio-dgeo` sai inteira, com a referencia\n`rpcmtec-estrutura.md` junto: o relatorio passa a vir dos sistemas, e um metodo de\nremontagem a mao e uma SEGUNDA definicao do mesmo numero. A objecao foi dita uma\nvez, e o chefe manteve: o relatorio NAO vem inteiro (5.1, 5.2, 7.1, 8.1, 8.2, 8.4,\n8.5 e a Secao 9 nao tem gerador, e a 8.3 vem do doc_dgeo).\n\nPor isso a poda MOVEU antes de apagar. `wiki/rpcmtec` virou a fonte unica: esquema\ndas nove secoes, de-para da numeracao antiga, quem gera o que, o que nao sai de\nsistema e como se obtem (inclusive a licao de custo dos subagentes do resumo da\n5.1), mais o rodape `## Historico` do padrao de duas zonas. O `consultar_atos.py`,\n293 linhas de stdlib, mudou para a skill atualizar-doc-publica, dona do doc_dgeo.\n\nFica registrado que a RPCATec anual nao tem caminho: os geradores aceitam mes, nao\nano. A skill apagada dizia cobri-la sem que isso tivesse sido testado.\n\nDoze ponteiros vivos consertados. Varios ja estavam podres ANTES da poda:\napontavam o `consultar_acervo.py` (removido em julho), o `resumir_commits.py` (que\nnao existia mais na pasta) e a numeracao de 2025. Apagar a skill foi o que obrigou\na varredura que os achou. Sobrevivem de proposito as citacoes dentro dos\n`learnings-detalhado.md`, que sao registro datado e append-only.\n\nAbre 01-Projects/sistema-unico, com as quinze limitacoes do schema do SAP para o\nRPCMTec e a fusao (auth, SCA e SAP) medida pelo proprio relatorio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LNyatMAwKkk2E39EQXra1W\n@",
+      "sha": "362ae7c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/362ae7cfd67b29782ec4700f905251673af925a3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-08-02T13:06:40.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no RPCMTec do SAP passa a falar a numeracao e a formatacao do documento da Divisao\n\nO gerador tinha numeracao propria e defasada: a execucao por lote saia como\n\"2.1\", o Extra-PIT como \"2.6\" e o efetivo como \"5.1\". No modelo de julho/2026\nsao 2.3, 3.3 e 6.1. E o DOCX saia com a formatacao default do `docx`, entao quem\nmontava a edicao reformatava tabela a tabela no Word.\n\nAgora o SAP gera 2.1 a 2.6, 3.3, 6.1 e 6.2, com a grade de coluna, a fonte e o\npreenchimento LIDOS do OOXML do modelo (relatorio_docx.js, irmao do\nrpcmtec_docx.js do SCA). Duas coisas que o gerador do SCA nao precisava entraram:\n`w:vMerge`, porque a coluna Meta da 2.1 desce pelas linhas da mesma meta, e\n`w:gridSpan`, porque os tres totais da 2.6 ocupam as tres primeiras colunas.\nNenhuma subsecao sai dos dois sistemas, e ha teste que falha se invadir.\n\nA 2.1 nascia sem item e sem previsao de termino nas metas 1 a 3: as colunas\n`item`, `descricao`, `unidade` e `prazo` ja existiam em `macrocontrole.pit`, e so\no modulo de nao-producao as gravava. Nao era falta de coluna, era o CRUD de\nproducao deixando-as de fora.\n\nSo o NOME da meta exigiu migracao (banco 2.3.5). Ele nasce NULO, inclusive nas\nmetas antigas: o nome de um ano passado nao esta em lugar nenhum de onde deduzi-lo.\nEscrever os sete nomes como constante no gerador acertaria o PIT de hoje e\nmentiria calado no ano em que a meta 6 mudasse.\n\nO `prazo` e o `data_conclusao` recuavam um dia, mesmo defeito de projeto e lote do\nSCA: `Joi.date()` converte AAAA-MM-DD em meia-noite UTC e a coluna DATE lida em\nUTC-3 guarda o dia anterior. Curado com `.iso().raw()`.\n\nNa 2.2 o casamento e por CODIGO de `dominio.tipo_produto`, nunca por nome. Quatro\nlinhas do modelo saem com traco porque o SAP nao tem o dado (carga no BDGEx Op,\nbloco de MGCP contra folha, e produto de campo, que `controle_campo` nao\nquantifica). Traco diz \"nao conto\"; zero diria \"contei e deu zero\". O que nao cai\nem linha nenhuma entra em \"Outros produtos\", para o Total geral nunca ficar maior\nque a soma do que se ve.\n\nProvado por releitura do artefato: o DOCX gerado foi aberto como ZIP e o\ndocument.xml conferido contra o do modelo (grade, recuo -141, layout fixo,\npreenchimento DDD9C4, 12pt no cabecalho e 10pt no corpo, gridSpan e vMerge).\n178 testes do servidor, 47 do client, 69 do sap_cli, tsc --noEmit limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LNyatMAwKkk2E39EQXra1W\n@",
+      "sha": "12673a5",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/12673a59d30dd57bceb3bb9fb112d1356a859b79",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-02T10:48:07.000Z",
