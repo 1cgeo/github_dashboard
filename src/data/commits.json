@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-03T12:58:13.847Z",
+  "lastUpdate": "2026-08-03T17:13:17.754Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-03T12:37:46.000Z",
+    "1cgeo/controle_acervo": "2026-08-03T16:35:18.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-03T12:51:05.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-03T16:42:22.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5579,
+    "totalCommits": 5583,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 222,
+      "1cgeo/controle_acervo": 223,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,49 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 479,
+      "1cgeo/chefe_dgeo": 482,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T16:42:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-03: o excedente vira pedido, e a regua cega bate tres vezes no mesmo dia\n\nDois DIEx viraram quatro pedidos no SCA (160, 161, 162 e 163; 241 itens,\n1.518 exemplares). O do Cmdo CMS nao e impressao, e transferencia de exemplar\nexcedente, e por isso a nossa propria oferta entra como terceira fonte\nprimaria: ela e o TETO da quantidade. As 245 linhas pedidas cabiam nas 740\nofertadas, sem exceder estoque.\n\nA wiki ganha a etapa que faltava: destinacao de excedente tem ordem de\nprioridade, e transferir a outra OM e obrigatorio ANTES de destruir. A pagina\nsaltava da reducao direto para a proposta de destruicao.\n\nO livro-razao registra tres desvios. O que mais ensina e regua-cega pela\nTERCEIRA vez no mesmo dia, nas tres pelo mesmo mecanismo: escrevi a regra antes\nde olhar o dado. Aqui foi `data_edicao` no lugar de `versao_data_edicao`, e o\n`.get` devolveu vazio calado para 227 folhas, o que eu quase reportei como\nachado. O mecanismo unico que fecha os tres esta no learnings da retrospectiva:\nmaterialize o campo (um registro inteiro mais os valores distintos) antes de\nescrever regra, sonda ou juncao sobre ele.\n\nMEMORY.md podado de 89,3% para 79,9% do teto, com o detalhe datado indo para\n01-Projects/sistema-unico e para as paginas ja ligadas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HEJYsjW52tuC6nwnPAWYzY",
+      "sha": "f16cc07",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f16cc0798ed7c338aebd07c5e196599f0a2a9973",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-03T16:35:18.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca_cli: deduplicar pedido por (documento, cliente), nao so por documento\n\nO acharPedidoExistente casava NUP e numero de documento na base inteira,\nignorando o cliente. Um DIEx que encaminha a demanda de varias OM gera um\npedido POR CLIENTE sob um NUP so, e nesse caso o 2o cadastro caia DENTRO do\n1o: os itens de todas as unidades viravam um pedido unico, em silencio, e o\nrelatorio de entrega perdia quem levou cada folha.\n\nMedido em 2026-08-03 com o DIEx 7234-E4/Cmdo CMS (NUP 64286.011195/2026-94),\nque trouxe tres abas, uma por unidade (5a Bda C Bld, 15a Bda Inf Mec e 5a DE).\nO contorno na ocasiao foi --novo, que desliga a deduplicacao da rodada inteira\ne por isso troca um defeito silencioso por outro.\n\nA listagem devolve cliente_id como STRING, entao a comparacao e textual. Sem\nclienteId a funcao mantem o comportamento antigo, para nao quebrar chamador\nque ainda nao o informe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HEJYsjW52tuC6nwnPAWYzY",
+      "sha": "fa7b6bd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/fa7b6bd57897266bf989d4a1bc15e6967ff18d89",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T15:30:55.000Z",
+      "author": "Maj Diniz",
+      "message": "a proposta Finep vira projeto, e um CATMAT revela-se faixa e nao preco\n\nNasce 01-Projects/geoinformacao-inteligente, com nove documentos mais a lista\nde compra do laboratorio em .ods e os tres scripts que a geram. A DGEO responde\npor UM subprojeto, a Extracao Autonoma.\n\nO achado: o subprojeto tinha o texto dos catorze campos escrito e ZERO valor em\nreais, e o consolidado de R$ 44.938.868,35 foi fechado sem a nossa linha.\n\nA licao de metodo custou duas correcoes do chefe. Orcei um servidor em\nR$ 220.500,00 lendo o registro mais caro do CATMAT 476654, que era um IBM\nFlashSystem da Marinha; o mesmo codigo tem QNAP a R$ 6.515,48 e o equipamento\ncerto a R$ 46.497,00. Auditando os demais, sete dos 25 itens estavam acima da\nreferencia central e dois no teto exato da faixa.\n\nFica a regra: um CATMAT nao tem um preco, tem uma FAIXA. Leia a MARCA do\nregistro, use mediana de amostra limpa, prefira compra do proprio Exercito e\ndesconfie de codigo com menos de dez registros. Fornecimento COM instalacao e\nservico: CATSER e PNCP, nunca CATMAT.\n\nVinte e nove itens, todos com fonte verificavel, R$ 4.890.301,70. A auditoria\nsozinha economizou R$ 29.898,71.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "14784b9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/14784b9d10b28f6647d713206385e2c3847711dd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T14:56:44.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no PIT do ano inteiro passa a viver no SCA, e as duas abas do RTM se contradizem num item\n\nCarregado do RTM de julho/2026 para o `pit` do SCA, tudo pela API e conferido\nrelendo o banco: as 9 quantidades previstas que faltavam, as 16 execucoes\nmensais das metas de PRODUCAO (que a fusao nao trouxe do SAP porque dependem de\nmacrocontrole), as 5 metas que so existiam na planilha e o planejado mensal\ninteiro (93 celulas, somando os mesmos 10.085 da coluna Total).\n\nA 2.1 do RPCMTec passa a sair com as 42 linhas do RTM, com quantidade e\n\"Prontos\" em todos os itens.\n\nO que fica na wiki, porque volta:\n\n- as duas abas do PIT podem se contradizer, e o Total nao protege contra isso: o\n  item 1.11 e 1:25.000 na PLANEJ_PIT e 1:50.000 na EXEC_PIT, e a segunda e a\n  certa porque a primeira duplicaria o item 1.7. Conferir o rotulo entre as abas,\n  alem de somar os meses.\n- a ressalva da meta 4: a conta do remanejamento fecha com 252, e o 247 da\n  coluna Qnt do RTM e o numero que nao fecha com nenhuma das outras fontes.\n- \"Cancelada\" nao tem onde morar: `pit.meta` nao tem coluna de situacao, e as\n  duas capacitacoes canceladas de 2026 so se distinguem por terem quantidade\n  zero.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy\n@",
+      "sha": "9f05852",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9f05852d832a1912625e943a1eba155fc480c1cb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-03T12:51:05.000Z",
