@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-04T12:05:49.251Z",
+  "lastUpdate": "2026-08-04T16:56:31.783Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-04T11:26:01.000Z",
+    "1cgeo/controle_acervo": "2026-08-04T12:36:50.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -53,11 +53,11 @@
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
-    "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
+    "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-08-04T11:45:38.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-04T11:38:24.000Z",
+    "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-04T14:35:19.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5606,
+    "totalCommits": 5619,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 229,
+      "1cgeo/controle_acervo": 231,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -159,17 +159,134 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
-      "1cgeo/server-healthcheck": 3,
+      "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 142,
-      "1cgeo/chefe_dgeo": 493,
+      "1cgeo/autolabeller": 144,
+      "1cgeo/chefe_dgeo": 501,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T14:35:19.000Z",
+      "author": "Maj Diniz",
+      "message": "mapoteca: a 3a DE responde a oferta de excedentes, e o pedido e de carta ANTIGA\n\nO DIEx 4650-3a Secao/Cmdo 3a DE vira o pedido 164 no SCA (64 itens, 192 exemplares,\nlocalizador W3PU-JK75-PENZ). E a oitava resposta da campanha de excedentes, e a wiki\nregistrava sete.\n\nOrdem do chefe: nenhum item pode apontar a 1-DSG. A campanha transfere exemplar\nimpresso, e amarrar o item a producao moderna faria o registro prometer outra carta.\nIsso generaliza a regra da rodada 5, estreita demais: descarte a 1-DSG e fique com a\nedicao historica mais recente com arquivo, em vez de casar o ano do estoque contra\nversao_data_criacao (que resolvia so 18 das 28 folhas).\n\nAchados que ficam. A OM listou a NECESSIDADE dela e nao escolheu da nossa lista: so\n28 das 75 folhas tem exemplar em estoque. As 31 divergencias de nome sao renomeacao\nnossa entre a edicao de 1975 e a 1-DSG, e o INOM e o arbitro, batendo folha a folha.\nOnze folhas 1:100.000 ficaram fora porque o acervo so tem a 1-DSG delas; duas (2979 e\n2980) tem exemplar fisico e sao lacuna de CATALOGO, nao de estoque.\n\nArmadilha nova: conferir o cabecalho pela rota de LISTA acusa ponto_contato e\nobservacao nulos, porque a lista nao devolve esses campos. Confira pelo detalhe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0c86e2b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0c86e2b77563b4fa3c637162aad81d3d548334ba",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T14:35:02.000Z",
+      "author": "Maj Diniz",
+      "message": "efetivo: a auditoria do modulo vira frente de projeto, e a tela que pula vira norma\n\nO plano do conserto do modulo Efetivo do SCA entra como 01-Projects/sca-efetivo,\nligado ao sistema-unico pela lista de frentes abertas. A auditoria de 2026-08-04\nachou dois defeitos que sujam o RPCMTec, um calculo de aproveitamento que ja\ncontamina 2027 e o re-render do client.\n\nO learnings da planejar-mudanca-sistema guarda a regua: a queixa de conforto de uso\ncostuma esconder achado estrutural barato, e o gesto e MEDIR o salto antes de propor\narquitetura.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8bc824b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8bc824bdaf182e3cb8381a7a0c7700523aa4728e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-08-04T13:57:51.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: baseline pos-rodada 1, rota bloqueada B5 e tetos certificados\n\nBaseline da epoca constituicao-v1.4.0 atualizado para os numeros com P5 na\nbusca (commit 58a703b): ponderada -0.358127 nas 18 folhas. A coluna de\n2026-07-16 fica ao lado — MESMA epoca, portanto comparavel (nao e caso O5).\n\nCorrige defasagem: a contagem de supressoes estava documentada como 19; a soma\nmedida nos eval_result.json ja era 17 (TB 2 + IT 15), inclusive no baseline\nanterior. O alvo do programa (§1.3) passa a cobrar <= 17.\n\nRegistra no programa de pesquisa o que a rodada 1 mediu:\n\n- B5 (rota bloqueada): corrigir a ESCALA de um termo que o proxy ja tem. H1\n  espelhou a formula exata da emenda 1.4 para o grid (o proxy cobrava 25-60x a\n  mais) e grid_penalty moveu 0.000000 — desalinhamento real e INERTE, porque os\n  cruzamentos que restam sao forcados. So rende onde o termo e o vinculante.\n  O que rende e termo AUSENTE (H3), nao escala errada.\n\n- Teto certificado da convencao de regime C: convencao e 41,9% do score do\n  corpus e 46% dessa massa esta em rotulos de contêiner, mas e irredutivel —\n  convention = 1 - cantos_dentro/4, e qualquer valor estritamente entre 0 e 1\n  significa a caixa cavalgando a borda, que e violacao de R5. No espaco valido\n  a convencao de regime C e binaria. Dos 56 rotulos fora, 1 e recuperavel:\n  teto +0.000693/folha. Nao alocar mais agentes ai.\n\n- Teto de F6 (texto): evaluate.rebuild_glyphs reaplica enforce_line_breaks\n  incondicionalmente; so 7,1% dos rotulos tem forma legal e estavel que o\n  gerador nao produz.\n\n- Armadilha de medicao: cv2.fillPoly com vertices milhares de px fora da\n  imagem devolve mascara errada (deu 25x o teto real). Recortar ao extent em\n  espaco geografico antes de rasterizar.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "28c4f82",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/28c4f8218d4acf837f81b773eb54df218b264dda",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-08-04T13:56:44.000Z",
+      "author": "Maj Diniz",
+      "message": "perf: P5 (desambiguacao) entra na energia da busca — +0.0079 nas 18 folhas\n\nRodada 1 do programa de pesquisa (docs/programa-pesquisa-algoritmo.md),\nfamilia F2 (proxy-alignment). `_eval_candidate` nunca teve o termo de P5\n(ETA=2.0): a busca escolhia posicao CEGA a ambiguidade enquanto o score\ncobrava por ela. Novo `_ambiguity_cost`, espelho de\n`evaluate.compute_ambiguity_penalty` (cKDTree dos centroides pontuais\notimizaveis no gate_ctx, k=2), ligado nos tres pontos de decisao: laco de\ncandidatos, refinamento local e _quality_descent.\n\nEpoca inalterada (constituicao-v1.4.0) — so place.py muda.\n\n| base | baseline | H3 | delta |\n|---|---|---|---|\n| ponta_grossa (3) | -0.191380 | -0.185694 | +0.005686 |\n| porto_alegre (1) | -0.436075 | -0.425250 | +0.010825 |\n| tubarao (6)      | -0.301073 | -0.291618 | +0.009455 |\n| itaipu (8)       | -0.471500 | -0.464281 | +0.007219 |\n| ponderada (18)   | -0.366036 | -0.358127 | +0.007909 (2,2%) |\n| topo20_0013 (conformidade) | -0.150123 | -0.147000 | +0.003123 |\n\n0 violacoes nas 18 folhas; 17 supressoes antes e depois (nao e ganho comprado\ncom supressao); 17/18 folhas melhoram (a excecao e -0.000002, ruido).\n\nAuditoria adversarial (§5) nao conseguiu refutar:\n- ambiguity e o maior termo isolado nas QUATRO bases (corpus 0.00676 ->\n  0.00286, -58%) e responde sozinho por 64-158% do ganho liquido — nenhum\n  componente escondido carrega o resultado;\n- espelho proxy vs evaluate: divergencia maxima 0.000e+00 em 103 rotulos;\n- as quatro bases melhoram, inclusive as duas mais distantes entre si (POA\n  urbana 25k, Itaipu 50k), e a base Topo 2.0 (outro modelo, outro QGIS) —\n  o ganho nao depende de particularidade do EDGV 1.4;\n- reproduz byte a byte; pytest 149 passed.\n\nPerdas reais, declaradas: PG convencao +0.00144 (troca quadrante de honra por\ndesambiguacao), TB grid +0.00105, IT distancia +0.00141, e legibilidade piora\nem todas as bases (maior piora relativa na folha topo20_0013, +8%). E a troca\nlegibilidade->associacao que os pesos do score sancionam (leg x1, amb x2).\n\nRisco conhecido nao resolvido: `cKDTree` e importado em try/except; se o scipy\nfalhar, amb_tree=None e o termo P5 vira 0 SILENCIOSAMENTE, degradando para o\ncomportamento antigo sem aviso.\n\nAplicado em producao na folha MI 0013-2-NO (161 feicoes, 0 falhas).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "58a703b",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/58a703bb43dd16ef63a9be576070a9bdd81945f9",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T13:38:01.000Z",
+      "author": "Maj Diniz",
+      "message": "os sete RPCMTec de 2026 entram no SCA, e o PDF assinado e a fonte do mes\n\nCarga de janeiro a julho pela API, com julho fechado. Janeiro a junho saem do\nPDF ASSINADO de cada mes (formato de seis secoes) e julho do docx do formato de\nnove; um de-para de numeracao serve os seis meses.\n\nSeis digitadas que nao existiam no formato velho entram EM BRANCO, e nao por\ndeducao: o PDF assinado vai anexo a edicao, e escrever ali o que o documento nao\ntem faria o sistema discordar do papel que ele guarda.\n\nSo julho fecha, porque congelar congela tambem o calculado e o calculado\nresponde com o banco de hoje. Julho nao sofre disso, medido.\n\n105 subsecoes e 1.825 celulas conferidas no banco, com erro plantado que\nREPROVOU antes de aceitar; seis anexos batendo por sha256.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "bdbb9a2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bdbb9a21fb056c4175682082ce6e6b661c278853",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T13:07:07.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings: o docker-compose v1 do server7 remove o conteiner e nao o recria\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "96c4fa6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/96c4fa6917780bcdf71dddcd6d88962c6162ec4f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/server-healthcheck",
+      "date": "2026-08-04T12:52:33.000Z",
+      "author": "Claude (Chefe DGEO)",
+      "message": "healthcheck: a sonda usa 127.0.0.1, e nao localhost\n\nO conteiner ficava unhealthy ha quatro dias com o servico FUNCIONANDO: o log\nmostrava metricas de cinco servidores sendo gravadas a cada ciclo, e\nhttp://127.0.0.1:8082/api/dashboard respondia 200 de dentro do conteiner.\n\nQuem falhava era a propria sonda. O Node 18 resolve localhost para IPv6 e o\nservidor escuta so em IPv4, entao ela batia em ECONNREFUSED ::1:8082.\n\nAlarme que mente treina quem olha a ignora-lo, e e o mesmo painel que avisaria\nde uma queda de verdade.",
+      "sha": "5980502",
+      "htmlUrl": "https://github.com/1cgeo/server-healthcheck/commit/59805027e11ad0741f883671aad05ec88e4d6ed3",
+      "repoUrl": "https://github.com/1cgeo/server-healthcheck"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T12:39:23.000Z",
+      "author": "Maj Diniz",
+      "message": "projeto: rastreabilidade completa, as seis fases no ar\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "9af720a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9af720a6982911d8a95c1de340398eb01258aa97",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T12:36:50.000Z",
+      "author": "Maj Diniz",
+      "message": "a revisao do PIT ganha tela, e fecha a ultima lacuna de classe C\n\nFase 4 do plano de rastreabilidade completa. Com ela, os 23 agregados\nauditados do sistema tem painel de historico, e a lista de divida do guarda\n`entrega_do_rastro` fica VAZIA.\n\nO QUE FALTAVA. O modelo de revisao nasceu em 2026-08-04 para responder \"por que\na 4.2 virou 252\", e ficou sem tela: a revisao existia, registrava evento, e so\nse lia pela varredura geral, filtrando. Era o unico agregado nessa situacao.\n\nA TELA (#/revisoes_pit), ao lado das Metas do PIT no menu porque as duas se leem\njuntas -- a revisao e o que EXPLICA o numero que a grade mostra:\n\n  - lista as revisoes do exercicio, com estado, vigencia, assinante, quantas\n    metas altera e se o assinado ja voltou;\n  - \"o que ela altera\" traz cada meta com o valor ANTERIOR ao lado, e uma\n    etiqueta dizendo qual das tres operacoes a linha e (acrescenta, altera,\n    cancela). E a tela de conferencia contra o DIEx: sem ela, publicar era um\n    ato as cegas;\n  - publicar e um ATO, com dialogo proprio. Como campo do formulario de\n    metadados, alguem publicaria sem perceber ao corrigir o assinante;\n  - o documento assinado se anexa e se baixa dali. E a fonte primaria: foi\n    lendo os dois PDF de 2026 que se descobriu que o 247 da meta 4.2 era o R0, e\n    nao erro de planilha.\n\nA ROTA QUE FALTAVA NO SERVIDOR: DELETE /metas/revisoes/:revisaoId/meta/:metaId.\n`pit.meta_revisao` e esparsa, e as linhas de uma revisao SAO as alteracoes dela,\nmas nao havia caminho de volta: quem acrescentasse uma meta por engano so saia\npublicando o erro. A lacuna apareceu na carga do PIT de 2026, onde a meta 6.9\nteve de entrar no R0 marcada `cancelada` por nao haver como deixa-la AUSENTE.\n\nSo no RASCUNHO. Na revisao publicada essa linha e o que o relatorio daquele mes\nreporta, e remove-la reescreveria o passado. O evento cai no agregado da META,\nporque a pergunta que se faz depois e \"por que a 4.2 voltou a 247\".\n\nDOIS CONSERTOS no caminho:\n\n- `alteracoes` nao devolvia `meta_id`, e sem ele a tela nao teria como apontar\n  qual meta tirar do rascunho.\n- `cleanTestData` nao truncava `pit.revisao`: ela aponta `pit.exercicio` e nao\n  caia por CASCADE de `pit.meta`. O rascunho de um teste sobrevivia ao proximo e\n  batia no indice parcial `unique_rascunho_por_ano`, dando 409 em teste que nao\n  fala de revisao nenhuma. Ficou de fora quando o modelo nasceu.\n\n1.454 testes de servidor (12 novos, contra banco de verdade) e 926 de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "274a80b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/274a80bcf18b2980c4ea7599bc004164ddc339a0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T12:30:29.000Z",
+      "author": "Maj Diniz",
+      "message": "nucleo: cinco propostas represadas viram duas regras, e a regua de ancoragem vira script\n\nO chefe aprovou as cinco emendas ao CLAUDE.md que se acumulavam desde 2026-07-16. Elas entraram\ncomo DUAS linhas, agrupadas pela LACUNA que revelam e nao pelo caso que as gerou.\n\n\"Verificacao que nao pode falhar nao e verificacao\" funde tres: a releitura cobre a mesma EXTENSAO\nda escrita (2026-07-29, entrega da LAI declarada completa sem descer nas subpastas); a checagem so\nvale se REPROVA o estado anterior (2026-07-30, assert sobre quatro valores iguais imprimindo\nPROVADO sobre pagina em branco); e funcionalidade nova aciona-se uma vez antes de ser declarada\npronta (2026-08-04, a tecla da malha de colisao entregue sem nunca ter sido apertada). Entrou junto\na asserção de VARIANCIA antes de comparar ordem ou igualdade.\n\n\"Evidencia na mesa nao se descarta\" funde duas: o BLOCO de campos que a fonte apresenta junto\ntrata-se inteiro (2026-07-16, \"Data de Criacao\" e \"Data de Edicao\" com so a segunda aplicada em\ntres de quatro versoes); e duas medidas independentes que discordam indicam DEFEITO ate prova em\ncontrario, sendo a prova um teste e nunca uma explicacao (2026-07-21, Helmert dando +150 m e busca\ndireta dando -150 m, com a discordancia racionalizada por escrito).\n\nAs duas foram escritas em PTS estrito: o CLAUDE.md MELHOROU de 0,17 para 0,16 violacoes por 100\npalavras, com 154 palavras a mais.\n\nDE QUEBRA, A SESSAO MATOU UMA REGUA QUE JA NAO SEGURAVA. A ordem cronologica quebrou TRES vezes\nneste turno: numeracao importada do arquivo irmao, anchor no meio, e anchor numa linha que sessao\nparalela ja deslocara. Sao a 4a, 5a e 6a da familia. A regua de texto tem uma janela entre LER e\nESCREVER, e sob committer paralelo essa janela E o defeito. Nasce\n.claude/scripts/append_cronologico.py, que le o disco na hora, descobre o proximo (cont. N) do dia\ne grava no fim. Regra de classe: regua que falha tres vezes num turno nao precisa de reforco de\ntexto, precisa de codigo que feche a janela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "477ccec",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/477ccecbc49dc4d5034c057870b8b1e8075069da",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T12:14:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-04: o museu vira ambiente navegavel, e a orientacao do modelo e a decisao que manda\n\nO modelo 3DGS da Sala Historica General Malan passa a ser percorrido a pe no navegador, com colisao\nreal, pulo e marcadores explicativos. Ferramenta: manycoretech/aholo-viewer (MIT), que traz o\nrenderizador e o processador splat-transform.\n\nA REGRA QUE VALE PARA TODO MODELO FUTURO: a rotacao para Y-up vai no ARQUIVO, antes da voxelizacao.\nO modo de caminhada aplica gravidade em -Y e o renderizador nao rotaciona nada ao carregar, entao\nrotacionar so o objeto na cena gira o que se ve e nao o que se toca. O sintoma nao e mensagem de\nerro: e ver a sala e bater no nada. O eixo vertical se mede por densidade (o piso concentra 12,8%\ndos gaussianos numa faixa de 5 cm) e o sentido pela massa restante, nunca pelo nome do arquivo:\ntres PLY do mesmo museu estavam em tres referenciais diferentes.\n\nA COLISAO SE VALIDA NO ARQUIVO, O MOVIMENTO POR SIMULACAO. Decodificar o octree em Python antes de\nmontar qualquer viewer deu 91,6% de cobertura de piso e o ponto de nascimento, e o personagem\napareceu de pe no lugar certo na primeira tentativa. A aba em segundo plano pausa o\nrequestAnimationFrame, entao teste de fisica se faz com walk.update(1/60) em laco, deterministico.\n\nTRES CORRECOES, uma delas do chefe. Entreguei a tecla da malha de colisao sem te-la apertado (o\ncollision.glb do splat-transform traz so POSITION, sem normal e sem material, entao nao desenha).\nNomeei um objeto pelo palpite visual quando as 103 fichas do acervo trazem foto embutida. E li o\nestado da camera antes do primeiro quadro, quase consertando o que estava correto.\n\nNasce a skill modelo-gaussiano-navegavel, com os cinco scripts de sondagem, mais a pagina\ngaussian-splatting-navegavel e tres chaves MUSEU_*_DIR catalogadas no env-guia.\n\nAbertos: cerca de 10 quadros por segundo com a sala inteira em vista, e 8,4% de piso sem cobertura,\npor onde se cai. Publicar em container so depois de tratar os dois.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5713a78",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5713a78653f921db11a8e3bff71daa3b05ebab57",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T12:14:12.000Z",
+      "author": "Maj Diniz",
+      "message": "projeto: fase 3 no ar, e a intermitencia da suite era timeout de hook\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "3968f2e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3968f2e3c1fd4395b059c4aff868b679d6283817",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T12:11:57.000Z",
+      "author": "Maj Diniz",
+      "message": "as duas colunas de insumo que saiam traco passam a dizer algo\n\nFase 3 do plano de rastreabilidade completa. Nenhuma das duas pediu tabela\nnova.\n\nESTOQUE MES ANTERIOR vem da EDICAO FECHADA do mes anterior, que congelou a\npropria 7.2 no instante do fechamento. `mapoteca.estoque_material` guarda so o\nsaldo de HOJE, atualizado no lugar: o de maio nao existe mais la. E derivar de\n\"estoque atual mais consumo do mes\" ignoraria as ENTRADAS (compra,\ntransferencia do almoxarifado) e erraria calado todo mes com reposicao.\n\nE a comparacao que o relatorio quer, e nao um contorno: \"o que reportamos no\nmes passado\", nao \"o que o banco acha que era\". So edicao FECHADA conta -- ler\nde uma aberta daria um mes anterior que muda depois de publicado.\n\nPREVISAO DE FALTA vem do ritmo dos meses ja fechados, serie que passou a\nexistir quando o consumo do papel virou derivado da impressao. Media dos meses\nque TIVERAM consumo, e nao dos doze: dividir por doze num ano que comecou em\nmarco afundaria a media e empurraria a falta para longe. O mes corrente fica de\nfora, porque entrar pela metade puxa a media para baixo.\n\nMinimo de TRES meses para projetar. Abaixo disso a media diz mais sobre o acaso\ndo que sobre o ritmo, e a coluna sai '-'. As duas colunas continuam saindo '-'\nquando nao ha base, e isso e deliberado: numero inventado a partir do saldo de\nhoje pareceria apurado e nao seria.\n\nCONSERTO A PARTE, e ele explica a instabilidade do dia. Dois arquivos de teste\ncaiam com \"Exceeded timeout of 5000 ms for a hook\", 36 casos de uma vez, e eu\nvinha atribuindo isso a interferencia entre workers no banco. Nao era: o\n`testTimeout: 30000` do jest.config vale para o TESTE e nao para o `beforeAll`,\nque fica nos 5.000 ms padrao. Sao os dois arquivos mais pesados da suite, e o\n`getApp()` abre conexao: com a suite crescendo, o arranque passou dos 5 s. Os\ndois hooks ganharam timeout explicito.\n\nDepois disso: 1.442 testes de servidor e 926 de cliente, verdes e estaveis.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "496a71d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/496a71d44a281309f8ebd34119a4b5e33ee0bac0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "dsgoficial/modelagens",
       "date": "2026-08-04T11:55:40.000Z",
