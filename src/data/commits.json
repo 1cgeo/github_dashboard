@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-03T21:08:58.011Z",
+  "lastUpdate": "2026-08-04T12:05:49.251Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-07-29T08:16:21.000Z",
+    "dsgoficial/modelagens": "2026-08-04T11:55:40.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-25T10:44:10.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-03T20:18:00.000Z",
+    "1cgeo/controle_acervo": "2026-08-04T11:26:01.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-07-31T20:18:13.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-04T11:38:01.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -56,8 +56,8 @@
     "1cgeo/server-healthcheck": "2026-02-26T15:37:47.000Z",
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-07-16T14:30:48.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-03T19:43:40.000Z",
+    "1cgeo/autolabeller": "2026-08-04T11:45:38.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-04T11:38:24.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5586,
+    "totalCommits": 5606,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,9 +131,9 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 159,
+      "dsgoficial/modelagens": 161,
       "dsgoficial/configuracoes_producao": 204,
-      "dsgoficial/ferramentas_edicao": 472,
+      "dsgoficial/ferramentas_edicao": 474,
       "dsgoficial/DsgTools": 625,
       "dsgoficial/sap": 171,
       "dsgoficial/SAP_Gerente": 116,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 224,
+      "1cgeo/controle_acervo": 229,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -162,14 +162,194 @@
       "1cgeo/server-healthcheck": 3,
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 140,
-      "1cgeo/chefe_dgeo": 484,
+      "1cgeo/autolabeller": 142,
+      "1cgeo/chefe_dgeo": 493,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-08-04T11:55:40.000Z",
+      "author": "Maj Diniz",
+      "message": "writer PostGIS: preenche coluna NOT NULL deixada nula pelo mapeamento\n\nMudanca que ja estava na arvore de trabalho antes desta sessao, commitada a\npedido junto do espelho da Topo 2.0. O writer le as colunas NOT NULL do destino\ne preenche o nulo com o sentinela do dominio EDGV (9999 para numerico, False\npara booleano); coluna uuid toda nula sai do insert para o default do banco\n(uuid_generate_v4) agir. Sem isso a linha era descartada em silencio quando o\nmapa emitia NULL num atributo de dominio obrigatorio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f895ce3",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/f895ce368c7c3176ea3c162a2fc051d414f16b61",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-08-04T11:55:32.000Z",
+      "author": "Maj Diniz",
+      "message": "espelho Topo 2.0 v0.16.0: simb_ponto de volta em infra_pista_pouso_l e _a\n\nEspelha 042d53b do edgv_topo_20. A coluna existia na Topo 1.4 (ver\nedgv_300_topo/1_4/edgv_300_topo_14.sql), sumiu da 2.0 sem entrada de remocao e\nvolta com a mesma definicao: smallint NOT NULL, FK para dominios.booleano,\ndefault 9999, so em _l e _a. Os QML do ferramentas_edicao filtram por ela; sem a\ncoluna a pista nao desenha.\n\nSincronizados: master_file, SQL, changelog, ET html e os 4 crosswalks tocados\n(Topo 1.4, EDGV 3.0, MGCP TRD4.6, MUVD). O crosswalk da Topo 1.4 volta a ser\n1:1; os outros tres injetam o default 2 (Nao, desenha o tracado real).\n\nO changelog tambem recupera o atraso das revisoes anteriores (impacto nos\nestilos, dbimplversion e a auditoria de propagacao para tiles de 2026-07-26).\n\nFora deste commit, de proposito: edgv_topo_20_extension.sql. A copia daqui esta\nA FRENTE da do edgv_topo_20 (sufixo (code) no code_name dos dominios de\nqualidade, mais os codigos 6 a 9 de confirmacao). Sobrescrever apagaria o\nf98a053. O back-port na direcao contraria e decisao a parte.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "574939a",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/574939a4bf7eb4592beeb4663afed84456f93ef8",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-08-04T11:45:38.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: programa de pesquisa multiagente do posicionamento (adaptado do prompt CDC)\n\nAdaptacao do prompt da OpenAI para a prova da Cycle Double Cover Conjecture ao\nnosso problema. Mantidos: definicoes formais, o que nao conta como progresso,\nportfolio diverso, registro de familias por ideia, rotas bloqueadas, agentes\nadversariais, artefatos concretos.\n\nInvertidos, com o motivo em §9:\n- \"assuma que existe prova completa\" -> §1.4 declara o TETO MEDIDO (overlap=0,\n  conflict_free=1, folga de varredura densa +0.028 POA / +0.034 PG). Assumir\n  ganho grande de busca mandaria a frota disputar ~0.03.\n- \"nunca explique por que e dificil\" -> teto certificado e proposta de emenda\n  sao retornos legitimos; o rigor fica no onus da prova, nao na desistencia.\n- \"busca publica so para background\" -> literatura de map labeling e aplicavel;\n  a proibicao equivalente e importar o OBJETIVO de outro sistema.\n\nReforcado: auditoria adversarial inclui o olho humano. No CDC o verificador e\nperfeito; aqui evaluate.py e proxy imperfeito da carta boa — sem ratificacao\nvisual a agressividade multiagente amplifica o erro do objetivo (licao da\nemenda 1.4).\n\nAcrescentado sem analogo no CDC: §3.1 restricoes do harness (concorrencia em\nsrc/, exit code de `| tail`, motor de fonte, epoca) — sem elas os agentes\nproduzem numeros falsos com sinceridade.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e7a9e22",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/e7a9e22cd4bc6ec2a47f502414cc0c7e456f1cf5",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-08-04T11:45:37.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: base de conformidade EDGV Topo 2.0 (MI 0013-2-NO) + QGIS 4.2.0\n\nO motor roda em Topo 2.0 sem alteracao de codigo: valid=1, 0 violacoes,\n0 supressoes, completeness 1.0, score -0.150123 (epoca constituicao-v1.4.0).\nBase FORA da media do corpus — e teste de conformidade, nao alvo de otimizacao.\n\nCompatibilidade medida 1.4 -> 2.0: 92/98 tabelas iguais; colunas de rotulo\nidenticas; 48 camadas rotuladas contra 47 no projeto 1.4 (so entra\nelemnat_ponto_cotado_batimetrico_p, que ja tem regime); zero fallback de regime\nnas 213 feicoes. As 8 camadas rotuladas sem regime sao as mesmas do 1.4.\n\nRegressao do modelo 2.0: elemnat_toponimo_fisiografico_natural_l perdeu\nlabel_x/label_y — regime E continua rotulado mas sem onde gravar posicao; o\nwriteback falharia nela. Decisao pendente (ver docs/base-topo20.md).\n\nQGIS 4.0.0 nao existe mais na maquina (pasta sem bin/python-qgis.bat); caminho\natualizado para 4.2.0 nos 5 arquivos + CLAUDE.md. Os rasters das 18 folhas 1.4\nestao em cache renderizados pela 4.0.0 — reexportar o corpus com a 4.2.0 muda\nraster/legibilidade/score e deve ser tratado como reexecucao de epoca (O5).\n\nrun_setup.sh tinha data/qgis fixo, o que impedia criar qualquer base nova por\nele; agora le --output-dir ou DATA_DIR, como o run_experiment.sh.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "18b9329",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/18b93290affc33d4ccc38ca45e8d3252c6c45607",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T11:38:24.000Z",
+      "author": "Maj Diniz",
+      "message": "plugin: a carta militar passa a puxar o estilo com sufixo _mil na exportacao\n\nO grid militar (edicao_grid_edicao_l_mil.qml) existia nas duas pastas de estilo\ndesde 2026-07-31 e nada o escolhia. A regra entrou no getStylePath, ponto unico\nonde a exportacao resolve estilo: no produto militar o arquivo _mil vence quando\nexiste, senao cai no civil. Vale para map, mapEdition e qualquer outro grupo.\n\nA Ortoimagem Militar segue no grid civil porque a variante nao existe no\northoMap/3_0. Registrado tambem no que a revisao de carta deve conferir.\n\nPlugin em dsgoficial/ferramentas_edicao, branch qgis4, commit 7ab37ba0.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a4e647e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a4e647e2bae694103f3ba190b10005c7b58a46a5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-08-04T11:38:01.000Z",
+      "author": "Maj Diniz",
+      "message": "exportacao: a carta militar puxa o estilo _mil quando ele existe\n\nO commit 1529523e criou o edicao_grid_edicao_l_mil.qml nas duas pastas de estilo\ndo topoMap 2.0 (map e mapEdition), mas nada no código o escolhia: a exportação\nresolvia o estilo só pelo nome da camada, e a carta militar saía com o grid civil.\n\nA regra entra no getStylePath, que é o ponto único onde a exportação resolve\nestilo. Nos produtos militares o arquivo com sufixo `_mil` VENCE quando existe, e\na falta dele cai no estilo civil, sem erro. Vale para qualquer camada e para\nqualquer conjunto de estilos, porque a pasta chega por parâmetro: a mesma regra\nserve map, mapEdition e os demais grupos.\n\nConsequências hoje: a Carta Topográfica Militar passa a sair com o grid militar; a\nCarta Ortoimagem Militar segue no grid civil, porque orthoMap/3_0 ainda não tem a\nvariante `_mil` (no dia em que o arquivo entrar, ele passa a valer sem mexer em\ncódigo). O produto civil não muda.\n\nProvado chamando o método real: militar em map e em mapEdition devolve o _mil;\ncivil devolve o estilo comum; ortoimagem militar cai no civil; o estilo por escala\n(llp_localidade_p_250.qml) continua vencendo nos dois produtos; camada sem estilo\nsegue devolvendo None.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7ab37ba",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/7ab37ba06d3a8df44bd8f48d4f2e0d73c427a351",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T11:28:02.000Z",
+      "author": "Maj Diniz",
+      "message": "projeto: entra a rastreabilidade completa do SCA, escrita por outra sessao\n\nO arquivo estava sem versionar na arvore quando esta sessao comecou. Nao e\ntrabalho meu desta sessao; entra no commit porque o chefe mandou versionar tudo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2ae8918",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2ae891879216855c94c19cb78a586aa04bb9f537",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T11:27:51.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao: o quadro da carta militar vira ATUALIDADE E CONFIABILIDADE, com temas fixos\n\nSai a coluna FONTE PRINCIPAL e o titulo passa a dizer o que a tabela mostra. A\nlista de temas vira fixa por produto e sai sempre por inteiro, em duas colunas:\n16 na Topografica Militar e 10 na Ortoimagem Militar, que tem 25 classes no\nmodelo contra as 39 da Topo 2.0. Tema sem dado imprime \"-\", tema fora da lista\nvai para o log. No JSON, a chave virou `atualidade_confiabilidade` e a subchave\n`fonte_principal` saiu do schema.\n\nDois achados que valem para qualquer tabela da moldura, gravados no learnings de\nexportar-carta: coluna estreita demais NAO quebra a linha, CORTA o texto (o\nWrapText so quebra em espaco, e \"Indeterminada\" saiu \"ndeterminad\" passando em\ntodos os testes de tamanho); e a altura da linha so existe no render, entao\nmede-se por PNG a 600 dpi e caixa de tinta, nunca por conta de caracteres.\n\nNenhuma classe fica fora do quadro: as oito orfas da Topo 2.0 foram agrupadas no\ntema mais proximo. A `constr_ocupacao_solo` desmentiu o pedido, porque o dominio\ndela tem 55 valores e cobre patio de cada modal, farol, estacao de medicao e\nmaquinario agricola, repartindo-se por nove temas. O mapa completo classe a\nclasse virou references/temas-quadro-militar.md na skill criar-json-edicao.\n\nPlugin em dsgoficial/ferramentas_edicao, branch qgis4, commit ae83d26c.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ed9c1a4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ed9c1a47feac6d19ee96bcb5dfeee34ca5262839",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-08-04T11:27:21.000Z",
+      "author": "Maj Diniz",
+      "message": "quadro da carta militar: sai a fonte principal, entram os temas fixos em duas colunas\n\nO quadro que substitui as fases na carta militar passa a se chamar ATUALIDADE E\nCONFIABILIDADE. A coluna FONTE PRINCIPAL sai, e o título passa a dizer o que a\ntabela mostra: atualidade (ano) e qualidade (confiabilidade).\n\nA lista de temas vira FIXA por produto e sai sempre por inteiro, em duas colunas,\npara que duas folhas se comparem: 16 temas na Carta Topográfica Militar e 10 na\nCarta Ortoimagem Militar, que tem 25 classes no modelo contra as 39 da Topo 2.0.\nTema previsto e ausente do JSON imprime \"-\", que declara \"não apurado\" em vez de\nsumir da folha. Tema que o JSON traz e a lista não prevê vai para o log do QGIS,\nem vez de ser descartado em silêncio.\n\nNo JSON, a chave `atualidade_proveniencia` vira `atualidade_confiabilidade` e a\nsubchave `fonte_principal` sai dos dois schemas militares. O validador só cobra\nchave obrigatória, então JSON antigo não quebra.\n\nAs medidas saem de cálculo de pior hipótese, medido por render headless:\n\"Energia e Comunicações\" (28,6 mm a 7 pt) e \"Indeterminada\" (17,5 mm), que é o\nrótulo mais longo do domínio de confiabilidade. Larguras 28,8 / 6,2 / 17,6 mm nas\nduas metades, corpo 7 pt, título 10 pt, margem de célula 0,3 mm. O frame mais\napertado é o da 250k, 110 x 41 mm, e o quadro de 16 temas fecha em 109,5 x 39,7 mm.\nAtenção ao mexer: coluna estreita demais NÃO quebra a linha, CORTA o texto, porque\no WrapText só quebra em espaço. O desenho anterior fechava em 114,5 mm num box de\n110, porque a margem de célula e a grade entram por cima da largura declarada.\n\nCorrigido também o texto da tarja de uso militar provisório, que dizia \"a ausência\nde feição na carta não indica no terreno\" e agora diz \"não indica ausência no\nterreno\".\n\nProvado nos quatro templates de produção (topo e orto, A1 e 250k), chamando o\nmétodo real sobre o QPT e medindo a caixa de tinta a 600 dpi.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ae83d26",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/ae83d26cd00427121ecbbfbcce54777354878346",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T11:26:01.000Z",
+      "author": "Maj Diniz",
+      "message": "painel de historico em todas as fichas, e um guarda para nao voltar\n\nFase 2 e Fase 5 do plano de rastreabilidade completa (chefe_dgeo\n01-Projects/rastreabilidade-completa).\n\nONZE PAINEIS NOVOS, um por agregado que registrava evento e nao tinha onde\nmostra-lo: capacitacao (63 eventos em producao), Extra-PIT (18), projeto e lote\n(19), edicao do RPCMTec (5), volume, ponto de controle, PDR, licitacao, RPNP, e\na pessoa no aproveitamento (33, onde passagem e impedimento caem no mesmo\nagregado `usuario`).\n\nTRES CUIDADOS que a implementacao exigiu:\n\n- O painel de 'plataforma' so aparece para ADMINISTRADOR. A rota do historico\n  desse modulo e verifyAdmin, e as telas de capacitacao, Extra-PIT e\n  aproveitamento abrem para qualquer pessoa logada: painel que entrega 403 no\n  meio do formulario e pior que painel nenhum.\n- No LOTE e no item do PDR o agregado nao e a linha. O lote cai no PROJETO e o\n  item do PDR cai no ANO, entao o subtitulo diz isso: quem abre nao deve\n  precisar adivinhar por que aparecem irmaos na lista.\n- No ponto de controle o painel se remonta a cada navegacao, porque a ficha e\n  trocada por dentro: preso no fechamento, ele mostraria o historico do ponto\n  anterior depois do primeiro \"proxima\".\n\nO GUARDA (`__tests__/unit/entrega_do_rastro.test.js`) le o mapa de auditoria e\no codigo do cliente, e reprova quando um agregado existe sem painel e sem\ndestino na varredura. Ele ja provou que reprova: apontou `acervo:manutencao` sem\ndestino e `plataforma:exercicio` sem painel, os dois casos reais que faltavam.\n\nDuas listas, e elas sao coisas diferentes de proposito:\n\n  SEM_PAINEL_JUSTIFICADO  o agregado nao tem ficha para abrir (a manutencao das\n                          views, a configuracao do orcamento e os dominios\n                          editaveis sao tela de campos, nao ficha por registro);\n  PENDENTE_COM_PLANO      o painel FALTA e ha plano com endereco. Hoje so a\n                          revisao do PIT, que nao tem tela nenhuma (Fase 4).\n\nMisturar as duas faria a divida virar excecao com o tempo, que e exatamente\ncomo a lacuna volta.\n\nFASE 0 E 1, aplicadas em producao antes deste commit: banco 1.23.0, e as 1.632\nimpressoes que estavam em mes errado corrigidas pela API, com 1.632 eventos no\nrastro. A serie mensal deixou de ser uma pilha em julho (6.483) e virou janeiro\na julho, e a 7.2 do RPCMTec passou a reportar consumo de verdade (1.662 em\nfevereiro, 1.972 em maio, onde antes dizia 0).\n\n731 testes rapidos, 1.434 no total, e 926 no cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "ca27edb",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ca27edb929e69e9abb441c14290ba24b23ba7a98",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T10:21:17.000Z",
+      "author": "Maj Diniz",
+      "message": "o consumo de papel sai da IMPRESSAO, e a varredura leva a ficha\n\nTres consertos que sairam de uma revisao de rastreabilidade do sistema\ninteiro, medida no codigo e contra producao em 2026-08-04.\n\n1. O CONSUMO DE MATERIAL ERA UM NUMERO ERRADO, nao um numero faltando.\n\nAs subsecoes 7.2 e 7.3 do RPCMTec saiam marcadas \"Calculada\", com a fonte\ndeclarada, e imprimiam \"Consumo no mes = 0\" nas dezessete linhas -- enquanto\n`mapoteca.impressao_item` guardava 1.753 impressoes e 6.493 exemplares. O\nconsumo saia so de `consumo_material`, que tem zero linhas, e nada ligava a\nimpressao ao insumo: havia dois catalogos sem ponte, oito midias e cinco\npapeis.\n\n`tipo_material.tipo_midia_id` (banco 1.23.0) e a ponte. Cada exemplar impresso\ngasta uma folha da midia, e a midia aponta o papel. Nao se grava nada: o evento\ne a impressao, e duplica-lo numa linha de consumo criaria duas verdades.\n\nSO PAPEL, e o CHECK `midia_so_para_papel` faz cumprir: quanto de cartucho uma\nfolha gasta depende do que esta desenhado nela. A tinta continua vindo do\nconsumo DECLARADO, e continua zerada enquanto ninguem declarar a troca -- ali o\nnumero esta vazio, que e diferente de errado.\n\nACHADO COLATERAL, da mesma classe: o formulario de material NUNCA mandava\n`categoria_id`, entao todo material criado pela tela desde 2026-08-01 caia em\n\"Outro\" e sumia das DUAS tabelas. Os 21 de hoje so tem categoria porque a\nmigracao a preencheu.\n\n2. A DATA DA IMPRESSAO virou coisa que o sistema sabe dizer.\n\nMedido: 1.751 das 1.753 impressoes de producao guardam a data da CARGA (tres\ndias de julho) e cobrem pedidos de novembro de 2025 a julho de 2026. 93% caem\nnum mes diferente do mes do pedido. Sem conserto, o consumo derivado jogaria a\nimpressao de sete meses dentro de julho: um numero errado no lugar de outro,\ncom a mesma etiqueta.\n\nO POST /impressao passa a aceitar `data_impressao` (omitida, continua agora), e\nnasce PUT /impressao/:id/data para corrigir registro ja gravado sem apaga-lo.\nGERENTE e MOTIVO obrigatorio: mudar quando um gasto aconteceu muda o numero que\no relatorio reporta naquele mes.\n\n3. A VARREDURA DE RASTREABILIDADE LEVA A ALGUM LUGAR.\n\nO mapa de destino cobria TRES dos 23 agregados, e um dos tres (o DFD) apontava\n`#/orcamento/dfd/:id`, rota que nao existe: o link levava ao 404. Os outros 20\nsaiam como texto morto. Agora sao 22, separados entre 'ficha' (vai ao registro)\ne 'lista' (vai a tela onde ele mora), e o titulo diz qual e qual.\n\nA busca do acervo passou a honrar `?produto_id=`, porque a ficha do produto e\num dialogo e nao uma rota -- e esse agregado sozinho responde por 388 eventos\nem 170 fichas.\n\n4. PAINEL DE HISTORICO na meta do PIT e na ficha do produto do acervo, os dois\nagregados com mais evento orfao. O da meta so aparece para administrador,\nporque a rota de historico de 'plataforma' e verifyAdmin e a tela abre para\nqualquer pessoa logada: painel que entrega 403 no meio do formulario e pior que\npainel nenhum.\n\nPlano completo em chefe_dgeo 01-Projects/rastreabilidade-completa.\n\nEnsaio de convergencia sem divergencia, duas vezes. 703 testes de banco e 926\nde cliente, verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "a7b95ea",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a7b95eac01db43cb150f8a5225ccec49f254456d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T08:36:04.000Z",
+      "author": "Maj Diniz",
+      "message": "indice: a entrada do RPCMTec e a primeira de 2026-08-04, nao continuacao\n\nO PIT foi redatado para 08-03 por outra sessao enquanto eu escrevia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "fbc5939",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fbc59398eba2fddc0dd7c231396c06d6536889df",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-04T08:35:01.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao: o RPCMTec inteiro passa a ser preenchido e guardado, e o DOCX sai\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "f34ae7a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f34ae7ac223aef758a7dc9fbd6c3e7dd9cc46736",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T08:28:10.000Z",
+      "author": "Maj Diniz",
+      "message": "o servidor passa a exigir o banco 1.22.0\n\nFicou para tras no commit anterior. Sem isto, o contêiner sobe contra um banco\n1.21.0, onde `rpcmtec.edicao.assinante_uuid` nao existe, e a tela do relatorio\nquebra inteira em vez de o servidor recusar a subir. A sonda da imagem pegou\nantes da troca do contêiner.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "c696c3c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c696c3c266cca1bf2d8d83e1e69ddfee774a2582",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T08:25:25.000Z",
+      "author": "Maj Diniz",
+      "message": "o RPCMTec inteiro passa a ser preenchido e guardado, e o DOCX sai\n\nO relatorio mensal da Divisao deixa de ser um GERADOR de tabelas coladas no\nWord e passa a ser uma EDICAO guardada. Os 34 blocos do documento vivem no\nsistema: 18 o SCA calcula, 15 o gestor digita na propria tela, e 1 e texto\nfixo. O que sai agora e o PDF final, e o assinado volta como anexo.\n\nA regra que governa o desenho e a ASSINATURA, no mesmo padrao que pit.revisao\nestreou em 2026-08-04:\n\n  ABERTA   o calculado sai do banco a cada abertura, so o digitado persiste\n  FECHADA  tudo congela, inclusive o calculado\n\nAte aqui er/rpcmtec.sql dizia \"nao gravar, recalcular\", porque uma edicao\ngravada envelheceria no primeiro pedido corrigido depois de fechada. A razao\ncontinua valendo, e e por isso que o congelamento so acontece no fechamento:\nantes dele o banco manda, depois dele manda o que foi assinado. O RTM de marco\nde 2026 reportou 247 na meta 4.2 e o de julho reportou 252; sem congelar, a\nedicao de marco regerada em agosto mostraria um numero que ninguem leu.\n\n`conferir hoje` e o contrapeso: numa edicao fechada, recalcula as calculadas e\nmostra a diferenca contra o congelado. Sem ele, congelar seria esquecer.\n\nO QUE ENTROU\n\n- migrations/2026-08-05_rpcmtec_edicao_completa.sql (1.22.0): rpcmtec.edicao\n  ganha data_fechamento, usuario_fechamento_uuid e assinante_uuid; nascem\n  rpcmtec.subsecao e rpcmtec.anexo_edicao, mais dominio.origem_subsecao.\n- rpcmtec_estrutura.js: os 34 blocos em ordem, com titulo, cabecalho e grade de\n  coluna medidos no OOXML da edicao de julho/2026. Definicao unica, de onde\n  saem o gerador, a tela, o PDF e a checagem de completude.\n- rpcmtec_pdf.js: o documento inteiro em pdfmake, com brasao, cabecalho\n  institucional e bloco de assinatura. Fonte Carlito (metrica da Calibri, sob\n  OFL), porque a Calibri e da Microsoft e nao se redistribui.\n- rpcmtec_subsecao_ctrl.js: o que o gestor digita, com copiar do mes anterior e\n  \"sem ocorrencia no mes\".\n- Tela nova: a lista das edicoes e a edicao em si, com a divisao entre\n  calculado e digitado visivel em cada subsecao.\n\nO ASSINANTE vira dgeo.usuario. O backfill casa pelo nome de guerra contido no\ntexto, com exigencia de candidato unico: as cinco edicoes de 2026 guardam o\nbloco de assinatura inteiro, e o casamento por nome completo dava zero.\n\nSAI o rpcmtec_docx.js, a rota /gerar/docx, o botao do cliente e a dependencia\ndocx. Nao ha mais etapa no Word.\n\nCONSERTO A PARTE: a fixture de arquivo gerava sempre 'arquivo_teste.tif', e\ncolidia com unique_nome_fisico_por_volume desde que o indice chegou ao er/ em\n2026-08-03. Duas facetas do acervo estavam vermelhas por isso. O indice esta\ncerto; a fixture e que precisava de nome unico.\n\nEnsaio de convergencia sem divergencia, aplicado duas vezes. 1.411 testes de\nservidor e 926 de cliente, todos verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "941d399",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/941d399e13049c6dc17630ca2337a7fbf591bf40",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T23:38:46.000Z",
+      "author": "Maj Diniz",
+      "message": "correcao: nao houve 2026-08-04, o trabalho todo e do dia 03\n\nUma sessao paralela datou o proprio trabalho um dia a frente e a data errada se\nespalhou por dez pontos do vault. Fonte primaria: `git log` marca os commits\nc118ad7 e 6272930 em 2026-08-03 as 19:22 e 19:27 -0300, e o relogio da maquina\nmarcava 2026-08-03 20:35. Nao existiu sessao em 04 AGO.\n\nCorrigido para 2026-08-03:\n- livro-razao: os cinco eventos datados de 04 AGO, renumerados em ordem de\n  arquivo para cont. 12 a 16, e os dois meus da entrevista para cont. 17 e 18.\n  A contagem de afirmado-sem-medir do dia ficou coerente (5ª, 6ª e 7ª).\n- livro-razao: a narrativa do atualizar-dockers dizia \"a regra existia desde\n  2026-08-03 e eu a violei no dia seguinte\". Era no MESMO dia, o que torna o\n  sinal pior, nao melhor. Reescrita.\n- Decisions/decisions-2026 e DECISIONS: cabecalho e indice da decisao do PIT com\n  revisoes, mais a atribuicao de fala ao chefe.\n- 01-Projects/ciclo-2026/pit.md: quatro pontos (ultima atualizacao, levantamento\n  dos dois PDF assinados, nota do Tyvek e a pendencia resolvida).\n- wiki/pit.md: o \"desde\" da modelagem de revisao no controle-acervo.\n- learnings de atualizar-dockers e de cadastrar-acervo.\n\nEvento novo no livro-razao (cont. 19, dado-errado): a data de hoje LE-SE do\nrelogio ou do `git log`, nunca se deduz de \"a sessao virou\" nem se herda da\nsessao anterior. Para trabalho ja commitado, a data do commit manda.\n\nNao mexido de proposito: os 04/08/2026 do PCA e do pedido de mapoteca sao prazo\nreal da DSG. E o assunto do commit c118ad7 fica com a data errada, porque e\nhistorico ja publicado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "153f3f5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/153f3f587e0bf84dba83606fd4ad16cef908d0cd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T23:32:55.000Z",
+      "author": "Maj Diniz",
+      "message": "a entrevista sobre sistemas nao tripulados vira posicao de doutrina na wiki\n\nResposta ao roteiro da ECEME/IMM sobre SNT (Maj Centurion, IMM), respondida na\nraia da DGEO. O duravel foi absorvido nas paginas; o documento NAO entrou como\nresource.\n\n- wiki/voo-drone: sao DUAS Mavic 3E com RTK (a pagina dizia uma) e o Matrice 350\n  e previsao do PCA, nao compra. Secao nova de escolha de plataforma: existe\n  oferta nacional (XMobots), a DJI foi custo-beneficio mais cadeia completa de um\n  fornecedor, e o ODM foi considerado e fica abaixo das comerciais no fluxo da\n  DGEO. Secao nova com a posicao institucional sobre SNT (a raia, o gargalo no\n  destino do dado, a capacidade no operador e no processo, o requisito de\n  arquitetura aberta no nivel do dado, o substrato geoespacial da autonomia).\n- wiki/ebgeo: o pitch de uma frase. O BDGEx e acervo e portal; o EBGeo trata do\n  uso do dado pelo usuario final, na EBNet.\n- wiki/capacitacao e ciclo-2026: curso de operador SARP para aerolevantamento no\n  CIAVEx, setembro de 2026, por instrutores do 1 CGEO.\n- livro-razao: dois desvios meus, ambos afirmado-sem-medir. Estendi o marco de\n  software livre de 2022 a fotogrametria de drone, onde ele e falso, com a\n  evidencia contraria na wiki que eu tinha acabado de ler. E afirmei inexistencia\n  de oferta nacional a partir do silencio do vault, em primeira pessoa do chefe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "71d0770",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/71d0770d66c15dfaa9c7db5e93866a390b151606",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T22:27:35.000Z",
+      "author": "Maj Diniz",
+      "message": "deploy do SCA 1.21.0, e a armadilha da segunda instancia pegou quem a escreveu\n\nContainer do server7 em `0cc3051`, banco 1.21.0, imagem conferida por dentro antes da troca (os\nseis modulos novos do PIT, o MIN_DATABASE_VERSION, a leitura da meta saindo da view, e o bundle da\ninterface reconstruido hoje com o campo novo). A anterior ficou guardada como `:anterior`.\n\nA PROVA no destino, autenticada: a 4.2 promete 247 no relatorio de MARCO (pelo R0) e 252 no de\nJULHO (pelo R1), e a 6.8 vai de 73 para 61 entre os dois. E o modelo funcionando em producao.\n\nREINCIDENCIA na mesma skill em dois dias: a regra da \"segunda instancia\" entrou no learnings em\n2026-08-03, depois de eu achar uma instancia local esquecida com cron contra producao, e nesta\nsessao eu mesmo subi outra, que ficou ~30 minutos agendando job. Anotar nao bastou, entao o gesto\nmuda: instancia local contra o config.env de producao sobe por `server/boot_no_cron.js` e morre ao\nfim da CARGA, nao da sessao. As duas linhas \"scheduled\" do boot sao a denuncia.\n\nTres outros aprendizados do deploy: 401 nao prova deploy, so que a rota existe (a prova e\nautenticada, e `docker exec ... node -e` evita o grep sobre JSON, que me deu resposta vazia duas\nvezes e parecia falha do sistema); a conferencia da imagem prova quatro coisas que o `git pull` nao\nprova; e migracao destrutiva mais deploy sao UM ato, porque a janela entre eles deixou a tela de\nmetas quebrada em producao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "6272930",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6272930245c4351cf0c834b272cb6d1100dafe9e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-03T22:22:24.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-04: o PIT e REVISADO, e o vault registrava duas revisoes como erro de planilha\n\nA DSG revisa o PIT durante a execucao, e o proprio R0 de 2026 anuncia revisao em ABR e AGO. O SCA\npassou a modelar isso (1.19.0 a 1.21.0): a meta separa a IDENTIDADE do que a DSG DECLARA, com uma\nlinha esparsa por revisao que por isso E o historico.\n\nO ACHADO DA SESSAO nao foi de codigo. Ler os DOIS PIT assinados de 2026 desmentiu o vault em dois\nnumeros que estavam registrados havia dois meses:\n\n  4.2 Tyvek   o 247 do RTM NAO era \"diferenca de planilha\": e o R0. O R1 traz 252.\n  6.8 Carga   registrado como 73, que e o R0. O R1 traz 61, e o denominador da execucao\n              mudou junto.\n\nOs dois estavam no ciclo-2026/pit.md com a explicacao errada ao lado. O diff completo R0 -> R1 sao\ncinco mudancas em 38 itens (4.2, 6.8, a 6.9 aparecendo, a 5.2 e a 5.3 canceladas), agora em secao\npropria do arquivo do ano, com assinantes e datas.\n\nCorolario que sobe para a memoria: NUMERO DO PIT SO VALE JUNTO DA REVISAO QUE O DECLAROU, e o\nrelatorio de um mes reporta a revisao daquele mes. A `wiki/pit` ganha a secao \"A REVISAO e parte do\nplano\" e passa a dizer que o Extra-PIT e PRODUCAO, que so fecha quando materializa em versao, e que\nele cai no SCA e nao mais no SAP.\n\nTres erros meus viram gesto, e nao so anotacao:\n\n- \"Testei\" o guard da grade escrevendo na PRODUCAO. O `pit_extra.test.js` nasceu contra banco de\n  ensaio e o cabecalho dele registra a licao.\n- Cortei `data_criacao` e `data_edicao` em `[:10]` num PUT que so queria gravar vinculo: 144\n  versoes sairam de 15:00Z para 00:00Z, 288 valores, desfeitos pela auditoria. Vai para o learnings\n  de cadastrar-acervo, com o gesto do conserto (o PRIMEIRO evento de cada versao) e o gotcha do\n  `registro_id` ser texto.\n- Acrescentei `data_fim_prevista` ao lote sem ver que ele ja tinha `data_fim` e\n  `status_execucao_id`. Vai para o learnings de planejar-mudanca-sistema: leia a tabela INTEIRA\n  antes do ALTER.\n\nE uma correcao de escopo do chefe (\"voce esta pensando nos dados, eu estou falando do modelo\"):\nquando ele diz modelo, a resposta e sobre entidade, coluna e restricao que faltam, nao sobre linha\nque falta preencher.\n\nMEMORY.md em 4.784 caracteres. lint-wiki zerado em todas as 11 checagens. Guard passou, com dois\nem-dash meus barrados na tabela do ano.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "c118ad7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c118ad7ec312c122bfbc06d5105f1cc0640c2f15",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-03T22:02:10.000Z",
+      "author": "Maj Diniz",
+      "message": "o PIT ganha REVISOES, e a meta se separa entre identidade e declaracao\n\nA DSG revisa o PIT durante a execucao, e o proprio documento avisa: o R0 de 2026\ndiz que \"o EM/DSG realizara a revisao do PIT nos meses de ABR e AGO 26\". Ate aqui\no SCA tinha UMA linha por meta, entao a revisao ou SOBRESCREVIA a promessa (e o\nrelatorio de marco deixava de ser reproduzivel) ou criava meta nova (e os seis\nvinculos que apontam para `pit.meta` ficavam orfaos). Os dois caminhos estao\nerrados, e e o que motivou separar as duas naturezas da meta.\n\nALTERAR O PIT E CANCELAR, ALTERAR E ADICIONAR META (chefe, 2026-08-04). So isso,\ne as tres sao atos DELA. Isso divide a linha por DONO:\n\n  pit.meta          o que o SCA decide (unidade, origem) e o que revisao nenhuma\n                    muda (ano, numero, item). Id ESTAVEL, e e nele que os seis\n                    vinculos de outros schemas continuam pendurados.\n  pit.meta_revisao  o que a DSG declara: descricao, quantidade, prazo,\n                    demandante e o cancelamento.\n\nUMA FORMA COBRE AS TRES OPERACOES. Adicionar e a primeira linha da meta em\n`meta_revisao`; alterar e uma linha nova com o numero novo; cancelar e uma linha\nnova com `cancelada`. Nenhum caso especial, e nenhum DELETE.\n\nESPARSA, E POR ISSO ELA E O HISTORICO. So se grava linha quando algo muda, entao\nas linhas de uma revisao SAO as alteracoes dela, sem diff e sem calculo, e \"em\nque revisao a 4.2 mudou\" e a lista de revisoes em que ela tem linha.\n\nMEDIDO NOS DOIS DOCUMENTOS ASSINADOS de 2026, que sao a prova de que a forma\nserve. O diff R0 -> R1, conferido item a item nos PDF:\n\n  4.2  247 -> 252     altera\n  6.8   73 ->  61     altera\n  6.9  nao existia    adiciona\n  5.2  some           cancela\n  5.3  some           cancela\n\nCinco mudancas em 38 itens. Um instantaneo por revisao gravaria 49 linhas para\nregistrar essas cinco, e convidaria as 44 copias a divergirem.\n\nA LEITURA NAO PRECISA SABER DISSO. `pit.meta_vigente` devolve a meta com a\npromessa em vigor, com os MESMOS nomes de coluna de antes; quem lia `pit.meta`\ntrocou uma palavra. E `pit.meta_em(data)` devolve a promessa que vigia numa DATA,\nque e o que a 2.1 do RPCMTec usa: a edicao de marco reporta contra o R0 (4.2\npromete 247) e a de julho contra o R1 (promete 252). Publicar uma revisao em\nsetembro deixa de reescrever agosto.\n\nA ESCRITA DA DECLARACAO EXIGE REVISAO ABERTA, e e o que faz o historico ficar\ncompleto POR CONSTRUCAO: nao da para mudar o que o PIT promete sem dizer qual\ndocumento autorizou. Um rascunho por ano, cobrado por indice parcial. Publicar e\npreencher `data_vigencia`, e isso substitui com vantagem um enum\nRecebida/Vigente/Superada: \"superada\" se deduz de existir outra depois, e a\njanela entre receber a revisao e executa-la vira o que ela e, uma data futura.\n\nCORRIGIR TRANSCRICAO E OUTRO ATO, com rota propria e MOTIVO obrigatorio. Quem\ndigitou 53 onde o documento diz 35 nao pode precisar inventar uma revisao que a\nDSG nao emitiu.\n\nO DOCUMENTO ASSINADO GANHA CASA (`pit.anexo_revisao`), na forma de\n`mapoteca.anexo_pedido`: conteudo em BYTEA na propria linha, sem volume e sem\nchecksum. Ja provado em 255 anexos, e o PIT assinado tem 292 KB.\n\n`situacao_id` DA META SAI e vira `cancelada` na revisao. Dos quatro estados, so\n'Cancelada' era ato da DSG; 'Em execucao' e 'Concluida' a grade calcula do que\nfoi lancado, e status digitado ao lado de status calculado e a segunda verdade\nque este schema vem eliminando.\n\nA UNIDADE VIRA DOMINIO, de cinco codigos. Era texto livre com 13 valores ('carta'\ne 'folha' para a mesma coisa) e 12 itens SEM unidade nenhuma, incluindo as duas\nmetas que ja calculam sozinhas. A grade assume que uma versao do acervo vale UMA\nunidade da meta, e nada declarava isso; agora o controlador cobra a coerencia\n(origem Producao e Impressao exigem Folha, Capacitacao exige Capacitacao).\n\n`pit.exercicio` tira o ano de SMALLINT solto e faz do encerramento um ATO.\n`rpcmtec.capacitacao.ano` NAO entra nessa chave, e foi medido: ela tem 2013 a\n2026 e o PIT so tem 2025 e 2026. Capacitacao existe fora do PIT.\n\nProducao migrada e conferida no destino: 1.20.0 -> 1.21.0, 17 sondas, 11\ncontagens de controle inalteradas, e a promessa intacta na mudanca de casa\n(10.091 em 56 metas antes, 10.091 em 56 declaracoes depois). As duas revisoes de\n2026 foram carregadas dos PDF assinados, com os tres anexos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01We2FSp4ieu5GmwG53PLUoy",
+      "sha": "0cc3051",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0cc3051c1d5801abdcede5c80956a22b8c75991f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-03T20:18:00.000Z",
