@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-04T21:16:49.789Z",
+  "lastUpdate": "2026-08-05T12:03:27.651Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-04T20:31:28.000Z",
+    "1cgeo/controle_acervo": "2026-08-05T01:04:02.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5636,
+    "totalCommits": 5646,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 243,
+      "1cgeo/controle_acervo": 253,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -170,6 +170,96 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-05T01:04:02.000Z",
+      "author": "Maj Diniz",
+      "message": "@\na miniatura passa a nascer nos TRES pontos de entrada, e nao so num\n\nO commit anterior tirou o cron e ligou a geracao ao `confirmUpload`. Faltavam\ndois: o envio pela WEB e a catalogacao IN-PLACE tambem inserem arquivo, e o\nproprio comentario de `registrarArquivoCriado` ja dizia que os pontos sao tres.\nEnquanto era cron, ele varria a fila e nao precisava saber por onde a versao\nentrou; sem cron, esquecer um ponto e o modo de falhar que nao da erro: a versao\nentra no acervo e a ficha fica sem imagem, calada.\n\nIsso corrige uma ressalva que eu tinha dado errada ao chefe. Eu disse que o\nfluxo do PLUGIN estava descoberto, lendo um comentario de arquivo_ctrl que fala\ndo ramo `status === completed`, e nao do fluxo inteiro. O plugin passa pelo\n`confirm-upload` e ja estava coberto. Quem estava de fora eram os outros dois.\n\nO disparo virou funcao unica (`dispararMiniatura`), pela mesma razao de\n`SQL_INSERT_ARQUIVO` ser um so: repetir o bloco em tres lugares e o que faz os\ntres divergirem no dia em que um mudar.\n\nTESTE QUE VARRE, e nao que confere um caso. Ele le o proprio arquivo_ctrl, acha\nquem usa SQL_INSERT_ARQUIVO, acha quem chama dispararMiniatura, e exige que os\ndois conjuntos sejam iguais. Ponto de entrada novo sem disparo cai ali. Cobre\ntambem que o disparo nunca e aguardado (renderizar custa segundos) e que trata a\nrejeicao (a promessa nao volta para a requisicao, e sem catch derruba o\nprocesso).\n\nProvado que REPROVA: removi o disparo do envio web, o teste acusou, restaurei e\nreconferi.\n\nVerificado: 782 testes rapidos e 742 com banco, todos verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "4118fde",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4118fde1adeb988c921459d420b7765e5b46fe50",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-05T00:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no cron sai da aplicacao, e a expiracao passa a valer na hora do uso\n\nO chefe tirou todo agendamento: dois crons rodavam de hora em hora e na meia\nhora, e qualquer segunda instancia contra o mesmo banco os executava em dobro.\nO de miniatura ESCREVE. Isso aconteceu tres vezes, e esta anotado no learnings\nda skill de deploy.\n\nO QUE ERA CRON, E ONDE FOI PARAR\n\nExpiracao de download: virou REGRA, e nao faxina. O `confirmDownload` casava so\npor status = pending, entao quem fazia o token vencer era o cron: ele valia por\nate uma hora depois de expirar, e para sempre com o cron parado. Agora a consulta\nrecusa o vencido no momento do uso, como `ponto_controle/upload_ctrl.js:413` ja\nfazia. Teste de integracao novo prova, e prova que REPROVA: sem a linha nova, o\ntoken vencido confirma e o teste falha (verificado, revertido, reconferido).\n\nLimpeza de expirados: continua existindo como ARRUMACAO, agora numa rota so para\ndownloads e uploads, com contagem dos dois. Separa-las obrigaria o administrador\na lembrar de duas rotas para a mesma ideia.\n\nMiniatura: passa a ser gerada em segundo plano LOGO APOS o upload, fora da\ntransacao e sem segurar a resposta. Era por isso que ela nao nascia no\n`confirmUpload`: renderizar custa segundos e roda processo externo. Para o que\nentra por outro caminho (carga direta, arquivo trocado no volume), ficam\nGET /miniaturas/pendentes, que diz o tamanho da divida, e POST /miniaturas/varrer.\n\nCONSEQUENCIAS TRATADAS\n\n- a varredura manual e auditada, no formato de evento de OPERACAO do refresh das\n  views. O guarda de rastreabilidade pegou a rota nova descoberta, e foi ele que\n  cobrou isto;\n- o disparo pos-upload NUNCA lanca: a promessa nao volta para o caminho da\n  requisicao, e uma rejeicao solta derrubaria o processo;\n- falta de binario de renderizacao NAO grava erro na versao: o problema e do\n  servidor, e gravar a tiraria da fila por culpa alheia;\n- `varrerFila` passou a devolver o desfecho (feito, pulada por concorrencia,\n  abortada por ambiente). Como cron ninguem lia o retorno; a rota anuncia a uma\n  pessoa, e \"pulada\" nao pode virar anuncio de sucesso.\n\nPODA: `cleanup_jobs.js`, `boot_no_cron.js` (existia so para nao agendar cron, e\nja tinha apodrecido uma vez) e a dependencia `node-cron`. `miniatura_job.js`\nvirou `miniatura_varredura.js`, porque nao ha mais job. Consertado de passagem o\n`verifyAdmin` duplicado na rota de limpeza.\n\nVerificado: 778 testes rapidos, 742 com banco e 1157 do cliente, todos verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "c894ead",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c894eadb164775c0de332af5e8156c34281e0dbb",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T23:50:05.000Z",
+      "author": "Maj Diniz",
+      "message": "@\na migracao da licitacao foi aplicada no banco de producao\n\nAplicada em 2026-08-04. Antes: dry-run de verdade, com o mesmo SQL rodando\ncontra o esquema vivo dentro de uma transacao e rollback no fim; conferido\ndepois que a coluna nao tinha ficado.\n\nConferido no destino, e nao no retorno da ferramenta: as cinco colunas novas da\nlicitacao e as duas do arquivo existem com tipo e nulidade certos, o dominio tem\nas quatro fases, o CHECK passou de tres para cinco donos, os dois indices\nexistem, e a versao do banco foi de 1.24.0 para 1.25.0. Nenhum dado se perdeu:\n54 anexos e 11 licitacoes antes e depois.\n\nExercitado contra o banco migrado: a rota nova do dominio devolve as quatro\nfases, e a listagem de licitacoes continua trazendo as 6 de 2026 com os campos\nnovos em nulo. O LEFT JOIN da fase nao derrubou registro nenhum, que era o risco\nde usar INNER.\n\nA producao continua no ar e respondendo, ainda com o codigo antigo: o esquema so\nganhou coluna anulavel e um CHECK mais permissivo, entao o app velho convive com\no banco novo. Ele reporta 1.24.0 porque le a versao no boot.\n\nA secao 5 do arquivo (o DROP do ano de referencia da configuracao) NAO rodou.\nSegue comentada, para o chefe decidir. O codigo ja nao le essa coluna.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "344d960",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/344d960ac67de8f9087e798b7273a8aa435a7890",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T23:46:24.000Z",
+      "author": "Maj Diniz",
+      "message": "@\na navbar perde a area de extras, que ficou sem dono\n\nO unico extra que existiu foi o seletor de ano, e ele saiu em 2026-08-04, quando\no ano virou filtro de cada tela. O mecanismo ficou no ar sem nenhum modulo\nusando: ponto de extensao que nao estende nada e convite a reintroduzir o\nproblema pela mesma porta.\n\nA poda foi maior do que o `navbarExtras`. O `setModulo` da navbar SO existia\npara montar e desmontar esses extras, entao foram junto o slot, o `_setModulo`,\no cleanup deles e a chamada em main-layout. A navbar deixou de importar o\nregistro de modulos: ela nao muda mais com a rota.\n\nVerificado: 119 arquivos e 1157 testes do cliente, e o build do Vite passa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "8db48c9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8db48c9861f4ba122a5490987f21d1ea4847938a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T23:42:19.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no ano tambem vira filtro de tela na mapoteca, e o ano global morre\n\nFecha a decisao do chefe de 2026-08-04 nos DOIS modulos. O orcamento saiu no\ncommit anterior; agora a mapoteca.\n\nO painel recebe UM filtro no nivel da pagina, e nao um por aba: as cinco abas\nmostram recortes do mesmo ano. O ano chega a elas como FUNCAO, porque a aba e\nmontada uma vez e recarregada depois; passar o valor congelaria a aba no ano em\nque ela nasceu.\n\nNas telas, o filtro foi para onde o ano REALMENTE recorta, e nao para o topo por\nsimetria:\n- pedidos: barra de filtros, como nas telas do orcamento;\n- consumo: no cabecalho do grafico de tendencia anual. O ano recorta so o\n  grafico, e a barra do topo recorta a tabela por data. No topo, os dois\n  pareceriam um filtro so. Ha teste provando que trocar o ano nao refaz a busca\n  da lista;\n- ficha do material: colado ao grafico de consumo mensal, a unica coisa que o\n  ano alimenta ali.\n\n`permitirOutroAno: false` na mapoteca: o ano so FILTRA o que ja aconteceu, e um\nano vazio seria oferecer uma tela em branco. No orcamento e o contrario, porque\nla o ano decide ONDE se cadastra.\n\nMorreram, sem consumidor sobrando (conferido por grep antes de cada um): o\nseletor de ano da navbar, a fabrica `criarYearStore` e os dois stores de modulo.\nCom eles saem as chaves `@sca-*-ano` do localStorage e os eventos\n`anochange:*`. As classes CSS `.navbar__year` e `.dashboard-section__ano`\nficaram orfas e sairam junto.\n\n`docs/decisoes.md` dizia que \"o ano de referencia e contexto de MODULO, e mora na\nnavbar\". Estava falso desde o commit anterior, e foi reescrito para o desenho\natual, em vez de ganhar um \"superado\" ao lado.\n\nVerificado: cliente 119 arquivos e 1157 testes, servidor 778 rapidos, todos\nverdes. O agente tambem provou que a verificacao REPROVA: trocou o onChange do\nfiltro por vazio, viu o teste novo falhar, e reverteu.\n\nFica um ponto aberto: `navbarExtras` continua no registry e na navbar, agora sem\nnenhum modulo usando. E ponto de extensao, nao codigo morto, entao nao o removi.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "2d4966d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2d4966d6932d8b2779c99453b06df7c57fdd137f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T23:24:33.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no ano vira filtro de cada tela, e o painel passa a cobrar o dado que falta\n\nCompleta o refactor que o commit anterior deixou pela metade, e fecha as cinco\ndecisoes que o chefe tomou em 2026-08-04.\n\nANO POR TELA. O seletor global da navbar acabou, junto com a persistencia em\nlocalStorage e o `configuracao.ano_referencia`. Cada tela tem o seu filtro,\ncomeca no ano ATUAL e nao guarda nada. Os dialogos recebem o ano por parametro,\nem vez de ler store global; na edicao o ano do registro continua mandando. A\ntela de metas, que e de PLATAFORMA, ganhou o filtro dela e parou de importar o\nstore de um MODULO, acoplamento que existia so por falta de alternativa.\nA coluna do banco sai pela migracao, quando o chefe aplicar; o codigo ja nao a le.\n\nPAINEL DE PENDENCIAS. O painel passa a listar o dado que falta, com contagem e\ncaminho para a tela: NE e liquidacao sem data, NC sem data, RPNP sem valor a\nliquidar, NC sem meta do PIT e NC com prazo vencido e saldo aberto. O alvo e\nZERO de 2026 em diante. 2025 entra marcado como carga historica do RPCATec, sem\ndocumento individual, e por isso as tres pendencias de data ali nao sao alarme.\nBloco vazio diz \"tudo em ordem\", em vez de sumir.\n\nLICITACAO PARTICIPANTE entra na 4.5 (\"Demais Licitacoes da atividade-fim\"), que\nja era o lugar dela. O `gerarLicitacoes` passa a receber uma LISTA de tipos.\nAntes, uma licitacao participante cadastrada sumia do relatorio em silencio.\n\nTETO DO EMPENHO, corrigido duas vezes pelo dado real:\n- desconta o valor recolhido, senao o sistema aceita gastar credito devolvido, e\n  o servidor passa a discordar do painel (20 NCs de prazo vencido \"com saldo\"\n  contra 9 reais);\n- so barra quem AUMENTA o consumo da NC. Duas NCs de 2026 (2026NC400698 e\n  2026NC400702) tiveram o credito devolvido DEPOIS do empenho e ja nascem acima\n  do teto: barrar por valor absoluto impediria de corrigir essas NEs para sempre.\n\nMIGRACAO ESCRITA E NAO APLICADA\n(migrations/2026-08-04_licitacao_campos_fase_e_anexo.sql): pregao, NUP,\nfornecedor e data de homologacao na licitacao; dominio `fase_licitacao`; anexo\npara licitacao e RPNP, que nao podiam ter; e o DROP do ano de referencia,\ncomentado, para o chefe decidir. As quatro fases do dominio saem dos `fase_atual`\nque os 11 registros REAIS exibem, e nao da prosa do relatorio.\n\nContrato que mudou e vale saber no deploy: o modulo orcamento tem\nschemaValidation proprio, que RECUSA chave desconhecida com 400. Aba aberta com\no JS antigo, mandando `ano_referencia`, recebe 400 ao salvar a Configuracao ate\nrecarregar a pagina. A tela e admin-only.\n\nVerificado: cliente 1158 testes, servidor 778 rapidos e 738 com banco, todos\nverdes. As consultas novas foram exercitadas contra o banco de producao, somente\nleitura.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "ca160fd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ca160fde7e5440ea92693256f5150db5283d751a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T22:45:29.000Z",
+      "author": "Maj Diniz",
+      "message": "WIP: o seletor de ano do orcamento vira componente de plataforma (refactor incompleto)\n\nSnapshot de trabalho em curso, pedido pelo chefe. NAO E ESTADO ESTAVEL: nao\nbuilda, e nao deve ser pushado como esta.\n\nO QUE ENTRA\n\nO seletor de ano do orcamento sai do modulo e vira `components/filtro-ano.js`,\nde plataforma. Sao apagados `modules/orcamento/components/seletor-ano.js`,\n`modules/orcamento/store/year-store.js` e o teste dele. Junto vem mexida em\nform-fields, na tela e no controlador de configuracao do orcamento, e em\nrpcmtec_ctrl e rpcmtec_estrutura.\n\nO QUE FALTA, e por que este commit nao builda\n\n`year-store.js` foi apagado e QUATORZE arquivos ainda o importam. Migraram so\ndois (`modules/orcamento/index.js` e `pages/notas-credito/list.js`). Os que\nficaram para tras:\n\n  pages/dashboard/index.js, pages/dashboard/secao3-store.js,\n  pages/dfd/dfd-dialog.js, pages/dfd/list.js,\n  pages/licitacoes/licitacao-dialog.js, pages/licitacoes/list.js,\n  pages/notas-credito/nota-credito-dialog.js,\n  pages/notas-empenho/list.js, pages/notas-empenho/nota-empenho-dialog.js,\n  pages/pdr/item-dialog.js, pages/pdr/list.js,\n  pages/rpnp/list.js, pages/rpnp/rpnp-dialog.js,\n  e client/src/js/pages/metas/list.js, que e de plataforma.\n\nO Vite resolve o import em tempo de build, entao o modulo orcamento inteiro\nquebra ate os quatorze apontarem para `@components/filtro-ano.js`.\n\nTESTES: nao rodados neste commit, a pedido do chefe. Na ultima rodada completa,\nantes deste refactor, `orcamento/nota_empenho` ja tinha 2 suites vermelhas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PWWfLxyYj1yRYF4G2ipf81",
+      "sha": "140931c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/140931cd392e3c2c39df3286bc4f3d4b43532a90",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T22:34:10.000Z",
+      "author": "Maj Diniz",
+      "message": "@ a mapoteca para de mostrar numero que ela nao mede\n\nRevisao da UI do modulo com o banco de producao a vista. Sete telas mentiam ou\nescondiam, e o conserto e sempre o mesmo: a tela passa a dizer o que o sistema\nsabe, e a calar o que ele nao sabe.\n\nNUMEROS FALSOS\n\nOs tres cartoes da aba Pedidos nao fechavam: 129 total, 98 concluidos, 25\npendentes, e 6 pedidos em cartao nenhum. \"Pendentes\" era uma lista escolhida a\ndedo que deixava fora \"Aguardando producao\" e \"Remetido\", justamente os mais\nparados. A regra virou por EXCLUSAO (nem concluido, nem cancelado), para\nsituacao nova do dominio entrar sozinha.\n\nO Resumo Anual dizia 162 pedidos e a aba ao lado dizia 129. getResumoAnual era a\nunica consulta de pedido do arquivo sem o recorte militar. Sao 33 civis, 29\ndeles de LAI, que tem relatorio proprio.\n\n\"Custo de manutencao: R$ 0,00\" era zero por AUSENCIA DE FONTE: plotter e\nmanutencao_plotter tem zero linha desde 2024-09-07. Agora o cartao escreve \"Sem\nregistro\" sem nenhuma linha, e R$ 0,00 com soma zero. Zero medido e zero por\nfalta de dado deixam de aparecer iguais.\n\nESCRITA ERRADA\n\nO diálogo de produto nao dizia qual versao tem arquivo, e auto-selecionava a\nversao unica mesmo vazia. Versao sem arquivo nao se entrega. Medido: 424 das\n7.572 versoes do acervo estao sem arquivo, e 17 itens de pedido apontaram versao\nvazia HAVENDO outra do mesmo produto com arquivo. Os 17 foram impressos.\n\nO cadastro de cliente aceitava duplicata em silencio, e o par ja existe (ids 33 e\n59, mesmo nome e mesma sigla). Agora pede confirmacao, normalizando caixa, acento\ne ordinal, sem bloquear: homonimo legitimo existe.\n\nO wizard dizia \"criado com sucesso\" com zero item gravado, e apagava a lista\ndigitada. O maior pedido da base tem 132 itens.\n\nRASTREABILIDADE\n\nO historico ganhou busca e dois filtros. Ligar a busca sozinha nao bastava: o\ndata-table casa contra o valor CRU da coluna, e uma delas e array. Cada evento\npassou a carregar o texto que a busca varre. O filtro nomeia a tabela por rotulo\nderivado, nunca pelo nome do banco, que e regra de tela que dois testes guardam.\n\nO detalhe e a lista mostram as datas do registro, distintas da data do DIEx. O\nAUTOR ficou de fora de proposito: a migracao gravou um unico login em 164 de 164,\nentao mostra-lo hoje seria ruido. Esta escrito no comentario.\n\nO nome do produto virou link para a ficha no acervo, na convencao que a tela de\nrastreabilidade ja usava. A consulta publica mostra a forma de entrega uma vez,\nvinda do pedido (ela mudou de lugar em 2026-07-30 e a tela ficou para tras), e\npassou a renderizar a descricao do avulso, que o servidor publica de proposito.\n\nA fila ordena por prazo quando ele existe e por IDADE quando nao. So 33 dos 164\npedidos tem prazo, e nenhum aberto esta vencido: ordenar por prazo poe no topo a\nminoria que alguem preencheu.\n\nROTA QUE EXISTIA E NINGUEM CHAMAVA\n\npending_orders calculava atraso e prazo desde sempre, e nenhuma tela a consumia\n(um teste ate afirmava isso). Virou o bloco \"Pedidos parados\", por idade.\n\nTRES TESTES ATUALIZADOS, por mudanca deliberada: o titulo da fila, a chamada de\npending_orders e o custo de manutencao nulo. Nenhum outro teste foi tocado.\n\nFORA DESTE COMMIT, por dependerem de decisao do chefe: o consumo de material\n(cartao diz 0 e grafico diz 6.493 na mesma ficha), \"Operacoes apoiadas\" (conta\ngrafias, 22 contra cerca de 10 reais), o modulo de plotter e a regua de \"OMs\ndistintas\" (83 no dashboard contra 67 no RPCMTec).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PWWfLxyYj1yRYF4G2ipf81",
+      "sha": "a910aff",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a910affc6c951c50418d166a20643b6c89c12d65",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T21:29:53.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no modulo orcamento passa a mostrar o saldo, o recolhido e quem mexeu\n\nLotes 2 a 5 do plano de correcao, feitos por seis agentes em paralelo,\nparticionados por arquivo.\n\nTelas que mentiam sobre dinheiro:\n- o Recolhido entra no painel e na lista de NC. Sem ele o saldo aparente de 2026\n  era 176.952,04 contra 99.130,04 reais, e na ND 339015 o erro era de fator dois;\n- nulo deixa de ser zero: o RPNP sem valor informado perde a marca de quitado\n  (11 de 15 em 2026) e o cartao do PDR escreve \"-\" onde nao ha valor, em vez de\n  afirmar que a Divisao pediu nada;\n- a UG emitente aparece, e ela e parte da chave unica: 2026NC400412 existe duas\n  vezes, so a UG as separa;\n- NE quitada deixa de parecer aberta por residuo de ponto flutuante.\n\nO numero da decisao:\n- a ficha da NE mostra o saldo da NC, e o dialogo de empenho mostra o saldo por\n  linha do rateio;\n- o painel ganha saldo a empenhar e os dois percentuais;\n- o servidor recusa empenho acima da NC, dentro da transacao. A ANULACAO\n  desconta, proporcional a fatia de cada NC: seis NEs de 2026 estao anuladas por\n  inteiro, e o teto bruto daria essas NCs por esgotadas. A conta liquida fecha\n  com o criterio do painel em 483.568,51, delta zero.\n\nRastreabilidade e ligacao com o PIT:\n- historico na Configuracao e nos Dominios, as duas telas de maior alcance;\n- data e autor nos lancamentos, no PDR, no DFD e na ficha da NE;\n- a meta aparece com NOME, e nao como algarismo solto, na NC e no PDR. A NC\n  passa a ler pit.meta_vigente, porque a descricao mora em meta_revisao;\n- a tela de metas mostra o credito e o PDR autorizado de cada meta, que fecha o\n  caminho de volta;\n- o registro sem data deixa de ser invisivel: o painel avisa quantos entram em\n  todos os meses. A regra do corte fica como esta, por ser decisao do chefe.\n\nPadrao de casa: falha de carga para de virar \"sem execucao\" (o estado-erro do\nacervo sobe para components), 14 maxLength alinhados ao DDL, a numeracao 3.x\nvira 4.x na tela, nos comentarios e no DDL, o GND do PDR passa a derivar da ND, e\nquem so consulta ganha caminho ate o DFD.\n\nNao rodei os testes, por instrucao do chefe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "d7ac1a2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d7ac1a242b1b8682bdbc9c3559e8647dc567a176",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-04T21:08:54.000Z",
+      "author": "Maj Diniz",
+      "message": "@\na escrita do modulo orcamento pela web volta a funcionar\n\nO select devolve o valor da opcao com o tipo original e o id chega da API como\ntexto (BIGINT do Postgres). Os schemas cobram Joi.number().integer().strict().\nToda NE, e toda NC com meta, item do PDR ou NC complementada, davam 400 ao\nsalvar. O helper paraId passa a fazer a conversao nos quatro dialogos.\n\nJunto, quatro defeitos da mesma familia:\n- editar liquidacao e recebimento nunca gravava: o PUT nao levava\n  nota_empenho_id, que o models.atualizar exige;\n- salvar item do PDR apagava a descricao, campo que a tela nunca mostrou e que\n  existe em 36 de 36 itens reais. Agora tem campo no dialogo e coluna na lista;\n- salvar DFD zerava ou anulava o valor_estimado, porque nenhuma tela permitia\n  informa-lo;\n- o filtro de classificacao da NC montava as opcoes com id, e o dominio devolve\n  code: o unico filtro da tela nao filtrava nada.\n\nA lista de RPNP passa a receber a coluna empenho como CHAVE, e nao so no render,\npela mesma expressao que o relatorio usa. Sem ela a busca pelo numero do empenho\ndevolvia zero com a linha na tela.\n\nOs oito arquivos de teste novos reprovam o estado anterior a cada conserto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "5f0fc3a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5f0fc3a1584efe2f046278906d5ee066c7c6654c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-04T20:31:28.000Z",
