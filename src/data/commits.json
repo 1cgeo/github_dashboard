@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-05T16:45:52.385Z",
+  "lastUpdate": "2026-08-05T21:16:09.069Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-05T15:02:58.000Z",
+    "1cgeo/controle_acervo": "2026-08-05T20:51:42.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-05T15:45:23.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-05T20:53:13.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-07-26T18:13:27.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5652,
+    "totalCommits": 5655,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 858,
+      "1cgeo/ebgeo_web": 859,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 255,
+      "1cgeo/controle_acervo": 256,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,40 @@
       "1cgeo/github_dashboard": 54,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 508,
+      "1cgeo/chefe_dgeo": 509,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-05T20:53:13.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-08-05: o PIT vira documento transcrito\n\nToda alteracao de meta passa a ser ato de revisao. A decisao saiu de uma frase\ndo chefe, depois de TRES iteracoes minhas na mesma tela: \"o texto assinado e o\nrei, e o que esta no sistema e transcricao dele\".\n\nDela decorrem os dois casos de borda. Editar declaracao de revisao ja publicada\ne permitido (corrige a nossa copia, nao o PIT; revisao nova ali afirmaria que a\nDSG mudou de ideia). Apagar meta so vale na revisao que a criou (ela pode ter\nnascido errada); depois, so cancelar.\n\nMetas do PIT e Revisoes do PIT viraram uma tela, e sem revisao escolhida nao ha\nacao de linha nenhuma: e a ausencia que ensina o modelo.\n\nMetodo que fica: quando o chefe diz que nao entende uma tela, o defeito nao e\ndele. A distincao entre os dois botoes estava escrita com clareza em comentario\nde codigo e em lugar nenhum na interface. Documentacao que so o programador le\nnao e documentacao do produto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "9a7cb7b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9a7cb7b0d773b7455ab9f88756eec259fa2e4a4f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-05T20:51:42.000Z",
+      "author": "Maj Diniz",
+      "message": "O PIT vira documento transcrito: toda alteracao de meta e ato de revisao\n\nDecisao do chefe, depois de tres iteracoes na tela, e ela sai de uma frase que\nresolve os casos de borda: \"o texto assinado e o rei, e o que esta no sistema e\ntranscricao dele\".\n\nDecorre dai que editar a declaracao de uma revisao JA PUBLICADA e permitido,\ncom motivo e rastro: nao muda o PIT, corrige a nossa copia quando ela discorda\ndo documento. Emitir revisao nova ali afirmaria que a DSG mudou de ideia, o que\nseria falso. E que apagar meta so vale a partir da revisao que a CRIOU, porque\nela pode ter nascido errada e o documento talvez nem a tenha; com mais de uma\ndeclaracao, resta cancelar.\n\nAS DUAS TELAS VIRARAM UMA. Metas do PIT absorveu Revisoes do PIT: o exercicio em\ncima, a faixa de revisoes abaixo, e a tabela do consolidado com \"Pelo\" (que\nrevisao declarou a linha) e \"Nesta revisao\" (Acrescenta, Altera, Cancela).\nSEM REVISAO ESCOLHIDA NAO HA ACAO DE LINHA NENHUMA: e a ausencia que ensina o\nmodelo, e nao um aviso. Sumiram \"Editar\" solto, \"Corrigir transcricao\" como\nbotao proprio, \"Corrigir cadastro\" e \"Excluir meta\"; a identidade da meta entrou\nno mesmo formulario e grava na mesma transacao da declaracao.\n\nO modelo do banco ja sustentava quase tudo: `pit.exercicio` ja tinha Em\nelaboracao, a guarda ja so barrava Encerrado (entao o PIT 2027 ja podia ser\nmontado em 2026), meta ja era ligada ao ano, e `pit.meta_revisao` ja era esparsa,\nque e literalmente \"a revisao altera apenas algumas metas\". O bloqueio real\nestava na borda: a lista de anos saia de `SELECT DISTINCT ano FROM pit.meta`,\nentao exercicio novo e vazio nao aparecia no filtro e nao havia como chegar nele\npara criar as metas. Passou a sair dos exercicios.\n\nOUTROS CONSERTOS DESTA LEVA\n\n- META CANCELADA saia da grade de execucao. A consulta SELECIONAVA `cancelada` e\n  nunca filtrava, e nenhuma tela usava a coluna: a R1 de 2026 cancelou a 5.2 e a\n  5.3 e as duas seguiam pedindo lancamento mensal. Agora saem da execucao e\n  aparecem marcadas em Metas. `IS NOT TRUE`, e nao `NOT`: a view traz a revisao\n  por LEFT JOIN LATERAL, e meta que revisao nenhuma declarou vem com nulo.\n- `atualizar` gravava `origem_id = 1` sempre que o corpo o omitia, e o formulario\n  nunca teve campo de origem: salvar uma correcao DESLIGAVA em silencio a meta\n  que contava sozinha. Omitir passou a ser \"nao mexe\".\n- A CELULA CALCULADA da execucao nao abre mais para digitar. O servidor ja\n  recusava; a tela pedia e so entao recusava. As flags saem do servidor, onde a\n  regra mora.\n- CAPACITACAO MINISTRADA diz se conta no PIT, com a meta ligada. Sem meta sai\n  \"Fora do PIT\" por escrito: traco se leria como campo nao preenchido.\n- O rastro mostrava `[object Object]` no metadado do acervo. `String` de objeto\n  nunca informa nada, entao o conserto e no ramo PADRAO e nao num tipo novo.\n- CARTAO DE TOTAIS cortava dinheiro. O Intl do BRL usa ESPACO INSECAVEL, entao\n  `R$ 660.520,50` e um token unico que nao quebra: com o piso do grid em 200px\n  ele transbordava e a tela mostrava `R$ 660.520,5`, que parece valido. Piso\n  medido do pior caso real, mais reticencia e `title` contra o corte silencioso.\n- A BARRA DE FILTRO virou uma so, em 18 telas. Existia em tres versoes, e o\n  bloco de estilo inline estava copiado em 13 arquivos. A da rastreabilidade\n  ficou, por ser a melhor; os combos dela usavam `form-control`, classe que NAO\n  EXISTE em folha nenhuma, e por isso destoavam de todo o sistema.\n- Extra-PIT ganhou a associacao com o acervo pela tela, e a folha que ja cumpre\n  meta do PIT aparece com o motivo escrito, em vez de o CHECK responder.\n\nVERIFICACAO\nclient 127 arquivos / 1280 casos, servidor rapido 69 suites / 866, servidor com\nbanco 43 suites / 720, build limpo, guard anti-vazamento limpo. As regras novas\ndo PIT foram conferidas contra o banco de PRODUCAO em transacao somente leitura,\ncom duas contagens independentes fechando em 56 metas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "58dcd25",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/58dcd25dae86631ef7f270912f015e0582cd984b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-05T17:53:11.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(paginas)!: seletor de projetos e administracao viram paginas proprias\n\nO app deixa de ser uma pagina so. `projetos.html` (seletor de atlas) e\n`admin.html` (Administracao) passam a ser entries proprios do Vite, cada um\ncom seu modulo de entrada e seu manifesto de CSS. Nenhum dos dois carrega o\nmapa: sem MapLibre/Turf/Cesium/GDAL, sem `@store`, sem `initServices()`.\nPayload eager medido: ~138 kB cada, contra ~3,3 MB do mapa.\n\nEscolher projeto agora acontece ANTES de existir mapa. Um usuario logado numa\n`/` pura e roteado para o seletor na fase -1 do boot, antes de `createMap()`,\nem vez de pagar o boot inteiro para so entao ver um modal por cima dele.\n\nO que isso apagou de duplicacao: o `AccountControl` mantinha o pipeline de\nabertura completo (disconnect -> wipe -> markRemote -> connect -> activate ->\nswitchMap -> auto-flush) em dois ramos, alem do que ja existia em\n`openRemoteAtlas`. Abrir virou navegar para `./?atlas=<uuid>` e deixar o\nroteador de boot do mapa fazer o resto; `openProjectPicker` sao tres linhas.\n\nO aviso de \"isto substitui seus dados locais\" saiu de `openProjectPicker` --\nonde disparava ao ABRIR a lista, logo depois de todo login, avisando sobre uma\nsubstituicao que talvez nunca acontecesse -- e vive so em `openRemoteAtlas`,\nque e onde a substituicao acontece. Virou pergunta de tres vias (`showChoice`):\nCancelar / Salvar e continuar / Descartar e abrir. Um confirm binario escondia\njustamente a opcao que a pessoa quer (fazer, mas preservar o que e meu).\n\nOutras mudancas:\n\n- `codeSplitting.groups` + `entriesAware: true` no lugar do `manualChunks`\n  depreciado: com dois entries o shim do Rollup fundia modulos entre paginas e\n  `admin.html` preloadava o chunk de 829 kB com a store inteira. Medido, nao\n  deduzido. O mapa tambem melhorou (3,96 MB -> 3,30 MB eager).\n- `ui/app-bar.js`: barra superior compartilhada pelas duas paginas sem mapa,\n  porque `AccountControl` e IControl do MapLibre e so existe dentro de um mapa.\n- `session/idle-watch.js`: vigilia de inatividade extraida do controller. Como\n  overlay, a Administracao era coberta pela vigilia do mapa; virar pagina teria\n  removido o timeout em silencio.\n- \"Importar .ebgeo\" no seletor: cria o projeto direto do arquivo, sem passar\n  pelo store local (a rota antiga obrigava a abrir o arquivo no mapa e destruir\n  o workspace so para ele passar por ali). Nome vem do arquivo -- o formato nao\n  tem campo de nome de atlas.\n- \"Seus projetos\" no menu da conta: era a unica rota do mapa de volta ao\n  seletor que nao existia (so dava para chegar la saindo da conta).\n- \"Salvar no servidor\" tambem na barra de mapas, delegando ao mesmo metodo.\n  \"Limpar Tudo\" passa a ser gateado pela ORIGEM do store, nao por estar logado:\n  antes sumia ao entrar, deixando quem trabalhava localmente sem como limpar.\n- `deep-link/local-intent.js`: a escapatoria \"Mapa local\" para o usuario logado,\n  em sessionStorage e nao na URL (na URL viajaria em todo link compartilhado).\n\nVerificacao: `npm run lint` limpo, 2703 testes unitarios passando, build ok.\nOs specs e2e que tocavam o seletor foram atualizados (os `data-testid`\n`project-picker-*` foram preservados verbatim), mas a suite e2e NAO foi\nexecutada ate o fim nesta maquina.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01GBQfCtvBrmXttiVxLRnnpP",
+      "sha": "2d0f243",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2d0f2439315e6d31ba7e24d885536ccdcbadd681",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-05T15:45:23.000Z",
