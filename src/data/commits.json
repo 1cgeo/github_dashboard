@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-06T17:43:18.651Z",
+  "lastUpdate": "2026-08-06T18:47:20.628Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-06T17:14:16.000Z",
+    "1cgeo/controle_acervo": "2026-08-06T18:42:12.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -54,10 +54,10 @@
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
-    "1cgeo/github_dashboard": "2026-08-06T16:19:05.000Z",
+    "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-06T16:19:34.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-06T18:00:01.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5677,
+    "totalCommits": 5683,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 272,
+      "1cgeo/controle_acervo": 275,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -160,16 +160,70 @@
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
-      "1cgeo/github_dashboard": 55,
+      "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 513,
+      "1cgeo/chefe_dgeo": 515,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T18:42:12.000Z",
+      "author": "Maj Diniz",
+      "message": "A revisao publicada aceita REMOVER a declaracao que a copia inventou\n\nA assimetria nao se justificava. Numa revisao ja publicada, a mesma rota:\n\n  ACRESCENTA a meta que a nossa copia esqueceu de transcrever  -> permitido\n  EDITA      a meta que a copia transcreveu errado             -> permitido\n  REMOVE     a meta que a copia inventou                       -> RECUSADO\n\nAs tres sao a mesma correcao, a da TRANSCRICAO, e o que separa \"transcrevi\nerrado\" de \"a DSG mudou o plano\" e o MOTIVO, que as duas primeiras ja cobravam.\n\n--- O CASO QUE ABRIU ISTO, em 2026-08-06 ---\n\nO R1 de 2026 declarava a meta 4.2 em 252, contra os 247 do R0. O chefe conferiu\nno RTM: sao 247, e o documento assinado do R1 nao toca essa meta. Foi erro de\ntranscricao.\n\nSem a remocao, a unica saida era editar o R1 para repetir o 247 do R0, deixando\nno historico uma alteracao que nunca existiu. `pit.meta_item_revisao` e esparsa\nde proposito: as linhas de uma revisao SAO as alteracoes dela, e uma linha que\nnao altera nada mente sobre o documento.\n\n--- O QUE MUDOU ---\n\n`motivoDaCorrecao` saiu de dentro do `pit_ctrl` para `pit/motivo_correcao.js`,\nporque agora TRES caminhos usam a mesma regra. Regra em tres lugares diverge.\n\nO `removerDeclaracao` passa a aceitar revisao publicada COM motivo de 5+\ncaracteres, e o RASTRO distingue os dois casos: \"Correcao da transcricao do R1\nde 2026: <motivo>\" contra \"Removida do rascunho\". Registrar \"removida do\nrascunho\" numa revisao publicada seria falso, e o historico e onde alguem vai\nprocurar por que a 4.2 voltou a 247.\n\nO corpo e opcional na rota (`req.body?.motivo`): a remocao no rascunho nao leva\ncorpo, e a leitura direta viraria 500 no caminho mais comum. E o mesmo defeito\nque a 1.36.0 introduziu no fechamento do RPCMTec, dois commits atras.\n\n--- AS PROVAS ---\n\nO caso que fixava a recusa foi reescrito: ele agora cobra que a recusa SEM\nmotivo ensine o que fazer, e que nada seja removido. Dois casos novos: com\nmotivo remove e o rastro diz que foi transcricao, e o RASCUNHO continua removendo\nsem motivo nenhum, que e a variancia (exigir motivo ali obrigaria a justificar o\ndesfazer de um erro que ainda nao rege nada).\n\n840 provas de banco, 961 rapidas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "8bc71df",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8bc71dfc40c54447ce5f177a224fc99c85d83758",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-08-06T18:14:17.000Z",
+      "author": "Maj Diniz",
+      "message": "o contrato sai para modulo proprio, e o build volta a passar\n\nO commit anterior (161f74f8) fez o ConsolidatedDataExport.jsx importar o\nehEfetivo do scripts/fetchData.js. O fetchData.js importa 'fs' e 'url', que o\nbrowser nao tem: o Vite externaliza os dois e o import nomeado pathToFileURL\nsome. O build do GitHub Actions morre no passo 7, depois de coletar os dados.\n\nO contrato (repositorios, mapa de autores, filtros, AUTORES_NAO_EFETIVO) passa a\nmorar no scripts/contrato.js, sem nenhum import de Node. O fetchData.js importa\ne REEXPORTA, entao o dashboard_cli/ e os testes seguem importando de la sem\nmudanca. So o frontend troca de origem.\n\nVerificado: npm run build reprova a arvore anterior com o erro do CI e passa\nagora; node --test no dashboard_cli da 18 de 18.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "397ef4e",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/397ef4e548c23d51da8428bb830c81799781cac5",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T18:12:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Corrigir o subtipo de um produto ja cadastrado era impossivel pela API\n\nO IMPASSE ERA CIRCULAR, e foi medido em 2026-08-06 num produto real: a\n\"Porto Alegre - S\" esta cadastrada como Carta Topografica e e Carta Ortoimagem.\n\n  mudar o PRODUTO  -> a guarda de `atualizaProduto` recusa, porque as versoes\n                      existentes tem outro subtipo;\n  mudar a VERSAO   -> o gatilho `acervo.validate_version` recusa, porque o\n                      produto tem outro subtipo.\n\nNenhum dos dois podia ir primeiro, e nao havia caminho pela API. So SQL na mao,\nque e escrita sem rastro de auditoria.\n\n--- A TROCA CONJUNTA ---\n\n`migrar_subtipo_das_versoes` no corpo do PUT do produto. Com ele, produto e\nversoes trocam juntos, na mesma transacao. Sem ele, a guarda continua recusando,\ne agora a mensagem ENSINA a saida em vez de so dizer nao.\n\nO campo e OPCIONAL e nao tem `default(true)`, de proposito: mudar o subtipo do\nproduto reescreve a identidade de TODA versao dele, e isso nao pode acontecer por\ndescuido de quem so queria corrigir o nome.\n\nCADA VERSAO DEIXA O PROPRIO RASTRO. Registrar so o produto esconderia que N\nversoes mudaram de identidade no mesmo ato.\n\n--- A ORDEM, QUE O TESTE ME ENSINOU ---\n\nO primeiro desenho migrava as versoes DENTRO da guarda, antes de gravar o\nproduto. O gatilho entao via o produto ainda no subtipo velho e recusava a\npropria correcao. O teste reprovou com 400, e a ordem virou: decidir na guarda,\ngravar o produto, migrar as versoes depois.\n\n--- A RECUSA DO GATILHO VIRA 400 ---\n\nEla e um `RAISE EXCEPTION` (SQLSTATE P0001) e subia crua: o cliente via \"Erro no\nservidor\", 500. 500 diz \"o sistema quebrou\", e o que houve foi o sistema RECUSAR,\ncom a razao ja escrita na mensagem do gatilho. So o P0001 vira 400; erro de\nconexao ou de restricao continua subindo como esta.\n\n--- AS PROVAS ---\n\nCinco casos. O de VARIANCIA e o que impede a flag de virar enfeite: produto SEM\nversao conflitante troca de subtipo sem ela. Mais o caso que prova que a recusa\nnao grava metade, e o que cobra o rastro proprio da versao migrada.\n\n838 provas de banco, 961 rapidas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "12f6cd9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/12f6cd9b2531f47a90cd5f20309bbc04372c7638",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T18:12:27.000Z",
+      "author": "Maj Diniz",
+      "message": "RPCMTec: editor de prosa em branco, formularios, a 4.4, e esconder o conferido\n\nQuatro pedidos do chefe em 2026-08-06.\n\n--- 1. O EDITOR DE PROSA ABRIA VAZIO, E ISSO APAGAVA TEXTO ---\n\nEditar 9.1, 9.2 ou 9.3 abria o campo em branco mesmo com texto gravado. Quem nao\npercebesse e salvasse, apagava o que estava la.\n\nA CAUSA E DE CLASSE, e nao daquela linha. O `el()` cai em `setAttribute` para\ntoda chave que nao conhece, e num `<textarea>` o conteudo NAO e o atributo\n`value`: e no de texto filho. O atributo era gravado e ignorado.\n\nA mesma armadilha ja tinha mordido duas vezes no mesmo dia: `checked: false` num\ncheckbox MARCAVA a caixa (atributo presente = marcado), e `htmlFor` num `<label>`\nvirava atributo inexistente e o rotulo parava de clicar. Os dois tinham remendo\nmanual, e agora passam pelo `el()`.\n\nO `el()` passa a aplicar como PROPRIEDADE: value, checked, selected, disabled,\nhtmlFor, indeterminate, open, multiple, readOnly e required. Elas entram numa\nSEGUNDA passada, depois das outras chaves, porque `element.value = '2026-06-15'`\nnum input que ainda nao recebeu `type=\"date\"` seria recusado. `hidden` fica de\nfora de proposito: ele aceita a string `until-found`, e trata-lo como booleano\njogaria esse valor fora.\n\nA varredura dos 54 pontos que passam essas chaves ao `el()` achou DOIS quebrados,\ne os dois sararam sem tocar no arquivo: o textarea da prosa, e o rotulo \"Mostrar\ncampos nao preenchidos\" do ponto de controle.\n\n--- 2. OS FORMULARIOS ---\n\nNada de perder trabalho: Escape, X e clique no fundo passam a consultar uma\nguarda opt-in (`podeFechar` do modal-base), e \"Cancelar\" tambem. Remover linha\nPREENCHIDA pergunta e nomeia a linha; linha em branco sai calada, porque e a que\na pessoa acabou de criar por engano. O dialogo nao fecha com a gravacao em voo.\n\nDizer antes do clique: o que \"Salvar\" faz e que \"Sem ocorrencia no mes\" APAGA o\nconteudo agora estao no topo do dialogo, e nao so na confirmacao com a mao ja no\nbotao.\n\nA grade ficou navegavel: Enter desce e cria a proxima linha no fim, setas andam\nentre linhas, remover linha poe o foco na vizinha (antes ele caia no corpo da\npagina e o Tab recomecava do topo), e colar da planilha vira matriz, avisando\nquantas linhas criou e quantas colunas ficaram de fora.\n\n--- 3. A 4.4 (GCALC DSG) DIVERGIA DA TELA DE LICITACOES ---\n\nMedido na producao: a licitacao de fornecimento de imagens (id 1) tem\n`fase_id` 3 (Homologado) e `fase_atual` \"Renovando o contrato vigente\".\n\nA tela mostra `fase_nome || fase_atual`, o codigo primeiro. O gerador da 4.4 lia\nSO o `fase_atual`. Para a mesma licitacao, a tela dizia \"Homologado\" e o\nrelatorio dizia \"Renovando o contrato vigente\". Agora o gerador usa\n`COALESCE(fl.nome, l.fase_atual)`, a mesma regra da tela.\n\nFICA UM DADO DIVERGENTE, e ele e do chefe: na id 1 o codigo e o texto discordam,\ne das 11 licitacoes so ela tem `fase_id`. Duas medidas do mesmo parametro que\ndiscordam indicam defeito ate prova em contrario.\n\n--- 4. ESCONDER O QUE JA FOI CONFERIDO ---\n\nCaixa que suprime a subsecao conferida, para sobrar na tela so o que precisa de\nolho. Ela NAO esconde a `desatualizada`: essa esta marcada mas o conteudo mudou\ndepois, e e justamente a que passa batido. A secao que fica sem subsecao visivel\nsai junto, senao restariam cabecalhos de gaveta vazia. Diz quantas escondeu, e o\nestado sobrevive a recarga, senao marcar uma subsecao desfaria o trabalho.\n\n--- AS PROVAS ---\n\nProva de fogo, um conserto por vez: `el()` original derruba 19 casos; o\nmodal-base e o editor originais derrubam 9; a tela sem a caixa derruba 8; e o\ngerador antigo da 4.4 derruba 2, com a falha literal\n(\"Expected: Homologado / Received: Renovando o contrato vigente\").\n\n1.389 provas de cliente (eram 1.349), 961 rapidas, 838 de banco.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "7c2c308",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7c2c30801c3912babf9cd71fb114cdfaa0fc92b2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T18:00:01.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings pendentes: mapoteca rodadas 7 e 8, e o CATMAT da licitacao\n\nTres arquivos que ficaram no diretorio de trabalho desde 2026-08-04.\n\ncadastrar-pedido-mapoteca: rodada 7 (o cliente civil que aguarda PRODUCAO, e o\ndocumento que chega em minuta) e rodada 8 (a LAI com tres documentos na cadeia, e\no anexo que nao e pedido). A referencia-plano corrige o contrato de\nanexos[].arquivo: o caminho relativo resolve contra o DIRETORIO DO PLANO, nao\ncontra o diretorio corrente, medido no mapoteca_cli em 2026-08-06.\n\nconsultar-licitacao: o CATMAT do item nao e o CATMAT que as compras usam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6afb23c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6afb23cfda4090a8e30b3d504da702f28f5c07d9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T17:50:46.000Z",
+      "author": "Maj Diniz",
+      "message": "skill carta-ortoimagem-om: a planta de OM vira produto proprio\n\nPrimeira Carta Ortoimagem OM de ponta a ponta (Ilha Brasileira, orto de drone do\n1o BIM de 29/07/2026, 1:3.800). O produto nao pertence ao pipeline do SCN, e o\ncorte e tecnico: para esse tipo_produto o mapBuilderController resolve\nconnection = None e nenhum PostgreSQL e aberto; o camadas.json tem map vazio; nao\nha inom, banco nem mde_diagrama_elevacao.\n\nA skill cobre o caminho inteiro (comprimir a imagem, derivar o poligono, puxar os\nbrasoes de mapa_das_om, escrever o JSON, exportar e OLHAR a folha) e traz o\npreparar_om.py com tres verbos, os tres exercitados de verdade. O template da OM\nsaiu de criar-json-edicao, que passou a apontar a skill nova em vez de guardar\numa segunda copia.\n\nO que quase passou em silencio, e por isso esta na skill e no learnings: o fundo\nXYZ nao desceu (proxy 407, chaves PROXY_ vazias no .env), a camada wms ficou\nvalida e o standalone terminou com \"1/1 produto(s) com sucesso\". So olhar a folha\nrevelou. O validate do CLI, que reprovava a URI xyz por cobrar os.path.exists,\nfoi corrigido no upstream (dsgoficial/ferramentas_edicao, qgis4, 0a9e539f).\n\nCorrigidos dois fatos de ambiente que o vault afirmava errado: o pathQgis desta\nmaquina e o QGIS 4.2.0 (o 4.0.0 virou esqueleto) e o setup_env.bat aponta\ngrass84 onde ha grass85.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "aa40177",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/aa401778dcba62fd2afbc0b7cc83033d20f7a1b7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-08-06T17:40:36.000Z",
