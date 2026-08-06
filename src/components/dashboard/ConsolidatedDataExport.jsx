@@ -18,7 +18,7 @@ import {
 } from '@mui/material';
 import { Assessment } from '@mui/icons-material';
 import _ from 'lodash';
-import { ehEfetivo } from '../../../scripts/fetchData.js';
+import { ehEfetivo } from '../../../scripts/contrato.js';
 
 function ConsolidatedDataExport({ data }) {
   const [open, setOpen] = useState(false);
