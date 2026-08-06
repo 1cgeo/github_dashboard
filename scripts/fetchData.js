@@ -113,7 +113,25 @@ export const authorMapping = {
   'Erodor94': "2º Sgt Castro",
   'Antônio Ignacio': "Alu Ignacio",
   'kretzer': "Alu Kretzer",
+  'venturaluisbr': "1º Ten Ventura",
+  'Luis Ventura': "1º Ten Ventura",
 };
+
+// Quem committa mas NAO e efetivo da Divisao.
+//
+// O commit continua contando: o trabalho existe e o repositorio foi trabalhado.
+// O que muda e a coluna Efetivo da subsecao 5.1 do RPCMTec, que lista os
+// MILITARES empregados no mes. Um agente nao ocupa vaga de efetivo, e quem le o
+// relatorio assinado leria "Claude" como pessoa.
+//
+// Diferente de shouldIncludeCommit (dependabot, github-actions): la o commit
+// inteiro e ruido e sai da conta. Aqui o commit fica e so o nome sai.
+export const AUTORES_NAO_EFETIVO = new Set(['Claude']);
+
+/** O autor entra na coluna Efetivo? Aceita o nome cru ou o ja normalizado. */
+export function ehEfetivo(author) {
+  return !AUTORES_NAO_EFETIVO.has(normalizeAuthorName(author));
+}
 
 export function normalizeAuthorName(author) {
   return authorMapping[author] || author;

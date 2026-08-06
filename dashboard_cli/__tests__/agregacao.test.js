@@ -8,7 +8,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
-import { authorMapping } from '../../scripts/fetchData.js'
+import { authorMapping, AUTORES_NAO_EFETIVO } from '../../scripts/fetchData.js'
 import {
   porRepo, triagem, limparMensagem, autoresNaoMapeados, NOMES_CONHECIDOS
 } from '../lib/agregacao.js'
@@ -29,6 +29,29 @@ test('porRepo conta, junta o efetivo unico e ordena por commits desc', () => {
   assert.equal(linhas[0].commits, 3)
   assert.deepEqual(linhas[0].efetivo, ['Maj Diniz', 'Cap Ronaldo'])
   assert.deepEqual(autores, ['Maj Diniz', 'Cap Ronaldo'])
+})
+
+test('quem nao e efetivo conta o commit e sai da coluna Efetivo', () => {
+  // O nome sai, o commit fica. Trocar isso por "descarta o commit" faria a 5.1
+  // reportar menos trabalho do que o repositorio recebeu.
+  const naoEfetivo = [...AUTORES_NAO_EFETIVO][0]
+  const { linhas, total, autores } = porRepo([
+    commit('a', 'Maj Diniz'),
+    commit('a', naoEfetivo),
+    commit('so-agente', naoEfetivo)
+  ])
+  assert.equal(total, 3)
+  assert.equal(linhas[0].commits, 2)
+  assert.deepEqual(linhas[0].efetivo, ['Maj Diniz'])
+  assert.deepEqual(linhas.find(l => l.repo === 'so-agente').efetivo, [])
+  assert.deepEqual(autores, ['Maj Diniz'])
+})
+
+test('o efetivo novo do mapa chega com posto e nome de guerra', () => {
+  // Handle que ja vazou cru para um RPCMTec (venturaluisbr, julho/2026).
+  const { linhas } = porRepo([commit('doc_dgeo', authorMapping.venturaluisbr)])
+  assert.deepEqual(linhas[0].efetivo, ['1º Ten Ventura'])
+  assert.equal(autoresNaoMapeados(['1º Ten Ventura']).length, 0)
 })
 
 test('empate desempata pela primeira aparicao, como o CSV da tela', () => {

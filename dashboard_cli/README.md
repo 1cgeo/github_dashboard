@@ -12,7 +12,7 @@ precisa de `npm install`.
 
 ## Os dois comandos
 
-### `dash consolidado` - a Secao 4.1 do RPCMTec
+### `dash consolidado` - a subsecao 5.1 do RPCMTec
 
 Commits por repositorio no periodo, com o efetivo que os fez.
 
@@ -22,9 +22,12 @@ node dashboard_cli/dash.js consolidado --ano 2026 --mes 6 --mes-apenas --csv
 node dashboard_cli/dash.js consolidado --ano 2026 --ano-todo --formato markdown
 ```
 
-Padrao: mes corrente, **acumulado de janeiro** (o RPCMTec e cumulativo).
-`--mes-apenas` da o mes isolado, que e o que o botao "Dados Consolidados" da
-tela exporta; `--ano-todo` da o ano, para a RPCATec.
+Padrao: **o mes isolado** (decisao do chefe da DGEO, 2026-08-06), que e o que a
+5.1 reporta e o que o botao "Dados Consolidados" da tela exporta. `--cumulativo`
+da de janeiro ate o mes; `--ano-todo` da o ano, para a RPCATec.
+
+A coluna Efetivo lista MILITARES: o commit de quem nao e efetivo (o agente, em
+`AUTORES_NAO_EFETIVO` no `scripts/fetchData.js`) e contado, e o nome nao entra.
 
 Formatos: `tabela` (padrao), `tsv`, `markdown` (a tabela pronta do relatorio),
 `csv` (identico ao do botao da tela, mesmo cabecalho e mesmo separador de
@@ -33,7 +36,7 @@ autores) e `json`.
 ### `dash material` - o resumo do que foi feito
 
 Prepara, por repositorio, o material que alguem vai resumir em um paragrafo (a
-coluna extra da 4.1). O CLI faz so a parte deterministica e nao chama modelo
+coluna extra da 5.1). O CLI faz so a parte deterministica e nao chama modelo
 nenhum: escreve uma pasta de trabalho e imprime o caminho do `manifesto.json`.
 
 ```bash

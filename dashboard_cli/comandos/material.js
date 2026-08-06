@@ -1,6 +1,6 @@
 // Path: dashboard_cli/comandos/material.js
 
-// `dash material` prepara a coluna que falta na 4.1: o RESUMO do que foi feito
+// `dash material` prepara a coluna que falta na 5.1: o RESUMO do que foi feito
 // em cada repositorio no periodo.
 //
 // O CLI faz so a parte deterministica, e nao chama modelo nenhum. Ele monta,
@@ -118,7 +118,7 @@ export async function executar (args) {
 
   // Pasta de trabalho: um material por repositorio, mais o manifesto.
   const carimbo = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)
-  const pasta = path.resolve(destino, `material-4.1-${ano}-${String(mes).padStart(2, '0')}_${carimbo}`)
+  const pasta = path.resolve(destino, `material-5.1-${ano}-${String(mes).padStart(2, '0')}_${carimbo}`)
   const pastaMaterial = path.join(pasta, 'material')
   fs.mkdirSync(pastaMaterial, { recursive: true })
 
@@ -174,7 +174,7 @@ export async function executar (args) {
   log('  material/<org>__<repo>.md')
   log('')
   log('PROXIMO PASSO: por repo do manifesto, um subagente le o `material` e devolve SO o')
-  log('paragrafo, seguindo `instrucoes_resumo`. A 4.1 fica: Repositorio | Commits | Efetivo | Resumo.')
+  log('paragrafo, seguindo `instrucoes_resumo`. A 5.1 fica: Repositorio | Commits | Efetivo | Resumo.')
 
   // stdout: so o caminho do manifesto, para encadear.
   return { texto: caminhoManifesto, avisos }

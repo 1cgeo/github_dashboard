@@ -52,7 +52,7 @@ test('cumulativo pega de janeiro ate o mes, mes-apenas nao', () => {
   assert.equal(noPeriodo(marco, { ano: 2025, mes: 6, modo: 'ano' }), false)
 })
 
-test('filtrar preserva a ordem do arquivo (o desempate da 4.1 depende dela)', () => {
+test('filtrar preserva a ordem do arquivo (o desempate da 5.1 depende dela)', () => {
   const commits = [
     { repo: 'b', date: new Date('2026-06-20T12:00:00Z') },
     { repo: 'a', date: new Date('2026-06-19T12:00:00Z') },

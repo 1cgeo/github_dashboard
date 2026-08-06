@@ -4,7 +4,7 @@
 // dash - CLI do github_dashboard, para agentes.
 //
 // Substitui os dois scripts Python que viviam no vault do chefe e refaziam,
-// por fora, contas que sao daqui: a tabela da Secao 4.1 do RPCMTec e o material
+// por fora, contas que sao daqui: a tabela da subsecao 5.1 do RPCMTec e o material
 // do resumo por repositorio.
 //
 // Le os MESMOS artefatos que o dashboard web: o scripts/fetchData.js (lista de
@@ -14,13 +14,13 @@
 
 import * as argsLib from './lib/args.js'
 
-const AJUDA = `dash - CLI do github_dashboard (Secao 4.1 do RPCMTec)
+const AJUDA = `dash - CLI do github_dashboard (subsecao 5.1 do RPCMTec)
 
   dash consolidado                commits por repositorio e efetivo no periodo
   dash material --out DIR         material para o resumo por repositorio
 
-PERIODO   (padrao: mes corrente; consolidado acumula de janeiro, material nao)
-  --ano 2026  --mes 7  --mes-apenas  --cumulativo  --ano-todo
+PERIODO   (padrao: o MES isolado, que e o que a 5.1 reporta)
+  --ano 2026  --mes 7  --cumulativo (jan ate o mes)  --ano-todo (RPCATec)
 
 SAIDA DO CONSOLIDADO
   (padrao) tabela          --csv como o botao da tela      --json

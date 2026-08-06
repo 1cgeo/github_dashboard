@@ -11,7 +11,7 @@
 // diz o que foi feito, ou e generica a ponto de so o diff informar? E o passo
 // que decide quais commits custam uma chamada a API do GitHub.
 
-import { authorMapping } from '../../scripts/fetchData.js'
+import { authorMapping, ehEfetivo } from '../../scripts/fetchData.js'
 import { PALAVRAS_GENERICAS } from './regras.js'
 
 /** Nomes normalizados que o fetchData.js conhece (o efetivo com posto e nome). */
@@ -19,6 +19,10 @@ export const NOMES_CONHECIDOS = new Set(Object.values(authorMapping))
 
 /**
  * Agrupa por repositorio. Ordem: commits desc, empate pela primeira aparicao.
+ *
+ * O commit de quem nao e efetivo (ver AUTORES_NAO_EFETIVO no fetchData.js) e
+ * CONTADO e some so da coluna Efetivo: o repositorio foi trabalhado, e a coluna
+ * lista militares.
  * @param {Array} commits ja filtrados pelo periodo, na ordem do arquivo
  * @returns {{linhas: Array<{repo: string, commits: number, efetivo: string[]}>, total: number, autores: string[]}}
  */
@@ -32,8 +36,9 @@ export function porRepo (commits) {
     if (!mapa.has(repo)) mapa.set(repo, { repo, commits: 0, efetivo: [], _commits: [] })
     const slot = mapa.get(repo)
     slot.commits += 1
-    if (!slot.efetivo.includes(autor)) slot.efetivo.push(autor)
     slot._commits.push(c)
+    if (!ehEfetivo(autor)) continue
+    if (!slot.efetivo.includes(autor)) slot.efetivo.push(autor)
     if (!autores.includes(autor)) autores.push(autor)
   }
 

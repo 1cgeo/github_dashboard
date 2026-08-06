@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { Assessment } from '@mui/icons-material';
 import _ from 'lodash';
+import { ehEfetivo } from '../../../scripts/fetchData.js';
 
 function ConsolidatedDataExport({ data }) {
   const [open, setOpen] = useState(false);
@@ -52,7 +53,10 @@ function ConsolidatedDataExport({ data }) {
     // Prepare CSV data and sort by number of commits
     const csvData = Object.entries(commitsByRepo)
       .map(([repo, commits]) => {
-        const authors = _.uniq(commits.map(c => c.author)).join(';');
+        // A coluna Efetivo lista MILITARES. O commit de quem nao e efetivo (o
+        // agente) continua contado, e o nome nao entra: quem le o RPCMTec
+        // assinado leria "Claude" como pessoa empregada no mes.
+        const authors = _.uniq(commits.map(c => c.author).filter(ehEfetivo)).join(';');
         return {
           Repositório: repo,
           'Número de commits': commits.length,
