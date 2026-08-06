@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-06T12:06:34.045Z",
+  "lastUpdate": "2026-08-06T17:43:18.651Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-06T11:54:08.000Z",
+    "1cgeo/controle_acervo": "2026-08-06T17:14:16.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-05T13:05:58.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-06T17:40:36.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -54,10 +54,10 @@
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
-    "1cgeo/github_dashboard": "2026-07-25T16:40:35.000Z",
+    "1cgeo/github_dashboard": "2026-08-06T16:19:05.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-05T20:53:13.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-06T16:19:34.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5662,
+    "totalCommits": 5677,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -133,7 +133,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 161,
       "dsgoficial/configuracoes_producao": 204,
-      "dsgoficial/ferramentas_edicao": 475,
+      "dsgoficial/ferramentas_edicao": 476,
       "dsgoficial/DsgTools": 625,
       "dsgoficial/sap": 171,
       "dsgoficial/SAP_Gerente": 116,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 263,
+      "1cgeo/controle_acervo": 272,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -160,16 +160,151 @@
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
-      "1cgeo/github_dashboard": 54,
+      "1cgeo/github_dashboard": 55,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 509,
+      "1cgeo/chefe_dgeo": 513,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-08-06T17:40:36.000Z",
+      "author": "Maj Diniz",
+      "message": "cli: caminho_imagem xyz e wms nao sao cobrados em disco\n\nO validate reprovava toda imagem de fundo servida pela rede, porque tratava\ncaminho_imagem como caminho de arquivo e cobrava os.path.exists. O\ngetRasterLayerByType do plugin aceita tres formas e so a terceira vai ao disco:\ntype=xyz (camada wms), uri com GetCapabilities (servico wms) e, o resto, arquivo.\nUma Carta Ortoimagem OM com o fundo xyz padrao (o mesmo que o generateommapjson\nemite) era barrada antes de exportar, e a exportacao pelo standalone.py corria\nnormalmente.\n\nEm lugar da checagem de disco, o xyz passa a ser conferido pela FORMA: a uri tem\nde casar a mesma regex que o plugin usa para extrair o nome da camada. Quando nao\ncasa, o getRasterLayerByType cai fora do if e devolve None, e o\nvalidate_rasters_against_extents quebra em None.isValid(). Isso e erro, nao aviso.\n\nQuatro testes: xyz aceito, wms aceito, xyz malformado reprovado e caminho de\narquivo continua cobrado. Os dois primeiros reprovam o codigo anterior.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0a9e539",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/0a9e539fc432078e574f7beedf959d46888306c3",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T17:14:16.000Z",
+      "author": "Maj Diniz",
+      "message": "A ficha da versao mostra o UUID, com botao de copiar\n\nPedido do chefe em 2026-08-06, e ele nasceu de uma necessidade concreta: nesta\nmesma sessao gastamos varias idas e vindas para identificar QUAL versao do acervo\nera a certa, trocando nome, escala e data ate achar.\n\nO UUID e a chave que o plugin do QGIS, o `acervo_cli` e o item do pedido da\nmapoteca usam (`mapoteca.produto_pedido.uuid_versao`). Sem ele na tela, ligar uma\nfolha a um pedido, ou pedir \"esta versao\" a alguem, exigia ir ao banco.\n\nLINHA PROPRIA, e nao junto do resto: sao 36 caracteres, e no meio da linha de\nmetadados ele empurraria o Orgao e o Lote para fora da vista.\n\nO BOTAO CONFIRMA NO PROPRIO TEXTO (\"Copiado\", por dois segundos), e nao num aviso\nflutuante: a pessoa esta olhando para o botao que acabou de clicar, e um toast no\ncanto pediria que ela procurasse a confirmacao noutro lugar.\n\nO `navigator.clipboard` nao existe fora de contexto seguro (http sem TLS), e ali\no botao NAO APARECE, em vez de aparecer e falhar calado. O valor segue\nselecionavel com duplo clique (`user-select: all`), que e o caminho de sempre.\nFalhando a copia, o botao diz \"Nao deu\" em vez de fingir que copiou.\n\nO campo ja vinha do servidor (`v.uuid_versao`, em acervo_ctrl.js): nao houve\nmudanca de rota nem de schema.\n\nTres casos novos, e o terceiro e a VARIANCIA: versao sem uuid nao ganha a linha.\nSem ele, os dois primeiros passariam numa ficha que desenhasse a linha sempre,\ninclusive vazia.\n\n1.349 provas de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "207d41f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/207d41f29d56e4d9b32e7e9b1ffc765552380e5c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T16:36:00.000Z",
+      "author": "Maj Diniz",
+      "message": "RPCMTec: a copia do mes anterior sai, e a 5.1 ganha importacao de CSV\n\nDuas mudancas do mesmo dia, no mesmo punhado de arquivos. Elas vao juntas porque\ncompartilham a rota, o schema, o controlador de subsecao, o servico do cliente e\na varredura de rotas de escrita: separa-las produziria um commit que nao compila.\n\n--- SAI A COPIA DO MES ANTERIOR ---\n\nPedido do chefe: o RPCMTec e o relatorio DAQUELE mes. A linha que chega pronta\nnao e relida, e o documento assinado passava a afirmar sobre agosto o que houve\nem julho.\n\nSaem os dois botoes da tela (o geral e o por subsecao), a rota\n`POST /:id/copiar-mes-anterior`, o schema do corpo, o controlador, o servico do\ncliente e cinco arquivos do `producao_cli`. O `periodo.js` FICA, porque o estoque\nainda o usa; so a prosa que citava a copia foi corrigida.\n\nNada de schema: a copia gravava em `rpcmtec.subsecao` e nao tinha tabela propria.\n\n--- ENTRA A IMPORTACAO DO CSV NA 5.1 ---\n\nA 5.1 lista os repositorios trabalhados no mes, e a fonte dela ja era o CSV do\ngithub_dashboard, digitado a mao linha por linha.\n\nO CSV tem TRES colunas (Repositorio, Numero de commits, Efetivo) e a 5.1 tem\nQUATRO: o `Resumo` e escrito por pessoa. Entao a regra que manda no desenho e\nesta: REIMPORTAR NAO PODE APAGAR RESUMO. Reimportar no fim do mes, com os commits\natualizados, e o uso normal, e zerar os resumos destruiria calado o trabalho que\nso existe ali. O cruzamento e pelo NOME do repositorio.\n\nA LOGICA FICA NO SERVIDOR, e nao na tela, porque ela decide o que se APAGA. Duas\nimplementacoes divergem na primeira correcao aplicada a uma so. O `producao_cli`\ntambem a alcanca, e quem roda `dashboard_cli --formato csv` no terminal e\njustamente o caso de uso.\n\nO `5.1` esta no CAMINHO, e nao num `:numero`: o formato e do painel do GitHub, e\num parametro ofereceria despejar tabela de commits na 9.3. Mesma escolha de\n`/capacitacao/ministrada`.\n\nREPOSITORIO QUE SUMIU DO CSV SAI DA TABELA, senao o documento assinado afirmaria\ncommits que o painel nao conta mais naquele mes. Mas nao sai calado: se a linha\nque sai tem Resumo escrito, a rota responde 409 nomeando quais, e so passa com\n`confirmar_remocao`. Mesma forma do `ciente_revisao` do fechamento, e no servidor\npara valer tambem no CLI.\n\nO cabecalho do CSV diz \"Numero de commits\" e a coluna da 5.1 diz \"Numero de\ncommits no periodo\": a leitura tolera as duas, com e sem acento, com espaco\nsobrando e com as colunas em outra ordem. O separador `;` do Excel pt-BR e\nRECUSADO em vez de adivinhado, porque adivinhar partiria \"Cap A;Maj B\" ao meio.\n\n--- UMA ASSERCAO MAIS ESTRITA QUE O CONTRATO ---\n\nUm caso novo da remocao cobrava `linhas: []` na subsecao digitada vazia, e o\ncontrato de `montar` devolve `null`: subsecao sem linha nao existe como registro.\nAlinhado com a verdade, sem perder o poder de reprovar (com a copia viva, aquele\ncampo trazia a linha de junho).\n\n--- AS PROVAS ---\n\nProva de fogo das duas frentes, desfazendo cada conserto:\n  remocao   4 de 6 casos do servidor falham, e 3 de 17 do cliente;\n  CSV       7 de 51 casos do servidor falham, e 2 de 13 do cliente.\n\nO Resumo sobrevivendo a reimportacao foi provado em TRES niveis, e o que vale e\na matriz do INSERT, nao o retorno da rota: no modulo puro, no controlador com\nbanco dublado, e na rota real de ponta a ponta.\n\n961 provas rapidas, 828 de banco, 1.346 de cliente. Guard limpo em 1.005\narquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "a649cd1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a649cd1dd947b9df0aba933f94f2ccd6be47c879",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T16:19:34.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-08-06: a 5.1 do RPCMTec e sempre do mes, e o agente nao e efetivo\n\nO RPCMTec de julho e o primeiro com a subsecao 5.1 nascendo no SCA. Ele expos\ntres defeitos do painel do github_dashboard, e os tres se consertam na FONTE,\nporque o SCA guarda o Efetivo como texto livre: o que passa do CSV vai inteiro\npara o documento assinado, e correcao a mao na celula volta no mes seguinte.\n\nO padrao do CLI passa de acumulado para o MES isolado, o nome do agente sai da\ncoluna Efetivo sem que o commit dele seja descartado, e o handle venturaluisbr\nentra no mapa de autores como 1o Ten Ventura.\n\nA wiki dizia \"cumulativo por padrao\" e passou a dizer o contrario. Registrado\ntambem onde a 5.1 mora agora (importar o CSV no SCA, depois gravar o Resumo).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ed694b2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ed694b269390ef1cd585897d551ac421152190d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-08-06T16:19:05.000Z",
+      "author": "Maj Diniz",
+      "message": "a 5.1 e do mes, e o agente sai da coluna Efetivo\n\nO RPCMTec de julho e o primeiro em que a subsecao 5.1 (Repositorios\ntrabalhados) nasce no SCA, e nao no Word. Tres coisas saiam erradas daqui, e o\nSCA guarda o Efetivo como TEXTO LIVRE: o que passa do CSV vai inteiro para o\ndocumento assinado, entao o conserto e na fonte.\n\nO PADRAO PASSA A SER O MES ISOLADO (decisao do chefe da DGEO, 2026-08-06). A\n5.1 reporta o que foi trabalhado NAQUELE mes, e a importacao do SCA apaga a\nlinha que sai do CSV: mandar o acumulado de janeiro faria o documento de julho\nafirmar commits de marco. --cumulativo e --ano-todo (RPCATec) continuam.\n\nO AGENTE NAO OCUPA VAGA DE EFETIVO, E O COMMIT DELE CONTA. \"Claude\" aparecia na\ncoluna Efetivo de dois repositorios, e quem le o relatorio assinado o leria como\npessoa empregada no mes. O nome sai e o commit fica: o repositorio foi\ntrabalhado, e descartar o commit faria a 5.1 reportar menos trabalho do que\nhouve. Por isso AUTORES_NAO_EFETIVO e separado do shouldIncludeCommit, que\ndescarta o commit inteiro do dependabot e do github-actions.\n\nHANDLE CRU E DEFEITO DO MAPA, NAO DA CELULA. venturaluisbr entrou no relatorio\nde julho como handle e foi digitado a mao no SCA como \"1o Ten Ventura\". O par\nentrou no authorMapping. O CLI ja avisava, e o aviso sozinho nao resolve: a\ncorrecao a mao volta no mes seguinte.\n\nDe passagem, a ajuda e o README ainda diziam \"Secao 4.1\". A subsecao e a 5.1\ndesde julho/2026.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "161f74f",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/161f74f8806572e76022b687f6294b24646a4eb5",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T16:04:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Diagnostico do PIT acusava meta com o cadastro COMPLETO\n\nO painel \"O cadastro nao cobre o que o PIT promete\" mostrava cinco linhas em\n2026, e as cinco estavam erradas. Tres delas acusavam meta cujo cadastro esta\nINTEIRO.\n\n--- A CAUSA ---\n\n`faltam` descontava so as entidades COM `data_prevista`, e a data em branco e o\nPADRAO do sistema: ela e preenchida conforme os PITs chegam, e quase nada do\nacervo e do PIT (115 versoes de 7.572, e 16 pedidos de 165, medido em\n2026-08-06). Com a data quase sempre vazia, `previstas` era zero e `faltam` virava\na promessa inteira.\n\nA meta 1.3 promete 72 folhas, tem as 72 ligadas, e o painel dizia \"faltam 72\".\n\nAlarme que dispara na maioria treina quem olha a ignora-lo, e ai ele para de\nservir no dia em que estiver certo.\n\n--- O QUE MUDOU ---\n\nA entidade passa a contar em TRES estados, e nao dois:\n\n  previstas     ligada E com data no ANO daquele PIT -> entra no planejado;\n  sem_data      ligada e sem data -> cadastrada, ainda sem mes prometido;\n  fora_do_ano   ligada a um item DESTE PIT e prometendo mes de OUTRO ano.\n\n`faltam` desconta TUDO o que esta ligado. A data em branco sai da lista de\npendencias: ela nao e falta.\n\nO `fora_do_ano` e novo, e cobre o caso que as entidades podem ser de PITs\ndistintos. O vinculo amarra a entidade a um item, e o item a um ano; a data que\ncai noutro ano contradiz os dois, e a grade (que filtra por ano) simplesmente\nnao via a entidade, sem nada dizer.\n\nA frase do painel passou a dizer quanto JA esta cadastrado. \"faltam 2 de 327\"\nsozinho nao distingue quem tem 325 de quem nao tem nenhum, e as duas situacoes\npedem acoes opostas.\n\n--- MEDIDO NA PRODUCAO, com o controlador REAL ---\n\nSessao presa em leitura, com a guarda provada antes de ser usada (o UPDATE de\nsonda foi recusado pelo banco).\n\n  meta   promete  cadastrado  antes          agora\n  1.3    72       72          faltam 72      sai da lista\n  1.4    2        2           faltam 2       sai da lista\n  4.1    327      325         faltam 327     faltam 2\n  4.2    252      229         faltam 252     faltam 23\n  4.3    36       36          faltam 36      sai da lista\n\nCinco linhas erradas viram duas certas. E as duas reproduzem o que o proprio\ndocstring do controlador registrou em 2026-08-05, medido de forma independente e\ncom meses de diferenca: a 4.1 com 325 de 327, e a 4.2 com 229 de 252.\n\nRESSALVA: `fora_do_ano` mede ZERO em toda a producao hoje. A capacidade dele de\nacusar esta provada so pela fixtura do teste, e nao por dado real.\n\n--- E UM DEFEITO MEU NO COMBO ---\n\nO `?.scrollIntoView` protegia o no ausente, e nao o METODO ausente. O jsdom nao\ntem `scrollIntoView`, e a chamada estourava DENTRO do handler das setas: em\nqualquer ambiente sem esse metodo, navegar com o teclado quebrava por causa de um\nenfeite de rolagem.\n\n--- AS PROVAS ---\n\nO caso que fixava o comportamento antigo foi reescrito. A fixtura dele ja\nmostrava o defeito: `registros: 72` e `faltam: 72` lado a lado. Ele agora afirma\nque a meta com cadastro completo NAO aparece. Dois casos novos cobrem a data de\noutro ano e a frase com o cadastrado.\n\n949 provas rapidas, 22 na tela do PIT.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "8945ed7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8945ed73854f0c02c92ebda564855405c5475449",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T15:21:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Combo buscavel onde a lista cresce, e ordem deliberada em todo combo\n\nPedido do chefe em 2026-08-06, a partir do caso do empenho: escolher a NC era\nrolar 95 opcoes sem poder digitar nada.\n\n--- O COMPONENTE ---\n\n`createComboBoxField`, com a MESMA API do `createSelectField` (element, input,\ngetValue, setValue, setOptions, setError). Foi de proposito: adotar um campo por\nvez, e nao reescrever os 115 de uma vez.\n\nBusca por SUBSTRING, sem acento e sem caixa. O `<select>` nativo casa so o\nPREFIXO do rotulo, e como o rotulo da NC comeca pelo numero, quem lembrava da\nnatureza de despesa nao tinha por onde comecar.\n\nOrdena por padrao, com comparacao NUMERICA: a NC 2 antes da 10, e nao depois.\n`ordenar: false` mantem a ordem recebida.\n\nSetas, Enter, Escape e clique. Lista com teto de altura e rolagem por dentro:\ncom 95 opcoes e sem teto ela abriria cobrindo o proprio campo. Texto digitado e\nnao confirmado NAO vira escolha.\n\n--- ONDE ENTROU (a lista cresce com os dados) ---\n\n  Empenho          a NC do rateio (95 hoje)\n  Lote do acervo   o projeto\n  Volume           o volume de armazenamento\n  Versao           a meta do PIT (42 itens)\n  Pedido           o cliente e a meta do PIT\n  Capacitacao      a meta do PIT\n  Aproveitamento   o militar (53)\n  Edicao RPCMTec   o assinante (53)\n\n--- ORDEM EM TODO COMBO, E O QUE ISSO NAO PODE SIGNIFICAR ---\n\nO chefe pediu que todo combo chegue ordenado. Ordenar por NOME quebraria a\nmaioria dos dominios, e nao e uma questao de gosto:\n\n  tipo_posto_grad     Civil, MOT, Sd, Cb, 3o Sgt ... Cel: e HIERARQUIA\n  tipo_escala         1:25.000, 1:50.000, 1:100.000: alfabetica poe 1:100.000\n                      antes de 1:25.000\n  grau_prioridade     Alta, Normal, Baixa: alfabetica poe Baixa no meio\n  tipo_status_execucao  o fluxo de trabalho\n\nA ordem certa desses e o `code`, e ela e semantica. O que faltava era o servidor\nGARANTI-LA: 14 consultas de dominio nao tinham ORDER BY nenhum. Sem ele o\nPostgres nao promete ordem, e um unico UPDATE numa linha de dominio a joga para o\nfim do heap. Hoje sai a ordem de insercao por acidente.\n\nEntao: dominio ordenado por `code` no SERVIDOR, entidade ordenada por rotulo no\nCOMPONENTE. Todo combo tem ordem deliberada, e nenhuma delas e arbitraria.\n\n--- UM DEFEITO QUE A ADOCAO REVELOU ---\n\nO combo chamava so o callback `onChange`, e nao disparava o `change` NATIVO.\nParte das telas nao usa a opcao: elas fazem `campo.input.addEventListener` no\n`<select>` de fora. O `details.js` do pedido faz isso para reaplicar o modo\ncivil/militar, e trocar o cliente deixava o formulario no modo do anterior. O\ncombo passa a disparar o evento, que e o que sustenta a promessa de troca direta.\n\n--- AS PROVAS ---\n\n12 casos para o componente e 4 no dialogo de empenho. Prova de fogo: desligando a\nordenacao e trocando a busca por prefixo, 6 casos falham.\n\nOs testes que dirigiam `<select>` foram reescritos para operar o combo pelo\ncaminho da PESSOA (focar, digitar, clicar), com helper compartilhado em\n`__tests__/helpers/combo.js`: e o que os faz reprovar se o combo parar de filtrar\nou de confirmar a escolha, em vez de medir um estado que a tela nao mostra.\n\n1.328 provas de cliente, 904 rapidas, 822 de banco.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "ef42a7e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ef42a7e3aba49db765f3fe280513d46f5126b437",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T15:21:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Conserta o fechamento do RPCMTec, que a 1.36.0 quebrou sem corpo JSON\n\nERRO MEU, e ele foi para o master em 5fcbce7. A conferencia por subsecao deu\ncorpo a `POST /rpcmtec/:id/fechar`, e a rota passou a ler\n`req.body.ciente_revisao` DIRETO. Quem chama sem corpo nenhum chega ali com\n`req.body` indefinido, e a leitura virava TypeError: 500 no fechamento, que e a\nacao mais importante daquela tela.\n\nNao era hipotese: `curl -X POST` sem `Content-Type` cai nesse caminho, e o\n`acervo_cli` tambem chamaria assim. Conserto: `req.body?.ciente_revisao`.\n\n--- A ORDEM DAS RECUSAS ESTAVA ERRADA ---\n\nA conferencia rodava ANTES da checagem do assinante, entao fechar sem assinante\nrespondia 409 (\"falta conferir\") em vez de 400 (\"informe o assinante\"). As duas\nrecusas duras (subsecao por preencher, assinante ausente) passam a vir primeiro,\ne o AVISO da conferencia por ultimo: primeiro o que impede o documento de\nexistir, depois o julgamento de quem assina.\n\n--- COMO ISTO PASSOU ---\n\nRodei so a suite RAPIDA ao fechar a 1.36.0, e as tres falhas moravam na de\nBANCO. Nenhuma delas aparece sem subir o app de verdade: sao 500 e 409 na\nresposta HTTP, e nao erro de unidade.\n\nOs testes de banco tambem foram ajustados: o fechamento que QUER fechar declara\n`ciente_revisao: true`, e a varredura de rotas de escrita ganhou a rota nova da\nconferencia (50 para 51).\n\n822 provas de banco, 904 rapidas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "bd9e97c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bd9e97c88bb1b7b313516da6e718f3c7d3e2aee3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T14:33:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-06: o acelerometro resolve dois dos tres angulos, e nivelar nao decide o rumo\n\nA calibracao 360 indoor deixa de ser tres incognitas e passa a ser uma. Cada\ndisparo da Insta360 Pro2 grava um gyro.mp4 com trilha CAMM, e o acelerometro\ndela da a vertical do mundo: um mapeamento fixo a leva ao referencial do\npanorama e reproduz resposta confirmada com 0,23 grau, em 350 de 350 fotos. Nao\nha campo magnetico na trilha, entao o rumo continua vindo das fotos conectadas.\n\nO que fica de metodo, e vale alem do 360:\n\n- Nivelar e UMA restricao, e o rumo e um grau de liberdade que ela nao toca.\n  Toda rotacao Ry(t)*R nivela igual, entao procurar o rumo dentro da conta de\n  nivelamento nao acha nada.\n- O giro de rumo multiplica pela ESQUERDA, e mexer so no y quebra a rotacao,\n  porque a decomposicao ZXY reparte a inclinacao conforme o rumo.\n\nCinco correcoes ao livro-razao, e as tres primeiras sao de classe:\n\n- Misturei DOIS referenciais do visualizador (esfera com lon=0 em +X, marcador\n  com norte em -Z) e errei o rumo tres vezes com numero plausivel. Convencao que\n  atravessa modulos se confere lendo os modulos EM CONJUNTO.\n- O harness girava rotulo e angulo na mesma medida, entao era auto-consistente e\n  nao podia se reprovar; e a ancora que escrevi para travar isso importava so a\n  funcao vizinha, aprovando o renderizador depois de um subagente o reverter.\n- Tratei o trabalho manual do operador como verdade e a medida do instrumento\n  como suspeita, quando era o contrario, e quase enterrei a fonte que resolve\n  dois dos tres angulos.\n- Prometi economia proporcional ao trabalho removido, e medi o contrario: o\n  acelerometro corta 57% onde a geometria e mal-posta e SOBE 13% onde ela ja e\n  boa, porque a regua de parada e por conviccao e realoca em vez de economizar.\n- Subagente editou a minha ferramenta compartilhada. Conserto provado na rodada\n  seguinte: copia por agente mais diff ao receber.\n\nDecisao 2026-08-06 (cont. 1) registra o modelo de andar do acervo 360 (o andar e\npropriedade da FOTO e vira filtro de consulta espacial, porque 91 das 350 fotos\ntem foto de outro andar a menos de 5 m em planta).\n\nEste commit leva TAMBEM a entrada de decisao 2026-08-06 da LAI das aerofotos,\nque e de sessao paralela: os arquivos de decisao sao append-only e nao ha como\nseparar sem reescrever texto alheio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cf12ea5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cf12ea51b3c1e19d0dc6d9e498de691b9041f1b5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T14:24:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Execucao do PIT: o que se digita fica claro, e mes futuro nao recebe realizado\n\nDois pedidos do chefe em 2026-08-06.\n\n--- O QUE E MEU E O QUE E DO SISTEMA ---\n\nA distincao passa a morar NA LINHA. Cada meta ganha a etiqueta \"a mao\" ou\n\"automatica\" ao lado da descricao. Ela e propriedade da META, e dita so no\n`title` da celula obrigava a passar o mouse casa a casa, numa grade de 37 linhas\npor 12 meses, para descobrir onde se pode escrever.\n\nA celula calculada ganhou hachura e cursor de bloqueio. O tracejado que ela ja\ntinha sumia entre as bordas das vizinhas. E o clique agora EXPLICA, em vez de a\ntela nao responder e parecer travada.\n\n--- MES FUTURO NAO RECEBE REALIZADO ---\n\nRealizado e o que a Divisao ENTREGOU, e novembro nao entregou nada em agosto. O\nnumero lancado adiantado entra na grade, soma no acumulado e vai para a subsecao\n2.1 do RPCMTec como producao do mes: o documento assinado passa a afirmar entrega\nque nao houve.\n\nTres coisas continuam passando, e sao a variancia da guarda: o PLANEJADO de mes\nfuturo (distribuir a meta pelo ano e o trabalho normal), o mes CORRENTE (quem\nentrega no dia 3 lanca no dia 3) e APAGAR um realizado futuro lancado por engano.\n\nA guarda e do SERVIDOR, e a tela so evita pedir para recusar depois.\n\n--- DOIS DEFEITOS ACHADOS NO CAMINHO ---\n\n1. TROCAR DE MODO NAO REPINTAVA A GRADE. A assinatura da linha nao continha o\n   modo, entao a marca de calculada (que ja existia) ficava a do modo anterior.\n   Com a etiqueta nova o erro passaria a ser gritante: \"automatica\" numa linha\n   que naquele modo se digita.\n\n2. O CAMPO ABERTO SOBREVIVIA A TROCA DE MODO, e havia um teste fixando isso. Era\n   um defeito escondido: o campo nao carrega o modo em que foi aberto, e `gravar`\n   le o modo VIGENTE. Quem digitava 9 no realizado de abril, trocava para\n   Planejar e saia da celula gravava 9 no PLANEJADO de abril, sem erro nenhum.\n   Agora o campo fecha sem gravar, e o caso foi reescrito para provar que nada\n   foi ao servidor.\n\n--- AS PROVAS ---\n\nSete casos novos no servidor, quatro deles de VARIANCIA: sem eles, uma guarda que\ntravasse a grade inteira passaria igual. Seis na tela, com a linha manual e a\ncalculada lado a lado pela mesma razao. Prova de fogo: com a guarda desligada, 2\ndos 7 falham.\n\n904 provas rapidas, 1.314 de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "af4f4c9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/af4f4c981ed2b92fb3ecde8f21a4130cdf5e1a41",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T14:24:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Tira quatro textos que a tela ja dizia pela forma\n\nPedido do chefe em 2026-08-06. Nenhum deles carregava informacao que a tela nao\nmostrasse de outro jeito, e todos empurravam o trabalho para baixo da dobra.\n\nPIT do ano, o subtitulo. Ele ensinava que o PIT e o texto assinado pela DSG e que\nmeta se edita dentro da revisao. A tela diz o mesmo pela FORMA: a faixa de\nrevisoes vem antes da grade, e acao de linha so aparece com uma revisao\nescolhida.\n\nPIT do ano, a nota da revisao PUBLICADA. A primeira metade (\"R2 publicada,\nregendo desde tal dia\") repetia o botao da revisao escolhida, logo acima, que ja\ntraz o codigo e o \"Rege desde\"; a segunda explicava o modelo. O caso de teste\nnovo cobra que o botao continue dizendo \"Rege desde\", para a remocao do texto nao\nlevar a INFORMACAO junto.\n\nA nota do RASCUNHO fica, e nao e o mesmo caso: ela avisa que nada ali rege ainda.\nQuem altera metas num rascunho e sai da tela pode concluir que ja mudou o plano,\ne a diferenca entre rascunho e publicada e a unica coisa daquela tela que o\nlayout nao mostra sozinho.\n\nRPCMTec, o subtitulo. Abria a sigla e resumia o ciclo. Quem chega ali trabalha no\nrelatorio todo mes.\n\nRastreabilidade, o subtitulo e o bloco recolhido \"O que esta tela nao registra\".\nO CSS orfao saiu junto.\n\nO QUE SE PERDEU, e por isso virou comentario no codigo: o rastro comeca na data\nem que aquela tela entrou em producao, entao resultado vazio para periodo\nanterior a ela nao prova que nada mudou.\n\nOs dois casos que fixavam os textos foram reescritos para REPROVAR o estado\nanterior. Cada um dos quatro existia em HEAD e tem zero ocorrencias agora.\n1.314 provas de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "1680b3e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1680b3eea26cf9339d1d56d096efbaee9eeef8af",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T14:23:54.000Z",
+      "author": "Maj Diniz",
+      "message": "RPCMTec: conferencia por subsecao, com quem conferiu e o que ele viu (1.36.0)\n\nQuem confere o relatorio antes de assinar percorre os 34 blocos e nao tinha onde\nregistrar por onde ja passou. A tela distinguia \"preenchida\" de \"por preencher\",\nque e outra pergunta: subsecao CALCULADA nasce preenchida e continua precisando\nde olho humano, porque o numero pode estar certo e o CADASTRO que o alimenta,\nerrado.\n\n--- ONDE A MARCA MORA ---\n\nTabela propria, `rpcmtec.subsecao_revisao`, com a chave (edicao_id, numero).\n\nNao deu para pendurar em `rpcmtec.subsecao` porque aquela tabela so tem linha\npara a subsecao DIGITADA: enquanto a edicao esta aberta, a calculada e a fixa nao\nexistem como registro. Criar linha vazia so para poder marcar quebraria o que o\nfechamento cobra, que e \"existe linha, logo alguem preencheu\".\n\nMarcar e INSERIR, desmarcar e APAGAR. Sem coluna booleana: a linha ausente ja diz\n\"nao conferida\", e um `revisado = false` com carimbo guardaria um \"nao conferido\npor Fulano as 14h\", que nao e fato nenhum.\n\n--- A IMPRESSAO DIGITAL, QUE E O CORACAO DISTO ---\n\nJunto com quem e quando, grava-se o SHA-256 do conteudo conferido. Se ele mudar\ndepois, a tela mostra \"mudou depois da conferencia\" e a marca perde o verde.\n\nSem isso, \"conferido\" diria apenas que alguem clicou um dia. A subsecao digitada\nmuda quando alguem a edita; a CALCULADA muda SOZINHA, quando se cadastra uma\nversao, uma capacitacao ou um pedido. Nos dois casos o numero que o revisor viu\ndeixa de ser o numero que vai para o documento assinado, e nada avisava. Marca\nque sobrevive calada a uma mudanca de conteudo afirma conferencia que nao houve,\ne e pior que marca nenhuma.\n\nA impressao cobre so o CONTEUDO (cabecalhos, linhas, prosa, sem-ocorrencia).\nTitulo, ordem e grade de coluna ficam de fora: renomear uma subsecao na estrutura\nnao desfaz a conferencia dos numeros dela.\n\n--- O FECHAMENTO AVISA E DEIXA FECHAR ---\n\nSubsecao por preencher e buraco no DOCUMENTO, e continua sendo RECUSA. Faltar\nconferencia e outra coisa: o documento esta inteiro, e quem assina decide se quer\nassinar sem ter olhado.\n\nO aviso e do SERVIDOR (409 com a lista, separada entre nunca conferidas e\nconferidas antes de mudarem), e nao da tela: posto so no cliente web, o CLI\nfecharia calado e a marca viraria enfeite de uma tela so. A tela le a lista e a\npoe na MESMA caixa de confirmacao do fechamento, e nao numa segunda: duas\nseguidas treinam quem le a clicar sem ler.\n\n--- UM DEFEITO QUE O TESTE PEGOU ---\n\nA caixa nascia MARCADA em toda subsecao. O helper `el` cai em `setAttribute` para\no que nao conhece, e `checked=\"false\"` e um atributo PRESENTE, ou seja, marcado.\nO `htmlFor` tinha o mesmo problema e o rotulo nao clicava na caixa. Os dois\nviraram propriedade.\n\n--- AS PROVAS ---\n\nNove casos novos no servidor e sete na tela. A impressao NAO e recalculada pelo\nteste: ele pega o valor que o `revisar` mandou para o banco e o devolve pela\nleitura, como o banco faria, provando que as duas pontas concordam em vez de\nprovar que o teste sabe copiar um sha256.\n\nEnsaio da migracao com --er-de HEAD: 1.35.0 para 1.36.0, aplicada duas vezes, e\no banco migrado converge com o novo. 904 provas rapidas, 1.314 de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "5fcbce7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5fcbce7848ba62ad7e08e42eacc5fdfb272d6eed",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T13:23:21.000Z",
+      "author": "Maj Diniz",
+      "message": "360 indoor: o rumo sai das fotos conectadas, e o harness que nao reprova nao verifica\n\nSkill nova calibrar-orientacao-360-visao, para panorama de INTERIOR, onde a\nskill do sol nao tem referencia. Um subagente com visao por foto casa o azimute\nde cada foto conectada com a passagem visivel na imagem.\n\nValidada pelo chefe no visualizador real, em duas fotos do Beira-Rio.\n\nO que a sessao ensinou, e que a skill guarda:\n\n- Sao DOIS referenciais no visualizador. A esfera com lon=0 em +X, o marcador\n  com norte em -Z, ligados por worldHeading = heading + lon. Trata-los como um\n  so erra heading-90, que varia por foto e chegou a 178,8 graus.\n- Nivelar e UMA restricao, e o rumo e um grau de liberdade que ela nao toca.\n  Toda rotacao Ry(t)*R nivela igual, entao o rumo tem de vir de fora.\n- O giro de rumo multiplica pela ESQUERDA, e mexer so no y quebra a rotacao,\n  porque a decomposicao ZXY reparte a inclinacao conforme o rumo.\n- O renderizador girava rotulo e angulo na mesma medida, entao era\n  auto-consistente e nao podia se reprovar. A ancora agora usa constante medida\n  e chama a funcao que ja esteve errada; provei que reprova reintroduzindo o bug.\n- Ferramenta compartilhada e somente leitura para o subagente: um critico cego\n  editou o renderizador e o reverteu para a versao com bug.\n- A regua muda com a distancia. Abaixo de 10 m o alvo cai sobre a passagem,\n  acima de 15 m basta nao estar contraditado. A regua absoluta fez um agente\n  moer cinco iteracoes num alvo atras de parede.\n- O custo e previsivel pela geometria: conte alvos a menos de 10 m e o angulo\n  entre eles. Medido: 167 mil tokens com dois alvos proximos opostos, 287 mil\n  com ancora unica.\n\nINDEX e DESAMBIGUACAO ganham o cluster novo, com o discriminante \"o levantamento\nve o ceu?\". A skill do sol aponta a irma em \"Quando NAO usar\".\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c52abda",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c52abdac3539dd04a5e41b5f19aa05494d08425b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T12:32:18.000Z",
+      "author": "Maj Diniz",
+      "message": "@ skill atualizar-dockers: o sexto deploy do SCA, nove migracoes de uma vez\n\nProducao saiu de 1.26.0 para 1.35.0 e o container trocou de imagem. Seis licoes,\ne uma delas e uma reincidencia minha.\n\nA que mais importa: passei a senha na linha de comando remota, que e exatamente\no que este arquivo mandava evitar desde 2026-08-04. Anotar nao bastou, entao o\ngesto muda: a prova autenticada passa a assinar o token DENTRO do container, com\no JWT_SECRET que ja esta montado la. Segredo que nao viaja nao vaza.\n\nAs outras cinco: o `-n` do ssh e o `bash -s < script` se anulam (a saida vem\nvazia, e o conserto e mandar o script em base64); o roteiro de migracao precisa\nde ensaio e valendo no MESMO codigo, com os BEGIN/COMMIT internos retirados;\ncontar linha da tabela velha faz reestruturacao parecer perda (56 metas viraram\n14 grupos mais 42 itens, e so a conta das duas pontas fecha); dump antes de todo\nDROP; e migracao destrutiva se faz com o container PARADO, que troca uma janela\nservindo erro por um minuto de parada planejada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "eea57f8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/eea57f83ef301531ef010b98f419410c871150cf",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T12:16:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Poda da data_fim_prevista do lote (1.35.0), e o Extra-PIT inteiro no operador\n\nQuatro pontas soltas da revisao dos clientes do acervo, decididas pelo chefe em\n2026-08-06.\n\n--- A COLUNA PODADA (1.35.0) ---\n\n`acervo.lote.data_fim_prevista` sai. Ela nasceu em 2026-08-03 para dar o mes do\nPLANEJADO do PIT, e falhou por duas razoes medidas dois dias depois: era\npreenchida NO FIM, junto com o fato (nos 19 lotes que a tinham era IDENTICA a\n`data_fim`), e o lote e a granularidade errada, porque a meta 1.1 promete 4 em\nabril, 1 em maio, 16 em julho e 3 em agosto.\n\nDesde entao o planejado sai de `acervo.versao.data_prevista`, uma promessa por\nFOLHA. A coluna do lote ficou orfa: varredura de 2026-08-06 nao acha o\nidentificador uma vez sequer no cliente web, no acervo_cli nem no plugin QGIS. A\naba de lotes nao tem a coluna e o dialogo nao manda o campo.\n\nMEDIDO NA PRODUCAO ANTES DO DROP: 99 lotes, 19 preenchidos, 19 iguais a\n`data_fim`, zero divergentes, zero com promessa sem fim. No catalogo, 0 indices,\n0 views, 0 views materializadas, 0 funcoes e 0 gatilhos citam a coluna; a unica\nrestricao e o CHECK que o DROP leva junto. As 19 linhas ficam registradas na\nmigracao, porque a decisao de apagar se toma uma vez e o git e o arquivo.\n\nOs QUATRO modelos Joi passam a RECUSAR o campo, e nao so o projeto. Apagar a\nchave o transformaria em desconhecido, e desconhecido some no stripUnknown das\nrotas de projeto: seria trocar o silencio de antes por outro silencio. Recusado,\no 400 chega a quem chamou e diz onde a data mora hoje.\n\n--- O EXTRA-PIT INTEIRO NA MAO DE QUEM O CADASTRA ---\n\n`POST` e `DELETE /metas/extra/:id/versoes` saem do administrador global e passam\na `verifyPerfil('operador', 'producao')`.\n\nA 1.33.0 as deixou de fora pelo argumento de que gravam\n`acervo.versao.demanda_extra_id`, e quem manda no acervo e o modulo acervo. O\nargumento cai diante do que produzia: o operador cadastrava a demanda e parava\nali, sem poder dizer QUAIS folhas a cumprem, e demanda sem folha ligada nao conta\nnada na grade do PIT. A permissao entregava metade de uma tarefa.\n\nA fronteira que importa nao e a tabela, e o CAMPO: estas rotas mexem em UM campo\nde UMA linha que ja existe, e nao criam, apagam nem movem produto, versao ou\narquivo.\n\n--- A FILA DE MINIATURA CHEGA AO CLI ---\n\n`GET /acervo/miniaturas/pendentes` e `POST /acervo/miniaturas/varrer` entram na\nregistry do `acervo_cli`. Eram as duas ultimas rotas de manutencao sem verbo.\nElas sao DIVIDA VISIVEL: nao ha cron que esvazie a fila, entao sem o numero na\ntela o acervo acumula ficha sem imagem e ninguem ve.\n\nO contar e de CONSULTA e o varrer e de ADMIN, e a diferenca virou a variancia do\nteste: com as quatro rotas de manutencao em `admin`, a traducao de guard passaria\nmesmo lendo o nivel errado. O leitor de rota do teste aprendeu a segunda forma de\nguarda, `verifyPerfil('nivel')`, que antes caia como desconhecida.\n\n--- TRES COMENTARIOS QUE MENTIAM ---\n\nO dialogo de versao da web dizia que \"a unica forma de ligar uma versao ao PIT\nera o plugin do QGIS ou SQL na mao\". Era so SQL na mao: o plugin nao conhece\n`meta_pit_id`, `data_prevista` nem `demanda_extra_id`, e nunca conheceu. Esta\ntela e o unico lugar do sistema onde se liga a folha a meta.\n\nO `pit_route.js` afirmava que as rotas de versao NAO tinham acompanhado a 1.33.0,\ne agora acompanharam. O `er/mapoteca.sql` comparava o prazo do cliente com uma\ncoluna que deixou de existir.\n\n--- AS PROVAS ---\n\nProva de fogo dos dois consertos maiores, desfazendo cada um: com o lote voltando\na aceitar o campo, 6 dos 16 casos do schema falham; com a guarda de volta a\n`verifyAdmin`, 4 dos 80 casos de permissao falham.\n\nEnsaio da migracao com --er-de HEAD, que e o baseline valido (HEAD tem a coluna,\na arvore de trabalho nao): 1.34.0 para 1.35.0, aplicada duas vezes, e o banco\nmigrado converge com o banco novo em 144 colunas, 168 restricoes e 172 indices.\n\n888 provas rapidas, 822 de banco, 1.301 de cliente, 94 do acervo_cli.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "1ead1db",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1ead1db7ae244b93b84284b45ef4aa0b5e48b764",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-06T11:54:08.000Z",
