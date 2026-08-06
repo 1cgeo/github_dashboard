@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-06T18:47:20.628Z",
+  "lastUpdate": "2026-08-06T21:53:17.413Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,13 +19,13 @@
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-07-25T10:44:10.000Z",
-    "dsgoficial/sap": "2026-08-02T13:06:40.000Z",
+    "dsgoficial/sap": "2026-08-06T19:35:46.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-06T18:42:12.000Z",
+    "1cgeo/controle_acervo": "2026-08-06T20:18:28.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-08-06T17:40:36.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-07-17T12:03:26.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-08-06T19:35:08.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-06T18:00:01.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-06T19:48:11.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5683,
+    "totalCommits": 5689,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -135,13 +135,13 @@
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 476,
       "dsgoficial/DsgTools": 625,
-      "dsgoficial/sap": 171,
-      "dsgoficial/SAP_Gerente": 116,
+      "dsgoficial/sap": 172,
+      "dsgoficial/SAP_Gerente": 117,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 275,
+      "1cgeo/controle_acervo": 278,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,67 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 515,
+      "1cgeo/chefe_dgeo": 516,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T20:18:28.000Z",
+      "author": "Maj Diniz",
+      "message": "A lista de notas de credito mostra o SALDO\n\nPEDIDO DO CHEFE em 2026-08-06: a tela dizia o valor da NC e o recolhido, e nao\ndizia quanto ainda da para empenhar. Esse e o numero da decisao.\n\n    saldo = valor_nc - valor_recolhido - empenhado liquido de anulacao\n\nELE SAI DO SERVIDOR, e nao de conta feita na tela. E a MESMA regua que a\nvalidacao do teto usa para barrar o empenho acima do saldo. Derivada no cliente,\nela ficaria livre para divergir, e o resultado seria uma tela que promete credito\ne um servidor que recusa o empenho, sem erro nenhum entre os dois.\n\nO `empenhado` ja existia na consulta. Ele saiu de subconsulta para LEFT JOIN\nLATERAL para que o empenhado e o saldo saiam do MESMO calculo: escrito duas\nvezes, os dois numeros da mesma linha ficariam livres para discordar.\n\nO SALDO PODE FICAR NEGATIVO, e nao se zera. Duas NCs reais de 2026\n(2026NC400698 e 2026NC400702) tiveram o credito devolvido DEPOIS do empenho e\nestao mesmo abaixo de zero. Zerar esconderia justamente a linha que precisa de\natencao. Na tela ela sai em chip vermelho; o saldo zerado sai apagado, porque NC\nesgotada e o fim normal da vida dela, e nao problema.\n\nSeis casos contra o banco de verdade, e cada um falha por um motivo diferente: o\nrecolhimento desconta, a anulacao devolve, a anulacao PARCIAL devolve so a parte\n(senao \"tudo ou nada\" passaria), e o negativo chega negativo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "d6d7ca0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d6d7ca008238b5b6140cf5307acb2f7ff38bb4ee",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T20:03:50.000Z",
+      "author": "Maj Diniz",
+      "message": "O teto da NC comparava empenho bruto com liquido, e travava a NE anulada\n\nRELATADO DA TELA em 2026-08-06: nao se conseguia trocar a data da 2026NE000002.\n\n    O empenho excede o saldo da nota de credito 2026NC400137.\n    Valor da NC: 1728.00; recolhido: 1728.00; ja empenhado: 0.00;\n    saldo: 0.00; tentativa: 1728.00\n\nA NE vale R$ 1.728,00 e esta anulada por INTEIRO. A NC dela teve os mesmos\nR$ 1.728,00 recolhidos: o empenho foi anulado e o credito voltou. Ela nao\nconsome nada, e mesmo assim a barreira a dava por estouro.\n\nA CAUSA sao duas grandezas diferentes na mesma comparacao. `validarTetoDasNcs`\nja tinha a regra certa (\"so barra quem AUMENTA o consumo da NC\"), montada para\nas NEs que tiveram o credito devolvido depois do empenho. Mas os dois lados dela\nnao falavam a mesma lingua:\n\n  - `antes`, quanto a NE ja consumia, saia LIQUIDO de `EMPENHADO_DESTA_NE`\n    (1.728 menos 1.728 de anulacao, ou seja, ZERO);\n  - `desta`, quanto ela passaria a consumir, saia BRUTO da soma das alocacoes do\n    formulario (1.728).\n\nEntao `cresce` via um aumento de zero para 1.728 onde nao havia aumento nenhum.\nO `valor_anulado` estava no corpo da requisicao e simplesmente nunca chegava a\nfuncao.\n\nO CONSERTO passa o `valor_anulado` para ela, nos dois caminhos (criar e\natualizar), e desconta a anulacao PROPORCIONAL a fatia de cada NC, a mesma regra\nque o `EMPENHADO_POR_NC` ja usava. Os tres numeros da conta passam a estar na\nmesma unidade. A mensagem tambem passa a dizer que a tentativa e liquida, senao\no numero dela nao bate com o que a pessoa digitou na tela.\n\nNENHUM TESTE COBRIA ESSA RECUSA, e foi por isso que ela sobreviveu. Entram tres,\ncontra o banco de verdade: o caso da tela, a barreira que continua de pe sem\nanulacao (senao os outros passariam numa implementacao que parasse de checar) e\na anulacao PARCIAL, que prende a proporcao em vez de tudo ou nada. O primeiro\nfalha sem o conserto, na linha exata do erro relatado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "be32f9d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/be32f9dd32108d059094d1f9085e8196bbd587b3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-06T19:48:11.000Z",
+      "author": "Maj Diniz",
+      "message": "pesquisa de preco de bobina de papel para plotter\n\nOs dois CSV sao o resultado: 10 itens de CATMAT de bobina para plotter com\nminimo, quartis, mediana, maximo, mediana por metro e dois recortes que mudam a\nleitura (ultimos 12 meses, e so compras do Exercito), mais 320 compras\ndetalhadas com data, preco unitario, quantidade, marca, fornecedor e UASG.\n\nOs dois JSON sao a coleta crua de onde os CSV sairam: `itens_papel.json` traz os\nitens do catalogo e `precos_papel.json` os registros de preco. Ficam versionados\npara o numero poder ser reconferido na fonte, em vez de so acreditar na\nestatistica ja resumida.\n\nEntra agora porque o assunto voltou: o Sulfite 75g passou a existir no catalogo\ndo SCA em 2026-08-06, como midia e como papel.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "3426852",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3426852affeb3e9177d9e6b203bee1475af16c88",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-08-06T19:35:46.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "relatorio com operador e produto",
+      "sha": "15ae013",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/15ae0139b5af565ef0c806489ffa3a71c7543d7e",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-08-06T19:35:08.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "1.36.4: relatorio com operador e produto",
+      "sha": "55097c0",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/55097c0720a49e008d823ce14cdacdc077458791",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-06T19:32:57.000Z",
+      "author": "Maj Diniz",
+      "message": "A meta do PIT desce para o ITEM do pedido, e entra o Sulfite 75g\n\nA conciliacao da Meta 4 de 2026 contra o documento do PIT de impressao mostrou\nque a meta se divide por MATERIAL: sulfite 327 folhas na 4.1, tyvek 247 na 4.2,\nglossy 36 na 4.3. E o material e `tipo_midia_id`, que vive no ITEM.\n\nPrender a meta ao PEDIDO obriga o pedido inteiro a cumprir uma meta so, e a\nrealidade nao obedece: dos 16 pedidos ligados a Meta 4, dois sao mistos (o 140\ntem 8 folhas em tyvek e 32 em sulfite; o 154 tem 4 e 20). As 12 folhas de tyvek\ndesses dois caiam na 4.1, e a 4.2 registrava 235 contra 247 prometidas.\n\nReligar o pedido nao resolve, porque levaria junto o sulfite que esta certo onde\nesta. E quebrar o pedido em dois seria pior: o pedido e o documento de uma\nsolicitacao real de uma OM.\n\n`mapoteca.produto_pedido.meta_pit_id` e a EXCECAO declarada. NULL significa \"a\nmeta do pedido\", e as tres consultas da impressao passam a ler\nCOALESCE(pp.meta_pit_id, p.meta_pit_id), escrito uma vez so para elas nao\npoderem discordar. Isso NAO deriva a meta do material: o de-para de midia para\nmeta foi removido em 2026-08-05 por medicao, e o vinculo continua declarado.\n\nJunto:\n\n- Sulfite 75g entra como midia 9 e como papel, nos DOIS catalogos. Midia sem\n  material da folha impressa que nao baixa estoque nenhum, em silencio.\n- O seed do `er/` passa a ligar os papeis a midia na propria linha. Ate agora\n  quem ligava era so a migracao de 2026-08-04, entao instalacao nova nascia com\n  os cinco papeis em NULL e a migrada com os cinco ligados. O\n  `ensaiar_migracao.cjs` compara DDL e nao compara DADO, e a divergencia passava\n  sem alarme; ela foi medida nos dois bancos do ensaio.\n- `er/versao.sql` sobe junto. Sem isso instalacao nova nasceria em 1.36.0 e o\n  proprio servidor a recusaria contra o piso 1.38.0.\n- A guarda de exclusao da meta passa a contar o item do pedido, senao apagar a\n  4.2 passaria pela guarda e estouraria depois como 500 da chave estrangeira.\n- O item so declara meta em pedido previsto no PIT (400 limpo): o Postgres nao\n  tem CHECK entre tabelas, e o vinculo orfao nao daria numero errado, daria\n  numero ausente.\n- A tela marca com um chip o item que declarou meta propria, ao lado da midia\n  que a explica. Sem isso a excecao fica invisivel.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb",
+      "sha": "fcc8649",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/fcc8649a87b9b41cfc4fcf8f82586af9fbe51787",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-06T18:42:12.000Z",
