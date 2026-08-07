@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-07T10:57:33.905Z",
+  "lastUpdate": "2026-08-07T16:01:15.371Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-06T20:18:28.000Z",
+    "1cgeo/controle_acervo": "2026-08-07T15:32:59.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-06T17:40:36.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-07T14:44:52.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-08-06T19:35:08.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-06T19:48:11.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-07T15:34:22.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5689,
+    "totalCommits": 5696,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -133,7 +133,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 161,
       "dsgoficial/configuracoes_producao": 204,
-      "dsgoficial/ferramentas_edicao": 476,
+      "dsgoficial/ferramentas_edicao": 477,
       "dsgoficial/DsgTools": 625,
       "dsgoficial/sap": 172,
       "dsgoficial/SAP_Gerente": 117,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 278,
+      "1cgeo/controle_acervo": 279,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,76 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 516,
+      "1cgeo/chefe_dgeo": 521,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T15:34:22.000Z",
+      "author": "Maj Diniz",
+      "message": "o planejado do PIT sai do papel e entra na entidade, e o dashboard do acervo ganha a aba do plano\n\nCinco entradas de decisão de um dia só, todas do mesmo fio: a grade do PIT\nmostrava planejado ZERO nas cinco metas de origem calculada, e o painel do\nacervo não respondia o que a Divisão deve.\n\nO LANÇAMENTO. 74 versões e 16 pedidos receberam `data_prevista`, com o mês lido\nda PLANEJ_PIT do RTM de julho e da sequência de blocos, tendo o lote como chave.\nO plano não se reescreve pelo fato: o lote 1j fechou em junho e ficou com agosto,\nque é o que ele prometia. A meta 4 ficou com o prazo real de 31/12. O\ndiagnóstico do PIT saiu de 72, 2, 327, 247 e 36 entidades sem data para zero nas\nseis.\n\nOS IDENTIFICADORES. 70 versões tiveram o `uuid_versao` alinhado ao que o BDGEx\npublicou. O título do ISO não desambigua carta e CDGV (os dois de 2834-1-NE têm\ntítulo idêntico); quem separa é o nome do arquivo do registro.\n\nO CONSERTO DE CÓDIGO. `mapoteca.pedido.meta_pit_id` saía do GET como texto e o\nJoi da escrita é strict: toda leitura-altera-reenvia de pedido ligado a meta era\nrecusada.\n\nO ERRO QUE EU COMETI, e ele fica escrito: afirmei que o CDGV do Beira-Rio não\nestava cadastrado. Procurei pela META, e o CDGV não tem meta por desenho.\nAusência de vínculo não é ausência de cadastro, e a busca certa era pelo LOTE.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6f5e7a5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6f5e7a5332857992197e701f96798de2f7ebf191",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T15:32:59.000Z",
+      "author": "Maj Diniz",
+      "message": "dashboard do acervo: a aba Plano do Ano, e o painel para de medir a migração\n\nO painel respondia o que o acervo TEM e o que ENTROU. Nenhuma aba respondia o\nque ele DEVE, com prazo, que é a pergunta de quem chefia a Divisão.\n\nABA NOVA, E PRIMEIRA. `GET /dashboard/plano_ano` devolve numa consulta só a\nfolha planejada com o atraso, o lote que não fechou e o Extra-PIT do ano. A\nfolha é a unidade, e não o lote: `acervo.versao.data_prevista` é a promessa por\nfolha, e é dela que sai o planejado do PIT. Filtra por TIPO, e não por ausência\nde arquivo, senão pegaria os 408 Registros Históricos, que são acervo antigo\ncatalogado sem o digital. O atraso vem do servidor, nunca negativo: a tela que\nsubtrai datas erra o fuso, e duas telas fazendo a conta chegariam a dois números.\n\nDOIS GUARDAS. O plano do acervo cobra consulta, porque quem consulta o acervo vê\no acervo. A grade do PIT cobra gerente, porque é o plano da Divisão inteira, e o\nbloco dela some sozinho em vez de a aba levar 403. O guarda de tela espelha o\n`verifyGerente`, e isso INCLUI o administrador global: sem ele, o administrador\ncom perfis vazio via o aviso de falta de perfil numa rota que responderia.\n\nA BARRA PINTA O TRILHO, e não só o preenchimento. Com realizado zero o `fill`\ntem largura 0% e some: a meta 6.1, com 0 de 4.200 prometidas, ficava com a barra\ncinza vazia, idêntica à que não tem plano nenhum. O pior caso era o único que\nnão gritava.\n\nO EIXO MUDOU DE PERGUNTA. O gráfico de produção passa a contar `data_edicao` e\nsó a versão Regular. Medido na produção: por edição, 2026 tem 26, 2, 65, 49, 25,\n103 e 8 folhas de janeiro a julho; por cadastramento, tem 0, 0, 0, 0, 0, 4.513 e\n2.645, que é o dia da importação. O painel mostrava a MIGRAÇÃO como se fosse\nprodução. Saiu a Linha do Tempo de Produtos, com o mesmo defeito e sem conserto\npossível, porque produto não tem data de edição. Saiu o Acumulado, que achatava\na série no mesmo eixo Y.\n\nUMA UNIDADE POR GRÁFICO, e o volume em percentual. GB e Quantidade dividiam o\neixo em Arquivos por Tipo; o volume em GB deixava o que está em 76% com dois\npixels ao lado de um volume de 37.000 GB de capacidade. O percentual sai da mesma\nconta do alerta de 80%, para o gráfico e o alerta nunca discordarem.\n\nPODA, cada uma com o número que a justifica: Situação de Carregamento (17.499 de\n17.499 arquivos num estado só), Atividade de Usuários (um login de carga com os\n17.499 uploads), Status de Projetos (17 de 18 concluídos, e o aberto é de 1982),\nProjetos sem Lotes (vale zero), Distribuição de Versões por Produto (uma fatia de\n85%), os cartões Total de Versões (duplicata) e Produtos com Versões (igual ao\ntotal de produtos), e as colunas de id do histórico de downloads.\n\nAuto-refresh de 60 s para 5 min, com o teste conferindo que um minuto NÃO\nrecarrega mais. Barra de abas fixa no topo, só no dashboard.\n\nDE PASSAGEM, um defeito que barrava escrita: `mapoteca.pedido.meta_pit_id` é\nBIGINT e o driver devolve int8 como TEXTO, enquanto o Joi da escrita é\n`number().integer().strict()`. Toda leitura-altera-reenvia de pedido ligado a\nmeta era recusada, e só a tela escapava, por acidente, porque o combo remonta o\nvalor da própria lista. Corrigido com `::int` nas três consultas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7796310",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7796310b1d2768716018af172806f58a847e68ae",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-08-07T14:44:52.000Z",
+      "author": "1º Ten Marcel",
+      "message": "2.1.3: grid orto militar, cobter_vegetacao_a corrigido e alteração na versão do plugin",
+      "sha": "0443c82",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/0443c82cc817ac7a9c32d0e45a6873488a930161",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T13:52:37.000Z",
+      "author": "Maj Diniz",
+      "message": "@ extrator de PDF: pdf-inspector medido e recusado, e o 360 aprende o ceu encoberto\n\nExtracao de documentos (aprendizado desta sessao, medido em 62 papers do\npaper_repositorio):\n- perda de texto de extrator e CALADA; quem denuncia e o segundo extrator, nunca\n  o alarme do primeiro (5 de 9 falhas sairam com pages_needing_ocr vazio)\n- antes de aceitar numero de tabela, confira a LINHA: o pdf-inspector funde\n  linhas vizinhas e atribui o valor certo ao metodo errado\n- extrator rapido e extrator bom podem estar fazendo trabalhos diferentes: o\n  pymupdf4llm 1.28 roda RapidOCR nas figuras, dai os 109x de diferenca\n- cheque se as APIs da ferramenta nova concordam entre si antes de medi-la\n\nEntram junto as mudancas ja pendentes na arvore:\n- calibrar-orientacao-360: ceu saturado BAIXO nao absolve dia encoberto; duas\n  checagens baratas antes de gastar a varredura (12 recortes e erro de elevacao)\n- DECISIONS 2026-08-07 cont. 2: o planejado do PIT entra na entidade, 74 versoes\n  com data_prevista lida da PLANEJ_PIT\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1db73ad",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1db73ad7c743c224b938834558210b3cc3d6b796",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T12:59:29.000Z",
+      "author": "Maj Diniz",
+      "message": "@\npedido 167: o 25 GAC responde a oferta de excedentes pela 6a DE\n\nDIEx 3139-E4/6DE (NUP 64296.003459/2026-17) vira o pedido 167 no SCA, com\n28 itens e 220 exemplares. Duas decisoes do chefe: o pedido e do 25 GAC, e\nos quatro quadrantes de Rosario do Sul a 1:25.000 ficam de fora, porque so\nexistem como Carta Ortoimagem e o documento pede Carta Topografica.\n\nA skill cadastrar-pedido-mapoteca ganha o contrato novo do plano (o item\nexige uuid_versao, e tipo_produto_id/tipo_escala_id sairam do schema) e o\nachado de que \"ausente do acervo\" no resolver quer dizer ausente naquele\nTIPO de produto, e nao inexistente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J3MDFPhFSpY31Lr5E5JTRb\n@",
+      "sha": "b243a90",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b243a9092907c0bc3d1b63e22828e51ddb00362a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T12:50:01.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nskill 360: fan-out por FILA, e nunca por blocos\n\nO chefe viu \"2 de 5\" na tela. Fatiar a lista em blocos de 5 e esperar cada\nbloco faz o grupo esperar o mais lento, e a ocupacao cai enquanto o\nretardatario termina. Aqui a variacao e grande: foto com dois alvos fecha em 2\nrenderizacoes, foto sem alvo proximo leva 7.\n\nConserto: fila com N trabalhadores, cada um puxando a proxima assim que fecha a\nsua. Mantem N vivos ate a fila secar. Vale para todo fan-out com teto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "7386f28",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7386f2809dca4d8e4d4ac52c4d7fba3419ccf94f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T12:27:16.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nretrospectiva 2026-08-07: o rumo se aponta, e a vertical sai do predio\n\nRodada de lote dos 350 panoramas do Beira-Rio. 95 fotos gravadas no ebgeo360,\nconferidas por releitura campo a campo e marcadas como revisadas.\n\nTres mudancas de metodo, todas medidas:\n\n- O agente APONTA a coluna da passagem em vez de varrer o rumo. 2 renderizacoes\n  por foto contra 23, e 88 mil tokens contra horas. O fecha.py fecha a conta e\n  nomeia a atribuicao rival, aquela que move o rumo 180 graus concordando.\n- A vertical sai das LINHAS DE PRUMO do predio, e nao do acelerometro. O\n  mapeamento IMU so vale perto das duas fotos em que foi ajustado, e degrada\n  acima de 40 graus longe delas. O prumo bate com as fotos confirmadas pelo\n  chefe em 0,42 e 1,21 grau.\n- Erro de nivelamento quase nao move o rumo (0,67 grau na mediana), entao o\n  apontamento do agente se reaproveita: conserta-se so a inclinacao.\n\nO sol vira arbitro, com filtro de elevacao e de tamanho do borrao: o detector\nconfunde lona de telhado estourada com disco solar. Assim mesmo pegou tres\nfotos fechadas a 177 graus do certo.\n\nMedidos e descartados: propagar rumo pela corrida continua, epipolar com linha\nde base do GPS, e SIFT direto na equirretangular (casa o tripe no nadir).\n\nEstado e como retomar em 01-Projects/orientacao-360-beira-rio/PROJECT.md.\nFerramentas de lote na skill, em lote/.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "2d61e3e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2d61e3eee76f88951795479ec757199d2530a49e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-06T20:18:28.000Z",
