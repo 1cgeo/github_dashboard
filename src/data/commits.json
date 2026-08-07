@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-07T16:01:15.371Z",
+  "lastUpdate": "2026-08-07T20:46:19.067Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-07T15:32:59.000Z",
+    "1cgeo/controle_acervo": "2026-08-07T20:43:06.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-07T15:34:22.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-07T19:22:41.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5696,
+    "totalCommits": 5713,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 279,
+      "1cgeo/controle_acervo": 286,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,166 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 521,
+      "1cgeo/chefe_dgeo": 531,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T20:43:06.000Z",
+      "author": "Maj Diniz",
+      "message": "A aba Plano do Ano sai, e a suite de banco para de esperar em lock\n\nO painel do acervo tinha quatro tabelas que nao eram do acervo. A grade de\nmetas e o diagnostico do PIT vivem em /metas, o lote em andamento na\nadministracao do acervo, e o Extra-PIT em /extra-pit; repetidos aqui, o painel\ndava um segundo numero para o mesmo plano e cobrava gerente para montar metade\nde si. So a folha planejada era assunto do acervo, e ela vai para a Visao Geral.\n\nA rota acompanha: /dashboard/plano_ano vira /dashboard/a_produzir e devolve a\nlista direta. Sai o parametro `ano`, que nunca entrou na consulta das folhas e\nso servia aos blocos que sairam: a versao planejada e um ESTADO, e a folha\nprometida para dezembro continua devida em janeiro.\n\nA SUITE DE BANCO, medida na mesma sessao. O `cleanTestData` roda depois de cada\nteste e fazia 43 TRUNCATE separados: 585 ms, contra 234 ms das mesmas 43 num\ncomando so. O resto da limpeza custa 2 ms, entao era isso a suite inteira. Cada\nTRUNCATE toma ACCESS EXCLUSIVE, e 43 por teste vezes N workers batiam todos no\nMESMO PostgreSQL: era essa disputa que fazia mais worker deixar a suite mais\nlenta, e foi ela que derrubou um teste por timeout numa das rodadas.\n\nO Jest tambem ganha teto de workers, que ele nao tem por padrao (CPUs menos 1).\nNa maquina de trabalho isso virava 19 processos Node de ~215 MB, ~4 GB pedidos\nonde havia 3, mais 19 clones de banco por rodada.\n\n  pacote de banco (883 testes)   265 s -> 133 s\n  cleanTestData                  538 ms -> 268 ms\n  pico de Node                   ~4 GB -> ~1 GB\n\nJunto: `producao revisao declarar` no CLI, que faltava (dava para remover a\ndeclaracao de uma meta na revisao, nao para criar), e a fumaca passa a medir a\nrota nova, com piso ZERO, porque acervo sem folha planejada em aberto e estado\nlegitimo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d9023fb",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d9023fb75b574f1fbfeda1bcf1fa0095d95b1b99",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T19:35:53.000Z",
+      "author": "Maj Diniz",
+      "message": "A fumaca volta a medir o sistema de hoje, e tres checagens dormentes acordam\n\nQuatro expectativas velhas, todas achadas rodando a fumaca contra a producao\ndepois do deploy da 1.40.0.\n\n1. O catalogo de modulos do login era comparado com a lista EXATA de tres. A\n   plataforma tem cinco desde que producao e efetivo entraram, e a checagem\n   reprovava com o login perfeito. Passa a exigir que os tres modulos de\n   autorizacao estejam presentes, e aceita crescimento.\n\n2. A `configuracao` singleton do orcamento foi PODADA em 2026-08-06, e a\n   checagem batia numa rota que devolve 404. Ela vira `/configuracao/anos`, que\n   sobreviveu com o nome e e carga viva: alimenta o seletor de ano de todas as\n   telas do modulo.\n\n3. O RPCMTec nao sai mais de `ano` e `mes` na query: sai da EDICAO mensal\n   cadastrada. A checagem lista as edicoes do ano, pega a mais recente e monta o\n   documento dela, mantendo o piso de 18 subsecoes.\n\n4. TRES CHECAGENS ESTAVAM DORMENTES por causa da segunda: elas vivem dentro de\n   um `if ano:`, e o `ano` vinha da configuracao podada, entao nunca eram\n   executadas. Ao consertar a 2, a do painel do orcamento acordou e reprovou na\n   hora, com 0 linhas: a resposta e {linhas, pendencias} e ela lia `dados` como\n   lista. Verificacao que nao pode falhar nao e verificacao.\n\nResultado: de 26 de 29 para 32 de 32, com exit 0.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0f715da",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0f715daed52034985b816358907d05948ef23838",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T19:22:41.000Z",
+      "author": "Maj Diniz",
+      "message": "@ o recolhimento e a identidade da NE pousam, e o campo se liga so a versao\n\nRegistro da segunda metade da sessao: o commit e3bbea1 do controle_acervo (67\narquivos, as duas migracoes mais os 17 arquivos que liam a coluna), a decisao do\nchefe de ligar o campo SO a `acervo.versao` (tres tabelas viram uma, e o custo\nfica agregado no item da meta), e o deploy que nao aconteceu porque o SCA roda\nnoutra maquina.\n\nTraz tambem a medicao da producao objeto a objeto e a simulacao do backfill da\n1.39.0 em transacao somente leitura, mais o procedimento para rodar na maquina\ndo SCA.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "260e732",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/260e732094b72cac65cdd2d63beb64a1283251cc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T19:19:17.000Z",
+      "author": "Maj Diniz",
+      "message": "O recolhimento de credito vira documento, e a nota de empenho ganha a chave do SIAFI\n\nDuas migracoes (nao aplicadas aqui) e o codigo que elas exigem.\n\n1.39.0, identidade da nota de empenho. Ela nunca teve unicidade, e a producao\ntinha 38 registros em 32 numeros. Mas a unicidade NAO e (ano, numero): a UG\n167382 e uma unidade gestora distinta da 160382, com numeracao propria comecando\ndo 1, e as duas tem legitimamente uma 2026NE000005. Entram as colunas `ug` e\n`gestao`, com backfill pela regra medida (a NE e da UG que recebeu o credito) e\nindice unico pela chave inteira do SIAFI.\n\n1.40.0, o recolhimento. Ele era um NUMERO digitado em `nota_credito.valor_recolhido`,\ne o documento que produziu a devolucao nao existia em lugar nenhum. Agora e\n`orcamento.nota_credito_recolhimento`, com numero, data, ND, UG emitente,\nhistorico e anexo proprio, e a coluna sai: o recolhido passa a ser SOMA.\n\nCodigo, 17 arquivos que liam a coluna: controlador e schema da NC, teto do\nempenho, painel, subsecoes 4.1, 4.2 e 4.7 do RPCMTec, mapa de auditoria, quatro\ntelas e o CLI. A expressao da soma tem fonte unica em `recolhido_sql.js`, para o\nteto que barra o empenho e o saldo que a tela mostra nao divergirem.\n\nPainel: o cartao \"% recebido do previsto\" passa a usar SO o recebido PDR, com o\nExtra-PDR ao lado em valor absoluto. Ele dizia 116,9% quando a execucao do PDR\nera 49,0%, porque somava no numerador o credito que o PDR nao previu. E o\n\"Saldo\" virou dois cartoes, credito a empenhar e inconsistencia, porque o\nnumero unico escondia saldo negativo (empenho anulado no SIAFI e nao lancado).\n\n`sag_cli`: CLI de leitura do SAG, o espelho do SIAFI, que e a segunda medida\ncontra a qual o modulo orcamento se confere. So le, e o contrato sai da tela\nviva do SAG em tempo de execucao.\n\nTambem: `er/versao.sql` sobe para 1.40.0, que faltava, e um teste da mapoteca\npassa a esperar `meta_pit_id` como NUMERO, alinhando-se ao `::int` que as tres\nconsultas de pedido ganharam em 2026-08-07.\n\nSuite: servidor 1866/1866, cliente 1419/1419. Ensaio das duas migracoes em\ncadeia aprovado, com o banco migrado igual ao instalado do zero.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e3bbea1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e3bbea1a64328fa484e6b11929682683bf1aab17",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T19:05:31.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nskill 360: freio de falha, para o laco rodar desassistido\n\nQuando o limite de sessao bate, TODA chamada de agente falha na hora. Sem freio\nos trabalhadores varrem a lista inteira em segundos e a fila some sem nenhuma\nfoto orientada: aconteceu com 236 de uma vez.\n\nO gera_wf5.py passa a contar falhas SEGUIDAS. Na quarta ele encerra e devolve a\nlista do que sobrou, para relancar depois. Sucesso zera o contador, entao falha\nisolada nao aciona o freio.\n\nRegra de classe: num laco desassistido, distinga a falha do ITEM da falha do\nAMBIENTE. A primeira se pula, a segunda se espera.\n\nPlano do fim de semana desassistido no PROJECT.md.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "3cdccbd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3cdccbd43d6e5fcf7c506b5564044d49a837a2e2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T18:21:13.000Z",
+      "author": "Maj Diniz",
+      "message": "@ retrospectiva: o SAG vira fonte primaria do orcamento, e conferir contra o SIAFI vira skill\n\nO SAG (espelho do SIAFI usado pela administracao do EB) passou a ser a segunda\nmedida do controle orcamentario. Consolidacao da sessao:\n\n- wiki/sag.md, pagina nova: o que ele resolve, as DUAS unidades gestoras do\n  1o CGEO (a identidade de um documento e UG mais gestao mais ano mais numero),\n  o limite de so servir o exercicio corrente, e a cadeia anulacao-devolucao.\n- skill conferir-orcamento-sag, nova: o metodo da conferencia, a ordem de leitura\n  dos grupos, as tres classes do que \"falta cadastrar\" e onde o saldo mente.\n- DESAMBIGUACAO: a discriminante contra consultar-orcamento e a FONTE, uma medida\n  contra duas.\n- lancar-orcamento/learnings: a ordem imposta pelos guardrails na fusao de\n  empenho, o NUMERIC que volta string, e a releitura de texto por hash.\n- livro-razao: chamei de duplicata o que era outra unidade gestora (o indice\n  unico que propus teria recusado dado real), e escrevi o parser olhando so um\n  lado da comparacao.\n- controle-orcamentario: estado atual de 08/2026 com o que a conferencia achou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4e6d42a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4e6d42a0ca1a9d4c9ed1429465c1c652c54f7a9a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T18:07:40.000Z",
+      "author": "Maj Diniz",
+      "message": "O dashboard do efetivo media o futuro, e a Divisao tinha duas medias com o mesmo nome\n\nO cartao que ABRIA a tela dizia 87,8% de aproveitamento em 07/08, sobre um mes que tinha\ncorrido 7 de 31 dias. `dgeo.efetivo_periodo.data_fim` NULA e \"sem previsao de saida\" (25 das\n27 passagens), a grade e o produto PESSOA x DIA do mes inteiro, e o denominador era o mes\ninteiro: os 25 militares saiam com 31 de 31 dias. Projecao vestida de medida, invisivel na\nleitura do fonte e obvia na primeira medicao contra a producao.\n\nO NUMERO DA 6.1 NAO MUDOU. `resumoMensal` tem dois leitores, e o gerador do RPCMTec so roda\ncom o mes fechado, quando as duas contas coincidem. `dias_decorridos`,\n`dias_na_dgeo_decorridos` e `aproveitamento_decorrido` nascem AO LADO, e quem escolhe e a\ntela. Mes inteiramente no futuro devolve NULO: zero afirmaria que ninguem rendeu nada.\n\nMEDIA PONDERADA por dias na DGEO, com o nome escrito no cartao. A tela de Aproveitamento ja\nusava a ponderada e ja documentava por que a simples e a errada; o dashboard usava a simples.\nHoje as duas dao igual porque ninguem chegou nem saiu em agosto; com um militar entrando em\n25/08 a 100%, a simples cai para 85,3% e a ponderada sobe para 87,9%. A janela da divergencia\ntambem entra no titulo das duas telas: valia o MES numa (3) e o ANO na outra (2), as duas\ncertas, sem nada dizendo qual.\n\nCUSTO EM DIAS-MILITAR, por causa. Rateio proporcional quando os impedimentos do dia somam\nmais de 100%, o que faz a soma por causa fechar exatamente com a perda por pessoa. A\nidentidade esta provada em teste nos tres casos.\n\nSAIRAM, medidos contra a producao: o cartao \"Contas sem senha\" (0 de 53, e nao pode mudar);\na coluna \"Conta\" (25 celulas iguais, e `ativo` e flag de login, nao efetivo); e os cartoes de\nentrada e saida MENSAIS (zero em 8 dos 12 meses de 2026, porque 23 das 27 passagens sao a\ncarga de 1o de janeiro). No ano o mesmo dado tem sinal.\n\nO GRAFICO ordenava por hierarquia: 25 barras em 300px, 19 identicas a 100%. Passa a desenhar\nso quem esta abaixo de 100%, em ordem crescente, e diz \"todos a 100%\" em vez de \"sem dados\".\n\nPERMISSAO: a tela desce de administrador global para gerente do efetivo. Ela estava trancada\npor UMA conta, a divergencia, que cruzava `GET /usuarios` (verifyAdmin, devolve login, flag\nde administrador e perfil em cada modulo de todo mundo) para contar tres nomes. Virou\n`GET /efetivo/divergencias`, guardada pelo modulo e devolvendo so posto e nome de guerra.\nA aba Acessos continua do administrador, e ela mesma se esconde de quem nao e.\n\nCONSERTO NO ARCABOUCO DE TESTE: `cleanTestData()` nao truncava `dgeo.efetivo_periodo` nem\n`dgeo.impedimento`. O `DELETE FROM dgeo.usuario` so alcanca quem nao e da semente, entao a\npassagem do usuario de teste sobrevivia; com o EXCLUDE de sobreposicao, o segundo teste que\nlancasse passagem para o mesmo militar levava 23P01 em arquivo que ninguem tocou.\n\nVerificacao: 96 testes verdes nas tres suites de efetivo (com testes de rota novos contra o\nbanco real, cobrindo mes fechado, corrente e futuro, e a identidade da perda) e 1406 no\nclient. NAO conferi na TELA: a extensao do navegador nao estava conectada, entao a validacao\nfoi por API contra a producao, testes e build.\n\nFica em aberto, por ser decisao do chefe: o operador do modulo efetivo ve \"Aproveitamento\" no\nmenu e leva 403, porque `/efetivo/mapa` exige gerente.",
+      "sha": "f3d0688",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f3d0688d3b761bc50394b3e13c73e6dd0bd76a07",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T18:06:53.000Z",
+      "author": "Maj Diniz",
+      "message": "@ retrospectiva: o dashboard do efetivo media o futuro, e o conserto do stash sai do livro-razao\n\nDECISIONS 2026-08-07 (cont. 16): auditoria do dashboard do efetivo contra a producao.\nO cartao que abria a tela dizia 87,8% de aproveitamento em 07 de agosto, sobre 7 de 31\ndias corridos: passagem sem data de saida cobre o mes inteiro, e o denominador era o mes\ninteiro. Os campos `_decorrido` nascem AO LADO, sem tocar o numero que a 6.1 assina. A\nmedia passa a ser PONDERADA, como a tela vizinha ja defendia por escrito. Entra o custo em\nDIAS-MILITAR por causa; saem tres paineis medidos como estruturalmente vazios. A permissao\ndesce de administrador global para gerente do efetivo, porque UMA consulta trancava a tela.\n\nSKILL revisar-dashboard: duas formas de mentir novas, da terceira aplicacao. A forma 9 e o\ndenominador do periodo CORRENTE que inclui o futuro (irma da 8, mas agregado de um periodo\ne nao serie), com o aviso de que os dois numeros coincidirem hoje nao prova nada. A forma\n10 e duas TELAS do mesmo modulo publicando numeros diferentes com o mesmo nome. Mais cinco\nentradas no learnings do que funciona e quatro do que falha.\n\nLIVRO-RAZAO cont. 8: usei `git stash` de novo num repo com committer paralelo, quatro vezes,\ndepois de a cont. 6 de hoje ja ter registrado o gesto e prescrito o conserto. O diagnostico\nnao e desatencao: o conserto morava so no livro-razao, que o CLAUDE.md manda NAO abrir para\nachar recorrencia. Conserto de mecanismo: criada a memoria `trabalho-paralelo-no-mesmo-repo`,\nque o harness injeta e que a memoria do jest ja linkava sem existir. O link quebrado era o\naviso, e ficou de pe por dois meses.\n\nLIVRO-RAZAO cont. 9: o denominador do periodo corrente, como classe.\n\nVerificacao: lint-wiki zerado nos onze checks, guard de caminhos OK em 614 arquivos,\nindice de skills regenerado (7.054 tokens, cabe no orcamento).\n\nCarona da sessao paralela: as entradas cont. 14 e cont. 15 das Decisions, que estavam na\narvore sem commit.",
+      "sha": "b4e742a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b4e742a743528ea97dc4b485fa92f7a0cbe6d6da",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T17:26:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapoteca): o dashboard para de contar pedido onde diz entrega, e o recorte militar sai do silencio\n\nAuditoria do dashboard da mapoteca contra o banco de PRODUCAO, com as 16 rotas medidas\ne cada numero conferido na consulta que o gera.\n\nO DEFEITO QUE FAZIA A TELA MENTIR\nO grafico \"Operacoes Apoiadas\" filtrava por data_pedido e nao filtrava situacao. Somava\n8.097 exemplares ao lado de um cartao que dizia 6.535, na mesma aba, sem explicacao. A\nmaior barra era \"Exercicio Combinado ARANDU 2026\", com 4.436 exemplares, do pedido 59,\nEM ANDAMENTO e sem data de atendimento. A segunda tinha 5 dos 6 pedidos em andamento.\nAs duas somavam 6.399 dos 8.097: 79% do grafico era trabalho nao feito, sob um titulo\nque diz \"apoiadas\". Passa a usar FILTRO_ENTREGUE_ANO e cai para 1.185. O cartao de\ncontagem vai de 22 para 17, casando com as 17 barras.\n\nA medicao revelou que 69 dos 99 pedidos entregues nao tem operacao preenchida, entao o\ngrafico cobre 18% do ano. A tela passa a escrever isso: celula vazia e celula zero\ndizem coisas diferentes.\n\nRECORTE MILITAR\nAs metricas de pedido aplicavam PEDIDO_MILITAR e as de entrega nao. O cartao \"Pedidos\nno ano\" contava 130 de 164, e o cartao vizinho contava outra populacao. O filtro entra\nDENTRO do FILTRO_ENTREGUE_ANO, o que o aplica as dez consultas de entrega de uma vez. O\ntotal nao se move (6.535 antes e depois), porque os 33 pedidos civis entregues em 2026\ntem zero item de produto_pedido: a LAI entrega foto aerea por pedido.qtd_imagens. As\ntres abas escrevem o recorte na linha de escopo.\n\nO MES QUE AINDA NAO CHEGOU\nMESES_DO_ANO gerava doze meses fixos, e o ano em curso caia a zero de setembro a\ndezembro. Pior no tempo medio, onde COALESCE(AVG(...), 0) virava \"0,0 dias\", que se le\ncomo entrega no mesmo dia. O LEAST corta no mes corrente, ano futuro devolve conjunto\nvazio, ano passado segue com doze. A media sem pedido devolve NULO, e o front preserva\no nulo, porque Number(null) daria 0 e desfaria o conserto no navegador.\n\nFILA DE PEDIDOS PARADOS\nAs dez linhas do topo tinham a mesma data (01/01/2026, carimbo da carga retroativa), os\nmesmos 218 dias e prazo nulo: tres das seis colunas eram constantes, e o bloco escondia\n21 dos 31. Passa a mostrar os 31, paginados e ordenaveis, com Itens e Ultima\nmovimentacao. Ordenar por ultima movimentacao foi MEDIDO e recusado: o campo e nulo em\n10 dos 31 e tem 5 valores distintos, contra 12 da data do pedido.\n\nVOLTAM DOIS PAINEIS, revertendo a decisao de 2026-07-27 (commit 10db3bd)\nEntregas por mes e entregas por midia entram no Resumo Anual. Eles sairam pelo custo de\nrequisicao, e duas coisas mudaram: a pagina virou cinco abas, e so a ativa existe no\nDOM, entao o custo saiu de toda visita para quem abre o Resumo Anual; e consumo_material\nesta vazia, o que deixa a midia como unico sinal real de gasto de papel. O teste que\nguardava a ausencia passa a guardar a presenca, com o porque escrito nele.\n\nUI\nRotulo de categoria truncado em 34 caracteres com o texto inteiro no tooltip (o maior\ntinha 88). stats-grid vira auto-fit, acabando com os 75% de linha vazia na aba\nAtendimento. A quebra por tipo de cliente so aparece com duas categorias ou mais. A aba\nMateriais troca dois graficos vazios por uma frase acionavel.\n\nFICA DE FORA, de proposito: fundir os nomes de operacao (campo livre, \"Arandu\" em 6\ngrafias) pede tabela de dominio ou limpeza a mao, e as duas sao escrita em producao. A\nrota plotter_status segue orfa.\n\nTESTES\n514 do client (mapoteca e componentes). 177 de 178 em routes/mapoteca; a falha restante\ne do cast meta_pit_id::int de outra frente. O teste do corte mensal foi rodado isolado\npara provar que executa, e carrega a REGRA num helper (mesesEsperados), nao um numero\ncravado, que passaria hoje e reprovaria em setembro.\n\nVerificacao: validado por API contra a producao, pelos testes e pelo build do Vite. NAO\nconferido na tela, por falta de navegador.\n\nCarona: bar-chart.js leva tambem o parametro emptyMessage, de outra frente da sessao,\ndo qual o grafico de operacoes passou a depender.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "011bc70",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/011bc705caa83e7d2d15b4fed42bfc284465145f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T17:25:23.000Z",
+      "author": "Maj Diniz",
+      "message": "@ retrospectiva: o dashboard auditado na producao vira skill, e o git stash entra no livro-razao\n\nDECISIONS 2026-08-07 (cont. 12): a auditoria do dashboard da mapoteca contra o banco\nde producao. O grafico \"Operacoes Apoiadas\" somava 8.097 exemplares ao lado de um\ncartao de 6.535, e 79% dele era trabalho nao entregue. O recorte militar valia nas\nmetricas de pedido e nao nas de entrega, sem nada na tela dizendo isso. As series\nmensais plotavam o futuro como zero, e a media sem pedido saia como \"0,0 dias\".\n\nSKILL NOVA revisar-dashboard. A classe rodou DUAS vezes no mesmo dia sobre o mesmo\nsistema (dashboard do acervo em cont. 5 e cont. 6, mapoteca em cont. 12), com o mesmo\nmetodo e achando a mesma familia de defeito. O principio que a governa: o codigo do\npainel e hipotese, e o veredito sai do dado de producao. Nasce em name-only, e com ela\no custo fixo da listagem fica em 7.539 de 8.000 caracteres.\n\nLIVRO-RAZAO cont. 6: usei git stash para diagnosticar num repo com committer paralelo\nativo, quando a memoria jest-banco-colide-entre-sessoes ja descrevia o sintoma e dizia\ncomo confirmar sem tocar em nada. Dois erros num gesto so. Conserto de mecanismo: para\ncomparar contra a arvore limpa, git worktree add num diretorio temporario.\n\nLIVRO-RAZAO cont. 7: a regra de VARIANCIA do CLAUDE.md DISPAROU e poupou um conserto\ninutil. Eu ia ordenar a fila de pedidos parados por ultima movimentacao, e a medicao\nmostrou o campo nulo em 10 de 31 linhas, com 5 valores distintos. Registro o acerto\nporque regua que dispara e sinal tanto quanto regua que falha.\n\nVerificacao: lint-wiki zerado nos onze checks, guard de caminhos OK em 612 arquivos,\nindice de skills regenerado.\n\nCarona de sessao paralela: o Decisions/decisions-2026.md leva tambem a entrada\n2026-08-07 (cont. 13), sobre empenho anulado e credito devolvido, que outra sessao\ngravou enquanto eu trabalhava. O conteudo esta integro, e a linha dela no indice\nDECISIONS.md ainda nao existe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3cc84eb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3cc84ebe6e14ca7b6ff407bc01ce9afc4b73dfc4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T17:05:34.000Z",
+      "author": "Maj Diniz",
+      "message": "o mosaico da 1.8 ganha o lote 2026-1u, que nao existia\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "541cac5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/541cac5581377f14ec6139417109fd71e9fa15da",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T17:04:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-07: o UUID e a prova, e o retrato envelhece\n\nA fase 2 achou duas contradicoes que a sessao inteira nao acharia.\n\nA primeira: o numero que eu tinha medido as 11:20 (142 versoes casando por UUID)\nestava velho as 15:30. Uma frente paralela alinhou 71 `uuid_versao` no meio da\ntarde, pela rota de correcao. O total certo e 213 versoes, e as 71 estavam\ncasando sem marcacao nenhuma, ou seja a 2.4 que eu acabara de consertar ja nascia\nsubcontando marco, abril, maio e junho. Marcados mais 163 arquivos (541 no\ntotal, 209 versoes; as outras 4 nao tem arquivo para marcar), com dry-run e\nconferencia da mesma extensao.\n\nA segunda: gravei que \"o XML do SAP publica com o uuid_versao\", e o proprio vault\ndesmentia isso desde 2026-07-24, quando medi que o BDGEx atribui o identificador\ndele na carga. Quem se alinha e o SCA, pela rota `POST /api/produtos/versao/uuid`.\nIsso muda o trabalho pendente de dono. DECISIONS e as duas paginas de wiki\ncorrigidas.\n\nSkill cruzar-bdgex-sca ganha a secao \"A chave de PROVA: o UUID\", antes da secao\nde hash: o UUID prova, o resto so investiga. Learnings com a sonda por UUID no\nOp (que dispensa enumerar 37 mil registros), a serie que sai de dentro do\nidentificationInfo (o primeiro bloco do XML e a norma, e classificou errado 899\nregistros) e o emparelhamento por menor delta, que substitui a ordem cronologica.\n\nLivro-razao com quatro eventos meus, entre eles a 4a instancia de `git add -A`\nsob committer paralelo, com proposta de conserto por hook em vez de lembrete.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b9551ba",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b9551ba919d2b9866a33cc002a355722970958b8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T17:00:36.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings de atualizar-dockers: o quinto deploy do SCA\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1e58300",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1e58300f6350ce15af5a4650cb2dffe96b3e36ee",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T16:55:38.000Z",
+      "author": "Maj Diniz",
+      "message": "o prazo do 30 BI Mec, o acerto do R1, e uma poda que envelheceu em tres horas\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8b1cea4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8b1cea4bc09ab23a4aa8211089814d306775fdf5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T16:55:03.000Z",
+      "author": "Maj Diniz",
+      "message": "dashboard: a situação de carregamento volta, agora como barra\n\nA sub-aba com a pizza saiu hoje de manhã com um número que a justificava: os\n17.499 arquivos estavam todos em \"Não carregado\", e fatia de 100% não responde\npergunta nenhuma.\n\nHoras depois a carga no BDGEx passou a ser registrada e a distribuição virou\n17.121 / 239 / 139. O dado voltou a valer, e a poda ficou desatualizada: a\npergunta \"quanto do acervo já subiu para o BDGEx\" tem resposta agora.\n\nVOLTA COMO BARRA, e não como o setor de antes. Com 97,8% num estado, a pizza\nseguiria ilegível: duas lascas de 1,4% e 0,8% não se distinguem num círculo. Em\nbarra a leitura sai pelo eixo.\n\nE volta para a aba de DISTRIBUIÇÃO, ao lado dos outros cortes por categoria, em\nvez de ocupar uma sub-aba própria dentro de Atividade. Ela é distribuição, e não\natividade: o que ela mostra é um retrato, não um movimento.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6318348",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/631834868bf2c97230ecda698d98d9b556752fad",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T16:49:48.000Z",
+      "author": "Maj Diniz",
+      "message": "a situacao de carregamento sai do zero, e a 2.4 reporta ENTREGA\n\nO campo `acervo.arquivo.situacao_carregamento_id` existia e nunca fora usado: os\n17.499 arquivos estavam em \"Nao carregado\", inclusive os ja publicados. Com ele\nzerado a 2.4 do RPCMTec nao distinguia pronto de entregue.\n\nO criterio e o UUID, por decisao do chefe: o `uuid_versao` do SCA deve ser o do\nregistro no BDGEx. Casam 142 versoes (90 ostensivo, 52 Op), e 378 arquivos foram\nmarcados. A 2.4 passou a filtrar por isso, e julho/2026 cai de 8 linhas para 0.\n\nDecisao integral em Decisions 2026-08-07 (cont. 9); wiki de controle-acervo e\nbdgex atualizadas com o criterio e o estado medido.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "61fa452",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/61fa452a5ec245ad3afee8cb6953ed059b01046b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T16:47:22.000Z",
+      "author": "Maj Diniz",
+      "message": "A 2.4 lista o que foi ENTREGUE, e nao o que ficou pronto\n\nA subsecao promete \"produtos finais (BDGEx, IGW, EBGeo) no mes\" e listava toda\nversao Regular do mes, carregada ou nao. Em julho/2026 ela mostrava 8 produtos,\ne nenhum dos 8 tinha registro no BDGEx: o relatorio afirmava entrega que nao\nhouve.\n\nPassa a entrar so a versao com ao menos um arquivo cuja situacao_carregamento\nseja diferente de \"Nao carregado\". O filtro e por diferenca, e nao por igualdade\na BDGEx, porque o titulo cobre os tres destinos e o dominio ja os distingue.\n\nBasta UM arquivo carregado na versao: o registro do BDGEx agrega o conjunto da\nfolha (GeoTIFF, PDF e XML) e o JSON de edicao nunca sobe, entao exigir todos\nsumiria com a folha por causa do insumo que nao e produto.\n\nDivergir da 2.2 ao lado passa a ser o esperado: aquela conta o que a Divisao\nCONCLUIU, esta conta o que ela ENTREGOU, e a diferenca e a fila de carga.\n\nO teste cria o par (duas versoes identicas no mes, separadas so pela situacao de\ncarregamento), e reprova o comportamento anterior: sem o filtro, ele falha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "992260c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/992260c994645bd79f11025178b6bb661b4b8605",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-07T15:34:22.000Z",
