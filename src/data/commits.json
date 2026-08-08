@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-07T20:46:19.067Z",
+  "lastUpdate": "2026-08-08T10:38:51.669Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-07T20:43:06.000Z",
+    "1cgeo/controle_acervo": "2026-08-08T01:45:45.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-07T19:22:41.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-08T10:04:57.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5713,
+    "totalCommits": 5721,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 286,
+      "1cgeo/controle_acervo": 288,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,67 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 531,
+      "1cgeo/chefe_dgeo": 537,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-08T10:04:57.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nskill 360: a transformacao IMU-panorama era IMPROPRIA\n\nO maior defeito desta skill, e ele durou dois dias porque nunca se apresentou\ncomo defeito de metodo. Cinquenta e tres agentes relataram, cada um por sua vez,\nque o horizonte nao corria reto, e cada um concluiu \"o acelerometro DESTE\ndisparo nao serve\". Quem quebrou o padrao foi um agente que propos hipotese\nsobre o LOTE: \"confira o sinal de X do zenite_cru em todo o lote\".\n\nA causa: o M_IMU_PANO foi ajustado por Wahba com o determinante preso em +1, mas\no panorama nasce de um SphereGeometry(...).scale(-1,1,1). Ha uma reflexao no\ncaminho, e a transformacao certa e impropria.\n\nMedido contra a vertical de prumo de 226 fotos, metade treinando, metade\nvalidando: 9,77 graus de mediana com det +1, e 0,80 com determinante livre.\nAjustado excluindo as duas fotos confirmadas pelo chefe, reproduz as duas com\n0,31 e 1,12.\n\nAs 346 respostas dos agentes sobreviveram sem refazer nenhuma: o rumo se moveu\n0,19 grau na mediana, e o rebase.py extrai da resposta a direcao CRUA apontada e\nrele o azimute dela sob a vertical nova.\n\nRetratacao: a rodada anterior culpou o operador pela imprecisao. Com o\nmapeamento certo a diferenca cai de 2,30 para 0,76 grau. A regua e que estava\ntorta.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "84695a5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/84695a51d63fef2dd95f7d5d54825ee128bb736d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-08T01:45:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Ter conta e ter acesso viram dois momentos, e o intervalo e uma tela\n\nA conta que o administrador acaba de criar nasce sem nenhuma linha em\n`dgeo.usuario_perfil`: a senha funciona, o login responde, e nao ha nada la\ndentro que seja dela. Ate agora essa pessoa entrava e caia em `#/unauthorized`,\ncom \"403 Acesso negado\" e um botao Sair. A tela dizia a quem tinha acabado de\nreceber uma conta que ela nao tinha conta nenhuma.\n\nAGORA A RAIZ DELA E `#/perfil`. Ela corrige o proprio cadastro, troca a propria\nsenha e le, na secao nova \"Meus acessos\", o que pode em cada modulo -- ou que\nainda nao pode nada, e que o acesso se pede ao ADMINISTRADOR. E ao\nadministrador, e nao a um gerente: quem concede perfil e `verifyAdmin` em\n/api/usuarios, e mandar pedir a quem nao pode dar faria a pessoa percorrer o\ncaminho errado antes de chegar ao certo.\n\n`#/perfil` e a unica tela que nunca depende de perfil (`authLoader`), e e de\nproposito: sem ela, trocar de senha seria privilegio de quem ja tem acesso.\n\nA GUARDA NOVA, `verifyAcesso`: administrador global OU qualquer perfil em\nqualquer modulo, lido do BANCO a cada requisicao, como as irmas. As 16 leituras\ndo PIT e do Extra-PIT sairam de `verifyLogin` para ela; eram o que a conta sem\nconcessao alcancava, ou seja, o plano de trabalho da Divisao inteira, no\nprimeiro segundo de vida da conta. `verifyLogin` fica onde tem de ficar: o\nproprio cadastro e a propria senha, que sao justamente as rotas que essa pessoa\nprecisa alcancar.\n\nO MENU ACOMPANHA. A secao Producao era a unica coisa desenhada na sidebar de\nquem nao tinha perfil, e passou a exigir `temAlgumAcesso()`. Oferecer no menu\numa tela que responde 403 e o mesmo desencontro que `podeAbrirRota` existe para\nevitar do lado dos modulos.\n\nA INSTALACAO NOVA ESTAVA QUEBRADA, e ninguem via. O `create_config.js` lia os\n`er/*.sql` com `minify: true`, e o minify troca por espaco a quebra de linha\nentre os literais adjacentes do WKT em `er/limites.sql`. Sem a quebra o\nPostgreSQL nao os concatena, e o CREATE DATABASE morria com \"erro de sintaxe\" no\nmeio de uma coordenada. Ficou invisivel porque o `globalSetup` do Jest sempre\nleu o arquivo cru: a suite de banco passava com `npm run config` quebrado.\n\nAUDITORIA ZERADA NAS TRES ARVORES. Os tres alertas abertos do Dependabot eram\n`js-yaml` transitivo; resolvidos por `overrides` (`^4.3.1` na raiz e no servidor,\nmais o aninhado `@istanbuljs/load-nyc-config` -> `^3.15.1`, porque o 3.x tem API\ndiferente e um override unico quebraria o Jest). Junto foi o `nanoid` do client.\n\nOS CLIs PARAM DE ANUNCIAR O QUE O SERVIDOR APAGOU. Quatro causas independentes,\ntodas de codigo que ficou para tras:\n\n1. `acervo_cli editar produto` estava TRAVADO, e nao so no subtipo: toda edicao\n   de produto morria. O `migrar_subtipo_das_versoes` entrou com `.default(false)`,\n   e o guardrail do CLI recusa qualquer PUT cujo schema preencha por default um\n   campo que a leitura nao trouxe, porque num PUT de objeto inteiro isso e gravar\n   o padrao por cima do valor real, em silencio. O default nao mudava\n   comportamento (o controller testa por falsidade), e mesmo assim travou o\n   comando. Tirei o default, e NAO ensinei o guardrail a abrir excecao: ele nao\n   distingue coluna de flag de acao, e nao deve, porque lista de excecao\n   apodrece.\n2. O `producao_cli` anunciava as quatro rotas do de-para de midia, apagadas em\n   a5bda8d com o controlador, os schemas e o mapa de auditoria.\n3. O `orcamento_cli` anunciava o CRUD do singleton de `orcamento.configuracao`,\n   podada na 1.34.0. Pior que rota morta: o `require` do schema inexistente\n   derrubava o `orcamento schema` de TODOS os recursos, e nao so o dele. O\n   recurso virou o `/anos` que sobrou, o `schema` passou a ser opcional no\n   contrato e as duas ramificacoes de `singleton` sairam, porque nao descreviam\n   mais ninguem.\n4. O fixture de `pit.criar` no `producao_cli` era anterior a 1.30.0, quando\n   `item` e `unidade_id` viraram obrigatorios.\n\nTRES TESTES DEIXAM DE MENTIR, e os tres pelo mesmo motivo: falhavam por algo que\nnao era o codigo.\n\n- `dashboard_a_produzir` semeava \"ontem\" com `toISOString()`, que fala UTC, e\n  cobrava o atraso de um `CURRENT_DATE` que fala America/Sao_Paulo. Falhava TODA\n  NOITE, das 21h a meia-noite, sem ninguem ter mexido em nada. E o pior tipo de\n  vermelho: o que ensina a ignorar o vermelho.\n- `modulo_em_toda_rota` e `mi` quebravam em CRLF (`core.autocrlf` ligado, que e o\n  padrao do Git no Windows): o `.` do JavaScript nao casa `\\r`, entao o `//.*$`\n  parava antes do fim da linha e comentario nenhum era apagado. A varredura\n  reprovava a PROSA que descreve a armadilha.\n\nO porque de cada uma esta em docs/decisoes.md, e as duas regras que valem para\ncodigo novo subiram para o CLAUDE.md: schema de ATUALIZACAO nao leva `.default()`\nnem em campo de acao, e feature que sai do servidor sai do registry do CLI no\nmesmo commit.\n\n997 provas sem banco, 884 com banco, 1428 no client, 364 nos CLIs, 32 nos\nscripts. Nenhuma vermelha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "21593ce",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/21593ce2621bccedea13700300ee661c4e5f4a22",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-07T21:16:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Consumo de insumo e o DECLARADO, no papel como ja era na tinta\n\nA 7.2 de julho saiu com \"consumo 802, estoque 64\" na mesma linha. Os 802 vinham\nde 121 itens impressos; os 64, de uma contagem digitada em 31/07 que nunca se\nmoveu. Nenhum lancamento de consumo de papel existia no ano inteiro, entao o\nestoque nunca baixou. Uma coluna media o mundo, a outra media o cadastro, e a\nsubtracao entre elas nao significava nada.\n\nO consumo passa a ser o que a Secao lanca na aba \"Consumo de material\", e nada\nalem disso. Vale igual para papel (7.2) e tinta (7.3), que ate aqui seguiam\nregras diferentes na mesma tabela.\n\nA FONTE UNICA E O QUE FECHA A CONTA. Os gatilhos de `consumo_material` baixam\n`estoque_material`: lancado o consumo, o estoque acompanha, e as duas colunas\npassam a falar da mesma coisa. Derivando da impressao, o consumo andava e o\nestoque ficava parado. Zero na coluna quer dizer \"ninguem lancou\", que e\ndiferente de errado, e e um zero que a Secao conserta lancando.\n\n`quantidade_impressa` FICA, fora da conta. Ela responde outra pergunta -- quanto\nse imprimiu naquela midia -- e serve de CONFERENCIA: mes com muita impressao e\npouco consumo declarado e lancamento em atraso, nao consumo baixo. A rota que\ncorrige a data da impressao continua valendo pelo mesmo motivo.\n\nIsso desfaz a decisao de 2026-08, que somava a impressao so no papel. Os testes\nque a fixavam foram reescritos para fixar a regra nova, inclusive o caso de\njulho: imprimir sem lancar deixa a 7.2 em zero, e e o certo.\n\nEfeito visivel na producao: a 7.2 de julho passa de 802 para 0 ate a Secao\nlancar o consumo do mes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0deb5f5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0deb5f52308be4927c49483dc3e05cffd11c0032",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T21:14:56.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nsplit da auditar-acervo: 51 KB viram 10, e o metodo que falhou tres vezes se inverte\n\nO maior learnings do vault. Passou de 51.312 para 10.584 bytes, e o corpo inteiro\nfoi para references/learnings-detalhado.md, carregado so sob demanda.\n\nO que interessa nao e o placar, e por que as tres podas anteriores falharam. Elas\npararam em 17 KB, 25 KB e 38 KB porque tentavam decidir secao a secao o que\nsacrificar, e toda secao parecia valer. O conserto foi inverter o gesto: mover\nTUDO verbatim para o detalhado e reconstruir o quente do zero, como checklist, so\ncom regra de primeira ordem. Podar por subtracao trava; reconstruir por adicao\nnao.\n\nFicou quente o portao (`acervo auditar`, DEFECT=0), a rota e a flag, as reguas de\nevidencia (numero inexplicado, detector uniforme, checksum de pixel), a identidade\nda folha e a regra de datacao integral. Foi ao detalhe a narrativa datada, o\nnumero de campanha, a receita longa e o edge case raro.\n\nLossless provado em duas reguas independentes. O agente casou o sha256 do corpo\n(51.280 bytes, identico dos dois lados) e rodou o teste contra o detalhado ANTES\ndo append, onde 258 das 259 linhas davam FALTA, o que mostra que o teste sabe\nreprovar. Eu conferi de novo por multiset de palavras contra `git show HEAD`,\nsomando quente e detalhe dos dois lados: zero palavras perdidas, e zero palavras\ndo detalhe antigo sumiram.\n\nPreco declarado: o quente perdeu a evidencia numerica de cada regra, e quem quiser\no porque faz grep no detalhado. As 18 linhas de indice sao as chaves de busca.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0ac8b11",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0ac8b11d0f42be2e7e34fa63bf2bd9643272b2e0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T21:05:21.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nsplit da lint-wiki: a camada quente cabe de novo na leitura de toda execucao\n\nO learnings passou de 16.637 para 10.350 caracteres. O que saiu foi para\nreferences/learnings-detalhado.md, que a skill carrega so sob demanda.\n\nCriterio, um so: isto muda o que eu FACO na proxima execucao? Ficou quente a\nregra, o portao e a armadilha que ainda morde. Foi ao detalhe a narrativa datada\n(a receita do catalogo EDGV, a recorrencia de acento ja superada pelo conserto\nmecanico, a implementacao do check [8]).\n\nA skill absorveu a mapa-conceitos hoje, e as DUAS frentes sobreviveram na quente:\nMEDIR (ler o dedup, os pares legitimos que nao se re-litigam) e MANTER (ligar no\nato, a regra de ouro do fan-out, o formato do marcador \"Estado atual\").\n\nLossless provado por duas vias independentes. O agente comparou o multiset de\npalavras da linha que precisou ser partida e rodou controle negativo (sabotou a\ncopia, viu o verificador acusar as 16 palavras faltantes, restaurou). Eu conferi\nde novo com a minha regua, contra `git show HEAD`: nenhuma palavra do original\nfalta na soma dos dois arquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e947411",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e94741199986af14ffeab5e366943c123e97ab1f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T21:03:54.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nretrospectiva 2026-08-07: nascem as duas skills do SCA, e a identidade se parte em duas\n\nFecha a sessao de poda por multiplos agentes (25 agentes, tres commits com este).\n\nSkills novas, que fechavam a lacuna aberta hoje\n- `lancar-rpcmtec` (CLI `producao`): preenche as 13 subsecoes DIGITADAS, fecha,\n  reabre e emite a edicao mensal, e lanca a execucao do PIT.\n- `gerir-efetivo-sca` (CLI `efetivo`): identidade do SCA, passagem pela DGEO,\n  impedimento e aproveitamento.\n- As duas nascem FINAS, por ordem dos proprios CLIs: \"o guardrail mora na\n  interface, nao na skill que chama\". Nenhuma tabela de campos foi copiada. Elas\n  mandam rodar `<cli> schema <recurso>`, que le o Joi vivo.\n\nA fronteira de identidade mudou, e o vault ensinava o contrario\n- Desde 2026-08-02 o SCA valida a senha SOZINHO (`dgeo.usuario.senha`, bcrypt) e\n  nao importa mais do servico de autenticacao. Provado no codigo, nos dois lados:\n  o SAP nem sobe sem o auth; o SCA nao o chama.\n- Quem usa os dois sistemas tem DOIS cadastros e DUAS senhas. A DESAMBIGUACAO\n  mandava o oposto (\"a identidade nasce sempre no auth\").\n- `gerir_usuarios_auth.py` fica: a condicao de saida dele nao fechou.\n\nMemoria\n- MEMORY.md: o RPCMTec como edicao no SCA, e a partilha da identidade. Segue em\n  5.120 caracteres, acima do gatilho de 4.800. Consolidacao pendente.\n- Livro-razao, duas correcoes minhas de primeira classe. Afirmei que a pagina\n  regua estava atualizada sem abrir o codigo, e ia usa-la como base de cinco\n  agentes. E reportei como pendencia aberta um problema cujo conserto estava\n  escrito tres paragrafos adiante, no mesmo registro.\n\nFicam rodando dois splits de learnings (auditar-acervo com 51 KB, lint-wiki com\n16 KB), que entram em commit proprio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6b350f9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6b350f90213857041a32c12d3af02911bbd55272",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-07T20:43:06.000Z",
@@ -178,6 +232,24 @@
       "sha": "d9023fb",
       "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d9023fb75b574f1fbfeda1bcf1fa0095d95b1b99",
       "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T20:35:54.000Z",
+      "author": "Maj Diniz",
+      "message": "@\no RPCMTec renumera em 60 lugares, e o SAP deixa de ser gerador\n\nSegunda metade do conserto. A primeira (bdcaea2) podou o roteador e as skills\nque mentiam. Esta propaga o fato que estava por tras de quase todo o lixo: em\njulho/2026 o RPCMTec passou de SEIS para NOVE secoes, o SCO virou modulo do SCA\nem 2026-07-27, e nada disso desceu para a memoria.\n\nA regua, primeiro\n- wiki/rpcmtec.md reescrita contra a fonte primaria (rpcmtec_estrutura.js, medida\n  em 2026-08-07): o relatorio e uma EDICAO guardada no SCA desde 2026-08-04, com\n  34 blocos. 20 CALCULADOS, 13 digitados, 1 fixo.\n- O SAP NAO gera mais o relatorio. Ele e FONTE de duas digitadas, a 2.3 e a 2.5.\n  O gerador dele segue no ar e ainda emite sete subsecoes que o SCA calcula, sem\n  nada comparando as duas saidas. Registrado, nao resolvido.\n- Historico ganhou 2026-08-04 (a edicao unica) e 2026-08-05 (2.2 e 2.4 passam a\n  calculadas), que faltavam.\n\nCinco agentes propagaram, um por camada\n- skills, wiki (25 paginas), subwikis, ciclo-2026 e o script.\n- A regra dada a todos: converter pelo ASSUNTO da tabela, nunca pelo numero\n  solto. \"2.4\" pode ser a antiga (mapoteca, hoje 3.2) ou a nova. A armadilha\n  pegou de verdade em pdr.md, onde o cabecalho ja dizia Secao 4 e os sete itens\n  abaixo ainda diziam 3.1 a 3.7.\n\nO que mais doia\n- consultar_atos.py imprimia \"6.3\" no titulo. Quem colava a saida colava um\n  titulo errado no documento oficial. Corrigido e ACIONADO contra o clone real,\n  217 atos lidos, os quatro caminhos de saida conferidos.\n- A rota /api/orcamento/relatorio/secao3 esta MORTA, nao renomeada (o routes.js\n  nao a monta mais). A wiki e a subwiki ainda a ensinavam.\n- A tabela mapoteca.pedido_auditoria foi apagada; a subwiki ainda a documentava.\n- O SCA valida senha sozinho desde 2026-08-02; tres paginas diziam que o auth\n  validava.\n\nlancar-rpcmtec-sap vira lancar-campo-sap\n- Quatro dos cinco blocos morreram: o SCA os calcula. Sobrou a 2.5, atividades de\n  campo, que segue digitada com fonte SAP.\n- Migrados para o texto que fica: o de-para de vocabulario, o metodo de\n  reconciliacao, o gotcha de fuso e a licao do grep truncado.\n- LACUNA DECLARADA, nao ponteiro: nao existe skill para producao_cli nem para\n  efetivo_cli, que sao hoje o unico caminho de preenchimento.\n\nciclo-2025 preservado de proposito: o RPCATec de 2025 existe em papel com a\nnumeracao velha, e converter falsificaria o registro.\n\nVerificado: 0 erros no lint_skills, 0 links quebrados no lint_wiki, guard OK.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "bced6f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bced6f68ae8da3286baed4ec405c120325f8be1d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-07T20:15:49.000Z",
+      "author": "Maj Diniz",
+      "message": "@\na poda: o roteador se conserta, e a skill que mentia sobre si mesma cala\n\nO chefe pediu poda por multiplos agentes. 18 agentes varreram skills, wiki,\nsubwikis e 03-Resources. O achado nao foi entulho: foi UM fato que nao propagou\n(o RPCMTec de seis para nove secoes, o SCO virando modulo do SCA), replicado em\nmais de 60 lugares. Esta e a primeira metade do conserto.\n\nRoteador\n- .claude/settings.json: duas entradas fantasma fora (gerar-relatorio-dgeo,\n  nome-da-skill); cinco skills novas em name-only.\n- DESAMBIGUACAO.md: a contagem saiu de 49 para 59.\n\nFossil (a constituicao proibe gravar \"a ferramenta Y nao funciona\")\n- configurar-lote-sap guardava a recusa \"sap lote fase NAO DESPACHA\" em tres\n  copias. O mundo desmentiu o texto: o SUBVERBOS ja mapeia o verbo\n  (sap_cli/sap.js:102-106). As tres sairam.\n\nSeis skills que afirmavam o que o proprio learnings desmentia\n- lancar-orcamento, consultar-produtos (mais duas secoes HISTORICO), briefing,\n  conflacao-atributo-linha (roteava para o metodo reprovado),\n  revisar-carta-pdf, atualizar-dockers (o plink que ja enganou uma sessao).\n\nDuas fusoes, com o conteudo migrado ANTES\n- auditar-relacionamentos-sca entra em auditar-acervo. A regra de pareamento por\n  lote foi para wiki/controle-acervo, as rotas de escrita para subwikis/sca.\n- a SKILL mapa-conceitos entra em lint-wiki, que passa a MEDIR e a MANTER. A\n  PAGINA wiki/mapa-conceitos.md continua viva, com 46 links de entrada.\n\nFallback com condicao de saida ja cumprida\n- lancar_orcamento.py e consultar_orcamento.py apagados: a escrita real contra a\n  producao rodou em 2026-08-07, com releitura no destino.\n- gerir_usuarios_auth.py PRESERVADO. A condicao dele nao fechou.\n\nVerificado: 0 erros no lint_skills, 0 links quebrados no lint_wiki, guard de\ncaminho e segredo OK. A prova reprova o estado anterior: o ponteiro quebrado foi\nreinstalado de proposito e o linter acusou.\n\nEntram junto as podas que o chefe fez a mao antes da sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "bdcaea2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bdcaea28f22503419cec738e7d8bf5b2b58f0c79",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
       "repo": "1cgeo/controle_acervo",
