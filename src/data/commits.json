@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-09T10:39:56.207Z",
+  "lastUpdate": "2026-08-09T15:36:56.438Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-09T10:33:13.000Z",
+    "1cgeo/controle_acervo": "2026-08-09T13:07:18.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-09T00:22:28.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-09T12:43:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5737,
+    "totalCommits": 5742,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 298,
+      "1cgeo/controle_acervo": 301,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,58 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 542,
+      "1cgeo/chefe_dgeo": 544,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-09T13:07:18.000Z",
+      "author": "Maj Diniz",
+      "message": "O proprio aproveitamento chega ao terminal, e a contagem sai da prosa\n\nDUAS DEFASAGENS, e as duas vinham da varredura de ontem.\n\n1. AS NOVE ROTAS DO PROPRIO APROVEITAMENTO entram no `efetivo_cli`, num recurso\n   `meu`. Elas nasceram em 2026-08-08, junto com a subida da escrita do efetivo\n   para gerente, e sao `verifyAcesso`: basta ter perfil em ALGUM modulo. Sem\n   elas no CLI, quem nao responde pelo efetivo so declarava a propria licenca\n   pela tela.\n\n   RECURSO SEPARADO, e nao operacoes dentro de `efetivo`. O assunto e o mesmo\n   (passagem e impedimento) e o ACESSO nao: la e consulta ou gerente no modulo,\n   aqui basta ter acesso. Num recurso so, `efetivo schema` teria de anunciar\n   duas guardas para o mesmo assunto, e quem lesse escolheria a errada.\n\n   DECLARAR O RECURSO NAO BASTAVA, e so acionar mostrou: o despachante tem lista\n   propria de verbos, e `efetivo meu periodo criar` tem um segmento a mais que\n   `efetivo periodos criar`. Entraram `recursoDe` e o ramo de `meu` em\n   `resolverOperacao`.\n\n   PROVADO CONTRA O SERVIDOR VIVO, com o `visualizador` (consulta em tudo, e\n   gerente em nada): ele CRIOU o proprio impedimento pelo CLI, a linha gravada\n   ficou no nome dele -- o dono sai do token --, e a mesma conta levou 403 ao\n   tentar lancar pela rota de gerente. E o contraste que justifica o recurso.\n\n   Quatro casos novos cobrem o que o teste nao alcancava: as nove anunciam\n   `acesso` e nunca perfil no modulo, nenhuma escrita pede `usuario_uuid` no\n   corpo, o despachante traduz os dois formatos, e errar o assunto ensina os\n   tres sem tocar a rede.\n\n2. \"OS TRES MODULOS\" SAI DE 54 COMENTARIOS. Sao quatro no registry (o\n   `equipamento` entrou em 2026-08-08) e seis na permissao. A correcao duravel\n   nao e trocar 3 por 4: e PARAR DE CONTAR onde a contagem nao e o ponto, e por\n   isso a maioria virou \"os modulos\" ou \"todos os modulos\". Onde o numero\n   carrega sentido, ele foi medido.\n\n   Sobra UMA ocorrencia, em docs/decisoes.md, e ela esta certa: descreve o\n   defeito do ponto e virgula no INSERT de `dominio.modulo`, que fazia o teste\n   \"ver tres modulos em vez de seis\".\n\n   No caminho, `er/pit.sql` afirmava que LER o PIT \"e de qualquer pessoa\n   logada\". E `verifyAcesso` desde 2026-08-08: ter conta nao e ter acesso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "a6cefd7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a6cefd7f3c0102764f3a2918429faa3f96f96e07",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-09T12:43:29.000Z",
+      "author": "Maj Diniz",
+      "message": "sistema-unico: a data do campo segue o repositorio (2026-08-08)\n\nO commit caiu em 2026-08-09, e as DECISOES foram tomadas em 08-08. O repositorio\ndata de forma consistente por 08-08 (migrations/2026-08-08_campo.sql, er/campo.sql,\nconfig.js), e o vault estava um dia a frente. Alinhado.",
+      "sha": "a3f6483",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a3f648384f1e9f5ca4c20d47ca0e031e444c6b1f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-09T12:43:14.000Z",
+      "author": "Maj Diniz",
+      "message": "A documentacao alcanca o codigo, e o producao_cli vira pit_cli\n\nQuatro dias de mudanca deixaram a prosa para tras. O renome do modulo 4 em\n2026-08-09 trocou o IDENTIFICADOR em 94 lugares e nao tocou um comentario; antes\ndele, a regua de perfil de 2026-08-08, o modulo `equipamento`, o schema `campo`,\no livro de movimentos e a poda da Contagem mudaram guardas e contagens que a\ndocumentacao continuava afirmando no presente.\n\nQuatro varreduras em escopos disjuntos, cada uma MEDINDO contra a fonte (as\nrotas, o `er/`, o Joi vivo) em vez de confiar na prosa vizinha.\n\nO QUE ESTAVA MENTINDO, e nao so envelhecido:\n\n  * `domain_constants.js` dizia que a linha da Contagem \"continua no banco\" e\n    que a FK aceitaria o code 4. Ela saiu na 1.48.0. O `er/mapoteca.sql` dizia o\n    mesmo no CHECK, contradizendo o proprio arquivo 50 linhas acima.\n  * O README prometia protecao contra HTTP Parameter Pollution. O `hpp` foi\n    REMOVIDO de proposito, com doze linhas explicando por que nao volta.\n  * O `efetivo_cli` declarava as 10 rotas no nivel errado, nas DUAS direcoes:\n    leitura como gerente e escrita como operador. As reais sao consulta e\n    gerente.\n  * O `orcamento_cli` apontava as subsecoes do RPCMTec na secao 3. As do\n    orcamento sao a 4.1 a 4.7; a 3.x e da mapoteca.\n  * `campo_route.js` avisava que a varredura de modulo \"nao cobre `pit`\". Ela\n    passou a cobrir, e o comentario dizia ao leitor que nao havia rede onde ha.\n  * `ecosystem.config.cjs` descrevia o deploy servindo duas SPAs por modulo,\n    apagadas de proposito, e CITAVA O NUMERO DA PORTA num repositorio publico.\n\nDOIS DEFEITOS DE CODIGO apareceram, e nenhum era de comentario:\n\n  1. `rpcmtec/edicao.js` montava o painel de historico sem checar `isAdmin()`. A\n     tela e `gerenteLoader` desde 2026-08-08 e o historico de 'plataforma' e\n     `verifyAdmin`: o gerente que nao e administrador via o painel e levava 403\n     ao abrir. Ele nasce recolhido, o que ADIAVA a falha em vez de evita-la.\n  2. `perfil/index.js` mandava pedir acesso a \"(Acervo, Mapoteca, Orcamento,\n     Producao ou Efetivo)\". Numa tela que existe SO para dizer o que pedir, ela\n     citava um nome que o administrador nao ve e escondia o Equipamento. A lista\n     passa a sair do CATALOGO (`getCatalogoModulos`), e nao pode mais apodrecer.\n\n`producao_cli` VIRA `pit_cli`, e o executavel `producao.js` vira `pit.js`. O\ndiretorio servia o PIT e carregava o nome que o modulo devolveu ao SAP.\n\n`VERSION` SOBE DE 1.38.0 PARA 1.50.0, e ganha guarda. Ela sai em toda resposta\nda API e ficou doze versoes para tras porque nada a ligava a nada.\n`__tests__/unit/versao_do_servico.test.js` passa a cobrar `VERSION >= er/versao.sql`\n-- `>=` e nao `===`, porque release sem migracao move o servico e nao o banco.\n\n`npm run test-cli` RODAVA CINCO DOS SETE CLIs. Os 134 testes de\n`equipamento_cli` e `sag_cli` so rodavam se alguem lembrasse de entrar no\ndiretorio. Os sete entraram no script.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "c63ad0e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c63ad0ecac120ded1726cf6d29a8be1ef841df95",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-09T12:19:20.000Z",
+      "author": "Maj Diniz",
+      "message": "sistema-unico: so falta o core do SAP, e a analise de encaixe achou sete problemas\n\nO SCA absorveu o ultimo schema de nao-producao do SAP em 2026-08-09. As\natividades de campo entraram no schema `campo`, e a subsecao 2.5 do RPCMTec\ndeixou de ser digitada. Antes dela, em 2026-08-08, o material permanente entrou\ncomo modulo `equipamento` e a 7.1 tambem virou calculada.\n\nRestam quatro schemas no SAP, e os quatro descrevem a PRODUCAO: `macrocontrole`\n(45 tabelas), `metadado` (16), `microcontrole` (2) e `acompanhamento` (1).\nExiste um quinto que NAO e producao: 14 das 15 tabelas de `dgeo` distribuem\nconfiguracao do QGIS, e a fusao precisa decidir de quem essa funcao e.\n\nO chefe decidiu duas coisas em 2026-08-09. O SAP e que se ADAPTA ao SCA, em tipo\nde produto, produto e usuario. E o modulo 4 devolveu o nome \"Producao\": ele\npassou a se chamar `pit`, com o `code` intacto, para o core do SAP poder entrar\ncom o nome certo.\n\nA analise de encaixe achou sete problemas alem dos renomes. O que corrompe em\nsilencio e o `dominio.tipo_produto`: ele existe nos dois com os mesmos codigos e\nsignificados diferentes, e o do SAP e, codigo a codigo, o `subtipo_produto` do\nSCA. O codigo 9 e \"Modelo 3D\" aqui e \"Fototriangulacao\" la.\n\nA frase antiga deste documento prometia menos trabalho do que ha. Ela dizia que\nabsorver o SAP e \"linha nova em dominio.modulo mais entrada no mapa de tabelas\".\nIsso vale para a AUDITORIA, e nao para a autorizacao: o SAP tem 403 rotas, e\ndelas 323 sao verifyAdmin, 68 verifyLogin e 12 sem guarda. Nada ali sustenta a\nregua do SCA.",
+      "sha": "d2c9e25",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d2c9e251b832c1481963a1e7c3ab97397d817005",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-09T12:11:56.000Z",
+      "author": "Maj Diniz",
+      "message": "O modulo 4 devolve o nome Producao, e a tabela do ano vira pit.pit\n\nO core de producao do SAP (`macrocontrole`, 45 tabelas) vai entrar num modulo, e\nesse modulo se chama Producao. O nome estava ocupado por quem NAO e producao: o\ncode 4 guarda o PIT -- a execucao do plano, o Extra-PIT, a capacitacao\nministrada e as atividades de campo.\n\nO descompasso ja existia e era visivel. O menu diz \"PIT\" desde que a secao\nnasceu, e o `nome_abrev` dizia 'producao'; o CLAUDE.md carregava um paragrafo so\npara avisar que o rotulo do MENU e uma terceira coisa. Agora o rotulo, o\nidentificador e o conteudo dizem a mesma palavra.\n\nO CODE NAO MUDOU, entao nenhuma concessao de `dgeo.usuario_perfil` foi tocada e\nninguem perdeu acesso. A migracao confere e reporta quantas preservou.\n\n`pit.exercicio` VIRA `pit.pit`, com as quatro restricoes renomeadas junto. O PIT\ne o documento do ANO: `pit.pit` e a linha do documento, e `pit.meta` e o que ele\npromete.\n\nO HOMONIMO DO SAP E REAL, e fica registrado: `macrocontrole.pit`, la, e a META, e\ncorresponde ao `pit.meta` daqui. Quando o core atravessar, duas tabelas chamadas\n`pit` vao existir no mesmo banco querendo dizer coisas diferentes.\n\nA ENTIDADE DE AUDITORIA NAO ACOMPANHA A TABELA, e continua 'exercicio'.\n`auditoria.evento.entidade` e TEXTO gravado no evento, e a trilha e append-only:\nmedido no dump de producao de 2026-08-08, sao 15 eventos com esse valor e ZERO\ncom o modulo 'producao' (o `pit` sempre foi auditado sob 'plataforma'). Renomear\na entidade os deixaria orfaos de ficha, e reescreve-los seria a aplicacao\ncorrigindo a propria prova.\n\nO CORPO DO `INSERT` DE `dominio.modulo` NAO ACEITA PROSA, e o comentario do code\n4 mora acima dele por isso. `orcamento/verify_perfil.test.js` le aquele bloco com\num `[\\s\\S]*?;` nao guloso, e um ponto e virgula dentro de um comentario corta a\ncaptura no meio: o teste passou a ver tres modulos em vez de seis. Custou uma\nsuite vermelha.\n\nPiso do banco em 1.50.0. E o caso mais duro da regra do piso: a migracao SO\nRENOMEIA, e mesmo assim nao ha como este codigo servir os dois nomes. Ele le\n`pit.pit`, e num banco 1.49.0 toda consulta do PIT falha; e o mapa `MODULO`\ntraduz 'pit' para 4 contra um `dominio.modulo` que ainda diz 'producao', o que\nrecusaria toda concessao do modulo 4 sem erro nenhum na tela.\n\nA DOCUMENTACAO FOI TODA REVISTA, e tres coisas estavam velhas por outros\nmotivos: o `levantar_servico.md` dizia que o piso era 1.25.0, o README ainda\nlistava a Contagem entre os movimentos de material (extinta na 1.48.0), e o\n`producao_cli` descrevia guardas de antes da regua de 2026-08-08 (a leitura da\nexecucao virou consulta no modulo, e nao mais gerente de qualquer um).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "bc8304b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bc8304bbf7b3a42c820a312b9067f7ed922c4115",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-09T10:33:13.000Z",
