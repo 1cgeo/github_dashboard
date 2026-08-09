@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-08T20:35:26.886Z",
+  "lastUpdate": "2026-08-09T10:39:56.207Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-08T19:36:57.000Z",
+    "1cgeo/controle_acervo": "2026-08-09T10:33:13.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-08T11:13:40.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-09T00:22:28.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5728,
+    "totalCommits": 5737,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 293,
+      "1cgeo/controle_acervo": 298,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 538,
+      "1cgeo/chefe_dgeo": 542,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-09T10:33:13.000Z",
+      "author": "Maj Diniz",
+      "message": "As atividades de campo atravessam do SAP, e a 2.5 deixa de ser digitada\n\nO que a Divisao faz FORA dela -- reambulacao, voo de drone, ponto de controle,\nmodelo 3D e panoramica 360 -- vivia no `controle_campo` do SAP e chegava ao\nRPCMTec por transcricao: a subsecao 2.5 estava marcada DIGITADA, com fonte\n'SAP'. Agora ela sai do cadastro, e o numero do relatorio deixa de poder\ndivergir dele sem nada acusar.\n\nA regra que a barrava continua valendo; o que estava errado era o tamanho que se\nsupunha do acoplamento. Medido no codigo do SAP: o que aponta `macrocontrole` e\nUMA tabela de juncao e UMA rota de apoio. O nucleo nao o toca.\n\nMEDIDO NO DUMP DE PRODUCAO DE 2026-08-08\n  54 campos de 2013 a 2026; 143 imagens (35 MB de foto, 144 MB de video);\n  76 trajetos e 491.325 pontos de GPS; 20 vinculos com produto em 3 campos;\n  `orgao` era '1o CGEO' em 54 linhas de 54; 145 nomes distintos de militar;\n  7 campos sem geometria, e sao todos os voos de drone de 2026;\n  os 47 poligonos tem UMA parte e nenhum tem buraco.\n\nAS DECISOES DO CHEFE QUE ISTO EXECUTA\n  `campo.ano` referencia `pit.exercicio` de verdade, contra o precedente de\n  `rpcmtec.capacitacao.ano`: a carga cria os dez exercicios que faltam.\n  `campo.geom` e NOT NULL, e a carga PARA em vez de inventar poligono.\n  `campo_versao` aponta a VERSAO, e e opcional -- viagem internacional nao gera\n  produto. Medido contra a producao: 16 dos 20 uuid casam com `uuid_versao`.\n  A area entra por ARQUIVO GeoJSON, e o desenho no mapa saiu: a area do campo\n  nao nasce na tela, ela vem do plano de voo e do poligono da folha.\n  UM poligono so, na porta; a coluna continua MULTIPOLYGON.\n  A ficha e SO LEITURA, e tudo o que escreve mora em \"Editar\".\n\nNAO E MODULO NOVO. `dominio.modulo` continua com seis linhas: a tela mora na\nsecao PIT e cobra `producao`. Campo e o trabalho que o PIT promete, e um modulo\nnovo obrigaria a conceder perfil de novo a quem ja responde pela area.\n\nA REGUA: consulta ve; operador cadastra, edita e mexe em foto, video e trajeto;\ngerente e administrador APAGAM o campo -- o CASCADE leva os bytes junto, e eles\nso existem ali.\n\n`militares_externos` e texto ao lado da juncao com `dgeo.usuario`, e nao e\npreguica: dos 145 nomes, 59 casam com o cadastro de producao e 86 nao, porque o\ntexto do SAP guarda a patente DA EPOCA e treze anos incluem muita gente que\nsaiu. Sem ele, a 2.5 de um mes de 2019 sairia com um terco do efetivo.\n\n`express.json` sobe de 50mb para 60mb: o maior video tem 37 MB, e base64 cresce\no binario em um terco. O teto do Joi tem de caber no do Express, senao o corpo\ngrande morre num 413 do body parser e o Joi nunca roda.\n\n`modulo_em_toda_rota.test.js` passa a varrer `campo`, que e o primeiro a cobrir\no modulo `producao`: o CLAUDE.md avisava ha tempos que ali ninguem cobra por\nvoce.\n\nPiso do banco em 1.49.0. Sem a migracao, `/api/campo` responde 500 por relacao\ninexistente e a 2.5, que agora e calculada, deixa de sair.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "8fe3463",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/8fe3463f7009eed7bc1bf9fdedf58969b686040d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-09T00:22:28.000Z",
+      "author": "Maj Diniz",
+      "message": "@ duas classes sobem ao nucleo, e a normalizacao derruba dois vereditos\n\nVerificacao das tres propostas de regra que a poda deixou pendentes. Feita na\nfonte, e nao no relatorio do agente que as levantou. Dois numeros dele caem.\n\n1) `escopo-de-propagacao-incompleto` NAO foi proposto cinco vezes ao nucleo.\n   Foi uma (L171). As outras quatro linhas que citam nucleo propunham regras\n   de OUTRAS classes, e as quatro foram ADOTADAS: \"codigo de dominio\" (L320),\n   \"mesma EXTENSAO\" (L335), \"variancia antes de comparar\" (L339) e \"evidencia\n   na mesa\" (L257). O laco de proposta funciona, e o relatorio o dava travado.\n\n2) A contagem bruta dizia que a regra de `codigo-real-manda` falhara (22\n   reincidencias depois contra 9 antes). Por FRACAO do mes ela cai de 10,2%\n   para 3,6%: a regra funcionou com atraso, e a contagem bruta escondia isso\n   porque quase todo julho vem depois de 07-09. Regua nova: classe se le por\n   fracao do mes, nunca por contagem bruta, que mede a intensidade junto.\n\nSobem ao nucleo, por acelerarem mesmo com a intensidade controlada:\n  afirmado-sem-medir   5,1% -> 10,9%  (19 eventos, 16 areas)\n  diagnostico-raso     3,5% ->  9,1%  (14 eventos, 11 areas, a que mais sobe)\n\n  \"Medida barata vem antes da afirmacao.\"\n  \"Causa se testa, nunca se anuncia.\" (o INSTRUMENTO pode ser o errado)\n\nRecusada `escopo-de-propagacao-incompleto`: estavel (3,9% -> 3,6%) e ja\nservida pela regra de poda. A recusa fica anotada no vocabulario do\nlivro-razao, com o motivo, para a proposta nao voltar a cada retrospectiva.\n\nDecisao do chefe: `fazer-elogio` e `referencia-elogiosa-bi` NAO se fundem.\n\nA CLAUDE.md vai a 11.349 caracteres, ainda 29,6% abaixo dos 16.126 originais.\nA prova mecanica passa a conferir 69 impressoes digitais: 67 no texto, 2 em\nconventions/, zero perdidas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1fba984",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1fba984cb900fb9a754066dac4ac98eaa81053cd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-09T00:14:24.000Z",
+      "author": "Maj Diniz",
+      "message": "@ poda radical: o nucleo cai 32%, a memoria 65%, e o roteamento MELHORA\n\nPesquisa de abril a agosto de 2026 (19 releases do Hermes Agent, mais as\npraticas publicadas de CLAUDE.md, Agent Skills e engenharia de contexto),\noito agentes medindo antes de qualquer corte, e o chefe aprovando o recorte.\n\nTres premissas do pedido cairam na medicao. A CLAUDE.md tinha 16,6 KB e nao\n8 KB, e a linha do @MEMORY.md e um import de verdade. O Decisions nao tinha\nviolacao: e append-only por desenho, com as 7 superadas marcadas nas duas\npontas. E podar por TAMANHO nao tem evidencia: o unico estudo que isolou a\nvariavel achou nulo afirmativo. O criterio que sobrou foi a DERIVABILIDADE.\n\n  CLAUDE.md      16.126 -> 10.974 caracteres  (-31,9%)\n  MEMORY.md       5.025 ->  1.777 caracteres  (-65%, 29,6% do teto)\n  skills             61 ->     56\n  roteamento top-1 77,2% -> 81,1%   (190 fixtures, mesmo runner)\n  roteamento top-3 91,0% -> 93,7%\n  camada quente   1.362 KB -> 1.259 KB\n  livro-razao       436 ->    419 linhas\n\nA poda do nucleo passou por uma prova mecanica que confere as 64 regras de\ncomportamento uma a uma: 62 sobrevivem no texto, 2 migraram para\nconventions/, ZERO se perderam. A prova reprovou duas vezes antes de fechar.\n\nA poda da memoria so foi possivel depois que a wiki recebeu o que so existia\nla, e tres linhas CONTRADIZIAM a wiki: o acervo compara pelo checksum do\nARQUIVO e nao do pixel, a vertical do 360 vem das linhas de prumo, e a\npagina de controle de acesso ainda dizia que a identidade era central.\n\nCinco fusoes, nenhuma morte. calibrar-orientacao-360-visao vira ramo VISAO;\ngeorreferenciar-fotoindice e fotoindice-para-poligonos viram as duas fases\nde fotoindice; cruzar-bdgex-sca e cruzar-mapoteca-sca viram os dois modos de\ncruzar-fontes-sca; conferir-orcamento-sag vira modo de consultar-orcamento;\natualizar-planilha-producao vira a fase final de carregar-bdgex.\n\nO livro-razao NAO perdeu os 84 KB propostos. A regua de corte pressupunha\nque a regra absorve o evento, e os numeros dizem o contrario: codigo-real-manda\ntem 22 reincidencias DEPOIS da regra, contra 9 antes. Apagar a evidencia que\ngerou a regra enquanto ela ainda falha remove o material do diagnostico. Ele\nrecebeu conserto de FORMA: 3 derivas, 7 classes espurias, contagens\nrecontadas, a sintese errada de info-sensivel corrigida, 17 duplicados.\n\nTambem entram os sete scripts da Onda 1 a 3 (rodape verificador de escrita,\ntelemetria de skill, orcamento atomico de memoria, curador, routing-eval,\nmicro-retrospectiva) e as tres convencoes novas, que estavam orfas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6ee2c2e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6ee2c2e1b695a9d4ab3adbbf1928ba5187e61bfd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-08T23:34:45.000Z",
+      "author": "Maj Diniz",
+      "message": "@ MCP stateless: uma das tres razoes contra o protocolo venceu\n\nA especificacao 2026-07-28 tira o handshake initialize/initialized e o header\nde sessao. O nucleo vira stateless, e um servidor MCP passa a rodar atras de\nbalanceador round-robin comum.\n\nIsso mata a razao \"alvo movel\" de 2026-07-25, que era objecao de calendario.\nA especificacao saiu, os quatro SDKs tier 1 acompanharam e agora ha politica de\ndepreciacao com janela de 12 meses.\n\nAs outras duas razoes seguem de pe. O stateless conserta infraestrutura de\nservidor, nao peso de definicao de tool na janela, entao o custo de contexto\nmedido (4 a 32x o CLI) nao mudou. E o admin binario piorou: desde 2026-08-02 ha\nduas identidades separadas, o servico_autenticacao e o SCA.\n\nA decisao por agent-first com CLI nao muda.\n\nFica registrado o que faria mudar. O MRTR deixa a ferramenta parar no meio e\ndevolver resultType input_required, o que poe a confirmacao humana no PROTOCOLO\nem vez da prosa da skill. Hoje \"peca aval antes de resetar-senha\" e texto que o\nagente pode nao obedecer. Mais dois casos: agente sem clone, Node e .env local;\ne log por gateway no lugar de shell com token de admin.\n\nA pagina passou a ter duas zonas, com Estado atual (08/2026) no topo e Historico\nappend-only no rodape.\n\nFontes: blog.modelcontextprotocol.io/posts/2026-07-28/ e\nsimonwillison.net/2026/Jul/31/stateless-mcp/\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b498dbb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b498dbbb6d597c0a5647640fbe13e295c78d2626",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-08T23:23:08.000Z",
+      "author": "Maj Diniz",
+      "message": "@ marco antes da poda: os sete scripts da Onda 1-3 e o contrato de pronto\n\nPonto de retorno para a poda radical que vem a seguir. A constituicao diz que\npodar APAGA e que o historico do git e o arquivo. Sem este commit, o estado\nanterior a poda nao existiria em lugar nenhum.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2770edd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2770edd8fc2ef39b39977d8a15e866a3ffe5aff5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-08T22:43:51.000Z",
+      "author": "Maj Diniz",
+      "message": "A Configuracao do equipamento passa a ser do gerente, e o Painel vira Dashboard\n\nDecisao do chefe em 2026-08-08, com revisao completa dos niveis de acesso do\nmodulo.\n\nOS DOIS RENOMES alinham o equipamento com a casa: os outros tres modulos ja\nchamam a tela de entrada de \"Dashboard\", e o orcamento ja tem uma\n\"Configuracao\" em `/configuracao`. A pasta acompanhou o nome\n(`pages/tipos/` -> `pages/configuracao/`), e a rota tambem: deixar o caminho\ndizendo \"tipos\" enquanto tudo que a pessoa le diz \"Configuracao\" e a deriva que\neste repositorio documenta em toda parte. `renderTiposList` virou\n`renderConfiguracao`, e o titulo da pagina acompanhou.\n\nO PISO QUE SUBIU, e foi um so: POST /tipo e PUT /tipo/:id saem de `operador`\npara `gerente`. O DELETE ja era. A razao esta na heranca: `vida_util_meses` do\nTIPO vale para todo bem que nao declare a propria, entao uma linha alterada ali\nmuda a vida util de dezenas de bens de uma vez, sem passar por nenhum deles.\n\nO GET /tipo NAO SUBIU, e a assimetria e deliberada. `pages/bens/list.js` chama\n`getTipos()` para montar o filtro por tipo da listagem; cobrar gerente na leitura\ndeixaria esse filtro permanentemente vazio para consulta e operador, e a tela ja\ntrata isso como FALHA (\"O filtro de tipo ficou vazio\"). Esconder a tela e uma\ncoisa, tirar uma coluna de filtro de quem so consulta e outra.\n\nE `perfil: 'gerente'`, e nao `admin: true`: o gerente da area alcanca e o\nadministrador global atravessa, que e a regua da casa. O `/configuracao` do\norcamento usa `admin: true`, que e outra coisa.\n\nO ITEM DO MENU SUMIU SOZINHO. A sidebar deriva a visibilidade de cada item da\nrota que ele aponta (`registry.podeAbrirRota`), entao bastou o piso da rota --\nnenhuma regra de menu foi escrita, e um caso novo prova exatamente isso.\n\nA REVISAO ACHOU UM LINK QUEBRADO: `pages/rastreabilidade/index.js` mandava a\nentidade `tipo_equipamento` para `#/equipamento/tipos`.\n\nO resto dos niveis foi conferido rota a rota e nao mudou: leitura de tudo em\n`consulta`; indisponibilidade, afastamento e manutencao em `operador`; o BEM e a\ntransferencia em `gerente`.\n\nrapido 1460/1460, banco 1155/1155, client 1604/1604, equipamento_cli 97/97.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "038ef00",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/038ef00dc914fa2baeba98e383f48d652a9042b0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-08T22:06:38.000Z",
+      "author": "Maj Diniz",
+      "message": "A Contagem sai do dominio, e a parada do teste nasce fechada\n\nA linha 4 de `mapoteca.tipo_movimento_material` foi guardada, na 1.45.0, para um\npassado que a medicao mostrou nao existir. O argumento dela continuava correto:\n`auditoria.evento` guarda o valor gravado, e quem o traduz e o catalogo VIVO da\ntabela, lido por `auditoria/renderizar.js`. O que faltava era o dado.\n\nA janela em que uma Contagem podia ser lancada foi da 1.41.0 a 1.45.0, ambas de\n2026-08-08. Nela houve zero movimentos de qualquer tipo, zero linhas de tipo 4 e\nzero eventos citando 4; e no dump de producao do mesmo dia\n`mapoteca.movimento_material` nem estava criada, porque o livro nasceu na 1.41.0,\ndepois dele. A conversao da 1.45.0 tampouco deixa rastro que precise da linha:\nela troca o tipo com UPDATE direto, sem escrever em `auditoria.evento`.\n\nA migracao 1.48.0 leva as DUAS guardas e levanta excecao em vez de apagar, se\nachar linha do livro ou evento de auditoria com tipo 4 -- para que um ambiente\nque ninguem mediu pare ali em vez de descobrir isso na tela. O piso nao sobe:\neste servidor nao le a linha 4 em lugar nenhum.\n\nNao ha caso de teste para a chave estrangeira, e a ausencia e deliberada: sem a\nlinha 4 ela tambem recusa, mas nao e OBSERVAVEL. O CHECK\n`movimento_material_forma` e avaliado durante o INSERT e o gatilho da FK so\ndepois, entao a excecao nomeia sempre o CHECK.\n\nE as duas pendencias registradas no ce967a2 caem aqui:\n\nO 409 ao lancar indisponibilidade era o EXCLUDE, e nao a guarda de perfil: a\nparada do cenario nascia sem `data_fim`, e `daterange(inicio, NULL, '[]')` e\ninfinito a direita, entao a parada nova de 01/09 cruzava a de 11/05. Ela passa a\nnascer fechada, e o 409 do banco deixa de se confundir com a recusa que o arquivo\nmede.\n\nO 403 em GET /dominio nunca foi da rota. Era vazamento entre arquivos, e\n`/dominio` so aparecia por ser o primeiro caso do arquivo: o unico que rodava\nsobre o estado que o arquivo anterior deixou, ja que o `cleanTestData` estava so\nno `afterEach`.\n\nrapido 1460/1460, banco 1154/1154, client 1603/1603, equipamento_cli 97/97,\nmapoteca_cli 86/86.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "26d79e6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/26d79e6e428ec41b4dbbeb84735bce6c66055ab6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-08T21:30:11.000Z",
+      "author": "Maj Diniz",
+      "message": "O material permanente entra no sistema, e a 7.1 passa a se calcular sozinha\n\nCOMMIT DE OUTRA SESSAO, empurrado a pedido do usuario. Ele NAO esta verde: ver\n\"o que falta\", no fim.\n\nO modulo equipamento (1.46.0) traz para o SCA o material permanente da Divisao,\nClasse VI e IX, que vivia na planilha do Relatorio DMT. Sao seis modulos de\nautorizacao agora, e `equipamento` e o sexto: ler e de consulta, lancar evento e\nde operador, e cadastrar bem ou transferencia e de gerente.\n\nA SITUACAO DO BEM NAO E CAMPO. Nao ha coluna de situacao em\n`equipamento.equipamento`: quem responde e a funcao `equipamento.situacao_em(dia)`,\npelo degrau de maior precedencia que se aplicar no dia perguntado. A prova de que\ngrava-la seria redundante esta na propria planilha de 2026-08-03: as 11 linhas\nmarcadas 'Indisponivel' eram exatamente as 11 com motivo preenchido.\n\nA 7.1 (Equipamento Tecnico Indisponivel) virou CALCULADA no mesmo dia, e passou a\nsair do modulo novo em vez de ser digitada. O recorte dela e o ULTIMO DIA DO MES,\ne DIVERGE do da 6.1, que recorta por qualquer dia dele. O digitado que sobrou nas\nsubsecoes que viraram calculadas foi apagado, com evento D.\n\nEntra junto o `equipamento_cli`, o carregador da planilha DMT\n(`scripts/carregar_equipamento_dmt.py`) e o mapa de auditoria do modulo.\n\nTres testes de OUTRAS areas foram acertados aqui porque o modulo novo os\nalcancou: a lista de modulos em verify_perfil.test.js e em perfil_modulo.test.js\n(cinco viraram seis), e `tipo_equipamento` entrou nas excecoes justificadas de\nentrega_do_rastro.test.js -- a tela de Tipos e lista com dialogo, sem ficha por\nregistro, que e o mesmo motivo ja registrado ali para os dominios do orcamento.\n\nO QUE FALTA, e esta vermelho em `equipamento_perfil.test.js`:\n\n  - GET /api/equipamento/dominio responde 403 a quem tem o perfil de piso, ainda\n    que a rota declare verifyPerfil('consulta', 'equipamento');\n  - lancar indisponibilidade como operador responde 409 onde se espera 201.\n\ntest:rapido 1358/1358 e o cliente 1543/1543 passam; a suite de banco fica em\n1062/1064, com as duas acima.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ce967a2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ce967a2a1950762ddc24d1d4856ca7e2c64229aa",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-08T20:47:15.000Z",
+      "author": "Maj Diniz",
+      "message": "O saldo do material perde o ajuste, e passa a se explicar pelos tres movimentos\n\nA Contagem (tipo 4) nasceu com o livro em 2026-08-08 e sai no mesmo dia, por\ndecisao do chefe: o saldo tem de estar certo por Entrada, Transferencia e\nConsumo, e nao existe movimento cujo trabalho seja empurrar o saldo ate o numero\nda prateleira.\n\nO que isso custa foi aceito junto: falta na prateleira vira Consumo e sobra vira\nEntrada, entao quebra e extravio passam a entrar na 7.2 do RPCMTec como gasto da\nDivisao. Nao ha mais onde separar um do outro.\n\nO que NAO era caso dela continua tendo conserto, e e metade do argumento:\nlancamento errado se corrige editando ou apagando a linha errada, porque os\ngatilhos de UPDATE e DELETE desfazem o efeito dela no saldo. Somar um ajuste em\ncima guardaria duas linhas para um evento que nunca houve.\n\nO CODE 4 FICA no dominio, renomeado para \"Contagem (extinta)\". Apagar a linha era\no gesto obvio e foi recusado por um consumidor: auditoria.registro guarda o valor\ngravado e quem o traduz e o catalogo VIVO da tabela, entao sem ela todo registro\nde movimento anterior a esta versao exibiria \"Tipo de movimento: 4\", cru. Como a\nFK a aceita, quem barra o lancamento novo e o ELSE FALSE do CHECK de forma, mais\no Joi.\n\nAS LINHAS QUE EXISTIAM SAO CONVERTIDAS, e nao apagadas: apagar zeraria o estoque,\nporque a Contagem E a semente do saldo inteiro (26 linhas na producao, semeadas\npela 1.41.0). Com destino vira Entrada, com origem na Secao vira Consumo, e o\nmotivo ganha o prefixo [Contagem convertida]. A que sai de fora da Secao aborta a\nmigracao de proposito, listando as linhas e ensinando o conserto. Os gatilhos\nsaem de cena durante a conversao: ela e saldo-neutra, mas o desfazer passa\nprimeiro, e desfazer uma semente ja consumida estouraria \"Estoque insuficiente\"\npor um negativo que so existe entre duas instrucoes.\n\nEnsaiado nos dois caminhos: o ensaiar_migracao.cjs prova que o banco migrado\nconverge com a instalacao nova, e um ensaio a parte, contra um banco montado com\no er/ do HEAD, prova que a conversao preserva o saldo de todos os casos e que a\ntrava aborta o que nao cabe.\n\nVersao 1.45.0. O piso nao sobe: a migracao so remove.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f607936",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f607936c63946a370093655416537b62dd1f6945",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-08T19:36:57.000Z",
