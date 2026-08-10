@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-10T16:03:43.944Z",
+  "lastUpdate": "2026-08-10T20:47:54.457Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-10T15:39:46.000Z",
+    "1cgeo/ebgeo_web": "2026-08-10T20:39:19.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-08-10T15:10:40.000Z",
+    "1cgeo/ebgeo_360": "2026-08-10T20:23:02.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-10T15:47:47.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-10T20:40:50.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5765,
+    "totalCommits": 5774,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 864,
+      "1cgeo/ebgeo_web": 866,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 29,
+      "1cgeo/ebgeo_360": 34,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 551,
+      "1cgeo/chefe_dgeo": 553,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-10T20:40:50.000Z",
+      "author": "Maj Diniz",
+      "message": "telemetria: registro de uso de skill da sessao\n\nUma linha acrescentada pelo hook. Nenhuma mudanca de conteudo do vault.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "dcdc2c0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dcdc2c069b2ea305f60eda06d8929b1e3487e2b4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T20:39:19.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(360): a base do 360 vira absoluta sozinha, senao o tile morre no worker\n\nEscrever a base como caminho relativo ('/ebgeo_360') e o desejo obvio: e o\nmesmo valor em qualquer ambiente. Mas o tile quebrava com \"Failed to\nconstruct 'Request': Failed to parse URL from /ebgeo_360/tiles/...\".\n\nO MapLibre pede o tile de dentro de um worker que ele cria de um blob\n(`setWorkerUrl(URL.createObjectURL(new Blob([...])))`). La dentro a base e\na URL `blob:`, e contra ela nao se resolve caminho relativo. Foto, planta e\ntracado nao passam por isso porque saem da thread principal, que tem a base\ndo documento: o relativo funcionava para eles e quebrava so o tile, que e o\npior modo de falhar, porque parece que so uma camada esta doente.\n\nA base agora e absolutizada contra `location.origin` no proprio config,\nentao relativa e absoluta valem as duas. Sob o vitest, que roda em ambiente\nnode, nao ha `location` e fica o valor cru, que no desenvolvimento ja e\nabsoluto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "532af06",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/532af0684d0006e1d68c53904b147c539de4f8c7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T20:26:26.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(360): o cliente volta a escrever o endereco do tile, e a base vira uma linha so\n\nA fonte de pontos usava `url:` apontando para o TileJSON, o que delegava ao\nebgeo_360 escrever a URL dos tiles. O servico nao tem como acertar: em\nproducao ele esta publicado num prefixo (/ebgeo_360/) que o proxy reescreve\npara /api/v1/ antes de repassar, entao o pedido chega la sem vestigio do\nprefixo. Esquema e host viajam em cabecalho, o pedaco do caminho nao viaja.\nO tile saia com endereco na raiz do host, dava 404, e o MapLibre trata 404\nde tile como tile vazio: minimapa sem ponto e console limpo.\n\nAgora a fonte declara `tiles: [...]`, montado da mesma base que ja endereca\na foto, a planta e os andares. Nenhum endereco nasce no servidor. O preco e\na faixa de zoom, que passa a repetir ZOOM_MIN e ZOOM_MAX do ebgeo_360, e\nesta anotado no lugar.\n\nSTREETVIEW_360_BASE passa a incluir o /api/v1, porque em producao o prefixo\npublico OCUPA o lugar dele. O arquivo prometia \"um lugar so a trocar por\nambiente\" e cobrava quatro: base, metadado, tile e tracado. Agora cobra um.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4f63b61",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f63b618731b6c52db3740418e1d8cc62801d6f4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-10T20:23:02.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(tiles): o TileJSON diz o que nao alcanca, em vez de fingir que alcanca\n\nO documento publica a URL do tile deduzida do pedido, e deducao nao\nalcanca prefixo: atras de `location /ebgeo_360/ { proxy_pass\n.../api/v1/; }` o pedido chega sem qualquer vestigio do prefixo publico.\nA URL sai apontando para a raiz do host, e da 404 do lado de fora.\n\nA informacao que falta nao esta no pedido, entao nao ha conserto sem\nconfiguracao. Preferi nomear o limite a introduzir uma chave que ensina o\nservidor a fingir que sabe o que so o cliente sabe.\n\nO EBGeo deixa de ler este documento e declara os tiles na propria fonte\ndo MapLibre, que e onde o endereco publico ja e conhecido. O TileJSON\nsegue de pe para consumidor externo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d0adc31",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/d0adc31ac0b06d7c71e53718214e025dfdf70702",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-10T20:22:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Revert \"fix(tiles): o TileJSON publica a base declarada, e nao a deduzida\"\n\nThis reverts commit 8c19167815a1b6fcf49ba2faf04d05ee31676fae.",
+      "sha": "1e66e22",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/1e66e22ce5be6640340eec2f3ac9c44552b8bf02",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-10T20:16:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(tiles): o TileJSON publica a base declarada, e nao a deduzida\n\nO servico esta publicado em /ebgeo_360/, e o nginx reescreve esse prefixo\npara /api/v1/ antes de repassar. O pedido chega aqui como\n/api/v1/tiles/fotos.json, sem vestigio do prefixo publico: esquema e host\nviajam em cabecalho, o pedaco do caminho nao viaja em lugar nenhum. Entao\no TileJSON so podia publicar https://host/api/v1/tiles/..., que em\nproducao e 404.\n\nO sintoma nao era erro, era silencio. O MapLibre trata 404 de tile como\ntile vazio, entao o minimapa ficava sem ponto com o console limpo.\n\nPUBLIC_API_BASE_URL passa a declarar a base publica que corresponde ao\n/api/v1 deste servico. Vazio deduz do pedido como antes, que continua\ncerto no desenvolvimento local e para o servico publicado na raiz.\n\nEsta e a UNICA URL que o servico escreve. Foto, planta, andares e tracado\nsao endereçados pelo cliente, que ja conhece o endereco publico, e por\nisso nunca falharam. O tile e o segundo salto de um TileJSON, e quem\nescolhe o endereco dele e o servidor.\n\nOs dois testes novos reprovam o codigo anterior.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8c19167",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/8c19167815a1b6fcf49ba2faf04d05ee31676fae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-10T19:38:57.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(tiles): a porta interna do proxy sai da URL do TileJSON\n\nAtras do nginx o servico montava\nhttps://ebgeo.1cgeo.eb.mil.br:80/api/v1/tiles/fotos/{z}/{x}/{y}.pbf,\nmisturando o esquema do x-forwarded-proto com a porta da escuta interna\nque chegava no Host. O navegador abria TLS contra a porta 80, o nginx\nrespondia em texto claro e o MapLibre so via \"Failed to fetch (0)\".\n\nbaseDaApi agora descarta a porta 80 e a 443 do host, que nunca precisam\naparecer numa URL publica, e preserva porta fora do padrao e host IPv6.\nTambem toma o primeiro valor quando dois proxies em serie empilham\nx-forwarded-proto ou x-forwarded-host.\n\nA URL segue absoluta de proposito: o MapLibre copia o campo tiles\nverbatim, sem resolver contra a URL do TileJSON, entao uma relativa\nquebraria assim que o 360 saisse do host do EBGeo.\n\ntests/integration/tiles.test.js cobre o caso e reprovava o codigo\nanterior em quatro asserts. build-app.js passa a registrar as rotas de\ntile, que a suite nao carregava.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "fa26146",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/fa261466d389ef9e275212b7d7bdbd054f291d1c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-10T16:17:26.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki: o Museu do CMS ganha andar e planta, e a ordem da operacao fica escrita\n\nAs 77 fotos do museu estavam todas em floor_level 1 sem rotulo, e o projeto nao\ntinha uma linha em project_floors: o seletor de andar nunca aparecia. Agora sao\ndois niveis, 0 Externo com as 2 fotos de fora que o chefe apontou no\nvisualizador, e 1 primeiro andar com as outras 74, mais a planta baixa de 43\nlinhas e 118 vertices, vinda da camada `limites` do paredes_museu.gpkg.\n\nA ORDEM entra na pagina porque ela nao e escolha: reclassifique as fotos ANTES de\nimportar a planta. O import-floor-plans.js mede cada foto contra a parede do\nproprio andar, e com uma foto externa ainda marcada como interna ele mediria\ncontra a planta errada. Na ordem certa deu p50 de 2,2 m e maximo de 6,2 m nas 74\ninternas, contra a tolerancia de 15 m, e o script avisou sozinho que o nivel 0\nnao tem planta.\n\nProvado ate a ponta: o tile servido ao vivo traz as 76 feicoes do museu com\nfloor_level 0 Externo em 2 e 1 primeiro andar em 74, e no navegador o filtro do\nminimapa troca de 74 pontos para 2 ao passar para o externo.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Ew4ycHyjiPUrCUJERVVNER",
+      "sha": "ccab97b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ccab97bf9ad7daf2a1d459f5335cbf573413fe28",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-10T16:17:02.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(planta): a ordem da operacao entra no cabecalho do importador\n\nA verificacao embutida (cada foto contra a parede do PROPRIO andar) so vale se as\nfotos ja estiverem no andar certo. Uma foto externa ainda marcada como interna\nseria medida contra a planta do andar, e a conferencia perderia o sentido\njustamente onde deveria pegar o erro.\n\nAconteceu de verdade no Museu do CMS em 2026-08-10: as 77 fotos estavam todas em\nfloor_level 1 sem rotulo, e o projeto nao tinha uma linha em project_floors. As\nduas de fora foram para o nivel 0 primeiro, e so entao a planta (43 linhas, 118\nvertices) entrou no nivel 1. Na ordem certa o script deu p50 de 2,2 m e maximo de\n6,2 m nas 74 internas, contra a tolerancia de 15 m.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Ew4ycHyjiPUrCUJERVVNER",
+      "sha": "441d910",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/441d910f011af2bc4323792641d05c014f812cc5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-10T15:47:47.000Z",
