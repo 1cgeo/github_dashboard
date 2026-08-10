@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-09T20:38:09.350Z",
+  "lastUpdate": "2026-08-10T11:13:31.596Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-07-30T00:11:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-09T13:07:18.000Z",
+    "1cgeo/controle_acervo": "2026-08-10T00:00:46.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-07-28T11:43:36.000Z",
+    "1cgeo/ebgeo_360": "2026-08-10T11:09:21.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-09T12:43:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-10T10:59:06.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5742,
+    "totalCommits": 5747,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 301,
+      "1cgeo/controle_acervo": 303,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 25,
+      "1cgeo/ebgeo_360": 26,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,58 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 544,
+      "1cgeo/chefe_dgeo": 546,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-10T11:09:21.000Z",
+      "author": "Maj Diniz",
+      "message": "@\nfeat(andares): o andar e propriedade da FOTO, e a busca de vizinhas o respeita sem prende-la\n\nO lote do Beira-Rio e o primeiro do acervo com ambiente interno e externo no\nmesmo projeto, distribuido por andares, e obriga o modelo a mudar.\n\nO ANDAR E DA FOTO, NAO DO PROJETO. As 350 cobrem 6 andares mais duas areas\nexternas, entao uma marca no projeto nao descreveria o dado. `photos.floor_level`\npassa a inteiro ordenavel, com nivel 0 no chao, mais um `floor_label` de tela. A\ntabela nova `project_floors` guarda os andares e a planta de cada um, e a\nEXISTENCIA de linha nela e o que declara que o projeto tem andares: nenhuma\nlinha, nenhum seletor, e os 28 projetos externos seguem intactos.\n\nO ANDAR VIRA FILTRO DE CONSULTA. O rtree e 2D e num levantamento indoor as\nfotos se empilham: 91 das 350 tem foto de OUTRO andar a menos de 5 m em planta,\na mais proxima a 0,7 m, contra passo de 8 a 13 m dentro do proprio andar. Sem\nfiltro a busca de vizinhas oferece o quinto andar a quem esta no terreo.\n\nMAS O FILTRO NAO PODE SER ABSOLUTO. Escada e vomitorio ligam niveis diferentes\nde proposito: 84 das 894 ligacoes do lote cruzam andar. Com o filtro rigido a\ninterface nao consegue ligar o campo a arquibancada, e a foto do Campo aparecia\ncom ZERO vizinhas oferecidas. O `/nearby` ganha `floor`: ausente mantem o andar\nda origem (o padrao seguro e inalterado), `all` abre para todos, inteiro fixa um\nnivel, e qualquer outra coisa e 400. A mesma foto do Campo passa a oferecer 36.\n\nA lista ordena o andar da origem PRIMEIRO e marca em amarelo a vizinha de outro\nnivel, porque em planta a foto empilhada aparece a 0,7 m e lideraria a lista sem\nser a vizinha procurada. Vai junto `distance3d`, correto onde `ele` presta;\nneste lote ele nao presta (207 das 350 em zero, e o 4o andar inteiro zerado),\nentao quem separa os andares e o ROTULO, e o comentario no codigo diz isso.\n\nA inclinacao do lote nao vinha em `mesh_rotation_x/z`: ela vive em\n`textureRotationX/Z`, na ordem YXZ do visualizador de origem. Um ramo novo do\n`resolveMeshRotation` reconhece o par e converte para ZXY pela matriz. Sem ele o\ncodigo achava o `mesh_rotation_y` e devolvia inclinacao ZERO nas 350.\n\nTestes: 276 passando, com 4 casos novos para o `floor`. Provei que eles reprovam\no estado anterior reintroduzindo o defeito de proposito: os dois casos que\nexercitam o parametro falharam. lint, lint:calibration e knip limpos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\n@",
+      "sha": "1c9e19c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/1c9e19cf0d6a3e3c2665a907bc901dab12bbf015",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-10T10:59:06.000Z",
+      "author": "Maj Diniz",
+      "message": "nasce a consultar-sisbol, e o split derruba dois learnings de 73 e 38 KB\n\nOs tres itens que o chefe mandou resolver.\n\n1. A nota 19087 nao tem erro. Eu a tinha levado a mesa como defeito, porque ela\ndiz \"apresentou-se pelo retorno\" e o campo que ela cita comeca no mesmo dia. A\nsecretaria redige a nota de retorno na SAIDA da equipe e a deixa na fila ate a\ndata chegar, entao a fila de aprovacao serve tambem de estacionamento. O fato\nesta em wiki/sisbol.md, secao Perfis e escopo, com a regra que decorre dele: o\natraso se mede pela data do FATO que a nota publica, nunca pela data em que ela\nentrou na fila. Livro-razao 2026-08-10 (cont. 2), classe diagnostico-raso.\n\n2. Skill consultar-sisbol, so leitura, com o cliente scripts/sisbol.py. Sete\nverbos exercitados um a um contra o sistema vivo antes de fechar: tipos, fila,\nelaboracao, boletins, alteracoes, assuntos, nota e baixar, mais os dois caminhos\nde erro (tipo inexistente e arquivo inexistente). Nenhum verbo muta o Sisbol, de\nproposito: o sistema e do 1o CTA e a assinatura e ato do chefe.\n\nO cliente descobre o codigo do tipo de boletim LENDO o seletor da tela, porque\nesse codigo muda de significado entre telas. Foi o que produziu a contagem falsa\nde ontem, e agora nao ha numero fixado em lugar nenhum.\n\nRegistrada no cluster consultar-* da DESAMBIGUACAO (o corte e o objeto: os\noutros devolvem numero, este devolve ato publicado), com 12 fixtures de\nroteamento. A eval da 12/12 top-1 para ela e nao rouba caso de ninguem: a\ndescricao trocou \"esta parado\" por \"aguarda a sua assinatura\" justamente porque\na primeira versao puxava um caso da lancar-rpcmtec. Nasce em name-only.\n\n3. Demand-paging dos dois learnings maiores, sem perda.\n   retrospectiva:               73.087 -> 20.598 caracteres\n   cadastrar-pedido-mapoteca:   38.476 ->  7.405 caracteres\nA camada quente da retrospectiva guarda as entradas de 2026-08-03 em diante, que\nsao as recorrentes; o que saiu foram as sinteses de classe de 2026-07, o\nprotocolo de revisao em massa e as entradas mais antigas de \"O que falha\". A da\nmapoteca guarda as reguas e perdeu o relato integral das rodadas 2 a 8. Os dois\ndetalhes apontam de volta para a camada quente, e vice-versa.\n\nA primeira versao do script de split apagou o preambulo dos dois arquivos\n(titulo, ponteiro e nota de append-only), porque as linhas antes do primeiro\ncabecalho nao caiam em nenhuma das duas listas. A minha conferencia perguntava\n\"toda linha MOVIDA chegou ao destino?\" e respondia sim, porque as tres perdidas\nnunca foram movidas. Ela nao podia reprovar o defeito. A conferencia nova se\nancora no CONJUNTO DE ENTRADA, e antes de aplicar eu a rodei contra a versao\ndefeituosa do script, que ela reprovou nomeando as tres linhas. Livro-razao\n2026-08-10 (cont. 3), classe verificacao-vazia.\n\nLints: wiki em 167 paginas sem link quebrado; PTS em 0,09 na pagina e 0,28 na\nskill; guard anti-vazamento sem ocorrencia nos cinco arquivos novos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4e25d48",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4e25d48e6a1a7e6bb4d387a0a77958976dbbdd03",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-10T10:46:10.000Z",
+      "author": "Maj Diniz",
+      "message": "sisbol: o sistema do BI entra na wiki, e a contagem do acervo se corrige duas vezes\n\nO chefe pos SISBOL_URL, SISBOL_USUARIO e SISBOL_SENHA no .env e pediu a analise\ndo sistema. Sondei o Sisbol vivo, autenticado como perfil de chefe de divisao,\nso por leitura. A pagina wiki/sisbol.md registra o que ele e e o que ele sabe\nfazer.\n\nO que a sondagem levantou. Aplicacao PHP monolitica de 2019, sem API: cada tela\ne um arquivo .php e as partes dinamicas chamam ajax_*.php por querystring,\ndevolvendo fragmento de HTML. Quatro produtos (nota para boletim, boletim,\nfolha de alteracoes, ficha de identificacao). A nota nao e texto livre: ela se\nmonta a partir de um repositorio de 172 assuntos gerais, com assunto especifico,\ntexto de abertura e de fechamento prontos. O PDF do boletim carrega texto real,\nsem OCR, o que abre o acervo a busca.\n\nAcervo medido em 2026-08-10: 1.081 Boletins Internos, 417 Aditamentos S1 e 283\nfolhas de alteracao, de 2022 a 2026.\n\nA contagem saiu errada duas vezes antes de fechar. Montei a URL pelo atributo\n`name` dos campos do formulario, quando o contrato esta na funcao JS que monta a\nURL (`ano`, e nao `anos`; codigos de tipo trocados). O PHP ignora parametro\ndesconhecido em silencio, entao a listagem padrao voltou identica para os cinco\nanos e eu levei o numero ao chefe antes de conferir. A uniformidade denunciava.\nLivro-razao 2026-08-10, classe regua-cega.\n\nAntes disso, o primeiro acesso expirou e eu fui testar porta TCP com o conserto\nja escrito em wiki/ti-infraestrutura.md, na secao do bypass do proxy Squid.\nLivro-razao 2026-08-10 (cont. 1), classe diagnostico-raso, familia procure a\nmemoria antes da ferramenta.\n\nAchados que ficam registrados para o responsavel no 1o CTA: o captcha do login\nesta comentado no jcap.js, um aviso do mysqli vaza o caminho interno do\nservidor, e o parametro filename do down.php aceita caminho relativo. A pilha\n(PHP 5.6, Debian 8) esta fora de suporte, e o 1o CGEO nao tem o codigo nem o\nbanco.\n\nPagina ligada no ato: index, glossario (Sisbol e BI), mapa de conceitos e\nbacklink reciproco em secretaria-administrativo e ti-infraestrutura. Lint da\nwiki em 167 paginas, sem link quebrado, orfa ou pagina fora do index.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a64d585",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a64d585b4017d20732f459e2954080cbae490492",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-10T00:00:46.000Z",
+      "author": "Maj Diniz",
+      "message": "A revisao de merge atravessa a 3.0.0, e o token de sessao sai da URL\n\nO core de producao do SAP 2.3.5 passou por uma revisao multiagente antes do\nmerge. Onze defeitos foram corrigidos com teste, os 55 DELETE do branch ganharam\ncobertura por HTTP, e o que ficou de fora esta escrito em docs/decisoes.md como\npendencia conhecida, e nao como silencio.\n\nSEGURANCA. O JWT de sessao viajava na query da tile, o log gravava a URL inteira\ne `/logs` publicava o arquivo sem autenticacao: um curl sem conta devolvia\nsessoes de 8h. As duas metades estavam registradas em separado e a INTERACAO\ndelas nao estava. A defesa e dupla, porque nenhuma das duas basta sozinha: o\ntoken da tile passa a ter audiencia propria e TTL de 10 minutos, recusado pelas\noutras guardas, e o valor e redigido antes de ir para o log em DOIS pontos --\n`server/app.js` e `sendJsonAndLog`, porque o errorHandler responde por este\nultimo e a tile que FALHA gravava a query inteira. Tokens ja emitidos continuam\nvalendo nas guardas normais, entao ninguem e deslogado.\n\nUm gerente de modulo escolhia para onde o servico discava com a credencial de\nsuperusuario: `configuracao_producao` e texto livre e `conexao_admin.js` aceitava\nqualquer host. A allow-list e cobrada NO PONTO DE DISCAGEM, para barrar o\ncadastro ja gravado, e chave ausente recusa tudo em vez de liberar geral.\n\nREGRESSAO FUNCIONAL. Pausar, devolver, reiniciar e indisponibilizar voltaram a\nrevogar o acesso ao banco de edicao, como no SAP: o gerente pausava a atividade\nde alguem para tira-lo do trabalho, e a pessoa seguia gravando. Reiniciar revoga\ncom mais razao que pausar, porque a atividade nova nasce sem dono. Avancar nao\nrevoga, e o motivo esta no codigo.\n\n`GET /producao/banco_dados` parou de devolver `servidor:porta/banco` sob a chave\n`nome`; o comentario que afirmava o contrario era o mesmo engano em tres\narquivos. `/producao/unidade_trabalho` era inalcancavel (`.strict()` em schema de\nquery, e `req.query` chega como texto). O filtro de lote do microcontrole nao\nfiltrava nada, e a tela media a producao inteira dizendo medir um lote. As duas\nlinhas do tempo agrupavam por ROTULO, fundindo \"Edicao\" de duas linhas de\nproducao e dois homonimos de mesmo posto numa pessoa so.\n\nBANCO. O gatilho de `pre_requisito_subfase` era AFTER e rejuntava na linha que\nja sumira: apagar um pre-requisito deixava o cache para sempre, e a fila seguia\nbarrando por regra revogada. `chk_bloco_status` congelava qualquer edicao de\nbloco de lote encerrado, sem a guarda de transicao que as duas irmas ja tinham.\n`metadado.informacoes_edicao` e `informacoes_produto` ganharam indice UNICO: sem\nele, dois POST para o mesmo lote derrubavam o XML de TODA versao dele com 500 e\na causa mascarada. O comando de ensaio documentado nao rodava, e nenhum dos\nquatro cobria a cadeia inteira; agora e um so, canonico, e os outros apontam\npara ele.\n\nCOBERTURA. Eram 55 DELETE e nenhum exercitado por HTTP; o de `/perigo` era\nprovado por `toContain('req.params.uuid')`, que fica verde com a comparacao\ninvertida -- medido. Sao 710 testes novos, com o controlador real e o banco\ndublado, e cada agente provou o proprio teste injetando o defeito e conferindo\no vermelho. O duble da guarda repete o default 'acervo' do `verifyPerfil`, entao\nrota que esquece o segundo argumento fica vermelha ATE nos casos de sucesso.\n\nDo 2556 do branch, a suite rapida vai a 3277; `test:banco` segue em 1252 e o\ncliente em 1848. O ensaio de migracao confere 476 indices e da migrado igual a\nnovo, duas vezes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "42a57a6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/42a57a6069848cb45861a1321542c60d2285135b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-09T21:55:52.000Z",
+      "author": "Maj Diniz",
+      "message": "O SAP 2.3.5 atravessa inteiro, e o Centro sai de dentro do codigo\n\nO Controle do Acervo passa a se chamar SAP, Sistema de Apoio a Producao,\nna versao 3.0.0, que continua a numeracao do sistema aposentado. O core de\nproducao do SAP 2.3.5 entra por completo, e o nome do 1o CGEO deixa de estar\nescrito no fonte.\n\nO BANCO. Cinco schemas novos: `producao` (39 tabelas), `qgis` (13),\n`metadado` (16), `acompanhamento` (16 funcoes que geram view por lote e por\nsubfase) e `microcontrole` (2, mais a telemetria em banco separado). Mais 15\ndominios, o modulo 7 e `dgeo.instituicao`.\n\nO QUE NAO ATRAVESSOU, porque ja existia aqui: projeto, lote, produto e pit\ndo `macrocontrole`. O produto do SAP e a versao PLANEJADA do acervo, e o\nvinculo com o PIT vem junto dela. Tres conversoes valem para todo o core, e\nas tres foram medidas: SRID 4674 no lugar do 4326, usuario em UUID (os 30 do\nSAP batem por login e por uuid) e `tipo_produto` virando `subtipo_produto`\n(22 dos 23 identicos ate no nome).\n\nO LOTE ATRAVESSA MAIS DE UMA LINHA DE PRODUCAO, e sao 61 de 102 no acervo.\nHouve um desenho com uma tabela `lote_linha` casando os dois, removido por\ndecisao do chefe: a saida e corrigir o DADO, separando os lotes por tipo de\nproduto. Ate la, quem segura a coerencia e o filtro de subtipo no gatilho de\n`relacionamento_versao`, provado com duas UTs e duas versoes no mesmo\npoligono. Ele NAO sai quando os lotes forem separados.\n\nO SERVIDOR. 312 rotas novas em sete prefixos, e o /api vai a 753. Dois nomes\nmudam porque colidiam: `/api/gerencia` e do acervo e o da producao e\n`/api/gerencia_producao`; `/api/projeto` do SAP vira `/api/producao`, porque\ndas 159 rotas de la so 13 falavam de projeto, lote e produto, e essas ja tem\ndono aqui. O login aceita `sap_fp` e `sap_fg` e volta a cobrar versao minima\nde QGIS e de plugin. `verifyLoginTile` e a unica guarda que aceita token por\nquery, e um teste prova que so a rota de tile a usa.\n\nO CLIENTE. Onze telas de producao, uma por tela do SAP 2.3.5. O modulo e NAO\nhierarquico por decisao do chefe: a consulta VE TUDO, o operador ve duas\ntelas, e o gerente ve tudo e mexe em tudo. O visualizador nao e um operador\nrebaixado.\n\nO CENTRO SAI DO CODIGO. `dgeo.instituicao` guarda nome, sigla e UG, editaveis\nem `#/instituicao`. A coluna `limites.area_suprimento.e_1cgeo` some, e o\nfiltro passa a comparar o nome configurado: comparacao exata, com a migracao\nrecusando aplicar e o relatorio recusando sair quando nao casa. Area zero num\nrelatorio assinado e pior que erro na tela.\n\nDUAS ROTAS DE VARREDURA FORAM REMOVIDAS. `/produtos_sem_unidade_trabalho` e\n`/lote_sem_produto` selecionariam o acervo INTEIRO aqui, porque versao sem\nunidade de trabalho e o estado normal de 7.638 delas. Rota cuja premissa\nmorreu nao vira rota mais cuidadosa, vira rota que nao existe.\n\nNada foi migrado: os schemas nascem vazios, para a carga ser ensaiada antes\nde acontecer.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TGWtTdqw2wnBcFkx8mY9pJ",
+      "sha": "fc32185",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/fc32185d168f2f3f03d4bf4e43031a31bc75af8b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-09T13:07:18.000Z",
