@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-10T20:47:54.457Z",
+  "lastUpdate": "2026-08-11T10:54:21.762Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-10T20:39:19.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-10T20:40:50.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-11T10:40:54.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-05T17:53:11.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-11T10:32:42.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5774,
+    "totalCommits": 5791,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 866,
+      "1cgeo/ebgeo_web": 881,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 553,
+      "1cgeo/chefe_dgeo": 555,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-11T10:40:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-11: o 360 converge para o backend unificado, e a divida de verificacao cobra\n\nWiki: [[ebgeo-360]] ganha a secao da absorcao pela `integracao_backend`, com o que\ngoverna todo porte futuro (veio o dado, nao o codigo; o contrato do destino manda)\ne os tres desenhos que divergem de proposito. [[ti-infraestrutura]] ganha o gotcha\ngrave da interceptacao de TLS: o `npm ci` falha e SAI COM CODIGO 0, deixando 308 de\n326 pacotes vazios com o build verde.\n\nDecisao integral mais linha no indice.\n\nLivro-razao, cinco eventos, quatro deles meus: posicionei o seletor por estimativa\nduas vezes antes de medir a tela (32a de regua-cega); consertei a planta com retry\ncuja condicao de saida era a mesma que ja falhara (37a de verificacao-vazia);\neditei codigo com a suite rodando, a regra que eu impunha aos agentes; o\n`append_cronologico.py` concatenou data e titulo sem separador; e o conserto do\n`_TEMPLATE` no `skillOverrides` estava aplicado pela metade.\n\nEste ultimo virou conserto: a chave tinha de casar com o `name` do frontmatter, e\no learnings ja dizia isso. O roteador caiu de 13 para 12 skills.\n\nMEMORY: uma linha de estado, que o 360 converge para dentro do ebgeo-web e que o\nvocabulario dos dois difere campo a campo.\n\nLint da wiki zerado nos 11 checks. Guard de caminhos OK.\n\nPROPOSTA AO CHEFE, nao aplicada: nao existe skill para levar mudanca acumulada\nentre repos ou branches que divergiram. `planejar-mudanca-sistema` e de plano e\ndiz que nao executa, e as de execucao sao portes especificos. O metodo desta\nsessao e nivel-classe e vai recorrer, porque `main` continua andando enquanto a\n`integracao_backend` alcanca.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "c547c52",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c547c520477c23bdd89b47d3b6e619e367bd499c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-11T10:32:42.000Z",
+      "author": "Maj Diniz",
+      "message": "style(360): mais recuo do seletor de andar para dentro do minimapa\n\nO recuo passa de --space-4 para --space-8 alem da borda esquerda do minimapa,\nlevando o seletor de 88px para 104px. O minimapa tem 324px e termina em 396px,\nentao a faixa continua com folga larga dentro dele.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "1eb6aad",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1eb6aad2eda4f96f904e09c8f4289dcc0529f3bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-11T10:29:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(360): o seletor de andar para de encostar no cabecalho do minimapa\n\nA base do seletor caia 12px DENTRO da faixa de captura. A conta anterior somava\nso os 240px do mapa e esquecia o cabecalho e as bordas.\n\nA altura do conjunto foi MEDIDA no navegador, e nao deduzida: 268px, sendo 240\nde mapa, 24 de cabecalho e 4 das duas bordas, com o topo do conjunto a 284px do\nfundo. O seletor agora assenta em 296px, com 12px de folga.\n\nO numero virou a variavel --sv360-minimap-h, declarada junto ao minimapa que ela\ndescreve. Duas constantes soltas para a mesma altura divergem em silencio, e o\nsintoma e justamente este: a base do seletor entrando no cabecalho. Mexer na\naltura do mapa ou do cabecalho pede refazer a medida, e o comentario avisa.\n\nA esquerda recua mais um --space-4 alem da borda do minimapa, entao o seletor\nfica levemente para dentro em vez de rente a ela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "6e6f8df",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6e6f8dfa9a2d56be2974d05d70592293693018c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-11T10:22:44.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(360): o seletor de andar sobe para o minimapa, e a data de captura volta a ser data\n\nA SETA DE BORDA nao podia ser afastada, entao quem saiu da frente foi o seletor.\nEla e pintada em canvas por renderEdgeArrow (navigation/renderer.js), aponta um\nmarcador fora do campo de visao, e sai na borda esquerda no meio da altura, que\nera exatamente onde o seletor estava. Nao ha z-index nem margem que resolva\ncolisao com pixel de canvas.\n\nO seletor passa a ficar EMPILHADO SOBRE O MINIMAPA, alinhado a borda esquerda\ndele e ancorado por BAIXO, entao um predio de sete andares cresce para cima, para\ndentro da tela, em vez de descer sobre o mapa. Isso tira a colisao e junta o que\nse le junto: o andar em exibicao e a planta daquele andar.\n\nA DATA DE CAPTURA mostrava \"05T14:43:38.000Z/12/2025\". A funcao partia a string\nem '-' e assumia AAAA-MM-DD, mas o valor virou um instante ISO completo. O\ndefeito e consequencia direta do conserto anterior: enquanto capture_date era\nsempre nula, este caminho nunca via um instante. Agora sai \"05/12/2025 11:40\",\ncom a hora, que existe de verdade e distingue duas passagens pelo mesmo lugar no\nmesmo dia.\n\nA formatacao virou utilitario porque a mesma medida aparece em duas telas, e as\nduas copias ja tinham divergido: a faixa acima do minimapa quebrava no instante,\ne o popup do marcador no mapa 2D imprimia a data crua em ordem americana, com o\nJSDoc dele afirmando DD/MM/AAAA que o codigo nao cumpria.\n\nA data seca continua tratada por expressao regular, nunca por `new Date`: sem\nfuso na string o construtor a le como UTC, e em fuso negativo, que e o nosso, ela\nretrocederia um dia. Medido: '2025-06-02' sai '02/06/2025', e nao 01/06.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "66818cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/66818cc41019938c57264d78d80081ec2f928c30",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T21:56:14.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(calibracao): quatro defeitos que so o uso real revelou\n\nA app de calibracao passou nos 2.756 testes, no lint e no build, e mesmo assim\nnao servia: exercita-la com sessao admin num navegador de verdade achou quatro\ndefeitos, tres deles sem erro nenhum no console.\n\nO MAPA DO PROJETO abria preto, com 300 px de altura. `.pmap__canvas` declara\nposition absolute e inset 0, mas o MapLibre poe a classe `maplibregl-map` no\nMESMO elemento, e `.maplibregl-map{position:relative}` vem do maplibre-gl.css,\ncarregado DEPOIS: mesma especificidade, a ultima vence, o position volta a\nrelative, o inset deixa de posicionar e a altura colapsa para zero. Largura e\naltura explicitas resolvem. Medido: 1240x0 antes, 1240x950 depois, com os pontos,\na planta, o zoom e a escala de volta.\n\nO ROTULO DO ANDAR estourava o botao de 34 px. A funcao de rotulo curto existe e\no comentario dela diz que serve justamente para caber ali, mas o `??` preferia o\nrotulo do banco, e como este acervo tem floor_label preenchido a curta nunca\nrodava. Agora sao dois campos: o curto no botao e o completo na dica, entao nada\nse perde.\n\nO BASEMAP estava cravado no endereco publico da OpenStreetMap, herdado da origem,\nonde este mapa era servico solto. Passa a vir do /api/config, que o backend ja\nmonta a partir da chave OSM_TILE_URL. Nesta rede a OSM responde com x-blocked e\no mapa ficava sem fundo; agora troca-se a chave em vez de editar codigo. Sem\nestilo, o ultimo recurso e um estilo VAZIO e nao outro endereco publico: sem\nfundo o operador ainda ve os pontos e os controles, enquanto endereco morto enche\no console e nao desenha nada assim mesmo.\n\nO DESMONTE DA BARRA morria com \"element?.removeEventListener is not a function\"\nno fluxo de login, que todo operador percorre. O mapa do MapLibre nao e um\nEventTarget: ele fala on/off. Guardar esse par no balde de listeners de DOM\ngarantia o TypeError, e o `?.` nao protege, porque o objeto existe e so nao tem o\nmetodo. Passa a guardar o desinscritor, caminho que o proprio cleanup ja executa\ne que os vizinhos ja usam. Defeito PREEXISTENTE, identico em main, nao\nintroduzido pelo porte.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "738ec9f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/738ec9f0fb0004754442fa3d80574659a8c45bf5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T21:55:52.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sv360): as faixas de coleta saem do papel e a hora de captura entra\n\nsv360.capture_runs existia desde a migracao 013 e estava VAZIA, e a biblioteca\nde calculo estava portada e testada sem que nada a chamasse. Agora o acervo\ninteiro esta derivado: 351 faixas, 99.035 fotos ligadas, e as 5 sem faixa sao\nexatamente os 5 tombstones. GET /projects/:slug/runs, criada na fase anterior,\npassou a responder com dado real sem precisar de mudanca.\n\nA hora de captura vai para sv360.photos.capture_date, e nao para uma coluna\n`captured_at` nova, conforme a decisao registrada no fim da migracao 013: uma\nmedida, uma coluna, e a traducao do nome da origem mora no ETL. 88.356 fotos\nganharam hora; as 10.684 restantes sao todas MULTICAPTURA, nome que nao carrega\nhora, entao a ausencia e do dado e nao do codigo.\n\nO relogio do levantamento virou arquivo proprio porque os dois ETLs precisam\ndele em direcoes opostas: fuso por projeto e o desvio de relogio da fonte.\n\nDuas divergencias deliberadas da origem, documentadas no cabecalho do script:\nupsert por (project_id, session_key) em vez de apagar e reinserir, o que da id\nestavel e preserva applied_rotation_* sem mapa auxiliar; e o tempo vira instante,\nporque started_at aqui e TIMESTAMPTZ e nao TEXT.\n\nA armadilha que a origem registra esta respeitada: photos.run_id e solto ANTES\nde qualquer DELETE de faixa, senao a segunda execucao quebra a chave estrangeira.\nIdempotencia provada por SHA-256 sobre as 351 faixas e as 99.040 fotos: o segundo\npasse devolve a mesma impressao digital, ids inclusive.\n\nIntegridade conferida no destino: par (run_id, run_position) repetido zero,\nphoto_count divergente da contagem ligada zero, foto apagada com faixa zero.\n\nA medida que justifica tudo isso foi reproduzida: 89,9% dos passos consecutivos\npor sequence_number trocam de faixa no santana_livramento, o mesmo numero que a\norigem achou, em outro banco e por outro caminho de ingestao. Revisar por\nsequence_number paga esse custo em cada passo.\n\nO Dockerfile passa a copiar os tres scripts novos, e o comentario avisa que a\nlista tem de acompanhar os scripts sv360:* do package.json: acrescentar la sem\nacrescentar aqui reproduz o MODULE_NOT_FOUND que a fase anterior consertou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "107048e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/107048e3f14bcf9f3dd5613ad34b6dea3f2b56a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-10T21:16:35.000Z",
+      "author": "Maj Diniz",
+      "message": "nce: o ciclo anual entra na wiki e vira skill, e o tema de mudancas estreia no IME\n\nO DIEx 1698-E3/DSG pediu a NCE 2028 com prazo em 12 AGO 26. A tarefa\nera anual e nao estava codificada em lugar nenhum: zero ocorrencia de NCE\nno vault inteiro. Agora esta.\n\nwiki/nce.md: o instrumento por extenso. O Banco de NCE (a partir de 2026 a\nproposta nao atendida fica sozinha, a atendida sai), os tres planos, quem e\nquem no fluxo, o FNCE campo a campo, as regras que reprovam e o calendario\nA-2/A-1/A. Dois achados que mudam o que a casa pode pedir: a OMAT dos temas\nde Servico Geografico e a C2I, nao a DSG; e o 1 CGEO e ICT declarada\n(Anexo IV, ordem 14), o que habilita doutorado com aplicacao na propria casa.\n\n.claude/skills/elaborar-nce: o metodo. Copia o modelo oficial do ANO e herda\no estilo do FNCE anterior celula a celula, porque as duas coisas sao fontes\ndiferentes e as duas mandam. O modelo 2028 mudou de forma (duas abas contra\numa faixa unica em 2027), entao copiar a planilha do ano passado entregaria\no formulario errado. O script aborta se Conhecimento Especifico ou Aplicacao\npassar de 80 palavras, e calcula a altura da linha pela quebra real: a celula\nguarda o texto inteiro mesmo quando a altura esconde metade, e so o render\nem PDF denuncia. Aconteceu duas vezes neste ciclo.\n\nTres correcoes ao FNCE 2027, todas conferidas na fonte: CO17 citado numa\nlinha do Quadro 4 do Anexo A que so tem CO14, CO15, CO16, CO18, CO19 e CO30;\nposto do mestrado sem Major, que as Orientacoes 2028 exigem; e perfil\nrestrito a QEM Crtf, que o proprio texto do DCT nomeia como erro.\n\nA planilha entregue fica fora do vault, com o chefe. Deteccao de mudancas\nnao aparece em nenhuma das 411 NCE de 2026, entao o tema estreia limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "919d0ab",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/919d0abfca6527a76407089ff653ae1137c9d046",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T21:07:53.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(sv360): piso de zoom nos pontos, tile comprimido, e o ETL entra na imagem\n\nQuatro itens de operacao, cada um decidido por medida contra o acervo real de\n99.040 fotos, e um deles decidido a NAO mudar nada.\n\nPISO DE ZOOM. Um tile em z0 devolvia 10.352.008 bytes, e 99,99% disso era a\ncamada de pontos: o acervo inteiro num tile so. A camada `fotos` passa a exigir\nz >= 11, e o z0 cai para 1.429 bytes.\n\nO piso NAO e copia da origem, e por isso nao e um 400. O ebgeo_360 recusa tile\nfora de z11 a z12, mas aqui isso apagaria o tracado do mapa principal, que tem\nminZoom 1 e monta as camadas de linha sem minzoom proprio, logo pede z1 a z10\nlegitimamente. O tile segue 200 com `fotos_linha` em qualquer zoom, e some\napenas o que ninguem desenha. O 11 vem do minZoom do minimapa desta casa, unico\nleitor da camada de pontos; 12 apagaria o minimapa no zoom minimo dele.\nConferido: z11, z12 e z16 saem byte a byte iguais aos de antes.\n\nCOMPRESSAO. O filtro padrao do `compression` consulta o `compressible`, que nao\ntem entrada de mime-db para application/vnd.mapbox-vector-tile: o tile saia cru\nenquanto o .geojson vizinho saia comprimido. Medido na rede, o z11 de alegrete\nvai de 697.171 para 282.987 bytes, e o conteudo descomprimido e byte a byte\nidentico ao original.\n\nDOCKER. O Dockerfile copiava so `src`, mas o package.json declara o script\n`sv360:import`: quem tentasse reimportar de dentro do container falhava com\nMODULE_NOT_FOUND. A prova reprova o estado anterior, com import() real dentro da\nimagem. Junto, o .dockerignore listava dois diretorios de imagem e deixava\npassar `data` inteiro, medido em 65 GB de contexto subindo ao daemon para nada.\n\nFOLGA DO TILE, deliberadamente NAO mudada. A origem usa 80, aqui e 64. Varri a\ngrade inteira que cobre o acervo: em z12 e z13, 447 tiles, as duas folgas\nadmitem exatamente os mesmos 99.051 e 99.068 pontos. Zero diferenca. Mudar sem\ndefeito medido e regressao em potencial.\n\nO teste do piso ganhou uma terceira foto a meio grau. A guarda que exige o\ntracado em z2 estava certa em reprovar: as duas fotos originais distam 88 m, que\nem z2 viram 0,04 unidade de tile e colapsam. Era resolucao do tile, nao o piso.\n\nNAO_VERIFICADO: a imagem de producao nao constroi nesta maquina. A rede\nintercepta TLS, o `npm ci` morre com SELF_SIGNED_CERT_IN_CHAIN, imprime\n\"Exit handler never called!\" e SAI COM CODIGO 0, deixando 308 de 326 diretorios\nde pacote vazios com o build verde. Reproduzido 3 vezes. Construir numa rede sem\ninterceptacao antes de confiar na imagem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "e50dc16",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e50dc168ed8c35ca1fe980f65b34bdfb7eaf889f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T20:43:17.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): a app de calibracao 360 vira a quarta pagina do EBGeo\n\n9.721 linhas que ficaram inteiras de fora quando o acervo do ebgeo_360 foi\nabsorvido: o dado veio, o codigo nao. Sao 14 modulos, copiados por `git show`\nem vez de retranscritos, porque retranscrever 9.721 linhas seria a fonte de erro\nmais provavel do porte.\n\nEla NAO e copia de pasta. Na origem era estatico solto servido pelo Fastify;\naqui e a quarta entrada do build Vite, ao lado de index, projetos e admin, e\npassa pelo bundler, pelo ESLint e pelo Stylelint da casa. O CSS saiu do <style>\ninline para arquivo proprio, e a pagina carrega os basemaps e o Three desta\ncasa, sem CDN e sem importmap.\n\nA AUTENTICACAO e obra nova, nao porte: a origem nao tem autenticacao nenhuma e\nescrevia direto. Aqui a pagina inteira exige o papel admin, decisao do chefe. O\ngate do cliente serve a experiencia, e quem de fato recusa a escrita continua\nsendo o `auth` do backend, valido mesmo que alguem contorne esta pagina. As\nescritas passam pelo apiClient, unico ponto com renovacao proativa do token e\nretry no 401. As leituras levam o token embora sejam flexibleAuth, e isso foi\nmedido: sem ele um token vencido nao da 401, vira anonimo, e projeto `disabled`\nsumiria da lista sem erro nenhum.\n\nO 403 e BLOQUEANTE, nao um toast: quem perdeu o papel com a sessao aberta\nseguiria calibrando contra um backend que descarta tudo.\n\nAs 20 rotas foram conferidas uma a uma contra sv360.routes.js e acionadas contra\no acervo real, com controle negativo: os caminhos da origem respondem 404 aqui.\nNenhuma escrita real foi feita no acervo.\n\nDois defeitos herdados da origem foram consertados no caminho: `s.camera?.floor_level`\nlia caminho inexistente no estado, e a marca de \"outro andar\" nunca aparecia,\njusto o que este acervo precisa; e o window.open apontava para um prefixo que\naqui da 404.\n\nFica registrado sem conserto, por ser lacuna do BACKEND e nao do cliente: a\nescrita de uma foto nao grava calibration_source, so os dois lotes gravam. E o\nminimapa desenha sobre tile do OpenStreetMap, herdado da origem, que precisa\napontar para os basemaps do config se a rede de destino nao alcancar a internet.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "0d79680",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0d796805e4aa4f5e4ff264c073a6616d8197e6ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-10T20:40:50.000Z",
@@ -225,6 +306,24 @@
       "repoUrl": "https://github.com/1cgeo/ebgeo_360"
     },
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T20:10:41.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): a foto mais proxima vem do servico, e a planta enfim desenha\n\nO mapa principal carregava uma camada `street-view` de circle-radius 0, isto e,\ninvisivel, e baixava tile para desenhar nada. Ela nao era decorativa: o clique na\nlinha de tracado descobria a foto mais proxima por querySourceFeatures sobre ela.\nIsso amarrava a resposta ao que por acaso estivesse DESENHADO, e abaixo do zoom\nminimo da fonte nao existe tile, entao o clique nao resolvia nada e o visualizador\nnao abria, calado. Agora o caminho pergunta a GET /photos/nearest, que responde do\nindice espacial em qualquer zoom e devolve a foto realmente mais proxima.\n\nAntes de remover, levantei todos os consumidores da fonte no mapa principal: oito,\ne o unico leitor de verdade era o getNearestPhoto. O minimapa tem fonte propria e\nnao foi afetado. Ganho medido de passagem: pointsSource e linesSource apontavam\npara o MESMO template de tile como duas fontes MapLibre distintas, entao o mapa\nprincipal pedia cada tile duas vezes; agora pede uma.\n\nNao vieram de main, e nao devem vir: o config.js reescrito com URL absoluta, que\naqui e casca hidratada por /api/config; a fonte de pontos por TileJSON, que nao\ntem rota aqui; e a remocao do source-layer das camadas de linha, que aqui vem da\ncamada fotos_linha do MVT e sem ele o MapLibre descarta a camada em silencio.\n\nA planta baixa passa a desenhar. A espera era 'styledata', que dispara varias\nvezes DURANTE a carga com isStyleLoaded() ainda falso: cada disparo apenas\nreagendava e o desenho nunca acontecia. Passa a 'idle', que no MapLibre significa\n\"estilo pronto e nada mais em voo\", que e a condicao que faltava. Confirmado em\nuso: a planta aparece sozinha, sem interacao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "f968ec1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f968ec1855e12b5ebf7a05940c74d6ead71cb297",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T20:10:22.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sv360): as 10 rotas que faltavam para paridade com o ebgeo_360\n\nA foto mais proxima, os vizinhos por raio, a lista de calibracao do projeto, as\nestatisticas de revisao, o mapa do projeto, as faixas de coleta, os dois lotes de\ncalibracao, o reset de revisao e o include_hidden.\n\nGET /photos/nearest e declarada ANTES de /photos/:uuid, e isso nao e estilo. O\nExpress casa por ordem: caindo na paramétrica, o Joi guid responde 422, e o\ncliente faz `if (!response.ok) return null`, ou seja, trata como \"nao achou\" e\nnao abre foto nenhuma, sem erro no console. O mesmo vale para\n/projects/review-stats contra /projects/:slug. Provado nos dois sentidos: a\ninstancia antiga devolvia 422 no nearest, a nova devolve 404 no oceano e segue\ndevolvendo 422 para uuid invalido, logo os dois codigos coexistem.\n\nA escrita e trabalho NOVO, nao porte: a origem nao tem autenticacao nenhuma. Aqui\nexige auth estrito, e projeto oculto responde 404 e nunca 403, como as vizinhas.\nAs respostas usam o vocabulario desta casa (id, img, projectSlug,\nsequence_number), e ha teste que RECUSA os nomes da origem.\n\n/projects/:slug/runs responde lista vazia e /runs/:runId responde 404 porque\nsv360.capture_runs existe e esta vazia: nada deriva faixas ainda. Vazio e a\nresposta honesta para \"este projeto nao tem faixa\"; 500 nao seria. As duas foram\nexercitadas de verdade, semeando uma faixa e removendo-a depois.\n\nO acervo real saiu intacto das escritas de prova: as 77 linhas do museu_cms foram\nfotografadas antes, restauradas depois e conferidas campo a campo, 77 de 77. E o\nconferidor foi provado, alterando 1 grau e vendo-o reprovar.\n\nFica registrado, sem conserto por mudar contrato em uso: calibration_source\ngrava 'manual' nos lotes novos e NAO no PUT /calibration que ja existia, entao a\nmesma acao humana fica gravada de dois jeitos conforme o caminho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "9574c6b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9574c6bf3f8a7cc2b5a82cb56ceac5a21f1afee2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "1cgeo/ebgeo_360",
       "date": "2026-08-10T19:38:57.000Z",
       "author": "Maj Diniz",
@@ -232,6 +331,60 @@
       "sha": "fa26146",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/fa261466d389ef9e275212b7d7bdbd054f291d1c",
       "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T19:18:42.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): seletor de andar no visualizador, com a planta no minimapa\n\nPorte de 5d52199e de main, adaptado: la a propriedade do ponto e photo_uuid,\nnome legado do PMTiles que nao existe em feicao nenhuma deste backend, e trazer\no literal faria o clique parar de abrir foto sem logar erro. Aqui continua `id`.\nA fonte de linha tambem nao veio: la ela e um GeoJSON sem source-layer, aqui a\nlinha viaja na camada fotos_linha do mesmo tile e precisa dele.\n\nTres consertos que so o uso revelou, os tres do mesmo feitio, falha silenciosa:\n\nA faixa vinha invertida. A rota entrega os andares em ordem crescente e o\nflex-direction column os empilhava de cima para baixo, pondo o terreo no topo.\nPassa a column-reverse: terreo embaixo, andares subindo, como num elevador. A\ninversao fica no CSS, e nao no JS, para o DOM seguir crescente e a tabulacao\nacompanhar.\n\nA planta nunca aparecia na primeira abertura, por DOIS caminhos. O minimapa\nnasce em setupMiniMapWithPMTiles, que e assincrona, e a primeira troca de andar\nchega antes de ele existir; mesmo depois de criado, o estilo ainda carrega. Os\ndois casos saiam com return e a planta morria ali, porque o evento de andar nao\nse repete e nada reagendava. Agora ela e guardada ANTES de qualquer desistencia\ne redesenhada quando o minimapa nasce e quando o estilo carrega.\n\nA sidebar sobe para z-index 300 em modo street view, acima dos 210 da faixa, e a\nseta lateral dela cobria o primeiro botao. A faixa vai para 320, abaixo do\noverlay de modal em 400, e se afasta 32 px da sidebar recolhida.\n\nO teste da seta de andar reprova o defeito: com o sinal historico invertido, 2\ndos 6 casos falham. Fica registrado o buraco herdado de main, que inverter o\nsinal de recuo ainda passa despercebido.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "96def66",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/96def6611051c2825a4b260585d4abd01820fe06",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T19:18:22.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sv360): o andar chega ao acervo, ao tile e ao metadado\n\nGET /projects/:slug/floors devolve { floors: [{ level, label, photoCount, plan }] },\nordenado por nivel, com a planta em FeatureCollection de LineString carregando\nproperties.level, ou null quando o andar existe mas nao tem desenho. Projeto sem\nandar responde [] com 200, nunca 404: os 27 levantamentos de rua do acervo sao\nprojetos planos legitimos, e um 404 impediria o cliente de distinguir isso de um\nslug errado. O acesso reusa GET_PROJECT_BY_SLUG mais enforceProjectReadable, a\nmesma regra de getProject, sem abrir caminho paralelo para o mesmo dado.\n\nA camada `fotos` do tile MVT passa a emitir floor_level e floor_label, sem perder\nnem renomear nenhum campo, e o predicado de organizacao da SQL segue intocado. Os\ntargets do metadado passam a carregar o andar do ALVO, porque o visualizador\ndecide no LINK e nao na foto: sem isso deltaDeAndar cai em zero e o marcador de\ntroca de nivel nunca desenha, sem erro nenhum no console.\n\nO ETL passa a ler project_floors do index.db legado e a gravar em\nsv360.project_floors com purge e reinsercao, idempotente. INSERT_PHOTO ganha\nfloor_label, que antes era descartado em silencio por ter 21 posicoes fixas.\nPlanta ilegivel perde o desenho e MANTEM o andar.\n\nreadFloors deixa de engolir todo erro: \"tabela ausente\" e o caminho normal de\ndump antigo e segue calado, qualquer outro erro passa a avisar. Um [] silencioso\nali chega adiante como \"este projeto nao tem andares\", e o seletor some sem nada\napontar a causa.\n\nMedido no acervo real: 9 andares em 2 projetos, 7 com planta, conferidos um a um\ncontra o index.db de origem, rotulo e geometria. As rotas foram acionadas contra\nos 29 projetos carregados.\n\nA fixture de sv360-floors-etl.test.js passou a espelhar a origem, que chaveia por\nUUID em TEXT nas tres tabelas. A fixture usava id inteiro, e better-sqlite3 liga\nnumber como REAL: numa coluna de afinidade TEXT a busca por 1 procura '1.0' e\nnunca casa com o '1' gravado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "82b6ce5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82b6ce5e0d9069442aac48150879b3c36870f9f0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T19:17:58.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sv360): porta as bibliotecas de calculo do ebgeo_360\n\nPose por quaternion, faixa de coleta e andar. Sao calculo puro, sem I/O e sem\nbanco, e por isso os arquivos mais copiaveis do acervo de origem. A logica veio\nliteral, nunca deduzida: constante, limiar e expressao regular foram lidos do\narquivo, e a fidelidade esta provada caso a caso contra os testes da origem\n(resolveMeshRotation devolve x=8,31 y=60,79 z=-12,57 para base 60 com textura\n15/1; a travessia de meia-noite em captureTimeFromName da 2026-04-28T00:01:00).\n\nOs simbolos exportados batem um a um com os da origem. Quatro constantes e o\nmapa de sinonimos de rotulo, que la eram privados do modulo, passam a ser\nexportados, porque aqui o ETL e as rotas precisam deles.\n\n66 testes unitarios, sem banco. Nenhum defeito da origem foi consertado de\npassagem: o caminho por quaternion segue sem conferencia contra verdade de\ncampo, como a propria origem registra, porque nenhum acervo dela carrega\nquaternion. Quem rodar lote por ali precisa do primeiro conjunto real antes.\n\nAs tres ainda nao estao fiadas em lugar nenhum, fora o sv360-import.js, que\npassa a importar defaultFloorLabel daqui em vez de manter copia propria da\nregra: duas copias da mesma regra divergem em silencio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "3044afe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3044afe61a9127745d2df87afed83d3785437171",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T17:18:40.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): bussola, marcador em camada de dados e as miniaturas que faltavam\n\nSeis portes de main que esta branch ainda nao tinha. A reorganizacao para\nfrontend/ significa que nenhum cherry-pick serve: cada um foi aplicado a mao,\ncom o caminho adaptado.\n\nce909638, marcador em camada de dados. O arquivo daqui estava byte a byte na\nbase comum, entao o porte e integral.\n\n419964c9, faixa de bussola no topo do visualizador. compass-360.js entra novo.\nO viewer daqui divergiu de main, entao os quatro hunks foram aplicados um a\num. O comentario que citava o seletor de andar perdeu a clausula, porque esse\nseletor ainda nao chegou aqui.\n\nf82bfae4, miniaturas. As cinco entradas pediam .png e nao existe .png nenhum:\npassam a pedir .webp, e osm-thumb.webp entra. Fica dito que imagens-thumb.webp\nsegue quebrada, e que isso NAO e regressao deste porte: o arquivo nao existe\nnem em main, entao o commit de origem ja nasceu com esse defeito aberto. A\nentrada cai no gradiente de fallback.\n\nf40f7224, camada de fundo do BDGEx e grupo da barra de ferramentas. O acesso a\nconfig usa o alias desta casa, nao o caminho relativo de main, porque aqui o\nconfig e casca hidratada em runtime. bottom-controls.control.js foi DESCARTADO:\no desenho daqui ja e mais forte, e levar o hunk seria regressao.\n\n0c051cb0, so o campo morto pmtiles-photos. Os outros 9 hunks dependem de\n17234885, que ainda nao foi portado, e um deles removeria a fonte de pontos do\nmapa principal enquanto getNearestPhoto ainda a consulta. Ficam para a fase que\ncria a rota de foto mais proxima.\n\n5a8b4571, so .playwright/ faltava no ignore.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "365b4d4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/365b4d4349e9e950d833ce81a41ecc1c0afefe7f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T17:18:19.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sv360): andar, faixa de coleta e a data de campanha que o ETL perdia\n\nTres migracoes que dao ao schema sv360 o modelo que o ebgeo_360 ganhou depois\nda absorcao do acervo. Nenhum backfill: corrigir dado ja carregado e passo\nseparado, medido contra producao.\n\n012, andares. sv360.photos ganha floor_label, e nasce sv360.project_floors\ncom a planta baixa em plan_coords JSONB. Semantica decidida pelo chefe e\ncopiada de scripts/lib/floors.js da origem: nivel 0 e o terreo, 1 e o\nprimeiro andar interno, negativo e subsolo. Fica registrado que floor_level\ndiverge no default (aqui NOT NULL DEFAULT 0, na origem DEFAULT 1), sem\ntentar resolver: a conta contra o acervo real e que decide.\n\n013, faixas de coleta. sv360.capture_runs mais run_id, run_position e\ncalibration_source em photos. A faixa e a unidade de revisao porque andar\npor sequence_number troca de faixa em 89,9% dos passos consecutivos.\n\nA hora de captura NAO ganha coluna nova, de proposito. A origem chama o\ncampo de captured_at, mas sv360.photos ja tem capture_date desde 005, e e o\nmesmo parametro. Duas colunas para uma medida so e defeito. Fica capture_date,\nque ja esta fiada de ponta a ponta: o upload administrativo a escreve, o\nmanifesto a aceita e a leitura a serve. A traducao do nome mora no ETL.\n\n014 mais o conserto da data de campanha. sv360.projects nao tinha\ncapture_date, e publicProjectView lia uma coluna inexistente: a data de 28\nprojetos se perdeu na absorcao. Pior, o ETL lia p.capture_date da tabela\nphotos do index.db legado, onde a coluna nunca existiu (ela e de projects em\nseis versoes conferidas do schema da origem), entao gravava NULL sempre.\nAgora o ETL le da tabela certa e as duas consultas de projeto a selecionam.\n\ndescription e location seguem sem coluna e emitidos como null. Lacuna\nconhecida, so a data foi autorizada nesta passada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "a51913b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a51913b6040bf7dbd94f4657ad62ad6e8b45d6bd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-10T17:18:01.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(sv360)!: a escrita do marcador absoluto sai, e a leitura dela fica\n\nO ebgeo_360 apagou cinco rotas de escrita em cde49e8, quando o marcador\nABSOLUTO deu lugar ao RELATIVO. Quatro delas seguiam vivas aqui, porque a\nabsorcao de 2026-07-26 trouxe o DADO daquele repositorio e nenhuma linha do\ncodigo dele: este modulo e implementacao paralela, e o contrato de escrita\ndele ficou parado num estado anterior aquele commit.\n\nMedido antes de podar: git grep das quatro rotas em frontend/src das duas\nbranches devolve zero chamadas. Nenhum cliente perde caminho.\n\nSai a ESCRITA, fica a LEITURA. camera.height, camera.distance_scale,\ncamera.marker_scale e targets[].override_* continuam servidos no metadado,\nporque o visualizador os le, e override_bearing segue sendo o gatilho de\ntodo o caminho manual de projecao. Nenhuma coluna foi removida.\n\nO teste de regressao do patch por coluna morreu com o assunto dele. O padrao\nde tres estados que ele guardava (numero define, null limpa, chave ausente\nmantem) segue vivo e testado em UPDATE_ATLAS, UPDATE_ORGANIZATION e\nUPDATE_RANK, que e onde estuda-lo hoje.\n\nO 404 de link inexistente nao perdeu cobertura: o caso passou a exercitar a\nrota de visibilidade, que sobrevive e tem a mesma semantica.\n\nRotas em sv360.routes.js: 25 antes, 21 depois.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FZBMcirANbytjDrxBJ86cK",
+      "sha": "cb97ecf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cb97ecf43e258e859560364e15b6faff28759e91",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
