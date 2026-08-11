@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-11T16:04:39.147Z",
+  "lastUpdate": "2026-08-11T20:51:46.430Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-11T11:42:54.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-08-05T11:58:22.000Z",
+    "1cgeo/doc_dgeo": "2026-08-11T17:26:54.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -18,14 +18,14 @@
     "dsgoficial/modelagens": "2026-08-04T11:55:40.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-08-10T14:50:59.000Z",
+    "dsgoficial/DsgTools@dev": "2026-08-11T20:45:57.000Z",
     "dsgoficial/sap": "2026-08-06T19:35:46.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-11T15:52:55.000Z",
+    "1cgeo/controle_acervo": "2026-08-11T19:15:48.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-11T15:59:10.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-11T17:57:54.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-11T10:32:42.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5796,
+    "totalCommits": 5807,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 521,
+      "1cgeo/doc_dgeo": 522,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -134,14 +134,14 @@
       "dsgoficial/modelagens": 161,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 478,
-      "dsgoficial/DsgTools": 629,
+      "dsgoficial/DsgTools": 637,
       "dsgoficial/sap": 172,
       "dsgoficial/SAP_Gerente": 117,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 306,
+      "1cgeo/controle_acervo": 307,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,112 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 557,
+      "1cgeo/chefe_dgeo": 558,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T20:45:57.000Z",
+      "author": "Maj Borba",
+      "message": "fix(qt6): qualifica 718 enums da API do QGIS pro Qt6/QGIS4\n\nQuarto bloqueio da release 5.2.0 no scanner do OSGeo (após Python 3.8,\nabout=/resources_rc.py e bandit): 722 issues de incompatibilidade Qt6.\n\n718 são \"Enum error, add 'X' before 'Y'\": acesso direto Classe.Valor\nque precisa virar Classe.EnumAninhado.Valor no Qt6 -- não só QgsWkbTypes\n(a entrada antiga deste repo dizia que QgsWkbTypes.LineString etc. eram\n\"constantes WKB, não enum Qt\" e podiam ficar como estavam; estava errado,\ncorrigido no CLAUDE.md). Afeta 15+ classes da API do QGIS: QgsWkbTypes\n(.Type), QgsFeatureSink (.Flag), QgsProcessingParameterNumber (.Type),\nQgsProcessingParameterDefinition (.DataType), QgsProcessing (.SourceType),\nQgsProcessingParameterFile (.Behavior), QgsCoordinateReferenceSystem\n(.CrsType), QgsVectorFileWriter (.WriterError/.ActionOnExistingFile),\nQgsDataSourceUri (.SslMode), Qgis (.DistanceUnit/.AreaUnit/\n.RelationshipStrength), entre outras.\n\nCorrigido com fixer AST/regex próprio (fix_qt6_enums.py): o scanner dá a\ncoluna 0-indexed do início da expressão base e o nome exato do enum a\ninserir, então a correção é 100% mecânica -- acha '.{valor}' a partir\ndessa coluna e insere '.{enum}' antes. 718 de 718 casados, 0 erro, 0\nfalha de compile.\n\nMais 4 issues fora do padrão de enum:\n- 3x método definido como `def exec_(self):` -- renomeado pra `def exec`\n  (sem chamador de `.exec_()` em nenhum lugar do repo pra essas classes,\n  confirmado antes de renomear).\n- 1x `valor == QVariant()` -- trocado por `from qgis.core import NULL` +\n  `valor == NULL` (padrão recomendado do PyQGIS pra comparação de nulo).\n\nblack rodado em cima (52 arquivos reformatados, linhas mais longas com o\nenum extra). py_compile limpo no repo inteiro, bandit limpo, empacotamento\nlocal confirmado. Testado pelo usuário num servidor remoto antes deste\ncommit -- funcionando.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "b1dfeb7",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/b1dfeb755387a908f14d09e470ac2faf1277f91e",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T20:09:29.000Z",
+      "author": "Maj Borba",
+      "message": "fix(release): renomeia resources.qrc pra escapar do bug do qgis-plugin-ci (Qt6)\n\nTerceiro bloqueio do OSGeo pra release 5.2.0: scanner de compatibilidade\nQt6 reportou 723 issues, o primeiro sendo\n\"resources_rc.py:9 Fix PyQT import, you must import from qgis.PyQt\".\n\nCausa: qgis-plugin-ci compila QUALQUER *.qrc encontrado direto em\nplugin_path via pyqt5ac/pyrcc5 durante o empacotamento, e o resultado\nsempre importa `from PyQt5 import QtCore` -- incompatível com QGIS4/Qt6.\nBug aberto no upstream, sem fix nem flag disponível:\nhttps://github.com/qgis/qgis-plugin-ci/issues/421. Confirmado localmente:\nrebuild fresco do resources.qrc gera exatamente esse import errado,\nenquanto o resources.py commitado (mantido à mão) usa `from qgis.PyQt`,\ncorreto.\n\nresources_rc.py nunca é importado por nada do plugin (só resources.py é\nusado em runtime, ver commit 9326fc32), e é gerado de novo a cada\nempacotamento -- não adianta só ter apagado o arquivo antes, o\nqgis-plugin-ci recria ele toda vez que acha o .qrc. A grande maioria dos\n723 issues deve estar dentro desse único arquivo gerado de ~90 mil linhas.\n\nFix: renomeia resources.qrc -> resources.qrc.src, tirando do glob *.qrc\nque o qgis-plugin-ci varre em plugin_path. Sem esse gatilho, ele não\ncompila nada e resources_rc.py nem entra mais no zip (confirmado local:\nzip caiu de 11.63 Mo pra 9.63 Mo, sem resources_rc.py dentro). Atualiza\ntranslation.pro (RESOURCES +=) pra apontar pro novo nome.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "6c58073",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/6c580738902946a89f6d3d3e66fc5ceafc33b672",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-11T19:15:48.000Z",
+      "author": "Maj Diniz",
+      "message": "a palavra-chave do pedido vira vocabulario, e a coluna para de roubar a tela\n\nO campo livre juntou 34 grafias em 50 usos em tres dias, e a busca por\netiqueta INTEIRA sensivel a maiuscula so acha quem acerta a grafia toda.\n27 das 34 apareciam UMA vez, e o mesmo assunto tinha tres (\"excedente\",\n\"excedentes\", \"exemplares excedentes\"), partindo sete pedidos em tres\nlistas que nao se encontram.\n\nA regra do chefe: o que JA TEM COLUNA nao vira etiqueta. As 34 eram nome\nde OM (e o cliente), lugar e contexto (esta na observacao) e numero de\ndocumento (e o documento_solicitacao, com previsto_pit ao lado). Sobrou\n\"excedente\", o fio da redistribuicao de exemplares excedentes, que nao\ntem coluna. \"ARANDU\" saiu pela mesma regra: o exercicio ja e a coluna\noperacao, preenchida em oito dos onze pedidos do Arandu.\n\nA migracao e uma CLASSIFICACAO, e nao uma normalizacao de texto: os 166\npedidos foram lidos um a um, e o 118 ganha a etiqueta que nunca teve,\nsendo do mesmo fio (a observacao do 158 o cita). Uma busca que nao o\ntrouxesse continuaria mentindo depois da limpeza.\n\nPara a bagunca nao voltar, o campo continua LIVRE e passa a SUGERIR:\nGET /pedido/palavras_chave alimenta um datalist no cadastro e na busca,\ne o chip input adota a grafia da lista quando so a caixa difere.\n\nA coluna da lista ganhou teto de largura e quebra de linha. Ela era um\n.flex sem flex-wrap, e quatro etiquetas numa linha empurravam Situacao,\nPrazo e Impressao para fora da tela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "371581e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/371581e4a18c3030a949e290f1d6a933bceffb1e",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T19:13:11.000Z",
+      "author": "Maj Borba",
+      "message": "docs: atualiza about= do metadata.txt e revisa README.md\n\nmetadata.txt (about=): lista de funcionalidades estava desatualizada --\ncitava gestão de role/perfil de banco, criar/remover usuário PostgreSQL\ne alterar senha (removido, ver changelog 5.2.0: \"removida gestão de\nbancos no servidor\"), \"Drop EDGV databases\" (não existe mais) e o pacote\nlibqt5sql5-psql como requisito Linux (não é mais necessário -- só a parte\nPostgreSQL trocou pra um adapter que não usa mais o driver Qt; conferido\nque libqt5sql5-sqlite continua sendo usado de verdade em geopackageDb.py).\nAdicionadas funcionalidades reais que não estavam listadas (validação\ncontra masterfile, QA/Workflow Toolbox, validação Unicode, Snap\nHierárquico, terreno/drenagem, empacotamento BDGEx). Removida a menção\na dsgtools_cli: confirmado que a pasta fica fora de DsgTools/ (plugin_path\ndo qgis-plugin-ci) e não vai pro zip que sobe pro OSGeo -- só existe pra\nquem usa o código direto do GitHub, então não faz sentido anunciar pra\nquem instala via QGIS Plugin Manager.\n\nREADME.md: corrige `` ``` `` de markdown órfão (sem par, quebrava a\nrenderização do resto do arquivo), remove menção hardcoded a \"version\n4.17.27\" na seção EN, troca 2 links pra wiki desatualizada (Changelog-4.3)\npor link direto pro CHANGELOG.md, adiciona seção de execução via linha\nde comando (dsgtools_cli) em EN que só existia em PT-BR. Auditoria de\nfuncionalidades vs. estrutura do código: adiciona 3 itens que existem e\nnão estavam listados (Barra de Revisão, processamento de raster,\nTrim/Extend e Smooth Lines), nos dois idiomas.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "4effd67",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/4effd67e758648c954a6e4b7fe18e93a73037c21",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T18:42:32.000Z",
+      "author": "Maj Borba",
+      "message": "fix(security): remove reverse_geocode.py (eval() sobre resposta HTTP, script morto)\n\nSegundo bloqueio do scanner do repositório de plugins do OSGeo pra release\n5.2.0: eval(response.read()) sobre resposta de rede em reverse_geocode.py\n(bandit B307). Script não é usado em lugar nenhum do plugin (zero\nreferência) -- removido. Conferido: sem outro uso de eval/exec perigoso\nno resto do repo (bandit -t B307,B301..B306,B321,B323,B325: limpo).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "b9141bd",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/b9141bd8c2496dee5bb0dec6ba408b4a2a3bcf7c",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T18:34:35.000Z",
+      "author": "Maj Borba",
+      "message": "fix(security): silencia falso positivo B105 do bandit (hardcoded password)\n\nO repositório de plugins do OSGeo rejeitou a release 5.2.0 alegando 9\n\"possíveis senhas hardcoded\" (Bandit B105). Rodei bandit no repo inteiro\npra confirmar: são todos falso positivo -- a heurística do B105 dispara\nem qualquer atribuição a um nome contendo \"pass\"/\"password\", sem entender\no contexto.\n\nOs 8 achados reais (rodando bandit direto, --ignore-nosec):\n- 5x `PASSWORD = \"PASSWORD\"`: chave de QgsProcessingParameter, não senha.\n- 2x `FIRST_PASS_MIN_AREA` / `SECOND_PASS_MIN_AREA` (trataRasterAlgorithm):\n  nome de parâmetro de área mínima, \"PASS\" aqui é de \"primeira/segunda\n  passada\" do algoritmo, não senha -- só bate no regex do bandit.\n- 1x `password == \"\"` (postgisDb.py): checagem de senha vazia pra decidir\n  se pede credencial ao usuário, não um valor hardcoded.\n\nSuprimidos com `# nosec B105` (convenção padrão do bandit, reconhecida\npor qualquer scanner que rode bandit por baixo). Confirmado com bandit\nlocal: 8 suprimidos, 0 issues B105/106/107 restantes, sem warning de\nparsing (comentário só com o ID do teste, sem texto livre atrás -- texto\nlivre vira token inválido e gera warning, embora não quebre a supressão).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "4c1c775",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/4c1c7753ae2218ad61943af3bb9af6373653ce4b",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T18:11:20.000Z",
+      "author": "Maj Borba",
+      "message": "docs: documenta versionamento/release e armadilhas do metadata.txt\n\nRegistra no CLAUDE.md as regras de versionamento que o usuário explicou\n(Y par/ímpar = lançada/dev, Z incrementa por mudança, inclusive correção\nde bug sobre versão já lançada) e as duas armadilhas reais achadas ao\nvalidar o empacotamento da 5.2.0 localmente antes do release de verdade\n(about= precisa da primeira frase na própria linha; resources_rc.py não\npode ficar versionado). .gitignore ganha entrada pros artefatos de build\ndo qgis-plugin-ci (resources_rc.py e *.zip da raiz).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "e0f0798",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/e0f0798c11f85c067e6c6c5149ba9dadfed92b05",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T18:08:58.000Z",
+      "author": "Maj Borba",
+      "message": "fix(release): corrige 2 falhas do empacotamento que o Python 3.8 escondia\n\nRodei qgis-plugin-ci localmente (package, sem upload) pra validar a release\n5.2.0 antes de publicar de verdade, já que todo run do release.yml sempre\nfalhava antes de chegar nessa etapa. Achei duas falhas reais escondidas atrás\nda falha do Python:\n\n- metadata.txt: about= é multi-linha (formato válido, é assim que o QGIS\n  Plugin Manager espera pra exibir texto longo), mas o parser do\n  qgis-plugin-ci é ingênuo -- só lê o que está na própria linha da chave,\n  então via about como vazio e abortava com \"Mandatory key is missing in\n  metadata: about\". Corrigido colocando a primeira frase na própria linha\n  de about= (o resto continua multi-linha, sem perda pro QGIS).\n\n- DsgTools/resources_rc.py: arquivo morto, não importado por nada no código\n  fonte (só sobrava em .pyc velho e no translation.pro). O qgis-plugin-ci\n  compila o .qrc do zero durante o empacotamento e recusa sobrescrever um\n  arquivo já versionado com esse nome exato -- removido.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "86c9e6c",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/86c9e6c4f0cc66897f568e11b6950fd48a82e0d4",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T18:01:36.000Z",
+      "author": "Maj Borba",
+      "message": "Versão 5.2.0: prepara release\n\n- CHANGELOG.md: fecha o ciclo dev 5.1.2 como 5.2.0 (data do release),\n  abre 5.3.0 - dev para o próximo ciclo.\n- DsgTools/metadata.txt: version=5.2.0 e changelog= atualizado no\n  mesmo formato/indentação já usado.\n- README.md: master passa a apontar 5.2.0, dev passa a apontar 5.3.0.\n- DsgTools/CLAUDE.md: documenta o padrão de preenchimento do changelog\n  (usado para gerar as entradas acima).\n- .github/workflows/release.yml: corrige o job de deploy, que falhava\n  desde a versão 4.20.0 -- pedia Python 3.8, removido dos runners do\n  GitHub Actions (\"Version 3.8 with arch x64 not found\"), então o\n  qgis-plugin-ci nunca chegava a rodar em nenhum release publicado.\n  Atualiza para Python 3.12 e actions/checkout@v4 + setup-python@v5.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "72382f1",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/72382f1adbc1940b2b16446d7cc3111bbfa01b22",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-11T17:57:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-11 (cont. 3): o RPCMTec de julho vai ao ar, e a sonda sai do artefato de build\n\nPublicacao da edicao de julho/2026 no doc_dgeo e atualizacao do container do\nsite no server7. Aprendizados:\n\n- atualizar-doc-publica ganha a classe \"publicar uma edicao assinada da serie\n  mensal\": a data da linha vem da assinatura digital do PDF, o nome segue a\n  serie, e o passo 8 novo diz que publicar nao e servir.\n- atualizar-dockers: nome de pasta nao e nome de container, o site Docusaurus\n  reconstroi no boot, e a sonda se monta a partir do build local. O learnings\n  passou de 28 KB e foi partido em quente (8 KB) mais references/detalhado,\n  com prova de lossless contra o conjunto de entrada (361 de 361 linhas).\n- livro-razao: dois eventos de regua-cega (sonda pela URL do repositorio,\n  filtro do docker ps pelo nome da pasta).\n- wiki/rpcmtec e a casa do ano registram julho como assinado e publicado.",
+      "sha": "fd977cf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fd977cf837af8f02a43627ebda7b01193c47b1e3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-11T17:26:54.000Z",
+      "author": "Maj Diniz",
+      "message": "relatorios: RPCM Tecnico de julho/2026 assinado\n\nAssinado em 2026-08-11 pelo Chefe da DGEO. Primeira edicao gerada pelo SCA no padrao de nove secoes.",
+      "sha": "e858cd4",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/e858cd4d279eec901743f5069c8309eccb49dbd8",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-11T15:59:10.000Z",
