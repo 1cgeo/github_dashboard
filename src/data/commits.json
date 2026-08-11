@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-11T10:54:21.762Z",
+  "lastUpdate": "2026-08-11T16:04:39.147Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-10T20:39:19.000Z",
+    "1cgeo/ebgeo_web": "2026-08-11T11:42:54.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-10T13:12:00.000Z",
+    "1cgeo/controle_acervo": "2026-08-11T15:52:55.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-11T10:40:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-11T15:59:10.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-11T10:32:42.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5791,
+    "totalCommits": 5796,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 881,
+      "1cgeo/ebgeo_web": 882,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 304,
+      "1cgeo/controle_acervo": 306,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,58 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 555,
+      "1cgeo/chefe_dgeo": 557,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-11T15:59:10.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-11 (cont. 2): o RPCMTec passa a respeitar o mes, e as sete edicoes de 2026 fecham\n\nQuatro subsecoes calculadas (4.3, 4.4, 4.5, 4.6) saiam byte a byte IGUAIS nas\nseis edicoes do semestre: o relatorio mensal reportava o estado de hoje, e a\nedicao de janeiro listava material recebido em julho. A causa nao era o gerador,\nera o cadastro nao ter onde guardar o mes.\n\nWiki e skill corrigem a contagem contraditada (33 blocos e 11 digitadas, e nao\n34 e 13) e registram que a 2.5 e a 7.1 viraram calculadas em 2026-08-08. O\nlearnings da lancar-rpcmtec troca a entrada 'o CLI nao fecha', que ficou falsa,\npelo gesto de fechar com ciente_revisao, e ganha o diagnostico do corte por mes\nmais as tres preferencias que o chefe nomeou nesta sessao.\n\nMemoria nova: tabela calculada igual em todo mes esta reportando hoje.\nLivro-razao: conclui ausencia de dado a partir de um join com FK nula, e quem\nreprovou foi o chefe. O dado estava no SAG o tempo todo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e81d6c1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e81d6c1eff98470f7e919ab06a5fe8a5f8fbce0c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-11T15:52:55.000Z",
+      "author": "Maj Diniz",
+      "message": "O RPCMTec mensal para de reportar hoje, e o CLI passa a fechar\n\nQuatro das 33 subsecoes calculadas ignoravam o mes da edicao: a 4.3, a 4.4, a\n4.5 e a 4.6 eram as unicas que recebiam so o `ano`, sem `inicio` nem `cutoff`.\nA medida, nas seis edicoes de 2026: elas saiam byte a byte IGUAIS de janeiro a\njunho. A 4.6 da edicao de JANEIRO listava material recebido em abril, junho e\njulho, e fechar assim congelaria agosto dentro de um documento assinado em\nfevereiro.\n\nA causa nao era o gerador, era o cadastro nao ter onde guardar o mes.\n\n- 4.6 ganha `recebimento_material.data_recebimento` (migracao 3.2.0). Data nula\n  continua aparecendo, pela mesma regra que a 4.1 e a 4.2 aplicam a\n  `data_emissao` nula.\n- 4.4 e 4.5 passam a esconder homologacao posterior ao corte. A fase sai '-', e\n  NAO a fase anterior: nao ha historico de fase, entao o sistema sabe que a\n  licitacao ainda nao estava homologada e nao sabe em que fase estava.\n- 4.3 calcula o \"a liquidar\" no corte, em vez de ler `rpnp.valor_a_liquidar`,\n  que guarda o saldo de hoje. So liquidacao COM DATA entra, e aqui nao vale o\n  `data IS NULL OR ...` das outras: `rpnp.valor_empenhado` ja e o residuo\n  liquido do ano anterior, e somar liquidacao sem data subtrairia duas vezes.\n\nA serie da 4.3 foi conferida contra os seis RPCMTec assinados, celula a celula:\n84 das 90 batem ao centavo. As seis restantes sao de quem escreveu o documento\nter fechado o numero em dia diferente do da liquidacao.\n\nO pit_cli nao conseguia fechar edicao nenhuma. O servidor exige a marca de\nconferencia por subsecao ou o `ciente_revisao` no corpo do fechamento, e a\nregistry nao declarava nem a operacao nem o corpo: com `porRevisar` cobrindo os\n33 blocos, o `fechar` respondia 409 sem saida. Entram `subsecao revisao` (acesso\nGERENTE, e nao admin, porque a rota cobra verifyGerente mais o modulo) e\n`corpo: 'fecharEdicao'` no `edicao fechar`.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a99d760",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a99d76021d482ab64b64d408f3501fc344a3e966",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-11T15:44:49.000Z",
+      "author": "Maj Diniz",
+      "message": "A tabela do RPCMTec para de invadir a margem, e a assinatura cabe numa folha so\n\nO pdfmake trata `widths` como largura de CONTEUDO e soma por fora o espacamento\ndos dois lados de cada celula e o traco de cada linha vertical, entao a tabela\nCRESCIA com o numero de colunas: a de 8 terminava a 597 pt numa pagina de 612 e\na de 6 a 583, todas dentro da margem direita e cada uma de uma largura. Quem\nolhava a folha via \"margem esquerda demais, direita nenhuma\", que era o mesmo\ndefeito. Descontados os dois antes de repartir a proporcao da grade medida, as\n29 tabelas fecham nos 468 pt entre as margens de 72.\n\nA regua de fonte, do chefe: 10 na tabela inteira (o cabecalho dela desceu de 12\ne acompanha o corpo) e no cabecalho institucional da capa, 12 em todo o resto, e\nnenhum texto num terceiro tamanho.\n\nA fonte saiu da Carlito para a LATO LIGHT. O documento da Divisao e Calibri\nLight, e a Carlito -- o clone metrico da Calibri -- nao tem peso Light. A\nCalibri Light de verdade e da Microsoft e nao entra num repositorio publico, nem\ncomo arquivo nem lida da maquina, que faria o mesmo relatorio sair diferente\nconforme quem clica. Entre as candidatas abertas nenhuma e tao estreita quanto a\nCalibri (Lato 108%, Barlow 107%, Fira Sans 109%), e a escolhida foi a de quem a\nCarlito descende. O custo e medido: julho/2026 passou de 25 para 31 paginas.\n\nO bloco de assinatura virou um `stack` com `unbreakable`, porque em julho o\nlocal ficou no pe de uma pagina e o nome do assinante abriu a seguinte, com o\ncabecalho de pagina entre os dois. O vao entre os dois passou de 24 pt a 72\n(2,54 cm): o espaco e para a assinatura A CANETA, e em 24 pt a rubrica caia\nsobre o nome impresso.\n\nDois testes de rota mediam o que nao deviam e foram corrigidos: um comparava o\nTAMANHO EM BYTES do PDF de rascunho contra o do definitivo -- que diferem em\nconteudo, e nao so na marca --, e agora prova a marca pelo texto; o outro nao\ndescia no `stack` novo da assinatura. O formato ganhou arquivo proprio, que\ncobra as 29 tabelas uma a uma.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a121302",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a121302b3d1e2f3821558768de06e9aa1d9ce5af",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-11T12:04:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-11 (cont.): quem escreve a URL atras do proxy, e a wiki que eu nao li\n\nO EBGeo perdeu ponto e linha do 360 em producao, e a causa atravessou\nquatro sintomas encadeados atras de um grupo do nginx com prefixo. A\ndecisao que governa: quem escreve o endereco e o CLIENTE, e o servidor\nnunca escreve endereco. O chefe reprovou o conserto pelo lado do servidor,\ne o commit foi revertido.\n\nO fato de classe, que vale para qualquer app MapLibre: so a URL do TILE\nexige ser absoluta, porque ela e pedida dentro de um worker criado de\nblob. GeoJSON escapa porque a biblioteca o absolutiza antes. Base relativa\nfunciona para todo o resto e quebra so o tile, o que faz o defeito parecer\ndoenca de uma camada.\n\nAprendizado desconfortavel: a wiki JA tinha essa resposta, e eu depurei do\nzero. E a 3a da familia \"memoria antes da ferramenta\" em tres areas\ndistintas, o que e lacuna de doutrina. Vai proposta ao chefe de um hook\nUserPromptSubmit que injete o ponteiro da pagina de wiki quando o pedido\nnomear um sistema da DGEO. O mesmo esquecimento se propagou ao subagente,\nque planejou 3h15 para publicar uma tela que a decisao do mesmo dia ja\nmandara migrar.\n\nO append_cronologico.py ganhou guarda: recusa corpo sem separador, que era\no defeito que colava a data no texto. Provado nas duas direcoes, e fecha a\npendencia aberta hoje de manha.\n\nWiki: a regra do grupo com prefixo entra em ti-infraestrutura, e a do\nworker de blob em vector-tiles, com backlink reciproco.\n\nLint da wiki zerado. Guard de caminhos passou em 641 arquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "22e5094",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/22e5094170bed5683e2ca953320d49228873d1c4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-11T11:42:54.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(360): o padrao da base vira producao, e o localhost sai do pacote publicado\n\nA base do 360 trazia `http://localhost:8081/api/v1` fixo, e o valor de\nproducao vivia numa edicao a mao que nunca entrou no git. Nenhum commit\ndeste arquivo jamais teve o prefixo publico, e o deploy/deploy.sh chama\n`vite build` puro, sem substituir nada.\n\nBastava construir de um checkout limpo para a EBNET inteira receber\n`localhost`. O modo de falha e mudo: o navegador nao alcanca a porta 8081,\na camada de panoramicas some inteira, e nada disso levanta erro que alguem\nnote. Os 1.802 testes passavam com o defeito no lugar, porque todos rodam\nem modo de desenvolvimento.\n\nAgora o padrao e producao e o desenvolvimento e a excecao, por\n`import.meta.env.DEV`, que o Vite substitui em tempo de construcao.\nEsquecer a edicao passa a ser inofensivo.\n\nMedido no pacote de verdade: o build anterior tinha 2 ocorrencias de\n`localhost:8081`; o novo tem zero, e traz \"/ebgeo_360\". O ramo nao usado\nnem entra no pacote.\n\nO teste novo reprova o codigo anterior em 3 dos 4 casos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a98ae48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a98ae4827921bd1adc0addd125eb67fcd6584639",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-11T10:40:54.000Z",
