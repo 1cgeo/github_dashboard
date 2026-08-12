@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-11T20:51:46.430Z",
+  "lastUpdate": "2026-08-12T11:04:12.164Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-11T11:42:54.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,14 +18,14 @@
     "dsgoficial/modelagens": "2026-08-04T11:55:40.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-08-11T20:45:57.000Z",
+    "dsgoficial/DsgTools@dev": "2026-08-11T21:20:42.000Z",
     "dsgoficial/sap": "2026-08-06T19:35:46.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-11T19:15:48.000Z",
+    "1cgeo/controle_acervo": "2026-08-12T10:35:32.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5807,
+    "totalCommits": 5811,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,14 +134,14 @@
       "dsgoficial/modelagens": 161,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 478,
-      "dsgoficial/DsgTools": 637,
+      "dsgoficial/DsgTools": 638,
       "dsgoficial/sap": 172,
       "dsgoficial/SAP_Gerente": 117,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 307,
+      "1cgeo/controle_acervo": 310,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -170,6 +170,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-12T10:35:32.000Z",
+      "author": "Maj Diniz",
+      "message": "O levantar_servico para de mandar subir por PM2 na maquina, que nao e como a producao roda\n\nO documento descrevia `npm run deploy` com PM2 no host como O caminho de\nproducao. A instalacao que esta no ar e um conteiner Docker, e quem seguisse o\ndocumento iria pelo caminho errado. Descoberto em 2026-08-12, atualizando o\nservico depois das migracoes 3.4.0 e 3.5.0: eu mesmo dei a receita errada antes\nde ir ver.\n\nOs passos 2 e 3 FICAM, porque continuam valendo para instalacao que rode direto\nno host. O que entra e a secao que diz como e la, e o PM2 nao sumiu de la\ntampouco: ele roda DENTRO do conteiner, pelo pm2-runtime do CMD, que e o que\nreconcilia os dois caminhos.\n\nO que a secao registra, e que so se aprende apanhando:\n\n- Dockerfile e start_docker.sh NAO sao versionados, vivem so no servidor. Quem\n  os procura aqui nao acha, e a ausencia e o estado normal.\n- NAO rodar o start_docker.sh para atualizar: ele apaga a imagem ANTES de\n  construir a nova, e um build que falhe deixa o servico fora do ar sem imagem\n  para voltar. O ciclo seguro constroi primeiro, com o atual servindo.\n- Migracao aditiva tolera a janela entre migrar e trocar o conteiner, e ha\n  medicao: o codigo anterior serviu horas contra o banco ja migrado. Destrutiva\n  nao tolera, e ai a ordem se inverte.\n- A prova se escolhe pelo que o commit TOCOU. Commit so de servidor gera bundle\n  IGUAL nas duas imagens, e cobrar diferenca no hash acusa defeito que nao\n  existe.\n- O conteiner sobe sem politica de reinicio, entao reboot do servidor deixa o\n  servico fora ate alguem subir a mao. Fica anotado como pendencia, nao\n  consertado aqui.\n\nEndereco, caminho da pasta e credencial nao entram: o repositorio e publico.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QUyvpyy9C8JxeZ3QpbUggR",
+      "sha": "9656f5b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9656f5b01b1abfd5eb7a4902395f8b1785a33f30",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-12T10:20:07.000Z",
+      "author": "Maj Diniz",
+      "message": "A porta que deixava a mesma OM entrar duas vezes se fecha, e o nulo entra na chave\n\nA 3.4.0 fundiu as duas fichas do 3o GAC Ap e deixou a porta aberta de\nproposito, porque restricao que passa a recusar cadastro na tela e decisao de\ndesenho. A decisao foi tomada e esta registrada em docs/decisoes.md. Sem esta\nmetade, o conserto de ontem tinha prazo de validade: bastava digitar o nome de\nnovo e a segunda ficha nascia outra vez.\n\nNULLS NOT DISTINCT e o coracao, e nao um detalhe de sintaxe. A sigla e NULA\npara quem nao e OM -- seis linhas na producao --, e no UNIQUE comum do Postgres\nnulo nao casa nem consigo mesmo. Um UNIQUE (nome, sigla) cru protegeria as 173\nfichas com sigla e deixaria as seis sem sigla livres para se repetir, que e a\nmetade errada: o cliente civil e justamente o que se cadastra as pressas, no\nmeio de um pedido da LAI. Exige PostgreSQL 15+; a producao esta na 16.4.\n\nO que ela NAO pega esta escrito no arquivo: grafia diferente do mesmo nome\n('3o GAC Ap' contra '3º GAC Ap') sao textos distintos e passam os dois. O\nindice funcional com lower(trim(...)) foi considerado e recusado -- o `º`\ncontra o `o`, que e a variacao real das siglas de OM, sobrevive aos dois.\n\nA recusa chega como frase e nao como 500: o mapoteca_ctrl.js traduz o 23505 em\n409 com o motivo escrito, no INSERT e no UPDATE. Renomear uma ficha para o nome\nde outra cria a duplicata pelo mesmo caminho, e um catch so no criaCliente\ndeixaria a porta aberta pela tela de edicao. E o mesmo desenho de\nunique_tipo_material_nome, da 1.48.0.\n\nQuatro testes novos, e um deles e a variancia: sigla diferente com o mesmo nome\npor extenso NAO e duplicata e tem de passar, senao o teste do 409 passaria\ntambem com uma restricao que barra pelo nome sozinho.\n\nO piso do banco NAO sobe, pelo precedente da 1.48.0, que acrescentou a\nconstraint do material com a mesma traducao e nao subiu. O codigo nao quebra num\nbanco sem a restricao: ele so nunca ve o 23505. VERSION vai a 3.5.0.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QUyvpyy9C8JxeZ3QpbUggR",
+      "sha": "e83cd19",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e83cd193378af5e21625b2dbe8fbe78072cd6f57",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-12T09:30:31.000Z",
+      "author": "Maj Diniz",
+      "message": "A OM cadastrada duas vezes vira uma ficha so, e a contagem cai de 68 para 67\n\nO 3o GAC Ap estava em duas linhas de mapoteca.cliente, com o mesmo nome, a\nmesma sigla e o mesmo endereco, e um pedido concluido pendurado em cada uma.\nNada dava erro: a contagem de \"OM distintas atendidas\" respondia 68 onde a\nresposta e 67, o historico da unidade aparecia partido em duas fichas, e o\nendereco da proxima entrega dependia de qual das duas o operador escolhesse na\nlista.\n\nA fusao casa o grupo por (nome, sigla, tipo_cliente_id) e NUNCA por id. Um\nDELETE por id consertaria esta instalacao e apagaria o cliente errado em\nqualquer outra, sem erro e sem teste vermelho, porque mapoteca.cliente e\npovoada pela tela e o id aqui nao identifica nada fora deste banco. Sobrevive o\nmenor id, e o COALESCE leva para ele o contato e o endereco do descartado\nquando o sobrevivente estiver vazio, para que a fusao nao perca informacao numa\ninstalacao onde a ficha mais nova seja a mais completa.\n\nOs dois eventos ficam em auditoria.evento com origem 'migracao': um U no pedido\nque trocou de dono, com o cliente_id anterior em dados_antes, e um D da ficha\nexcluida, com a linha inteira em JSON. E por isso que o bloco de desfazer no\nrodape do arquivo e real, e nao decorativo.\n\nNao nasce UNIQUE (nome, sigla) para impedir a repeticao: restricao que passa a\nrecusar cadastro na tela e decisao de desenho, e decisao se conversa antes e se\nregistra em docs/decisoes.md. A porta continua aberta, e esta dito no arquivo.\n\nO piso do banco NAO sobe. A migracao nao cria schema, tabela nem coluna, entao\num banco 3.2.0 roda este codigo inteiro: VERSION vai a 3.4.0 e\nMIN_DATABASE_VERSION fica onde estava.\n\nEnsaiada duas vezes antes de aplicar -- o ensaiar_migracao.cjs, que provou a\nidempotencia e a convergencia com a instalacao nova, e a propria producao\ndentro de uma transacao revertida, que e o unico jeito de exercitar o caminho\ndo DADO, que no banco de ensaio nao existe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QUyvpyy9C8JxeZ3QpbUggR",
+      "sha": "1e98c60",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1e98c6083ce9bdd1f7f4b3e47f21a7f0c699df10",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-11T21:20:42.000Z",
+      "author": "Maj Borba",
+      "message": "fix(quality): corrige 87 F821 (nome indefinido) do scanner do OSGeo\n\nQuinto bloqueio da release 5.2.0 no repositório do OSGeo: 87 issues\n\"undefined name\" (flake8 F821). Fase 3 do trabalho de flake8 já tinha\nsinalizado essa categoria como candidata a bug real (não só estilo) --\nconfirmado aqui em vários casos.\n\nBugs de lógica reais corrigidos (rodavam e quebravam, ou davam\nresultado errado):\n- clipAndCopyFeaturesBetweenDatabasesAlgorithm.py: variável usada na\n  própria expressão que a define (UnboundLocalError garantido).\n- sapLoadLayersAlgorithm.py: processAlgorithm nunca chamava\n  getAbstractDb(), abstractDb não existia.\n- runFMESAPAlgorithm.py: fmeDict no lugar de inputJSONData.\n- fixNetworkAlgorithm.py: createInstance()/name()/displayName()/tr()\n  copiados de outro algoritmo (TopologicalLineConnectivityAdjustment),\n  colidindo com o id do algoritmo real desse nome -- agora aponta pra\n  FixNetworkAlgorithm com id próprio (\"fixnetwork\"). Mais parâmetros\n  opcionais (snap/minArea) passados com variável inexistente em vez de\n  omitidos, excludePrimaryKeys copiado errado, e return final\n  referenciando output/variável que não existem.\n- identifyNetworkConstructionIssuesAlgorithm.py, donutHoleExtractorAlgorithm.py,\n  overlayElementsWithAreasAlgorithm.py, graphHandler.py: typos de\n  variável / branch errado / lógica de grafo simples vs MultiGraph\n  misturada (código de MultiGraph colado no branch de grafo simples).\n- shapefileDb.py: bloco morto depois de um return (nunca executava).\n- exploreServerWidget.py: self.iface nunca existia (widget instanciado\n  sem parâmetro iface) -- trocado por qgis.utils.iface, consistente com\n  o único uso que já funcionava no arquivo.\n- postgisLayerLoader.py: checkNotNull() sem o parâmetro attrName que o\n  corpo usa.\n\nImports faltando (Qgis, QMessageBox, QColor, QThreadPool, QLineEdit,\nQgsProcessingException, QgsGeometry, etc.) em ~15 arquivos. unicode()\n(Python 2) trocado por str() em 2 arquivos. FEATID_ON_GROUPBY = FEATID_ON_GROUPBY\n(auto-referência) virou string literal, como as outras constantes da\nclasse.\n\nRemovidos (zero chamador confirmado, a pedido do usuário):\n- core/Misc/QGIS_Scripts/ inteiro (scripts legados de Processing v1,\n  usavam variáveis injetadas em runtime pelo executor antigo do QGIS --\n  não eram bug, mas também não são mais usados).\n- core/Misc/QmlTools/ inteiro.\n- gui/Misc/ToolboxTools/ inteiro (instalador de Models/Scripts -- removida\n  também a menção em metadata.txt).\n- customSnaperParameterSelector.py/.ui, customTableWidget.py/.ui.\n- Referências correspondentes limpas em translation.pro (inclusive uma\n  sobra antiga do reverse_geocode.py, removido numa correção anterior\n  desta mesma release e nunca limpo de lá). DsgTools_pt.ts não foi\n  editado à mão -- entradas órfãs viram obsolete sozinhas no próximo\n  lupdate, é o fluxo normal do Qt Linguist.\n\npy_compile limpo no repo inteiro, black rodado, bandit limpo (categorias\njá tratadas), empacotamento local confirmado.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "f8534da",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/f8534dae7572a418b7bc113fc1a143f3ec0cb5af",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-08-11T20:45:57.000Z",
