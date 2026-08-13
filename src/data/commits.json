@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-13T16:03:18.864Z",
+  "lastUpdate": "2026-08-13T20:49:34.061Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-13T11:27:03.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-08-12T12:49:25.000Z",
+    "1cgeo/doc_dgeo": "2026-08-13T19:18:57.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-13T15:23:11.000Z",
+    "1cgeo/controle_acervo": "2026-08-13T19:29:07.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-06-17T12:01:07.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-13T20:23:26.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-12T22:35:38.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-13T18:43:48.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-11T10:32:42.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5829,
+    "totalCommits": 5838,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 523,
+      "1cgeo/doc_dgeo": 524,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 314,
+      "1cgeo/controle_acervo": 315,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -151,7 +151,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 341,
+      "dsgoficial/pytorch_segmentation_models_trainer": 343,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 560,
+      "1cgeo/chefe_dgeo": 565,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-13T20:23:26.000Z",
+      "author": "Maj Borba",
+      "message": "feat: add Optuna hyperparameter search integration\n\nIntroduces OptunaRunner, which wraps ExperimentsRunner to run Optuna\nHPO studies. Each trial applies Optuna-suggested values to the base\nHydra config via OmegaConf and delegates training to an isolated\nsubprocess via ExperimentsRunner._run_single.\n\nKey capabilities:\n- Four search param types: float (log-scale), int (step), categorical,\n  and config_block (swaps entire config subtrees for heterogeneous\n  params such as different loss classes or schedulers)\n- Five samplers: TPE (default), GP, CmaES, Random, Grid\n- Automatic resume via SQLite storage (load_if_exists=True)\n- Mode B: optional seed loop with best-trial config after HPO\n- Study outputs: best_trial_config.yaml, trial_summary.csv,\n  param_importances.json (fANOVA), and four Plotly HTML plots\n- ExperimentsRunner._validate relaxed for optuna-only mode\n- ExperimentsRunner._run_single accepts optional pre-built run_cfg\n  to bypass _build_run_cfg (used by OptunaRunner per trial)\n- 55 unit tests; zero regressions in existing 93 runner tests\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "2668c74",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2668c7456db7dc74031b50cf51c342f95183c56d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-13T19:46:05.000Z",
+      "author": "Maj Borba",
+      "message": "fix tests after experimentsrunner revamp",
+      "sha": "713bafe",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/713bafe6fc7103fb2908b1869c2ef4c979c80249",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-13T19:29:07.000Z",
+      "author": "Maj Diniz",
+      "message": "O campo aparece no mapa por um marcador, e o trajeto ganha o botao Ver no mapa\n\nO MARCADOR, e ele nao e enfeite. MEDIDO contra o banco de producao: dos 54\ncampos, DEZ ficam fora do Brasil (capacitacao e TG na Europa, em Abu Dhabi e em\nAuckland), entao a caixa que cabe os 54 tem 238,64 graus de longitude e o\n`fitBounds` abre em zoom 1,44. Nesse zoom **50 dos 54 poligonos medem menos de\nUM PIXEL** de largura, e o maior de todos (Porto Uniao 2026) mede 5,8 px. A\ncamada de preenchimento nao tinha o que desenhar, e a tela parecia dizer que os\ncampos nao existiam. O circulo e desenhado em pixels de TELA e nao encolhe com a\nescala.\n\nO ponto vem do servidor, em `ponto_lon`/`ponto_lat`, por `ST_PointOnSurface` --\ne nao `ST_Centroid`, cujo resultado num poligono em C ou em U cai FORA dele e\napontaria terreno que o campo nao cobriu. Conferido: os 54 pontos caem dentro do\nproprio poligono.\n\nO BOTAO \"Ver no mapa\", UM TRAJETO POR VEZ (chefe, 2026-08-13). Fecha a ficha,\ntroca para a aba Mapa, desenha aquele trajeto e enquadra aquele trajeto. Nao ha\nbotao de lote, e a ausencia e a regra: eu havia posto um por iniciativa propria\ne ele foi cortado no mesmo dia. O clique num campo no mapa tambem parou de\ndespejar TODOS os trajetos dele -- em Cascavel eram 17 linhas e 30 mil pontos\nsobrepostos, que respondem \"a Divisao andou por ai\", nao \"por onde a viatura\nandou\". Trajeto sem linha (o de um ponto so, que a view `track_linha` descarta)\nnao ganha botao e diz por que.\n\nO MAPA PARA DE NASCER ENVENENADO, e este foi o defeito caro do dia. `fitBounds`\ndivide o espaco disponivel pela extensao da caixa: com o conteiner em 0x0 o\ndisponivel e `0 - 2*padding`, um NEGATIVO, e o zoom sai NaN. O centro vira NaN e\no `transform` NAO se recupera -- todo `mousemove` passa a lancar \"Invalid LngLat\nobject: (NaN, NaN)\", com o `_calcMatrices` quebrando em cima de matriz nula, e\nnenhuma linha nossa na pilha. Tres portas, uma so passagem: CONSTRUIR,\nredimensionar e enquadrar so acontecem com tamanho util, e o alvo fica guardado\nate o tamanho voltar. A folga tambem cede a tela estreita: com 120px de largura,\no padding de 60 zerava o espaco.\n\nE `trackResize: false`, que foi o furo que sobreviveu a duas tentativas. O\nMapLibre observa o conteiner por conta PROPRIA, com 50 ms de atraso, e\n`_containerDimensions()` faz `clientWidth || 400`: com o conteiner DESTACADO do\ndocumento -- o estado normal ao sair da aba, porque `createTabs` limpa o painel\n-- ele redimensiona o `transform` para 400x300, um tamanho que ninguem pediu.\nEram dois donos do mesmo `transform`, e o outro nao via nenhuma trava desta casa.\nO que separou os dois casos foi a reproducao do chefe: \"sem inicializar o mapa\nfunciona, inicializando antes da erro\".\n\nA ABA FICHA VOLTA A DESENHAR, e ela estava quebrada antes deste trabalho.\n`el('dd', [no])` punha o no no lugar dos ATRIBUTOS, e o `setAttribute('0', ...)`\nque sai disso lanca InvalidCharacterError. Como a montagem da aba e uma promessa\nsolta dentro de `createTabs`, o erro caia como rejeicao nao tratada: a aba\nnascia VAZIA, sem mensagem nenhuma. So a linha da Situacao passa um no (o chip),\ne por isso era a unica que quebrava. Achado pelo primeiro teste que montou a\ntela.\n\n`scripts/carregar_track_gpx.cjs`, novo. Carrega GPX de trajeto pela rota que\nAUDITA, e nao por SQL cru como o carregador do dump do SAP -- aquele era migracao\nde historico, carga nova nao tem essa licenca. UM TRACK POR VIATURA-DIA, porque\no DDL diz \"um track e UM DIA de UMA viatura\" e NAO ha UNIQUE no banco que cobre\nisso: a pasta separa ida e volta em arquivos diferentes, e um track por arquivo\nporia duas linhas da mesma viatura no mesmo dia. O dry-run e de verdade: monta o\npayload real e o valida contra o Joi VIVO do servidor. Tem piloto (`--limite`),\nrecusa reentrada por (placa, dia), e rele o destino conferindo dia, placa,\ncontagem de pontos e se a view costurou a linha.\n\nTESTES. Tres arquivos novos em `pages/campo/`. Os dubles fazem a CONTA, e nao so\nregistram a chamada: o de MapLibre lanca quando o espaco util e negativo, e o da\npagina guarda a ORDEM das chamadas -- os defeitos de enquadramento eram de\nSEQUENCIA, e um duble que guardasse so o estado final passaria por cima deles.\nCada trava foi confirmada por `git stash`: sem ela, o teste correspondente falha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "164931f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/164931f92c2df34228862d42a979c04a27b3894c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-13T19:18:57.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "backup bluray",
+      "sha": "47bbb77",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/47bbb779869fa237c17e938c6ba85baf688fec48",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T18:43:48.000Z",
+      "author": "Maj Diniz",
+      "message": "sessao 2026-08-13: a Copa Feminina ganha casa, e o plotter sai da mapoteca\n\nMudancas que ja estavam no working tree antes do cadastro dos pedidos 169 e\n170, todas do trabalho de hoje.\n\n- 01-Projects/copa-feminina-2027/PROJECT.md: fonte unica dos cinco produtos do\n  entorno do Beira-Rio, tres deles criados hoje.\n- wiki/controle-acervo: o plotter NAO e da mapoteca. As tabelas\n  mapoteca.plotter e mapoteca.manutencao_plotter sairam vazias em 2026-08-13, e\n  os 5 plotters sao 5 dos 105 bens do modulo Equipamento.\n- wiki/sped-protocolo: despachos e encaminhamentos por\n  GET /documento/{id}/despachos e /encaminhamentos. As rotas /despacho/... dao\n  404. O prazoDespacho e prazo INTERNO, nunca o do solicitante.\n- skills/atualizar-dockers/learnings: o docker exec node -e roda com cwd /app e\n  precisa do caminho absoluto do modulo, e o dotenv suja o stdout com a linha\n  de dica.\n- telemetria da sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4953f78",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4953f78caab5eb34581547b93aa107c0d062a0b1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T18:43:26.000Z",
+      "author": "Maj Diniz",
+      "message": "pedidos 169 e 170 da mapoteca: o MI vence um nome que existe no acervo\n\nDois DIEx do SPED viram pedido no SCA, escritos pela instancia local do SAP\napontada para o banco de producao (config.env conferido contra DGEO_PG_HOST,\ne a API local devolveu os mesmos 165 pedidos de 2026 que o SQL direto).\n\n- 169: 5o Esqd C Mec (DIEx 1143, EB 64520.002623/2026-78), 7 itens, 35 copias.\n- 170: 1a Bda C Mec (DIEx 3030, EB 64276.004055/2026-89), 39 itens, 117 copias.\n\nO achado: a linha 5 do DIEx 1143 pede ortoimagem 1:50.000 no MI 2824-4-NE, que\nso existe a 1:25.000 e ja e a linha 2 do documento. A alternativa nao era erro\nobvio, porque existe uma ortoimagem 1:50.000 chamada Castro no MI 2825-3, e ela\nfecharia as 40 copias que o documento soma. O chefe manteve a regra de\n2026-07-24: o MI prevalece. A regra ganha alcance, e agora decide tambem quando\no MI e impossivel na escala pedida e o nome aponta folha real.\n\nO acervo dessa area troca os nomes entre tipos do mesmo MI, entao casar pelo\nnome cadastraria a folha errada com o dry-run calado. Segunda regua nova: a\npalavra mosaico nao decide o tipo do item, quem decide e a presenca de lista\nde MI.\n\nProva por tres caminhos fora da ferramenta que escreveu: os 46 uuid batidos no\nbanco antes de aplicar, SQL direto comparando treze campos e os 46 itens um a\num mais o sha256 dos 4 anexos, e a releitura pelo servidor de producao. Zero\ndivergencias, e a busca pelos dois NUP devolvia zero antes.\n\nSai o campo omds da referencia-plano, que nao existe no schema do pedido.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "46f8af0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/46f8af04b84082735684d09a70b1844d419c2b8e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T16:06:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'\n\n# Conflicts:\n#\t.claude/telemetria/micro-retro.log\n#\t.claude/telemetria/uso-skills.tsv\n#\tDecisions/DECISIONS.md\n#\tDecisions/decisions-2026.md\n#\tlivro-razao.md\n#\twiki/index.md",
+      "sha": "07bf0e7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/07bf0e765598fe8aea34bbf34c177496404606ad",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T16:05:16.000Z",
+      "author": "Maj Diniz",
+      "message": "telemetria: registro de uso de skill da sessao 2026-08-13",
+      "sha": "372a3f0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/372a3f021b827b75279cd2ba7501d154eccdb3d5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T16:04:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-13: o museu ganha 78 fichas por multiagentes, e quatro instrumentos mentem antes de um medir\n\nIdentificacao: 224 visadas renderizadas do proprio modelo, 26 agentes de olhar,\ngeometria convertendo pixel em ponto do mundo, e DUAS lentes independentes que\nreprovaram 30% do que o passe 1 propos. Gabarito: os dois itens ja marcados a\nmao, fora do que o agente via, recolocados a 0,20 m e 0,37 m com a ficha certa.\nPeca pequena em vitrine escura nao resolve forma no modelo, e as 66 anotacoes do\nchefe fecharam o que a varredura nao alcanca.\n\nDesempenho: a wiki e o LEIAME afirmavam 10 fps e recomendavam cortar harmonicos\nesfericos; a maquina roda travada no vsync. Quatro instrumentos falharam antes de\num funcionar (vsync, aba estrangulada, laco de JavaScript), e so o readPixels de\num pixel mede o desenho. Com ele: custo de preenchimento variando 1,80x com o\nconteudo, contexto leve rendendo 1,59x com 0,00% de pixels alterados, e\nsupersampling REPROVADO, porque gaussiano nao tem aresta dura para serrilhar.\nDecisao do chefe: qualidade acima de desempenho.\n\nPagina nova medicao-de-desempenho-grafico, ligada no ato. Tres eventos no\nlivro-razao, um deles com veredito de producao (a foto do marcador era o brasao\nda unidade, e quem pegou foi o chefe olhando a tela).\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+      "sha": "9726aee",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9726aee165bc2856b5e01edb1569f4c131cfb158",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-08-13T15:23:11.000Z",
