@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-13T11:04:18.468Z",
+  "lastUpdate": "2026-08-13T16:03:18.864Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-13T10:40:28.000Z",
+    "1cgeo/ebgeo_web": "2026-08-13T11:27:03.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-08-04T11:55:40.000Z",
+    "dsgoficial/modelagens": "2026-08-13T12:28:03.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-08-12T20:01:20.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-12T10:35:32.000Z",
+    "1cgeo/controle_acervo": "2026-08-13T15:23:11.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-08-13T10:40:20.000Z",
+    "1cgeo/ebgeo_360": "2026-08-13T14:18:49.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5818,
+    "totalCommits": 5829,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 883,
+      "1cgeo/ebgeo_web": 884,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -131,7 +131,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 161,
+      "dsgoficial/modelagens": 165,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 478,
       "dsgoficial/DsgTools": 640,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 310,
+      "1cgeo/controle_acervo": 314,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 35,
+      "1cgeo/ebgeo_360": 37,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -170,6 +170,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-13T15:23:11.000Z",
+      "author": "Maj Diniz",
+      "message": "O censo dos defaults do equipamento passa a contar quatro, e a marca de patrimonio ganha guarda\n\nO QUE HAVIA. Tres testes vermelhos em `equipamento_cli/__tests__/default.test.js`\ndesde 2026-08-10, quando a coluna `patrimonio_pendente` entrou. O arquivo mantem\num CENSO dos campos com `.default(...)` do modulo, e o censo dizia TRES onde\nhavia QUATRO.\n\nO GUARDA FUNCIONOU: ele nao deixou o campo novo passar calado. O que faltou foi\nler o vermelho -- ficou tres dias assim, e eu so o vi por acidente, rodando a\nsuite de CLI por outro motivo.\n\nPOR QUE O CENSO EXISTE. `.default(...)` num schema de ATUALIZACAO e uma armadilha\nmedida: em 2026-08-08 ele quebrou o `acervo_cli editar produto` inteiro. O campo\ncom default some da saida de quem trata default como ausencia, e num PUT que\nSUBSTITUI a linha ele volta ao default e reverte o que estava gravado. O valor\nerrado entra calado, porque ninguem o digitou.\n\n`patrimonio_pendente` e o mesmo modo de falha AO CONTRARIO: o PUT sem o campo\nAPAGARIA o aviso, e o bem passaria a se declarar conferido sem que ninguem\nolhasse a etiqueta. A secao \"Patrimonio por conferir\" do painel esvaziaria\nsozinha.\n\nALEM DE CONSERTAR O CENSO, DOIS CASOS NOVOS. Alterar o modelo de um bem com o\npatrimonio pendente nao pode limpar a marca, e conferir a etiqueta e ato\nexplicito (`--patrimonio_pendente false`). Eles fecham o par com os dois casos de\n`ativo`, que ja existiam.\n\nFALSIFICACAO, e ela me pegou errando. A primeira tentativa sabotou o\n`SELECT_EQUIPAMENTO` do servidor e os testes continuaram VERDES: eles substituem\na rede, entao a leitura do servidor nao passa por eles. A sabotagem certa e no\nciclo do CLI (`corpo.recortar` deixar de reaproveitar o campo lido), e ai cinco\ncasos ficam vermelhos, os dois novos entre eles. O comentario do arquivo foi\ncorrigido para dizer o que os casos guardam E o que eles nao guardam: que a rota\ndevolve a coluna foi conferido lendo o fonte, e nao por este arquivo.\n\nPROVAS. `npm run test-cli` inteiro: 510 passam, 0 falham (estava com 3 vermelhos).\nServidor rapido: 3289. Nenhum codigo de producao mudou -- so o teste e o\ncomentario dele.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "475a9d0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/475a9d085abed1251f1f20bed962fa61fac72a17",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-13T14:56:45.000Z",
+      "author": "Maj Diniz",
+      "message": "A busca do acervo passa a marcar VARIOS produtos, e as quatro folhas do 50k entram de uma vez\n\nO QUE HAVIA. Um produto por vez. Adicionar \"as 4 folhas 25k do 2951-2\" custava\nquatro passagens pelo dialogo inteiro: buscar, selecionar, escolher versao,\npreencher quantidade e midia, confirmar. Quatro vezes.\n\nA MEDIDA QUE DECIDIU O DESENHO, e ela recusou o desenho obvio. Das 219 vezes em\nque um pedido levou folhas 25k da mesma folha 50k (medido na producao em\n2026-08-13): 90 levaram UM quadrante, 62 levaram DOIS, 8 levaram tres e 59\nlevaram os QUATRO. Um botao \"adicionar as 4\" atenderia 27% dos casos, e o padrao\nmais comum e justamente pedir um so. A selecao multipla atende os quatro padroes\ncom o mesmo gesto, e ainda serve para folhas que nao sao vizinhas.\n\nA VERSAO SE RESOLVE SOZINHA, e e isso que torna a selecao possivel sem\nperguntar nada. Vale a mais recente COM ARQUIVO, que e a regra que o\n`mapoteca_cli` ja aplicava (\"versao sem arquivo e registro historico e nao serve\npara imprimir\"). Nas 1.158 Cartas Topograficas 25k do acervo, 1.046 (90%) tem\nexatamente UMA versao com arquivo: na quase totalidade nao ha desempate. Em 88 ha\nduas ou mais, e a data de edicao decide. Em 24 nao ha nenhuma, e ai o produto\nFICA DE FORA e e nomeado no aviso -- sumir calado esconderia lacuna de\ncatalogacao.\n\nO CAMINHO DE UM ITEM SO CONTINUA INTEIRO. O botao \"Selecionar\" da linha leva a\nescolha da VERSAO, e e por ele que se pede a versao historica. O modo EDICAO nao\ntem caixa nenhuma: editar e sobre UM item.\n\n`POST /produto_pedido/lote`, NUMA TRANSACAO. O client disparando N chamadas\ndeixaria o pedido com duas folhas das quatro se a terceira falhasse, e ninguem\nsaberia que faltam duas. Rota PROPRIA, e nao o POST antigo aceitando array: aquele\ne o CRUD generico que o `mapoteca_cli` consome postando UM objeto, e trocar o\ncontrato dele quebraria o CLI sem erro de sintaxe.\n\nO `pedido_id` vai FORA do array. Repetido item a item, ele admitiria um lote com\nitens de pedidos diferentes -- que nao e um lote, e sim dois, cada um com o seu\nagregado de auditoria. A forma do corpo impede o caso, em vez de o controller o\nrecusar.\n\nO DIALOGO NAO GRAVA, ele entrega ao chamador ({payload, display}, igual ao\n`onSubmit` de um item). Nao e cerimonia: o WIZARD usa este mesmo dialogo no passo\n3, ANTES de o pedido existir, e la os itens vao para uma lista em memoria. Os dois\nchamadores ganharam o lote.\n\nA auditoria registra UM evento por item, e nao um do lote: quem abre o historico\npergunta \"quando esta folha entrou\", e um evento de quatro linhas nao responde\npor nenhuma delas.\n\nVERSION 3.6.0 -> 3.7.0. Nao ha migracao, entao o banco fica em 3.6.0; a regra e\n`>=` e nao `===`, e um release sem migracao move o servico e nao move o banco.\n\nPROVAS. 15 testes novos, e cada guarda foi FALSIFICADA: escolher a versao mais\nrecente ignorando o arquivo reprova 3, validar o formulario depois de buscar as\nversoes reprova 1, e conferir as versoes depois de gravar reprova o caso de\natomicidade. Client 1875, servidor rapido 3289, servidor banco (mapoteca) 226,\nbuild limpo.\n\nFORA DO ESCOPO, e anterior a este commit: `equipamento_cli` tem 3 testes vermelhos\nsobre `patrimonio_pendente`. Conferido com estas mudancas guardadas no stash --\nfalham igual.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d7ec097",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d7ec097ed2afade8c75baa48169b0cd7ae6495f5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-13T14:18:49.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): a foto proxima diz a que distancia e de que andar ela e\n\nO marcador verde mostrava so uma bola: nem a distancia, nem o andar. Com a\nbusca em todos os andares isso deixa o operador ligando conexao no escuro,\nporque em planta a foto do andar de cima aparece colada.\n\nO que o marcador passa a dizer:\n\n- A DISTANCIA, sob a bola, em numero redondo e sem unidade. Sobre a fotografia\n  o texto disputa espaco com a imagem, e o decimal nao decide nada: quem le\n  quer saber se sao 2 ou 20 passos.\n- O ANDAR, como glifo no centro da bola, e so quando o nivel difere. Mesma\n  regra da esfera de navegacao, entao \"6o andar\" da 6, \"Externo\" da E e\n  \"Campo\" da C. Escrever \"6o andar\" ao lado de cada marcador encheria a tela\n  de texto repetido.\n- A ALTURA, que agora diz QUANTOS andares. Medido: um degrau a 38 px do\n  horizonte, e 24 a 26 px de separacao por andar dai em diante, com o marcador\n  de 10 px de raio. Trava no sexto degrau, senao a vizinha do outro extremo do\n  predio sai da tela. O primeiro degrau bate com o do alvo que troca de andar,\n  e um teste trava isso: sao a mesma informacao, e alturas diferentes\n  mentiriam.\n\nBola e placa da distancia sao OPACAS. Com transparencia dois marcadores\nsobrepostos somavam os verdes e viravam uma mancha, e contorno de texto deixa\nos dois numeros legiveis um sobre o outro.\n\nA regra da descricao virou modulo proprio (descricao.js) porque TRES telas\ndescrevem a mesma foto: o marcador, a lista de alvos e o rotulo do preview.\nDescricao escrita em tres lugares vira tres descricoes diferentes.\n\nJunto, na lista de alvos do painel: marca de andar ao lado da distancia, e\nordem por distancia em vez da ordem de insercao no banco. A copia do array e\nde proposito, porque `targets` e o objeto do metadata.\n\nA distancia 3D foi tentada e DESCARTADA. Ela depende de `ele`, e a cota nao\nacompanha o andar: o 4o andar inteiro em zero, a area externa ate 100 m,\nmedido nas 350 fotos. Somar um desnivel de ruido daria um numero preciso e\nfalso. src/routes/calibration.js ja registrava a mesma medida.\n\nVao junto dois defeitos que o trabalho descobriu, nos mesmos arquivos:\n\n1. A busca de vizinhas perdia o andar escolhido. Tres pontos rebuscavam a\n   lista, e o do refresh depois de criar ou remover conexao chamava a API sem\n   opcao nenhuma, caindo no andar da foto de origem. Criar um marcador com o\n   seletor em \"todos os andares\" devolvia a lista do andar atual, com o combo\n   ainda escrito \"todos os andares\". Medido na Beira-Rio_0262: 23 vizinhas\n   contra 128. Os tres pontos viraram um so, que le o escopo da mesma fonte.\n\n2. O painel lia `s.camera?.floor_level`, e esse campo nao existe no estado: a\n   foto mora em `currentMetadata`. O nivel vinha sempre nulo, entao a marca\n   amarela da lista de vizinhas, que a dica logo abaixo promete, nunca\n   aparecia.\n\nO segundo nao tem teste automatizado, e o primeiro tambem nao: os dois vivem\nno app.js e no painel, que importam o viewer e o three.js e nao rodam fora do\nnavegador sem um harness de DOM que este repo nao tem. O que sustenta os dois\ne a medida na API e o grep de que sobrou uma unica chamada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "229fe9d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/229fe9d21127c9c7963a61dbf37de98dbbf40f7e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-13T13:47:37.000Z",
+      "author": "Maj Diniz",
+      "message": "A impressao passa a se lancar em LOTE na tela do pedido, e o servidor nao muda uma linha\n\nO QUE HAVIA. Um botao por linha, e um dialogo por item. A mediana de itens por\npedido e 10, a media 20,3 e o maior tem 132 (medido na producao em 2026-08-13):\n43 dos 132 pedidos com item tem mais de 20. Preencher a impressao de um pedido\ngrande era uma abertura de dialogo por item.\n\nO QUE MUDA. A tabela de produtos do pedido ganha selecao. Marcados os itens,\naparece \"Registrar impressao (N)\", que abre UM dialogo com uma linha por item\nselecionado, cada uma ja preenchida com o restante daquele item.\n\nO SERVIDOR NAO MUDOU. `POST /mapoteca/impressao` sempre recebeu `registros: [...]`\ne grava as N linhas numa transacao -- era o que o plugin QGIS ja usava desde\nsempre, e a web era o unico client que mandava um array de um. Meia gravacao nao\nexiste: ou entram todas, ou nenhuma.\n\n`selectAll()` NO DATA-TABLE, porque a caixa do cabecalho marca a PAGINA. Com\npageSize 10, um pedido de 132 itens exigiria 14 viradas de pagina justamente no\npedido que mais precisa do lote. Ela respeita a BUSCA: filtrar por '25k' e mandar\nselecionar todos seleciona os 25k. A selecao ja sobrevivia a paginacao, a busca e\na ordenacao, porque o componente guarda CHAVES num Set.\n\nA FORMA E TABELA, E NAO FORMULARIO, e isso custou uma reprovacao do chefe. A\nprimeira versao empilhava um campo de largura inteira por item, com o mesmo texto\nde ajuda repetido embaixo de cada um, e os atalhos flutuando na segunda coluna do\n`form-grid`. Virou uma tabela de seis colunas (Produto, MI, Pedidas, Impressas,\nRestante, Copias agora): o rotulo virou cabecalho e o texto de ajuda virou coluna,\ndizendo uma vez o que se dizia dez. O plugin QGIS ja era uma QTableWidget; o que\nse copiou dele na primeira versao foi so o comportamento.\n\nDECISOES. A data e a observacao sao da SESSAO e valem para todos os itens (o\nservidor aceita uma por item, e um campo por linha so encareceria a tela). Linha\nem zero fica de fora, que e como se desmarca um item sem fechar o dialogo. Item\nja concluido nasce em 1, e nao em zero, porque seleciona-lo so faz sentido para\nreimprimir a folha rasgada. O botao por linha FICA: um item continua a um clique.\nA fila de atendimento nao muda. Nenhum perfil muda: a rota e operador, gerente o\nsatisfaz, e a tela de detalhe so abre para consulta e gerente.\n\nO QUE A MEDICAO QUASE FEZ ERRAR. A primeira leitura dizia \"1.949 de 1.949\nlancamentos sao cheios\" e \"93 sessoes multi-item\". 1.749 deles (90%) eram carga\nminha, pela conta `claude`: eu estava confirmando o proprio trabalho. Refeita so\ncom o que humano lancou (200 linhas, 16 sessoes), o fato sobreviveu -- 200 de 200\ncheios, e 11 das 16 sessoes ja eram multi-item, mediana de 9 itens. E por isso\nque a proposta de cada linha e o RESTANTE, e nao um campo em branco.\n\nPROVAS. 21 testes novos em dois arquivos, e cada guarda foi FALSIFICADA antes de\nser aceita: mandar uma chamada por item reprova 3, deixar a linha zerada entrar\nreprova 2, e o selectAll marcar so a pagina reprova 5. Dois deles guardam a FORMA\n(a tabela, e o texto de ajuda que nao se repete), para a reprovacao da tela nao\nvoltar. Suite do client: 1866 passam. Build limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "84b7b54",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/84b7b54d8682924483477204869d01d440e31c35",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-08-13T12:28:03.000Z",
+      "author": "Maj Diniz",
+      "message": "writer aborta em vez de inventar tabela, e o limite legal ganha discriminador\n\nDois defeitos da mesma carga (Overture para Topo 1.4, projeto Copa Feminina\n2027). Juntos, eles plantaram estrutura errada num banco de PRODUCAO sem\nperder um byte de dado, que e por que ninguem percebeu.\n\nMEDIDO: o banco `pit2026_1x_porto_alegre_rs_10k_4674_edgvtopo14` saiu da carga\ncom 96 tabelas em `edgv`. A Topo 1.4 tem 95. A sobra e\n`edgv.llp_limite_legal_a`, que o modelo nao tem. Ela nasceu crua: 0\nconstraints e 0 triggers, contra 5 e 2 da irma legitima\n`llp_limite_legal_l`, e com as 26 colunas do modelo de ORIGEM, inclusive\n`fontes`. Dentro dela, 1 feicao: \"Rio Grande do Sul\", tipo 2, sigla BR-RS.\n\n1. O WRITER CRIAVA A TABELA. O `to_postgis(if_exists=\"append\")` cria o que nao\n   existe, e o `_get_dest_columns` engolia a falha de introspeccao com um\n   `logger.warning` e devolvia None. O log dizia \"Falha ao introspect ...\" e\n   logo abaixo \"Escrita tabela ...: 1 feicoes\". Agora `_tabelas_ausentes`\n   confere TODAS as classes de saida contra o catalogo ANTES de qualquer\n   escrita, e `TabelaDestinoAusenteError` aborta sem gravar nada. A checagem\n   segue o padrao do `DestinoNaoVazioError`: roda antes, para o abort nao\n   deixar o destino meio gravado. Sem introspeccao disponivel ela avisa e\n   segue, para nao derrubar conversao boa.\n\n2. O MAPEAMENTO NAO TINHA DISCRIMINADOR. `llp_limite_legal` e a unica classe\n   de destino deste arquivo com mais de uma origem, e as tres (`llp_pais`,\n   `llp_unidade_federacao`, `llp_limite_legal`) estavam com `filtro_B` nulo.\n   Sem filtro o conversor nao sabe escolher no sentido B=>A. O mecanismo ja\n   existia e ja e usado noutro mapeamento (`hid_barragem` e `hid_dique`\n   dividem `infra_barragem` por `filtro_B` de tipo 1 e 2), entao o conserto e\n   JSON e nao codigo.\n\n   Os codigos saem do proprio comentario do mapeamento e do DDL da 2.0: tipo 1\n   e Limite Internacional (vai para `llp_pais`), tipo 2 e Limite Estadual (vai\n   para `llp_unidade_federacao`), e o resto fica em `llp_limite_legal`. O\n   `$not`/`$or` da terceira usa so operadores que o `evaluate_filter` ja tem.\n\n   Provado: no sentido B=>A, tipo 1 vai para `llp_pais_a` e tipo 2 para\n   `llp_unidade_federacao_a`. O sentido A=>B nao muda, porque ali o filtro\n   consultado e o `filtro_A`.\n\nFica um vazio REAL do modelo, agora visivel em vez de silencioso: um limite\nmunicipal em POLIGONO (tipo 3) roteia para `llp_limite_legal_a`, que a Topo\n1.4 nao tem, porque la a classe e so de linha. Antes isso inventava a tabela.\nAgora aborta com a lista das classes sem destino.\n\nSuite em 22 passes. A falha de test_dry_run_descreve_o_plano_e_nao_escreve_nada\ne anterior e nao foi tocada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "efafc3f",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/efafc3fc1f62d572dbe801036f67940a9dd05b6a",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-08-13T12:23:31.000Z",
+      "author": "Maj Diniz",
+      "message": "topo20->topo14: mais tres codigos que a 1.4 nao tem\n\nMesma classe do commit anterior, achada pelo pre-voo de dominio que compara o\nconjunto de valores da origem com as chaves estrangeiras REAIS do destino\n(pg_constraint), e nao com o nome da coluna. Sem estes pares a feicao viola a\nFK e o destino a recusa.\n\nMedido na carga Overture de Porto Alegre (moldura 10k do Beira-Rio), 43\nfeicoes em duas classes:\n\nconstr_edificacao_p.tipo 2102 -> 2101, 22 feicoes. A Topo 2.0 tem 2102 \"Ssoc -\nEquipamento publico de protecao social\"; a 1.4 nao. O 2101 \"Ssoc - Servico\nSocial\" e o UNICO codigo Ssoc da 1.4, conferido no dominio: nao ha sequer um\n\"Ssoc - Outros\". As 22 sao asilos e residenciais geriatricos.\n\nconstr_edificacao_p.tipo 2214 -> 2209, 3 feicoes. A 2.0 tem 2214 \"Rod -\nRodoviaria\"; a 1.4 nao. Ha duas saidas na 1.4: 2209 \"Rod - Terminal urbano\" e\n2298 \"Rod - Outros\". Decisao do chefe da DGEO: 2209, porque as tres feicoes\nsao terminais urbanos de Porto Alegre (Terminal Azenha, Estacao Castelo,\nTerminal Sul Diario de Noticias). Numa area onde a rodoviaria for\ninterestadual, esta regra precisa ser revista.\n\nllp_localidade_p.tipo 11 -> 8, 18 feicoes. A 2.0 tem 9 (Aldeia indigena), 10\n(Comunidade quilombola) e 11 (Bairro); a 1.4 para no 8 \"Nome local\". O 8 e o\nque o crosswalk JA aplica as irmas: as 8 feicoes vindas de macrohood e\nmicrohood entram como 8 hoje. Manter as 26 no mesmo tipo deixa a camada\ncoerente. Perde-se a distincao bairro contra nome local.\n\nOs tres levam \"sentido\": \"B=>A\". No sentido A=>B a Topo 2.0 tem os codigos\nproprios e a traducao inversa corromperia o dado.\n\nVerificado no destino apos a carga: vias tipo 2 de 948 para 1.008, tipo 9999\ncom 164, nenhum 0 nem 7; edificacao 2101 de 93 para 115 e 2209 com 3;\nlocalidade com tipo 8 = 26. Comprimento geodesico batendo em 0,00000000% nas\ncinco classes de linha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6b90e2f",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/6b90e2fd81ccc2e51e7369a8268d737c09058396",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-08-13T11:35:00.000Z",
+      "author": "Maj Diniz",
+      "message": "topo20->topo14: traduz os tipos de via que a 1.4 nao tem\n\nA Topo 2.0 tem tipo_via_deslocamento 0 (Desconhecido) e 7 (Alca de acesso /\nRotatoria). A Topo 1.4 nao tem nenhum dos dois: o dominio dela e\n[2,3,4,5,6,9999]. Sem traducao a feicao viola a chave estrangeira, o destino a\nrecusa e ate agora o relatorio dizia \"Erros: 0\" por cima disso.\n\nMedido na carga Overture de Porto Alegre (moldura 10k do Beira-Rio): de 3.770\nvias, 164 do tipo 0 e 60 do tipo 7 nao chegavam ao destino, 5,9% do lote.\n\nO 7 vai para 2 (Estrada/Rodovia). Nao e analogia: as 60 feicoes tem classe\nOverture secondary (44), tertiary (11) e primary (5), e este mesmo mapeamento\nja manda essas tres classes para 2 nas 937 que passavam. O 7 acrescenta a\nmarca de alca/rotatoria, que a 1.4 nao tem onde guardar.\n\nO 0 vai para 9999 (A SER PREENCHIDO), que e o que a origem de fato informa: as\n164 vem com class=unknown e sem nome.\n\nOs dois pares levam \"sentido\": \"B=>A\". No sentido A=>B a Topo 2.0 tem os dois\ncodigos e a traducao inversa corromperia o dado, mandando toda Estrada/Rodovia\npara Alca de acesso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e99fbfa",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/e99fbfa63544c51be77d7564575404e68b7be89d",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-08-13T11:33:12.000Z",
+      "author": "Maj Diniz",
+      "message": "conversor: quatro defeitos de perda silenciosa de dado\n\nOs quatro apareceram na mesma carga (gothic EDGV 2.1.3 para Orto 2.5, projeto\nCopa Feminina 2027) e todos escondiam perda de dado atras de um relatorio\nlimpo.\n\n1. O relatorio dizia \"Erros: 0\" sobre escrita incompleta. O\n   _write_with_chunked_retry devolvia so o total gravado e reportava as falhas\n   apenas por logger.info, que ninguem le. Medido: 3.770 convertidas, 3.546\n   gravadas, \"Erros: 0\". Agora ele devolve (ok, falhas), o writer registra cada\n   linha recusada como WRITE_ERROR no relatorio, e o resumo ganhou a linha\n   \"Feicoes GRAVADAS no destino\", que e a unica que fala da escrita.\n\n2. aggregate() estourava TypeError com geometria multiparte. O clip promove\n   LineString a MultiLineString quando a feicao cruza a borda duas vezes, e o\n   construtor Multi* do shapely nao aceita membro multiparte. Achata com o\n   split_multi que ja existia. Medidas 51 geometrias multiparte na moldura de\n   teste (42 linha, 9 poligono).\n\n3. _fill_required_nulls so descartava a coluna uuid quando ela estava TODA\n   nula. Origem legada traz `id` inteiro e cheio, que nao e nulo e nao e uuid,\n   entao a coluna sobrevivia e o COPY do lote inteiro falhava\n   (\"invalid input syntax for type uuid\"). Agora a checagem de uuid roda antes\n   do atalho de \"nao ha nulo\", e um so valor invalido reprova a coluna.\n\n4. A traducao global matconstr 23 -> 98 corrompia barragem e dique. Medido nos\n   7 CHECK de material_construcao da Topo 1.4: 5 classes aceitam 98 e recusam\n   23, e infra_barragem_l/_a aceitam 23 (Terra) e recusam 98 (Outros). A regra\n   global esta certa para as 5 e errada para as 2, entao entrou o override de\n   classe em hid_barragem e hid_dique, que a precedencia do converter faz\n   vencer. Sem ele, 167 de 168 barragens viravam 98 e o destino as recusava.\n\nA suite segue em 22 passes. A falha de\ntest_dry_run_descreve_o_plano_e_nao_escreve_nada e ANTERIOR a estas mudancas\n(confirmada por stash) e nao foi tocada: montar_plano devolve total_estimado\nNone para origem shapefile.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cb64ca8",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/cb64ca8418955b64c9091d11531292062fdc455d",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-13T11:28:13.000Z",
+      "author": "Maj Diniz",
+      "message": "O plotter sai da mapoteca e fica so no Equipamento, e o cartao de custo para de mentir\n\n`mapoteca.plotter` e `mapoteca.manutencao_plotter` estavam VAZIAS na producao, e\nsempre estiveram: zero linhas em cada uma, zero eventos em `auditoria.evento`\ndesde que a auditoria existe. A tela de Plotters abria, listava nada e oferecia o\nbotao de cadastrar -- quem o clicasse criaria um sexto plotter invisivel para o\nRelatorio DMT.\n\nOs 5 plotters da Divisao sao 5 dos 105 bens de `equipamento.equipamento`, com\nnumero de patrimonio, classe de suprimento e secao detentora que na mapoteca nao\nhavia onde escrever. A manutencao deles e `equipamento.manutencao`, que guarda\n`data_fim`, `valor_orcado`, `valor_pdr` e o vinculo com a indisponibilidade que a\nsubsecao 7.1 do RPCMTec conta todo mes.\n\nA migracao 2026-08-08_modulo_equipamento.sql anunciou esta fase no item 4 dela\n(\"Move-los e uma fase propria, com migracao propria\"). Ela nao moveu nada: nao\nhavia linha para mover, e o que parecia migracao de dado virou poda.\n\nO CARTAO DE CUSTO DE MANUTENCAO sai do Resumo Anual da mapoteca (decisao do\nchefe). Ele e o mesmo cartao do painel do Equipamento, e o `equipamento_ctrl.js`\nja o citava pelo nome. Os dois respondiam a mesma pergunta com numeros\ndiferentes: o daqui somava a tabela vazia e dizia \"Sem registro\". Fica o que tem\nfonte.\n\nSaem 11 rotas, 11 controllers, 8 esquemas Joi, 2 agregados do mapa de auditoria,\n6 arquivos de tela (1.227 linhas), 1 item de menu, 2 rotas de client, 10 funcoes\nde servico, 2 recursos do mapoteca_cli e as duas tabelas. 2.286 linhas a menos.\n\nDuas guardas foram abaixadas de proposito, com o motivo no proprio codigo: o piso\nde rotas da mapoteca (80 para 71, porque as rotas deixaram de existir e nenhuma\nperdeu a guarda) e a VERSION do servico (3.5.0 para 3.6.0, que o banco carimba).\n\nPROVAS. client 1845 testes, servidor rapido 3289, servidor banco 448, mapoteca_cli\n86, build limpo. O ensaio da migracao montou o banco de ONTEM (--er-de HEAD, ainda\ncom as duas tabelas), aplicou e convergiu com a instalacao nova: 121 colunas, 140\nrestricoes, 39 indices, e aplica duas vezes. As dependencias foram conferidas na\nproducao por pg_depend, pg_constraint e pg_trigger: zero views, uma FK entre as\nduas, zero gatilhos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "561dd88",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/561dd8841e84ddd47aa2137c95ee3b6c4995a756",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-13T11:27:03.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): o lado do horizonte vem do degrau, e nao da posicao na fila\n\nEspelho da mesma mudanca no ebgeo_360. O arranjo e codigo duplicado de\nproposito entre os dois repositorios, e a copia so nao diverge se andar junto.\n\nQuem desce fica ABAIXO da linha do horizonte, quem sobe fica ACIMA. Antes a\naltura era funcao so da posicao na fila, e a fila cruza o horizonte ja no\nsegundo posto: um alvo que descia dois andares aparecia acima da linha por\nestar em segundo na direcao. O olho le altura antes de ler seta.\n\nO deslocamento reusa a MESMA escada da fila, espelhada. Ela e quem garante que\no centro de um icone nunca cai dentro do disco do icone da frente, e essa\ngarantia e simetrica. Inventar uma segunda escada para baixo quebraria a\npropriedade que o arranjo inteiro sustenta.\n\nA margem sai do RAIO do primeiro icone (1,5 raio), e nao de um grau escolhido\na dedo. Assim o disco sobra meio raio livre da linha, e continua sobrando se o\ntamanho do icone mudar. Medido na tela de 1200x800 com FOV 75: o primeiro\nicone fica a 4,20 graus (38 px) do horizonte, com 13 px de folga entre a borda\ne a linha; no segundo posto sao 7,08 graus (65 px).\n\nO stub de navegador dos testes ganhou o deltaDeAndar. O arranjo passou a medir\no degrau, e sem esse metodo o layout estoura em vez de responder.\n\nUm teste mede que a fila comum CRUZA o horizonte no rank 1. Sem essa medida os\noutros nao provariam nada. E a regua olha o DISCO, e nao o centro: comparar o\ncentro com zero passaria com o icone cruzando a linha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cbf6322",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cbf63227dd0c453cfbbf47f15825cdb71dd832a8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-13T11:26:43.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): o lado do horizonte vem do degrau, e nao da posicao na fila\n\nQuem desce fica ABAIXO da linha do horizonte, quem sobe fica ACIMA. Antes a\naltura era funcao so da posicao na fila, e a fila cruza o horizonte ja no\nsegundo posto: um alvo que descia dois andares aparecia acima da linha por\nestar em segundo na direcao. O olho le altura antes de ler seta.\n\nO deslocamento reusa a MESMA escada da fila, espelhada. Ela e quem garante que\no centro de um icone nunca cai dentro do disco do icone da frente, e essa\ngarantia e simetrica. Inventar uma segunda escada para baixo quebraria a\npropriedade que o arranjo inteiro sustenta.\n\nA margem sai do RAIO do primeiro icone (1,5 raio), e nao de um grau escolhido\na dedo. Assim o disco sobra meio raio livre da linha, e continua sobrando se o\ntamanho do icone mudar. Medido na tela de 1200x800 com FOV 75: o primeiro\nicone fica a 4,20 graus (38 px) do horizonte, com 13 px de folga entre a borda\ne a linha; no segundo posto sao 7,08 graus (65 px).\n\nUm teste mede que a fila comum CRUZA o horizonte no rank 1. Sem essa medida os\noutros nao provariam nada: se a fila nunca subisse, garantir que quem desce\nfica abaixo seria de graca.\n\nA regua olha o DISCO, e nao o centro. Comparar o centro com zero passaria com\no icone cruzando a linha, que foi a primeira versao desta regra.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "19d9567",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/19d9567572e7704eb18f578cd31600e839727070",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-13T10:40:28.000Z",
