@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-12T20:51:57.086Z",
+  "lastUpdate": "2026-08-13T11:04:18.468Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-11T11:42:54.000Z",
+    "1cgeo/ebgeo_web": "2026-08-13T10:40:28.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-08-10T20:23:02.000Z",
+    "1cgeo/ebgeo_360": "2026-08-13T10:40:20.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-12T18:38:16.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-12T22:35:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-11T10:32:42.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5815,
+    "totalCommits": 5818,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 882,
+      "1cgeo/ebgeo_web": 883,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 34,
+      "1cgeo/ebgeo_360": 35,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,40 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 559,
+      "1cgeo/chefe_dgeo": 560,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-13T10:40:28.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): o marcador de troca de andar diz PARA ONDE leva\n\nEspelho da mesma mudanca no ebgeo_360. O marcador e codigo duplicado de\nproposito entre os dois repositorios, e a copia so nao diverge se andar junto.\n\nA seta de andar dizia o sentido, mas nao o destino. No Beira-Rio o vomitorio\nsobe, e quem navega nao sabia se para o 4o ou para o 5o. O marcador passa a\nescrever o andar de destino ao lado da seta, que encolhe e sai da frente.\n\nO texto sai do rotulo do PROPRIO ALVO, e nao de um mapa fixo de nivel para\nletra: \"6o andar\" da 6, \"Externo\" da E e \"Campo\" da C. O nivel 0 do Beira-Rio\nnao e terreo: sao 86 fotos no anel externo e 8 no gramado, medidas em\nphotos.floor_label, e um mapa fixo 0 -> E apagaria o gramado.\n\nAbaixo de 11 px de raio o texto sai e a seta volta inteira ao centro, identica\nao que era. A regua que decide o texto e a mesma que decide o lugar da seta.\n\nO renderSphereMarker recebe o andar como OBJETO, e nao como mais dois\nargumentos soltos, porque lista de sete posicoes troca de ordem em silencio.\n\nOs testes novos reprovam a versao anterior: 4 falham contra o renderer de\nantes, e os 13 restantes passam nos dois lados. O bloco de desenho e o corpo\ndos testes foram conferidos byte a byte contra o ebgeo_360.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0b32d7f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0b32d7fb4660d442efe11e50022dabd4c6feea6d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-13T10:40:20.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): o marcador de troca de andar diz PARA ONDE leva\n\nA seta de andar dizia o sentido, mas nao o destino. No Beira-Rio o vomitorio\nsobe, e o operador nao sabia se para o 4o ou para o 5o. O marcador passa a\nescrever o andar de destino ao lado da seta, que encolhe e sai da frente.\n\nO texto sai do rotulo do PROPRIO ALVO, e nao de um mapa fixo de nivel para\nletra: \"6o andar\" da 6, \"Externo\" da E e \"Campo\" da C. O nivel 0 do Beira-Rio\nnao e terreo: sao 86 fotos no anel externo e 8 no gramado, medidas em\nphotos.floor_label, e um mapa fixo 0 -> E apagaria o gramado.\n\nAbaixo de 11 px de raio o texto sai e a seta volta inteira ao centro, identica\nao que era. A regua que decide o texto e a mesma que decide o lugar da seta.\n\nOs testes novos reprovam a versao anterior: 2 falham contra o renderer de\nantes, e os 15 restantes passam nos dois lados. O ctx falso existe porque a\ndecisao de desenhar ou nao mora dentro do drawArmillarySphere, e sem espiao\nela so apareceria no olho de quem usa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "050359f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/050359fecf45dcac39ed1aa0bf8bd19915d45c27",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-12T22:35:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-12: o CATMAT nao descreve GPU, e isso quebra a busca\n\nBusca de pregao de servidor de IA na faixa de 500k a 1M, com 4 subagentes.\nAchado: ARP 19/2025 do STF, 2 NVIDIA H100 de 94 GB a R$ 501.451,00, federal,\nvigente ate 2026-09-18, HPE ProLiant DL385 Gen11.\n\nO que fica:\n\n- consultar-licitacao ganha a secao \"Procurar pelo EQUIPAMENTO, quando o pregao\n  e desconhecido\". O CATMAT nao tem campo de GPU, entao filtrar por palavra-chave\n  devolve negativa falsa. Triagem por valor mais objeto, confirmacao no edital.\n- learnings dividido em duas camadas (quente 13 KB, detalhe 10 KB), lossless.\n  A camada quente ganha a tabela de endpoints que funcionam e os que devolvem\n  zero em vez de erro.\n- wiki/dados-abertos-compras: o terceiro uso da base, o Termo de Julgamento do\n  portal do orgao como fonte do que foi OFERTADO, e as correcoes de endpoint.\n- livro-razao: tres correcoes. Entreguei lista sem o criterio que define o objeto\n  (o chefe cortou). Afirmei negativa federal com varredura incompleta. A varredura\n  perdeu paginas por HTTP 429 e reportou zero.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a2b5bac",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a2b5bac3ab03c45a35676d030cdb0ed484824e20",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-08-12T20:01:20.000Z",
