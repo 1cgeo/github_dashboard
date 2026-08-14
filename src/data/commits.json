@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-13T20:49:34.061Z",
+  "lastUpdate": "2026-08-14T11:01:32.910Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-13T11:27:03.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-08-13T19:18:57.000Z",
+    "1cgeo/doc_dgeo": "2026-08-13T20:49:21.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-13T20:23:26.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-14T00:22:49.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-13T18:43:48.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-13T20:58:08.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-11T10:32:42.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-14T10:49:55.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5838,
+    "totalCommits": 5878,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,11 +122,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 884,
+      "1cgeo/ebgeo_web": 913,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 524,
+      "1cgeo/doc_dgeo": 525,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -151,7 +151,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 343,
+      "dsgoficial/pytorch_segmentation_models_trainer": 351,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -163,13 +163,373 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 565,
+      "1cgeo/chefe_dgeo": 567,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 6,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T10:49:55.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(lint): as convencoes da casa deixam de ser prosa e viram regra\n\nO frontend nao tinha UMA regra de projeto no ESLint: era js.configs.recommended\nmais estilo, e nada mais. Todas as convencoes da constituicao (comentario de\ncaminho na linha 1, EventTypes no lugar de string literal, deepClone no lugar do\nidioma do JSON, sem CSS dentro do JS, nunca innerHTML com dado de usuario) eram\ncobradas por LEITURA. A auditoria desta madrugada achou defeito real em cada uma\ndessas categorias, inclusive um XSS armazenado que viajava entre usuarios pelo\nsync. O backend ja tinha provado o caminho contrario, com regras proprias mais\nprobe; agora o pacote web tem o mesmo.\n\nCINCO REGRAS, e cada uma foi MEDIDA contra os 601 arquivos antes de ser escrita,\nporque com --max-warnings 0 uma regra que acusa centenas e uma regra que alguem\ndesliga. Quatro nasceram com zero violacoes; as outras duas acusaram 15, todas\nreais, e as 15 foram corrigidas para tudo poder entrar como `error`.\n\nO QUE CADA UMA DELIBERADAMENTE NAO PEGA esta escrito no topo do proprio arquivo,\ne isso vale mais que o que ela pega:\n- no-event-string-literal nao acusa map.on('click') do MapLibre nem\n  addEventListener do DOM. E a diferenca entre 0 e 93 acusacoes.\n- no-inline-style-assignment deixa passar el.style.prop = valor (617\n  ocorrencias, quase todas valor computado, que a constituicao PERMITE) e pega\n  so o bloco de CSS literal, que e \"escrevi CSS dentro do JS\".\n- require-path-comment fica fora de tests/, onde 118 arquivos usam outra\n  convencao de caminho e nao ha acordo sobre qual e a certa.\n\nO PROBE roda ANTES do eslint em `npm run lint:js`, porque regra de lint tambem e\nverificador e verificador quebra calado. Ele exige que todo marcador EXPECT seja\npego, que o lado should-pass fique em silencio, e que TODA regra registrada\ntenha fixture: regra sem fixture e acusada como nao provada. O\nrequire-path-comment precisou de uma arvore de fixtures propria, porque o sujeito\ndela e a primeira linha MAIS o lugar do arquivo em disco, e um probe que so\nlesse os dois arquivos planos passaria verde sem verificar nada dela.\n\nA prova mais bonita veio do agente do require-path-comment: em vez de aceitar\n\"zero violacoes hoje\", ele extraiu a arvore no commit ANTERIOR a correcao da\npasta calibration e mostrou que a regra acusa exatamente aqueles 11 arquivos,\nnem um a mais. E o autofix dela produziu bytes IDENTICOS a correcao feita a mao.\n\nAS 15 CORRECOES. Tres eram innerHTML com display_name do acervo, cru; agora\npassam por escapeHtml. Doze eram blocos de cssText, que viraram classes BEM. Dois\nachados apareceram no caminho: o overlay do 360 JA tinha regra CSS equivalente\nque o inline vencia por especificidade, entao aquele CSS era codigo morto e as\nduas copias podiam divergir sem ninguem ver; e o hover dos botoes do painel de\ncalibracao era feito com oito listeners que o dispose nunca removia, e virou\n:hover no CSS.\n\nCITACAO POR LINHA. 424 citacoes perderam o sufixo :linha na wiki. O motivo esta\nno wiki-schema: o caminho tem guarda e o NOME DO SIMBOLO tambem, mas o numero de\nlinha nao tem e nao da para ter, porque qualquer edicao acima desloca tudo. A\nrevisao mediu 72% de ponteiros errados num dos lotes, com a suite verde o tempo\ntodo. A regra entrou no lint da wiki como ERRO, e nao como aviso: a wiki esta em\nzero agora, entao o piso e de graca hoje e so morde na reintroducao.\n\nPortao: lint dos dois pacotes, 3276 testes de frontend, 170 e2e, build verde,\nwiki com zero avisos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "fdf64e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fdf64e283cd2b0fcfe53737565d5da80b719914f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T10:14:46.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: 61 afirmacoes que o codigo desmentia, e 606 linhas a menos\n\nRevisao completa da wiki (68 paginas), da documentacao raiz e do .claude, contra\no codigo de hoje e contra a pratica corrente de 2026. Sete agentes, faixas\ndeclaradas para eu conferir cobertura sem buraco.\n\nO ACHADO QUE VALE MAIS QUE A PODA: 61 afirmacoes estavam ERRADAS, e a classe\ndominante nao e prosa a mais, e PONTEIRO DE LINHA. Num dos lotes, 72% das\ncitacoes no formato arquivo.js:linha apontavam para codigo que nao esta mais\nnaquela linha. O guarda docs-integridade valida o CAMINHO, o wikilink e a\nexistencia do SIMBOLO, e nunca o numero da linha, entao essa podridao cresceu\ncom a suite verde. Documentacao desatualizada engana em dobro um agente, que a\ntrata como verdade, e um ponteiro errado engana com precisao de endereco.\n\nAmostra do que estava escrito e era falso: que `_connectReject` nunca era\nchamado (foi corrigido nesta madrugada); que o cliente descarta o campo\n`details` do 422 (passou a usar); que um lote reprovado bloqueia a fila\nindefinidamente (existe modo de isolamento); que `CONVERGENCE_GUARDED` cobre\nnove tipos e deixa briefing de fora de proposito (o codigo desmente as duas\nmetades); que a projecao do 360 usa solo plano e altura de camera (ela usa so\nazimute e posicao na fila, e `override_height` nao tem um leitor sequer no\nfrontend); e que existem tres paginas HTML quando ha quatro.\n\nA PODA, 6343 para 5737 linhas. O grosso do que saiu nao era recontagem de\ncodigo: eram 18 blocos \"Nota historica\" contrastando o codigo com guias de\nintegracao apagados em 2026-07-18, e 12 secoes \"Fontes\" que eram inventario de\narquivo. Um contraste com documento que ninguem pode abrir perde a metade\nverificavel; o que sobra e afirmacao sobre o codigo, e ela pertence ao corpo.\nbackend/README.md caiu de 611 para 279 linhas por ter virado manual de\nreferencia, que e trabalho da wiki.\n\nNENHUMA PAGINA FOI REMOVIDA. Os quatro agentes procuraram candidatas a poda\ninteira e nao acharam: as 66 passam no criterio de justificar decisao em vez de\nrecontar codigo. A wiki estava melhor do que eu supunha, e o problema dela era\nverdade, nao volume.\n\nOs dois marcadores [!CONTRADICAO ... RESOLVIDO ...] viraram prosa afirmativa. O\nwiki-schema manda apagar o marcador ao resolver, entao \"resolvido\" nunca foi\nformato valido, e o em-dash que o lint acusava era so o sintoma.\n\nEstado final: 66 paginas, 1444 wikilinks, densidade 21,9, zero orfas, zero links\nquebrados, zero duplicatas, zero avisos. O unico erro e a contradicao do P11,\naberta de proposito.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "8254363",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8254363bf035848264eb574522a6cccad04572e1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T09:45:39.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): o teste do source invalido exigia o defeito que ja foi corrigido\n\nO spec browser-military-tools.spec.js:202 estava vermelho e a falha era REAL,\nmas nao no codigo: era a expectativa que descrevia o comportamento de antes de\n2026-07-25.\n\nO DIAGNOSTICO foi por execucao contra Postgres real, e derrubou as tres\nhipoteses que eu tinha levantado. Nao e que a op seja descartada antes do\nINSERT, nao e que persista com outro tipo, e nao e que o erro seja engolido\nreportando sucesso. O que acontece: o INSERT estoura 23514 no CHECK\nvalid_feature_type, o SAVEPOINT por operacao reverte efeito e log juntos, e o\nlote responde 200 com um ack POR OPERACAO dizendo success:false, rejected:true e\no motivo.\n\nIsso e deliberado, e o comportamento antigo (400 no lote inteiro, que e o que o\nteste exigia) era o defeito: o cliente nao faz dequeue de resposta nao-2xx,\nentao uma unica op envenenada era reenviada a cada 1,5 s para sempre e parava o\nsync daquele usuario em silencio. Ja estava pinado em\nsync-check-constraint-poison.test.js.\n\nPor isso NAO foi adicionada validacao Joi de feature_type na borda: uma lista de\nvinte tipos em JavaScript rejeitando o lote com 422 reintroduziria a regressao\n(uma op ruim derrubando as boas, fila travada) e criaria uma QUINTA lista de\ntipos para divergir das outras quatro.\n\nO teste passou a afirmar a garantia que existe, e ela e mais forte que a\nanterior: o push resolve, o ack NOMEIA a op como recusada, e nada vaza no\nsnapshot. Um throw seria satisfeito tambem por 500, timeout ou queda de rede.\n\nE AS DUAS LISTAS DE TIPO GANHARAM AMARRA. O CHECK decide o que pode ser gravado;\no mapa typeToCollection decide o que aparece no snapshot que todo cliente le.\nEram independentes. Um tipo no CHECK e ausente do mapa produz a pior combinacao\npossivel: a feicao e gravada e fica INVISIVEL para todos, sem erro em lugar\nnenhum, com o autor vendo o que desenhou e mais ninguem. O teste novo le as duas\nfontes reais em vez de manter uma terceira copia, tem ancora anti-vacuidade (se\na extracao deixar de casar, ele reprova em vez de comparar vazio com vazio) e\ncontrole negativo executado: removido um tipo do mapa, dois casos reprovam.\n\nJunto vai o comentario que registra a decisao do dono sobre os 40 pontos de\ncoordenacao que dividem o mesmo SVG: e deliberado, sera autorado aos poucos, e\nas duas correcoes erradas estao nomeadas para a proxima auditoria nao tentar.\n\nOs 130 MB de modelos 3D sairam do build (dist de 323,7 para 193,3 MiB, -40,3%),\nmovidos e nao apagados, como as fotos 360. Nada versionado foi tocado: so os\ndois .gitkeep ficaram, e o git status do frontend seguiu vazio apos o move.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "ec6d401",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ec6d401d586b12cf61c82669733127276ed32263",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T09:36:44.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a raiz volta a ter dois arquivos, e a wiki absorve o que valia\n\nOnze documentos saem da raiz. Cinco eram artefatos da auditoria do backend,\nencerrada em 2026-07-25; cinco eram os relatorios da auditoria do frontend desta\nmadrugada; e dois (MEMORY e livro-razao) foram para docs/, a pedido do dono.\nSobram CLAUDE.md e README.md, que e o que a raiz deve ter.\n\nO CRITERIO da poda nao foi tamanho, foi durabilidade. A narrativa de uma\nauditoria, a contagem por lente, o inventario arquivo a arquivo e a lista de\ncommits sao HISTORIA, e historia mora no git. Um relatorio de 200 linhas que\nninguem vai reler e pior que ausente, porque tem cara de documentacao viva. O que\nsobrevive e o porque, a armadilha e a decisao, e isso foi para onde pertence.\n\nO QUE FOI ABSORVIDO, com o destino escolhido pelo leitor que precisa da\ninformacao, e nao pelo assunto:\n\n- Os 40 pontos de coordenacao que dividem o mesmo SVG viraram COMENTARIO no\n  proprio catalogo, porque quem precisa saber e quem abre aquele arquivo e ve a\n  repeticao. O comentario diz que e deliberado e nomeia as duas correcoes erradas\n  que a proxima auditoria tentaria: esconder as entradas do combo, ou apagar as\n  tabelas para \"remover duplicacao\".\n- Peso do pacote virou pagina nova (docs/wiki/peso-do-pacote-web.md), com o\n  numero medido e a alavanca. E ela corrige a premissa que eu mesmo transmitira:\n  o proj4 nao tem UMA entrada eager, tem DUAS independentes, porque o\n  coordinate_converter tambem e alcancado pela barra de busca. Fechar so uma nao\n  tira um byte, e essa conta ja foi refeita duas vezes.\n- Blob de imagem orfao, o limitador de refresh por IP atras de NAT e o P11\n  quebrado foram para as paginas de tema, o ultimo como marcador de contradicao,\n  que e o mecanismo que o proprio wiki-schema define para divergencia real\n  pendente.\n- Tres paginas afirmavam que \"o cliente transforma qualquer erro de refresh em\n  logout definitivo\". O codigo de hoje contradiz isso desde a correcao da cadeia\n  de perda de dado, entao as tres foram corrigidas no mesmo movimento.\n\nO LINTER DA WIKI ESTAVA COM O PREFIXO PRE-MONOREPO. Ele exige que a pagina cite\nao menos um arquivo de codigo, porque citacao sem caminho verificavel passa verde\nno docs-integridade sem checar nada. So que a regex aceitava `src|backend|tests`\ne o pacote web mora em `frontend/` desde 2026-07-18: as 44 paginas que citam o\ncaminho CERTO nao casavam, e ele acusava 17 delas, inclusive a pagina nova. Um\ndetector de cobertura vazia que erra por lista fechada produz exatamente o que\nexiste para achar. Corrigido pela mesma regra que o docs-integridade ja adotara\n(colete qualquer token com cara de caminho e deixe a existencia ser a asercao):\nos avisos caem de 17 para 5, e os 5 sao reais. Controle negativo em nove casos:\nbasename solto, extensao desconhecida e prosa sem crase continuam recusados.\n\nAuditoria da wiki depois da poda: 66 paginas, 1447 wikilinks, densidade 21,9 por\npagina, zero orfas, zero links quebrados, zero duplicatas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "55e98fb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/55e98fbd975f84abfaa6f997abcb4bddde8b1887",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T09:19:51.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: pendencias decididas pelo dono, e a memoria vai para docs/\n\nOito frentes, cada uma com controle negativo executado.\n\nMOVER FEICAO NO CELULAR passou a existir. Antes o app dizia \"Posicao\natualizada\" e nao movia nada: nenhum ponto do fluxo lia map.getCenter() nem\nchamava a store. Agora o usuario arrasta o mapa sob a feicao, um fantasma mostra\nonde ela vai cair, e ao confirmar a geometria e transladada pelo delta dos\ncentros. A translacao virou modulo puro testado em node, porque ela precisa\ndescer recursivamente por Point, Polygon com furos, MultiPolygon e\nGeometryCollection, e ainda mover o `center` e a `trajetoria` que vivem em\npropriedades. O anti-meridiano desloca a forma por UM multiplo de 360 escolhido\npela primeira posicao: envolver vertice a vertice rasgaria em duas metades um\npoligono que cruza o +180. O toast so aparece depois de RELER a feicao da store\ne conferir a posicao, porque updateFeature devolve undefined tambem quando\nrecusa. Sete controles negativos, um deles reproduzindo o defeito original: os\ntestes o teriam pegado.\n\nMILSYMBOL SAI DO BOOT. 835 kB, 14,6% do JavaScript inicial da pagina do mapa,\nagora carregados na primeira geracao de simbolo. Medido com Proxy sobre\nwindow.ms em navegador real: nada o le durante o boot, nem em F5 com simbolo na\ntela. O await mora no topo de generateSymbol, que e o unico ponto por onde TODOS\nos chamadores passam, inclusive o que nao e gesto do usuario (layer_setup\nregenera o PNG quando chega snapshot remoto). O carregador memoiza a PROMESSA, e\nnao a presenca do script no DOM como o vizinho de map_3d.js:48 faz: aquele\nresolve no appendChild, antes de o arquivo executar, e duas chamadas\nconcorrentes usariam `ms` indefinido. O teste de concorrencia reprova exatamente\naquele padrao. Conferido tambem por captura no navegador: zero pedidos do bundle\nno boot, e os tres simbolos (amigo, hostil, neutro) desenham certos depois.\n\nTABELAS DE SIMBOLO MILITAR partidas: o gerador nunca dependeu delas, so o\nseletor, e agora ha teste que fica vermelho se alguem reintroduzir o import\nestatico. O ganho real medido no chunk e 88,25 kB minificados, e nao os 215,5 kB\nque a auditoria estimou lendo o fonte.\n\nEXPORTS MORTOS: 143 para 49, com 7 arquivos inteiros removidos. Os 49 que ficam\ntem motivo declarado, e 28 deles sao FALSO POSITIVO do knip, provados vivos: o\n3D e o 360 chamam essas funcoes por objeto de modulo, e remove-las quebraria em\nruntime sem nada ficar vermelho. A prova de nao uso foi um varredor textual\nsobre os dois pacotes, docs e .claude, porque o knip nao enxerga nem os specs que\nimportam por URL dentro de page.evaluate nem os testes (tests/ esta fora do\nproject dele).\n\nUNDO/REDO DUPLICADO resolvido: das duas duplas homonimas, a de map.operations.js\nera codigo morto e saiu; ficou a de store.js, que ja tinha a guarda de mapa\nbloqueado, agora com teste que impede o nome de voltar.\n\nMEMORIA PARA docs/. livro-razao.md e MEMORY.md saem da raiz. Nao e renomear dois\narquivos: o guarda de integridade os montava com filtro por existsSync, entao um\ncaminho velho na lista nao daria erro, sumiria da vigilancia EM SILENCIO. Medido\nno movimento: os dois sairam da lista e o teto de tamanho do MEMORY.md passou\nverde sem abrir arquivo nenhum. Agora ha um teste que assere a lista de alvos em\nvez de filtra-la, e o guarda foi provado por isca no lugar novo.\n\nPODA. Cinco artefatos da auditoria do backend (9.836 linhas) foram conferidos\nitem a item contra o codigo de hoje e apagados: testes-backend.md,\nbugs-backend.md, documentacao-backend.md, auditoria-continuacao.md e\nauditoria-plano-execucao.md. Nao havia conhecimento durvel preso neles, e o\nunico item deixado aberto de proposito foi para docs/wiki/config-dinamico.md com\no gatilho de quando reabrir.\n\nPortao: lint dos dois pacotes, 3276 testes de frontend, 170 e2e, backend verde.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "2fdca03",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2fdca03c823798934c01074aeb04727bc6e7cd21",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T04:25:30.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: relatorios da auditoria do frontend\n\nCinco documentos, e o inventario e derivado de git ls-files, nao enumerado.\n\nCOBERTURA.md — 1020 arquivos, zero pendentes, com a tabela de exclusoes dizendo\no que saiu e por que. A primeira versao enumerou os diretorios a mao, omitiu\ntests/e2e/ (55 arquivos, o guarda da fronteira entre os pacotes) e tests/store/\n(19), e mesmo assim AFIRMAVA completude em tres relatorios. Inventario enumerado\nerra por ausencia silenciosa; derivado, erra por exclusao explicita, que aparece\nna tabela e da para contestar. Os 77 arquivos foram lidos e os numeros refeitos.\n\nRELATORIO-AUDITORIA.md — 799 achados em 419 dos 1020 arquivos, por nove lentes,\ncom as metricas antes e depois. Traz os tres achados que valem mais que a soma\ndos outros, e nenhum deles e um bug comum: os guardas apontavam para o lado\nerrado (o knip chamava 16 arquivos vivos de mortos), o escapador de HTML nao\nescapava aspas enquanto o JSDoc dizia que escapava, e um soluco de rede apagava\no trabalho local por uma cadeia de tres defeitos que so a lente de contrato viu\njuntos.\n\nRELATORIO-TESTES.md — os 87 achados da lente 9, com destaque para o que a suite\nprovava e o que nao provava. Nenhum teste foi removido. O caso reescrito por\ninversao esta documentado com o motivo, e ha uma secao dizendo que um dos testes\nnovos NAO discrimina a linha que corrige, medido por mutacao: honestidade sobre\no alcance vale mais que aparencia de rigor.\n\nPENDENCIAS.md — o que exige decisao de produto, com as opcoes explicitadas, e\nnao o que faltou tempo. PENDENCIAS-BACKEND.md — o que depende do servidor,\nincluindo a causa da cadeia de perda de dado (o limitador de refresh chaveado por\nIP numa rede atras de NAT), cujos efeitos ja foram cortados no cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "aa90278",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa902786ae54935aa33dae883c9a4b78f0573cc1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T04:25:07.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(testes): a doc da suite dizia que npm test roda tudo, e nao roda\n\nFechamento da auditoria, e o achado de causa raiz explica os outros tres.\n\nO GUARDA PARAVA NA BORDA. O projeto verifica documentacao por TESTE, nao por\ndisciplina: docs-integridade.test.js exige que todo caminho e todo simbolo\ncitados existam. A lista cobria CLAUDE.md, README.md, MEMORY.md, o livro-razao,\nos dois do backend e as pastas docs/ e .claude/. NAO cobria frontend/tests/, e\nforam exatamente os dois documentos que descrevem a SUITE que apodreceram sem\nnada ficar vermelho. Os dois entraram na lista, e o guarda acusou 19 caminhos\nquebrados e 20 simbolos pendurados na primeira execucao.\n\nO comentario do proprio teste ja dizia, sobre .claude/agents e um episodio\nidentico de 2026-07-18: cobertura que para na borda de um diretorio e cobertura\nque nao cobre. Parou de novo, um diretorio adiante.\n\nO QUE A DOC MENTIA. TESTING.md afirmava que `npm test` \"roda toda a suite\",\nquando vitest.config.js exclui tests/e2e/ e tests/e2e-ui/. Um agente que segue o\nguia roda npm test, ve verde, e nunca executa a camada que sobe o backend real,\nque a constituicao chama de guarda da fronteira entre os pacotes. E o mesmo\ndefeito que esta auditoria caca, descrever um subconjunto e chama-lo de\nconjunto, dentro do documento que ensina a testar. Virou uma tabela de tres\ncamadas, com comando e pre-requisito de cada uma. Nota que vale: o `npm test` da\nRAIZ nao tem esse defeito, ele encadeia os tres, e agora isso esta escrito.\n\nO roadmap mandava escrever quatro suites que JA EXISTEM, e o backlog declarava o\nLote 1 concluido vinte linhas acima de um \"Top 10\" que mandava comecar pelas\nmesmas nove suites. Cada remocao foi conferida pelos describes do arquivo de\nteste, nao pelo nome.\n\nUMA CLASSE QUE O BRIEFING NAO PREVIA: dos 20 simbolos pendurados, 15 nao eram\nnomes errados, eram nomes INVENTADOS pelo backlog ao propor extracao futura.\nEntre crases, ficam indistinguiveis de codigo existente, e quem le \"extrair\n`classifyRay`\" gasta uma rodada de busca para descobrir que nao ha o que\nextrair. A correcao e tipografica e semantica: crase promete codigo, prosa\npromete proposta, e o cabecalho do arquivo agora declara a regra.\n\nCOBERTURA VAZIA EM TRES SPECS DE CONTRATO. streetview360-annot afirmava filtrar\no proprio clientId sem nunca publicar op com aquele clientId (o comentario\nadmitia: \"none was sent as such\"); passou a asserir a fidelidade do payload no\nfio, e o self-filter continua provado no vizinho que ja o prova de verdade.\nduplicate-map prometia 404 no titulo e aceitava qualquer erro. nomes-busca-anon\niterava sobre uma tabela vazia, padrao que o backend deste repositorio proibe\npor regra de lint propria.\n\nA EXTRACAO. A normalizacao de import saiu de export-import.service.js para\nimport-normalize.js, para que o repro do mapa-fantasma pudesse chamar o codigo\nde producao em vez de reimplementa-lo. Foi assim que a regressao viva apareceu.\n\nPortao: lint dos dois pacotes, 3200 testes de frontend, 170 e2e (um a mais),\nbackend com 98,02%, build verde.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "5313c58",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5313c58bc0a47bd2c54a4a29a642759943369d82",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T03:55:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(lint): rodar cobertura deixava o lint seguinte vermelho em arquivo gerado\n\nO ESLint 9 com flat config NAO le o .gitignore por conta propria — e por isso\nque dist/ e node_modules/ ja estavam repetidos na lista de ignores — e o script\nlint:js tambem nao recebe --ignore-path, ao contrario do lint:css. Faltavam\ncoverage/, test-results/, playwright-report/ e blob-report/.\n\nEfeito: depois de um `npm run test:coverage`, o `npm run lint` que a constituicao\nmanda rodar antes de todo commit reprovava no JS do relatorio HTML do reporter\n(prettify.js, sorter.js, block-navigation.js, cheios de `var`). Com\n--max-warnings 0 o operador nao tem como distinguir isso de um erro real do\ncodigo da casa, e o caminho mais curto vira ignorar o vermelho.\n\nVerificado com arquivo gerado de verdade, nao com hipotese: criado\ncoverage/lcov-report/prettify.js com um `var`, o lint sai limpo; removida a linha\ndo ignore, ele reprova com no-var no arquivo gerado.\n\nJunto vai a linha do livro-razao sobre a falha de cobertura desta auditoria: o\ninventario foi enumerado a mao e omitiu tests/e2e/ (55 arquivos) e tests/store/\n(19), enquanto o COBERTURA.md afirmava completude. Inventario enumerado erra por\nausencia silenciosa; derivado do versionamento, erra por exclusao explicita.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "d64e21e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d64e21e35ea4128858e4eeedf073409e350b162c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T03:45:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(syncledger): a sonda de render reportava inSource:false em toda chamada\n\nConsequencia do achado do elo 6, e ela nao vive so no teste: a sonda roda em dev\ne em test com ?trace=sync, e o ledger inteiro guardava o mesmo valor falso.\n\nprobeRenderSource lia src._data.features. No MapLibre 5 o setData guarda o que\nrecebeu EMBRULHADO, e o vendor deste repositorio traz, literalmente:\n\n    setData(e,t){this._data=\"string\"==typeof e?{url:e}:{geojson:e}\n\nentao _data.features e undefined em toda chamada e todo span saia com\ninSource:false.\n\nPOR QUE ISSO SOBREVIVEU. Quem esperava inSource===true nunca via a condicao\nsatisfeita, e quem esperava inSource===false (o caso do delete) via na PRIMEIRA\nleitura, olhasse o mapa o que olhasse. Um lado falhava alto e o outro passava\nvazio, e e sempre o lado vazio que mantem o defeito vivo, porque nao incomoda\nninguem.\n\nA correcao aceita as DUAS formas, o embrulho e a colecao crua, para sobreviver\nao wrapper mudar de novo. Fica sincrona de proposito: getData() e o acessor\npublico, mas e assincrono, e esta sonda e um tap best-effort que nao pode\nesperar dentro do caminho do evento.\n\nO teste separa o que a versao antiga confundia: \"a feicao nao esta na fonte\"\n(false com contagem real) de \"nao consegui ler a fonte\" (contagem nula), que e\nexatamente a distincao cuja ausencia fazia a espera do delete passar vazia.\nControle negativo: restaurada a leitura antiga, 3 dos 7 casos reprovam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "176db58",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/176db58a48176e7d9e378bf11d66dae0ae33307e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T03:42:19.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(testes): o elo 6 do full-chain nunca rodou, e a fila nao assertava nada\n\nA lente que auditou a propria suite achou o pior tipo de defeito: verde que nao\nverifica. Cada correcao aqui levou controle negativo EXECUTADO, e duas delas\ndescobriram defeito de producao vivo.\n\nO ELO 6 NUNCA EXECUTOU. O full-chain anuncia seis elos verificados por operacao;\neram cinco. O sexto (\"apareceu no browser do par\") e condicionado a uma flag que\nNAO TEM UM UNICO ESCRITOR em todo o repositorio, entao a checagem sempre era\npulada. Ligada a flag, descobriu-se a segunda camada: a sonda le `src._data`\nesperando `.features`, mas esta versao do MapLibre guarda `{ geojson: data }`,\nentao todo span sai com inSource:false. Esperar true nunca resolvia; esperar\nfalse, no delete, resolvia VACUAMENTE, olhasse o mapa o que olhasse. O assert\npassou a ler a fonte viva do par pela API publica getData(), e o portao\ncondicional saiu: um portao cujo unico efeito era pular a assercao e cobertura\nvazia, nao portao.\nControle negativo: desligada a ponte que repopula as sources do par, o elo 6\nacusa com a leitura real na mensagem. Antes da correcao, essa MESMA regressao\npassaria verde.\n\nUM TESTE SEM NENHUMA ASSERTIVA. 'compaction flag prevents re-entrancy' setava a\nflag, chamava _compact() e desfazia a flag. Passaria inclusive com _compact()\napagando a fila inteira.\n\nUM REPRO QUE NAO REPRO. O teste do mapa-fantasma reimplementava addMap e a\nnormalizacao dentro do proprio arquivo. Passou a chamar o codigo real e ficou\nVERMELHO na hora, revelando REGRESSAO VIVA: com sync desligado, addMap\nregistrava no resolver um UUID que nao e chave de nada, entao as escritas\nseguintes iam para a chave UUID e as leituras voltavam da chave nome, obsoleta.\nFeicao desenhada em mapa recem-criado simplesmente sumia. Reintroduzido em\nee8b87dd (2026-06-21) sobre a correcao de 8e2eed65 (2026-06-03), e nenhum teste\nficou vermelho nesses 18 dias, porque o repro era uma copia do codigo.\nCorrigido em map.operations.js: o mapeamento so e registrado quando o mapa e de\nfato UUID-keyed. O caso com sync LIGADO entrou junto, para a correcao nao trocar\num defeito por outro.\nRegistro de honestidade: esse caso novo NAO discrimina a linha corrigida (medido\npor mutacao: LocalRepository.saveMap tambem registra o mapeamento). Ele prende a\ngarantia de ponta, e o comentario diz isso em vez de fingir rigor.\n\nMOCK QUE ESCONDIA UM CAMINHO INTEIRO. O mock da fila em sync-engine.test.js nao\ntinha getAll(), entao todo teste de flush estourava um TypeError dentro da\nreconciliacao pos-flush, que o proprio codigo engolia num catch: o passo NUNCA\nrodava em teste.\n\nMais: o nivel 'manage' passou a ser exercido no e2e de browser (nao havia UM\nspec, e e justamente o nivel que lista fechada exclui em silencio); a\nconvergencia de tres clientes deixou de aceitar \"os clientes concordaram entre\nsi\" e passa a ler o Postgres; e um titulo que prometia \"two creates with the\nSAME id\" sobre um teste que envia create + update foi corrigido, porque nome de\nteste tambem e afirmacao.\n\nPortao: lint dos dois pacotes, 3193 testes de frontend, 169 e2e, backend com\n98,02% de cobertura, build verde.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "5c261a8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5c261a800eafa35c5295c4c76f47fac375b4d5ae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T02:23:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(app): renomear mentia sucesso, e o co-Gestor nao tinha cracha\n\nFechamento das pontas que a divisao em lotes deixou pela metade. A disjuncao de\narquivos evita que dois agentes escrevam por cima um do outro, mas parte uma\ncorrecao de familia ao meio, e a metade orfa e sempre a que resolve o defeito.\n\nRENOMEAR MAPA. renameMap nao devolvia boolean: recusava e o chamador nao tinha\ncomo saber. Pior, MapManager.renameMap seguia adiante e apontava o mapa CORRENTE\npara um nome que nao existe. Agora as duas recusas devolvem false, o ramo de\nmapa bloqueado emite STORE_OPERATION_BLOCKED em vez de um console.warn solitario,\ne a aba Mapas avisa e reverte o campo.\n\nFAMILIA SINGLE-SHOT. O ponto ja tinha o desarme antes do primeiro await; texto,\nsimbolo militar e medida de coordenacao NAO tinham, ao contrario do que o\nbriefing supunha. A janela e maior nas tres: a criacao do simbolo militar awaita\ngeracao de nome, geracao do PNG, gravacao da imagem e escrita no store, e um\nsegundo clique nesse intervalo criava uma segunda feicao. O teste novo torna a\ninterleaving perdedora DETERMINISTICA em vez de estatistica, e cobre o ponto\ncomo sentinela.\n\nCIRCULO. Ultimo membro da familia ainda sem lineStyle no hasFeatureChanged.\n\nCRACHA DE PERMISSAO. O CSS de manage e comment tinha entrado num lote anterior e\nnao casava com nada: o Atlas Drive so criava o elemento para owner, write e read,\nentao um atlas compartilhado como Gestor ou Comentarista aparecia SEM cracha. A\nescada dos cinco niveis virou modulo puro, sem nenhum import, porque\nprojetos.html nao carrega a store e um import errado a arrastaria de volta pelo\ncaminho transitivo. Nivel fora da escada agora degrada para o valor cru, em vez\nde sumir.\n\nESCOPO DE ORGANIZACAO NO 360. setSv360ProjectStatus e deleteSv360Project\ndescartavam o { orgId } que o admin JA enviava, porque JavaScript ignora\nargumento excedente em silencio. Um admin global com slug repetido em duas\norganizacoes nao conseguia concluir a acao.\n\nPAINEIS 3D. Com o evento de desselecao que outro lote acrescentou, o onClose()\ndo botao de excluir virou fechamento duplo. Removido nos dois, alinhando com o\npainel de medicao, que nunca teve a chamada extra.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "ead2dcc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ead2dcc04af2c3827b94cdbc1b9c016bb31af7e9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T02:22:41.000Z",
+      "author": "Maj Diniz",
+      "message": "perf: 240,7 kB fora do boot, e o playback deixa de clonar por frame\n\nTodos os numeros foram MEDIDOS, nao estimados: os bytes por atribuicao de\nsourcemap (decodificando as VLQ dos mappings, porque o nome do chunk e rotulo de\ngrupo e mente), e o hot path por microbenchmark reproduzindo o codigo real.\n\nPAYLOAD EAGER de index.html: -240,7 kB brutos, -95,7 kB gzip, -13,5%.\n- Chart.js deixou de ser construido no construtor do ui_manager e virou import\n  sob demanda no primeiro desenho de perfil: -201,8 kB, 84% do ganho. E um\n  grafico que a maioria das sessoes nunca abre.\n- A logo saiu de Base64 embutido no chunk core para carregamento por URL: -31,6 kB.\n- O prefetch de /street_view/build/three.min.js foi apagado: 673 kB que o\n  navegador baixava em toda abertura do mapa para um arquivo que NENHUM codigo\n  executa. O Three vem bundleado de src/vendor/three/three.module.js.\n- map_sig.js deixou de importar o barrel ./import_export inteiro.\nAs tres paginas sem mapa ficaram byte a byte iguais, o que era a condicao para\nqualquer uma dessas mudancas entrar.\n\nHOT PATH:\n- O playback temporal relia e reescrevia o source a cada frame, clonando a\n  colecao inteira. Com 5.000 feicoes, 15,2 ms por frame contra um orcamento de\n  16,7. Agora sao 8,1 ms, e o laco percorre so as feicoes COM trajetoria.\n- O layout de direcoes do 360 era recalculado a cada frame: 70 microssegundos e\n  150 objetos de lixo por frame com 50 alvos. Agora 0,01 microssegundo, com\n  invalidacao nos dois pontos que ja eram explicitos.\n\nCADA CACHE TEM O TESTE DA INVALIDACAO, e nao so o do acerto: cache com\ninvalidacao errada e pior que cache nenhum, porque produz tela desatualizada sem\nerro nenhum.\n\nUMA RECUSA COM PROVA EXECUTADA: memoizar normalizeTrajectory por identidade de\narray (WeakMap) foi proposto com ganho de 99% e RECUSADO, porque a premissa era\nfalsa. O editor de trajetoria muta o MESMO array no lugar, de proposito, para o\npainel nao perder a referencia (trajectory-edit-control.js:206-212). Um memo por\nidentidade devolveria o valor velho depois de cada edicao, e o sintoma seria\ntrajetoria que nao atualiza na tela, sem erro. O agente mediu antes de aceitar.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "66117d2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/66117d22f6ac7db7fb3f1485126e2ef4f8a7a08a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T02:22:22.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sessao): um soluco de rede apagava o trabalho local do usuario\n\nA cadeia mais cara da auditoria, e ela nao e um defeito: sao tres, e nenhum\ndeles, sozinho, parece grave. So a lente de contrato olhando o sistema inteiro\nos viu juntos.\n\n1. api-client.js refresh() chamava clearTokens() e notificava perda de sessao em\n   QUALQUER erro, inclusive 429, 5xx e falha de rede.\n2. account.control.js: isso vira handleSessionLost, que vira _handleLogout, que\n   chama clearAllDataStore().\n3. sync-flush.js seguia falhando em silencio, sem avisar ninguem, entao o usuario\n   continuava editando por minutos contra um servidor que nao recebia nada.\n\nO GATILHO NAO E HIPOTETICO. O refreshLimiter do backend e chaveado por IP, e o\ndeploy documentado e rede militar atras de NAT: todo mundo sai pelo mesmo\nendereco e o orcamento e consumido coletivamente. Um pico de uso legitimo de\ncolegas gera 429 para quem nao fez nada, e esse 429 apagava trabalho nao\nsincronizado. A causa no servidor esta registrada em PENDENCIAS-BACKEND.md;\naqui fica a corrente cortada em todos os elos.\n\nO que mudou:\n- So 401 e 403 sao terminais. A decisao virou funcao pura, com teste e controle\n  negativo, porque uma regra de classificacao de erro escondida num catch e\n  exatamente o tipo de coisa que ninguem revisa.\n- Logout involuntario com fila de operacoes pendente NAO apaga o dado: ele vira\n  projeto local, com aviso. Manter dado a mais e reversivel; apagar nao e.\n- O flush avisa uma unica vez ao terceiro ciclo consecutivo de falha, e distingue\n  403 (permissao perdida) de erro de rede, que sao mensagens diferentes.\n- Boot com backend lento nao desloga mais em definitivo: timeout e 5xx preservam\n  os tokens e seguem como anonimo NESTA carga.\n- Upload de imagem que falha com atlas conectado agora avisa, em vez de deixar a\n  foto visivel so para o autor e um buraco para todos os outros.\n- O campo details do 422 deixou de ser descartado: o backend ja nomeia o campo\n  invalido, e essa informacao nao chegava ao usuario.\n\nUMA RECUSA FUNDAMENTADA, que fica registrada: parar o flush no 403 e recuar com\nbackoff no 429 foi proposto e NAO foi aplicado. Parar exige um gatilho de\nretomada, e errar esse gatilho troca um problema visivel (envio falhando, com\naviso) por silencio irrecuperavel, em que o trabalho nunca mais sai da maquina\nnem depois de a permissao voltar.\n\n20 testes novos, com 4 falhas reais ao desfazer os fixes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "7f1d5c2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7f1d5c24ecf1c9a6271b87eab85b4e652c0414b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T01:59:29.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(app): importacao perdia todos os grupos, e promessas ficavam penduradas\n\nQuarto e ultimo lote de comportamento da auditoria do frontend.\n\nIMPORTACAO. processGroupsForAdditiveImport chamava .values() sobre o OBJETO\nPLANO devolvido por getMapGroups(). O TypeError era engolido pelo try/catch de\nimportGroupsAdditively e TODOS os grupos do arquivo importado sumiam, sem uma\nlinha de erro para o usuario.\n\nDESSELECAO EM GRUPO. _deselectGroup chamava control.onFeatureDeselected(null) e\n14 dos 18 controles liam feature.properties.id sem guarda, entao desselecionar um\ngrupo lancava TypeError no primeiro controle e abortava o resto da desselecao,\ndeixando feicoes visualmente selecionadas que ja nao estavam no conjunto ativo.\n\nPROMESSAS SEM SAIDA. _captureWithHiddenMap nao tinha failsafe de tempo: se load\nou idle nunca disparassem, a Promise jamais resolvia e a tela do mapa ficava\nescondida. No importador, o estouro do timeout de leitura prendia o overlay de\nprogresso para sempre, porque reader.abort() dispara onloadend e nao onerror.\n\nDESELECAO 3D. deleteMarker() e deleteViewshed() apagavam a entidade sem emitir\no evento de desselecao, deixando o painel lateral aberto sobre algo que nao\nexiste mais.\n\nRECALCULO FORA DA FILA. No visibility_tool, o recalculo disparado pelo slider era\nagendado por setTimeout puro, fora da fila que serializa os outros dois\ncaminhos, entao dois recalculos podiam correr juntos sobre o mesmo terreno.\n\nMais: a aba de camadas mostrava setor, pincel e LOS soltos porque a conversao de\nstorageType tirava o \"s\" final na mao em vez de usar getSourceTypeFromStorage; o\nStateManager perdia escrita de path diferente dentro da janela de 16 ms do\nthrottle do mouse; e o admin nao enviava o escopo de organizacao ao ativar,\ndesativar ou excluir projeto 360, o que tornava a acao impossivel de concluir.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "81b493c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/81b493cd7f8feecdfa70c54e959a61b6834c523e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T01:59:09.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(seguranca): HTML de outro usuario e planilha executavel\n\nTerceiro lote da auditoria do frontend.\n\nPDF DE BRIEFING. pdf-page-composer.js escrevia slide.content com innerHTML num\nelemento anexado ao document VIVO, sem passar por sanitizeQuillHtml, ao\ncontrario de todos os outros pontos que renderizam o mesmo conteudo (o editor e\na apresentacao ja sanitizam). O conteudo do slide chega por sync, escrito por\noutro usuario, e nao ha CSP na pagina do app, entao um img com onerror executava\nna origem, com os tokens de acesso ao alcance em localStorage. A configuracao\nusada e a MESMA da apresentacao, entao o PDF passa a mostrar o que a tela ja\nmostrava: e convergencia, nao perda de conteudo.\n\nCSV EXECUTAVEL. A exportacao da tabela de atributos so duplicava aspas, que e\nrequisito do formato e nao neutraliza formula. Um valor de feicao comecando com\n=, +, - ou @ e executado pelo Excel ao abrir. O escape virou funcao pura em\nutilities/csv-escape.js, com uma guarda que o achado original nao tinha: numero\nnegativo NAO e prefixado, senao toda coluna numerica viraria texto. O cabecalho\ntambem passou a ser escapado, porque nome de coluna de atributo tambem e\nautorado pelo usuario.\n\nSELETOR DE CAMADA BASE. base-layer.control.js montava os radios com innerHTML\ninterpolando nome e URL de imagem vindos do catalogo do servidor. Passou a\nconstruir o DOM com createElement, como o seletor irmao ja fazia. O autor do\npayload aqui e um admin global, entao e escalada e nao acesso lateral, mas admin\ntambem nao deve executar script na sessao alheia.\n\nMais o transition.service, cujo destroy() nao cancelava os timers pendentes e\ndeixava uma transicao continuar depois da apresentacao fechada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "712216c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/712216cf69552a89486f7d25c6fc90c5c83933b0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T01:58:50.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(ferramentas): mudanca de estilo nao persistia, e 61 de 77 pontos sumiam\n\nSegundo lote da auditoria do frontend, todo de comportamento.\n\nhasFeatureChanged, UMA CAUSA EM CINCO FERRAMENTAS. Elipse, retangulo e setor\nnao comparavam lineStyle; imagem e texto nao comparavam zoomCorrectionEnabled;\no simbolo militar nao comparava sidc, os amplificadores textuais, engagementBar,\nspecialModifier, isCommand nem as extensoes. Como saveFeatures so chama update\nquando essa funcao diz que algo mudou, trocar SO o estilo da linha de solida\npara tracejada, ou desligar so a correcao de zoom, era descartado em silencio: o\nusuario mexia, saia da feicao e a mudanca nao existia mais. Cada ferramenta\ntinha a propria lista fechada de propriedades, e a lista envelheceu junto com as\npropriedades que foram sendo acrescentadas.\n\nACENTO QUE APAGA CATALOGO. Em coordination_measure_tool, o array categoryOrder\nde getPointsGroupedOptions estava SEM acento enquanto as categorias reais de\nUI_DATA.pointsList tem acento. O casamento e por igualdade exata, entao 61 dos\n77 tipos de ponto de coordenacao caiam fora do combo e ficavam inalcancaveis\npela interface. Nenhum erro, nenhum log: a lista simplesmente vinha curta.\n\nSUBMISSAO EM VOO. A ferramenta de ponto nao tinha guarda de clique duplo: o\nisActive so vira false depois de quatro awaits (geracao de nome, imagem do\nmarcador, addFeature, getData), e nesse intervalo um segundo clique cria uma\nsegunda feicao.\n\nMais o pincel, que nao zerava o pendingZoomUpdate quando a source ainda nao\nexistia, e o retangulo, cujo slider de arredondamento regenerava a geometria\nignorando o bearing e desfazia a rotacao.\n\nTodos com teste unitario de funcao pura e controle negativo executado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "fcdd66c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fcdd66caaafa9551140e8faf5a1ec397984b84a8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T01:58:21.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): 3D, 360 e catalogo escreviam sem gate de permissao nenhum\n\nAuditoria do frontend, lote de comportamento. Os achados sao dos agentes de\nleitura, cada um passou por um refutador adversarial e a taxa de confirmacao\nfoi de 83%.\n\nPERMISSAO. Nenhuma operacao de escrita de cesium3d, streetview360 e catalogo\nconsultava checkPermission. As GuardAction CREATE_MARKER_3D, DELETE_MARKER_3D,\nCREATE_MARKER_360 e DELETE_MARKER_360 existiam no permission-guard e nunca eram\nlidas: um Comentarista conectado a um atlas remoto gravava e ENFILEIRAVA a op,\nque so morria do outro lado. Agora sao 15 entradas gateadas no 3D, 8 no 360 e 3\nno catalogo, todas por GuardAction e nunca por lista fechada de papel, que e\ncomo o co-Gestor ja foi silenciado duas vezes neste repositorio.\n\nMAPID. updateMarker360, removeMarker360, addMarker360Image e removeMarker360Image\npassavam o NOME do mapa onde o logger espera o UUID, e o dispatcher descarta em\nsilencio toda op cujo mapId nao e UUID. O trabalho sumia sem erro. O teste que\nexistia PRENDIA o defeito, afirmando o nome como esperado; ele foi corrigido\njunto, com o comentario que o justificava apagado.\n\nSLIDE. addSlide, updateSlide, removeSlide e reorderSlides logavam a op de sync\nmesmo quando updateBriefing recusava a escrita.\n\nWS. A Promise de wsClient.connect() nunca era rejeitada: _connectReject era\natribuido e jamais invocado, entao um socket que fecha antes do frame connected\ndeixava quem esperava pendurado para sempre.\n\nCada correcao levou teste com caso de borda e controle negativo executado, nao\nimaginado. Exemplo do que isso pega: no teste de gate, a asercao nao e so\n\"bloqueou\", e tambem que o dado semeado que a escrita PODERIA ter destruido\ncontinua la, e que nenhuma das quatro funcoes de log foi chamada.\n\nPortao verde: lint dos dois pacotes, 3070 testes de frontend, 169 e2e, build.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "bce9fd6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bce9fd6931faa31440aa9c29c175f23d04a5732c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T01:07:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(seguranca): o escapador nao escapava aspas, e o JSDoc dizia que escapava\n\nP0 da auditoria do frontend, achado em dois lotes de leitura de forma\nindependente.\n\n`escapeHtml` era `div.textContent = text; return div.innerHTML`. A serializacao\nde um NO DE TEXTO em HTML troca apenas `&`, `<`, `>` e o espaco duro: aspas so\nsao escapadas dentro de valor de atributo, e um no de texto nunca e um. O JSDoc\nafirmava, com estas palavras, que a funcao escapava `\"` e `'`.\n\nO resultado e a forma mais traicoeira de defeito de seguranca: seguro\nexatamente no caso que o exemplo do JSDoc mostrava (conteudo de elemento) e\ninseguro no caso que os chamadores mais usam. Sao 28 interpolacoes dentro de\natributo, em 9 arquivos:\n\n    title=\"${escapeHtml(nome)}\"\n\nUm nome de feicao como  a\" onmouseover=\"fetch('//x/'+localStorage.token)\nfechava o atributo e injetava um handler, SEM precisar de `<` nem `>`, que sao\nos unicos caracteres que a versao antiga de fato neutralizava. Nome de feicao\nviaja entre usuarios pelo sync, entao o payload era armazenado e disparava na\nsessao de outra pessoa, com o token de acesso ao alcance em localStorage.\n\nA correcao e na funcao, e nao nos 28 pontos: protege todos de uma vez e tambem\ntodo call site futuro. Escapar aspas e inofensivo em conteudo de texto\n(`&quot;` renderiza como aspa) e `element.dataset.x` devolve o valor DECODADO,\nentao ler um data-* de volta nao muda.\n\nEfeito colateral bem-vindo: sem `document`, a funcao virou pura e enfim\ntestavel no ambiente node da suite, que nao tem jsdom. Ela nao tinha teste\nnenhum ate agora.\n\nControle negativo: restaurada a versao antiga, 3 dos 8 casos reprovam.\nVerificado com a suite inteira, porque 20 arquivos importam esta funcao:\nfrontend 2851, e2e 169.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "ee1d1c4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ee1d1c4106c564131e10d69448a7f0f59539e5b7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:55:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(knip): o guarda de codigo morto nao conhecia tres das quatro paginas\n\nLinha de base da auditoria, consertada antes de qualquer outra coisa, porque a\nlente de codigo morto ia trabalhar sobre dados falsos.\n\nO knip.json declarava uma entrada so, src/js/index.js. O plugin do Vite dentro\ndo knip acha index.html sozinho, por convencao de nome, e NAO acha\nprojetos.html, admin.html nem calibracao.html. Tudo que apenas essas tres\npaginas alcancam ficava sem consumidor conhecido.\n\nResultado: o knip reportava 18 arquivos sem uso, dos QUAIS 16 eram as tres\npaginas inteiras, entry point incluso. O erro grave nao e a contagem, e a\ndirecao: um guarda de codigo morto apontando para codigo vivo convida a apagar\nproduto, e este e o repositorio de uma auditoria que ia fazer exatamente isso.\n\nCom as tres entradas declaradas: 18 arquivos caem para 2, e 187 exports sem uso\ncaem para 143. O index.js sai da lista porque declara-lo faz o proprio knip\nreclamar de padrao redundante.\n\nO teste le as paginas do vite.config.js e o modulo de cada uma do proprio HTML,\nentao nao vira uma segunda lista que envelhece. Ele tem ancora anti-vacuidade\n(se a regex deixar de casar, a lista vazia REPROVA em vez de passar) e controle\nnegativo: removida a entrada do admin, ele acusa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "5ff7f20",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5ff7f209972730babf79639c45230648570488e1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:44:53.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: registra as duas licoes do ECONNRESET no livro-razao\n\nA primeira e a classe de sempre: falha probabilistica lida como flake de\nambiente quando era propriedade do payload. A segunda e sobre mim: reimplementei\numa alternativa que este mesmo arquivo ja registrava como recusada, porque so o\nli DEPOIS, para escrever a nota do conserto.\n\nO porque da recusa agora mora no comentario do `drain-on-error.js`, ao lado da\nlinha que a implementa, com teste que falha se ela sumir. Registro no livro nao\nalcanca quem chega pelo codigo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "9597696",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9597696b6cd040d2671b1049fee13477305e4b9b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:39:10.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(http): o drain exige principal verificado, e tem teto\n\nO commit anterior reintroduziu, sem saber, uma amplificacao que ja tinha sido\ndecidida contra. O livro-razao registra em 2026-07-25, ao consertar o 413 que o\n/images/bulk devolvia a token expirado: drenar o corpo devolveria o status \"ao\ncusto de deixar chamador anonimo empurrar os 50MB inteiros, que e a\namplificacao que aquele guarda existe para impedir\". A objecao esta certa, e um\n`drainOnError` global a ignora.\n\nO criterio de reconciliacao nao e novo, e o mesmo que o `app.js` ja usa para\nliberar o parser ampliado do bulk: PRINCIPAL VERIFICADO. `req.user`, que o\nflexibleAuth so preenche depois do jwt.verify, e nunca a mera presenca de um\ncabecalho Authorization, que qualquer um forja. Anonimo nao e lido, entao o\ncaminho do 401 se comporta exatamente como antes desta serie. Junto vai um teto\nde bytes, para que estar logado nao compre um sorvedouro sem fundo.\n\nO que sobra e o caso estreito que estava perdendo o 403: chamador autenticado,\ndentro do limite de tamanho que a rota ja aceita de um upload autorizado.\n\nAs duas guardas tem teste, senao seriam so comentario, e cada uma e presa por\num caso DIFERENTE: tornar o drain incondicional derruba so o caso anonimo;\nbaixar o teto para 1 byte derruba os casos de corpo grande.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "a5685fe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a5685fe01c64b235de8f876bde7593c66bb52fd4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:29:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(http): erro respondido antes de ler o corpo nao chegava ao cliente\n\nO gate de permissao de `POST /atlas/:atlasId/images` roda ANTES do multer, o\nque esta certo: recusar sem gravar byte nenhum e o ponto. So que a resposta\nsaia enquanto o cliente ainda enviava o arquivo, e o node derrubava o socket\ncom um corpo por ler. O cliente recebia ECONNRESET no lugar do 403.\n\nUm ECONNRESET nao diz se faltou permissao, se o servidor caiu ou se a rede\nquebrou. O status estava certo desde sempre; a ENTREGA e que nao acontecia.\n\nDIAGNOSTICO. O sintoma depende do TAMANHO do corpo: o que cabe no buffer do\nsocket ja chegou quando a resposta sai, e nada falha. Medido com o app real,\nantes: PNG de 70 bytes 0/20 resetaram, arquivo de 3 MB 20/20. Depois: 0/20 nos\ndois. Como a suite sobe 70 bytes, ela falhava umas 3 vezes em 8, o bastante\npara parecer flake de ambiente e ser dispensado como tal por meses.\n\nA CORRECAO e um middleware proprio, e nao uma linha no error handler, porque\n`req.resume()` la dentro nao resolve: a resposta ainda sai no mesmo tick e o\nsocket ainda fecha sob o upload. O corpo precisa ser consumido ANTES de o\nstatus ser escrito, entao `drainOnError` adia o `next(err)` ate o `end` do\nrequest, com teto de 5 s para que um cliente travado nao prenda a resposta.\n\nO teste de regressao usa o corpo grande de proposito: e a interleaving\nperdedora tornada deterministica. Estatistica de socket nao converge, e um\nverde unico era indistinguivel do corrigido. Sem o middleware, os tres casos de\ncorpo grande falham em TODA execucao; os dois controles (corpo pequeno e upload\nautorizado) seguem verdes, provando que a correcao nao trocou o defeito de lado.\n\nMedicao final do teste que era flake: 0/20, contra 3/8 e 5/8 antes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "3003cae",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3003cae8e1feaa6fb35adaf43221f3478393ef17",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T00:22:49.000Z",
+      "author": "Maj Borba",
+      "message": "docs: update release process — bump pyproject.toml version before tagging\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "4ef1e73",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/4ef1e7308eed8dd2e0a1df1f0e955314d18dda5f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T00:22:07.000Z",
+      "author": "Maj Borba",
+      "message": "chore: bump version to 1.4.0 in pyproject.toml\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "8f4c876",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8f4c876f934838e7a15bff7233c9c32e70f9af86",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T00:18:07.000Z",
+      "author": "Maj Borba",
+      "message": "fix: trigger PyPI publish on release published, not created\n\nDraft releases fire 'published' when approved; 'created' only fires\nwhen a non-draft release is created directly.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "4a807b8",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/4a807b826a167eacccd01ea3e197bcd0e6171151",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:16:05.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): a calibracao espelha o marcador, e a foto proxima fala\n\nTres mudancas na mesma pagina, que compartilham os mesmos arquivos.\n\n1. O ESPELHO. A pagina carrega uma copia da geometria do visualizador, e a\n   duplicacao e deliberada: ela nao pode arrastar a store nem o MapLibre. O\n   preco e que uma correcao de um lado nao chega ao outro, e nada fica vermelho\n   quando isso acontece. O commit anterior corrigiu a altura por degrau e o\n   rotulo do andar no visualizador; aqui a mesma matematica entra na copia.\n\n   O guarda contra a divergencia voltar e\n   `calibracao-espelha-marcador-andar.test.js`, que importa AS DUAS copias e\n   exige o mesmo numero das duas, com asercao absoluta junto da comparacao,\n   porque duas copias erradas do mesmo jeito passariam. Verificado por mutacao:\n   alterada UMA das copias, o teste acusa.\n\n   Cuidado registrado: o `rotuloDeAndar` do renderer NAO e o homonimo de\n   `project-map.js`, que serve ao seletor de andar e diverge no nivel 0. Dois\n   contratos, um nome.\n\n2. A FOTO PROXIMA FALA. Porte de 229fe9d do ebgeo_360. A bola verde passa a\n   dizer a distancia e, quando o nivel difere, de que andar e; a ALTURA em que\n   e desenhada diz quantos andares de degrau (`elevacaoDeVizinha`). A bola muda\n   deixava o operador ligar conexao no escuro, porque em planta a foto do andar\n   de cima aparece colada na do andar de baixo.\n\n   A regra virou funcao pura em `descricao.js` e os TRES consumidores foram\n   portados juntos (marcador, lista de alvos, rotulo do preview). Portar um so\n   recriaria a divergencia que o modulo existe para evitar.\n\n3. O ESCOPO DE ANDAR. `refreshTargetsAndNearby()` chamava `fetchNearbyPhotos`\n   sem opcoes, e sem o parametro `floor` o servidor filtra pelo andar da foto\n   de origem. O usuario escolhia \"todos os andares\", criava um marcador e a\n   lista voltava filtrada, com o combo ainda escrito \"todos os andares\": a tela\n   mentia sobre o proprio estado. As outras duas chamadas do arquivo ja\n   passavam o escopo.\n\nJunto vao os achados da revisao: a vista de tras desenhava o marcador sem o\nnumero do andar (passava `floorDelta` mas nao `floorLevel`/`floorLabel`, entao\no mesmo alvo tinha dois desenhos), `escapeHtml` em tres interpolacoes de\n`innerHTML` do painel, e a acentuacao de \"nivel\".\n\nVerificado por captura Playwright lida como imagem, alem dos testes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "32b504f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/32b504fcc3667d890eb662fd082aa3d374212220",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:15:42.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): o lado do horizonte vem do degrau de andar, e a seta diz o destino\n\nPorte de cbf63227 e 0b32d7fb do main, com o ebgeo_360 (19d9567, 050359f) como\nfonte da verdade onde os dois divergiam: e ele quem autora a calibracao que\neste visualizador consome.\n\nO marcador posicionava o icone so pela posicao na fila. Um alvo que descia dois\nandares, mas era o segundo na direcao, desenhava ACIMA da linha do horizonte, o\nque e falso. A altura agora vem do degrau (`elevacaoComAndar` +\n`ANDAR_MARGEM_RAIOS`), e `layoutDirections` passa o `floorDelta` adiante.\n\nA divergencia era medivel e grande: para um alvo em rank 0 que sobe um andar, o\nebgeo_360 desenhava a +4,20 graus e este branch a -2,20. Sao 6,40 graus, cerca\nde 58 px numa tela de 800 px com FOV 75. O operador calibrava vendo um arranjo\nque o visualizador nao reproduzia, e nenhum teste ficava vermelho.\n\nJunto vai o rotulo: a seta de troca de andar encolhe para dar lugar ao numero\ndo andar de DESTINO (`rotuloDeAndar`, `ANDAR_NUMERO_RAIO_MIN`). Abaixo do raio\nminimo o numero some e sobra a seta, porque texto ilegivel e ruido.\n\nOs dois testes vieram do main e os numeros esperados nao foram afrouxados.\nAmbos passaram no controle negativo: revertida a implementacao, falham.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "1f3b989",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1f3b989b388643806cc303ee8fba7fccfb710d45",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:15:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapa): o toggle de terreno some quando nao ha fonte, em vez de ficar morto\n\nPorte de f40f7224 do main. O branch renderizava o botao desabilitado, o que\nconvida ao clique e nao explica nada.\n\nO gate e um E de DUAS condicoes independentes, e a distincao importa:\n`features.terrain_3d !== false` e a restricao por atlas, e `map2d.terrainSource\n!= null` diz se existe terreno a exibir. Substituir a primeira pela segunda\nabriria a ferramenta em atlas que a proibem, que e o erro que este commit passa\nperto de cometer. Por isso a condicao virou funcao nomeada e testada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "635d4ea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/635d4ea54254b93c77c507cf02537ba1df960520",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:15:20.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(sv360): o comentario dizia que nada deriva faixa de coleta, e o ETL deriva\n\nSeis comentarios em cinco arquivos afirmavam que nenhum caminho derivava\n`capture_runs`. Deixou de ser verdade quando o ETL passou a deriva-las, e\nninguem voltou para corrigir a prosa.\n\nDocumentacao desatualizada engana em dobro um agente, que a le como verdade e\nplaneja em cima dela. Nenhuma linha executavel muda neste commit.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "fba0f2e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fba0f2e2357a8ae6110d2d25fcbbbf563008d8f4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:15:14.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sv360): o manifesto exige fuso no capture_date, em vez de adivinhar\n\nO schema de upload aceitava `photos[].capture_date` como ISO sem fuso, e o\ninstante gravado passava a depender do fuso do processo Node que roda o\nservidor. O mesmo manifesto importado em duas maquinas produzia dois instantes.\n\nO ebgeo_360 ja tinha decidido a regra em e2fb591 (`fix(captured_at): o time_img\nda fonte nao e epoch UTC, e o fuso nao e um so`). O ETL deste branch ja segue a\ndecisao; o buraco era so a porta do manifesto.\n\nRejeitar cedo, com mensagem que diz a acao, custa menos que adivinhar tarde:\numa data errada no acervo nao quebra teste nenhum e so aparece na tela.\n\nLatente hoje, porque nenhum produtor de manifesto existe ainda. Fechar antes do\nprimeiro bundle ser escrito e barato; depois, nao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "347f225",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/347f22578f7e5a01453cfea84dc7fe1629ac0511",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:15:04.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(deps): trava o quill em 2.0.2, porque a 2.0.3 tem XSS no export HTML\n\nO branch estava exatamente na versao vulneravel. O `main` desceu para a 2.0.2\nem 4a444f80 e prendeu no lockfile, com `^2.0.2` no manifesto.\n\nAqui a versao fica EXATA, sem circunflexo, divergindo de proposito do main: o\n`^2.0.2` aceita a 2.0.3, entao o unico freio la e o lock, e um `npm update` ou\numa resolucao de conflito de lock reabre o buraco em silencio. Com o range\nexato, subir de versao vira ato explicito de quem editar o manifesto.\n\nO `resolved` e o `integrity` foram copiados literalmente do package-lock.json\ndo origin/main, nenhum hash gerado aqui. Se um merge trouxer o `^2.0.2` de\nvolta, isso nao e um conserto.\n\nAtenuante que ja existia, e que nao dispensa a troca: toda saida do Quill passa\npor DOMPurify em `utilities/quill-helpers.js` antes de qualquer `innerHTML`.\n\nVerificado com `npm ls quill`, que sai `quill@2.0.2` depois do `npm ci`.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "068ecfd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/068ecfdd7979065ba101c4753c2f32b5410fc8d4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T00:14:55.000Z",
+      "author": "Maj Diniz",
+      "message": "chore(calibracao): comentario de caminho na linha 1, que faltava desde o porte\n\nA constituicao exige `// Path:` na primeira linha de todo arquivo JS. Os\narquivos da pagina de calibracao chegaram sem ele quando a app do ebgeo_360\nvirou a quarta pagina, e abrem direto no bloco `/**`.\n\nSao cinco arquivos que ganham SO essa linha. Os outros seis da mesma pasta\nrecebem a linha junto da mudanca que ja os toca, nos commits seguintes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "d9d0d49",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d9d0d49b2e70a71bfc1e0982ca95b2b1ccd2bdbf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T00:09:15.000Z",
+      "author": "Maj Borba",
+      "message": "docs: add release process guidelines to CLAUDE.md\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "5cd323b",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5cd323bdf18ab81bf71471b8c1aa2fec428a2479",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T00:07:29.000Z",
+      "author": "Maj Borba",
+      "message": "chore: bump CHANGELOG to v1.4.0 (2026-08-13)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "ea7e931",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/ea7e931e2052836d0d9ed25a1797367a716bf0bc",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T00:01:34.000Z",
+      "author": "Maj Borba",
+      "message": "feat: add SAM label correction, hybrid coreset selection, and WRS sqrt weights\n\nThree features from the article experiment pipeline integrated into the framework:\n\n**SAM Label Correction** (`tools/sam_correction/`):\n- `apply_sam_correction`: pure-function majority vote within SAM AMG segments across\n  the topographic vector source and optional LULC rasters. Non-target pixels unchanged.\n- `SAMSegmentCache`: NPZ-based cache keyed by tile/window coordinates.\n- `SamLabelCorrector`: orchestrates tile-level processing with tqdm progress, parallel\n  target output dirs, start_idx/end_idx for multi-GPU splits.\n- CLI: `build-sam-corrected-masks <yaml_path>`\n\n**Hybrid Coreset Selection** (`tools/coreset/vector_selector.py` + `hybrid_coreset_selector.py`):\n- `compute_intersection_areas`, `select_by_vector_intersection`: spatial intersection\n  with GeoPackage layers for rare-class coverage guarantee.\n- `fd_embedding_select`: K-Means round-robin FD diversity selection.\n- `lc_fd_select`: top-entropy LC phase + FD round-robin.\n- `entropy_sweep_select`: fill remaining budget by entropy rank.\n- `HybridVectorCoresetSelector`: orchestrates all three phases with selection_step tagging.\n- CLI: `select-hybrid-coreset <yaml_path>`\n\n**WRS sqrt Sampler Weights** (`tools/sampling/weight_calculator.py`):\n- `compute_class_weights_from_proportions`: supports sqrt_inverse_freq (article-validated)\n  and inverse_freq formulas.\n- CLI: `compute-sampler-weights <yaml_path>`\n\nAll new modules: 100% test coverage (95 new tests across 4 test files).\nExample configs added to conf/examples/. Docs added to website/docs/user-guide/.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "80cc5e9",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/80cc5e9a596689164f9563b8a06917c487bb06a2",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-13T21:06:51.000Z",
+      "author": "Maj Borba",
+      "message": "Merge branch 'fix/optuna-ci-deps' into main\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "8ba3593",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8ba35931cad7c04abf6f483d60b0616326571116",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-13T21:06:43.000Z",
+      "author": "Maj Borba",
+      "message": "fix: add optuna/plotly to pyproject.toml dependencies\n\nrequirements.txt had optuna/plotly added, but pyproject.toml\ndependencies (what 'uv sync --frozen' actually installs from in CI)\ndid not. tests/test_optuna_runner.py failed to collect in CI with\nModuleNotFoundError: No module named 'optuna'.\n\n- Add optuna>=3.0.0 and plotly>=5.0.0 to pyproject.toml dependencies\n- Regenerate uv.lock\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "1ab94e7",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/1ab94e71554b28a071c47c89a2f9c54613820e04",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T20:58:08.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings de atualizar-doc-publica: o repo anda entre o commit e o push\n\nA tabela do ano em relatorios.md e linha quente. O push da OS 09/2026 foi\nrecusado por dois commits alheios, e o rebase pede rebuild antes de empurrar.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5dadecb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5dadecb8166599b6f3a30d53dde337a70f83dcd2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-13T20:57:08.000Z",
+      "author": "Maj Diniz",
+      "message": "EXPOEx 2026: a exposicao troca o parque de Esteio pelo Cais Embarcadero\n\nA OS 09/2026, assinada em 13AGO26, quebra tres padroes da serie: sede\n(Porto Alegre no lugar do PEEAB), duracao (3 dias no lugar de 9) e evento\nguarda-chuva (Exposicao Tematica do \"Dia do Soldado\" da 3a RM). A atracao\nsai da orientacao em OCAD e vai para o Gaussian Splatting e a gincana.\nPublicada tambem no doc_dgeo (commit 03d3030).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "98b15b9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/98b15b9def948dd0756886e12b71ddb52cacd313",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-13T20:49:21.000Z",
+      "author": "Maj Diniz",
+      "message": "relatorios 2026: Ordem de Servico 09/2026 (EXPOEx 2026)\n\nAssinada em 13AGO26 pelo Chefe do 1o CGEO. Entra em\ndocs/relatorios/2026/os_09_expoex.pdf, mais a linha na tabela do ano.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "03d3030",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/03d30301e040465a1860553750fffe011dace1ed",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-08-13T20:23:26.000Z",
