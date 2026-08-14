@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-14T11:01:32.910Z",
+  "lastUpdate": "2026-08-14T15:57:14.302Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-13T11:27:03.000Z",
+    "1cgeo/ebgeo_web": "2026-08-14T13:12:39.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-14T00:22:49.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-14T14:28:53.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-08-13T20:58:08.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-14T10:49:55.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-14T12:34:42.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-07-19T10:08:41.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5878,
+    "totalCommits": 5910,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 913,
+      "1cgeo/ebgeo_web": 916,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -151,7 +151,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 351,
+      "dsgoficial/pytorch_segmentation_models_trainer": 380,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -170,6 +170,294 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T14:28:53.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #260 from dsgoficial/chore/pytorch-2.13-upgrade\n\nchore: upgrade to PyTorch 2.13, refresh dependencies",
+      "sha": "8deb870",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8deb8708d24d8f3aebfcaece9d09e417c07295f9",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T14:12:58.000Z",
+      "author": "Maj Borba",
+      "message": "Merge branch 'main' into chore/pytorch-2.13-upgrade",
+      "sha": "f991f94",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f991f9459e99b668569f5e72a1dd2f776aa70b4c",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T14:09:15.000Z",
+      "author": "Maj Borba",
+      "message": "Add CodeQL analysis workflow configuration\n\nThis workflow file sets up CodeQL analysis for the repository, specifying the languages to analyze and the conditions for running the analysis.",
+      "sha": "6849902",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/6849902d5669561997d012d04f864579dece8818",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T14:06:39.000Z",
+      "author": "Maj Borba",
+      "message": "chore: upgrade to PyTorch 2.13, refresh dependencies\n\n- torch 2.4.1+cu121 -> 2.13.0+cu130, torchvision 0.19.1 -> 0.28.0\n  (unpinned deps, default PyPI Linux build now bundles CUDA 13.0,\n  requires compute capability sm_75+).\n- Bump pytorch-toolbelt 0.4.3 -> >=0.8.0 (stale since 2022, was a\n  compatibility risk at this jump).\n- Full `uv lock --upgrade` across the dependency tree.\n- Fork the `gpu-ml` extra (RAPIDS: cuml/cucim/cupy) into its own\n  uv resolution branch via `[tool.uv.conflicts]`. Its transitive\n  `cuda-toolkit<13.dev0` pin was silently forcing torch back down\n  to 2.4.1 whenever the full project was resolved together.\n- Fix two real breakages surfaced by the upgrade:\n  - BboxTileMerger.__init__ assigned `self.device`, which broke\n    under pytorch-toolbelt>=0.8.0 (device became a read-only\n    property). Store to `self._device` instead.\n  - EvidentialUncertaintyVisualizationCallback used the removed\n    `matplotlib.cm.get_cmap`; switched to `matplotlib.colormaps[...]`.\n- Document CUDA 13.0/sm_75+ default and the V100 (Volta, sm_70)\n  cu126 override in README.md and the installation docs.\n\nFull test suite: 3707 passed, 2 skipped, 0 failed.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TE1Z6LABhqehimPUoQG9o3",
+      "sha": "73e5448",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/73e5448dd53311444f1da499ad7d503fdc53c805",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:52:13.000Z",
+      "author": "Maj Borba",
+      "message": "docs: fix Open Config Builder link and add Documentation link\n\nREADME's Config Builder link pointed at the docs site root\n(https://dsgoficial.github.io/pytorch_segmentation_models_trainer/)\ninstead of the /config-builder/ subpath where deploy.yml actually\npublishes it (web/dist -> website/build/config-builder/). Fixed, and\nadded a separate Documentation link pointing at the docs root.\n\nAlso fixed a stale reference to the now-nonexistent\ndeploy-config-builder.yml workflow file; it's deploy.yml.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "62fb983",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/62fb983822badb90aa6f0d144aefaddba1613753",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:45:56.000Z",
+      "author": "Maj Borba",
+      "message": "fix(web): resolve npm audit findings that don't require a major bump\n\nnpm audit fix (no --force) in website/ — fixes http-proxy-middleware\n(host-header routing bypass) and joi (uncaught RangeError on recursive\nlink() schemas), plus dedupes ~150 transitive packages to their latest\nsemver-compatible patch (e.g. @babel/core -> 7.29.7 across the tree).\n\npackage.json unchanged; verified with 'npm run build'.\n\nRemaining 25 findings (docusaurus core/plugins, image-size,\nserialize-javascript, uuid, sockjs, webpack-dev-server, copy/css-minimizer\nwebpack plugins) all require a Docusaurus major-version bump to clear —\nnpm's suggested 'fix' for @easyops-cn/docusaurus-search-local is actually\na downgrade to 0.29.0, which would regress search. Left alone pending a\ndedicated Docusaurus upgrade.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "36d8991",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/36d89918b55ff4830caf47c039185020ed5dc6e8",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:44:39.000Z",
+      "author": "Maj Borba",
+      "message": "fix(web): resolve remaining npm audit findings (0 vulnerabilities)\n\n- js-yaml ^5.2.1 -> ^5.3.0 (GHSA-pm4m-ph32-ghv5, DoS: exponential parsing\n  time in flow collections — the earlier bump landed exactly on the last\n  vulnerable version, 5.0.0-5.2.1)\n- nanoid 3.3.16 -> 3.3.18, transitive (GHSA-2v37-7h3g-55p8, DoS: custom\n  generators loop indefinitely when size is zero)\n- @babel/core 7.29.0 -> 7.29.7, transitive (GHSA-4x5r-pxfx-6jf8, arbitrary\n  file read via sourceMappingURL comment)\n\nVerified with npm ci / npm run lint / npm test / npm run build / npm audit.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "43e05a2",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/43e05a2ddfa0f9ebe367410c9b2e65f9093dc099",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:37:46.000Z",
+      "author": "Maj Borba",
+      "message": "chore(web): bump ws from 8.20.1 to 8.21.3 (transitive)\n\nConsolidates dependabot PR #257. Verified with npm ci / npm test / npm run build.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "d175e77",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d175e77172e2da2c766f8ff8e77de700c6ab2540",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:35:22.000Z",
+      "author": "Maj Borba",
+      "message": "fix(web): resolve pre-existing ESLint errors (9 -> 0)\n\n- vite.config.js / src/test/setup.js: no-undef on 'process'/'global'/'vi'.\n  Added a globals.node override for vite.config.js; setup.js now imports\n  { vi } from vitest explicitly and uses globalThis instead of the\n  Node-only 'global'.\n- TrainingPage.jsx: no-unused-vars on 'always_apply', destructured only to\n  exclude it from ...params. Enabled ignoreRestSiblings on no-unused-vars\n  instead of renaming it, since that's exactly what the option is for.\n- CallbacksSection/LossSection/OptimizerSection: react-refresh/only-export-\n  components — each file exported a component plus a *_DEFAULTS object\n  consumed by other pages. allowConstantExport doesn't cover object/array\n  literals, so split each DEFAULTS map into its own sibling file\n  (callbacksDefaults.js, lossDefaults.js, optimizerDefaults.js) and updated\n  the three importers accordingly.\n\nVerified with 'npm run lint' (0 errors), 'npm test' (56 passed), 'npm run build'.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "13f40de",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/13f40deb01c840044c005ad3e1028c7e237e1bed",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:32:00.000Z",
+      "author": "Maj Borba",
+      "message": "chore(web): bump eslint, vite, vitest and js-yaml (major) + transitive deps\n\nConsolidates dependabot PRs #240, #227, #248, #239. Merges postcss and\nbrace-expansion cleanly; the eslint/vite/vitest/js-yaml majors needed\nmanual resolution beyond dependabot's own lockfile since it doesn't\nsurvive a strict 'npm ci':\n\n- eslint 9 -> 10 requires eslint-plugin-react-hooks >= 7.1.1 (peer range\n  ^10.0.0); dependabot's PR left it at 7.0.1, which fails 'npm ci' with\n  a peer conflict (verified against the PR branch directly).\n- js-yaml 4 -> 5 dropped the default export; ImportModal.jsx and\n  YamlPreview.jsx used 'import yaml from js-yaml; yaml.dump/load(...)',\n  which breaks at runtime. Switched to named imports { dump } / { load }.\n\nVerified with 'npm ci', 'npm test' (56 passed), 'npm run test:coverage',\nand 'npm run build' (vite 8).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "7b5b12f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7b5b12fe5298d51f7b8f1fe38d08490a1bed0a67",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:28:38.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'origin/dependabot/npm_and_yarn/web/brace-expansion-1.1.16'",
+      "sha": "f24e51f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f24e51f263924716cbc50f7c9db053a16f17ede7",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:28:38.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'origin/dependabot/npm_and_yarn/web/postcss-8.5.25'",
+      "sha": "3d115a0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/3d115a0b7864f4bf190967d166bda5ad2c7ac4c3",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:26:28.000Z",
+      "author": "Maj Borba",
+      "message": "chore(website): bump transitive deps (postcss, brace-expansion, fast-uri, undici, svgo, body-parser, shell-quote, websocket-driver, @babel/core, ws, launch-editor, qs, express, webpack-dev-server)\n\nConsolidates dependabot PRs #253 #252 #251 #249 #245 #242 #241 #237 #233 #231 #230 #222 #219 into a single npm update pass, since their independently-generated lockfiles conflicted with each other on merge. Verified with 'npm run build'.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "184d165",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/184d165e63cd0efe9369243e914701cc6208f874",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:24:21.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'origin/dependabot/npm_and_yarn/website/js-yaml-3.15.1'",
+      "sha": "2c318b3",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2c318b32625bcefad984367ef89e649d15334a12",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:24:21.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'origin/dependabot/npm_and_yarn/website/nanoid-3.3.18'",
+      "sha": "887dca2",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/887dca2389c3847add9a414a5efa1763d250fa62",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:21:52.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "sha": "ac03894",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/ac03894d9ae1dfc348cac4603dbec6c52489fce7",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T13:21:18.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'refs/remotes/origin/main'\n\n# Conflicts:\n#\tpytorch_segmentation_models_trainer/tools/soft_labels/build_soft_labels.py\n#\ttests/test_build_soft_labels.py",
+      "sha": "e0fd48a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e0fd48a8054ec51274201952faf16efe1508bfa0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T13:12:39.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(primeira-pessoa): caminhar dentro do modelo gaussiano, com ficha e trena\n\nPorte do prototipo museu-gs para dentro do EBGeo: uma cena de Gaussian\nSplatting percorrivel a pe, com colisao por voxel de 5 cm, marcadores\ncurados e trena. Motor: @manycore/aholo-viewer (MIT).\n\nA cena entra pela secao firstPerson3d do config.js, que aponta para UMA\npasta e deriva os sete enderecos de dentro dela. Sao sete chances de\nerrar um, e o erro nao seria barulhento: sem o voxel-meta.json a cena\nabre bonita e sem colisao, e o visitante atravessa parede.\n\nAparece como Modelo 3D no catalogo e na busca, e ganha pino roxo\n(#7B52D3) na mesma camada dos tilesets verdes e das fotos 360 laranjas.\nO roxo fica SO no pino: dentro do viewer tudo e a paleta da casa.\n\nO que foi reusado em vez de reescrito, e o motivo:\n- a ficha do item e o painel de feicao da aplicacao, o mesmo que o 2D, o\n  Cesium e o 360 abrem, na mesma posicao. So o conteudo e novo;\n- o card da trena e o createDistanceResultsPanel da medicao 2D, com o\n  seletor de unidade redesenhando as pilulas na cena;\n- a foto abre no lightbox de feicoes (X estilizado, botao de baixar),\n  que virou export porque o repo ja carregava duas copias mais pobres;\n- o loading e o padrao do EBGeo: fundo verde, logo e barra.\n\nA trena usa a gramatica de cliques da medicao 2D: clique esquerdo crava\nvertices sem tecla nenhuma, clique direito crava o ultimo e fecha. O\nbotao direito gira a camera, MENOS enquanto a trena esta ligada.\n\nFora de escopo, deliberado: nada persiste dentro do viewer. Sem pointer\nlock (o cursor e necessario o tempo todo), sem tela cheia, sem LOD por\nblocos e sem anotacoes. PRIMEIRA-PESSOA-3D.md documenta o layout da\npasta, o pipeline dos assets e o que ficou para depois.\n\nVerificacao: eslint e stylelint limpos, 1869 testes (39 novos, do octree)\ne vite build sem ciclo. O chunk first-person-3d e referenciado 0 vezes\nestaticamente e 6 dinamicamente: o runtime de splatting fica fora do\ncarregamento inicial.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DXBp1HaQ7ydLs9JPVnJgH3",
+      "sha": "72d5143",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/72d514366b48f84d11933d501c9831622d073146",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:44:15.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #228 from dsgoficial/dependabot/uv/python-multipart-0.0.31\n\nBump python-multipart from 0.0.28 to 0.0.31",
+      "sha": "20c43ef",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/20c43ef7f47686eb807af401f352e33fcaee359b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:44:06.000Z",
+      "author": "Maj Borba",
+      "message": "Merge branch 'main' into dependabot/uv/python-multipart-0.0.31",
+      "sha": "52b41af",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/52b41af2bf0cbb021ce6beb4139b7a8a7b53ea47",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:41:49.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #232 from dsgoficial/dependabot/uv/bleach-6.4.0\n\nBump bleach from 6.3.0 to 6.4.0",
+      "sha": "f78d53c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f78d53c6aa9f6e4a640fbfeedcd81c8b01b05772",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:41:22.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #225 from dsgoficial/dependabot/uv/starlette-1.0.1\n\nBump starlette from 1.0.0 to 1.0.1",
+      "sha": "3336d4d",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/3336d4da4b916cee42a32eae1acbff3d0ad311a0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:40:54.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #235 from dsgoficial/dependabot/uv/pydantic-settings-2.14.2\n\nBump pydantic-settings from 2.14.0 to 2.14.2",
+      "sha": "8690ab4",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8690ab4bd65903e0b44a3591f209cdb31dde97e9",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:39:28.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #243 from dsgoficial/dependabot/uv/setuptools-83.0.0\n\nBump setuptools from 81.0.0 to 83.0.0",
+      "sha": "7e52ee3",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7e52ee313037c61f6972396a043e6eb0526e5c3e",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:38:38.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #244 from dsgoficial/dependabot/uv/pyasn1-0.6.4\n\nBump pyasn1 from 0.6.3 to 0.6.4",
+      "sha": "3a3c3c8",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/3a3c3c8737cf9e1cf0f1ee3cbd07efe2c0273773",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:35:33.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #247 from dsgoficial/dependabot/uv/httplib2-0.32.0\n\nBump httplib2 from 0.31.2 to 0.32.0",
+      "sha": "b3a6dfe",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b3a6dfe9d81cb075f468d8355b92649a53dd3790",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:35:13.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #238 from dsgoficial/dependabot/uv/pillow-12.3.0\n\nBump pillow from 12.2.0 to 12.3.0",
+      "sha": "7d5a3a9",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7d5a3a9b91b1593e8fd328175320afbbc1a289c3",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T12:34:42.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(catalogo): o catalogo nao promete tileset nenhum, tileset e configurado\n\nDecisao do dono. A migracao 003 semeava um tileset de demonstracao, `PCL`,\napontando para `/3d/PCL/tileset.json`. O asset NUNCA esteve no repositorio,\nporque `public/3d/` e ignorado pelo versionamento e so tinha dois `.gitkeep`:\ntoda instalacao limpa nasceu prometendo um modelo que o servidor nao serve.\n\nO sintoma era silencioso do jeito ruim. O item aparecia listado e clicavel no\nmapa 2D, e abrir o visualizador 3D dava 404, que o `openViewer` capturava e\ndevolvia para o 2D sem dizer nada. O mesmo registro ja apontava para um\n`thumbnail.jpg` que jamais existiu, o que mostra ha quanto tempo a promessa\nestava vencida.\n\nE ISTO E MIGRACAO, NAO SEED DE DESENVOLVIMENTO, e a distincao decide tudo:\n`seed.js` e opcional e de dev, migracao roda em TODO ambiente, inclusive\nproducao. Por isso a linha nao foi apagada da 003, que ja rodou em bancos\nexistentes: entra a migracao 015, aditiva no sentido que importa, porque desfaz\num dado e nao uma estrutura. Idempotente, entao banco novo nao reclama.\n\nSem efeito de integridade: nao existe chave estrangeira para `tilesets`. As\ntabelas de 3D guardam `tileset_id` como texto livre, entao marcador e medicao de\num tileset removido ficam no mesmo estado de quem nunca teve o seed.\n\nO TESTE MUDOU DE LADO, e nao foi apagado. Ele afirmava que o catalogo TRAZIA o\nPCL semeado, com a url; agora afirma que a migracao nao semeia. A expectativa\nmudou porque o comportamento anterior era o defeito.\n\nE ele me ensinou de novo uma licao que eu ja tinha registrada: escrevi primeiro\n`assert.equal(cfg.tilesets.length, 0)`, que passou isolado, passou no controle\nnegativo e reprovou na suite completa, porque `catalog-tables.test.js` cria um\ntileset por HTTP e nao o remove, e a tabela e compartilhada. Contagem absoluta\nsobre tabela que outro teste escreve parece mais rigorosa que a alternativa\ncerta e e mais fragil. A asercao virou sobre o REGISTRO semeado, que e o\ncontrato de verdade: o que se proibe e a migracao semear, nao a tabela ter\nlinhas. Linha nova no livro-razao, e a nota no proprio caso, que e onde o\nproximo autor de assert vai olhar.\n\nControle negativo: comentada a remocao na migracao, o caso reprova.\n\nPortao: lint dos dois pacotes, 3279 testes de frontend, 170 e2e, backend com\n98,02% e a suite completa verde.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "4afd27a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4afd27ad1d0103de4da368795f7b61043bb867b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:34:36.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #250 from dsgoficial/dependabot/uv/cryptography-50.0.0\n\nBump cryptography from 48.0.0 to 50.0.0",
+      "sha": "2533281",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/253328184811f38ab9267074c77cf32564a37e7d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:34:05.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #224 from dsgoficial/dependabot/uv/aiohttp-3.14.0\n\nBump aiohttp from 3.13.5 to 3.14.0",
+      "sha": "6b2ccaa",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/6b2ccaa39a4e85cf7c2fdd6ded9d7d03c45dbc1a",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-14T12:33:30.000Z",
+      "author": "Maj Borba",
+      "message": "Merge pull request #220 from dsgoficial/dependabot/pip/python-multipart-0.0.29\n\nBump python-multipart from 0.0.28 to 0.0.29",
+      "sha": "e97c610",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e97c61045c647d6fa05fb2752230ac3b66473037",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T11:58:34.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): a faxina de abertura de atlas apagava a config temporal recem-chegada\n\nO P11 estava quebrado de verdade e agora fecha VERDE POR CONSERTO, com a\nexpectativa do teste intacta.\n\nA CAUSA NAO ERA NENHUMA DAS TRES HIPOTESES que eu levantei. A operacao saia, o\nservidor guardava e o par aplicava: a config morria DEPOIS de aplicada.\n`applyRemoteSnapshot` gravava `temporal_<nome>` corretamente e, microssegundos\ndepois, `activateAtlasInitialMap` apagava o mapa local solto homonimo\n(\"Principal\", que e o nome do mapa padrao local E costuma ser o nome do mapa do\natlas), e o `deleteMap` do repositorio removia INCONDICIONALMENTE os laterais\nchaveados por NOME.\n\nEsses laterais pertencem a quem RESPONDE pelo nome, e nao ao registro que esta\nsendo apagado. O diagnostico veio de uma assimetria reveladora: a config da\ngrade sobreviveu e a temporal nao, e a diferenca e so a chave. A grade e\n`gridStyle_<id>`, a temporal e `temporal_<nome>`. Num store onde mapa remoto e\nUUID e mapa local e nome, dois registros respondem pelo mesmo nome ao mesmo\ntempo.\n\nO cadeado de mapa corre exatamente o mesmo risco e so nao aparece porque o\n`memoryStore.lockedMaps` segura a sessao: o map-lock nao resolve o problema da\nchave, mascara o sintoma.\n\nA correcao e no repositorio: `deleteMap` so remove os laterais por nome quando\nNENHUM outro registro ainda responde por aquele nome. As duas checagens rodam\nantes de qualquer remocao, porque `removeByKey` dispara as promises ao montar o\narray e um scan sobre store meio esvaziado responderia sobre alvo em movimento.\nO invariante antigo continua valendo: sem homonimo, o comportamento e identico.\n\nO agente mediu instrumentando a pagina, e a saida literal da sonda foi\n[\"snapshot wrote temporal_Principal\", \"deleteMap(Principal) ... removeByName\"].\nControle negativo: revertida a guarda, o repro e a borda dos tres homonimos\nreprovam, e o caso \"limpa quando e o ultimo com o nome\" segue verde, o que prova\nque o teste nao afirma a guarda de forma cega.\n\nOs dois marcadores [!CONTRADICAO 2026-08-14] sairam da wiki, como o schema\nmanda, e a licao durvel ficou no corpo: lateral por mapa chaveado por nome e\ncompartilhado por nome; prefira id.\n\nSEGURANCA DE DEPENDENCIA, e a leitura do rotulo enganava nos dois sentidos.\n- dompurify subiu de 3.4.12 para 3.4.13 e virou pin EXATO, porque `^3.4.12`\n  aceitava a versao vulneravel de volta. Mas o agente corrigiu a MINHA premissa:\n  este projeto provavelmente NAO estava exposto, porque o CVE exige `IN_PLACE`\n  junto com hook de remocao, e `sanitizeQuillHtml` nao usa nenhum dos dois.\n- ip-address era a UNICA das seis que rodava no servidor (via express-rate-limit,\n  em dependencies, chamado por rate-limit.js). Corrigida.\n- As outras quatro do frontend sao de ferramenta (eslint, stylelint, knip,\n  postcss) e nao alcancam o bundle. Foram fechadas por `overrides` com correcao\n  DENTRO da mesma major nas quatro, entao nenhuma API muda: brace-expansion\n  1.1.18, fast-uri 3.1.5, js-yaml 4.3.1, nanoid 3.3.18. Nada de `audit fix\n  --force`, que ja quebrou este repositorio subindo major.\n  Provado que as tres ferramentas seguem operando depois da troca, inclusive o\n  probe das regras proprias.\n\nOs dois pacotes em `found 0 vulnerabilities`.\n\nPortao: lint dos dois, 3279 testes de frontend, 170 e2e, backend com 98,02%,\nbuild verde, e o spec do P11 verde com --retries=0.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "0e26655",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e266554995a9b00735ffbd8fd391f80ebd5862d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-14T10:49:55.000Z",
