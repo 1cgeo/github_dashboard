@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-14T20:36:17.616Z",
+  "lastUpdate": "2026-08-15T10:28:21.645Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-14T18:43:49.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-08-14T17:33:59.000Z",
+    "1cgeo/doc_dgeo": "2026-08-14T22:18:00.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-08-12T20:01:20.000Z",
-    "dsgoficial/sap": "2026-08-06T19:35:46.000Z",
+    "dsgoficial/sap": "2026-08-14T20:59:01.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -42,7 +42,7 @@
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-08-14T19:57:50.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:19:23.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-14T19:15:06.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-14T22:23:42.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-14T19:11:44.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-15T02:01:34.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-14T19:04:20.000Z"
+    "1cgeo/ia_vegetacao": "2026-08-15T02:28:47.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5924,
+    "totalCommits": 5948,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,11 +122,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 920,
+      "1cgeo/ebgeo_web": 928,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 526,
+      "1cgeo/doc_dgeo": 534,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -135,8 +135,8 @@
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 479,
       "dsgoficial/DsgTools": 640,
-      "dsgoficial/sap": 172,
-      "dsgoficial/SAP_Gerente": 118,
+      "dsgoficial/sap": 173,
+      "dsgoficial/SAP_Gerente": 120,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
@@ -163,13 +163,229 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 570,
+      "1cgeo/chefe_dgeo": 573,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 8,
+      "1cgeo/ia_vegetacao": 10,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-15T02:28:47.000Z",
+      "author": "Maj Borba",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "sha": "12bfec8",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/12bfec8624d92ff3de69b509104fce5cc5eadbb2",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-15T02:21:35.000Z",
+      "author": "Maj Borba",
+      "message": "adiciona alguns controles finos",
+      "sha": "814e7ea",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/814e7ea90c2c576f3485f90742947fcefca9a60e",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T02:01:34.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(auth): duas abas deixam de derrubar a sessao uma da outra\n\nO `apiClient` lia o par de tokens do localStorage UMA vez, no boot, e depois cada\naba operava com o par em MEMORIA. Duas abas viravam duas filas independentes sobre\no mesmo armazenamento: a aba A rotacionava, a aba B seguia com o refresh token que\nA ja tinha gasto, e ao acordar o apresentava fora da janela de graca de 10 s do\nservidor. Isso e lido como ROUBO, e revoga a familia inteira: as duas abas caem.\n\nNao era teorico e nao dependia de multi-aba estar liberada. O tab-lock mostra um\noverlay VISUAL; a aba bloqueada continua executando, com tokens e temporizadores.\nA wiki afirmava que o tab lock era uma das defesas do cliente contra essa corrida,\ne ele apenas a escondia. A pagina foi corrigida.\n\nA defesa tem tres partes, e o localStorage continua sendo a fonte unica de verdade:\na rotacao passa por uma secao critica serializada por `navigator.locks`; dentro\ndela o disco e RELIDO, para que quem chega depois adote o par novo em vez de\napresentar o velho; e um listener de `storage` deixa a aba ociosa adotar sem\nprecisar tentar. Vale nas QUATRO paginas, porque as quatro constroem este singleton.\n\nDOIS FUROS QUE A PRIMEIRA VERSAO ABRIU, achados por um agente refutador e depois\nreproduzidos em navegador real, os dois consertados aqui:\n\n1. O tratamento do 401 perguntava ao DISCO se havia par mais novo. Como o evento\n   `storage` e local e sincrono enquanto o 401 vem pela rede, o listener em geral ja\n   tinha adotado o par do vencedor, a adocao recusava o par identico, e o ramo\n   terminal encerrava uma sessao VIVA. Pior: `clearTokens()` apaga a chave, entao a\n   aba perdedora destruia do disco o par que a vencedora acabara de rotacionar.\n   Medido em navegador real: uma aba morria em 3 de 5 ensaios de corrida forcada. A\n   pergunta certa e se o token APRESENTADO ainda e o que a aba tem.\n2. A espera pelo lock e limitada a 5 s, e ao desistir a versao anterior rodava a\n   secao critica SEM exclusao. O detentor esta no meio da requisicao (o refresh nao\n   tem timeout), entao o disco ainda nao tem o par dele e a aba apresentaria o MESMO\n   token; duas apresentacoes separadas por mais que a graca sao roubo, e a familia\n   cai. Agora quem desiste adota o que houver e, se nao houver, falha de forma\n   TRANSIENTE. Nao renovar e barato; apresentar duas vezes nao e.\n\nO clientId tambem deixa de ser compartilhado entre abas: passa a ser\n<instalacao>-<aba>, com a metade da aba em sessionStorage, que sobrevive ao F5 (do\nque dependem presenca, a janela `away` de 120 s e o filtro de auto-eco) e cabe no\nregex do servidor.\n\nO QUE ESTA FASE NAO ENTREGA, e a wiki foi corrigida para nao prometer: o tab-lock\nNAO foi tocado. Ele continua bloqueando toda segunda aba, inclusive em atlas\ndistintos, porque o canal e por origem e dispara antes de o atlas ser conhecido.\nPermitir duas abas em atlas distintos e trabalho ainda por fazer, e por isso a\nliberacao nao entrou junto: soltar o caminho antes das defesas seria abrir o que\nainda nao se defende.\n\nVerificado: lint limpo, 3562 testes de frontend (195 arquivos), 2759 de backend, 170\nde e2e, zero skips. Controles negativos: sem a serializacao caem 3 casos, sem a\nreleitura 3, sem a recuperacao no 401 2, com o clientId compartilhado 12, e cada um\ndos dois furos acima tem caso proprio que cai ao replantar o defeito.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "4b227d5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4b227d5dafd4e1540e8688d96b5d9ad905dec54c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T00:23:11.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): recusar apagar o unico mapa dizia \"acesso somente leitura\"\n\n`removeMap` punha a frase em portugues DENTRO do campo `reason`, que e codigo de\nmaquina: o listener de erro do store separa os avisos por esse campo, entao a\nrecusa caia no balde generico e o usuario lia \"Acesso somente leitura, voce nao\npode editar este projeto\", que nao tem nada a ver com o motivo real.\n\nA frase passa para `message`, o campo que o listener usa como texto ao usuario, e\n`reason` fica com o codigo `LAST_MAP` que o retorno da funcao ja usava.\n\nDefeito anterior a esta serie, encontrado ao verificar outra coisa. Alcance\nlimitado: `map.manager.deleteMap` barra o caso antes de chegar aqui e mostra a\npropria mensagem, entao so quem chama `removeMap` direto via o texto errado. A\ndupla checagem e defesa em profundidade legitima e fica.\n\nPreso por asserção sobre o payload emitido, e nao sobre o retorno: o retorno ja\nestava certo, e era exatamente por isso que o teste antigo passava com o bug vivo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "ebcef36",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ebcef360698b29293004ee3d4c9d75ad63f4c5ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T00:22:58.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(store): persistencia preparada para N atlas locais nomeados\n\nA base para o usuario ter varios projetos locais no mesmo navegador, em vez do\nunico workspace de hoje. Esta fase entrega o SUBSTRATO e a migracao; a capacidade\nainda nao chega a interface, e isso e deliberado (ver o fim desta mensagem).\n\nO NAMESPACE VAI NO NOME DO BANCO, e isso foi medido, nao preferido. Criar um banco\ncom nome novo enquanto outra aba mantem os vizinhos abertos concluiu 21 de 21, com\nzero eventos `blocked` e ~1 ms cada. Criar um object store novo DENTRO de um banco\ncompartilhado e um upgrade de versao do IndexedDB: dispara `versionchange` em toda\nconexao e fica PENDENTE enquanto qualquer detentor recusar fechar, com `blocked`\ncomo unico sinal e ninguem escutando (medido: 21 de 21 pendentes ate soltar). Hoje\nfuncionaria por sorte, porque o localforage fecha sozinho, e isso e detalhe de\nimplementacao de biblioteca, nao contrato. Alem disso a versao do banco viraria um\ncontador global movido por acao do usuario, que nunca desce.\n\nTres decisoes que o inventario nao respondia sozinho, escritas por extenso no\nfileoverview de `atlas-namespace.js`:\n\n1. O atlas REMOTO nunca ganha namespace proprio. Existe UM rascunho de sufixo fixo,\n   reusado por todo atlas de servidor. O invariante \"dado remoto nao sobrevive ao\n   logout\" e garantido apagando um alvo CONHECIDO e UNICO; dar ao remoto\n   `ebgeo_maps__<atlasId>` faria o alvo deixar de ser nomeavel, e um nome esquecido\n   deixa um usuario deslogado com copia editavel de atlas de servidor.\n2. O que e global a instalacao esta enumerado em codigo, nao subentendido: clientId,\n   tokens e preferencias (que nem estao no IndexedDB), mais o registro de atlas, o\n   ponteiro de atlas corrente, o marcador de origem e a fila de saida. Errar aqui\n   faria trocar de atlas apagar a identidade da instalacao.\n3. O ponteiro do atlas corrente e global por necessidade logica: le-lo de dentro de\n   um namespace exigiria ja saber qual namespace abrir.\n\nA migracao para 2.3 e ZERO-COPIA: os bancos sem sufixo de hoje viram o primeiro\nslot local, chamado \"Meu Atlas\" (decisao do dono), em vez de serem copiados. E ela\nso adota os bancos legados quando a origem persistida e LOCAL, senao fabricaria uma\ncopia permanente de atlas de servidor.\n\nTeto de 10 atlas locais, com erro nomeado e mensagem em pt-BR, nunca falha\nsilenciosa. Cada slot custa 10 bancos IndexedDB, entao o teto tambem limita quantos\nbancos esta origem cria.\n\nAs duas listas paralelas de `clearAll*` viraram uma so, DERIVADA da lista de\nstores, com teste que reprova um side-store deixado de fora. Enquanto eram duas,\nadicionar um side-store novo vazava dado remoto no logout sem nada avisar.\n\nO QUE NAO ENTRA NESTA FASE, de proposito: o tab-lock nao foi tocado e multi-aba\ncontinua bloqueada. Duas abas hoje compartilham o refresh token, e a que estiver\ndefasada faz o servidor revogar a familia inteira e deslogar as duas. A persistencia\nestar pronta nao adianta enquanto a sessao nao estiver, e isso e a fase seguinte.\nPor isso tambem `initLocalAtlases` ainda nao tem chamador em `src/`: com um unico\natlas local, o comportamento visivel e identico ao de antes.\n\nVerificado: lint limpo, 3525 testes de frontend (193 arquivos), 2759 de backend,\n170 de e2e, zero skips nas tres pernas. Tres controles negativos: quebrar a\nresolucao de namespace derruba 21 casos, baixar o ATLAS_SCHEMA_VERSION derruba 27\n(o modo de falha silencioso que a casa registra como o mais frequente), e tirar um\nside-store da lista de clear derruba 7.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "3d1030d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3d1030d51fa797a8e65b5691f3724a0c7584e0c7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T22:50:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): dois patches de config temporal apagavam um ao outro\n\n`setMapTemporalConfig` faz MERGE sobre o estado anterior\n(`{ ...previous, ...patch }`), entao dois patches concorrentes leem o mesmo\n`previous` e o segundo a gravar descarta o campo que o primeiro acabou de\nescrever. A perda e de CAMPO, nao do documento inteiro, o que a torna mais\ndiscreta que as outras desta serie.\n\nNao e hipotetico por tres razoes: `temporal-settings.modal.js` chama a funcao de\ndois pontos distintos; o caminho inbound (`applyRemoteMapSettingOp`,\nEntityType.MAP_TEMPORAL) grava o documento INTEIRO por fora, sem merge, entao o\ncolega mexendo na linha do tempo e o segundo escritor; e os dois lados nomeiam o\nmapa pelo NOME, logo caem na mesma chave sem ajuste nenhum.\n\nOs dois lados passam a tomar `temporal:<id>`.\n\nPOR QUE `setMapNotes` E `setGridStyle` FICAM DE FORA, ja que a analise anterior as\nlistava junto com esta: elas leem apenas para escolher entre CREATE e UPDATE na op\nde sync, e gravam o valor inteiro que o chamador passou. A leitura nao alimenta a\nescrita, entao duas chamadas concorrentes sao um last-write-wins legitimo sobre um\nvalor completo, que e o comportamento esperado de \"salvar as notas do mapa\". O\nunico efeito da corrida ali e o rotulo da op sair CREATE em vez de UPDATE.\n\nA distincao que essa comparacao deixa: ler antes de escrever nao e\nread-modify-write; ler para decidir O QUE escrever e que e. A analise anterior\njuntou as tres por categoria (\"config por mapa, baixa concorrencia\") em vez de por\ncodigo, e duas delas estavam certas por acaso.\n\nVerificado: lint limpo, 3420 testes de frontend, 170 de e2e. O controle negativo\nderruba o caso novo com `expected 'hora' to be 'dia'`, que e um patch sumindo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "bd779a4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bd779a45dea6704e503eb3396298518573c2fefc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T22:37:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): comentario, 3D e 360 tambem perdiam escrita concorrente\n\nA serializacao por documento cobria o documento do mapa. Os documentos por mapa\nque vivem ao lado dele tinham a mesma corrida e ficaram de fora: comentario\nespacial (medido, 19 de 20 escritas perdidas), cesium3d e streetview360.\n\nO comentario e o pior dos tres, e nao pelo numero. Para feicao, a interleaving\nperdedora exige uma rajada programatica, e nenhum call-site de frontend/src/ faz\nisso. Para comentario o segundo escritor e o PEER: uma thread chegando pelo\nWebSocket enquanto o usuario local digita e o caso ordinario, nao um canto. Por\nisso o caminho inbound (`applyRemoteCommentOp`) toma a MESMA chave, e ha teste so\npara isso: duas travas em chaves diferentes nao excluem nada.\n\nChave por documento, nao por mapa (`comments:<id>`, `cesium3d:<id>`,\n`sv360:<id>`), senao desenhar uma feicao esperaria por um marcador 360 sem razao.\n\nDois cuidados que evitaram estrago:\n- `resolveComment` chama `updateComment` e por isso NAO e travada. A fila nao tem\n  reentrancia, entao travar as duas travaria o app ao resolver um comentario. Ha\n  um caso de teste so para segurar a mao de quem for uniformizar o arquivo.\n- o duplo de repositorio do sv360 nao clonava, e um fake que devolve a mesma\n  referencia faz este defeito desaparecer. O clone virou opcional e explicito,\n  com o porque escrito: sem ele o teste de concorrencia passa com e sem a trava.\n\nESCOPO, derivado pelo destino da escrita e nao por lista lembrada, que foi como o\n`renameMap` escapou da vez passada: `briefing`, `layer` e `group` NAO tem\nread-modify-write nenhum. Seguem sem trava, por decisao e nao por esquecimento,\ntres funcoes de configuracao por mapa: `setMapTemporalConfig`, `setMapNotes` e\n`setGridStyle`.\n\nFica registrado no `document-lock.js` que a lentidao da rajada e o preco e nao o\ndefeito (3 s para 100 escritas, contra 32 ms que perdiam 99), porque o custo e\nvisivel e o beneficio e invisivel, que e a forma de um guarda removido um ano\ndepois por alguem lendo um flame graph.\n\nVerificado: lint limpo, 3419 testes de frontend, 170 de e2e. Controle negativo\nsabotando a exclusao derruba 6 casos nos tres modulos, e deixa passar os que nao\ndependem dela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "60b5a57",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/60b5a578e683468ee841e8d15cb5ba6e689bd8d5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T22:37:17.000Z",
+      "author": "Maj Diniz",
+      "message": "test(backend): o repro do upload nao aferia mais a decisao, so o escalonador\n\nO `upload-negado-perde-a-resposta.repro.test.js` falhava de forma intermitente ha\nduas sessoes e foi dispensado como flake de ambiente as duas vezes. Nao era.\n\nMedido: 8 de 8 verde com o arquivo isolado, e 2 falhas em 4 execucoes da suite\ncompleta. Isso ja descarta ambiente e aponta para o instrumento. A causa e que o\ncaso do chamador anonimo aferia o SINTOMA, a queda da conexao, e a queda so\nacontece enquanto o corpo ainda sobe. A primeira clausula de `drainOnError`\n(`req.complete`) vem ANTES do teste de anonimo, entao sob carga o servidor demora\nmais para responder, os 3 MB chegam inteiros e o request sai por ali: a resposta\nvai normal e o cliente recebe 401. Os dois motivos de \"nao drenou\" produzem\ndesfechos opostos, e o teste lia so um.\n\nO conserto e mover a prova para onde a decisao e tomada. `tests/unit/\ndrain-on-error.test.js` exercita as quatro combinacoes (anonimo, principal\nverificado, corpo ja completo, resposta ja enviada) com um request de mentira,\nsem socket, sem carga e sem corrida, aferindo o que a decisao de 2026-07-25\nprotege: se o corpo foi lido. O caso de integracao continua existindo e passou a\nafirmar so o que e estavel em qualquer escalonamento.\n\nNota de metodo, registrada no livro-razao junto: a primeira versao do helper\ndetectava leitura com `stream.on('data')`, e isso poe o Readable em modo fluente.\nO instrumento consumia o corpo e depois acusava o middleware de te-lo consumido,\ncom tres dos quatro casos vermelhos. Trocado por um `_read` instrumentado, que so\ndispara quando alguem realmente pede dados.\n\nVerificado: `npm run lint` limpo e a suite completa em 2759/0, tres vezes em\nserie. A serie sozinha nao seria conclusiva (com taxa anterior de ~50%, tres\nverdes tem ~12% de chance de sair por acaso); o que sustenta a conclusao e a via\nfrágil ter deixado de existir.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "8acd3bf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8acd3bf0471a18634e89e9af087e4bff6ba2163f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-14T22:23:42.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings de atualizar-dockers: a poda se prova pelo 404\n\nDeploy do wiki_dgeo que publicou a secao EBGeo e apagou duas paginas. So o 200\nnas rotas novas nao distingue \"publicou\" de \"serviu o build velho\", porque a\npagina antiga tambem devolvia 200. A varredura de codigo HTTP sobre a lista de\nrotas fecha os dois lados, e um grep de dado que so existe na versao nova impede\nque a prova passe por acaso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "47bb5c3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/47bb5c37c84238dd203cc5727bbf198250a7caa4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T22:18:00.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: Onda 3, as quatro reescritas estruturais\n\nsig/03-vetores: a pagina ensinava um pipeline que o produto nao consome mais,\ncom senha em argumento de linha de comando e erros literais. O alvo vivo passa a\nser o Martin servindo MVT do PostGIS, com a conexao por DATABASE_URL e nunca por\nargumento. Documenta os tres algoritmos do grupo Vetores - EBGeo do plugin\nferramentas_ebgeo, com os parametros reais e as faixas de zoom por escala.\n\nsig/04-imagem: a pagina mandava editar uma estrutura que o arquivo nao tem. Agora\ndescreve a forma real do source de cada camada base, e diz o que o repositorio de\nfato entrega: carta_topografica.js desenha um raster do OpenStreetMap e\ncarta_ortoimagem.js aponta para o estilo de demonstracao do MapLibre. Os estilos\nmultiescala de producao nao sao versionados.\n\n3d/02-geracao_modelos_3d: parametro de voo pertence a secao voodrone, e a pagina\nrepetia a tabela e se contradizia tres vezes contra ela (gimbal do V02 45 contra\n-30, altura do V02 90 m contra 80 ou 60, e o bloco de exemplos com V01 a 80 m e\n70x70). A pagina passa a APONTAR para voodrone/planejamento_voo/tipos_voo, e o\nbloco de exemplos fica marcado como registro de campanha ja executada, com o\naviso de que diverge da norma.\n\n3d/03-carregamento_modelos_3d: a raiz de URL do tileset brigava consigo mesma. Ela\nagora e /3d/<pasta>/tileset.json, porque o Vite copia public/ para a raiz do site\ne a opcao base esta comentada. Cada campo da entrada de tileset ganha linha\npropria, dizendo se e obrigatorio e o que faz na tela. Entra o passo de rebuild,\nque faltava, e o aviso de que trocar o id orfana marcacao, medicao, visada e\nslide de briefing ja salvos.\n\nCada pagina foi escrita contra a fonte primaria dela (o plugin, o baselayers/, a\ntabela normativa do voodrone, o config.js) e passou por verificador adversarial.\nForam 34 afirmacoes cortadas. Build verde com onBrokenLinks: throw. PTS em 0,03\nviolacoes por 100 palavras.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5b78d6b",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/5b78d6b68d7407fa75a1d3d3fd8f5a829977d518",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T21:56:46.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): escrita concorrente no mesmo documento perdia todas menos uma\n\nToda escrita do store e um read-modify-write do documento INTEIRO do mapa\n(getMapDataCompat -> mutar -> updateMapDataCompat), e nada a serializava. O\nIndexedDB entrega a cada leitor o proprio clone estruturado, entao dois\nescritores sobrepostos leem o mesmo instantaneo e a segunda gravacao sobrescreve\na primeira: last-write-wins sobre o mapa todo. Medido: 20 addFeature concorrentes\npersistiam 1.\n\nrunTransaction nunca cobriu isso, e continua nao cobrindo por desenho: ele ordena\npersistencia antes de efeito colateral, nao ordena escritores. A serializacao\nentra ao lado, em store/document-lock.js, como fila por DOCUMENTO. A chave passa\npelo mapResolver porque o lado local escreve pelo nome e o inbound pelo UUID; sem\ndobrar os dois na mesma chave nao ha exclusao entre o usuario desenhando e a op\ndo colega chegando.\n\nFila por documento, e nao global, para que escrita em outro mapa nao espere. A\nreentrancia foi verificada antes de escolher o desenho: commit() dispara\ndeferAsync sem await, o EventEmitter e sincrono, e o unico await que cruza modulo\ndentro de secao travada nao reentra no store.\n\nrenameMap entrou depois, e por um erro que vale registrar: a auditoria original\ngrepou updateMapDataCompat e repo.saveMap e concluiu que o ciclo de vida de mapa\nsubstitui o registro inteiro. Falso para renameMap no caminho UUID, que le o\ndocumento, muta `name` e grava de volta, por mapStore.setItem, que nao casa com\nnenhum dos dois padroes. Renomear enquanto o usuario desenha descartava uma das\nduas escritas em 20 de 20 execucoes, nas duas ordens.\n\nGuardas: tests/store/concurrent-document-writes.repro.test.js (o duplo de\nrepositorio CLONA na leitura e na escrita, como o IndexedDB; um que devolvesse a\nmesma referencia faria o defeito sumir) e dois casos em map-operations.test.js\npara o rename, que asserem a exclusao pelo efeito e nao pela ordem de chegada.\n\nFica em aberto, medido e nao corrigido: comment.operations.js perde 19 de 20 sob\nconcorrencia, e a mesma forma existe em cesium3d, streetview360, temporal,\ncustomIcons, briefing e layer.operations.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "328cd1e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/328cd1e270b9aebceef2d7d8c30b01068f11a4be",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-14T21:56:28.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(render): o mapa para de reenviar a colecao inteira a cada feicao\n\nAs ferramentas escreviam no MapLibre por getData() + push + setData(), 293 vezes\nem 25 arquivos: cada feicao nova reserializava a source inteira. Medido com GPU\nreal, em 8000 feicoes, o gesto custava 136,1 ms e travava a thread em 10 de 10\nchamadas. Agora custa 39,5 ms, sem nenhuma long task, e a ponte MapLibre caiu de\n~97 ms para ~0,7 ms: o que sobra e o proprio store.\n\nO caminho e o updateData do MapLibre 5.18, que aplica um diff em vez da colecao,\nhabilitado por promoteId: 'id' na declaracao da source (a opcao \"dynamic\" nao\nexiste nesta versao; o proprio MapLibre responde 'unknown property').\n\nNAO e uma troca crua de setData por updateData, e a razao esta medida: dez\nchamadas EMENDADAS de updateData aplicam duas, a primeira e a ultima, e esperar\n6 s nao recupera as outras oito. E perda de dado. Por isso entra um despachante\nque serializa: um diff em voo por source, o resto acumula num lote pendente, com\ncoalescencia pura (add+remove vira remove, add+patch vira um add com o estado\nfinal) e queda para setData da colecao inteira quando o diff e recusado.\n\nGuardas que acompanham, porque o modulo so vale o que a sonda dele provou:\n- tests/unit/geojson-dispatcher.test.js prende a coalescencia, a serializacao e\n  o caminho de erro. O caso do voo concorrente entrou depois de plantar o defeito\n  e ver 3407 testes passarem com a serializacao deletada;\n- tests/unit/despachante-sem-escrita-crua.test.js reprova setData cru numa source\n  que tem despachante, com inventario DERIVADO do codigo e allowlist com motivo e\n  contagem por arquivo.\n\nAs 24 ferramentas foram vistas em imagem, desenhando pelo mouse contra o app e o\nbackend reais: desenhar, editar, apagar e sobreviver ao F5, conferidos em source,\nstore e pixel.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "05b8fd7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/05b8fd76bf7a0cdd1c1f65b421da91f7b1b2003f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T21:39:15.000Z",
+      "author": "Maj Diniz",
+      "message": "DSGTools: as 16 ferramentas de producao que faltavam ganham pagina\n\nA subsecao documentava 17 dos 33 instrumentos de producao do plugin. Sete paginas\nnovas fecham a conta, escritas do codigo do DSGTools 5.2.0.\n\nA maior lacuna era a Barra de Revisao. Ela consome os campos rank e visited que o\nGrid de Trabalho gera, e tem tres atalhos em vigor no cadastro do SAP (Shift+A,\nShift+S e a barra invertida). A doc ensinava a fabricar o grid e parava ali. O\nworkgrid.md agora aponta para quem o consome.\n\nAs outras seis agrupam por botao empilhado, que e como o operador ve na barra:\nfiltros, ferramentas de linha, copiar feicoes, menu de aquisicao customizado,\ncotagem de curvas de nivel e barras de apoio.\n\nPor decisao do chefe, as paginas saem sem captura de tela e sem video. Trazem o\nicone, extraido do proprio plugin, e o texto colhido do fonte: rotulo de botao,\ncampo obrigatorio, mensagem de recusa e ordem de varredura.\n\nContagem no codigo: 21 acoes de map tool, 6 barras e 6 acoes de caixa. Fora da\nconta ficam StyleManagerTool e ComplexTools, que estao na arvore e nunca sao\ninstanciados.\n\nBuild do Docusaurus verde, com onBrokenLinks em throw. Lint de escrita em zero\nviolacao nas sete paginas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0118oA53FXTQVqAZ892QyQPV",
+      "sha": "2575514",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/257551471d21cca6f3b30f3ddc393d897a268cb9",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T21:34:59.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: secao Ferramentas, pagina de Deploy, e sai o tutorial do 7 CTA\n\nOnda 4 da atualizacao da secao EBGeo. Cinco funcionalidades que o produto tem\nha tempo e a wiki nunca contou ganham pagina, e o deploy real ganha a sua.\n\nNovas paginas, todas escritas contra o codigo da branch main do ebgeo_web:\n- ferramentas/primeira-pessoa: a cena por Gaussian Splatting, as quatro portas\n  de entrada, a capsula de colisao (1,5 m de altura, 0,12 m de raio, olho a\n  1,4 m do chao), a trena de 40 m, os 12 rotulos a ate 7 m, e como publicar\n  cena nova.\n- ferramentas/temporal: a linha do tempo por mapa, o modo relativo D+N, as\n  velocidades, o modo Revelar e a trajetoria interpolada. O ponto que decide o\n  uso: o tempo canonico e epoch em ms, e modo, unidade e origem sao LENTE, nunca\n  mutam o dado.\n- ferramentas/briefings: os dois modos de aplicacao, o editor de slides, a\n  importacao de slide de outro briefing e a exportacao em PDF.\n- ferramentas/analise: Zona de Influencia, Contorno Externo e Zonas de\n  Proximidade, com os parametros de cada um. A chave interna e \"processamento\" e\n  o rotulo na tela e \"Analise\", e a pagina diz isso.\n- ferramentas/exportacao: os formatos que entram e os que saem, o mosaico\n  multifolha A4, Garmin, KMZ, QAN, o PDF georreferenciado e o projeto .ebgeo.\n- deploy: os dois alvos de publicacao, o que o npm run build faz de verdade\n  (release datada, symlink, retencao de tres, rollback), os tempos de cache do\n  Fastify (1 ano, 1 semana, 1 hora) e o que o prepare-deploy.cjs amputa do\n  pacote do GitHub Pages.\n\nApagado: instalacao_ebgeo_7cta_dgeo.md e a imagem dela. A pagina descrevia\ncompose com banco que o codigo atual nao tem, e o metodo vivo mora no\ndeploy/deploy.sh e no deploy/tutorial.md do proprio repositorio. Nenhuma pagina\napontava para ela. Decisao do chefe.\n\nOrdem da secao: intro 1, instalacao 2, deploy 3, 3D 4, SIG 5, Ferramentas 6,\ncache 7.\n\nCada pagina passou por um verificador adversarial que reabriu o codigo e cortou\no que nao se sustentava. Foram 113 afirmacoes cortadas. Amostrei os numeros\ncontra a fonte: as constantes de caminhada, os tempos de cache e os tres nomes\nde algoritmo batem. Build do Docusaurus verde com onBrokenLinks: throw, e as\nseis rotas novas saem no build.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b3c14f0",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/b3c14f0301e15a28c74239e47d56674bc27834e5",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T21:01:44.000Z",
+      "author": "Maj Diniz",
+      "message": "SAP: a doc acompanha os consertos 1.36.6 e 1.36.7 do Gerente, mais revisao de production\n\nNa secao SAP:\n- config_proj descreve as oito colunas da tela Gerenciar Perfis FME e a regra de\n  escolher o lote antes da subfase;\n- install e shp_to_postgis passam a citar o Gerente 1.36.7.\n\nO restante do commit e revisao de texto de outra frente, em docs/production,\ncommitada a pedido do chefe.\n\nPendente, de outra frente: os links para os cinco arquivos removidos de\ndocs/pto_controle/erros_comuns continuam pendurados, e o `npm run build` falha\nneles. O container reconstroi no boot, entao isso precisa entrar antes do\nproximo restart do site.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1d59fce",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/1d59fceac8803c7496bbb6a32383778ac2a5aca6",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T20:59:32.000Z",
+      "author": "Maj Diniz",
+      "message": "pto_controle: apaga 27 imagens que nenhuma pagina referencia\n\nSobras da poda dos metodos descontinuados e de trocas antigas: originais que\nviraram versao anotada (trimble_superior.png contra trimble_superior_texto.png)\ne arquivos que ficaram na pasta errada (img/inferior_topcon.jpg contra\nimg/topcon/inferior_topcon.png). Sao 248 KB, e a secao cai de 85 para 58\nimagens.\n\nA contagem so fecha resolvendo o caminho RELATIVO de cada referencia contra a\npasta do arquivo que a cita. Casar por basename erra dos dois lados: da falso\npositivo quando o mesmo nome existe noutra secao (image11.png tambem esta em\nvoodrone) e falso negativo quando o nome aparece dentro de um .pptx, que e um\nZIP e nomeia as midias internas de image2.png em diante.\n\nConferido pelo inverso tambem: nenhuma referencia de markdown ficou apontando\npara arquivo inexistente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "12b9c82",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/12b9c82c0a4391b390626ade00175b177252a8fd",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-08-14T20:59:01.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: getPerfilFME devolve lote_id, sem ele o PUT do plugin era impossivel\n\nA rota GET /api/projeto/configuracao/perfil_fme nao selecionava pf.lote_id, mas\nperfilFMEAtualizacao (projeto_schema.js:725) o exige no PUT. O cliente lia o\nperfil e nao tinha como devolver o lote, entao a atualizacao pela tela Gerenciar\nPerfis FME do SAP Gerente batia em 400.\n\nO SELECT passa a trazer pf.lote_id e o nome do lote. O INNER JOIN com\nmacrocontrole.lote nao muda a contagem de linhas: perfil_fme.lote_id e NOT NULL\n(er/macrocontrole.sql:153).\n\nPar do commit 2e0f06c no SAP_Gerente (1.36.7).\n\nNota de verificacao: os 178 testes do server passam, mas o banco e mockado\n(test/helpers/databaseMock.js) e nenhum teste toca perfil_fme. Isso prova que\nnada quebrou, nao que o SELECT roda. As colunas foram conferidas no DDL.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0d9cf40",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/0d9cf409c80d9c11237d6ba602ec40a4d46560dd",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-08-14T20:58:46.000Z",
+      "author": "Maj Diniz",
+      "message": "1.36.7: a tela Gerenciar Perfis FME volta a abrir e a salvar\n\nA tela estava desalinhada da API em cinco pontos, e nenhum deles aparecia como\nerro claro para o gerente.\n\n1. getFmeServers lia `servidor` e `porta`. A rota projeto/configuracao/gerenciador_fme\n   devolve {id, url} (projeto_ctrl.js:1032). KeyError ao montar a linha.\n2. getSubphases lia `nome` e `id`. A rota projeto/subfases devolve `subfase` e\n   `subfase_id` (projeto_ctrl.js:974-976). KeyError tambem.\n3. mToolCtrl.getFmeRoutines chamava fmeCtrl.getRoutines(server, port) com dois\n   argumentos, e o metodo aceita um. O TypeError morria no except e virava\n   \"Erro ao buscar rotinas no servidor do FME\", que culpa o FME por um bug nosso.\n4. o payload mandava `gera_falso_positivo`, coluna inexistente, e nao mandava\n   `tipo_rotina_id`. O Joi (projeto_schema.js:715-732) exige o segundo e recusa\n   chave desconhecida.\n5. o payload nao mandava `lote_id`, tambem required.\n\n- as colunas passam a espelhar a tela de perfil de modelo: Id, Lote, Subfase,\n  Gerenciador FME, Rotina, Tipo Rotina, Requisito Finalizacao, Ordem;\n- a coluna Gera Falso Positivo vira o combo Tipo Rotina;\n- trocar o Lote refiltra as subfases da linha. A mesma subfase existe uma vez por\n  lote, entao subfase_id sozinho nao determina o lote;\n- os indices de coluna viram constantes, em vez de numero solto.\n\nDepende do commit irmao no repo sap: getPerfilFME nao selecionava pf.lote_id, e\nsem ele o cliente nao consegue montar o PUT a partir do que leu.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2e0f06c",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/2e0f06c1f09b978a0d850ebe1deb9df35d63dc08",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-14T20:54:29.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings de atualizar-doc-publica: auditar secao inteira contra o codigo\n\nClasse nova, da auditoria da secao EBGeo (21 paginas) contra a branch main do\nebgeo_web.\n\nO erro de metodo que o chefe pegou: escalei um alarme de vazamento publico sem\nestabelecer a superficie de exposicao. O repo e privado e o site e de intranet.\nA regra de 2026-07-27 (o site e o precedente que arbitra o guardrail generico)\nja cobria isso.\n\nO achado que so a leitura direta deu: carta_ortoimagem.js e um export do estilo\nde demonstracao do MapLibre. O repositorio entrega placeholder, nao o estilo de\nproducao. O relatorio do subagente nao viu.\n\nMais: branch da doc do repo, instancia contra versao, o par caminho-do-config e\naviso-de-rebuild, anexo orfanado por poda, e commit por pathspec quando outra\nsessao commita a mesma arvore.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "02dec9f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/02dec9fe2dd8ccda3812dc39774d921cb2160bc4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T20:51:01.000Z",
+      "author": "Maj Diniz",
+      "message": "revisao de texto em pto_controle, production e ebgeo\n\nTrabalho de outra frente, em curso durante esta sessao. Commitado a pedido do\nchefe, junto com a revisao da secao SAP.\n\nAtencao: a remocao dos cinco arquivos de docs/pto_controle/erros_comuns deixa\nlinks pendurados, e `npm run build` falha com \"Module not found\" em\npath_nodejs.md, downgrade.md, ProxyError_pip.md, requirements.md e npm_proxy.md.\nO container do site reconstroi no boot, entao o conserto desses links precisa\nentrar antes do proximo restart.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "fb047fa",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/fb047fa2721d4f1dd377b475102638f9ef8ee881",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T20:50:31.000Z",
+      "author": "Maj Diniz",
+      "message": "secao SAP: 18 paginas conferidas contra o codigo, e a doc parou de ensinar tabela que nao existe\n\nA secao estava congelada em 2026-07-31. Desde entao o Gerente foi a 1.36.6, o\nOperador a 3.30.0 e o backend a 2.3.5. Auditoria pagina a pagina contra as fontes\nprimarias: o DDL em er/, os .ui e widgets dos dois plugins, as rotas e o Joi do\nserver, e o client React.\n\n210 divergencias levantadas, 202 roteadas, 182 aplicadas apos reverificacao no\ncodigo. As demais foram rejeitadas por nao resistirem a leitura da fonte.\n\nO que mudou de mais grave:\n- system_desc ensinava a tabela `macrocontrole.atributo`, que nao existe mais, e\n  o campo `finalizado` de projeto, hoje `status_id`. Ganhou os schemas que\n  faltavam: microcontrole, metadado, controle_campo, capacitacao e recurso_humano;\n- sap_web citava numeros de subsecao do RPCMTec que nao batiam com a constante\n  SUBSECOES do relatorio_ctrl.js (2.5 virou 2.6, 5.1 virou 6.1, 2.6 virou 3.3);\n- servauth mandava instalar Node 10 e Node 16, e o servico exige 18;\n- propriedades_camada liga camada a SUBFASE, e nao a etapa, como a pagina dizia;\n- perfil_regras aponta dgeo.layer_rules, e nao layer_styles;\n- o dominio tipo_configuracao comeca em Centroide, e nao em Grid.\n\nNao entrou: as capturas de tela obsoletas, listadas para recaptura futura, e o\nsap_cli, que por decisao do chefe nao vai para a doc publica.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "99cf068",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/99cf068166ca5e914da00e4bf76f6bd7ff537d05",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-14T20:45:23.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: sao duas instancias, e a nuvem de pontos nao tem banco\n\nCorrecao do chefe em 2026-08-14: EBGeo1 AMAN-ESA, EBGeo Fogo e EBGeo2 nao\nexistem mais. Estao no ar ebgeo.1cgeo.eb.mil.br, no servidor do 1 CGEO, e\nebgeo.dsg.eb.mil.br, no 7 CTA. As chaves EBGEO_FOGO_HOST e EBGEO2_HOST do .env\nficaram orfas.\n\nA wiki tambem ensinava \"aba SIG\" e \"aba 3D\". O codigo da branch main do\nebgeo_web tem seis abas na barra lateral e quatro superficies de visualizacao,\nincluindo a cena em primeira pessoa por Gaussian Splatting.\n\nNuvem de pontos: nao ha tabela ng.catalogo_3d nem banco de catalogo. A\npublicacao e uma entrada em config.tilesets, e nao ha chave de estilo por\nponto.\n\nlinha-do-tempo e relatorios-2025 ficam como estao: ali \"EBGeo 1.2 no Arandu\" e\nregistro historico, e continua correto.\n\nEspelha o commit feddfc8 do doc_dgeo, que reescreveu a secao publica.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "accee5e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/accee5e67baa2090f5ffae8f3c26ee041f848367",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-08-14T20:41:32.000Z",
+      "author": "Maj Diniz",
+      "message": "1.36.6: perfil FME manda tipo_rotina_id, e o cadastro volta a ser aceito\n\nO formulario Adicionar Perfil FME enviava `gera_falso_positivo`. Essa coluna nao\nexiste em macrocontrole.perfil_fme. O Joi da rota (projeto_schema.js:491-506)\nexige `tipo_rotina_id` e recusa chave desconhecida, entao TODO cadastro de perfil\nFME voltava 400.\n\n- a caixa \"Gerar falso positivo\" vira o combo \"Tipo de rotina\", com os tres\n  valores de dominio.tipo_rotina, igual ao perfil de modelo que ja funcionava;\n- getData envia `tipo_rotina_id` em vez de `gera_falso_positivo`;\n- validInput passa a exigir Tipo de rotina e Lote, ambos required no Joi;\n- clearInput limpa os dois campos novos.\n\nO payload confere chave a chave com models.perfisFME.\n\nFICA PENDENTE, fora deste commit: a tela Gerenciar Perfis FME (mFmeProfiles.py)\ncontinua desalinhada da API em tres pontos, e a atualizacao por ela nao funciona.\n1. le `gera_falso_positivo` do retorno do servidor (linha 150), que devolve\n   `tipo_rotina_id` (projeto_ctrl.js:1218);\n2. nao envia `lote_id`, required em perfilFMEAtualizacao (projeto_schema.js:725);\n3. getSubphases usa as chaves `nome` e `id`, e /projeto/subfases devolve\n   `subfase` e `subfase_id` (projeto_ctrl.js:974-976).\nO ponto 2 tambem depende do servidor: getPerfilFME nao seleciona pf.lote_id.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f8011d4",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/f8011d424d22581f7703b25544b51e76c93796f9",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-14T20:39:37.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: a wiki volta a descrever o produto que esta no ar\n\nA secao inteira ensinava um EBGeo de 2024: versao 1.2 inexistente, duas abas\nonde ha seis, e um caminho de config (public/js/config.js) que nao existe no\nrepositorio. Auditoria pagina a pagina contra o codigo da branch main do\nebgeo_web.\n\nO que mudou:\n- intro: quatro visualizadores, seis abas, hierarquia Atlas para Mapas para\n  Camadas para Feicoes, e as duas instalacoes no ar (1 CGEO e 7 CTA). Sem\n  numero de versao, porque o produto nao expoe nenhum na tela.\n- instalacao: npm run dev na 3000 para desenvolver, npm run build_dev mais\n  npm start na 8082 para produzir. O npm run build chama deploy/deploy.sh, e\n  nao o Vite. As ferramentas de insumo saem da lista de requisitos do\n  front-end.\n- config: o caminho vivo e src/js/config.js, compilado dentro do pacote. Toda\n  edicao exige novo build e novo deploy. O aviso entrou nas quatro paginas que\n  mandavam editar o arquivo.\n- sig: o repositorio entrega placeholder de estilo, nao o estilo multiescala.\n  O Martin serve MVT, e nao PMTiles. As chaves do config foram conferidas uma\n  a uma (app.subtitle nao existe, basemaps usam image, nao ha chave de PMTiles\n  para o 360).\n- nuvem de pontos: o cadastro por INSERT em ng.catalogo_3d saiu. Nao ha banco\n  de catalogo, e a publicacao e por config.tilesets.\n- poda: bloco EBGeo 1.0 DEPRECATED em sig/01 e sig/06, blocos Titiler e tiles\n  previos em 3d/04, Exemplo 2 comentado em cache.md, e a pagina\n  levantar_1cgeo.md, que descrevia um parque (EBGeo1, Fogo, EBGeo2) que nao\n  existe mais. Cinco arquivos de exemplo ficaram orfaos e sairam junto.\n- segredo: senha de banco literal virou %SENHA_BANCO% em levantar_1cgeo e no\n  instalacao do 7 CTA, e o nome de usuario em caminho de maquina virou\n  %USUARIO%.\n\nBuild do Docusaurus verde com onBrokenLinks: throw.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "feddfc8",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/feddfc868310ecb09b13b9bb720706843f2c679e",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "dsgoficial/SAP_Gerente",
       "date": "2026-08-14T20:19:23.000Z",
