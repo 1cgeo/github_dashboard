@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-15T15:25:58.063Z",
+  "lastUpdate": "2026-08-15T20:27:23.036Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-15T13:25:42.000Z",
+    "1cgeo/ebgeo_web": "2026-08-15T16:10:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-08-14T22:23:42.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-15T12:31:16.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-15T16:03:48.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-15T02:28:47.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5950,
+    "totalCommits": 5957,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 930,
+      "1cgeo/ebgeo_web": 937,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -170,6 +170,69 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T16:10:25.000Z",
+      "author": "Maj Diniz",
+      "message": "package-lock",
+      "sha": "0181d58",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0181d587fc64d3ad72efc9c2c6a6335ceb92e053",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T16:03:48.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(store): getMapGroups devolve objeto, nao array nem Map\n\nParte de 1f2b3428 no main que nao tinha chegado aqui. A correcao do\nexportador ja estava neste branch, com teste de regressao proprio em\nexport-import-service.test.js. O que ficou para tras foi o JSDoc, que\ncontinuava dizendo \"Array of groups\".\n\nEram tres leituras diferentes do mesmo retorno: o JSDoc dizia array, o\nexportador acreditava em Map (`v?.size`), e o codigo devolvia objeto. A\nunica que o programa obedecia era a errada, e por isso todo grupo era\ndescartado do .ebgeo em silencio. Corrigir so o predicado deixa a\narmadilha de pe para o proximo que ler o JSDoc.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "25b94f3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/25b94f31589dda76629510c9046a2afd2a28c16e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T16:03:41.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(vendors): o control vem do registro, e a fabrica do Cesium perde o new\n\nReplica de b396db04 no main, que nunca chegou neste branch. Os dois\ndefeitos estavam vivos aqui.\n\n1. map_3d.js chamava `new Cesium.Rectangle.fromDegrees(...)`. Rectangle\n   .fromDegrees e fabrica estatica: ela ja devolve o objeto pronto, e o\n   `new` cria uma instancia vazia que o retorno da fabrica descarta.\n\n2. catalog-layers.component.js achava o controle de terreno por\n   `control.constructor.name === 'TerrainControl'`, em tres lugares. O nome\n   da classe nao sobrevive ao build de producao, onde o minificador a\n   renomeia, entao o sombreamento parava de responder no site publicado e\n   funcionava no dev, que e a pior forma de um defeito se apresentar. Passa\n   a vir de `getControl('TerrainControl')`, que le do registro de controles.\n\nConferido antes de trocar: o TerrainControl esta registrado com esse nome\nexato no map_sig.js deste branch, e o @store daqui exporta o getControl.\n\nFICA COMO ESTA, de proposito: o padrao constructor.name aparece tambem em\ntoolbar-group.js, toolbar.control.js e tool_manager.js, mas la ele e\nfallback declarado, com o nome vindo de outra fonte primeiro. Uso\ndiferente, e o commit de origem tambem nao os tocou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8ca3298",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8ca3298b1dba320c7f97ea4263356d2e799b152d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T16:03:28.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(primeira-pessoa): a legenda no canto desenha o teclado, e o agachar perde o C\n\nReplica de 1d33f6c2 no main, byte a byte: mesmos 4 arquivos, mesmas 165\ninsercoes e 6 remocoes. O first-person-3d.css e o walk/constants.js eram\nidenticos aos do main, entao vieram copiados; o index.html e o\nshortcuts.modal.js divergem por outros motivos neste branch, e neles a\nedicao foi pontual.\n\nQuem entra na cena nao tem como descobrir que ela se anda: o splat nao diz\nisso, e os atalhos so existiam na modal de atalhos, que o visitante de uma\nvisita so nunca abre. A legenda e marcacao estatica DENTRO do container,\nentao aparece e some junto com a cena, sem uma linha de JS.\n\nO teclado direcional esta desenhado na forma dele, W sobre o S e A S D\nembaixo, e cada tecla carrega a seta equivalente. A forma e a legenda,\nentao nao ha texto ao lado.\n\nO C sai do agachar, e sai do codigo, nao so do texto: um gesto com duas\nteclas e duas coisas para ensinar e duas para desenhar no canto. A\narmadilha do Ctrl continua documentada em constants.js.\n\nA legenda nao recebe ponteiro, porque girar a camera e um arrasto sobre a\ncena inteira. Abaixo de 768px ela some.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "fca8a5f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fca8a5f1fa4992276679d0c63dca42c82d410b84",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T15:55:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(clone): a chave __proto__ trocava o prototipo, e o dado sumia\n\ndeepClone montava a copia com `copy[key] = ...`. Para a chave __proto__\nessa linha nao cria propriedade nenhuma: ela roda o setter herdado de\nObject.prototype e TROCA O PROTOTIPO da copia. A copia voltava sem a chave\ne sem o valor, calada.\n\n    entrada: {\"__proto__\": [1,2], \"nome\": \"A\"}\n    copia:   chaves proprias ['nome'], prototipo virado array\n\nE __proto__ nao e exotismo de teste. E uma string numa sacola de\npropriedades, entao chega por GeoJSON importado como qualquer outro nome de\ncampo, e o caminho e de PERDA DE DADO.\n\nA correcao usa Object.defineProperty so nessa chave, que escreve a\npropriedade propria que a atribuicao fingia escrever. Custa uma comparacao\nde string por chave e deixa a atribuicao na via rapida, o que importa aqui:\ntodo stateManager.get() clona por esta funcao.\n\nAchado pela propriedade fast-check de round-trip do state manager, que gera\numa chave __proto__ de vez em quando e falhava umas poucas vezes em cada\ncentena de execucoes da suite.\n\nFICA DE FORA, de proposito: setByPath tem a mesma escrita, mas as chaves\ndela vem de caminhos pontilhados que sao constantes do codigo, nunca\nentrada de usuario. E risco latente, nao defeito.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "da7dfe7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/da7dfe745cfa056069b548e55d55be97b6851f84",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T15:55:42.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(azimute): normalizar duas vezes movia o azimute a um fio do norte\n\nnormalizeAzimuth era `((a % 360) + 360) % 360`, e a volta somada ali nem\nsempre era precisa. Para a = 359.99999999999994, o maior double abaixo de\n360, a soma da 719.99999999999994, que nao existe em double e arredonda\npara 720 exato. E 720 % 360 e 0. O azimute a um fio do norte voltava como\nnorte.\n\nO erro em grau e 5,7e-14 e nao aparece em leitura nenhuma. O que aparecia\nera a funcao deixar de ser idempotente: normalizar de novo o proprio\nresultado dava outro numero, e o caminho de aplicar declinacao normaliza\nmais de uma vez.\n\nAgora a volta so e somada quando o resto e mesmo negativo, que e o unico\ncaso que precisa dela. A guarda `shifted < 360` trata a imagem espelhada do\nmesmo arredondamento: -1e-14 + 360 sobe para 360 exato, e 360 esta fora de\n[0, 360).\n\nDois comportamentos que existiam sem estar escritos, agora escritos:\nentrada nao finita devolve NaN, e -0 sai como 0, para nao viajar um zero\nnegativo ate a exportacao.\n\nAchado pela propriedade fast-check de idempotencia, que falhava umas poucas\nvezes em cada centena de execucoes da suite. Os casos deterministicos agora\nestao ao lado dela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1b1b0ab",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b1b0ab71b7ef59604fc20dafc79e2ed34373d15",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-15T15:51:20.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(primeira-pessoa): a legenda no canto desenha o teclado, e o agachar perde o C\n\nQuem entra na cena nao tem como descobrir que ela se anda: o splat nao diz\nisso, e os atalhos so existiam na modal de atalhos, que o visitante de uma\nvisita so nunca abre. A legenda no canto inferior esquerdo resolve isso sem\ncustar uma linha de JS: ela e marcacao estatica DENTRO do container, entao\naparece e some junto com a cena.\n\nO teclado direcional esta desenhado na forma dele, W sobre o S e A S D\nembaixo, e cada tecla carrega a seta equivalente por baixo. A forma e a\nlegenda, entao nao ha texto ao lado: era \"andar (ou setas)\" escrito, e um\nteclado se le de relance onde uma frase tem de ser lida.\n\nEspaco e agachar ficam ao lado, numa grade de dois pares tecla/acao. A\ncoluna da esquerda toma a largura da caixa mais larga e as duas caixas\nesticam ate ela, entao alinham sem min-width chutado.\n\nO C sai do agachar, e sai do codigo, nao so do texto: um gesto com duas\nteclas e duas coisas para ensinar e duas para desenhar no canto, e a\nsegunda tecla nao comprava nada que a primeira ja nao fizesse. A armadilha\ndo Ctrl continua documentada em constants.js, que e a parte que importa.\n\nA legenda nao recebe ponteiro. Girar a camera e um arrasto sobre a cena\ninteira, e um retangulo clicavel no canto seria um ponto morto nele. Abaixo\nde 768px ela some: aparelho de toque nao tem teclado, e nessa largura a\nbarra de ferramentas desce para a base e brigaria com ela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1d33f6c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1d33f6c2e1ce40eb9ef43b6f40b38f41443d5042",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-15T13:25:42.000Z",
