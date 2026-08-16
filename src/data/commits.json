@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-16T15:27:06.028Z",
+  "lastUpdate": "2026-08-16T20:28:11.423Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-15T16:10:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-08-14T22:23:42.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-16T14:17:16.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-16T19:50:37.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-15T02:28:47.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5972,
+    "totalCommits": 5974,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 952,
+      "1cgeo/ebgeo_web": 954,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -170,6 +170,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-16T19:50:37.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(atlas): a tela de atlas passa a listar os locais, e abre deslogado\n\nA API de multiplos atlas locais estava inteira desde 2026-08-15 (criar, listar,\ntrocar, excluir, teto de 10, recusa nomeada) e nao tinha UMA tela: os dois unicos\nchamadores eram o import de .ebgeo e a migracao de schema.\n\nA TELA. `projetos.html` deixa de exigir sessao e vira \"Seus atlas\", com duas\nsecoes na mesma grade: \"Neste computador\" (sempre) e \"No servidor\" (logado; para\no visitante, um convite com \"Entrar\" no lugar). Mandar o deslogado embora\ntrancava o trabalho LOCAL atras de um login que ele nao precisa fazer. Abrir\natlas local e simetrico a abrir remoto: mover o ponteiro e navegar, sem a pagina\ntocar a store. Ela continua sem @store, sem initServices e sem MapLibre, medido:\n33 arquivos / 594 kB de grafo, contra 1,87 MB do barrel.\n\nA ABA MAPAS, redesenhada POR ESTADO. Os botoes misturavam duas naturezas que o\nusuario le como uma so: \"onde eu trabalho\" e \"o que eu faco com este atlas\". A\ntela absorve a primeira, entao \"Abrir do servidor\" saiu (redundante com \"Abrir\",\nque agora leva a mesma tela) e a contagem foi de 4/6/4 para 4/5/3.\n\nCabecalho novo do atlas, com nome EDITAVEL e chip de origem, no lugar de mais um\nbotao. Ele resolve duas coisas: renomear (que so existia na pagina de projetos) e\nsaber ONDE voce esta, porque o nome do atlas so aparecia no menu da conta e so\npara atlas de servidor. Com dez atlas locais possiveis isso deixou de servir.\nRenomear atlas de servidor gateia por hierarquia (>= manage), nunca por lista\nfechada; sem permissao o campo nasce somente-leitura, nao some.\n\nDois rotulos trocados, e a troca foi VARREDURA (24 ocorrencias: 11 no codigo, 8\nem teste, 5 na wiki), porque muda-los so na aba deixou tres nomes vivos para uma\nacao e duas mensagens mandando o usuario clicar num botao que nao existia mais:\n\"Salvar\" -> \"Exportar\" (ele nao salva nada, gera arquivo) e \"Salvar no servidor\"\n-> \"Enviar ao servidor\" (promove o atlas local, nao e um salvar-como).\n\nABRIR .ebgeo PELA TELA. A pagina nao tem importador (carrega-lo e o que a faria\ncustar 3,3 MB), entao ela cria o slot, parca os bytes em `GlobalKey.PENDING_IMPORT`\ne navega; o mapa consome com o importador que ja existe. A entrega e APAGADA em\ntodo caminho, o de falha inclusive: o banco global e o unico que nenhum wipe\nalcanca, e um registro guardado \"ate dar certo\" e megabytes que refalham a cada F5.\n\nEXCLUIR ATLAS LOCAL avisa a aba irma antes de destruir, estendendo o protocolo v3\nque so existia para namespace remoto, e mantendo os tres invariantes do desenho\n(ack depois do freio, freio mantem o lock de montagem, silencio poupa).\n\nVerificado: lint limpo nos dois pacotes; frontend 228/4202; backend 2783, 0 skip,\n98,05%; e2e 52/171, 0 skip. A UI por captura do Playwright contra app e backend\nreais, com CONTAGEM de botoes nos tres estados, e a imagem lida.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "a3f50d0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a3f50d0ce96a9d04698c147a2b8becbd0bb96937",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-16T19:50:07.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(auth): a mensagem de validacao fala portugues, e o login para de ensinar a politica de senha\n\nDois defeitos que a mesma frase revelava.\n\nO LOGIN carregava o minimo de 6 caracteres, que e regra de CADASTRO. Ela\ntrancava fora conta cuja senha nasceu antes da regra, respondia palpite curto\ncom 422 nomeando a politica enquanto palpite longo recebia 401 seco (entregando\na regra a quem nem entrou), e enganava o usuario real: quem digita a senha\nerrada lia \"precisa de 6 caracteres\" e entendia que a CONTA exige senha maior.\n`required()` fica; ausencia de senha e requisicao malformada, nao login falho.\n\nAs MENSAGENS saiam todas em ingles, do Joi, e o cliente as costura direto no\ntexto que aparece na tela (`buildApiErrorMessage`). A traducao entra na BORDA,\nnuma tabela so, porque `.messages()` por schema espalharia por 18 arquivos e\nfaria o proximo schema nascer em ingles. `field` continua sendo a chave de\nmaquina, em ingles; so `message` e para humano.\n\n`string.pattern.base` fica DE FORA da tabela de proposito: regex nao tem\ntraducao generica util, e so o schema sabe o que o padrao quer dizer. O guarda\ndisso pegou quatro `.pattern()` sem mensagem propria, tres deles reais.\n\nNo cliente, o prefixo `campo: ` saiu: com a mensagem ja nomeando o campo em\nportugues, ele produzia `password: Senha deve ter ao menos 6 caracteres.`\n\nControle negativo: repostos os dois defeitos, 2 vermelhos, um para cada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D3yV7aNQQqKYbahXSDm9Ap",
+      "sha": "b41760e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b41760ecca0dd05f0de1dc786b79456efa880e63",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-16T14:17:16.000Z",
