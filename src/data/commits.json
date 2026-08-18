@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-18T10:34:04.413Z",
+  "lastUpdate": "2026-08-18T15:36:37.558Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-17T15:28:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-13T19:29:07.000Z",
+    "1cgeo/controle_acervo": "2026-08-18T13:08:33.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-17T19:19:52.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-18T14:54:34.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-17T20:05:30.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 5990,
+    "totalCommits": 5998,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 315,
+      "1cgeo/controle_acervo": 316,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 577,
+      "1cgeo/chefe_dgeo": 584,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 10,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T14:54:34.000Z",
+      "author": "Maj Diniz",
+      "message": "a voz do relatorio aprende com o corte: 22 das 41 unidades que eu escrevi sairam\n\nEscrevi o RT 10/2026 (testes da Insta360 Pro 2 e do FJD Trion P1) seguindo a\nconvention voz-relatorio, e o chefe editou o rascunho antes de assinar. O diff\nitem a item e o sinal mais forte que a convencao ja recebeu, porque e correcao\ndirigida sobre texto meu, e nao calibracao sobre corpus antigo.\n\nO que ele apagou, por familia:\n\n- os SEIS fechos de molde que eu tinha posto como item numerado so deles (\"Dez\n  meses de emprego, 14 missoes, quase um quarto do acervo.\"). Os dois que\n  sobreviveram estavam DENTRO do paragrafo, fechando um item que argumentava. A\n  convencao mandava usar os quatro moldes e nao dizia que eles nao viram item;\n- a secao inteira de METODO E LIMITES DA AVALIACAO, quatro itens. A delimitacao\n  honesta continua obrigatoria, e entra como oracao junto do numero que limita;\n- todo meta-discurso (\"e essa desigualdade que o relatorio explica\", \"o achado\n  que este relatorio registra\"). O documento so fala de si no 1.2;\n- a secao inteira de custo, com as cifras de 58.799 e 4.000 reais. A recomendacao\n  de aquisicao ficou na conclusao, sem preco;\n- detalhe de implementacao interna: milissegundos por quadro, contagem de faixas\n  de coleta, plugin de navegador.\n\nTrocas de lexico que ele fez a mao: gabinete e nao escritorio, levantamento e nao\nensaio, servidor do CGEO e nao do Exercito. E ele ACRESCENTOU concretude onde eu\nfiquei generico: \"foto a foto utilizando o GPS do celular ou de um Garmin\",\n\"tour virtual (Matterport)\".\n\nEntra na convencao como secao \"O que o chefe CORTA\", com a tabela de lexico, e\numa linha no livro-razao.\n\nFica registrado o que a sessao mediu fora do vault, e que sustenta o relatorio:\n92,4% das 22.707 panoramicas da Insta360 Pro 2 carregam correcao de inclinacao\nacima de 1 grau, contra mediana de 1,81 grau no acervo da GoPro Fusion 360, que\nopera fixada em viatura. A separacao das duas cameras sai da resolucao gravada\n(7680x3840 contra 5760x2880) e casa 100% com o prefixo do nome do arquivo.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+      "sha": "7e6d1a2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7e6d1a24aec309abfb87377c5480110997b839f5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T14:39:25.000Z",
+      "author": "Maj Diniz",
+      "message": "360 vira piramide de tiles: o acervo inteiro gerado, e o descritor que quase mentiu\n\nO acervo 360 servia cada panoramica inteira e agora tem piramide de tiles de 512.\nAs 99.035 fotos foram geradas em 7,59 h com zero falha: 11.690.996 tiles, 115,8 GB,\ncom a previsao de tiles errando 0,5%.\n\nA decisao registra o que foi MEDIDO e nao o que foi escolhido: a razao da escada e\npor formato porque a largura util das telas fica entre 4.264 e 6.119 px; o ganho e\n2,45x em bytes e 2,32x em tempo num notebook, e e piso porque a medida roda em\n127.0.0.1, que favorece o full; e paralelizar projetos rende 1,44x contra 1,09x de\ndobrar workers dentro de um projeto, ao contrario do que eu tinha escrito no codigo.\n\nDuas regras de classe entram na wiki e na memoria:\n\nDADO GRAVADO MANDA EM DESCRITOR CALCULADO. Mudar a condicao de parada da escada fez\na rota prometer 7 niveis onde havia 4, com 277 respostas 404 numa foto e a tela\npintando um oitavo do panorama esticado, sem erro no console, em 98.854 das 99.035\nfotos. Enquanto a regra morar so no codigo, toda mudanca nela reinterpreta em\nsilencio o acervo ja escrito.\n\nMEDIR TRAVAMENTO E MEDIR TRAFEGO DE GPU, NUNCA TEMPO DE FRAME. Headless deu 59,9 fps\nnos dois caminhos e nao reproduziu a queixa; a causa apareceu em 1.013,5 MB enviados\na GPU por foto, contra 127,1 MB do caminho antigo.\n\nFica registrado tambem o que o piloto achou por acidente (o MapLibre de CDN com\ndefer segurando o DOMContentLoaded, o que deixava a calibracao em \"Carregando...\"\npara sempre atras do proxy), o terceiro formato do acervo que ninguem sabia (828\nfotos em 2048x1024 no santana_livramento), e o portao que barrou o chefe: ele\nautorizou apagar o full_webp e a prova de rede mostrou tres emissores ainda pedindo.\n\nCodigo em 1cgeo/ebgeo_360 branch piloto-tiles-360 (8 commits) e em 1cgeo/ebgeo_web\nbranch tiles-360-progressivo (4 commits), as duas empurradas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "2350e18",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2350e18cab56bd292335f94ce2999979a07869dc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T13:11:08.000Z",
+      "author": "Maj Diniz",
+      "message": "orcamento 2026 fecha: 5 liquidacoes, 28 recolhimentos e o conferir que parou de mentir\n\nCampanha de conserto autorizada pelo chefe, guiada pelo SAG, contra o banco de\nproducao pela instancia local do SCA. Estado final: 49 NCs, 40 NEs, 55\nliquidacoes, 28 recolhimentos, zero talao de carga.\n\nO que ficou duravel nesta sessao:\n\n- **o dry-run NAO valida chave estrangeira.** Os 28 POST de recolhimento passaram\n  no Joi e voltaram 400 no servidor, porque as ND 339000 e 449000 da anulacao nao\n  estao no dominio. Pior: o erro apareceu com a tabela ja vazia, porque o plano\n  apagava antes de criar. A regra que sai daqui e RODE UM CREATE REAL ANTES DE\n  APAGAR O QUE EXISTE, e vale para qualquer troca em bloco;\n- **a conferencia que ANTECEDE a escrita e a mais barata que existe.** Somei o\n  plano das 28 linhas por NC alvo e comparei com os 20 taloes antes de tocar em\n  nada: 20 NCs bateram no centavo e a unica diferenca era o R$ 0,98 que eu queria\n  acrescentar. Mapeamento errado teria reprovado ali, sem nada mutado;\n- **recorte de coluna esconde o dado, e a ausencia parece do mundo.** Eu declarei\n  que a tela de NS do SAG nao trazia o rateio por empenho e que so o Portal\n  resolveria. Pedindo EVENTO e CLASSIFICACAO_ORCAMENTARIA1 o rateio apareceu\n  inteiro. Esgote a fonte que voce ja tem antes de ir a externa;\n- **o evento contabil diz qual linha e liquidacao**: 401002, 521214 e 511005\n  carregam o liquidado; 521464 e 531214 carregam retencao, que baixa o pagamento\n  e nao a liquidacao. Metodo validado num caso de controle ANTES do caso\n  duvidoso, com duas vias independentes dando o mesmo numero;\n- **cruzar liquidacao exige o corte por DATA.** NS anterior ao empenho e de outra\n  UG, sempre, porque as duas UGs do 1 CGEO numeram a NE a partir de 1 e a NE nao\n  guarda UG. Sem o corte, 27 NEs pareciam ter liquidacao faltando; com ele, 5;\n- **filtro escolhido a dedo nao e varredura.** A busca do dia anterior perdeu\n  quatro liquidacoes porque eu grepei uma lista de numeros que eu mesmo escolhi;\n- o valor da liquidacao mora no TEXTO do SIAFI, nunca no VALOR_TRANSACAO da tela,\n  que e saldo contabil. Numa NS o VALOR_TRANSACAO era R$ 6.069,66 contra um\n  empenho de R$ 1.890,63;\n- o Portal da Transparencia atrasa cerca de um mes. Prove a cobertura por DATA\n  antes de concluir que o documento nao existe.\n\nCriterio novo do chefe, ja no ncs.md: a EBC e credito nosso do item 1H do PDR. E\nnossa e esta no PDR, mas e despesa-meio, e o que classifica continua sendo a\nPREVISAO no PDR, nunca a natureza da atividade.\n\nConserto no repo de producao, ja empurrado: 1cgeo/controle_acervo commit 6e489f9,\no conferir nc lendo a tabela recolhimento. Reprova o estado anterior nas tres\nacoes (20XE 23 para 0, 21GO 4 para 1, 14T5 1 para 0).\n\nFica aberto ao chefe se as ND 339000 e 449000 entram no dominio, e o conserto do\norcamento saldo, que continua respondendo vazio.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+      "sha": "1e29253",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1e292532d609f4ff94d8e7bb88e2bcbaa59c4a45",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-18T13:08:33.000Z",
+      "author": "Maj Diniz",
+      "message": "sag: o conferir aprende que anulacao vira recolhimento, nao nota de credito\n\nO `conferir nc` lia so `notas_credito` do lado do SCA. O documento de anulacao\n(ND 339000 e 449000) nao mora ali: desde que o recolhimento virou entidade, ele\nmora em `/orcamento/recolhimentos`, com uma linha por NC que abate.\n\nO efeito era um falso positivo PERMANENTE. Em 2026, 27 documentos de anulacao\napareciam em \"falta cadastrar\" mesmo cadastrados, e empurravam para o operador um\ntrabalho que ja estava feito. Falso positivo que nunca some ensina a ignorar o\nrelatorio inteiro, e ai o verdadeiro passa junto.\n\nO que muda:\n\n- `RECURSOS.nc` declara a segunda tabela. A chave e (numero, ug_emitente) e NAO\n  leva cod_nd, porque as ND de anulacao nao existem no dominio do SCA e o\n  recolhimento grava cod_nd nulo. Casar por ND nao acharia nenhum;\n- `indexarRecolhimentos` soma as parcelas por documento antes de comparar. O\n  documento de rateio (a 2026NC401316 abate R$ 0,98 de uma NC e R$ 0,99 de\n  outra) entra uma vez por alvo, e sem a soma cada parcela pareceria divergencia\n  de valor contra o documento de R$ 1,97;\n- grupo novo \"JA CADASTRADO COMO RECOLHIMENTO\", que nao e pendencia;\n- grupo novo \"RECOLHIMENTO COM VALOR DIVERGENTE DO DOCUMENTO\", para quando a\n  soma dos alvos nao fecha. Isso e defeito de dado, nao cadastro faltando;\n- grupo novo \"RECOLHIMENTO SO NO SCA\", sob a MESMA guarda do \"so no SCA\", porque\n  com --acao ele incha por construcao. Ele nasceu no topo do relatorio e foi\n  movido depois de rodar contra o SAG e ver 26 linhas de alarme falso;\n- `--corpo` deixa de imprimir corpo de NC para anulacao ja cadastrada como\n  recolhimento. Gravar aquele corpo criaria uma NC que o SIAFI nunca emitiu.\n\nMedido contra o SAG e o SCA de producao em 2026-08-18, depois de a campanha de\nconserto trocar os 20 taloes de carga pelos 27 documentos reais:\n\n  acao 20XE   falta cadastrar 23 -> 0   (23 casaram como recolhimento)\n  acao 21GO   falta cadastrar  4 -> 1   (3 casaram; sobra a 2026NC400522, que o\n                                         chefe decidiu que nao e credito da DGEO)\n  acao 14T5   falta cadastrar  1 -> 0\n\nO grupo \"divergem em valor ou data\" tambem foi de 1 para 0 no 20XE, porque a data\nda 2026NC400418 foi corrigida no SCA na mesma campanha.\n\nSuite: 44 testes, 7 novos sobre a indexacao (rateio, homonimo de UG emitente,\nvalor ausente, formato do SCA, lista vazia).\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+      "sha": "6e489f9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6e489f9ab84718e26f21b5b6b76da11848db4717",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T12:58:59.000Z",
+      "author": "Maj Diniz",
+      "message": "catalogar-cds: como retomar, porque o dossie mora no scratchpad e ele some\n\nOs 564 dossies e as 900 miniaturas ficaram no scratchpad da sessao. Sem a\nsequencia escrita, a proxima sessao redescobre o caminho. Sao seis comandos, do\ninventario a conferencia das fichas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d262175",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d262175bc5806d0edb8ee0e2833e7f85585324e5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T12:57:57.000Z",
+      "author": "Maj Diniz",
+      "message": "catalogo de CDs: 443 fichas, e a grade da foto aerea estava dentro do projeto\n\nO acervo passou de 197 para 698 CDs copiados (380,2 GB). Das 564 fichas que\nfaltavam, 309 sairam nesta sessao, com fan-out de agentes calibrado por familia\nde CD: 13 mil tokens por CD, contra 44 mil na primeira tentativa.\n\nTres achados derrubam premissas do catalogo de 2026-07-16:\n\n1. A grade da foto aerea NAO depende de foto-indice. O arquivo `Projeto/photo`\n   da ImageStation grava o `footprint` de cada fotograma em UTM. Colhidos 3.788\n   fotogramas distintos, em 204 CDs, nenhum fora da faixa UTM esperada.\n2. A ortoimagem JA vem amarrada. Sao 2.104 rasters em 148 CDs, em tres fontes:\n   chave GeoTIFF (622, e so ela declara datum e fuso), tag privada 33918 (1.328)\n   e cabecalho ISFF do raster Intergraph (154).\n3. O foto-indice existe: oito mosaicos com `.tfw`, mais o certificado de\n   calibracao da camara, no CD 0493.\n\nOs scripts que faziam o inventario dos 134 primeiros nao tinham ficado em lugar\nnenhum. Agora sao nove, versionados, do inventario a conferencia das fichas.\n\nCorrecoes de rota registradas: o metadado erra em 15% dos CDs e fica incompleto\nem 34%; a data do voo segue a FAIXA, nunca o bloco; a tarja nao desambigua o\nbloco (dois CDs com a mesma tarja e cenas diferentes); o magic 0809fe nao separa\nraster de desenho; e o PROBLEMAS.md dava como vazios tres CDs que hoje trazem 7\nfotogramas unicos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d04e0f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d04e0f6bfbf25f271ea2b62bbaa34ccbd68db95b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T11:02:25.000Z",
+      "author": "Maj Diniz",
+      "message": "o PTS ganha o ritmo medido, e nasce a convencao da voz do relatorio\n\nRefino do PTS contra os 31 relatorios de 2026 do 1o CGEO (96.357 palavras,\nextraidos por pdftotext e limpos de cabecalho e rodape). Autoria conferida no\nbloco de assinatura: o chefe assina 15 (7 RT e 8 RPCM/RPCA), o Chefe do 1o CGEO\nassina as 8 OS, o Cap Borba assina rt_02 e rt_03, os adjuntos assinam memoria e\nOI. A calibracao da voz usa so os 15.\n\nconventions/voz-relatorio.md (NOVO), pedido pelo chefe para referenciar ao\nescrever relatorio novo: estrutura de cada genero, formulas literais de abertura,\ntransicao e fecho, a voz institucional (\"Esta Divisao\", \"Este Centro\"), os quatro\nmoldes de fecho e um autolint de 11 itens. 13 das 14 citacoes casaram na fonte, e\na que nao casou era exemplo construido, trocada por uma verificada do RT 09/2026.\n\nO documento foi ACIONADO e a primeira prova REPROVOU: um trecho escrito so com a\ntabela de alvos ficou em p95 de 36 palavras contra alvo de 53, igual a wiki/.\n\"Confira a distribuicao depois\" nao e acionavel na hora de escrever. Trocado por\numa regua de proporcao a cada 5 frases, e a segunda prova subiu o p95 para 54.\nAs duas provas tem 12 frases, o que nao sustenta percentual, e isso esta\ndeclarado no documento.\n\nescrita.md: a secao \"O ritmo\" reescrita com numero proprio (41,6% das frases do\nchefe acima de 25 palavras contra 32,1% da wiki/; maior trecho sem pausa 19\ncontra 15). Entra o nono habito, o ABSOLUTO EM SERIE, que e o vicio que o proprio\npadrao criou: por 1.000 palavras o chefe usa 0,59, a wiki/ 2,22, os SKILL.md 5,59\ne o CLAUDE.md 16,18. O corte SO separa com a lista estrita, porque acrescentar\n\"todo\" e \"qualquer\" leva o chefe a 2,93 e apaga o sinal.\n\nEntra o quinto criterio de admissao de regra: a regua nao reprova o exemplar do\npadrao. Corrigido o autolint, que mandava usar teto de 30 no temperado quando o\nlinter fixa 25 nos dois modos desde 2026-07-30. Entram \"bem como\" no lexico e a\nexcecao \"mediante cautela\". \"Onde NAO aplicar\" ganha o bloco de dado convertido e\na descricao literal copiada de sistema.\n\nPendencia registrada: a frase \"1,27 subordinador por 1.000 palavras contra 1,81\nnosso\" nao tem decisao que a sustente, e a medida nova da a direcao INVERSA (1,90\ndo chefe contra 0,88 do vault). Instrumentos diferentes, e o que gerou o 1,27 nao\nesta registrado. Fica como esta ate refazerem com a definicao declarada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2491582",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/249158235815e8d9a05432786417de4ffe6fead5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T11:01:59.000Z",
+      "author": "Maj Diniz",
+      "message": "a passiva com agente sai da regua, 18 dias depois de decidida\n\nO commit 2cc2913, de 2026-07-31, diz que \"a passiva com agente expresso e padrao\nbom em portugues e deixa de ser cobrada\". Ele tocou escrita.md, learnings.md e\nlivro-razao.md, e nunca o linter. `obl:agent` continuou dentro de MARCA_PASSIVA.\n\nA prova de que isso mordia: das 8 frases que o escrita.md cita entre aspas como\nexemplo BOM, 5 reprovavam na propria regua. Tres por voz_passiva, e as tres com\nagente expresso, incluindo \"O desempenho e medido por um indice consagrado na\narea\", que o arquivo declara que \"fica como esta, e nao se conserta\".\n\nTres consertos, cada um com o caso que nao pode pegar no fixture:\n\n1. voz_passiva ignora o participio com filho obl:agent. Medido pela arvore, 33%\n   da passiva do corpus assinado e 52% da do vault caiam ai.\n2. lista_inline libera a enumeracao cujos membros repetem a mesma palavra plena.\n   A lista de PASSO continua caindo, porque abre cada membro com o infinitivo.\n3. ponto_e_virgula libera o \";\" de sujeito elidido com verbo repetido. Piso de 4\n   letras, entao \"...a escala; ele extraia...\" continua caindo.\n\nAs 8 exemplares passam e entraram como nao_pega. O fixture que quebrou era de\n2026-07-30, um dia ANTERIOR a decisao que o contradiz, e virou nao_pega. A copula\nteve de virar \"foi\": o fixture e ASCII, e sem acento o spaCy le \"e\" como\nconjuncao.\n\nAntes e depois, mesmo recorte, modo temperado:\n  SKILL.md    0,39 -> 0,28\n  01-Projects 0,52 -> 0,38\n  Decisions   1,87 -> 1,64\n  wiki/       2,17 -> 1,87\n  relatorios de 2026 (controle HUMANO) 2,39 -> 2,12\n\n52 exemplos do fixture passam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3ea9aeb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3ea9aeb44cf28c2111d8797eeb933c5db9bee787",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-17T20:05:30.000Z",
