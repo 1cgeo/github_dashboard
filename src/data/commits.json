@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-19T15:37:16.988Z",
+  "lastUpdate": "2026-08-19T20:33:38.649Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-17T15:28:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-18T19:45:11.000Z",
+    "1cgeo/controle_acervo": "2026-08-19T20:06:02.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-19T14:47:40.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-19T20:10:12.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-17T20:05:30.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6019,
+    "totalCommits": 6023,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 317,
+      "1cgeo/controle_acervo": 318,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,49 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 596,
+      "1cgeo/chefe_dgeo": 599,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 11,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T20:10:12.000Z",
+      "author": "Maj Diniz",
+      "message": "mosaicar-cartas ganha as faixas do rolo, e o corte vem DEPOIS da moldura\n\nO mosaico das 15 folhas 1:50.000 do Exc ARANDU-ARAUCARIA da 2,54 por 1,81 m e\npede rolo de 72 polegadas; a mapoteca tem 44. Nasceu o `cortar_pdf.py`.\n\nA ORDEM foi correcao do chefe, e e contraintuitiva: monta-se o mosaico INTEIRO\ncom moldura, tiques e rotulos, e so entao se corta o PDF. Cortar o raster e\ndesenhar moldura em cada faixa produz duas folhas que parecem dois mapas\ndistintos, cada uma com o seu quadro fechado. Cortando a pagina, a moldura\npertence ao mapa inteiro e cai na faixa onde esta.\n\nTres consertos no `mosaicar_cartas.py`, os tres achados acionando:\n\n- `achar_arquivo` exigia que o nome TERMINASSE no MI, e nao achava\n  `CT_s12_2962-3_1dsg.tif`, que e como o acervo entrega. Agora casa o MI como\n  TOKEN, e `2962-3` continua nao casando `2962-3-NE` (8 casos de teste).\n- `pdf_b` morria no mosaico grande com `LimitReachedError: Declared stream\n  length of 241053637`. O teto do pypdf protege contra PDF hostil e nao vale\n  para o arquivo que a linha anterior da propria funcao gerou.\n- `pdf_b` derivava a mancha do mosaico inteiro, entao nao servia a uma faixa.\n  Agora sai da geometria da PROPRIA pagina.\n- O titulo passa a poder vir de ARQUIVO: o lancador `python-qgis.bat` nao passa\n  argumento com espaco, e argv no Windows ainda come o acento.\n\nA sobreposicao entre faixas se prova por CORRELACAO na mesma area de terreno,\ncom o pico caindo no alinhamento geografico (medido: r=0,9937 a 0,17 mm, dentro\ndo erro grafico de 0,2 mm que a carta declara). Diferenca absoluta nao serve: o\nmapa e quase todo branco e verde claro, e janela desalinhada tambem da diferenca\npequena.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7eabaf0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7eabaf037dc23eb93d6dc55ed74ef9c743d977d4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-19T20:06:02.000Z",
+      "author": "Maj Diniz",
+      "message": "o acompanhamento publico ganha a imagem da folha, e diz se ja foi enviado\n\nTres melhorias na tela que o solicitante abre pelo localizador, sem ter conta.\n\nMINIATURA da folha, a esquerda de cada item. A imagem ja existia em\nacervo.miniatura_versao (4904 miniaturas, JPEG, cobrindo 1147 dos 1192 itens\ndos pedidos abertos); o que faltava era um caminho ate ela sem login.\n\nA rota do acervo, '/acervo/versao/:id/miniatura', exige perfil. Tirar a guarda\ndela serviria a imagem de QUALQUER versao a quem chutasse um id sequencial, e\npor isso nasceu '/mapoteca/pedido/localizador/:localizador/miniatura/:versao_id':\no localizador e a chave, e a imagem so sai se a versao for de um item daquele\npedido. O par e conferido no banco, e nao por confianca no que o cliente mandou.\nProvado acionando a rota: versao alheia ao pedido devolve 404, localizador\ninexistente devolve 404, e localizador fora do padrao para no schema com 400.\n\nO payload publico passou a trazer versao_id e tem_miniatura. O segundo evita a\nviagem que voltaria 404, que e o caso normal de produto sem imagem. No cliente a\nimagem vai por `src` direto, e nao pelo apiImagem: aqui a rota e publica, entao\nnao ha token a levar, o cache do navegador funciona sozinho pela etiqueta e nao\nsobra blob para liberar depois.\n\nSITUACAO DO ENVIO, sempre visivel enquanto o pedido vive. Antes a tela so falava\nde envio quando havia rastreio, e ausencia de linha nao diz \"nao enviado\", diz\nnada: quem consultava um pedido em producao nao sabia se ja tinha sido\ndespachado. Pedido cancelado nao ganha a linha.\n\nFORMA DE ENVIO PREVISTA e o rotulo enquanto o material nao saiu. O campo so vira\nfato depois de remetido, e prometer \"Forma de entrega\" antes disso e prometer o\nque ainda pode mudar.\n\n5 testes novos, e os cinco reprovam o codigo anterior (conferido reintroduzindo\no defeito). Suite do cliente: 1899 testes. Rotas da mapoteca: 112.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "fc1a566",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/fc1a5663119d5765b58f7c19d2b9d902021cca44",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T17:20:23.000Z",
+      "author": "Maj Diniz",
+      "message": "a wiki ganha disciplina-militar: o FATD nao vem de portaria avulsa, e sim do Anexo V do RDE\n\nMotivo: o vault respondia zero sobre disciplina, e a pergunta de como abrir\nFATD em sargento temporario nao tinha onde cair.\n\nConferido na fonte primaria, nao no eco:\n- O rito do FATD esta no Anexo IV do RDE (\"Instrucoes para padronizacao do\n  contraditorio e da ampla defesa\"), que quase ninguem cita. Dele vem as tres\n  exigencias de forma que anulam punicao: renuncia a defesa de proprio punho,\n  certidao de inercia com duas testemunhas, decisao lavrada de proprio punho.\n- O teto de quem pune esta no Anexo III. A linha dos sargentos da ativa tem a\n  primeira celula com colspan=2, entao a leitura ingenua desloca todos os\n  valores. Lido pelo colspan: comandante de subunidade e chefe de divisao param\n  em 20 dias de detencao.\n- Transgressao grave comeca em prisao disciplinar (art. 37, I, c), que nem\n  chefe de divisao nem comandante de subunidade aplica. Esse e o gargalo que\n  tira o caso do rito simples.\n- Militar temporario nao tem estabilidade, entao nao ha conselho de disciplina.\n  O caminho extremo e o licenciamento, e ele exige sindicancia.\n\nTexto do RDE conferido em duas fontes independentes (Camara dos Deputados e\ncopia do CBMDF), artigo a artigo nos arts. 12, 32, 34, 35, 37, 40 e 51.\n\nLigacao: index, glossario (RDE, FATD, nota de punicao), mapa-conceitos e\nbacklink reciproco em secretaria-administrativo, sisbol e chefe-dgeo.\nLinks tipados: (parte-de) secretaria-administrativo, (usa) sisbol.\nLint da wiki verde: 174 paginas, 0 quebrados, 0 orfas, 0 avisos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "40c3c10",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/40c3c101508b7f1dd0d73b2201ee4f1518bc3422",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T15:49:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-19: o DIEx da 5a DE vira cinco pedidos, e o mosaico maior que a soma era defeito\n\nO DIEx 4243-E3/EM/5a DE reparte 11 mosaicos entre cinco OM, entao virou um pedido\npor OM (184 a 188), sob o mesmo NUP. O documento IRMAO definiu o produto: o DIEx\n5122 lista os mesmos 15 MI e escreve \"3 copias de cada\", logo N mosaicos sao N\ncopias de cada folha. Duas OM ja tinham pedido as mesmas 15 folhas por documento\nproprio, e o chefe mandou ABATER: os pedidos 187 e 188 ficam com cabecalho e zero\nitens. 45 itens, 105 copias, 3 pastas montadas com portao de sha256.\n\nO item 3 pedia os arquivos em tif, e o mosaico digital saiu num GeoTIFF unico de\n39680 x 23808 px. Isso e um caminho que a skill mosaicar-cartas nao cobria (ela e\npara o plotter, em UTM e GeoPDF), e virou o scripts/mosaico_digital.py dela.\n\nQuatro correcoes no livro-razao, e a que mais paga veio do chefe: entreguei o\nmosaico com 450 MB contra 251 MB dos originais somados, num arquivo com MENOS\nconteudo. Calibrar a qualidade JPEG contra o bitrate da ORIGEM (2,15 bits/px)\nderrubou a base para 220,8 MB, 12% MENOR que a soma. Regua nova: artefato derivado\nmaior que a soma das partes e defeito ate prova em contrario, medido em bits/px.\n\nDuas propostas de nucleo pendentes de aval: bloquear a leitura do .env inteiro no\nguarda.sh, e as duas emendas da mesma lacuna na linha da verificacao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3711ac7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3711ac715eb75a5bd117ecda3deba4194f8c583c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-08-19T14:55:10.000Z",
