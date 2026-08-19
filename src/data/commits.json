@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-19T10:34:24.194Z",
+  "lastUpdate": "2026-08-19T15:37:16.988Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-17T15:28:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-14T17:03:21.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-19T14:55:10.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-19T09:08:12.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-19T14:47:40.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-17T20:05:30.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6007,
+    "totalCommits": 6019,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -151,7 +151,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 382,
+      "dsgoficial/pytorch_segmentation_models_trainer": 386,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -163,13 +163,121 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 588,
+      "1cgeo/chefe_dgeo": 596,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 11,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-19T14:55:10.000Z",
+      "author": "Maj Borba",
+      "message": "Potential fix for 1 code quality finding (#264)\n\n* Apply suggested fix to tests/test_co_teaching_model.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* fix: finish _w_conf -> _mock_confidence_weights rename in test\n\nThe autofix renamed the helper's definition and one call site but\nmissed a second call site (TestCoTeachingModelNeighborhoodReg._batch),\nleaving a reference to the now-undefined _w_conf and failing flake8's\nF821 check.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "533f0f0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/533f0f0c8085cc3f47bad9e4518c149e5e2908a6",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T14:47:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-19: a LAI de Terra de Areia fecha ponta a ponta, e o acento morre no argv\n\nO DIEx 1806-E2/DSG encaminhou a LAI de NUP 60143.003680/2026-68, com resposta pedida\nno repositorio da DSG ate 26 AGO 26. A cidada delimitou a area por dez vertices em\ngrau-minuto-segundo, e o acervo devolveu 32 fotografias em 2 voos: 21 do AST-10 e 11\ndo SACS, os dois unicos do catalogo que cobrem a poligonal.\n\nO portal de fotos aereas passou a responder HEADLESS, com o codigo real dele. Duas\ntravas cairam por conserto, e nenhuma por contorno: apagar `window.showSaveFilePicker`\nantes da carga poe o portal no modo memoria que ja existe para o Firefox, e o ZIP sai\npor blob; e o relatorio saiu SEM mapa na primeira rodada porque o Chromium headless\nnao herda o proxy, degradando de proposito para o croqui vetorial (16 KB contra 150 KB)\nsem erro nenhum. Regua que fica: confira o ARTEFATO, nunca o codigo de saida.\n\nSegundo achado, na entrega: os PUT voltaram 504, 504, 502 e 500, e a escrita tinha\ndado certo. HTTP 5xx no PUT do repositorio nao decide nada, porque o gateway desiste\nantes de o Nextcloud fechar o arquivo grande. A prova que fecha e baixar pelo LINK\nPUBLICO, sem sessao e sem proxy, e bater o sha256 contra o local.\n\nTerceiro achado, e o mais caro: texto com acento vindo de VARIAVEL DE SHELL chega\ncorrompido ao CLI mapoteca. O trecho lido do arquivo gravou duplo-codificado no banco\nde producao, e o digitado na MESMA variavel gravou certo, o que localiza o defeito na\nconversao de argv entre o shell e o node no Windows. A minha releitura comparou antes\ncontra depois, viu o campo mudar e aprovou. Regua de classe, e proposta de nucleo\nlevada ao chefe: conferencia de escrita se mede contra o valor PRETENDIDO, nunca\ncontra o estado anterior.\n\nRaio de explosao: pedido 182 no SCA (concluido, 4 anexos), pasta nova no repositorio\nda DSG (3 arquivos, 218,4 MB, link id 394) e o DIEx 29303 em elaboracao no SPED.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "904f7b9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/904f7b95b380e83a7995ae8370e77108b40b3469",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-19T14:39:05.000Z",
+      "author": "Maj Borba",
+      "message": "Potential fixes for 3 code quality findings (#263)\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/train.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/train.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/train.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* test: cover checkpoint_callbacks fallback branch in train()\n\nThe autofix added a fallback path for when trainer.checkpoint_callbacks\nis None (older PyTorch Lightning trainers), scanning trainer.callbacks\nfor a checkpoint-like object instead. That branch was never exercised,\ndropping patch coverage below threshold. Add a test that forces\ncheckpoint_callbacks=None and asserts the fallback correctly locates\nthe checkpoint and loads it.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "016fe67",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/016fe6762bb79ff9788e7d015c9feb53a168df40",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-19T14:20:59.000Z",
+      "author": "Maj Borba",
+      "message": "Potential fixes for 4 code quality findings (#261)\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/model_loader/model.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/model_loader/model.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/model_loader/model.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* Apply suggested fix to pytorch_segmentation_models_trainer/model_loader/model.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* test: cover new guard clauses in _compute_steps_from_config\n\nThe autofix added a ValueError guard for non-positive effective_batch_size\nand a steps_per_epoch<1 clamp (to avoid scheduler failures on tiny\ndatasets), but neither branch was exercised, dropping patch coverage\nbelow threshold. Add tests for both: a zero batch_size that trips the\nguard (caught internally, returns None) and a dataset smaller than the\neffective batch size that gets clamped to 1 step.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "673be83",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/673be83d95d2e83713abe50bc5c64cc4f8503afd",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T13:54:38.000Z",
+      "author": "Maj Diniz",
+      "message": "a pasta do pedido 170 fecha, e o nome do arquivo nao serve para conferir folha\n\n\"Mosaico\" no anexo da campanha ARANDU e o CONJUNTO de folhas individuais, confirmado\npelo chefe: a subpasta MOSAICO_25K recebeu as 16 folhas 1:25.000 do acervo, com portao\nde sha256 nas duas pontas, e a pasta fechou com as 39 folhas do pedido.\n\nO que a rodada ensinou: conferir pasta pelo NOME do arquivo mente. O primeiro\nlevantamento acusou a folha 533 como ausente do 250K_3COPIAS, e ela estava la como\n533_250k_29191_2003.pdf, fora do padrao. Casando pelo conteudo contra a coluna checksum,\ntres das quatro subpastas ja estavam completas e so as 25k faltavam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6c111b3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6c111b396d798c3cdef2b8cc70b9802bb2233257",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-19T13:50:55.000Z",
+      "author": "Maj Borba",
+      "message": "Potential fixes for 2 code quality findings (#265)\n\n* Apply suggested fix to tests/test_mbtiles_soft_label_dataset.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* Apply suggested fix to tests/test_mbtiles_soft_label_dataset.py from Copilot Autofix\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\n\n* fix: revert hallucinated mock target in cache-hit test\n\nThe autofix rewrote this test to patch\nMBTilesSoftLabelMaskWindowedDataset.read_source_aligned_to_mask_window\n- a method that does not exist anywhere on the class (AttributeError\nin CI). Reverting to the original assertion (patch mod.rasterio.open,\nwhich is what the dataset actually calls) restores the test to its\npreviously-passing, correct form. The unrelated gradient-flow\nassertions added earlier in the same PR are kept. Also includes\nblack's reformatting of a few unrelated lines in this file (pre-commit\nhook ran automatically on the prior commit attempt).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Copilot Autofix powered by AI <223894421+github-code-quality[bot]@users.noreply.github.com>\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "5823664",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/58236643492fabe83d41f8a3c6479ecee243c9f1",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T13:48:12.000Z",
+      "author": "Maj Diniz",
+      "message": "o anexo lista quatro folhas para UM produto, e o avulso do operador estava certo\n\nTres frentes numa rodada. As pastas dos pedidos 172 e 173, os unicos do ARANDU sem\npasta nenhuma, foram montadas com portao de sha256 nas duas pontas, 52 de 52.\n\nA subpasta MOSAICO_25K do pedido 170 esta vazia: faltam as 16 folhas 25k do acervo, que\nformam um bloco de 2674 km2. O mosaico do CIBSB catalogado hoje cabe 99% dentro dele e\nocupa 47%, entao um nao substitui o outro.\n\nO pedido 168 rendeu o achado de classe. O produto e uma FOLHA ESPECIAL do Campo de\nInstrucao Marechal Hermes, e nao quatro folhas do SCN: ela tem o tamanho de uma 25k mas\ne deslocada da grade, e por isso atravessa os quatro MI do anexo, com 100% da area dela\nsomada entre eles. A lista de MI dizia ONDE o produto esta, nao quantos sao.\n\nIsso inverte duas leituras. O operador que em 12/08 trocou os quatro itens por um avulso\nestava certo, e o que faltava era o produto no acervo (agora produto 6700, lote 66, o\nmesmo do irmao 1:50.000). E a quantidade caiu de 320 para 80, porque com produto unico as\n\"80 cartas\" do documento sao 80 copias, e a pasta ja se chamava 80COPIAS.\n\nA geometria dispensou derivacao por pixel: o PDF traz as coordenadas do quadro como texto\ncom posicao. Antes de medir graticulado por imagem, procure em get_text('words').\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9f34a0a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9f34a0ac04f2a08ad1c4c19d595bf5b48769264b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T13:36:58.000Z",
+      "author": "Maj Diniz",
+      "message": "navegacao 360 em PC fraco: a rede nao era o gargalo, e o giro nunca travou\n\nQuatro consertos implementados e medidos (ebgeo_web 1ee14e3f, ebgeo_360\n741a9a4), com o antes e o depois medidos na mesma forma de rodada e a imagem\nprovada por pixel.\n\nVai junto a correcao de um relatorio meu: eu havia dito ao chefe que o giro\nvolta a travar em maquina fraca, com 318 ms de bloqueio. Era artefato do\nmedidor, que comecava o cenario sem esperar o anterior assentar. Isolado, o giro\nda zero.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "397b049",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/397b049a7ec835f599bf35c7f590663fb1ba65ce",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T13:13:37.000Z",
+      "author": "Maj Diniz",
+      "message": "a pasta do pedido 117 volta a refletir o pedido: renomear e o ajuste barato, apagar nao e\n\nAs subpastas da 17_6RCB carregavam a tiragem no nome (\"15 copias\" e \"8 copias\") e\npassaram a contradizer o pedido depois do abatimento. Renomeadas para \"9 copias\" e\n\"4 copias\".\n\nOs 13 arquivos foram inventariados antes e depois, por nome, tamanho e data: nada\nfaltou, nada sobrou, nada mudou. Duas folhas de amostra batem por sha256 com a coluna\nchecksum de acervo.arquivo, e a mesma checagem reprova quando aponto o checksum de\noutra folha.\n\nA regua que isso separa: renomear pasta e reversivel e sai na hora; apagar folha ja\ncopiada e outra conversa, e foi por isso que as duas pastas de junho ficaram como\nestao. Ao propor ajuste de pasta, diga qual dos dois e.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "decc099",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/decc099d2fcd90b6ab8320027d67f28aef8c3ae9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T13:08:51.000Z",
+      "author": "Maj Diniz",
+      "message": "pedido 117 do 6 RCB: a sobreposicao com o 176 se resolve por abatimento, e a soma fecha folha a folha\n\nAs 12 folhas do pedido 117 (DIEx 3003-S3/6o RCB) estao todas dentro das 84 do pedido\n176 (bloco 2 do anexo do DIEx 4534). Nao e duplicata: o 176 e cobertura, com 84 folhas\ne poucas copias, impresso em junho; o 117 e reforco, com 8 folhas 25k contiguas no\ncentro da area e mais que o dobro de copias, pedido um mes depois.\n\nO chefe manteve o 176 intocado e abateu do 117 o que aquele ja entrega: as 1:50.000 de\n8 para 4 copias e as 1:25.000 de 15 para 9. O pedido caiu de 152 para 88, e as 12\nfolhas fecham uma a uma na soma dos dois (4+4=8 e 9+6=15), que e o que o DIEx 3003\npediu por folha.\n\nGotcha novo do schema: o PUT do item recusa o corpo com \"conflict between exclusive\npeers\", porque uuid_versao e nome_avulso sao peers exclusivos e null explicito ja conta\ncomo presente. Remova a chave do par que nao vale, em vez de manda-la nula.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9364129",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9364129ee41f75fbfaf13d13f7cce88538cf0cb2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T12:49:39.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-19: o DIEx 4534 vira sete pedidos, e o mosaico 25k entra no acervo para caber num deles\n\nO documento da 2a Bda C Mec cobre sete OM num anexo por bloco, e estava cadastrado\ncomo pedido unico (59, 84 itens, 4436 copias). Virou sete pedidos (175 a 181), com o\n59 apagado, e o desmembramento se prova pela CONSERVACAO: a soma por folha dos sete\nreproduz as 84 quantidades do pedido velho, zero divergencia.\n\nDepois o chefe simplificou os dois maiores: os pedidos 177 e 180 trocaram 140 folhas\npor dois mosaicos do CIBSB, e cairam de 2940 para 180 copias. O mosaico 1:25.000 nao\nexistia no acervo, e foi catalogado antes de virar item (produto 6699), porque folha\nnossa nao catalogada nao vira avulso. A geometria dele saiu do graticulado impresso,\ncom a terceira linha de grade conferindo a ancoragem em 5 m e a latitude do irmao\n1:50.000 conferindo o resultado em 35 m, por fora do metodo.\n\nCorrecao registrada: eu havia escrito que a pasta da mapoteca nao respondeu, e o erro\nera meu, porque testei so o caminho UNC. Ela responde pelo drive mapeado, as sete\npastas estavam montadas desde junho, e as duas sem sufixo _ok sao justamente as duas\nOM sem registro de atendimento. O gotcha entrou em wiki/ti-infraestrutura e a decisao\nfoi corrigida no lugar.\n\nA skill de pedido ganhou a Fase 8 (desmembrar um consolidado) e a de acervo ganhou o\ncaso do produto especial sem GeoPDF. O learnings da mapoteca passou de 29 KB para 21,\ncom quatro rodadas de agosto indo para a camada detalhe e as reguas delas destiladas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b494a34",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b494a34d40cca22291a0f1d473559f717d2c5869",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T12:03:13.000Z",
+      "author": "Maj Diniz",
+      "message": "medida do 360 no ebgeo_web: a aplicacao pesa dez vezes mais que a foto\n\nNasce o medir-web.js no ebgeo_360 (commit 124451f, branch piloto-tiles-360). Ele\nmede o 360 DENTRO da aplicacao, e nao numa pagina nua, subindo a topologia de\nproducao e dirigindo o Chrome por CDP em cinco cenarios.\n\nA linha de base e as ressalvas ficam na wiki. A entrada da DECISIONS guarda o\nmetodo, os cinco defeitos do proprio medidor (todos apareceram como ZERO, nenhum\ncomo erro) e os dois achados sobre o ebgeo_web: a partida pendurada no load do\nMapLibre com estilo raster da internet, e o zoom que sobe 369 MB para a GPU sem\nbaixar um tile novo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "c1afcc8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c1afcc8864d631707b84f5e21055c01e798ed977",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-19T09:08:12.000Z",
