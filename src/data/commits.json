@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-18T20:30:09.236Z",
+  "lastUpdate": "2026-08-19T10:34:24.194Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-17T15:28:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-18T18:16:09.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-19T09:08:12.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-17T20:05:30.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6004,
+    "totalCommits": 6007,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -163,13 +163,40 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 585,
+      "1cgeo/chefe_dgeo": 588,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 11,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-19T09:08:12.000Z",
+      "author": "Maj Diniz",
+      "message": "a poda fecha: 64,60 GB liberados, e a piramide vira a unica representacao\n\nO desfecho do trabalho de 18/08. As 99.035 fotos migraram para a escada que\ndesce ate um tile, o portao de quatro provas passou, e o full_webp mais o\npreview_webp sairam dos 29 projetos.\n\nA licao que entra na wiki e a de INSTRUMENTO: zero pode ser prova de sucesso ou\nde cegueira do medidor. A primeira prova de rede deu zero preview e zero full, e\ntambem zero tiles, porque o filtro era endsWith(\".webp\") e o token de geracao poe\nquery na URL. So se distingue um caso do outro olhando o que deveria ter\naparecido junto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "64ba004",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/64ba0044f54cbe098fd8e59bc045326cb2f3711a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T20:53:48.000Z",
+      "author": "Maj Diniz",
+      "message": "os tres containers que nao voltavam depois de reboot passam a voltar, e o que sobra e fora do server7\n\nO chefe duvidou do achado do `--restart no` (\"acredito que ele ja sobe sozinho,\ndeve ter outro lugar que sobe ele\"), e a duvida se mediu: procurei quem subiria e\nnao ha ninguem. Sem `@reboot` em cron nenhum (o unico cron do root e o\n`unified-health-check.sh` das 02:00, 372 linhas, ZERO ocorrencias de\n`docker start|run|restart`: ele so coleta CPU, memoria, disco e SMART e faz POST\nna API do dashboard), sem unidade systemd que rode container, sem `/etc/rc.local`,\nsem timer. A impressao vinha dos OUTROS: dez dos quatorze containers eram\n`unless-stopped` ou `always`, e justamente o SAP, o acervo e o `auth-server`\neram `no`.\n\nE o risco era maior que reboot: `live-restore` esta `false` e o `apt-daily.timer`\nesta ativo, entao um upgrade do pacote do docker derruba os tres e nao levanta,\nsem reboot nenhum. A maquina esta de pe ha 27 semanas (boot em 2026-02-10), o que\nexplica a hipotese nunca ter sido testada.\n\nAplicado ao vivo, sem recriar container e sem derrubar nada\n(`docker update --restart=unless-stopped`, conferido pelo `StartedAt`, que nao\nmudou nos tres), e persistido no `docker run` do `start_docker.sh` do acervo. O\nSAP nao tem script de run, entao os argumentos dele ficaram registrados no\nlearnings.\n\nO que a auditoria achou e NAO se resolve com politica de restart, e por isso\nentra na wiki e no learnings:\n\n- **o `docker.service` espera `network-online.target` e nao as montagens.** Os\n  dois NFS do acervo estao no fstab com `_netdev`, mas nada ordena o docker\n  depois deles; container que arranque antes fica preso ao diretorio VAZIO,\n  porque a montagem posterior nao atravessa o namespace, e ai a interface sobe\n  inteira com todo download em 404 e sem erro no log. Gesto de conferencia\n  depois de reboot: `docker exec controle-acervo ls /mnt/sca`;\n- **duas dependencias vivem fora do server7**: o PostgreSQL de producao dos dois\n  sistemas, que atende em OUTRA maquina (e nao no container que publica a mesma\n  porta ali, armadilha ja registrada), e o NGINX que os publica em subcaminho.\n  Nao tenho credencial das duas no `.env`, entao ficam como conferencia do chefe;\n- **ordem**: o SAP 2.3.5 checa o `auth-server` no BOOT (`verifyAuthServer` antes\n  de `startServer`, com `.catch` que mata o processo), entao sem o auth de pe ele\n  reinicia em laco pelo `pm2-runtime` ate o auth voltar. Com os dois em\n  `unless-stopped`, resolve-se sozinho, com atraso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d0e952c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d0e952cda4fa3c31a265883edb739e66aac5498e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-18T20:42:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-18: os dois SAP vao para subcaminho, e a prova de status passou com o login quebrado\n\nSessao de deploy: o chefe pos um proxy reverso na frente dos dois sistemas e a\ninterface dos dois subia com a tela branca. Consertado, publicado e provado nos\ndois enderecos de cada um, com dois deploys de codigo e um de conserto.\n\nO que a sessao rendeu, e onde ficou:\n\n- **Decisao (Decisions 2026-08-18 cont. 4):** o prefixo de publicacao e de\n  BUILD, e nao de servidor nem de proxy. O `base` do Vite grava-o no\n  `index.html` e nas URLs do bundle, entao trocar o subcaminho pede imagem nova,\n  e `base` relativo foi recusado. Junto vao as tres consequencias que ficam\n  valendo: o servidor REMOVE o prefixo para o acesso direto na porta continuar,\n  \"/\" NAO se redireciona para o prefixo (atras do proxy que o remove, \"/\" e\n  justamente o que chega, e viraria laco), e o basename do router e decidido pelo\n  endereco em que a pagina ABRIU.\n- **MEMORY.md:** uma linha, o flag de comportamento mais o ponteiro. O estado\n  datado e o endereco nao entram: ficam na wiki e nas chaves do .env.\n- **wiki/ti-infraestrutura.md:** secao nova sobre publicar por NGINX em\n  subcaminho, com o sintoma (pagina 200 e asset 404, tela branca, container\n  \"Up\"), as quatro consequencias, e a armadilha de prova. Ligada a\n  [[controle-acervo]] nos Relacionados.\n- **livro-razao (dois eventos):** `verificacao-vazia` 40a, com fonte PRODUCAO,\n  porque a bateria de curl passou inteira com o login terminando no 404 para todo\n  usuario; e `metodo-incompleto` 28a, 4a da familia \"memoria antes da ferramenta\",\n  por eu ter devolvido o deploy ao chefe tendo a skill no vault.\n- **skill atualizar-dockers:** a classificacao de `sap_prod` estava ERRADA (nao e\n  pasta sem mecanismo: o clone fica uma pasta para dentro, com Dockerfile e sem\n  start_docker.sh), os dois arranjos de `config.env` do server7 pedem deploys\n  diferentes, e o `.dockerignore` esconde a chave de build do contexto. Entrou\n  tambem a licao de prova: varredura de 200 nao ve defeito de ROTEAMENTO do\n  client.\n\nA recorrencia que mais importa nao e de skill, e de ALCANCE: a sessao rodava em\noutro diretorio de projeto, onde este vault nao entra em contexto nenhum, entao\n\"lembrar do vault\" nunca seria mecanismo. O conserto foi por fora, na memoria de\nprojeto daquele repositorio, que carrega sozinha la.\n\nPoda: os CINCO bullets sobre hash do bundle da camada quente do\natualizar-dockers viraram UM, com as quatro condicoes preservadas, e os cinco\noriginais foram para o detalhe verbatim antes de sair (conferencia por frase, 5\nde 5). A camada quente caiu de 16,8 KB para 15,2 KB.\n\nFechamento: lint-wiki zerado nos onze checks (com o bloco de estatisticas\natualizado), guard de caminhos limpo, indice de skills regenerado, MEMORY.md em\n54% do teto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ef92071",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ef92071f29c4ebe3a0b96efa075c00abe6c9d50b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/sap",
       "date": "2026-08-18T20:23:45.000Z",
