@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-20T10:36:11.562Z",
+  "lastUpdate": "2026-08-20T15:39:21.661Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-17T15:28:24.000Z",
+    "1cgeo/ebgeo_web": "2026-08-20T15:15:05.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-19T20:38:54.000Z",
+    "1cgeo/controle_acervo": "2026-08-20T11:56:22.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-08-13T14:18:49.000Z",
+    "1cgeo/ebgeo_360": "2026-08-20T15:14:37.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-01-08T10:51:17.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-19T20:10:12.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-20T14:18:59.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-20T08:54:16.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6039,
+    "totalCommits": 6068,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 980,
+      "1cgeo/ebgeo_web": 984,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 319,
+      "1cgeo/controle_acervo": 325,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -155,7 +155,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 37,
+      "1cgeo/ebgeo_360": 53,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 28,
       "1cgeo/0Bug_Report": 3,
@@ -163,13 +163,130 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 599,
+      "1cgeo/chefe_dgeo": 602,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 11,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-20T15:15:05.000Z",
+      "author": "Maj Diniz",
+      "message": "merge(360): o visualizador compoe a panoramica por tiles, com queda para o full\n\nTraz os 5 commits de tiles-360-progressivo: a matematica da piramide\nespelhada do ebgeo_360, o compositor de tiles, a queda para o full quando\no projeto nao tem piramide, e os quatro consertos de navegacao medidos em\nmaquina fraca.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "31eedcd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/31eedcd13f40f46e8c5abfeb3d18a66680d30813",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-20T15:14:37.000Z",
+      "author": "Maj Diniz",
+      "message": "merge(tiles): a piramide de tiles entra no tronco, e o acervo passa a ser so tiles\n\nTraz os 13 commits de piloto-tiles-360: geracao da piramide, rotas\n/photos/:uuid/tiles.json e /tiles/:level/:x/:y.webp, a tela de calibracao\ncompondo tiles, o orquestrador do acervo e a aposentadoria do full_webp.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c5acfe4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/c5acfe462cfe9e1771a36a4e94de264fa28d0ac7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-20T14:18:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o mosaico vira a forma padrao da campanha, e a observacao do item e PUBLICA\n\nRodada dos pedidos 170 a 189. O chefe mandou usar o mosaico 1:50.000 do\nARANDU-ARAUCARIA em todo pedido que ele cubra, poupando as pastas marcadas\n`_ok`. Oito pedidos trocaram 120 folhas soltas por 16 faixas.\n\nO que generaliza para a skill:\n\n- **A `observacao` do ITEM e PUBLICA**, e sai na consulta do cliente por\n  localizador. O chefe recolheu as notas de item de varios pedidos para a\n  `observacao_interna` do pedido. Rastreabilidade da linha do DIEx, versao,\n  contagem de arquivos e aviso de divergencia sao raciocinio INTERNO.\n- **O nome da pasta do mes envelhece em MINUTOS.** A mapoteca acrescenta o `_ok`\n  quando imprime, e `14_14BIMTZ` virou `14_14BIMTZ_ok` no intervalo de uma hora.\n  Re-resolva o nome no disco pelo prefixo `NN_` antes de CADA escrita.\n- **A regua que decide quem o mosaico atende e a PARCELA, nao o pedido.** Foi\n  assim que 170 e 173 entraram, com tres escalas cada.\n- **Cobertura parcial nao e candidata, e a conta e de papel.** O pedido 117 pede\n  4 das 15 folhas: como mosaico daria 18,7 m2 contra 7,7 m2 das folhas soltas.\n- **Marcar mosaico e ACRESCENTAR na observacao, nunca reescrever.** O `PUT` da\n  mapoteca substitui a linha inteira, e o chefe tinha editado no mesmo dia.\n\nAchado em ABERTO, que ainda pede conserto: 23 pedidos estao com a `observacao`\nPUBLICA com acento trocado, crase onde nao cabe e \"e\" virando \"e\" com acento. A\n`observacao_interna` esta limpa nos 48 pedidos editados. O padrao e de corretor\nautomatico no caminho da edicao pela tela, e no pedido 189 da para PROVAR,\nporque o plano em disco guarda o texto pretendido.\n\nNumeros: 8 pastas tratadas, 120 folhas apagadas, 16 faixas copiadas, 4\nobservacoes acrescidas, 1 pasta `_ok` preservada, 330 impressoes de folha\ntrocadas por 44 faixas na campanha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7e44262",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7e442623be16a656e5b3fb3653acfbd8cac9838c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-20T14:18:40.000Z",
+      "author": "Maj Diniz",
+      "message": "o modo faixas CORTA o raster, e o show_pdf_page so clipava\n\nO `cortar_pdf.py` do dia anterior nao cortava: o `show_pdf_page` do PyMuPDF\nembute a pagina de origem inteira como Form XObject e recorta pelo `BBox`. As\nduas faixas do ARANDU-ARAUCARIA carregavam o MESMO JPEG de 241 MB dentro (mesmo\n`sha256`, 28820 x 20170 px) e diferiam em 12 bytes, so os numeros do `BBox` e da\n`Matrix`. Imprimia certo, com metade do mapa escondida fora do quadro.\n\nO sintoma que denuncia isso e o TAMANHO QUASE IGUAL entre as duas faixas. Dois\nrecortes diferentes de um mapa nao comprimem para dentro de 12 bytes um do outro.\n\nO corte virou o modo `faixas` do `mosaicar_cartas.py`, que concilia as tres\nregras que brigavam: a moldura e do mapa inteiro (regra do chefe, 2026-08-19), o\nraster tem de ser cortado, e a georreferencia tem de acompanhar. Corta-se o\nraster por `srcWin`, monta-se a pagina, e desenha-se a moldura nas coordenadas\nda FOLHA INTEIRA com o canvas transladado.\n\nQuatro consertos que vieram junto:\n\n- objeto de outro documento entra no `PdfWriter` calado e SOME na gravacao. O\n  `/Measure` copiado nao sobrevivia ao `write()`, e as faixas saiam sem\n  georreferencia, sem erro nenhum. Conserto: `.clone(writer)`.\n- a pagina passou a sair do PIXEL mais a margem inteira. Derivar de `pagina_mm`\n  trazia 0,09 mm, que viravam 1,4 m de deriva nos rotulos em 122 km. A escala\n  medida foi de 1:50.000,56 para 1:50.000,00.\n- o cabecalho prometia quadriculado e a folha so tinha ticas na moldura, 206\n  segmentos de 8,5 pt na borda. O quadriculado agora se desenha, e\n  `--sem-quadriculado` muda o texto do cabecalho junto.\n- JPEG caiu de q92 para q85, menos 26% de arquivo. O ganho grande veio do CORTE:\n  a faixa foi de 241 MB para 90 MB.\n\nAchado de instrumento: o `gdalinfo` desta maquina le o CRS do mosaico como\n`ENGCRS` com PROJ.4 vazio, porque `PROJ_LIB` aponta para o `proj.db` do\nPostgreSQL, velho demais. O `listgeo` mostra `ProjectedCSTypeGeoKey = 31981`,\ncorreto. Com `PROJ_DATA` no share do QGIS o mesmo arquivo le certo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "98506c2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/98506c2817f3e21a19a60f00d914ef7ffbc4d2f8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-20T14:17:02.000Z",
+      "author": "Maj Diniz",
+      "message": "a NE dos Correios entra, e o par 400522/000009 fica fora por decisao permanente\n\nConferencia do SAG contra o SCA na janela de 19 para 20 AGO 26. O SAG nao emitiu\nnada em 20 AGO. Em 19 AGO saiu uma NE da Divisao, e o resto era do quartel.\n\nA 2026NE000010 (UG 167382, R$ 106,05, ND 339039, Extra-PDR) entrou no modulo\norcamento com o id 95, empenhando a 2026NC400616. Tres medidas independentes\nfecham, e cada uma reprova o estado anterior: a releitura campo a campo com\nsha256 do texto, o grupo \"falta cadastrar\" do 21GO caindo de 2 para 1, e o saldo\npositivo da ND 339039 caindo de R$ 106,10 para os R$ 0,05 de residuo.\n\nA 2026NC400522 e o empenho dela NAO entram, e isso agora e decisao PERMANENTE,\nnao pendencia. O chefe recusou o credito em 17 AGO e reafirmou em 20 AGO, e eu\nperguntei duas vezes porque o relatorio nao distingue recusa de pendencia. As\nduas linhas vao continuar aparecendo em \"falta cadastrar\" para sempre.\n\nAchado de ferramenta: a API nao devolve `ug` nem `gestao` no GET da NE, entao a\nreleitura pela rota NAO prova a chave do SIAFI. Ela saiu do banco por leitura\ndireta, e gravou 167382 com gestao 00001, identica a do SAG.\n\nTres armadilhas de leitura foram para o learnings da consultar-orcamento: a acao\n2000 e o quartel e nao a Divisao, o evento 401002 separa liquidacao de\nlancamento patrimonial na tela de NS, e o `.env` do vault nao se carrega por\n`source` porque tem valor com espaco sem aspas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "df3973c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/df3973c97ce0db7aeabf4a8b27d1a4988e1bd74c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-20T12:41:58.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acervo): o Serra Dourada entra pelo caminho antigo, e o WebP para em 16383 px\n\n150 panoramicas do entorno do Estadio Serra Dourada, em Goiania, entregues pelo\n2o CGEO. Processadas pelo caminho ANTIGO, sem piramide de tiles, porque a\nproducao ainda nao recebeu a migracao de tiles: o generate-tiles.js nao rodou.\n\nO BLOQUEADOR NAO ERA DE QUALIDADE, ERA DE FORMATO. A fonte veio em 16384x8192\n(80 fotos) e 13312x6656 (70), muito acima dos 5760 e 7680 do acervo. O WebP\nguarda a dimensao em 14 bits e para em 16383 px: as 80 maiores falham com\n\"Processed image is too large for the WebP format\", e como o migrate.js so\ndescobre isso na Fase 7, elas entrariam em photos, apareceriam no mapa e no\ngrafo, e dariam 404 no endpoint de imagem.\n\nMedido antes de escolher, numa foto de 16384x8192: 16383 custa 7,63 MB e 37 s e\nquebra a razao 2:1 que a matematica de UV do visualizador assume; 13312 custa\n5,34 MB e 354 MB de textura na GPU; 7680 custa 2,25 MB e 118 MB. O chefe\nescolheu 7680x3840, o maior formato que o acervo ja serve, porque sem piramide o\nvisualizador baixa o full inteiro e sobe UMA textura por foto. A fonte fica\nguardada: reingerir maior e um comando, depois que a piramide chegar la.\n\nPor isso as imagens entram por uma pasta PREPARADA, com as 150 reamostradas, e\nnao pela pasta da entrega. Fica de fora tambem o unico JSON sem JPG, cujos 4\nalvos o migrate.js descarta sozinho sem ilhar ninguem.\n\nRODA COM skipTargets. O grafo entregue ja fecha UM componente com as 150, com 6\nalvos marcados ponte entre campanhas. A Fase 5, com raio de 50 m, ligaria foto\nde 2015 a foto de 2019 por proximidade, sem criterio de epoca: o lote mistura\ncinco campanhas do Street View, de 2015-08 a 2019-04.\n\nO que a conferencia mediu, com o esperado contado nos JSON da fonte e nao na\nsaida do migrate: 150 fotos, 336 alvos, um componente, os 29 projetos antigos\ncom photo_count intacto, os 150 WebP decodificando em 7680x3840, e prova de\npixel contra a fonte em 6 fotos (erro medio de 0,89 a 1,64 em 255, contra 17,95\na 51,71 do controle negativo espelhado).\n\nDepois da importacao o chefe calibrou na tela, renomeou o projeto para Estadio\nSerra Dourada e apagou tres fotos. O grafo foi simulado ANTES de apagar: as 147\nseguem num componente so. O runbook registra o estado final, o transplante para\no index.db de producao e as tres pendencias, sendo a mais concreta que o\ncaptureDate da API sai so do projeto e nunca de photos.captured_at, entao as 147\naparecem na tela com a data da campanha mais recente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "c01e0f1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/c01e0f1ced75b0375f9747393e4c4639a0b64911",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-20T12:41:36.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acervo): transplantar-projeto leva um projeto pronto de um index.db a outro\n\nRe-migrar nao serve para mover um projeto entre bases. O migrate.js re-deriva\ntudo dos JSON da entrega, e ali nao existem a calibracao feita a mao, as\nligacoes criadas na tela nem as marcas de revisada. Quem tem um projeto pronto\nnuma base e precisa dele em outra quer TRANSPLANTE, e o caminho estava so na\ncabeca de quem fez o do Beira-Rio, em 07/2026.\n\nDUAS ARMADILHAS MANDAM NO DESENHO, e as duas ja custaram caro:\n\n  photos_rowid e AUTOINCREMENT e e ele que indexa o rtree espacial. Copiar o\n  rowid_id como esta COLIDE com o do destino. Aqui o id nasce no destino e as\n  linhas do rtree sao remapeadas para ele.\n\n  A ordem das chaves estrangeiras nao e escolha: capture_runs entra ANTES de\n  photos, porque photos.run_id aponta para capture_runs(id). O capture_runs.id\n  e TEXT e o project_floors tem chave composta, entao nenhum dos dois precisa de\n  remapeamento, so da ordem.\n\nSEM --aplicar E ENSAIO, E O ENSAIO ESCREVE DE VERDADE: monta o payload, insere\ndentro de uma transacao, roda as 25 conferencias contra o arquivo ja escrito, e\nentao desfaz. So o commit muda entre ensaiar e gravar, e qualquer reprovacao\ndesfaz tudo sozinha. Dry-run que so imprime a intencao deixa o erro passar.\n\nA bateria confere na mesma EXTENSAO da escrita: as nove contagens por tabela, o\nnome e o photo_count do projeto, as fotos vivas, os alvos, o rtree, uma consulta\nespacial de verdade na bbox das proprias fotos, os tracados, as faixas, o rowid\nsem colisao, a foto de entrada viva, alvo apontando para foto inexistente, foto\napontando para faixa inexistente, integrity_check, foreign_key_check, os\nprojetos que ja estavam no destino byte a byte iguais, e o grafo com os mesmos\ncomponentes da origem.\n\nA CONFERENCIA ESPACIAL REPROVOU POR ENGANO NA PRIMEIRA RODADA, e a causa virou\ncomentario no codigo: o R*Tree do SQLite guarda coordenada em float32,\narredondando o minimo para baixo e o maximo para cima. Medido no serra_dourada,\no min_lon cai ate 6,6e-6 grau abaixo do lon da foto. Margem de 1e-6 reprova por\narredondamento, e nao por linha faltando. Passou a 1e-3 grau, cerca de 100 m,\nque ainda reprova linha ausente ou posta no lugar errado.\n\nExercitado em quatro casos: o serra_dourada contra uma copia do index.db de\nproducao (150 fotos, 432 alvos, 3 lapides, 180 tracados); o beira_rio para um\nbanco vazio criado do schema.sql, que e o unico caso com faixa e andar (7 e 7);\ndestino que ja tem o slug; e slug que a origem nao tem. Os dois ultimos recusam\ncom codigo 1 antes de abrir transacao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3248d9e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/3248d9ede37b681cf8cc9083fe7486e0427ccbc7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T11:56:22.000Z",
+      "author": "Maj Diniz",
+      "message": "o brasao trocado passa a APARECER, e a marca cresce de novo\n\nO chefe trocou o simbolo pelo de azul correto e a tela continuou mostrando o\nantigo. O banco estava certo o tempo todo (#0091D5, conferido no proprio BYTEA):\nquem mentia era o CACHE DO NAVEGADOR, e a causa e minha.\n\nA rota manda Cache-Control com max-age de um dia. Nesse prazo o navegador serve\na imagem do proprio cache SEM PERGUNTAR: o `must-revalidate` so age depois de\nvencido, e a etiqueta so e conferida quando ha pergunta. Como a URL do simbolo\nera fixa, imagem nova nunca chegava a quem ja tinha aberto a tela.\n\nConserto: o payload publico passa a trazer `instituicao_simbolo_versao` (o epoch\nde `simbolo_data_envio`), e a tela a pendura na URL. O endereco muda junto com a\nimagem, entao o cache longo continua valendo para quem ja tem a versao certa e\nsome para quem tem a velha. E a regra de classe: `max-age` sem versao na URL nao\ne cache, e uma promessa de nao atualizar.\n\nO teste novo REPROVA sem a versao (conferido tirando-a de proposito).\n\nTAMANHO, de novo a pedido: simbolo de 285 para 380px, texto de `2xl` para `3xl`,\ncoluna de 330 para 420, e o ponto de corte de 1620 para 1800px.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1ac1576",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1ac1576a05c2b2fbc50ab342ee81835a2596f8e5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T11:37:34.000Z",
+      "author": "Maj Diniz",
+      "message": "a marca cresce 50%, e o brasao passa a ter o azul certo\n\nTAMANHO, a pedido do chefe: simbolo de 190 para 285px, nome de `lg` para `2xl`,\ncoluna de 220 para 330px. O ponto de corte sobe junto, de 1400 para 1620px\n(880 do cartao mais 2 x 330 da marca mais folga), senao a marca maior passaria\npor cima da ficha antes de sumir.\n\nAZUL. O brasao gravado vinha do share de brasoes e tinha a faixa em #00CCFF, um\nciano claro. O oficial, publicado em 1cgeo.github.io/produtos, e #0091D5. A\ndiferenca foi MEDIDA nos dois arquivos (pixel dominante da faixa azul), e nao\njulgada a olho, e conferida de novo na imagem que a rota devolve depois da\ntroca.\n\nO arquivo oficial tem 2921x4165 e 813 KB, o que e desperdicio para uma marca de\n285px: entrou reduzido para 900px de altura e 228 KB, com o azul reconferido\ndepois da reamostragem (LANCZOS nao o deslocou).\n\nA imagem foi trocada pela ROTA de admin, que e o caminho que a tela usa, e nao\npor SQL.\n\nConferido RENDERIZANDO: marca em x=48 com 330x322, cartao em x=520, sem\nsobreposicao; a 1600px ela ja nao desenha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "34981fc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/34981fc240a8a9c90a1101cf4ef2db8c136e0d4d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T11:26:33.000Z",
+      "author": "Maj Diniz",
+      "message": "a marca sai do cartao e passa a voar sobre o fundo\n\nDentro do cartao ela era mais uma linha da ficha, com risca embaixo e fonte de\nrotulo, competindo com os dados do pedido. Agora fica FORA: simbolo grande\n(190px) preso a janela, a esquerda e centrado na vertical, com o nome da\ninstituicao embaixo, centrado.\n\n`fixed` e nao `absolute`, pela mesma razao do fundo: a pagina cresce quando a\nlista de cartas abre, e a marca tem de continuar onde estava.\n\nO texto vai sobre FOTO, entao a cor esta escrita aqui e nao sai de variavel de\ntema: branco com sombra dura le-se no claro e no escuro. O simbolo ganha\ndrop-shadow pelo mesmo motivo.\n\nAbaixo de 1400px a marca SOME (880 do cartao mais 2 x 220 dela mais folga).\nPerder a assinatura e melhor que tapar a ficha, e o nome da instituicao continua\nno documento que trouxe o cliente ate aqui.\n\nConferido RENDERIZANDO num Chromium, e nao lendo o CSS: na tela larga a marca\nfica em x=48 e o cartao em x=520, sem sobreposicao; a 1366 ela nao desenha. O\nbloco antigo do CSS foi removido -- ele sobreviveu a reescrita e, por vir depois,\nvenceria o novo no desempate por ordem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5bad71b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5bad71b9eb9afda04e040f295e93b61ad180afc7",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T11:09:15.000Z",
+      "author": "Maj Diniz",
+      "message": "a tela publica passa a dizer de quem ela e\n\nA consulta por localizador e a UNICA tela do sistema que uma pessoa de fora\nabre, e nao trazia nem simbolo nem nome: quem recebe o link por DIEx chegava\nnuma pagina sem assinatura, e o primeiro julgamento de uma tela oficial e esse.\n\nO SIMBOLO E CONFIGURADO, e nao embutido. `dgeo.instituicao` existe desde\n2026-08-09 justamente para tirar \"1o CGEO\" de dentro do codigo, e nome e sigla\nja moravam la; faltava a imagem. PNG versionado no repositorio seria o mesmo\nerro na forma de imagem, e obrigaria outro Centro a trocar arquivo e reconstruir\nimagem para mudar a propria cara.\n\nBYTEA, no padrao que o banco ja usa para imagem (acervo.miniatura_versao) e para\nanexo (mapoteca.anexo_pedido): o byte viaja no backup junto da linha, e nao ha\ncaminho de volume para apodrecer. Migracao 3.7.0 -> 3.8.0, ensaiada com\n`--er-de HEAD`.\n\nTRES ROTAS. `GET /instituicao/simbolo` e PUBLICA, com cache por etiqueta, porque\na tela que a usa nao tem login e o brasao de uma OM ja vai impresso em todo\ndocumento que sai daqui. `POST` e `DELETE` sao de ADMIN. O nome e a sigla vao no\nMESMO payload do localizador, entao o cabecalho fecha numa chamada so.\n\nO UPLOAD CONFERE A ASSINATURA DOS BYTES, e nao so a extensao e o mimetype: os\ndois vem do cliente e nenhum e prova. SVG fica de fora de proposito -- ele e XML,\nexecuta script e resolve referencia externa, e um SVG hostil no lugar do brasao\nviraria codigo rodando na sessao de quem abre uma pagina sem login.\n\nProvado acionando as rotas: upload de admin devolve a imagem identica por\nsha256 na rota publica, a etiqueta responde 304, e os quatro controles reprovam\n(PDF recusado, .png que nao e PNG recusado, upload anonimo barrado com 401, e o\nsimbolo intacto depois deles).\n\nUm defeito meu foi pego assim: o `RETURNING` recortado nao trazia `id`, `nome` e\n`sigla`, e o mapa de auditoria resolve o agregado por `linha.id`. O upload\nlegitimo dava 500 enquanto os quatro controles passavam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e89287f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e89287fea7b4cc4b779a9030a4d424fa16d51ef5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T10:45:28.000Z",
+      "author": "Maj Diniz",
+      "message": "o fundo para de esticar ao abrir a lista, e o \"(s)\" sai da tela\n\nQuatro ajustes na tela publica de acompanhamento, os quatro pedidos pelo chefe\ndepois de usar a versao anterior.\n\nFUNDO. `.login-page__background` e absolute com `height: 100%`, e isso serve ao\nlogin, onde o cartao nunca passa da altura da tela. Aqui abrir \"O que foi\npedido\" faz a pagina crescer, o fundo cresce junto, e o `background-size: cover`\nreescala a foto para cobrir uma caixa muito mais alta: ela estica e borra.\n`position: fixed` prende a foto a JANELA. Escopado a `.consulta-page` para nao\ntocar o login.\n\nPLURAL calculado, e nao \"(s)\"/\"(es)\". Numa tela que o solicitante le, \"1\ncarta(s)\" denuncia texto montado por maquina. O plural de `exemplar` e\n`exemplares`, entao a forma plural vem escrita e nao deduzida por `s` colado.\nZero vai no plural, que e o portugues corrente.\n\nRESUMO em negrito: ele diz QUANTO vem, e era a unica linha da tela em cinza de\nrotulo.\n\nCLIQUE PARA AMPLIAR retirado. A 190px a folha ja se le, e o clique era promessa\na mais numa tela cuja virtude e nao ter o que aprender. Sai junto o cursor de\nlupa, que existia so para anuncia-lo. O teste que cobria o clique virou o teste\nde que ele NAO acontece.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f6b1010",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f6b1010d1d28c665c4e084a6598f1acb7e88f0ac",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T10:34:49.000Z",
+      "author": "Maj Diniz",
+      "message": "o acompanhamento cabe na tela, e a miniatura vira util\n\nTres ajustes na tela publica, os tres pedidos pelo chefe depois de usar a versao\nanterior, e o terceiro confirmado por uma avaliacao de UX feita no papel do\nusuario (um oficial de OM que pediu cartas).\n\nLARGURA: 560px era a medida do cartao de LOGIN, herdada por esta tela morar no\nmesmo arquivo. Login e um formulario de dois campos; acompanhamento e uma ficha\ncom rotulo, valor e uma lista de folhas com imagem, e naquela largura o valor\nquebrava em tres linhas ao lado de um rotulo curto. Agora 880px.\n\nMINIATURA de 84px para 190px. A 84 a carta virava mancha colorida: nem o nome no\ntopo nem a forma do rio se liam, e a melhor ideia da tela estava desperdicada. A\nimagem guardada tem cerca de 600px, entao 190 ainda a mostra sem esticar.\n\nE ela ABRE em tamanho cheio ao clicar, em aba nova. O cursor de lupa prometia um\nclique que nao fazia nada, e a imagem tem mais resolucao do que a coluna mostra.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "39dcbd5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/39dcbd59e18a4f44e09f8411cbdd64392cc94060",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-20T08:54:16.000Z",
@@ -306,6 +423,15 @@
       "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-19T13:54:56.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(local): subir-local sobe o 360 e o ebgeo_web num endereco so\n\nUm comando para OLHAR o resultado no proprio navegador, na MESMA topologia que o\nmedidor usa: a fachada entrega o pacote construido do ebgeo_web e repassa\n/ebgeo_360 para /api/v1, como o nginx. Assim o que se ve na tela e o mesmo que o\nmedir-web.js mede, e nao uma terceira montagem que ninguem mediu.\n\nEle imprime o endereco, o link direto de uma foto com piramide, a API e a\ncalibracao, e avisa (sem recusar) se o pacote esta mais velho que o fonte. No\nmedir-web.js a mesma checagem RECUSA, porque la um pacote velho vira numero\nerrado sem nada denunciar; aqui a intencao e olhar, e olhar o pacote de ontem\npode ser deliberado.\n\nA FACHADA GANHOU O SUBSTITUTO DE RECURSO EXTERNO, e ele existe por necessidade,\nnao por comodidade. O map_sig.js pendura toda a inicializacao no evento `load`\ndo MapLibre, e o estilo inicial e uma camada raster do OpenStreetMap. Nesta\nmaquina o pedido nao falha: fica PENDURADO, e entao nao ha `load`, a tela de\ncarregamento nunca sai e o 360 nunca abre, sem um erro no console. Sem o\nsubstituto nao ha o que mostrar.\n\nO remendo e injetado no index.html antes de qualquer modulo da aplicacao e\ndesvia para a propria fachada o que apontaria para fora: tile de imagem vira um\nPNG cinza chapado (montado a mao, sem dependencia nova), glifo vira corpo vazio,\no resto vira 404. Chapado de proposito: mapa de fundo com desenho competiria com\na panoramica pela atencao de quem esta olhando.\n\nEle so entra quando quem sobe a fachada pede, e o medidor nao pede: la a\nsubstituicao continua sendo feita pelo CDP, por host, onde ela pode ser contada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "691a5b1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/691a5b1d2a8363903efdfe44453f8f131176baf0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-19T13:54:38.000Z",
       "author": "Maj Diniz",
@@ -340,6 +466,24 @@
       "sha": "397b049",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/397b049a7ec835f599bf35c7f590663fb1ba65ce",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-19T13:34:58.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(medida): comparar-tela, e o porte dos consertos para a calibracao\n\nO `medir-web.js` responde quanto custa, e nao se continua certo. Nasce o\n`comparar-tela.js`: fotografa a MESMA cena em dois pacotes do ebgeo_web e compara\nos pixels, com CONTROLE NEGATIVO em dois eixos. Alem de A contra B, ele compara A\ncontra B espelhado na vertical e na horizontal; se a espelhada casar melhor que a\ndireta, a imagem virou e ele reprova dizendo isso. Sem esse par, diferenca\npequena nao distingue \"igual\" de \"instrumento cego\".\n\nEle ja pagou: aprovou a subida parcial de textura com 0,00 de diferenca media,\ncontra 33,77 e 50,75 dos dois controles.\n\nTRES CONSERTOS NO MEDIDOR, todos achados medindo:\n\n  Os cenarios passam a ESPERAR A CENA ASSENTAR antes de contar. Sem isso, o giro\n  que roda logo depois de uma troca de foto pega os tiles dela ainda chegando:\n  medidos 318 ms de bloqueio e 216 MB de textura num giro que, isolado, da ZERO\n  dos dois. Eu quase escrevi no relatorio que girar trava em maquina fraca.\n\n  `--dist <caminho>` mede um pacote apontado a mao. E o que permite medir o antes\n  e o depois na MESMA forma de rodada, e isso importa: comparar rodadas de\n  formatos diferentes fez um ganho de 8% parecer perda de 62%, porque a carga da\n  maquina muda com o numero de combinacoes.\n\n  A guarda da sonda passa a COMPILAR o texto (`new Function`) em vez de procurar\n  marcador. A versao de marcador passou com a sonda quebrada: uma barra-n virou\n  quebra de linha de verdade num script de edicao, e os dois marcadores\n  continuavam la. Verificacao que nao pode reprovar nao e verificacao.\n\nA SONDA GANHOU TRES MEDIDAS que decidiram onde mexer: `createImageBitmap` e\n`drawImage` embrulhados (decodificar soma 7.371 ms contra 586 ms na estacao, e\ncompor custa 11 ms: o gargalo da maquina fraca e a decodificacao); a PILHA de\nchamada de cada alocacao de textura (foi ela que provou as duas alocacoes por\nsalto, em vez de deduzir); e a atribuicao de script do `long-animation-frame`,\nque mostrou 415 ms de um quadro de 469 ms sem script nenhum, ou seja banda de\ntextura e nao JavaScript.\n\nO CARREGADOR DA CALIBRACAO recebe os mesmos quatro consertos do ebgeo_web, por\ncopia com as tres diferencas conhecidas reaplicadas (o import do three e a raiz\nda API). O diff entre os dois arquivos continua sendo exatamente esses tres\ntrechos. A pagina foi acionada depois: 71 tiles, zero 4xx, zero erro de console.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "741a9a4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/741a9a45c7ca2316f2d0aa7a81f7e990d1568c7c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-19T13:34:33.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(360): quatro consertos na navegacao, medidos em maquina fraca\n\nFoco na NAVEGACAO do 360, e nao na partida da aplicacao. As quatro mudancas\nsaem de medida, e cada uma tem teste que reprova o codigo antigo (verificado por\nmutacao, uma a uma).\n\n1. A TEXTURA QUE AINDA ESTA NA ESFERA NAO E MAIS DESCARTADA. O carregador\n   descartava a dele em `reconstruirCanvas`, e o consumidor so troca o `map` do\n   material quando o primeiro tile pinta, dezenas ou centenas de milissegundos\n   depois. No vao, o material apontava para uma textura morta e o three a\n   recriava no quadro seguinte, do zero. Medido com a pilha de chamada: DUAS\n   alocacoes de 6144x3072 no mesmo salto, 56 ms uma da outra. Quem descarta passa\n   a ser quem TIRA a textura da esfera.\n\n2. BANDA MORTA NO TAMANHO DO CANVAS. Ele se refazia a qualquer degrau de 1024 px,\n   e a largura util cresce com o inverso do campo de visao, entao um zoom passeia\n   por varios degraus. Agora so refaz com 1,5x de ganho, ou 2x de perda.\n\n3. SOBE SO O RETANGULO QUE MUDOU, por `copyTextureToTexture`, em vez de\n   re-especificar a textura inteira por lote. O agrupamento antigo tinha um\n   defeito perverso: a janela e de tempo, entao maquina lenta espalhava as\n   chegadas por mais janelas e PAGAVA MAIS. Os retangulos se juntam por quadro, e\n   nao por tile: a primeira versao subia um por tile e as 55 leituras de volta do\n   canvas custaram 117 ms de `drawImage` na maquina fraca.\n\n4. TETO DE TEXTURA POR MAQUINA, e nao so pelo driver. Video integrado anuncia\n   16384 sem pestanejar, e a textura de 7680x3840 custa 113 MB de memoria\n   compartilhada com o sistema. Com `deviceMemory` ou `hardwareConcurrency`\n   baixos, o teto cai para 4096. Sem as duas pistas, nao aperta.\n\nA IMAGEM NAO MUDOU, e isso foi provado por pixel, nao por argumento: 0,00 de\ndiferenca media contra o pacote anterior, na mesma foto e na mesma camera, com\nos dois controles negativos reprovando (33,77 espelhada na vertical, 50,75 na\nhorizontal). O script vive em ebgeo_360/scripts/comparar-tela.js.\n\nMEDIDO A e B na mesma forma de rodada, museu_cms, 3 repeticoes, dois viewports,\nestacao e perfil de CPU seis vezes mais lenta:\n\n  troca de foto, 1350x673 fraco:   1282 ms -> 867 ms   (-32%)\n  troca de foto, 1904x985 fraco:   1361 ms -> 1248 ms  (-8%)\n  ate a tela parar de mudar:       -26% e -29% nos dois viewports fracos\n  textura subida por foto:         -34% e -36%\n  textura ALOCADA por foto:        -50% nos dois\n  ciclo de zoom:                   369 MB -> 0 MB, pior quadro 1031 ms -> 0 ms\n  giro, pior quadro no fraco:      59 ms -> 0 ms, p95 246 ms -> 55 ms\n\nUMA COISA FOI TENTADA E DESFEITA, e fica registrada no codigo para nao ser\nreinventada: pedir o campo visivel primeiro e a margem depois. A troca de foto\nfoi de 1255 ms para 2276 ms na maquina fraca, porque a onda seguinte so comeca\nquando a anterior termina e a fila de 24 esvazia, e porque cada reavaliacao\ndurante um arrasto deixava uma continuacao pendente que acordava pedindo a\nmargem de um azimute ja passado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "1ee14e3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ee14e3f72436412d797ec2e05a2ac9439fa028f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -378,6 +522,15 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-19T12:25:43.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(medida): perfil de PC fraco, e a separacao entre decodificar e compor\n\nO foco saiu da partida da aplicacao e foi para a navegacao do 360 em maquina\nfraca. Tres acrescimos ao medir-web.js:\n\nPerfil `fraco` (CPU 6x, rede do quartel), que e o que separa esta estacao de um\ni5 de escritorio com uns cinco anos.\n\nBandeira `--gpu software`, que roda o WebGL no SwiftShader. Medido: a aplicacao\nNAO SOBE nele, nem em 60 s. Fica registrado como resultado, e nao como recurso:\nsem aceleracao de video o EBGeo inteiro e inviavel, e o SwiftShader e pessimista\ndemais para servir de emulacao de video integrado.\n\nA sonda passa a embrulhar `createImageBitmap` e `drawImage`, separando o tempo\nde DECODIFICAR o WebP do de COMPOR o tile no canvas. Sem essa separacao o unico\ncaminho era adivinhar onde mexer. Medido numa troca de foto a 1904x985, 55\ntiles: decodificar soma 586 ms na estacao e 7.371 ms no perfil fraco; compor\ncusta 1 ms e 11 ms. O gargalo do PC fraco e a decodificacao, e a composicao nao\ne nada.\n\nDuas medidas que reordenam a prioridade: no perfil fraco o cache frio (1943 ms)\ne o cache quente (1807 e 2197 ms) custam o MESMO, entao a rede nao e o gargalo\nda maquina fraca; e o canvas nasce DUAS vezes por foto no perfil fraco (144 MB\nalocados contra 72 MB na estacao), com o trafego de GPU dobrando de 216 para\n432 MB porque a janela de agrupamento e fixa em 120 ms e a maquina lenta espalha\nas chegadas por mais janelas.\n\nJunto vai uma guarda contra crase perdida dentro do literal da sonda, que ja\ntruncou o modulo duas vezes com SyntaxError longe da causa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "da8e53c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/da8e53c9932501b487715c34381c9c400782ec97",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-19T12:03:13.000Z",
       "author": "Maj Diniz",
@@ -385,6 +538,15 @@
       "sha": "c1afcc8",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c1afcc8864d631707b84f5e21055c01e798ed977",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-19T11:59:49.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(medida): medir-web mede o 360 dentro do ebgeo_web, em cinco cenarios\n\nO medir-parede.js mede a piramide numa pagina de calibracao nua. Ele nao\nresponde o que sobrou: quanto ela custa DENTRO da aplicacao, onde ha MapLibre,\nsobreposicao de navegacao, marcadores e 14 MB de pacote antes do primeiro pixel\nde foto. As duas medidas juntas atribuem culpa.\n\nO medir-web.js sobe a topologia de producao (fachada estatica mais reescrita\n/ebgeo_360 para /api/v1, sobre o dist CONSTRUIDO) e dirige o Chrome por CDP em\nabertura, caminhada, giro, zoom e ocioso, por viewport e por perfil de maquina\ne rede.\n\nNADA SAI DE VARIAVEL DA APLICACAO. Rede vem do CDP (encodedDataLength), textura\ne quadro vem de embrulho nas chamadas WebGL por contexto, e \"apareceu\" e \"ficou\nnitido\" vem dos pixels da tela gravada, decodificados com sharp. O nivel da\npiramide sai da URL do tile, e nao de perguntar ao carregador.\n\nO SCRIPT SE REPROVA. Dez afirmacoes que tem de ser verdade se a medida estiver\nacontecendo. Falhando uma bloqueante, ele diz que os numeros nao valem em vez de\nimprimir a tabela. Cinco defeitos do proprio medidor foram achados assim, e\nnenhum aparecia como erro: apareciam como ZERO.\n\nEle tambem recusa medir um dist mais velho que o fonte, e compara duas medidas\ncoluna a coluna (--comparar), que e o que fecha o laco de melhoria.\n\nAchado sobre o ebgeo_web, colhido no caminho: a aplicacao pendura toda a partida\nno evento load do MapLibre, e o estilo inicial e um raster do OpenStreetMap na\ninternet. Sem saida, o pedido nao falha, fica pendurado: nao ha load, a tela de\ncarregamento nao sai e o 360 nao abre, sem um erro no console. Por isso\n--externo local e o padrao.\n\nO cliente CDP saiu do medir-parede.js para scripts/lib/cdp.js, porque duas\ncopias do mesmo protocolo divergem em silencio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "124451f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/124451f937e5cd82c0fbd9a77d4c67f013bf7d24",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -403,6 +565,15 @@
       "sha": "64ba004",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/64ba0044f54cbe098fd8e59bc045326cb2f3711a",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-19T09:07:19.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(tiles): o full_webp e o preview_webp saem, e o acervo fica so com tiles\n\n64,60 GB liberados nos 29 projetos, zero pulados. Os bancos de imagem cairam de\n64,7 GB para praticamente zero, e o que sobra sao os 120,7 GB de tiles.\n\nO PORTAO QUE PRECEDEU, e ele nao foi formalidade. Quatro provas, nesta ordem,\nporque a terceira deixa de ser possivel depois de apagar:\n\n1. As 99.035 fotos na escada que desce ate um tile, conferido por FORMATO contra\n   montarEscada: 5760 com max_level 4, 7680 com 6, 2048 com 2, zero divergentes.\n2. Os 346 cantos que o descritor publica, nos 29 projetos, todos 200.\n3. Prova de PIXEL do nivel 0 contra o `full_webp`, 66 tiles nos 29 projetos:\n   pior erro 4,64/255, com contraprova do par errado em 119,96/255. O nivel 0 foi\n   gerado SO dos tiles, sem abrir o full, e mesmo assim bate com ele.\n4. Log de rede do navegador em dois projetos grandes: ZERO pedido a\n   `quality=preview` e a `quality=full`, com 55 e 59 tiles servidos e zero erro.\n\nA tabela `images` CONTINUA existindo, so sem as duas colunas de blob: `photo_id`\nsobrevive como registro de que a foto teve imagem. O `getImageBlob` ganhou\ntolerancia a coluna ausente ANTES da poda, para a rota responder 404 e nao 500.\nEstado normal, e nao doenca: o dado saiu de proposito.\n\nO script trata projeto a projeto e tem guarda que PULA quem nao tiver piramide\ncompleta, conferida por foto viva e nao por arquivo existir. Provado primeiro no\nmuseu_cms sozinho, com o ciclo inteiro (apagar, VACUUM, servico de pe, tile em\n200, imagem em 404) antes de escalar para os 28.\n\nDepois da poda, refeito: 346 cantos de tile em 200, 58 pedidos a /image todos em\n404, health com os 29 projetos.\n\nDOIS INSTRUMENTOS MEUS FALHARAM antes do dado, e os dois erraram para o mesmo\nlado. O contador de migracao acusou 828 fotos faltando porque eu tratava\n`max_level >= 4` como sinal de migrado, e o formato 2048 tem tres niveis. E a\nprimeira prova de rede deu zero preview e zero full, mas TAMBEM zero tiles,\nporque o filtro era `endsWith('.webp')` e o token de geracao poe query na URL.\nZero pode ser prova de sucesso ou de cegueira do instrumento, e so se distingue\nolhando o que deveria ter aparecido junto.\n\nTestes: 537. eslint e knip limpos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "9790096",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/9790096eb24a6f441b72eb419327da4df6cf9464",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -522,6 +693,24 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-18T14:35:17.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): a piramide desce ate um tile, espelhando o ebgeo_360\n\nEspelha a mudanca do servico. O `pyramid-math.js` continua byte a byte identico\nao do ebgeo_360, e o `tile-loader.js` segue com as duas adaptacoes conhecidas.\n\nA escada agora desce ate o nivel caber em UM tile, para a piramide ter o proprio\ndegrau de baixa resolucao e o `preview_webp` poder ser apagado do acervo. Entrou\ntambem `escadaGravada`, que reconstroi a escada pelo `max_level` GRAVADO em vez\nda regra de parada em vigor: sem isso, toda mudanca de regra reinterpreta em\nsilencio o acervo ja escrito, defeito que no servico chegou a atingir 98.854 das\n99.035 fotos antes de ser pego.\n\nO `street_view_viewer.js` parou de pedir o preview antes de saber se ha\npiramide. O preview e o full ficam no ramo de queda, para a foto que nao tiver\npiramide.\n\nTestes: 1917 para 1933. lint limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "75a0c91",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/75a0c9170a634f0cf0d32a8309723a5dc19f5df1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-18T14:35:14.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(tiles): a piramide desce ate um tile, e passa a bastar sozinha\n\nO chefe decidiu aposentar o `full_webp` (62,6 GB) e o `preview_webp` (1,03 GB), e\nficar so com tiles. Para isso a piramide precisa do proprio degrau de baixa\nresolucao, que ate agora vinha de fora, do `preview_webp`.\n\nA condicao de parada de `montarEscada` deixou de ser `w > 2048` e passou a ser\n`w > tileSize`, ou seja a escada desce ate o nivel caber em UM tile:\n  7680 razao 1,6: 7 niveis [458, 733, 1172, 1875, 3000, 4800, 7680]  (eram 4)\n  5760 razao 2:   5 niveis [360, 720, 1440, 2880, 5760]              (eram 3)\n  2048 razao 2:   3 niveis [512, 1024, 2048]                         (era 1)\nCusto orcado antes de gerar e confirmado na migracao: 430.980 tiles novos, 3,0 GB,\nou +2,6% sobre os 115,8 GB. A parada e amarrada ao tile, e nao a um numero solto,\npara a regra continuar certa se o tile mudar de tamanho.\n\nO DEFEITO QUE ESSA MUDANCA CRIOU, e que quase passou. A rota calculava o\ndescritor pela regra DE HOJE enquanto o banco guardava a escada de ONTEM:\nprometia 7 niveis onde havia 4, a numeracao andava tres casas, e o cliente pedia\no nivel 0 e recebia um tile de um nivel oito vezes maior. Medido no tubarao: 277\nrespostas 404 numa foto so, e a tela pintando um oitavo do panorama esticado na\nesfera inteira, sem erro nenhum no console. Atingia 98.854 das 99.035 fotos.\n\nO conserto nao foi migrar, foi `escadaGravada`: a escada se reconstroi pelo\n`max_level` GRAVADO, que esta em `tile_pyramids` desde o primeiro dia. Dado\ngravado manda em descritor calculado. Provado nos 29 projetos, migrados e nao\nmigrados, com 208 cantos publicados batidos um a um, zero 400 e zero 404. E\nprovado tambem no estado MISTO, que e o que fica na maquina de um dia para o\noutro: um projeto com as duas escadas dentro do mesmo banco serve as duas, 66\ncantos, zero falha.\n\n`scripts/migrar-escada.js` leva o acervo para a escada nova SEM regerar tile\nnenhum: renumera o que existe e gera so os niveis novos por baixo, tirando-os do\nproprio nivel 0 antigo, e nunca do `full_webp`. Isso e de proposito, e prova que\na piramide se sustenta sem a fonte que vai ser apagada. A renumeracao vai do\nnivel mais FINO para o mais grosso, para nao colidir com a chave primaria, e\nassim cada linha e reescrita uma vez so: a ordem ingenua custaria 231 GB de\nescrita em vez de 115,8 GB. Idempotente, transacional por foto, com conferencia\nque reprova.\n\nOs QUATRO emissores de `preview` e `full` do cliente foram fechados. O\n`viewer.js` pedia o preview antes de saber se havia piramide; o\n`preview-viewer.js` baixava a imagem INTEIRA, de 500 KB a 2,5 MB, para um painel\npequeno; e o `project-map.js` montava a miniatura do cartao com\n`image?quality=preview`. Este ultimo e o mais insidioso: nao passa pelo\ncarregador de tiles, entao sobreviveria a poda como imagem quebrada, sem erro e\nsem teste. Ele agora usa o tile do nivel 0, com o token vindo do DESCRITOR e nao\nmontado a mao, porque o tile sai com `immutable` de um ano.\n\nEstado do acervo neste commit: 38.757 de 99.035 fotos ja na escada nova, 10\nprojetos com conferencia OK e zero erro. O resto continua servindo pela escada\nantiga, que e justamente o que `escadaGravada` garante.\n\nTestes: 495 para 537. eslint e knip limpos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "a12ae2c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/a12ae2c09deca59947e79e8f9cabc15c814ef44e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-18T13:11:08.000Z",
       "author": "Maj Diniz",
@@ -595,6 +784,24 @@
     },
     {
       "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-18T08:50:49.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(360): o canvas de textura para de ir ao nativo quando a tela tem area zero\n\nEspelha o conserto do ebgeo_360, e o defeito e o mesmo nos dois lados porque o\narquivo e o mesmo.\n\n`larguraDoCanvas` tinha a guarda `if (!(pedida > 0)) return teto;`, e o teto e\n`min(largura do nivel, maxTextura)`, ou seja o PIOR caso. Com tela de area zero\nisso reconstroi a textura no nativo: 7680x3840, ou 118 MB, para quem nao esta\nvendo nada. Aqui o gatilho e direto, porque `street_view_viewer.js` chama\n`setSize` sem piso no resize: painel do street view recolhido ou aba de layout\ntrocada com o container em altura zero ja bastam.\n\nA funcao `nivelDesejado` tratava o MESMO estado ao contrario, segurando o nivel\nem uso e explicando por que. As duas contas divergiam, e a de larguraDoCanvas\nera a errada. Agora segura o canvas atual, e sem canvas escolhe o MENOR sensato\nem vez do maior.\n\nA paridade se manteve: o md5 do pyramid-math.js continua identico ao do\nebgeo_360, e o diff dos dois tile-loader.js segue com as mesmas 40 linhas, todas\ndentro das duas adaptacoes conhecidas (o import do three e a origem da base da\nAPI). O conserto novo NAO aparece no diff, ou seja chegou espelhado.\n\nTestes: 1914 para 1917, com o caso que reprova a versao antiga (largura e altura\nzero nao podem escolher a largura nativa).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "b0ce8e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b0ce8e221667184d7c1ecfaaa04fb037841963e0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-18T08:50:33.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(tiles): os seis bloqueadores que a revisao adversarial confirmou\n\nCinco lentes independentes revisaram os nove commits, e um juiz confirmou cada\nachado indo ao disco. Seis bloquearam. Cada conserto tem teste que REPROVA o\ncodigo antigo, e a conferencia final provou isso por mutacao: revertendo cada\nconserto, os testes correspondentes falham.\n\n1. O TEMPLATE NAO TINHA TOKEN DE GERACAO, e o tile sai com immutable de um ano.\n   Regerar uma piramide com outra razao mudava a escada e NAO mudava a URL de\n   nenhum tile: o navegador que visitou antes compunha tiles da escada velha na\n   grade nova, sem erro no console. Ja tinha acontecido, porque o museu_cms foi\n   gerado com razao 2 e depois regerado com 1,6. Agora o template leva\n   `?v=${total_bytes}`, o mesmo token do ETag, entao URL e validador andam\n   juntos: regeracao que devolve bytes identicos nao derruba o cache de 115,8 GB.\n   A rota segue sem schema de query DE PROPOSITO, e o comentario diz por que:\n   `additionalProperties: false` responderia 400 no tile por causa do proprio\n   token que o descritor publicou.\n\n2. `larguraDoCanvas` com tela de area zero devolvia o TETO, ou seja o nativo.\n   Painel recolhido ou container em altura zero reconstruia a textura em\n   7680x3840, 118 MB, para quem nao esta vendo nada. Agora segura o canvas atual,\n   alinhado com `nivelDesejado`, que ja tratava o mesmo estado ao contrario.\n\n3. `estado()` contava linha de `tile_pyramids` sem filtrar parametro nem foto\n   viva. Soft-delete de uma foto tilada mais a chegada de uma foto nova deixava a\n   contagem igual, o projeto era PULADO, e a conferencia ainda imprimia \"todos\n   completos\". Agora conta por foto viva, com `tile_size`, `quality` e a razao que\n   `razaoParaLargura` daria para AQUELA largura, que e o que faz os quatro\n   projetos mistos continuarem valendo.\n\n4. O gasto por projeto saia do espaco livre do DRIVE, entao com projetos em\n   paralelo cada um debitava para si a escrita dos vizinhos. O diario da rodada\n   de 99 GB ficou inutil: dizia que o easa gastou 1,04 GB contra 0,53 previstos,\n   e o arquivo tem 0,502 GB, ou seja a previsao errou 5% e o diario acusou 107%.\n   Agora mede o arquivo de destino com statSync.\n\n5. O piso de disco era 20 GB fixo, dimensionado para UM projeto, e o faxinal\n   sozinho gastou 21,2 GB. Com o pool de tres, tres grandes escrevem juntos.\n   Agora e 10 GB de base mais 1,25 vez o previsto do que esta EM VOO.\n\n6. `--ate` invalido virava NaN, e `if (opt.ate && ...)` e falsy: a janela deixava\n   de existir em silencio. Agora aborta com mensagem, e o mesmo vale para\n   `--paralelos`, onde `parseInt('tres') || 1` virava 1 calado.\n\nO `gerar-acervo.js` passou a exportar as decisoes puras e a rodar por\n`principal()`, porque nada nele era testavel enquanto o script rodava no topo do\nmodulo. Importar o modulo agora nao escreve nada.\n\nTestes: 461 para 495. eslint e knip limpos. O acervo NAO foi regerado: o dry-run\nle os 29 projetos e diz que os 99.035 estao prontos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "fd9b93e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/fd9b93ea84cac351aadc0949d611e6fcfb9ceead",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-18T01:16:38.000Z",
       "author": "Maj Diniz",
       "message": "docs(acesso): o censo de superficies e a analise das rotas publicas\n\nDocumento de trabalho aberto durante a fase de permissoes, com dois conteudos: os\nproblemas encontrados POR MEDICAO (cada item marcado como verificado ou relatado,\nporque duas afirmacoes minhas cairam na leitura do codigo e ambas vinham de um\nplano escrito antes), e a analise de como proteger de fato as rotas publicas.\n\nO achado central e que um predicado correto numa consulta nao protege nada se o\nmesmo recurso sai por outras portas. O 360 e lido por doze modulos do frontend.\n\nA restricao que decide a analise das rotas publicas: cache compartilhado e\nautorizacao por chamador sao mutuamente exclusivos, porque resposta cacheada e uma\ndecisao tomada uma vez e reusada por muitos. A escolha e por RECURSO, nao por rota.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Dn3wXVXUofH86YXEJucv1o",
@@ -610,6 +817,15 @@
       "sha": "a3e5ab3",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a3e5ab3148e26263b1a425f95232fca62ada3ecf",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-17T21:45:37.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acervo): projetos em paralelo e corte por prazo, porque a janela e finita\n\nEu tinha escrito que paralelizar projetos \"so disputaria os mesmos nucleos\". A\nmedida derrubou: dois projetos ao mesmo tempo rendem 1,44x (386 s contra 556 s\nprevistos em sequencia), enquanto dobrar os workers DENTRO de um projeto rendia\n1,09x. Ou seja o gargalo nunca foi banda de memoria, e sim a serializacao por\nprojeto. Bancos separados, transacoes separadas.\n\nCom dois em paralelo a maquina fica em 53% de CPU na mediana e 70% no pico, com\n1,9 GB de RSS somado. Sobra maquina, que era a duvida.\n\n`--paralelos N` roda N projetos como processos proprios, puxando de uma fila. O\n`stdio` vira `pipe` e nao `inherit`: com projetos concorrentes as barras de\nprogresso se sobrepoem e o log fica ilegivel, entao so as linhas de resumo\nsobem.\n\n`--ate <instante>` fecha a janela. Nenhum projeto NOVO comeca depois do corte, e\no que ja estiver rodando termina: matar no meio da escrita deixaria banco pela\nmetade e a retomada perderia o projeto inteiro. Os que ficaram de fora vao\nnomeados para o diario, e nao somem em silencio.\n\nMotivo concreto: a janela desta noite tem 11,7 h e o acervo pedia 15,4 h em\nsequencia. Com tres em paralelo a previsao cai para 7,8 h.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "dbb2d09",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/dbb2d092790494080c44f870bc9656f460f480be",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -673,6 +889,51 @@
       "sha": "e770be8",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e770be859e81ff1a716b750cc3835a68b3bd7aaa",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-17T12:16:20.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(acervo): o plano orcava os tiles, mas quem enche o disco e o ARQUIVO\n\nO `blumenau` gastou 1,0 GB onde o plano previa 0,6 GB, e a diferenca nao e erro\ndo fator de crescimento: os tiles deram mesmo 626,19 MB, dentro do previsto. O\nque faltava na conta era o SQLite. Com `page_size` de 65536 um tile de 20 KB nao\npreenche a pagina, e sobra folga em cada uma.\n\nMedido nos tres projetos ja gerados: 1,168x no museu_cms, 1,332x no blumenau e\n1,259x no cigi, ou 1,286x no agregado. Sem esse fator o plano subestimava o\ndisco em 28%, que num acervo de 98 GB de tiles sao 28 GB que ninguem tinha\norcado.\n\nO relatorio passa a mostrar as DUAS colunas, tiles e arquivo, porque as duas\nrespondem perguntas diferentes: tiles e o que trafega, arquivo e o que ocupa. A\nguarda do piso de disco e o gasto do diario passam a usar a do arquivo, que e a\nque pode encher o volume no meio da noite.\n\nAcervo revisado: 97,9 GB de tiles, que viram 125,8 GB de arquivo, em 15,5 h.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "4ad64b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/4ad64b394bf296f0ee69173c4c1e056ed5d2078c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-17T11:47:50.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(tiles): o orquestrador do acervo, com retomada, piso de disco e diario\n\nSao 28 projetos, 99 GB de escrita e cerca de 16 horas de parede. Um laco de\nshell nao sabe retomar, nao vigia o disco e nao deixa registro do que ficou de\nfora, entao a rodada vira um script.\n\nEle NAO paraleliza projetos, e isso saiu de medida: oito workers rendem 9%\ncontra quatro (55 s contra 50 s em 120 fotos do parque_osorio), porque o\ngargalo e banda de memoria e nao CPU. Rodar dois projetos juntos so disputaria\nos mesmos nucleos e o mesmo disco.\n\nOrdem CRESCENTE de tamanho, de proposito: defeito de dado aparece nos primeiros\nminutos, e nao na quarta hora.\n\nTres guardas que existem por doutrina, e nao por zelo:\n- Piso de 20 GB de disco livre. Encher o disco no meio de uma escrita de SQLite\n  deixa banco pela metade e pode derrubar outra coisa da maquina.\n- Tres falhas seguidas abortam. Uma falha e azar, tres sao defeito sistemico, e\n  insistir por mais doze horas so produz um log grande.\n- Conferencia final por RELEITURA dos bancos, e nao pelo codigo de saida do\n  gerador. \"Pronto\" e ter uma linha em `tile_pyramids` por foto viva, porque\n  uma rodada interrompida deixa arquivo existindo e incompleto.\n\nA previsao por projeto sai de dois projetos MEDIDOS, 1,443x e 0,45 s/foto em\n5760, e 1,813x e 0,97 s/foto em 7680. O proprio relatorio diz, em texto, que\nisso e extrapolacao e vai errar por projeto, e o diario grava o gasto REAL ao\nlado do previsto para a conta poder ser conferida depois.\n\n`--dry-run` imprime o plano inteiro sem escrever nada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "3deb27c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/3deb27c946967c58cd3c6aa86b6fffbbf73de67d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-17T11:41:49.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(calibracao): o three e o maplibre saem do CDN, e a tela volta a abrir offline\n\nDefeito de producao, e o pior encontrado no piloto: o MapLibre vinha do\ncdn.jsdelivr.net com `defer`, e `defer` SEGURA o DOMContentLoaded. Atras do\nproxy do quartel o pedido nao e recusado, ele PENDURA. Sem DOMContentLoaded o\n`app.js` nunca inicia e a tela fica em \"Carregando...\" para sempre, em todos os\n29 projetos. Falha lenta e pior que falha rapida: a pagina nao se recupera.\n\nMedido em Chrome headless dirigido por CDP: com o CDN pendurado, readyState\n\"complete\", corpo vazio e zero cartao de projeto. Servindo do disco, a interface\nsobe com os 29 projetos e zero requisicao para fora da maquina, exceto o raster\ndo minimapa.\n\nEntram em `vendor/` o Three r170 e o MapLibre 5.1.0, os mesmos bytes que o CDN\nservia (1.314.681, 910.166 e 69.422). Foi assim que a medida de parede do piloto\nquase nao aconteceu, e foi assim que ela voltou a acontecer.\n\nFica anotado o que NAO saiu: o raster do minimapa segue vindo de\ntile.openstreetmap.org. E dado de mapa, nao codigo, e trocar por fonte local e\ndecisao a parte.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "72dd205",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/72dd20533c65c179d814083bbc6753ed764e584d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-17T11:41:34.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(calibracao): a tela compoe tiles, e cai no full quando nao ha piramide\n\nO visualizador da calibracao passa a montar a panoramica a partir dos tiles,\nnum canvas 2D que vira UMA CanvasTexture. Uma textura so, e nao um plano por\ntile, porque a UV da SphereGeometry ja mapeia a equirretangular inteira: trocar\na geometria obrigaria a recalcular UV, costura e polos, e quebraria a paridade\ndo marcador com o ebgeo_web.\n\nNada do que e espelhado foi tocado. A esfera, a ordem ZXY, a camera YXZ e o\noverlay 2D ficaram como estavam. Muda a FONTE da textura, e so isso.\n\nA armadilha que custou caro: o `lon` da camera NAO e a longitude da imagem,\nporque a esfera carrega mesh_rotation. Entregar o lon cru pede a coluna errada\nde tiles, e o sintoma e borrao nas costas do operador, sem erro no console. A\nrotacao da malha e desfeita pelo quaternion inverso antes de escolher os tiles.\n\nO fundo e o preview de 13 KB, decidido por medida de parede: venceu o nivel 0\ninteiro (139,3 KB) em bytes E em tempo. As tres estrategias seguem\nselecionaveis, porque a medida cobriu a CARGA e nao o arrasto.\n\nDois consertos de performance que sairam de uma queixa de travamento ao girar.\nO canvas nascia com a largura do NIVEL, entao 7680 dava textura de 118 MB, e o\n`needsUpdate` do three re-especifica a textura INTEIRA a cada tile que chega.\nMedido: 1.013,5 MB enviados a GPU por foto, contra 127,1 MB do caminho antigo.\nAgrupar uploads numa janela de 120 ms e dimensionar o canvas pelo que a TELA\nresolve derrubaram para 329,5 MB, ou 3,1x menos.\n\nUma terceira tentativa foi DESFEITA: aceitar subamostragem para nao subir de\nnivel. A suite reprovou, e com razao, porque a folga necessaria apagaria em\nsilencio as decisoes de escada ja medidas. E a medida mostrou que ela nem\nresolvia o caso.\n\nEntram tambem as ferramentas de medida: `bench-tiles.js` soma bytes do banco, e\n`medir-parede.js` dirige o Chrome por CDP para medir tempo de parede, porque\nbyte no banco nao tem cabecalho HTTP, TLS, decodificacao nem subida de textura.\n`diag-webgl.html` responde qual aparelho aguenta a textura do acervo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "3f0deb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/3f0deb5d117350059afeafdcce5734e603d0b419",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-08-17T11:41:13.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(tiles): a panoramica passa a existir tambem em piramide de tiles\n\nO acervo servia a foto inteira: 534 KB na mediana e 1,1 MB no p90, baixados a\ncada passo de navegacao, para uma tela que mostra um sexto da esfera.\n\nEntra a piramide. `tiles(photo_id, level, x, y, webp)` num arquivo separado,\n`{slug}_tiles.db`, que nunca abre o `{slug}.db` de producao para escrita. Duas\nrotas: `tiles.json` descreve a escada e `tiles/:level/:x/:y.webp` serve o tile,\nimutavel por um ano. Projeto sem piramide responde 404 e o full de hoje segue\nservindo, que e o caminho de 28 dos 29 projetos.\n\n`pyramid-math.js` e a UNICA verdade da escada e do frustum, e ele existe por\ndefeito medido: a escada nasceu escrita tres vezes com arredondamentos\ndiferentes, e o conjunto de tiles visiveis nasceu escrito duas vezes divergindo\n2,2x. A segunda divergencia envenenava o piloto, porque o benchmark media um\nconjunto e a producao pedia outro.\n\nA razao da escada e POR FORMATO, e a politica saiu de medida: em 5760 o nativo\nja cai na faixa que as telas usam (4264 a 6119 px), entao razao 2 basta; em 7680\na razao 2 deixa a faixa util no vao entre 3840 e 7680 e todo viewport satura no\nnativo, entao entra 1,6, que traz o nivel de 4800. A razao se GRAVA na piramide,\nporque quem reconstruir a escada com outra razao produz outra grade, e o sintoma\nseria tile faltando, nunca erro.\n\nMedido no museu_cms, 76 fotos: razao 2 custa 1,429x o full_webp, razao 1,6 custa\n1,813x. O recorte por formato projeta 98,6 GB no acervo, contra 113,4 GB de 1,6\nem tudo.\n\nProvado por pixel, e nao por retorno de ferramenta: tile do banco contra recorte\nda fonte, pior erro 1,74/255 em 12 tiles, com o par errado dando 57,21/255 para\nmostrar que o instrumento reprova. A conferencia de grade do gerador tambem\nreprova: adulterando so a coluna `razao`, a checagem antiga de bytes passou e a\nnova acusou \"24 previstos, 26 gravados\".\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TVV2xHjk3k1kFqEZzidGu9",
+      "sha": "c23d2e5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/c23d2e5a8926fcf84dcdb7b40fe3ed5f44ce2b37",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
     },
     {
       "repo": "1cgeo/doc_dgeo",
