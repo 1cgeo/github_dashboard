@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-20T15:39:21.661Z",
+  "lastUpdate": "2026-08-20T20:34:27.736Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-20T15:15:05.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-20T11:56:22.000Z",
+    "1cgeo/controle_acervo": "2026-08-20T18:01:15.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-19T14:55:10.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-20T18:22:11.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6068,
+    "totalCommits": 6070,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 325,
+      "1cgeo/controle_acervo": 326,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -151,7 +151,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 386,
+      "dsgoficial/pytorch_segmentation_models_trainer": 387,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -170,6 +170,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-08-20T18:22:11.000Z",
+      "author": "Maj Borba",
+      "message": "chore: remove unused imports across framework and tests (#266)\n\nAddresses the 'unused imports' code quality finding surfaced under\nSecurity > Code quality: ~358 F401 hits across 145 files (77 in the\nframework, 280 in tests, 1 in scripts), mostly leftover from past\nrefactors (renamed/removed helpers, signature changes that dropped a\ntype-hint usage, etc.).\n\nApplied via 'autoflake --remove-all-unused-imports' after first fixing\nthe 4 legitimate cases flake8 flagged as false positives: submodule\nre-exports in __init__.py (pytorch_segmentation_models_trainer,\nutils, tools/mbtiles) that existed for their side effect of exposing\nthe submodule on the parent package. Those now declare __all__\ninstead of relying on a bare unused-looking import.\n\nVerified: 'flake8 --select=F401,F821,E9' is clean repo-wide, and the\nfull test suite (excluding the pre-documented segfault/network/\nsubprocess exclusions) passes at 3583 passed / 5 failed / 8 skipped —\nthe 5 failures are a pre-existing local env gap (transformers not\ninstalled in this venv, same as the already-excluded\ntest_embedding_extractor.py) reproduced identically on main before\nthis change, so not a regression.\n\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "ed37b42",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/ed37b422a4bd0c02bce34eff4247bc0765c30f09",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-20T18:01:15.000Z",
+      "author": "Maj Diniz",
+      "message": "editar o campo pela LINHA volta a ter a area, e a descricao da foto se edita no cartao\n\nTres coisas do mesmo modulo, pegas no campo de Porto Uniao ao fechar a situacao\ndele.\n\nAREA QUE SUMIA. O botao \"Editar\" da linha da tabela abria o formulario com a\nLINHA da lista, e `SELECT_LISTA` deixa `geom` de fora de proposito: a tabela nao\ndesenha nada. O formulario le a area de `campo.geometria`, entao ele dizia\n\"Nenhuma area definida\" num campo que TEM area, e o Salvar travava pedindo o\nGeoJSON de novo. Nao havia como mudar a situacao de um campo cadastrado sem\nreimportar o arquivo. O caminho pela ficha nunca teve o defeito, porque la o\nobjeto vem de `GET /campo/:id`. Agora a linha busca a ficha antes de abrir, e\nfalha na busca NAO abre formulario nenhum: um formulario sem area gravaria um\ncampo mutilado. O teste novo REPROVA o codigo anterior (conferido: 2 de 3\nfalham).\n\nDESCRICAO NO CARTAO. A galeria so acrescentava e removia. `PUT /campo/imagem/:id`\nexistia no servidor, `atualizarImagemCampo` existia no service do client, e a\ntela nunca chamou nenhum dos dois: quem enviava um arquivo ficava com o nome\ndele como descricao para sempre, e a saida era remover e enviar de novo -- 40 MB\nde video por uma linha de texto. O rodape agora tem dois modos, e a edicao e ALI,\nsem modal: a galeria ja vive dentro do modal de \"Editar o campo\", e um segundo\npor cima esconderia qual dos dois esta gravando. Grava na hora, como o resto das\nabas, e a grade NAO se recarrega -- rever a lista buscaria os 48 MB da galeria\nde novo para trocar uma linha. A data viaja no PUT com o valor que ja estava,\nsenao o `|| null` do servidor apagaria a das dez imagens antigas que a tem.\n\nO TRACO. O rodape montava \"data · tamanho\" sempre, e `data_imagem` e nula em\nquase toda imagem (133 das 143 do acervo do SAP, e todas as que a tela envia,\nporque o formulario de envio nunca a pediu). Sobrava um traco solto ao lado do\ntamanho, que se lia como defeito. Chefe, 2026-08-20: a data da foto nao se tem\nna pratica. Sem data, so o tamanho; onde ela existe, continua aparecendo. A\ncoluna fica.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f0a18d6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f0a18d601b732c603406c5f03bba191465a7e08b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-20T15:15:05.000Z",
