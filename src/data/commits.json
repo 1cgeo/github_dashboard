@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-22T10:28:48.537Z",
+  "lastUpdate": "2026-08-22T15:26:23.103Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-20T15:15:05.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-21T12:16:47.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-22T15:20:51.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-21T21:27:48.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-22T11:42:13.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-22T00:52:15.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6101,
+    "totalCommits": 6109,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1012,
+      "1cgeo/ebgeo_web": 1018,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 604,
+      "1cgeo/chefe_dgeo": 606,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 12,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-22T15:20:51.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-22 (2): sob vegetacao o FABDEM ganha, e o deslocamento comum era da referencia\n\nTerceira medicao do projeto mdt-licenca-aberta, com 25.920 pontos fotogrametricos do\nConvenio RS (fototriangulacao, GOV-RS SDP 8155-BR). A classificacao do ponto e o que\nesse conjunto tem de unico: topo de vegetacao, abaixo de vegetacao, canto de\nedificacao e solo. Foi ela que permitiu medir o que o GNSS nunca alcancou.\n\nO RESULTADO\n\n- Nos 5.074 pontos ABAIXO DE VEGETACAO o FABDEM ganha nas nove metricas: RMSE 6,163\n  contra 6,841 m, LE90 9,84 contra 11,05, e delta de RMSE +0,678 m com IC 95%\n  [+0,558, +0,812], que nao cruza o zero. A margem de 0,5 m e ultrapassada.\n- Nenhum dos dois enquadra classe A na 1:25.000 sob vegetacao: 71,1% e 67,1% dentro\n  do PEC, contra o limiar de 90%. Quase um terco dos pontos erra mais de 5 m.\n- Em terreno aberto o resultado INVERTE e o GEDTM ganha (RMSE 2,564 contra 3,074 m).\n- As tres medicoes discordam porque medem contra superficies DIFERENTES, e sob copa\n  a referencia e justamente o que ninguem tem direito. A troca fica SUSPENSA.\n\nO QUE FALHA (retrospectiva/learnings.md)\n\n- Agreguei residuo sobre superficies de referencia diferentes, e o RMSE virou altura\n  de dossel (11 m). Em duas das quatro classes o MDT DEVE ficar abaixo do ponto.\n  Regua: antes de agregar residuo, confira que toda a amostra se refere a MESMA\n  superficie, e a classe que o produto deve ficar abaixo vira CONTROLE NEGATIVO.\n- Ia atribuir aos produtos um deslocamento que era da referencia. Os dois MDT descem\n  juntos ao entrar na vegetacao (1,43 e 2,24 m), o que nenhum deveria fazer se o\n  ponto fosse solo verdadeiro. O discriminador foi separar vies de dispersao: vies\n  comum da referencia entra no RMSE e nao entra na dispersao, e a desvantagem caiu\n  de +0,678 para +0,199 m. Regua: quando todos os candidatos erram para o mesmo\n  lado, suspeite da regua antes deles, e reporte separado a diferenca ENTRE produtos\n  (atribuivel) e o deslocamento COMUM (sem dono).\n\nO QUE MUDA NA WIKI E NA MEMORIA\n\n- fontes-insumos: o veredito do GEDTM30 passa a depender da COBERTURA, e a troca\n  aparece como suspensa. Entra tambem o fato de classe: nenhum ponto de controle\n  resolve vegetacao, e as duas tentativas falham por caminhos opostos (o GNSS nao\n  chega ao lugar, a fotogrametria nao chega ao solo).\n- MEMORY.md: a linha de hoje foi corrigida, porque a Medicao 3 a contradiz.\n\nPROXIMO PASSO (sessao futura)\n\nO MDT do Convenio RS entra como referencia, e o arquivo nao estava a mao. A pergunta\ne uma so: sob vegetacao, o solo verdadeiro esta mais perto do FABDEM ou do GEDTM.\nQuem ficar com o 1,4 m de deslocamento comum decide a troca. A confirmar antes de\nrodar: o METODO de geracao, porque MDT do Convenio feito por correlacao\nfotogrametrica herda o mesmo defeito e nao separa as hipoteses.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6bcb6d1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6bcb6d123933e7301a85d1a605056422a153842b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-22T14:31:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-22: o GEDTM30 empata com o FABDEM em cota, e o instrumento de amostragem mentia\n\nSessao sobre MDT de licenca aberta. Extracao do DEMIX Final Report (155 pg) por 11\nagentes, leitura dos dois artigos que ele resume, e avaliacao propria contra 3.488\npontos de controle do RS e de SC. Projeto novo em 01-Projects/mdt-licenca-aberta.\n\nO RESULTADO\n\n- O GEDTM30 v1.2 (CC-BY 4.0) EMPATA com o FABDEM em altimetria no Sul: RMSE 1,846\n  contra 1,940 m, com o IC 95% do delta cruzando o zero, e nao inferioridade por\n  margem de 0,5 m. Os dois enquadram PEC-PCD classe A em todas as escalas.\n- No banco DEMIX v4 (1.510 tiles), o FABDEM ganha em 71 dos 75 criterios no\n  agregado, e o sinal INVERTE por cobertura florestal: com dossel acima de 80% o\n  GEDTM ganha por 0,55 m de mediana; abaixo de 25% perde por 0,37 m.\n- Onde o GEDTM perde sempre e na FORMA (curvatura, rugosidade), nunca na cota. O\n  modelo dele minimiza erro vertical e nao otimiza derivada do terreno.\n- Consequencia: a saida esperada e um MDT por faixa de cobertura, nunca um unico.\n\nO QUE FALHA (retrospectiva/learnings.md)\n\n- Amostrei dois rasters por janela em coordenada FRACIONARIA. O read do rasterio\n  arredonda a janela e ainda a recortou na borda do tile, deslocando o indice em ate\n  um pixel (cerca de 30 m). O resultado falso era grande e coerente: RMSE de 10,46 m\n  contra 1,92 m, com degradacao por altitude, que e assinatura de erro de registro.\n  Nenhum teste falhou. Pegou o PRIOR conhecido: aquele MDT ja enquadrava PEC A na\n  casa. Reguas: validar o instrumento contra implementacao de referencia ANTES de\n  olhar estatistica (src.sample deu 107 de 300 iguais e matou a rodada), e escrever\n  o valor esperado antes de rodar toda medicao de algo que a casa ja mediu.\n\nO QUE MUDA NAS CONVENCOES\n\n- subagentes.md: a negativa do agente FATIADO e hipotese, nunca fato. Tres de onze\n  agentes negaram area de teste na America do Sul; havia tres, numa unica legenda de\n  figura fora da fatia deles. Entregar os artefatos globais a todos, e confirmar\n  ausencia por grep no texto completo. E a armadilha de ferramenta ja resolvida vai\n  LITERALMENTE no prompt: seis agentes tentaram poppler, que o learnings do pai ja\n  dizia nao existir nesta maquina, e perderam as figuras.\n- fontes.md: relatorio institucional que resume artigo e PONTEIRO, mesmo com ISBN e\n  DOI. E artigo com veredito forte pede busca por Comment, Reply e Corrigendum: o\n  \"nao recomendado\" do GEDTM tinha um Comment formal contestando, publicado dez dias\n  antes do relatorio, que o relatorio nao registra.\n\nO QUE ENTRA NA MEMORIA E NA WIKI\n\n- MEMORY.md: o empate, a inversao por cobertura e a saida por faixa (4.763 chars).\n- fontes-insumos: o GEDTM30 deixa de ser \"sem validacao no 1 CGEO\". Numeros da\n  medicao, as duas ressalvas (so cota, e a rede nao amostra dossel) e o ponteiro.\n\nPROXIMO PASSO (decisao do chefe)\n\nA avaliacao seguinte usa o MDT do Convenio RS como referencia, e vale mais que a de\nponto de controle: ponto nao resolve a situacao da vegetacao (GNSS exige ceu aberto,\nentao a rede nunca amostra sob dossel) e nao produz declividade nem curvatura, o que\ndeixa 68 dos 75 criterios de fora.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9c4719e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9c4719e7f29063f023c2f5af1279e8f773a8998e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T11:42:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(testes): os cinco guardas que a absorcao da 011 quebrou, e o acervo 3D que a suite apagava\n\nO COMMIT ANTERIOR FOI VERIFICADO PELA METADE, e este e a conta. Absorvi a\nmigracao nas baselines, rodei so a suite do FRONTEND (depois de confirmar que um\ntimeout era carga) e commitei. O backend tinha CINCO vermelhos reais, todos em\nguardas que citavam a migracao absorvida. Confirmar que uma falha e ruido nao e o\nmesmo que verificar.\n\nOS CINCO:\n\n- `migrations-higiene`: duas excecoes destrutivas orfas -> lista vazia, porque num\n  schema escrito no estado final nada e criado para ser derrubado.\n- `citacao-de-migracao`: 18 citacoes penduradas em 12 arquivos -> reescritas para\n  o arquivo onde a coisa NASCE hoje (001, 002, 003 ou 008). O guarda pegou uma\n  referencia por rodada, tres rodadas seguidas, que e ele funcionando.\n- `auditoria-backfill-de-om`: lia o `UPDATE` do backfill DO ARQUIVO para roda-lo\n  contra dado plantado. O backfill deixou de existir (num banco novo nao ha\n  historia para retroagir), entao o arquivo saiu. A METADE VIZINHA continua\n  coberta por sete testes pelo caminho do emissor; o que ficou SEM GUARDA e a\n  licao \"DDL que so roda em banco recem-criado nunca e exercitada pelo dado\", e\n  isso esta dito por extenso na errata da entrada que a registrou, em vez de\n  sumir junto com o arquivo.\n- `resource-grants-prazo`: discriminava o PAR baseline/degrau, e o degrau foi\n  absorvido. Passa a exigir que NENHUMA funcao seja declarada duas vezes entre as\n  migracoes. Medido: duplicar com a MESMA assinatura ja e pego duas vezes antes\n  (o Postgres recusa, e a baseline usa `CREATE FUNCTION` puro); o que so esta\n  assercao pega e a SOBRECARGA, que o Postgres aceita calado.\n- `backend/CLAUDE.md`: a contagem da lista de excecoes envelheceu pela terceira\n  vez, e a linha agora diz isso.\n\nE UM DEFEITO ACHADO AO TESTAR OS DADOS: `assets3d-sqlite.test.js` APAGA o arquivo\nde `ASSETS_3D_SQLITE`, e nem o runner nem o `.env.test` definiam a variavel —\nvalia o default, que e o caminho de DESENVOLVIMENTO. Rodar `npm test` destruia o\nacervo 3D importado, sem erro, e a perda so apareceria quando alguem abrisse um\nmodelo dias depois. O runner JA isolava `IMAGES_DIR`: o cuidado existia, aplicado\na um caminho e esquecido no irmao. Corrigido nos dois lugares e provado por\nmedicao (138.326.016 bytes intactos depois da suite).\n\nOS TRES ACERVOS FORAM TESTADOS no schema consolidado, com o banco de dev recriado:\no `.ebgeo` importa pela tela com 12 mapas, 262 feicoes e 2 briefings; o tileset\nPCL abre o popup com o video; e o panorama 360 abre dentro do atlas importado.\n\nVerificacao depois da ultima escrita, com a maquina livre: lint verde nos dois\npacotes; 4876 + 3546 + 181 casos, zero falha e zero pulo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1316c5f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1316c5f0e5dbe99c410e63631d149d7ee711bf52",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T10:44:53.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(db+docs): a ultima migracao volta para as baselines, e o registro de fase sai de decisions\n\nDUAS FRENTES.\n\n1. `011_grupo_com_dono_e_producao.sql` ABSORVIDA. Voltam OITO baselines, e a peca\n   obrigou duas correcoes de arquitetura do proprio conjunto:\n\n   - `access_groups` e `access_group_members` SAIRAM da 008 e nascem na 001.\n     `atlas_shares` passou a referencia-las, e a ordem entre baselines e a de\n     dependencia de FK. Isso devolve a 008 a propriedade que o cabecalho dela\n     declara: ser PURA CONSUMIDORA. E e coerente com o produto: grupo de acesso e\n     uma colecao de usuarios, e desde que ganhou dono e entidade de usuario.\n   - `fn_can_produce_resource` foi movida para ANTES de `fn_granted_resource_ids`.\n     Uma funcao `LANGUAGE sql` tem o corpo ANALISADO na criacao; enquanto o ramo\n     de producao vivia numa migracao posterior, as duas ja existiam e a ordem no\n     arquivo nao importava.\n\n   As colunas absorvidas (`access_groups.owner_id`, `atlas_shares.group_id`,\n   `audit_trail.target_org_id`) nascem NO FIM da tabela, onde o `ADD COLUMN` as\n   deixava: a ordem das colunas e observavel (`SELECT *`, todo `INSERT` sem lista),\n   e consolidar nao pode mudar nada observavel.\n\n   SCHEMA PROVADO IDENTICO ao das 9 migracoes, prosa inclusive. O comparador achou\n   TRES defeitos, todos DELE e nao do schema: `String.replace` comendo metade dos\n   delimitadores `$$`; a remocao de prosa falhando com CRLF (o `.` do JS nao casa\n   `\\r`, entao `/--.*$/` nunca fechava — o mesmo defeito do esmagamento anterior,\n   por outro caminho); e `ordinal_position` absoluta tratando \"coluna nunca criada\"\n   e \"criada e apagada\" como diferentes. Os tres foram separados dos defeitos reais\n   por estrago plantado.\n\n2. `docs/decisions/fase-multiaba-2026-08.md` REMOVIDO, com ZERO citacoes\n   penduradas. O levantamento mostrou que o duravel dele ja vivia na wiki,\n   alternativas rejeitadas inclusive; o que restava era vocabulario de fase (D1..D7,\n   E0..E8), roteiro ja cumprido, e evidencia por `arquivo:linha`, forma que a\n   convencao hoje proibe. As nove citacoes de teste passam a nomear a PROPRIEDADE\n   que cada caso prova e a apontar para a pagina de wiki. Mais seis citacoes a 011\n   corrigidas em docs, uma delas substantiva: a auditoria descrevia um backfill que\n   a consolidacao eliminou.\n\nO censo de `org_role` ficou com lista VAZIA (a coluna nao chega mais a nascer), e a\nassercao foi reescrita em vez de afrouxada: quem lhe da sentido e o controle de\nvacuo ao lado, que exige a mesma varredura achar o eixo que continua vivo.\n\nVerificacao depois da ultima escrita: `npm run lint` verde nos dois pacotes;\nfrontend 279 arquivos e 4876 casos, backend e e2e de contrato verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "d8398b0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d8398b0d8dc371138059aeb25764afcc05a825d9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T10:27:28.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: o 360 em pasta e a consolidacao de migracoes entram na linha de permissoes\n\nTraz `integracao_main_360` para `integracao_backend`. Dez conflitos, e o unico\nestrutural era nas migracoes: os dois lados as reorganizaram de formas\nincompativeis.\n\nO QUE SAIU DE CADA LADO:\n\n- A piramide de tiles (`012_sv360_piramide.sql` do lado de ca) foi ABSORVIDA na\n  baseline `007_sv360.sql`, e o arquivo sai. Fora o `IF NOT EXISTS`, que numa\n  baseline nao faz sentido, o conteudo era identico.\n- `009_grupos_de_acesso.sql` e `010_forma_3d.sql` continuam absorvidas: os CHECK\n  de `audit_trail` nascem largos na `002`, e o backfill de `forma3d` nao tem\n  linha para tocar num banco novo.\n- `011_grupo_com_dono_e_producao.sql` FICA como esta, e com ela todo o schema da\n  onda de permissoes. Absorve-la nas baselines e trabalho proprio, com custo\n  proprio, e nao se mistura a um merge.\n- Em `001_identidade.sql` ficou a forma enxuta COM o fato que o outro lado tinha\n  corrigido (o auto-cadastro passou a exigir e-mail). O bloco de `email` tambem\n  foi ajustado, porque na forma enxuta ele tinha ficado ambiguo entre os dois\n  caminhos de criacao de conta.\n\nO SCHEMA FOI PROVADO IDENTICO, nao presumido. Montei o banco das 12 migracoes do\n`integracao_backend` como REFERENCIA e o das 9 do merge, e comparei por catalogo:\n43 tabelas, 407 colunas, 151 constraints, 150 indices, 19 funcoes, 6 triggers, 2\nsequencias, iguais. O comparador acusou uma divergencia de seed que era ruido do\nproprio instrumento (ele lia UUID e timestamp gerados a cada criacao de banco);\ncorrigido para ler so o conteudo estavel, deu identico.\n\nO guarda de citacao de migracao pegou duas referencias penduradas durante o\ntrabalho — uma minha e uma que sobreviveu ao merge —, que e ele funcionando como\ndevia.\n\nVerificacao depois da ultima escrita: `npm run lint` verde nos dois pacotes;\n`npm test` da raiz com 279 arquivos no frontend, 3549 casos no backend e o e2e de\ncontrato, zero falha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "503f65b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/503f65b5529dc7f97b32c2c5d6d295e81d681439",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T09:38:33.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(db): as tres migracoes pos-esmagamento voltam para dentro das baselines\n\n11 arquivos viram 8, e 2332 linhas viram 1939. A `009` alargava dois CHECK de\n`audit_trail` (agora nascem largos na `002`), a `011` criava `photo_pyramids`\n(agora nasce na `007`), e a `010` era um backfill de `tilesets.config` que\nDESAPARECE em vez de migrar: a `005` nao semeia `tilesets`, entao o UPDATE nao\nteria linha para tocar num banco novo.\n\nO comentario tambem encolheu. Saiu a prosa que recontava como o schema chegou\nate aqui (isso esta no git) e a que reexplicava o SQL; ficou o porque, a\nalternativa recusada e a armadilha.\n\nA EQUIVALENCIA FOI PROVADA, NAO PRESUMIDA. Montei dois bancos (as migracoes\nantes e depois) e comparei por um dumper de catalogo que separa ESTRUTURA de\nPROSA — a licao do esmagamento anterior, em que `pg_get_functiondef` misturou as\nduas e produziu dois falsos positivos. Resultado: 43 tabelas, 404 colunas, 148\nconstraints, 145 indices, 13 funcoes, 6 triggers e 2 sequencias IDENTICOS. Antes\nde confiar no verde, plantei tres estragos (coluna removida, CHECK alterado,\nindice a mais) e exigi que o comparador acusasse os tres. O harness era\ndescartavel e foi apagado com a pasta.\n\nDOIS GUARDAS PERDERAM O SUJEITO E FORAM REESCRITOS, NAO AFROUXADOS:\n\n- `EXCECOES_DESTRUTIVAS` esvaziou por construcao (num schema escrito no estado\n  final nada e criado para ser derrubado).\n- O censo de auditoria exigia o CHECK declarado em MAIS DE UMA migracao para\n  exercitar \"a ultima vence\". Esse piso premiava quem reintroduzisse um degrau:\n  para manter o verde bastava nao consolidar. A regra passou a ser exercitada\n  contra uma FIXTURE SINTETICA, e do repositorio real so se cobra o que nao e\n  proxy. E o nome fabricado por essa fixture entrou na allowlist do guarda de\n  citacao de migracao, que o pegou — funcionando exatamente como devia.\n\nUm caso do censo de forma 3D mudou de sujeito: ele lia o SQL do backfill para\npinar \"nao se adivinha nuvem de pontos\", e agora mede `derivarForma3d`, que e o\ncodigo vivo. Provado por controle negativo (a derivacao passa a adivinhar, o\ncaso fica vermelho).\n\nVerificacao depois da ultima escrita: `npm run lint` verde nos dois pacotes;\n`npm test` da raiz com 4652 + 3286 + 174 casos, zero falha e zero pulo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "e88bed2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e88bed2b6b5dca1c0e0bfc60fd1197806a705b96",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T08:55:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(360): ponte do acervo em pasta, e o import de .ebgeo passa a conferir o conteudo\n\nDUAS FRENTES, as duas medidas contra dado real.\n\n1. `sv360-folder-import.js`: o acervo 360 anterior ao `index.db` e uma PASTA\n   (JPG equirretangular mais JSON com `camera` e `targets`), e nenhum dos dois\n   caminhos de ingestao a aceita, porque os dois falam SQLite. A ponte escreve o\n   par (`index.db` + `{slug}.db` no formato COM BLOB, via ffmpeg) e manda ingerir\n   pelo `sv360-import.js`, para que `mergeProject` continue sendo o unico lugar\n   onde estado de projeto nasce. Medido de ponta a ponta: 657 fotos, 1346\n   ligacoes, 4 alvos orfaos descartados e contados, 643,8 MB, e o panorama\n   abrindo no app com o preview e o full nos tamanhos exatos que a conversao\n   gerou.\n\n   O id da foto e UUID v5 determinístico, e ISSO CUSTOU UMA RODADA: a primeira\n   versao gravou o nome como id, as 657 entraram no Postgres, o importador\n   reportou `1 imported, 0 skipped` e nenhuma imagem saia, porque a rota de\n   leitura valida o parametro como GUID. O vetor do teste e EXTERNO (o par\n   publicado da norma) para nao chancelar a propria saida.\n\n   A conversao e cacheada em disco e endereçada pelo NOME do arquivo, nao pelo\n   id: por isso a correcao do id custou 5,4 s em vez dos 20 min de reconversao.\n\n2. O caso de import de `.ebgeo` pela tela contava os 11 mapas e nada do que esta\n   dentro deles: um importador que criasse onze mapas VAZIOS passava. Agora o\n   esperado vem do proprio arquivo (`countFixture`), e a comparacao e POR MAPA,\n   mais briefings, slides, icones e os blobs de imagem. Provado por tres estragos\n   isolados no importador (sem icones, sem blobs, um mapa esvaziado): o caso novo\n   fica vermelho nos tres e o antigo continua verde.\n\nVerificacao depois da ultima escrita: `npm run lint` verde nos dois pacotes;\n`npm test` da raiz com 4652 + 3286 + 174 casos, zero falha e zero pulo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "7cf1c93",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7cf1c9392f7a51e142756be3d16f14ad65ae95c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T03:34:31.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): a prontidao passa do chamador para o sujeito, e o harness para de aceitar backend alheio\n\nTres consertos, os tres medidos antes e depois.\n\n1. `openAtlasUI` passa a esperar o mapa do atlas ficar ATIVO. A espera ja\n   existia, so que dentro de `openClient`, isto e, no CHAMADOR: os dois\n   specs que abrem direto desenhavam na janela em que o pipeline de\n   abertura ainda troca o mapa e recarrega o estilo, e a ferramenta caia\n   junto, sem erro nenhum. Isolado passava 18 de 18; so a suite cheia\n   abria a janela. Junto vao a espera pela paleta aberta (este helper era\n   o unico a nao fazer) e um diagnostico de tres causas no ponto em que o\n   botao da ferramenta nao acende.\n\n2. `startBackend` recusa a rodada quando a porta ja responde, ANTES de\n   derrubar o banco, e desiste quando o filho morre no berco. Uma rodada\n   morta por estouro de tempo deixou um backend orfao vivo; o filho novo\n   morreu com porta ocupada, e como a saude era perguntada a PORTA, o\n   `ok` do orfao passou por sucesso. Saiu uma rodada inteira medindo o\n   sujeito errado: 254 pulados, 19 instaveis, 2 vermelhos, nenhum sobre o\n   codigo do app. Sondado nos dois sentidos: porta ocupada da exit 1 com\n   zero migracoes; porta livre segue verde.\n\n3. `pendingGate` repete a medicao (`tentativas`). O portao de E3 e uma\n   corrida (reproduziu em 4 de 5 suites cheias), e um `test.fail()`\n   binario chamou de conserto a vez em que o defeito nao apareceu. Agora\n   uma reproducao basta para o caso continuar sendo a falha esperada, e\n   \"fechou\" exige tres limpas em sequencia. O laco foi sondado a parte,\n   porque nas 5 execucoes reais o defeito sempre apareceu na tentativa 1\n   e o laco nunca rodava.\n\nO defeito E3 em si NAO foi consertado, de proposito: e o caminho de\nativacao de escopo, e a decisao de nao mexer nele esta escrita na propria\nspec.\n\nVerificacao depois da ultima escrita: `npm run lint` verde nos dois\npacotes; `npm test` da raiz com 4652 + 3271 + 174 casos, zero falha e\nzero pulo; suite de UI com 276 verdes, 1 pulo ambiental (360 sem dado no\nambiente de teste) e ZERO instaveis.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bab76a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bab76a9aded0677603deb00a71c784ca8212ec1f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ia_vegetacao",
       "date": "2026-08-22T00:52:15.000Z",
