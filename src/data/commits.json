@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-21T20:31:07.733Z",
+  "lastUpdate": "2026-08-22T10:28:48.537Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-20T15:15:05.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -60,9 +60,9 @@
     "1cgeo/chefe_dgeo": "2026-08-21T12:16:47.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-21T18:47:51.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-21T21:27:48.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-18T18:09:47.000Z"
+    "1cgeo/ia_vegetacao": "2026-08-22T00:52:15.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6098,
+    "totalCommits": 6101,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1010,
+      "1cgeo/ebgeo_web": 1012,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,11 +165,38 @@
       "1cgeo/autolabeller": 144,
       "1cgeo/chefe_dgeo": 604,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 11,
+      "1cgeo/ia_vegetacao": 12,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-22T00:52:15.000Z",
+      "author": "Maj Borba",
+      "message": "adiciona variantes de injecao DINOv3: FiLM, cross-attention, adapter (LoRA-proxy)\n\n- model.py: dv3_mode param em DHierDV3Inject (sum/film/xattn/adapter)\n  - film: global avg pool → Linear → γ,β → modula layer3 (FiLM conditioning)\n  - xattn: CNN features (Q, 1024×128) atendem patches DV3 (K/V, 256×1024)\n  - adapter: bottleneck rank-32 residual nas features DV3 antes do injector\n  - sum: modo original, backward compatible (default)\n- train.py, kfold.py: --dv3-mode flag; salva dv3_mode no checkpoint\n- eval_tta.py: CONFIG_FLAGS expandido com 3 novos slugs; carrega dv3_mode do ckpt\n- run_dv3_variants.sh: 150 treinos (3 configs × 10 repeats × 5 folds),\n  mesmo protocolo dos 400 originais\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "6a3f131",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/6a3f1316b611615f9524314da9edf6143e6a5a22",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-21T21:27:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(e2e): a guarda de sync recusava referencia que nunca existiu, e dois pisos faltavam\n\nAs nove falhas de e2e do commit anterior eram das FIXTURES, nao do gate, e a apuracao\nimporta porque a primeira leitura tentadora era a oposta.\n\nO QUE SE MEDIU. As tres suites afetadas empurravam referencias a recursos que nunca\nexistiram em lugar nenhum: `tileset-alpha` (nenhum tileset e semeado), `ortofoto` (os cinco\nmapas base semeados sao `carta-topografica`, `carta-ortoimagem`, `bdgex`, `osm` e `imagens`)\ne nomes de foto gerados na hora. Elas passavam porque a escrita gravava a coluna sem\nperguntar nada. `linha ausente = recusa` e regra deliberada e esta escrita no proprio gate:\n`fn_can_see_resource` define recurso inexistente como recurso que voce nao ve, para que\n\"ausente\" e \"proibido\" nunca se distingam, que e a mesma anti-enumeracao da clausula 5.6.\nLogo o conserto e uma linha de verdade, nao um buraco no gate.\n\nOS DOIS PISOS QUE FALTAVAM, e sao eles que valem mais que a fixture:\n\n  `expect(res.serverVersion).toBeGreaterThan(0)` SOBE MESMO COM O LOTE INTEIRO RECUSADO,\n  porque a recusa e por operacao e o lote responde 200. Uma causa unica virava quatro falhas\n  em lugares errados, lidas como \"o snapshot nao reidrata\" em vez de \"a escrita nao\n  aconteceu\". O piso agora e a lista de recusadas, NO PONTO DA ESCRITA. Controle negativo\n  executado: sem a semeadura, a falha passa de quatro casos enganosos para UM, na propria\n  linha, com os quatro seguintes pulados.\n\n  O CASO DE IDOR DE ATLAS CRUZADO ATACAVA COM `baseLayer: 'pwned'`, um id inexistente. A\n  partir do gate novo ele passaria mesmo com a guarda `EXISTS(atlas_id)` REMOVIDA, porque a\n  referencia seria recusada ANTES. Ataque se escreve com payload VALIDO, senao o caso deixa\n  de medir a defesa que nomeia. Agora usa um mapa base real, com piso afirmando que ele\n  difere do que a vitima ja tinha.\n\nVERIFICACAO, DITA COMO ESTA. `npm run lint` na raiz: limpo nos dois pacotes. A perna de e2e,\nrodada isolada depois da ultima escrita de codigo: 54 arquivos, 181 casos, EXIT 0, que e\nexatamente o que este commit conserta.\n\nO QUE NAO ESTA CONFIRMADO: a rodada seguinte de `npm test` na raiz reprovou na perna do\nFRONTEND, 17 casos em 13 arquivos, e eu NAO terminei de diagnosticar antes de o dono pedir\npara encerrar. O que se sabe: as falhas sao TIMEOUT (5 s e 30 s), nao asserção; a mesma\nsuite passou verde duas vezes hoje (4876/4876) sem nenhuma escrita em `frontend/src` entre\numa coisa e outra; os arquivos que caem sao os que varrem o repositorio ou chamam\n`git ls-files`; `docs-integridade` levou 46 s onde levava 0,6 s, e transform mais import\nsomaram 346 s. Medido: nao ha processo node orfao, `git ls-files` custa 0,5 s e\n`git status` 3,9 s. A hipotese e contencao de maquina, e o projeto ja tem a licao escrita\npara esta assinatura (falha que muda de lugar e falha de recurso nao liberado, e vermelho de\nsuite cheia se confirma SEM concorrencia antes de virar diagnostico). Falta rodar os\narquivos isolados, que e o passo que separa vitima de causa. NAO tome este paragrafo como\n\"e so flake\": tome como medicao incompleta.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VNx6KAzPVqEWHviK3MEee5",
+      "sha": "41af5a3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/41af5a38ec2513ea431fe77a141016c5f3bbf4f9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-21T21:09:40.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(constituicao+permissoes): 23 clausulas mentiam sobre o proprio codigo, e o rebaixamento nao derrubava nada\n\nO PENDENCIAS.md listava dez blocos. Nove investigacoes em paralelo, lendo o CODIGO e nao a\nprosa, separaram as metades dele, e o saldo tem a mesma forma da paga anterior: o mapa\nestava quase todo certo, um dos dez blocos era PREMISSA FALSA, e o pior defeito nao estava\nna lista.\n\nO QUE NAO EXISTIA. O bloco 7 dizia que o harness de e2e \"degrada para skip\", um verde sem\nverificacao esperando acontecer. O guarda existe desde sempre: `_backend-required.e2e.test.js`\ne o unico spec da camada SEM `skipIf` e reprova exatamente nessa condicao, com par no\nPlaywright. A mesma premissa ja fora inventada e revertida em 2026-08-14. A causa nao era o\nagente, era a prosa do CLAUDE.md, que mandava \"conferir a contagem de skips\" numa frase\nescrita ANTES do guarda e mantida depois. Ela foi reescrita, e os dois guardas ganharam\nmeta-guarda, porque guarda sem meta-guarda e guarda cuja ausencia nao deixa rastro: o\nsintoma de um guarda ausente e igual ao de um guarda satisfeito.\n\nO ACHADO MAIOR ESTAVA FORA DA LISTA. A CONSTITUICAO.md nao estava sob `docs-integridade` (ela\nmora na raiz, e a varredura cobre `docs/` e `.claude/` mais uma lista escrita a mao), e o\ncommit das cinco ondas virou o estado de UMA clausula. Quatro auditorias por secao mediram as\n55 contra o codigo: 23 diziam \"em obra\" sobre trabalho ENTREGUE, DOZE delas com uma frase\ncomecando em \"Hoje\" que afirmava o OPOSTO do codigo. \"Nao existe eixo de grupo em atlas em\nlugar nenhum do servidor\", com coluna, CHECK, indice, tres funcoes e tres rotas no lugar.\n\"Nao ha filtragem nenhuma nesse caminho\", com a poda de saida escrita e com teste estrutural\nde fiacao. Numa especificacao isso nao e ruido, e instrucao: quem le uma negacao absoluta e\nfalsa implementa aquilo uma segunda vez, ou escreve mitigacao de aplicacao sobre um predicado\nque ja fecha no SQL.\n\nO CONSERTO NAO E A CORRECAO DAS 23, E O ACOPLAMENTO. Toda clausula vigente passou a citar,\nentre crases, o arquivo de teste que a prende (48 citacoes), de modo que apagar ou renomear\nesse teste fica VERMELHO apontando para a clausula. Isso da dentes a definicao que o proprio\ncabecalho ja usava (\"o codigo ja faz isso hoje, E HA TESTE\"), antes cobrada por honra. Ao\nlado, o censo das nao-vigentes, com motivo por entrada. Saldo: 24 clausulas abertas viraram\n3, e as tres restantes esperam SMTP, trabalho declarado, e decisao do dono.\n\nAS QUATRO DECISOES DO DONO, TOMADAS NESTA SESSAO:\n\n  O REBAIXAMENTO passa a derrubar o que a pessoa concedeu, pela forma SIMPLES. Ate aqui\n  `fn_principal_vivo` era a unica coisa que reavaliava uma raiz depois de criada, e ela\n  pergunta se a CONTA esta ativa, nunca se a AUTORIDADE continua de pe: um administrador\n  rebaixado a usuario comum seguia sustentando todo o acervo privado que distribuiu, por ate\n  um ano. Rebaixar nao e \"ficou menor\" (os quatro papeis nao formam escada), e a definicao\n  escrita mede o que `grantResource` reconhece como fundamento de raiz. A alternativa (coluna\n  nova registrando sob qual autoridade cada raiz nasceu) foi recusada porque deixaria todo o\n  passado como desconhecido, e portanto nao podado, que e a metade que importa.\n\n  A DIVERGENCIA DO GRUPO converge para MANTER. O membro com autoridade propria sobre o mesmo\n  recurso mantinha o repasse ao se apagar o grupo e o perdia ao ser retirado dele, porque la\n  ele e a ANCORA da poda. A regra da ancora NAO foi removida, que ela existe para a revogacao\n  deliberada: os chamadores e que passaram a se separar em dois grupos, e sair de um grupo e\n  fechar um CAMINHO, nao revogar. O cenario critico nao era exercitado por ninguem.\n\n  A CONTA PENDENTE continua cativando o par (nome de usuario, e-mail), e isso deixa de ser\n  pendencia para virar limite escrito, na clausula 10.6, com a assimetria registrada: o token\n  de verificacao caduca em 48 h e a conta que ele ativaria nao caduca nunca.\n\n  AS CINCO FAMILIAS DE TELA vao ao Playwright. E a unica das quatro ainda nao executada, e\n  esta dita na entrada de decisoes em vez de num inventario, que e o que apodrece.\n\nDOIS DEFEITOS REAIS FECHADOS DE PASSAGEM, os dois com controle negativo executado:\n\n  O TETO DE 32 da poda era fail-OPEN, e estava MEDIDO num caso honesto em vez de consertado.\n  Numa cadeia de 33 elos a revogacao da raiz derrubava 32 e deixava o 33o VIVO, pendurado num\n  pai revogado; como o predicado de leitura nunca sobe a cadeia de pais, aquela pessoa seguia\n  vendo o recurso depois de a raiz inteira cair. O detector ja existia na consulta e era\n  consumido em um lugar so. Registrar um fail-OPEN nao e mitiga-lo, e o conserto nao e\n  aumentar o teto, que so move a fronteira: a consulta devolve o TRABALHO QUE SOBROU e a poda\n  o reenfileira ate esvaziar. O caso irmao de 65 elos existe para discriminar uma fila que\n  roda ate o fim de um remendo que roda uma vez.\n\n  O CAMINHO DE SYNC nao tinha guarda de referencia privada para 3D, 360, slide e mapa base:\n  qualquer membro com `write` empurrava uma operacao de camera 3D com um `tilesetId` privado e\n  ela entrava. Agora e uma tabela de extratores por `op.target`, com censo proprio. Tres\n  propriedades preservadas de proposito: `delete` continua passando (quem perdeu acesso\n  precisa poder tirar a referencia morta), a recusa e por OPERACAO e nunca 4xx do lote, e o\n  gate espelha o caminho de ESCRITA e nao a intencao do payload.\n\nE OS RESTOS, que eram restos mesmo: a concordancia de tres avisos destrutivos (o pior deles\ndizia \"sem membros perdem o acesso\" num dialogo que confirma um ato irreversivel), o aviso de\napagar grupo que contava recursos e omitia ATLAS depois de D2, o marcador da linha cujo\nconcedente morreu, `hasEmail` constante `true` sem leitor, um parentese falso na 001, duas\nprosas OPOSTAS sobre o gazetteer no mesmo repositorio, e 31 em-dashes contra a convencao.\n\nVERIFICACAO, E ELA NAO ESTA VERDE. `npm run lint` na raiz: limpo nos dois pacotes, com os\ndois probes de regra passando. `npm test` na raiz, rodado DEPOIS da ultima escrita:\nROOT_TEST_EXIT=1.\n\n  frontend  279 arquivos, 4876 casos, 0 falhas\n  backend   3534 casos, 0 falhas, 0 SKIPS, sob c8, piso de cobertura cobrado e passado\n            (98,48% de linhas, 89,64% de ramos, 96,39% de funcoes)\n  e2e       181 casos, 9 FALHAS em 3 arquivos: map-subentities (2), cesium3d (4),\n            streetview360-annot (3)\n\nAS NOVE FALHAS SAO DA GUARDA DE SYNC DESTE COMMIT, e o commit sai vermelho a pedido do dono,\nque precisou encerrar. Escrito aqui em vez de omitido porque commit que se anuncia verificado\nsem estar e a mesma classe de defeito que o resto desta mensagem descreve.\n\nA HIPOTESE, ainda NAO confirmada quando isto foi escrito: o gate trata \"sem linha de catalogo\"\ncomo recusa, e as tres superficies que reprovaram usam referencias que podem legitimamente NAO\nter linha. A mais grave e `baseLayer: 'ortofoto'`, que tem cara de mapa base BASELINE (do\ndocumento de configuracao) e nao de linha da tabela de catalogo: se for isso, o gate recusa a\ntroca de mapa base de QUALQUER usuario, que e um defeito pior que o buraco que ele fechou.\nRecusar escrita legitima e a direcao errada de falha, e o precedente ja esta neste mesmo\ntrabalho (a primeira versao do gate lia `base_layer` de qualquer op de mapa e recusava um\n`mapTemporal` por um campo que a escrita descarta). A apuracao continua no commit seguinte, e\no desfecho pode ser estreitar o gate, e nao semear fixture.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VNx6KAzPVqEWHviK3MEee5",
+      "sha": "2e1afba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2e1afba895f404649cfdf67d7c01722b42a47f38",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-21T18:47:51.000Z",
