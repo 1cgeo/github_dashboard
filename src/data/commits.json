@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-22T15:26:23.103Z",
+  "lastUpdate": "2026-08-22T20:28:01.344Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-20T15:15:05.000Z",
+    "1cgeo/ebgeo_web": "2026-08-22T17:55:07.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-22T15:20:51.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-22T17:58:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-22T11:42:13.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-22T20:01:40.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-22T00:52:15.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6109,
+    "totalCommits": 6118,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1018,
+      "1cgeo/ebgeo_web": 1025,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 606,
+      "1cgeo/chefe_dgeo": 608,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 12,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T20:01:40.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): o backend que morre no meio da rodada passa a dizer isso\n\nA supervisao cobria so a SUBIDA: `startBackend` espera o /health e reprova se o filho\nmorrer antes de responder. Depois disso ninguem mais olhava. Medido em 2026-08-22: o\nbackend caiu durante uma rodada e o que apareceu foram 254 casos reprovando a partir do\n25o, todos com a mesma mensagem sobre um elemento da barra de conta que nao existe,\nporque o boot do app e fail-fast em GET /api/config e a pagina para na tela de\nindisponivel. Nada, em lugar nenhum, dizia que o backend tinha morrido.\n\nO listener de `exit` ja existia e guardava a resposta numa variavel de escopo local,\ninvisivel aos testes, que correm em OUTRO processo. Ele passa a gravar code, signal, hora\ne pid em `OBITO_FILE`, e o teardown le e anuncia que toda reprovacao posterior aquele\ninstante e consequencia, nao regressao.\n\nSONDADO, que e o que separa guarda de decoracao: backend morto de proposito aos 45 s de\numa rodada, quatro casos cairam e o aviso saiu com os quatro campos.\n\nJunto, o predicado de convergencia do arquivo de conflito CRDT passa a dizer ONDE\ndivergiu. A mensagem antiga (\"servidor=X clientes=X,Y\") nao separava as tres causas\npossiveis, que tem consertos diferentes e a mesma cara: a op do vencedor nunca chegou\naquele cliente, chegou e nao foi aplicada, ou foi aplicada e desfeita. Agora a falha\nimprime os spans do SyncLedger por cliente, no unico instante em que eles ainda existem.\n\nMedido para o mesmo arquivo, com o prazo alargado e um carimbo de tempo: vinte amostras,\ntodas entre 58 ms e 1,5 s. Os vinte e cinco segundos do prazo nao sao apertados, entao\numa reprovacao ali nao se explica por lentidao nem se conserta alargando o prazo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "5836068",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/58360686d44d40361abd0b0b5139eaac55b3901a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-22T17:58:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-22 (3), parte 2: o que o commit anterior deixou para tras\n\nO commit `970b70a` levou SO a skill nova. Eu fiz `git add` do diretorio dela e\ncommitei sem paths, entao as duas entradas de decisao, os cinco eventos do\nlivro-razao, a poda do MEMORY e a reescrita da wiki ficaram no working tree.\n\nE o proprio learnings desta skill ja avisava: \"learnings nao commitado vira\nrefem da reconciliacao paralela, commitar no MESMO turno\". A regra do commit\natomico existe por causa do committer paralelo, e ela vale para o CONJUNTO da\nretrospectiva, nao para o arquivo que eu lembrei de estagiar.\n\nConteudo, todo escrito antes daquele commit:\n\n- Decisions/decisions-2026.md: a receita de conversao 3D fechada e a correcao do\n  DJI Terra movida do config para o dado; e o requestAnimationFrame que nao\n  dispara em aba oculta, com as quatro camadas que a bancada consertada mediu.\n- livro-razao.md: cinco eventos (afirmado-sem-medir, metodo-incompleto,\n  regua-cega duas vezes, cobertura-parcial).\n- MEMORY.md: de 4.820 para 4.287 caracteres, com o detalhe do 360 drenado para a\n  wiki e para a skill nova, conferido por grep item a item.\n- wiki/ebgeo-3d.md: a receita camada a camada, o servico ebgeo_3d, as tres\n  armadilhas e a secao de desempenho medida.\n\nGuards passados: caminhos OK em 683 arquivos, memoria dentro do gatilho, wiki com\nzero erro.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "4ae7367",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4ae736708a5e5bd7d0eae7a72d1a5c07a618deaa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T17:55:07.000Z",
+      "author": "Maj Diniz",
+      "message": "o preflight vai para o TOPO de createControls, e o 3D cai como o 360\n\nDOIS CONSERTOS, e o primeiro foi defeito meu.\n\nO CHIP \"CATALOGO\" SUMIU DA BARRA. Eu pus o preflight dos modelos logo antes do\n`map.addControl` do visualizador, achando que era ali que o dado fazia falta. O\n`ChipsComponent` nasce ANTES disso, no meio da mesma funcao, e ele pergunta ao\n`CatalogService.hasItems()` se ha algo a mostrar: com `config.tilesets` ainda\nvazio a resposta e nao, e o chip simplesmente NAO E CRIADO. Sem erro no console.\nAntes de o catalogo 3D vir do servico isso nao aparecia, porque os modelos\nestavam escritos a mao no config. Quem viu foi o chefe, na tela.\n\nOs DOIS preflights sobem para o topo de `createControls`, com a razao escrita\nonde quem mexer vai ler: o catalogo le TODAS as fontes, entao preflight novo\nentra junto, e nao perto do controle que o consome. O do 360 tinha a mesma\nexposicao, e agora esta coberto tambem.\n\nO SEGUNDO E ALINHAMENTO PEDIDO. O preflight 3D passa a desligar\n`config.features.map_3d` nos mesmos tres casos do 360: sem `serviceUrl`, com\npreflight negativo, ou com excecao. Antes ele so preenchia o array e seguia.\n\nDesligar `map_3d` e seguro, e a razao merece registro: essa flag governa so o\nbotao \"Modelos 3D\" do rodape. O terreno tem toggle proprio\n(`map2d.terrainSource`), e as ferramentas 3D vivem dentro do visualizador de\nmodelo, que nao abre sem modelo nenhum.\n\nUMA DIFERENCA EM RELACAO AO 360 FICA, e ela e necessaria. No 360 o marcador do\nmapa 2D e tile vetorial servido; aqui o GeoJSON e montado no cliente, porque\ncada marcador carrega quantas anotacoes DO USUARIO existem naquele modelo\n(`getFeatureCountsByTileset` le marcadores, medicoes e viewsheds locais).\nServi-lo pronto quebraria essa contagem.\n\n13 testes novos em dois arquivos. O da ordem le o FONTE, e nao o comportamento:\n`createControls` monta a aplicacao inteira, e dubla-la faria o dublê ser o\ntestado. Provei que reprova: recolocado o preflight depois dos chips, 1 de 4\nfalha. O do catalogo exercita o `CatalogService` com o config como o preflight o\ndeixa, e cobre o caso que hoje e real (modelo sem data e sem miniatura).\n\nSuite inteira verde: 1.975 testes, 81 arquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "5380a1f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5380a1f8a2e690127f5819928123fd4f11590ea6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T17:47:49.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(e2e-ui): o gate de recurso, o canvas ambiguo e o enquadramento que desenhava sob o painel\n\nA camada de Playwright acumulou vinte e seis reprovacoes de quatro causas distintas,\nnenhuma delas defeito do produto. Cada uma foi medida antes de ser tratada.\n\n1. GATE DE RECURSO PRIVADO. A borda de escrita do sync recusa a op que referencia um\n   recurso que o autor nao enxerga, e linha ausente conta como invisivel. Treze specs\n   inventavam o id ('tileset-peer-3d', 'foto-peer.jpg', 'imagem-satelite'), e mais quatro\n   o FABRICAVAM na hora, escapando de qualquer busca por literal. O servidor respondia 200\n   com recusa por operacao e a entidade nunca saia; o teste morria vinte segundos depois,\n   longe da causa. Entra `helpers/catalog-seed.js`, que semeia recurso real, e o span\n   `push.ack` passa a carregar a razao da recusa.\n\n2. CANVAS AMBIGUO. A pagina tem DOIS canvas do MapLibre desde que o minimapa do 360 nasce\n   no `onAdd` do controle de street view. Doze specs buscavam pela classe solta; onze\n   passavam e um morria, porque o minimapa e criado de forma assincrona e so o spec lento\n   chega depois dele. Todos ancoram agora em `#map-sig`, os seis `.first()` sairam (ordem\n   de DOM nao e contrato) e um guarda estrutural reprova a volta do seletor nu.\n\n3. ESPERA IMPOSSIVEL. `pollPeerFeature` aguardava o span `remote.applied` antes de olhar a\n   store, e o par que REABRE um atlas recebe o acervo por snapshot, que nao emite esse span\n   por entidade. A espera gastava o timeout inteiro: vinte segundos parados num teste de\n   sessenta. Uma espera que nao pode ser satisfeita nao falha, ela ATRASA.\n\n4. ENQUADRAMENTO SOB O PAINEL. `drawViaToolUI` usava `fitBounds` com padding uniforme, e\n   `fitBounds` enquadra no canvas inteiro: os quatrocentos pixels que o painel de feicao\n   ocupa entravam na conta. O vertice mais a oeste caia dentro do painel, o clique ia para\n   ele e o desenho ficava pendurado sem erro. A reserva agora e MEDIDA no instante do\n   enquadramento, entao painel fechado nao reserva nada.\n\nDois envelopes de tempo foram corrigidos com medicao, nao com palpite: o conflito de tres\nclientes dava sessenta segundos a espera de convergencia dentro de um teto de sessenta, e\no setup ja gastava metade.\n\nO que FICA ABERTO, dito por extenso: o arquivo de conflito CRDT reprovou em tres de dez\nrodadas em serie, em tres casos diferentes, sempre com um cliente parado no proprio valor.\nVinte medicoes mostram que a convergencia normal leva de 58 ms a 1,5 s, entao os vinte e\ncinco segundos do prazo nao sao apertados e alargar o prazo nao conserta nada. A causa\nesta registrada no comentario do proprio predicado, com o que o SyncLedger ja descarta.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "611e3ea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/611e3eacfda7e54784f812e2143c0047f3de4e55",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T17:40:35.000Z",
+      "author": "Maj Diniz",
+      "message": "a parte 3D sai do config: modelos e cenas vem do servico ebgeo_3d\n\nFecha o que o commit anterior comecou. Agora as DUAS listas 3D nascem vazias\nneste arquivo, e o preflight as preenche: `tilesets` e\n`firstPerson3d.scenes`.\n\nAS DUAS BUSCAS NO MESMO PREFLIGHT, e nao em dois. Elas saem do mesmo servico,\nsao pedidas no mesmo instante da partida e caem juntas quando ele nao responde.\nDois preflights seriam dois pontos de espera, dois tempos limite a acertar e\nduas chances de ligar um e esquecer o outro. Vao em paralelo sob o MESMO\n`AbortSignal`: em serie a partida esperaria a soma das duas.\n\nUMA CENA SERVIDA JA VALE, mesmo sem nenhum modelo, e vice-versa. Exigir os dois\napagaria do mapa o que esta funcionando por causa do que nao esta. Ha teste para\nos quatro casos, inclusive a rota de cenas fora do ar sem derrubar os modelos.\n\nO `basePath` da cena e prefixado com a base do servico. Relativo, ele faria o\n`scene-config.service.js` derivar os sete enderecos a partir da raiz do site: o\nsplat carregaria de um lugar que nao existe, e a cena abriria vazia.\n\nO QUE MUDA NA PRATICA. As cenas viviam em `public/3d/`, que esta no .gitignore.\nNum checkout limpo a pasta nao existia, a cena continuava declarada aqui, o pino\nroxo APARECIA no mapa e so falhava quando alguem clicava para entrar. Agora quem\nresponde pela existencia da cena e o servico que a guarda.\n\nCinco testes novos, e provei que reprovam: com o `basePath` deixado relativo, 1\nde 19 falha. Suite inteira verde (1.962 testes).\n\nSegue valendo: NAO leve a producao antes de o ebgeo_3d estar publicado no proxy\ncom o acervo importado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "03f05c9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/03f05c9cf41dd3f277f8a7caa2e55cc784f7de68",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T17:27:06.000Z",
+      "author": "Maj Diniz",
+      "message": "o cliente monta a URL pelo TIPO do modelo, e traz position do glb\n\nO `ebgeo_3d` passou a servir modelo GLB solto, e o catalogo dele publica\n`type: 'glb'` com `position`, `rotation` e `scale`. Este lado precisava de duas\ncoisas.\n\nA URL sai do TIPO. Apontar sempre `tileset.json` pediria um arquivo que nao\nexiste no modelo glb, e o Cesium trata 404 de tileset como arvore vazia: modelo\nsumido, console limpo. O servico serve o glb sempre como `model.glb`, entao o\ncliente nao precisa saber o nome que o arquivo tinha na origem.\n\n`position` e `rotation` atravessam. Sem `position` o `createGlbModel` do\nmap_3d.js chama `Cartesian3.fromDegrees(undefined, undefined)` e o modelo vai\npara o centro da Terra.\n\nTres testes novos, e provei que reprovam: fixando o arquivo em `tileset.json`,\n1 de 14 falha. Suite inteira verde (1.957 testes).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "70296a3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/70296a3d51dfca5a58d0823598e4c3a118de5b00",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T17:05:56.000Z",
+      "author": "Maj Diniz",
+      "message": "o \"Hangar Principal\" era EXEMPLO do template, e estava ativo\n\nO bloco `type: 'glb'` do array `tilesets` e a documentacao do formato GLB, e\nestava ATIVO em vez de comentado. Com o catalogo passando a vir do servico, ele\nficou sendo a unica entrada do array, e o chefe o viu no catalogo como \"Hangar\nPrincipal\" apontando `/3d/models/TGL.glb`, arquivo que nao existe.\n\nComentado, com a nota do que ele e. O array nasce vazio, e o preflight do\nebgeo_3d o preenche.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "fcaa275",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fcaa2751e327637594d3583de1b335e54d93554d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T16:53:17.000Z",
+      "author": "Maj Diniz",
+      "message": "o catalogo de modelos 3D passa a vir do servico ebgeo_3d\n\nAntes cada modelo entrava A MAO no array `config.tilesets`: URL, nome,\ndescricao, palavras-chave, ponto de navegacao, offset de altura, miniatura e\nvideo. Publicar um modelo novo exigia editar o config da instancia, e o mapa so\no enxergava depois de um redeploy do frontend. E o mesmo defeito que o 360 pagou\ncom os PMTiles, e a saida e a mesma: um endereco so a trocar.\n\nO DESENHO ESPELHA O DO 360, campo a campo. `MODELS_3D_BASE` ao lado da\n`STREETVIEW_360_BASE`, com o `/api/v1` embutido e o padrao apontando PRODUCAO. Um\npreflight em `map_sig.js`, ao lado do preflight do 360 e antes do\n`map.addControl`. E `models-api.service.js` com `preflightCheck` e\n`getCachedModels`, os mesmos nomes do irmao.\n\nO PREENCHIMENTO E EM `config.tilesets`, e isso e deliberado. Sete lugares leem\nesse array (map_3d, o controle do visualizador, o editor de briefing, o\nvalidador de referencia, o catalogo e a busca). Publicar uma API nova obrigaria\na reescrever os sete, e cada um seria uma chance de esquecer um caso.\n\nTRES CUIDADOS QUE OS TESTES GUARDAM:\n\n1. A URL do tileset e a da miniatura nascem AQUI, da base que so o config\n   conhece, e nao da `url` que o servico publica. Em producao o servico nao\n   enxerga o prefixo sob o qual e publicado, e a URL que ele monta responde 404.\n   O CesiumJS trata isso como tileset vazio: modelo sumido, console limpo.\n\n2. CONCATENA com os modelos locais, e nao substitui. O `type: 'glb'` e arquivo\n   estatico que o ebgeo_3d nao cobre. O do servico vem primeiro, porque os sete\n   consumidores usam `find`, que para no primeiro: se alguem deixou a entrada a\n   mao de um modelo ja migrado, o dado vivo manda.\n\n3. A busca leva `AbortSignal` com 5 s. Falhar e ruidoso e verdadeiro, pendurar e\n   silencioso e mentiroso, e a partida deste aplicativo ja pendurou assim uma\n   vez.\n\n11 testes novos, e provei que reprovam: com a concatenacao trocada por\nsubstituicao e a `url` do servico no lugar da montada, 3 de 11 falham. Suite\ninteira verde (1.954 testes, 79 arquivos).\n\nNAO LEVE ISTO A PRODUCAO ainda. Com o `ebgeo_3d` fora do proxy, o preflight\nfalha e o array fica so com os modelos locais: os 98 modelos do config de\nproducao sumiriam do EBGeo. A ordem e publicar o servico com o acervo importado,\ne so entao construir o frontend.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "aae6aaa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aae6aaa6096e98ef7a1dfa5b8d0dcfe58372f85e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-22T16:31:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-22 (3): o rAF nao dispara em aba oculta, e tres defeitos so a tela mostrou\n\nSessao no repositorio ebgeo_3d. Cinco eventos no livro-razao, e o mais duro deles\ne o do instrumento.\n\nINSTRUMENTO. A bancada de cliente media a MESMA variante em 19,7 s e em 83,6 s, e\neu havia registrado isso na documentacao como \"defeito conhecido\" e seguido\npublicando tempos da mesma bancada em outras secoes do mesmo arquivo. A causa nao\ne estrangulamento: numa aba `hidden` o requestAnimationFrame NAO DISPARA NENHUM\nQUADRO. O MessageChannel escapa (107.599 ticks por segundo na mesma aba), e com\nele o mesmo caso repete com 8% de variacao. Regua: instrumento marcado como\nquebrado invalida TODA medida daquela bancada.\n\nTRES DEFEITOS QUE SO A TELA MOSTROU, e quem viu foi o chefe. Apagar\n`asset.gltfUpAxis` sem rotacionar a geometria (eu tinha escrito na doc que era\nseguro). O ponto de navegacao preenchido a mao, 3.657 m fora. E descer o modelo\npela MEDIANA em vez do ponto mais baixo, o que enterra a base e faz o globo\ncorta-lo por dentro.\n\nUMA RECOMENDACAO MINHA CAIU POR INTEIRO. Recomendei teto de textura a partir de\ndois modelos; o inventario de 114 mostrou que o excesso e de UM motor, e nao do\nacervo. E o teto nem acelera: corta 37% do disco e o relogio nao muda.\n\nSKILL NOVA medir-desempenho-web, na terceira ocorrencia da classe (360 em 08/18 e\n08/19, ebgeo_3d hoje). A regra que a governa: o primeiro suspeito e o\ninstrumento, e nao o sistema.\n\nMEMORY.md de 4.820 para 4.287 caracteres, com o detalhe do 360 drenado para a\nwiki e para a skill nova, conferido por grep item a item.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "970b70a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/970b70a2b4ce3bca5836276d8e6e3fad0c01b12b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-22T15:20:51.000Z",
