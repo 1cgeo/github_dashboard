@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-23T10:29:05.776Z",
+  "lastUpdate": "2026-08-23T15:27:51.030Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-22T17:55:07.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-22T17:58:38.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-23T14:53:21.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-08-22T22:36:32.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6120,
+    "totalCommits": 6121,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -163,13 +163,22 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 608,
+      "1cgeo/chefe_dgeo": 609,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 13,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-23T14:53:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-23: a copia contava o que ela mesma via, e o catch virou laudo de hardware\n\nA migracao do acervo 3D fecha em 110 das 115 pastas, 86,1 GiB, todas conferidas\ncontra a origem. O estado detalhado passa a viver em docs/acervo.md do repo\nebgeo_3d, e a wiki e a memoria ficam como ponteiro.\n\nTres regras de classe sobem para conventions/contrato-de-pronto.md, porque\nnenhuma e do 3D:\n\n- a conferencia precisa de leitura INDEPENDENTE. Quem escreve conta o que viu, e\n  conferir por essa contagem nao confere nada. A copia do HD tinha retentativa\n  por arquivo e entregou arvore truncada, porque o readdirSync do disco devolve\n  listagem curta SEM LANCAR: 42.176 erros, todos na copia e nenhum na origem;\n- instrumento mudo nao e veredito. A comparacao por RTC_CENTER nao leu nada em\n  328 tiles, e ainda assim imprimiu que o remendo nao se sustentava;\n- a regua do projeto vem antes da sua. O npm run lint apontava o import\n  esquecido na primeira linha, e eu gastei tres rodadas procurando o defeito no\n  HD porque um catch sem filtro traduziu ReferenceError em \"o HD nao responde\".\n\nE uma MUDANCA DE ABORDAGEM, exigida pela recorrencia: cobertura-parcial voltou\nem dois dias na mesma area. A regra da extensao sai do enquadramento \"prova de\nescrita\" e passa a valer para toda DECISAO por amostra. Junto com ela entra que\namostra em ORDEM nao e amostra: os cinco primeiros tiles em ordem alfabetica\naprovaram um remendo, e eram todos de nivel raso, onde nao havia dano.\n\nA decisao integral registra a politica do remendo (ele vive na copia de\ntrabalho, e a origem nao se toca), o que o autoriza (medida, nunca semelhanca),\ne o que fica na mesa do chefe: os dois modelos sem indice de ramo, com a\nviabilidade da reconstrucao medida e o teste que a validaria definido.\n\n5 eventos no livro-razao. Guard de caminhos limpo, wiki sem erro nem aviso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y5C9RdADuAEdrtv2sc5EtX",
+      "sha": "0c2bd49",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0c2bd4922b562d284e15a250883ef0acc7285f58",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-22T22:36:32.000Z",
