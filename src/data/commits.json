@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-22T20:28:01.344Z",
+  "lastUpdate": "2026-08-23T10:29:05.776Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-22T17:55:07.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -60,9 +60,9 @@
     "1cgeo/chefe_dgeo": "2026-08-22T17:58:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-22T20:01:40.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-22T22:36:32.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-22T00:52:15.000Z"
+    "1cgeo/ia_vegetacao": "2026-08-22T20:58:20.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6118,
+    "totalCommits": 6120,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1025,
+      "1cgeo/ebgeo_web": 1026,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,11 +165,29 @@
       "1cgeo/autolabeller": 144,
       "1cgeo/chefe_dgeo": 608,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 12,
+      "1cgeo/ia_vegetacao": 13,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-22T22:36:32.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sidebar): a lista de mapas COALESCE o refresh concorrente em vez de descarta-lo\n\nDEFEITO DE PRODUTO, e a interface mentia sobre o estado. O botao do relogio da aba de\nmapas (`data-temporal`) so e escrito por `_updateCurrentMapCard`, que so roda dentro de\n`_loadMaps`, e o guarda de reentrancia daquele metodo DESCARTAVA o pedido que chegasse\ndurante uma passada. Um clique no relogio enquanto a lista ainda carregava trocava o\nestado no store, mostrava o toast de sucesso, e o botao seguia dizendo desligado ate que\noutro evento recarregasse a lista.\n\nMEDIDO, nao deduzido: com o diagnostico instalado no proprio caso e a suite sob carga, a\nfalha devolveu `temporalNoStore: true` com o atributo em \"false\" e EXATAMENTE UM descarte\ncontado no guarda. Isolado o defeito nao aparece (treze rodadas limpas nao o mostraram);\ncom quatro arquivos de colaboracao na mesma rodada, duas reproducoes em duas rodadas.\n\nDepois do conserto, mesma carga: 0 reproducoes em 5 rodadas, 10 de 10 casos cada.\n\nO conserto e um bit, nao uma fila: N pedidos durante a mesma passada valem UMA repeticao,\nque e o que \"recarregar a lista\" significa, e o bit e limpo antes da rechamada para que um\npedido chegado durante a repeticao marque de novo em vez de se perder.\n\nO DIAGNOSTICO FICA no teste, e e ele que fecha o caso na proxima vez: um atributo parado\ntem tres causas (clique sem efeito, UI que nao refletiu, cartao olhando outro mapa) com o\nmesmo sintoma, e a mensagem padrao nao separa nenhuma.\n\nDuas licoes de metodo, registradas no livro-razao porque custaram mais que o fix: uma\nsonda que passa COM e SEM o conserto nao prova nada (revertida a producao ate haver\ncontrole negativo), e um instrumento posto ANTES do gesto pode fechar a janela da corrida\nque ele deveria medir - aqui escondeu o defeito por treze rodadas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "bff53af",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bff53af4d03d088d605c3a26709313fb3e52ecd7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-22T20:58:20.000Z",
+      "author": "Maj Borba",
+      "message": "adiciona modos inj_xattn e layer2_xattn + scripts de variantes MHA full-modal\n\nmodel.py: dois novos dv3_mode — inj_xattn (injector como Q, DV3 patches K,V,\nskip connection, zero-init) e layer2_xattn (injecao layer3 + MHA adicional em\nfeats[2] a 64x64, zero-init). Ambos +296K e +140K params vs sum.\n\ndataset.py: VegTileDataset respeita use_aef/use_mb/use_dv3 em _available_ids,\nevitando I/O de caches nao usados nas ablacoes.\n\nkfold.py, eval_tta.py: suporte aos novos modos e configs full_inj_xattn,\nfull_layer2_xattn, full_adapter (este ultimo preparado, nao executado).\n\nrun_full_xattn_variants.sh: orquestrador dos 100 novos treinos (configs 11 e\n12, modais completos). run_400.sh e stats_tests.py: scripts de suporte.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "71c393c",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/71c393cfb4a8e311afe8c93efb4e76dff43bab53",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-22T20:01:40.000Z",
