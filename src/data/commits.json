@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-24T10:41:50.247Z",
+  "lastUpdate": "2026-08-24T15:43:54.670Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-23T19:16:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-20T18:01:15.000Z",
+    "1cgeo/controle_acervo": "2026-08-24T15:37:51.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-24T08:54:38.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-24T15:43:18.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-24T09:18:14.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-24T14:00:07.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-24T09:07:13.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6159,
+    "totalCommits": 6167,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1055,
+      "1cgeo/ebgeo_web": 1057,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 326,
+      "1cgeo/controle_acervo": 329,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 613,
+      "1cgeo/chefe_dgeo": 616,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 15,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-24T15:43:18.000Z",
+      "author": "Maj Diniz",
+      "message": "o sistema ja se chama SAP desde 09 AGO, e eu corrigi o chefe com a memoria velha do vault\n\nO chefe pediu para ver se havia algo para cadastrar \"no SAP novo\". Abri a\nresposta corrigindo a premissa dele: que o par do SAG e o SCA, nunca o SAP. A\ncorrecao errada era a minha.\n\nEm 2026-08-09 o chefe decidiu que o 1cgeo/controle_acervo passa a se chamar SAP\n(Sistema de Apoio a Producao), e que o SAP 2.3.5, do dsgoficial/sap, sera\naposentado com o conteudo vindo para ca. \"SAP\" sozinho e o novo; o aposentado\nleva sempre o numero. Esta no CLAUDE.md do repositorio, secao \"O nome\". \"SAP\nnovo\" era o termo exato.\n\nA CAUSA. Respondi um fato de codigo com a prosa do vault. A wiki/controle-acervo\nainda abre com \"Controle do Acervo (SCA)\", as duas skills de orcamento falam SCA\nem toda linha, e a DESAMBIGUACAO opoe SAP a SCA como sistemas distintos. Li tres\nfontes concordantes e nao abri a unica que decide. Tres fontes que concordam\npodem ser uma so, ecoada tres vezes.\n\nA REGRA. Nome de sistema e FATO DE CODIGO, da mesma familia do schema e do\ndominio: confira no repositorio que o carrega, nunca na wiki que fala dele.\n\nO ESTRAGO. Com base no engano troquei SAP por SCA em 14 lugares do sag_cli e\nempurrei para a master (5af6fb1), desfazendo parte da renomeacao. Revertido em\na4f202c e conferido no remoto. Nenhum dado foi afetado: a NC 108, a NE 76 e o\nanexo 59 seguem certos, e o errado era o rotulo na minha prosa.\n\nEntra tambem: o PDF do SIAFI anexado a NC 108 (arquivo 59, sha256 conferido no\nround-trip, com controle negativo), o aviso de nome no topo de wiki/sap e\nwiki/controle-acervo, e a mesma nota nos learnings das duas skills de orcamento.\nTrocar o rotulo no resto do vault e decisao do chefe.\n\nNumeracao: duas sessoes escreveram no decisions-2026.md ao mesmo tempo e\ncolidiram tres vezes no (cont. N). Desfiz a renumeracao que eu havia feito na\nentrada da outra sessao, porque ela quebrou a referencia da sucessora, e a minha\npassou a cont. 3. Entrada alheia nao se renumera.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012WYmHKb8uEpi4q4ZYC8c9J",
+      "sha": "77ac57e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/77ac57ecac626127ad8a6475584748d99bda9244",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-24T15:42:43.000Z",
+      "author": "Maj Diniz",
+      "message": "o pedido 192 da 14a Bda, e a folha planejada para de disputar o MI com a folha real\n\nO DIEx 5118-E3/14a Bda Inf Mtz manda desconsiderar os 80 mosaicos do Campo de\nInstrucao Marechal Hermes e substituir tudo por 46 copias em tres blocos. A\nmapoteca ja tinha impresso. Decisao do chefe: entregar o que esta pronto e nao\ndesconsiderar nada, cadastrando so o que o documento pede A MAIS. Pedido 192 com\no bloco BORMANN (6 folhas 1:50.000, 12 copias) mais a pasta do mes; abatidas 24\ncopias cobertas pelo pedido 168 e 10 cobertas pelo 186.\n\nA regua que nasce: retificacao que chega depois da impressao vira ABATIMENTO,\nnunca cancelamento, agora tambem quando quem retifica e a propria OM. E o\nterceiro sinal de \"ja atendido\" e a PASTA, que custa um `ls` e nao depende do\nSCA: as duas pastas da 14a Bda estavam com sufixo `ok_aguardando_postagem`.\n\nDuas correcoes minhas, na mesma sessao. Chamei os produtos 6651 e 6652 de\n\"produtos-fantasma\": sao folhas PLANEJADAS do PIT 2026, com rota propria no SCA,\ne o cadastro esta certo. E chamei 51 MI de duplicata: sao carta civil e Carta\nTopografica Militar no mesmo MI, com geometria identica e subtipo NULO contra 24,\nque e o desenho que a wiki ja documenta desde 2026-07-06. Nao ha o que apagar.\n\nO problema real era outro e foi consertado no repo do SCA (1cgeo/controle_acervo,\ncommit 7d72578): ao achar dois produtos, o `mapoteca resolver` recusava escolher e\nmandava fixar o uuid a mao, e o uuid da folha planejada passava no dry-run e no\nservidor sem aviso, criando item para carta que nao existe. Dos 95 MI ambiguos, 46\npassam a resolver e 49 seguem recusando, que e o certo.\n\nRegra do chefe que virou wiki e skill: nunca preencher o nome de folha PLANEJADA,\nporque o nome se decide com a folha PRONTA. Das 66 planejadas do lote, as 19 COM\nnome e que estao erradas.\n\nAs entradas de hoje foram renumeradas por uma sessao paralela que trabalhava nos\nmesmos arquivos. As minhas referencias cruzadas seguem a numeracao final.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HKaPyhDkCTt37qZ4JcGaXd",
+      "sha": "fddf1da",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fddf1da051e305c6d50a2f7ae6eb039c5242b538",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-24T15:37:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Revert \"o sag_cli para de chamar o SCA de SAP\"\n\nO commit anterior estava errado, e eu o fiz sem ler o CLAUDE.md deste\nrepositorio. Em 2026-08-09 o chefe decidiu que este sistema passa a se chamar\nSAP (Sistema de Apoio a Producao), e que o SAP 2.3.5, no outro repositorio,\nsera aposentado com o conteudo vindo para ca. \"SAP\" sozinho quer dizer ESTE\nsistema, e o aposentado leva sempre o numero.\n\nO texto do sag_cli estava CERTO. A propria decisao de renomear lista \"os\nREADMEs dos sete CLIs\" entre o que muda de rotulo. Eu troquei SAP por SCA em 14\nlugares e desfiz parte da renomeacao.\n\nO que me enganou foi o vault, que ainda descreve o sistema como SCA e nao\nregistrou a renomeacao. Prosa de terceiro nao decide nome de sistema: quem\ndecide e o repositorio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012WYmHKb8uEpi4q4ZYC8c9J",
+      "sha": "a4f202c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a4f202cdf1d92ef04f771bfd9785ab73afaf92bc",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-24T15:31:09.000Z",
+      "author": "Maj Diniz",
+      "message": "a folha planejada do PIT para de disputar o MI com a folha real\n\nO `mapoteca resolver` casava por MI e declarava AMBIGUO ao achar dois produtos,\nsem olhar se algum deles serve para imprimir. O acervo guarda, no mesmo MI, dois\ntipos de produto legitimo que nunca servem a um pedido: a folha PLANEJADA do PIT\n(rota `produto_versao_planejada`, producao prometida, zero arquivo) e o registro\nhistorico de edicao antiga.\n\nO estrago nao era a recusa, era o conselho que ela dava. Ao recusar, o comando\nmandava \"fixe o uuid_versao a mao no plano\". O uuid da folha planejada passa no\n`--dry-run` e no servidor sem um aviso, porque a validacao do item e so\n`SELECT uuid_versao FROM acervo.versao`: nasceria item de pedido apontando carta\nque ainda nao foi produzida, e o erro so apareceria na impressao, com\n`uuid_arquivo` nulo na tela.\n\nO conserto e a MESMA regra que `escolherVersao` ja aplica entre versoes, um nivel\nacima, entre produtos: vale quem tem arquivo, e os sem arquivo so voltam a\nconcorrer se nenhum tiver. Com um candidato so, e a mesma chamada unica de\nsempre; o custo extra de `produto/detalhado` por candidato so aparece no caso\nambiguo, que e raro.\n\nMedido contra producao em 2026-08-24. O lote planejado de 2026-08-07 (66\nprodutos, meta 1.2 do PIT 2026) deixou 44 MI ambiguos, e os 44 ja tinham sido\npedidos ao menos uma vez, contra uma base de 33% nos MI nao ambiguos: o\nplanejamento mira o que a tropa pede, entao degradava o resolver justamente nas\nfolhas mais demandadas. Dos 95 MI ambiguos do acervo, 46 passam a resolver (os\n44 do lote mais 2 antigos em que so um produto tem arquivo) e 49 seguem\nrecusando, que e o certo: sao duplicata de verdade, com arquivo dos dois lados.\n\nOito testes novos, entre eles o que impede o conserto de virar chute silencioso:\ndois produtos COM arquivo continuam AMBIGUO e nenhum e escolhido. Os 93 testes\nanteriores do CLI seguem verdes; a unica falha da suite e do `schema.test.js`,\npor causa da situacao 8 (Aguardando envio) que outra frente acrescentou hoje e\nainda nao commitou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HKaPyhDkCTt37qZ4JcGaXd",
+      "sha": "7d72578",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7d72578043038073e02ef698ba54cdb3093d57d5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-24T15:27:12.000Z",
+      "author": "Maj Diniz",
+      "message": "o crédito da ação 14T5 entra no SCA, e a conferência passa a pedir o universo de ações\n\nCONFERÊNCIA DO SAG. O pedido do chefe foi \"ver se tem algo para cadastrar no\nSAP\". O par do SAG é o SCA, e não o SAP: execução orçamentária não está no\nsistema de produção. Rodei 20XE e 21GO, o hábito das rodadas anteriores, e as\nduas voltaram limpas. Contar as ações do exercício antes de responder mostrou\nnove, e o crédito novo estava na 14T5, que ninguém tinha pedido. A régua que\nfica, agora nos learnings de consultar-orcamento: zero de recorte errado é\nigual a zero de universo vazio.\n\nO ACHADO VEIO EM PAR. Faltava a 2026NC001260 (R$ 3.000,00, passagens dos\ninstrutores do Curso de Operador SARP) e a 2026NE000129 divergia em exatamente\nesse valor. É o reforço do empenho estimativo no mesmo dia, e as duas medidas\nfecham. Escrito no SCA por decisão do chefe: NC criada como Extra-PDR (id 108) e\nNE posta em rateio contra as duas NCs. Provas em Decisions 2026-08-24 cont. 2,\ncom o sha256 do histórico e a checagem que reprova o estado anterior.\n\nA 2026NC400659 fica de fora por decisão do chefe. Ela confirma o critério de 17\nAGO 26: o PI e a ação não bastam, a finalidade decide.\n\nDUAS ENTRADAS COM O MESMO NÚMERO. Outra sessão gravou um \"cont. 2\" no mesmo\narquivo enquanto esta escrevia o dela. Renumerei a segunda para cont. 3, no\ntítulo e na linha do índice, preservando a ordem do arquivo. O texto dela\nreferencia cont. 1 e não o próprio número, então nada mais mudou.\n\nEntra junto o trabalho da sessão anterior que ficou sem commit: o pedido 192 da\n14ª Bda, a entrega da LAI de Garuva com o -Sufixo do repositorio_dsg.ps1, os\nlearnings de atualizar-dockers e cadastrar-pedido-mapoteca, saida.md e a\ntelemetria.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012WYmHKb8uEpi4q4ZYC8c9J",
+      "sha": "f8de814",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f8de8146a881f41fb200db6116723160731c94f5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-24T15:24:22.000Z",
+      "author": "Maj Diniz",
+      "message": "o sag_cli para de chamar o SCA de SAP\n\nO CLI le e escreve contra o SCA (`SCA_URL`, rotas `/orcamento/*`), e o texto\ndele dizia SAP em 14 lugares: o cabecalho da ajuda, a linha da variavel de\nambiente, os comentarios de topo do `sag.js`, o README e a descricao do\n`package.json`. E rotulo de antes da fusao de 2026-07-27, quando o SCO virou o\nmodulo `orcamento` do SCA.\n\nO engano nao e teorico. Hoje o chefe pediu para \"ver se tem algo para cadastrar\nno SAP\" depois de ler esta ajuda, e o SAP e outro sistema, o da producao\ncartografica, que nao tem execucao orcamentaria nenhuma. Ajuda que nomeia o\nsistema errado manda o leitor ao lugar errado.\n\nNenhuma linha de codigo mudou, so texto. O proprio README ja falava em SCA na\nsecao do recolhimento, entao o arquivo se contradizia. Os 44 testes do sag_cli\nseguem verdes e a ajuda foi acionada depois da troca.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012WYmHKb8uEpi4q4ZYC8c9J",
+      "sha": "5af6fb1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5af6fb1712999eee6436fc408f35e372bfde2009",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-24T14:00:07.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ux): os quatro relatorios levam baixa contra 59e9600c, e o credenciado nao recebe nada\n\nOs quatro foram escritos em `11150029`. O commit seguinte fechou 23 achados do\nperfil de usuario comum e passou por 85 arquivos, entao os quatro estavam um\ncommit velhos e nenhum sabia disso.\n\nCOMO A BAIXA FOI LIMITADA, e por que nao e conferencia de fe. Reabrir 111\nachados a mao e declarar a maioria intacta nao prova nada. Os arquivos que o\ncommit tocou sairam de `git show --name-only`; os caminhos citados em cada\nachado sairam do texto dos proprios documentos; a intersecao foi computada. Um\nachado cujos arquivos o commit NAO tocou nao pode ter sido resolvido por ele:\nisso e propriedade, nao leitura. So os 36 da intersecao foram reabertos contra o\ncodigo, um a um.\n\nA INTERSECAO ERRA NOS DOIS SENTIDOS, e as duas correcoes foram feitas na mao.\nEla acusa por citacao incidental (o A2 do deslogado cita `session-context.js` so\nde passagem) e deixa passar o achado que descreve o alvo por SIMBOLO em vez de\ncaminho. Foi por ai que N2 e N3 do deslogado quase escaparam, e os dois estavam\nresolvidos. Ou seja: ela estreita o trabalho, nao o substitui. O criterio esta\nescrito na nota de metodo dos quatro documentos.\n\nO PLACAR:\n- Deslogado: 28 -> 21. Sairam M2, M3, M5, N1, N2, N3, N4. Os QUATRO achados\n  NOVOS daquele relatorio foram fechados ANTES de serem lidos, por um commit que\n  nao olhava para aquele perfil.\n- Administrador: 38 -> 37. Saiu N3 (a quarta pagina resgata trabalho nao\n  enviado); A8 encolheu, porque o campo de e-mail e a linha do payload passaram\n  a existir e sobrou so a listagem.\n- Produtor: 37 -> 36. Saiu A6 (\"Minha conta\" em `createAppBar`, com os\n  comentarios que afirmavam o contrario corrigidos junto).\n- Credenciado: 18 -> 18. ZERO.\n\nO QUE A BAIXA ENSINOU, e nao estava em relatorio nenhum:\n\n1. O credenciado nao recebe nada de graca, e a razao e estrutural. As telas dele\n   sao o modal de compartilhamento, a arvore de concessoes e a aba Grupos, e\n   nenhuma e tela do usuario comum. O que ele tiver, alguem escreve para ele.\n2. O painel do administrador segue intocado. Das seis abas, `59e9600c` mexeu em\n   UMA, por um campo, e `admin/personnel-tab.js` continua sem citar `is_active`\n   uma unica vez, que e o C1 inteiro.\n3. A calibracao recebeu conserto de CASCA e nada de miolo. O commit mexeu em\n   `calibration/calibracao-page.js` e nao tocou `calibration/app.js`, que e onde\n   os dois criticos do produtor moram: `onBackToProjects` continua chamando\n   `showProjectSelector()` sem consultar `isDirty()`, enquanto o mesmo arquivo ja\n   abre `showDirtyDialog` no caminho de navegar entre fotos.\n\nA numeracao dos achados NAO foi refeita, de proposito: renumerar quebra\nremissao, e este conjunto de documentos ja pagou esse preco uma vez (cinco\nremissoes internas do credenciado apontavam para numeros inexistentes). Cada\nachado resolvido foi marcado no lugar de origem e resumido na secao \"Achados que\nSAIRAM\" do proprio documento.\n\nVERIFICACAO: nenhum arquivo de codigo mudou, entao nao ha lint nem suite que\ndiga algo sobre esta mudanca. `docs-integridade` varre `docs/` e `.claude/`, nao\na raiz, e os proprios documentos registram essa ressalva. O que foi conferido foi\no CODIGO citado, arquivo por arquivo, e as contagens de titulo antes e depois da\nedicao (28/18/26/39, inalteradas).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Wm4Bgzzb4fdgRs6xgDJuQb",
+      "sha": "8a267bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8a267bd229f981cd49c0736041031225c603f02f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-24T13:16:44.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ux): os 23 achados do usuario comum sao resolvidos, e o relatorio que os listava e dissolvido\n\nO RELATORIO-UX-USUARIO-LOGADO.md sai da raiz. O duravel dele foi para\n`docs/decisions/decisions-2026.md`, `.claude/rules/architecture.md`, `CLAUDE.md` e\n`docs/livro-razao.md`, que sao varridos por `docs-integridade`; a raiz nao era.\n\nCONFERENCIA DE ABERTURA: dos 23 achados abertos, 21 continuavam intactos byte a byte.\nDOIS estavam ERRADOS contra a arvore, e os dois na direcao que mais custa: um acusava\n`falha-de-requisicao-nao-apaga-credencial.test.js` de ser lista escrita a mao (ele varre\ncom `git ls-files` e tem piso), outro dava por aberto um `catch` de `calibracao-page.js`\nja corrigido. Aviso que manda desconfiar da fonte certa custa o mesmo que o inverso.\n\nAS QUATRO DECISOES DO DONO (2026-08-24), registradas por extenso em decisions-2026:\n1. Afordancia negada por POSTO some; bloqueada por ESTADO e desenhada e recusa o clique\n   nomeando o estado. Antes os dois escondiam, e o menu de um Leitor era identico ao do\n   dono de um mapa TRAVADO.\n2. Edicao atropelada por colega ganha aviso NOMEANDO o autor, so dentro de uma janela.\n3. O modal de criar atlas passa a oferecer o eixo de GRUPO (clausula 4.1).\n4. O documento e dissolvido ao fim.\n\nO QUE MUDOU, por classe de defeito:\n\nA UI PROMETE O QUE O SERVIDOR RECUSA (A1, M1, M5)\n- `sidebar/tabs/map-menu-actions.js` (novo, zero imports): a decisao pura do menu por\n  mapa, que nao consultava permissao NENHUMA e oferecia cinco comandos a um Leitor.\n- `store/denial-phrases.js` (novo): a frase da recusa deriva da CAPACIDADE negada.\n  `checkPermission` passou a devolver `required` e os 25 sitios de\n  STORE_OPERATION_BLOCKED a carimba-lo. A sentenca unica anterior afirmava acesso\n  somente leitura, falsa para todo degrau acima de Visualizador.\n- Recusa na ENTRADA em Novo mapa, Importar, Criar briefing, marcador 3D e 360.\n- O nivel virou cracha ao lado do nome do atlas, normalizado por `toAtlasPermission`.\n\nACHADO NOVO, encontrado durante o trabalho: o Gestor tinha `canLockMaps` e o servidor\nexige `owner` estrito (`operationDenialReason`). Latente, mas DOIS guardas fixavam a\ndivergencia sem justifica-la, escritos a partir do comportamento observado.\n\nO BECO DE QUEM NAO CONFIRMOU O E-MAIL (A2, A3, A6, M2, N1, N2)\n- Cada recusa de `verifyEmail` leva codigo proprio: tres colapsavam em BAD_REQUEST e o\n  cliente CHUTAVA a expiracao. `session/email-verification-phrases.js` (novo) mapeia, e\n  o sucesso deixou de mandar fazer login quem trocou o proprio endereco.\n- `resend-verification` aceita usuario OU e-mail (xor), o que permite o reenvio ao lado\n  do erro de login, onde a tela so tem o usuario. Sem abrir enumeracao.\n- O painel do administrador ganhou o campo de e-mail (ele so sabia APROVAR o errado).\n- `PUT /me/email` passou a montar sob `canDeliverAccountMail()`, como as de recuperacao.\n\nFALHA TRANSITORIA VIRA FATO FALSO E PERMANENTE (A4, A7, M3, M7, B6, 4a pagina)\n- `ui/blocking-screen-phrases.js` (novo): a tela de bloqueio deixou de culpar a rede por\n  erro de aplicacao. Causa desconhecida cai no lado conservador.\n- O Drive ganhou terceiro estado de grade: `null` significa \"nao chegou\", nao \"voce nao\n  tem atlas\".\n- `modals/login-failure.model.js` (novo): \"HTTP 502\" e \"Failed to fetch\" nao aparecem\n  mais embaixo do campo de senha.\n- O `endSession` de `calibracao-page.js` passou a resgatar, como as outras tres paginas.\n\nOS SOLTOS (A5, M4, M6, M8, M9, M10, B1..B5)\n- \"Minha conta\" e \"Criar conta\" ganharam porta fora do mapa; \"Sair agora\" deixou de ser\n  tratado como expiracao; o prazo de 24 h passou a ser DITO, derivado da constante; a\n  copia diz de quem ela e e o que a poda tirou (o servidor ja mandava e o cliente\n  descartava); o menu da conta passou a gatear por sessao e nao por nome de usuario.\n\nGUARDAS NOVOS\n- `criacao-recusa-na-entrada.test.js`: o gate vem ANTES do gesto caro, por posicao.\n- `fim-de-sessao-resgata-censo.test.js`: derivado de `git ls-files`, foi ele que exigiu\n  classificar o motor de sync com motivo escrito em vez de estreitar a varredura.\n- `map-menu-actions`, `denial-phrases`, `blocking-screen-phrases`, `login-failure-model`,\n  `email-verification-phrases`, `overwrite-notice` e o de servidor\n  `verificacao-codigos-e-reenvio.test.js`.\n\nPOR QUE UM COMMIT E NAO QUATRO, como combinado: os quatro grupos compartilham seis\narquivos (`index.js`, `projects-page.js`, `account.control.js`, `login.modal.js`,\n`atlas-drive.js`, `store-error-listener.js`), entao separa-los exigiria staging por hunk,\nque este ambiente nao oferece. Como a verificacao que vale e a do estado FINAL, tres\ncommits intermediarios nao verificados seriam pior que um verificado.\n\nVERIFICACAO: `npm run lint` limpo nos dois pacotes; `npm test` da raiz verde nas tres\npernas (frontend 324 arquivos / 5572 casos; backend 3690 casos com piso de cobertura;\ne2e 54 arquivos / 181 casos). Controles negativos feitos no gate de posto do menu (7\ncasos caem) e no gate de entrada do briefing (2 casos caem).\n\nPENDENCIA DE METODO, aberta: houve UMA falha intermitente no frontend em 11 rodadas, nao\nreproduzida nas 10 seguintes em serie e nao identificada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Wm4Bgzzb4fdgRs6xgDJuQb",
+      "sha": "59e9600",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/59e9600cfe50011fee7565192df9d22a3dd4e7d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-24T09:18:14.000Z",
