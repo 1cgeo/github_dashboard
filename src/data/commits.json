@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-23T20:29:13.554Z",
+  "lastUpdate": "2026-08-24T10:41:50.247Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-23T19:16:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-23T16:34:22.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-24T08:54:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-23T17:03:15.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-24T09:18:14.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-22T20:58:20.000Z"
+    "1cgeo/ia_vegetacao": "2026-08-24T09:07:13.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6148,
+    "totalCommits": 6159,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1049,
+      "1cgeo/ebgeo_web": 1055,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,112 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 610,
+      "1cgeo/chefe_dgeo": 613,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 13,
+      "1cgeo/ia_vegetacao": 15,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-24T09:18:14.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ux): os quatro relatorios irmaos passam pelo metodo do quinto, e um deles acha uma mentira minha\n\nOs cinco relatorios de UX por papel viraram uma familia: o do usuario comum foi\nrevisado ontem contra o codigo, e os quatro restantes passaram hoje pelo mesmo\nmetodo, cada um por um revisor independente. A regra em todos: **conferir cada\nachado contra o CODIGO, nunca contra a lista de commits**, porque um revisor que\nle o que foi feito e conclui que esta pronto chancela a saida de quem fez.\n\nPLACAR AGREGADO: 122 achados conferidos, 8 sairam, 6 parciais, 13 novos.\n\nO QUE A REVISAO ACHOU E NENHUM GUARDA PEGARIA\n\n- **Uma promessa falsa que EU escrevi ontem.** A clausula 4.7 e a frase de tela\n  que a implementa ofereciam \"apague o grupo, ou transfira a posse dele\", e nao\n  existe rota de transferencia de grupo. Pior: o TESTE, escrito junto, cobrava as\n  duas metades, entao corrigir a mentira deixaria a suite vermelha e o conserto\n  pareceria a regressao. Tres artefatos concordando entre si e discordando do\n  codigo. Corrigidos os tres no mesmo commit, e o teste passa a exigir o oposto,\n  com um caso que le a clausula em disco.\n- **Mecanismo errado sob efeito certo.** O relatorio do produtor afirmava que\n  tres funcoes chamam `fn_principal_vivo`; elas escrevem o predicado inline, e o\n  mesmo predicado existe em SETE copias (quatro em SQL, tres em JavaScript). A\n  recusa sai como 404, nao 403.\n- **Duas propostas que piorariam o defeito.** No relatorio do administrador, a\n  correcao sugerida para o cartao da lixeira faria TODO atlas do sistema dizer\n  \"por Voce\", porque as duas consultas projetam `'owner'` como literal para toda\n  linha.\n- **Metades erradas na origem**, achadas so por leitura: um estado vazio que o\n  texto elogiava por ter botao de tentar de novo e nao tem; e uma tabela que o\n  texto dizia sem coluna de ordem e tem.\n\nTRES BURACOS DE ESCOPO, todos confirmados por enumeracao e cruzamento\n\n- A ingestao do acervo 3D nao tem rota nenhuma: nove scripts de linha de comando,\n  SEM gate, e o script de adocao escreve a propria linha de catalogo contornando\n  `requireCatalogProducer`. O 360 tem rota autenticada; o 3D nao.\n- `POST /atlas/:atlasId/sync/admin/cleanup` apaga log de operacoes, tem zero\n  chamador no cliente e zero `createAudit`. Das dezenove rotas de administrador,\n  TRES nao tem chamador, e os relatorios reportavam duas.\n- Ninguem avisa quem RECEBEU uma concessao, nem quando ela vence. A assimetria e\n  o argumento: o mesmo lote criou o selo de convite de ATLAS porque nada dizia a\n  pessoa que algo fora compartilhado com ela, e o eixo de RECURSO tem o buraco\n  identico e nao ganhou nada.\n\nINFLACAO DE GRAVIDADE CORRIGIDA: o do produtor caiu de sete criticos para dois,\ncom razao escrita em cada rebaixamento; o do administrador rebaixou um e partiu\ndois que misturavam metades de gravidades diferentes. Um documento que chama tudo\nde critico nao tem critico nenhum.\n\nFORMA: cinco remissoes internas quebradas consertadas pela raiz (o rotulo por\ngravidade nominal foi abandonado, porque era ele que produzia os enganos), zero\nem-dash nos cinco arquivos, zero migracao citada por numero, zero SHA entre\ncrases, e todo caminho e simbolo entre crases conferido contra o disco.\n\nUMA RESSALVA QUE VIAJA COM O LOTE: dois relatorios ficaram MAIORES, apesar de\ncortarem duplicacao, porque a substancia nova (achados, justificativa de\ngravidade por item, correcoes de mecanismo) excede o corte. A densidade por\nachado subiu; a contagem de bytes, nao. E nenhuma afirmacao foi verificada em\ntela: onde o texto diz o que a pessoa ve, ele e leitura do codigo que desenha.\n\nVerificado depois da ultima escrita: lint da raiz 0, teste da raiz 0 (5479 no\nfrontend, 3677 no backend a 98,19% de linhas sob piso, 181 de contrato).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "1115002",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/11150029ac28844073ec11a31a56b7a31b401153",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-24T09:07:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "sha": "ae4e2ed",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/ae4e2ed8323602270c0607dd3eb6c22339e4a1ec",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-24T09:06:46.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a campanha de 151 folds, a barra de erro que faltava e a leitura dos ATBD do MapBiomas\n\nCorrige o recorte do estudo (distribuicao real por UF, medida por juncao espacial\ncom a malha do IBGE) e a contagem de parametros (14.479.526, com o encoder em\n77,2% e nao 93%). Acrescenta a leitura dos 27 ATBD e o plano de testes.\n\nO resultado central da campanha nao e variante nenhuma: o treino nao e\ndeterministico nem com seed fixa, tres rodadas identicas variam 0,32 pp entre\nmedias de 5 folds, e delta abaixo de ~1 pp nao se distingue de repetir o\nexperimento. A base padrao passa a ser a Colecao 4 de 2025.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Dy818dmeRoaEA8xtcon8mx",
+      "sha": "2a9b7db",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/2a9b7dbea561e9fdc554a3b8755662c9e955f465",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-24T08:54:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'\n\n# Conflicts:\n#\t.claude/skills/retrospectiva/learnings.md\n#\t.claude/telemetria/micro-retro.log\n#\t.claude/telemetria/uso-skills.tsv\n#\tDecisions/DECISIONS.md\n#\tDecisions/decisions-2026.md\n#\tMEMORY.md\n#\tlivro-razao.md\n#\twiki/index.md",
+      "sha": "58542ee",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/58542eefad815e3804d0c9256def34880015d81e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-24T08:52:12.000Z",
+      "author": "Maj Diniz",
+      "message": "telemetria da sessao de 2026-08-21 a 24\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Dy818dmeRoaEA8xtcon8mx",
+      "sha": "61b12f0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/61b12f00be8c164ba079b143355e6630044c9a5c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-24T08:50:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-24: a base do modelo vira a Colecao 4 de 2025, e repetir o experimento identico mede tanto quanto a melhor variante\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Dy818dmeRoaEA8xtcon8mx",
+      "sha": "3b66c29",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3b66c299eb98cbbf9fdc31b47b6e1a8d4ac8b739",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-24T01:42:02.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ux): o perfil do usuario comum perde os tres criticos, e as sete decisoes do dono viram codigo\n\nLote saido de `RELATORIO-UX-USUARIO-LOGADO.md`, a auditoria do papel global `user`,\nmais as sete perguntas que o documento reservava ao dono e que ele respondeu.\n\nOS TRES CRITICOS SAIRAM. Nao ha mais perda irreversivel de trabalho neste perfil.\n\n- Sair da conta destruia a fila de operacoes que o servidor nunca recebeu, em\n  silencio. Agora resgata e INFORMA. A primeira versao perguntava, com tres\n  saidas; o dono recusou a pergunta com o argumento que decide o desenho: o\n  sincronismo ocorre sempre, logo a fila so tem conteudo quando algo NAO\n  CONSEGUIU subir, nunca porque alguem escolheu nao subir. Nao ha vontade a\n  respeitar. O dialogo foi PODADO, com oito simbolos removidos e um guarda que\n  impede a volta deles por descuido.\n- As paginas sem mapa apagavam os tokens em QUALQUER falha (`catch {\n  clearTokens() }`, byte a byte igual nas duas). Um 502 deslogava em definitivo,\n  e o desfecho e terminal porque nao havia recuperacao de senha nenhuma. So\n  401/403 apaga agora, pela definicao unica de `@utils/request-failure.js`.\n- A inatividade fora do mapa nao resgatava nada.\n\nAS SETE DECISOES\n\n5.1 nao perguntar, so resgatar. 5.2 o participante ve quem participa DENTRO do\nmapa, por acao propria \"Participantes\" alimentada por `/atlas/overview` (a rota\nde sharing exige `manage` e daria 403 em quem o modo serve). 5.3 \"Compartilhar\"\nsome para quem nao gere. 5.4 recuperacao por administrador escrita na tela de\nlogin, MAIS redefinicao por e-mail com token de proposito discriminado. 5.5 badge\nde convite. 5.6 e-mail visivel e corrigivel, com re-verificacao. 5.7 mensagem de\ncamada inacessivel que NAO afirma causa.\n\nDOIS DEFEITOS DE SEGURANCA EVITADOS NO CAMINHO, nenhum previsto no plano:\nsem discriminador de proposito, um link de confirmacao de cadastro seria\nresgatavel na rota que troca a senha; e comparar dois nulos como iguais tornaria\na concessao da administracao revogavel por qualquer visitante sem sessao.\n\nDUAS AFIRMACOES DA CONSTITUICAO CORRIGIDAS POR MEDICAO: o indice unico de e-mail\ne PARCIAL e nao total (o cativeiro vem do predicado de unicidade nao perguntar\npor vivacidade), e a clausula 5.7 passou a citar tambem o guarda do cliente.\n\nA QUARTA PAGINA, e ela e a licao do lote. `calibration/calibracao-page.js` tinha o\nmesmo `catch` nu e escapou da correcao das outras tres porque o guarda nasceu com\numa LISTA DE ALVOS escrita a mao. Allowlist e a forma de \"conferir um subconjunto\ne tratar como o conjunto\" que se disfarca de rigor: parece censo, tem nome de\ncenso, e mede a memoria de quem a escreveu. O inventario passou a ser DERIVADO\n(`git ls-files` mais o predicado \"chama `clearTokens`\"), com piso e um caso que\nexige a quarta pagina pelo nome.\n\nO RELATORIO FOI ENCOLHIDO, NAO APAGADO: 826 para 659 linhas, 8 achados retirados,\n23 mantidos (2 parciais), 4 achados NOVOS nascidos do proprio lote, e as decisoes\ndo dono acrescentadas. Cada achado foi conferido contra o CODIGO, nunca contra a\nlista de commits.\n\nRESSALVA QUE VIAJA COM O LOTE: o defeito de convergencia do sync foi consertado\nnuma metade e continua aberto na outra. O modo diagnosticado nao recorreu uma vez\nem 30 rodadas; o que resta e outro sub-modo, presente tambem ANTES do conserto, e\nas amostras (4/20 contra 1/10) NAO distinguem se ele piorou. Tarefa propria, com\no ledger completo persistido.\n\nVerificado depois da ultima escrita, na arvore quieta: lint da raiz 0, teste da\nraiz 0 (5478 no frontend, 3677 no backend a 98,19% de linhas sob piso, 181 de\ncontrato), build 0. Verificacao visual por captura do Playwright lida como\nimagem: o caminho de senha esquecida no login, o cracha de sincronizacao dizendo\n\"Local\" em vez da luz vermelha eterna, e o e-mail com o estado de confirmacao em\nMinha conta.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "76dbe93",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/76dbe93df80077e5d8dbd5c3d9e0973ce986ab54",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-23T22:34:56.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ux): preserva as cinco auditorias de perfil vindas de outra sessao, sem adota-las\n\nCinco relatorios de UX por papel (deslogado, usuario logado, credenciado,\nprodutor, administrador), 252 kB, escritos entre 19h24 e 19h29 de 2026-08-23 por\numa sessao PARALELA do dono, na mesma arvore em que este lote trabalhava.\n\nEntram no versionamento para nao se perderem, e o commit e separado de proposito:\nnao sao trabalho deste lote e nao foram conferidos contra o codigo por quem\ncommita. Quem os usar confere primeiro.\n\nDUAS RESSALVAS que precisam viajar com eles:\n\n1. A RAIZ NAO E O LUGAR. A documentacao desta base mora em `docs/wiki/`, com\n   `docs/wiki/wiki-schema.md` definindo as regras e\n   `frontend/tests/unit/docs-integridade.test.js` validando caminho, wikilink e\n   simbolo de tudo que entra la. Arquivo de 40 kB solto na raiz nao passa por\n   guarda nenhum, e a constituicao e explicita: documentacao desatualizada e pior\n   que ausente, porque engana em dobro um agente. Se o conteudo for adotado, o\n   destino e a wiki, com o recorte que ela exige.\n\n2. SAO ANALISE, NAO DECISAO. Eles auditam os mesmos perfis que este lote\n   diagnosticou e mexeu hoje (papel global visivel, censo do eixo por atlas,\n   sair de atlas e de grupo, nivel do participante, de-para de auditoria), entao\n   parte do que eles descrevem pode ja ter mudado sob os pes deles enquanto eram\n   escritos. Absorver conclusao alheia sem medir contra o codigo e o laco se\n   alimentando de si mesmo, que e o segundo principio da constituicao.\n\nNao commitados de proposito: `frontend/tests/e2e-ui/helpers/boot-probe.js` e a\nmudanca em `helpers/collab-helpers.js`, que sao trabalho EM CURSO de um agente\nainda rodando (instrumentacao do boot para diagnosticar o unico vermelho do\nPlaywright). Entram quando a fatia fechar e for verificada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "a625cb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a625cb04bc45c9cb69451aca5a0e3a4a4cf8c86c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-23T22:26:04.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(360): os quatro consertos de tile que o ebgeo_360 mediu DENTRO deste app voltam para ca\n\nO `ebgeo_360` nao foi aposentado: ele virou o gerador do acervo e a BANCADA DE\nMEDICAO deste app (`scripts/medir-web.js` roda contra o `ebgeo_web` construido).\nEm 2026-08-19 os consertos foram daqui para la, com paridade declarada por\nescrito. Em 2026-08-23 o fluxo se inverteu e ninguem fechou o laco: quatro\ndefeitos de CLIENTE foram diagnosticados medindo ESTE app e consertados so la.\nOs numeros abaixo, portanto, descreviam o nosso comportamento de hoje.\n\n- O debounce era de RESET e nunca disparava durante o gesto (`clearTimeout` a\n  cada chamada, e a camera roda por quadro). Medido: uma volta de 360 graus\n  baixou ZERO tiles e subiu ZERO bytes de textura, em duas repeticoes. Vira\n  estrangulamento com borda de entrada E de saida.\n- A textura subia por CAIXA ENVOLVENTE, e a envolvente e o canvas: 187,3 MB em 3\n  chamadas para pintar 55 tiles, a maior de 75,5 MB, contra 36,9 MB dos\n  retangulos reais. Vira lista com teto de 8, mais a guarda que sobe a envolvente\n  quando a soma das partes ja a alcanca. A guarda NAO e detalhe: sem ela a\n  primeira versao subia 248,3 MB, PIOR que o defeito.\n- `wrapS` em RepeatWrapping (com `wrapT` grampeado): a UV da esfera fecha em\n  u=0/1 e a costura ficava em ClampToEdge, com meio texel de descontinuidade na\n  emenda vertical inteira.\n- `dispose()` nao descartava o recorte: duas texturas de GPU vazadas por\n  carregador desmontado. A calibracao monta DOIS, entao vazava em dobro.\n\nOs sete consertos de SERVIDOR daquele commit nao transferem: o nosso 360 e\nExpress com ETag proprio.\n\nA CALIBRACAO RECEBE DE GRACA: `calibration/viewer.js` e `preview-viewer.js`\nimportam o carregador, nao o copiam.\n\nTRES COISAS QUE A MEDICAO CORRIGIU, e valem mais que o porte:\n- A instrucao dizia que `tile-loader.js` nao carrega em node. Falso: quatro\n  suites ja o dirigem com mock do three, e o RepeatWrapping novo derrubou as\n  quatro por falta da constante no mock. Nenhum conserto ficou so estrutural.\n- A primeira assercao de bytes passava verde nos DOIS lados (cobertura vazia).\n  Os dois lados foram medidos na mesma bancada (caixa: 1 copia, 0,800 do canvas;\n  lista: 8 copias, 0,427, maior 0,142) e os tetos ficaram ENTRE eles.\n- A guarda da envolvente e INVISIVEL do carregador: apaga-la deixa tudo verde\n  la. E a justificativa medida para extrair a aritmetica para modulo puro.\n\nA regra do 360 em `.claude/rules/common-tasks.md` apontava a conferencia para os\ncinco arquivos de navegacao, que estao CONVERGIDOS (e num deles estamos a\nfrente). Ela passa a apontar o par que de fato diverge, com os cinco trechos\nesperados no diff e o comando de conferencia.\n\nVerificado depois da ultima escrita: lint da raiz 0, teste da raiz 0 (5226 no\nfrontend, 3664 no backend a 98,18% de linhas sob piso, 181 de contrato).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "bf2d7f0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bf2d7f050eaaa271b48d04ef3db260c741742641",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-23T21:49:58.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(atlas-drive): a poda do painel de acesso termina, e o teste orfao que a escondia sai junto\n\nAo trocar o painel somente-leitura \"Quem tem acesso\" pelo modal COMPLETO de\ncompartilhamento, a remocao da classe passou nos tres verificadores e deixou\nquatro restos: a funcao pura exportada que a alimentava, a suite de 87 linhas\nque a testava, 122 linhas de CSS e uma funcao auxiliar.\n\nO QUE NAO ACHOU: lint 0, 5205 testes verdes, build 0. E o `npm run knip`, que\nexiste para achar simbolo morto, tambem nao, porque ele conta o arquivo de teste\ncomo consumidor: enquanto o teste orfao existir, o simbolo continua vivo aos\nolhos dele. Teste que sobrevive ao ultimo consumidor de producao nao e cobertura,\ne camuflagem.\n\nO QUE ACHOU, e nenhum dos dois foi o knip:\n- o `--max-warnings 0` pegou a funcao auxiliar LOCAL, porque local sem uso e\n  warning e exportada nao e;\n- o censo de permissao por atlas pegou o rotulo que morava dentro da funcao\n  podada, pela contagem EXATA por entrada. Ele reprovou dizendo \"esperava 1,\n  achei 0\", que e o censo funcionando na direcao que quase ninguem projeta:\n  REMOVER um sitio classificado e tao vermelho quanto acrescentar um nao\n  classificado. Sem isso, uma poda distraida levaria junto um gate real.\n- e o guarda de doc pegou a propria licao: o livro-razao citava o simbolo entre\n  crases, e crase promete codigo que existe. Declarado em\n  SIMBOLO_INEXISTENTE_DE_PROPOSITO, que e o caso exato de doc que nomeia algo\n  para dizer que ele nao existe mais.\n\nA poda em si se sustenta, e foi medida: o modal e superconjunto estrito do\npainel. Duas correcoes ao que estava escrito no codigo, que dizia que o painel\nacrescentava \"grupos com tamanho e dono\": ele mostrava o TAMANHO e nao mostrava\no DONO, e o modal mostra os dois, o segundo inclusive no caso \"Sem dono\ndefinido\".\n\nVerificado depois da ultima escrita: lint da raiz 0, teste da raiz 0 (5197 no\nfrontend, 3664 no backend a 98,18% de linhas sob piso, 181 de contrato).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "8b3762e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b3762e893c59e7caf285ac403670bcec5687201",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-23T21:21:14.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(acesso): os dois eixos ganham rede, o participante ganha voz, e o Drive passa a compartilhar\n\nSegunda leva, saida das recomendacoes do diagnostico mais as duas decisoes do dono.\n\nVERIFICACAO (o guarda que faltava)\n- Censo do eixo POR ATLAS nos DOIS pacotes. A constituicao declarava a lacuna\n  por escrito; agora a regra e mecanica (dois ou mais degraus na mesma linha\n  ligados por ||, &&, array ou .includes) e pega a forma nos DOIS sentidos: a\n  lista do topo exclui em silencio quem nascer no meio, a do fundo falha ABERTO\n  para o valor que um servidor futuro invente. Seis violacoes vivas achadas no\n  cliente e corrigidas; uma no servidor (`handleSelection`), que o proprio censo\n  prendeu por contagem exata e cujo conserto reprovou o censo, como projetado.\n  A correcao NAO foi a espelhada: `!(x >= write)` recusa o desconhecido, `< write`\n  o deixa passar, e as duas leem igual.\n- Harness de papel no Playwright: `accounts.js` passa a criar conta com papel e\n  escopo de producao respeitando o CHECK bicondicional, as cinco duplicacoes de\n  SQL somem, e tres specs cobrem telas que nasceram ontem sem cobertura de\n  browser. Nenhuma spec jamais tinha logado como produtor.\n\nAUDITORIA\n- A familia USUARIOS ganha de-para, reusando o motor de catalogo em vez de um\n  segundo. Papel e OM produtora entram como valor literal por AUTORIDADE, nome e\n  e-mail como impressao, credencial nao entra nem como nome. A clausula 9.3 passa\n  a dizer quais familias entregam e quais faltam, em vez de virar vigente inteira.\n  E `USER_DEMOTION` deixa de sair cru na gaveta.\n\nAS DUAS DECISOES DO DONO\n- O nivel de cada participante fica visivel a todo membro (clausula 5.7). O\n  CAMINHO nao: o payload nao diz por qual porta cada um entrou, porque dizer \"por\n  grupo\" entregaria adesao a coletivo alheio. No cartao, uma linha por NIVEL e\n  nao por pessoa, o que limita o crescimento pela escada em vez de pela gente.\n- Sair de um atlas e sair de um grupo viram direito de quem entrou (5.8 e 4.7). O\n  dono e a excecao, por necessidade estrutural e nao por hierarquia. Sair derruba\n  o que a porta dava e preserva o que a pessoa tem por autoridade propria. As duas\n  rotas nunca respondem 404 nem 403, para nao virarem oraculo de existencia, e a\n  do atlas devolve o nivel EFETIVO depois do ato, porque um grupo vivo ou o link\n  publico podem manter o acesso.\n\nO DRIVE PASSA A COMPARTILHAR\n- A tela onde a pessoa administra seus atlas era a unica que nao administrava\n  acesso, e a medicao dizia por que: `sharing.modal.js` alcancava 188 modulos e\n  seu `render()` chamava `getEventBus()`, que LANCA onde `initServices()` nunca\n  rodou. A tela foi cortada em duas: o nucleo (REST mais DOM, 16 modulos) e a\n  fonte de presenca, que concentra as tres cadeias pesadas. `atlas.html` custa 2\n  modulos para abri-la, e um teste estrutural prende isso. O painel somente-leitura\n  escrito na vespera foi PODADO junto: ele existia so porque a tela real era\n  inalcancavel.\n\nVerificado depois da ultima escrita: lint da raiz 0, teste da raiz 0 (5205 no\nfrontend, 3664 no backend a 98,18% de linhas sob piso, 181 de contrato), build 0.\nVerificacao visual por captura do Playwright, lida como imagem, do cartao com\nniveis, do menu e do modal completo aberto de `atlas.html`.\n\nRESSALVA HONESTA: numa das cinco rodadas completas, `sync-authz-lock.test.js`\nreprovou em 791 ms sem nomear caso nem imprimir erro. Nao reproduz: passa\nisolado, e o backend fechou 3/3 e a raiz 2/2 depois. Fica registrado como\nintermitencia de infraestrutura, nao como regressao identificada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Su2ZKbQteQ6Koh5dQZBhbm",
+      "sha": "d3dcdcf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d3dcdcf24322fdde7421bde4b20f4341d5aa3a3b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-23T19:16:10.000Z",
