@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-25T15:47:05.058Z",
+  "lastUpdate": "2026-08-25T20:35:24.113Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-23T19:16:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-07-21T14:41:44.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-14T19:57:50.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-25T15:54:19.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-08-25T15:17:42.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-25T15:43:08.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-25T19:18:18.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-25T11:49:25.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6193,
+    "totalCommits": 6196,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1067,
+      "1cgeo/ebgeo_web": 1069,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -133,7 +133,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 165,
       "dsgoficial/configuracoes_producao": 204,
-      "dsgoficial/ferramentas_edicao": 479,
+      "dsgoficial/ferramentas_edicao": 480,
       "dsgoficial/DsgTools": 640,
       "dsgoficial/sap": 175,
       "dsgoficial/SAP_Gerente": 120,
@@ -170,6 +170,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-25T19:18:18.000Z",
+      "author": "Maj Diniz",
+      "message": "o mesmo atlas sobe duas vezes, a feicao enviada volta a aparecer, e o erro fala portugues\n\nCinco pedidos do chefe, e dois deles desenterraram defeito que ninguem tinha\nligado. Dois consertos sao de codigo que EU subi hoje de manha.\n\n1. COLISAO DE ID NO REENVIO. O relato era \"apaguei atlas, foram para a lixeira,\n   e agora nao consigo criar de novo: Resource already exists\". Medi por API e a\n   lixeira NAO e a causa: `features.id`, `layers.id`, `groups.id` e mais cinco\n   sao chave primaria GLOBAL, e o envio preserva o id local. Reusar id de atlas\n   VIVO recusa igual, e id inedito passa. Logo reenviar o mesmo atlas local\n   colide SEMPRE, e dois usuarios enviando copias do mesmo atlas colidem entre\n   si. A lixeira era so onde o chefe encontrou.\n\n   Regra nova: preserva quando o id esta livre, cunha quando esta ocupado, e ela\n   mora no SERVIDOR, porque so ele sabe o que esta livre. Cunhar tudo foi\n   recusado: o guarda verde de `browser-save-local-to-server.spec.js` acha a\n   feicao no servidor pelo id do cliente, entao a preservacao tem dependente\n   vivo. Purgar a lixeira foi recusado pela clausula 7.4.\n\n   O blob de imagem e a excecao, e no CLIENTE: ele sobe DEPOIS do import, fora\n   do alcance do recunho, entao o id se cunha antes de montar o payload. AS DUAS\n   PORTAS fazem isso; a da lista subia numa passada so, e um reenvio com imagem\n   entrava com a imagem sumida, calado.\n\n2. A FEICAO ENVIADA NAO APARECIA NO MAPA, e aparecia na lista de feicoes. As\n   duas metades da frase estavam certas, e e isso que engana. Eram DOIS defeitos\n   com o mesmo sintoma:\n\n   a) O ENVIO PELA LISTA SUBIA O ATLAS SEM CAMADA NENHUMA. Um atlas local que so\n      usou a camada padrao nunca a GRAVA: o repositorio a sintetiza na leitura.\n      O caminho do mapa le pelo repositorio e recebe a sintese; o meu leitor era\n      cru e a secao subia vazia. Sem camada, o `layerId` cunhado nao nomeia\n      nada, o filtro esconde tudo e a aba de feicoes, que nao filtra, lista\n      tudo. Medido no banco: os atlas subidos por essa porta tinham ZERO camadas\n      e 100% das feicoes orfas; os da porta do mapa, uma camada e nenhuma orfa.\n\n   b) A CAMADA ATIVA CAIA NO LITERAL 'default', que e o id da camada padrao\n      LOCAL. Num atlas de servidor toda camada tem UUID, entao toda feicao\n      desenhada depois de abrir nascia orfa. Eram DOIS getters com a mesma\n      queda, e o sincrono e o que a criacao usa: consertar so o do repositorio\n      deixaria o defeito de pe por baixo.\n\n   As 18 feicoes ja orfas foram reparadas no banco de desenvolvimento, com\n   autorizacao do chefe, por SQL com conferencia dentro da transacao.\n\n3. MENSAGEM DE ERRO EM PORTUGUES. A varredura achou 136 frases em ingles em ~52\n   arquivos. O achado que reorganiza o problema: e do BACKEND, nao da tela. A\n   familia de erros do servidor estava 68% em ingles, o frontend ja estava 99%\n   em portugues e o e-mail 100%. A mesma pessoa recebia e-mail em portugues e\n   erro de tela em ingles.\n\n   Piloto: as 18 frases das TABELAS, que alimentam o padrao de 216 sitios sem\n   tocar em nenhum. Mais o `auth.js`, que a minha sonda ao vivo pegou depois do\n   relatorio: as duas mensagens mais atingidas do produto continuavam em ingles\n   porque ARGUMENTO EXPLICITO VENCE O PADRAO. O guarda mecanico agora cobre\n   aquele arquivo, e reprova quando a frase volta.\n\n   Quatro testes prendiam a frase literal e foram reescritos para prender o que\n   protegem: o 401 e a distincao entre token expirado e invalido. Colar a frase\n   faria a proxima melhoria de texto reprovar comportamento correto.\n\n4. CRIAR ATLAS LOCAL JA ABRE O ATLAS. O destino sai de funcao pura, porque a\n   recusa do teto de 10 e RESULTADO e nao excecao: navegar na linha de baixo\n   levaria a pessoa ao mapa do atlas ANTERIOR, com o toast morto na saida.\n\n5. COPIAR ATLAS REMOTO PARA LOCAL: NAO ENTREGUE, de proposito. A operacao\n   existente exige o atlas MONTADO, e o espelho local so existe se ele ja foi\n   aberto. Um atalho ingenuo entregaria um atlas local VAZIO com o nome certo, e\n   so falharia nos cartoes que ninguem testou. Baixar na propria pagina arrasta\n   a store inteira para uma tela que existe por nao a ter, e isso foi MEDIDO\n   reprovando o guarda de bundle em tres modulos. Fica para decisao do chefe.\n\nESTADO DE CLAUSULA, no mesmo commit: 7.2.1 nova (reenvio e cunhagem de id), mais\na correcao de tres documentos que o meu proprio conserto desatualizou, porque\ndiziam que so a porta do mapa cunhava o id do blob.\n\nDOIS SPECS DE NAVEGADOR foram consertados, e o segundo pedia mais que uma linha:\ncomo criar agora MONTA o slot, a aba 1 segurava o lock e a aba 2 encontraria o\nbloqueio de montagem em vez do aviso de exclusao, passando verde medindo a coisa\nerrada.\n\nO QUE FICA DITO E NAO CONSERTADO:\n- sobram 118 mensagens em ingles, e o maior bloco pede tabela de rotulos com\n  genero (`${recurso} not found` recebe substantivo ingles de 62 sitios);\n- a aba \"Busca do sistema\" tem quatro defeitos de tela, todos diagnosticados e\n  nenhum tocado, porque a queixa do chefe pode ser sobre o desenho e nao sobre\n  eles;\n- dois imports simultaneos do mesmo arquivo ainda podem colidir, com o mesmo\n  desfecho de hoje.\n\nBackend: 3856 casos. Frontend: 8574. Lint limpo nos dois pacotes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019dxAo2dGErtzCS3iP2PcCA",
+      "sha": "4ae7b19",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4ae7b194cfbbebb38f8d12fdbba13b2a69510753",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-25T16:47:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o cartao local ganha porta para o servidor, e o dono deixa de ser acusado de nao poder editar\n\nQuatro pedidos da revisao do chefe, e o quarto desenterrou um defeito que\nmentia para o dono do atlas.\n\n1. O menu do cartao local le \"Duplicar\", e nao mais \"Copiar neste\n   computador\". O cartao de servidor continua \"Copiar no servidor\": as duas\n   acoes fazem coisas diferentes, entao nenhuma pode se chamar o que a outra\n   se chama. O titulo do dialogo e os comentarios que citavam o rotulo velho\n   mudaram junto, senao a prosa passaria a mentir.\n\n2. \"Enviar ao servidor\" entra no mesmo menu, com portao de sessao. Ele NAO e\n   o irmao do mapa com outro nome: `saveLocalToServer` le o store MONTADO e\n   apaga o local depois, porque la o local E o atlas que subiu. Aqui o cartao\n   clicado nem sempre e o slot montado, entao a operacao e COPIA e o cartao\n   continua na lista. O leitor novo abre o namespace por escopo explicito, sem\n   `activateScope`: ativar tomaria o lock de montagem e faria uma aba de mapa\n   no mesmo atlas ver uma limpeza legitima recusada.\n\n3. Terminado o envio, a pagina abre o atlas de servidor. O destino sai da\n   funcao pura, e nao da fiacao, porque um `openAtlasId` inventado leva a\n   `./?atlas=undefined`, que e tela de erro e nao desfecho.\n\n4. O FALSO NIVEL: e UMA causa, e o relato juntava dois sintomas. O envio nao\n   produz o aviso. Ele deixa o marcador de origem em REMOTO, que e duravel, e\n   dai em diante TODO boot cai na janela: a sessao hidrata com o papel por\n   atlas semeado em Leitor (D7), o mapa carrega, a primeira coisa que ele faz\n   e escrever (`switchMap` -> `setBaseLayer`), o guarda recusa, e a tela\n   acusa. Medido no navegador: o toast nasce 0,83 s depois do F5 e o papel\n   verdadeiro chega 3,3 s depois, ou seja, o aviso morre inteiro antes de a\n   resposta existir. Reproduziu 5 de 5, com conta admin e com credenciado.\n\n   O servidor esta certo, e isso foi medido no banco vivo, nao deduzido:\n   `resolvePermission` devolve `owner` pelo ramo de posse e `toFrontendRole`\n   preserva. O defeito e do cliente.\n\n   O conserto cria o TERCEIRO ESTADO que faltava. O cliente tinha dois valores\n   para tres situacoes, e \"e Leitor\" era indistinguivel de \"ainda nao sei\".\n   `isAtlasRoleResolved()` os separa. Ele NAO concede nada: o papel continua\n   caindo em Leitor, as permissoes continuam falsas, a escrita continua\n   recusada. O que muda e so o direito de ACUSAR.\n\nDOIS DEFEITOS VIZINHOS, achados enquanto se consertava o principal:\n\n- `disconnect()` nao esquecia o papel, entao o `owner` do atlas A valia na\n  janela de conexao do atlas B. Latente hoje, e na direcao perigosa: conceder\n  o que o servidor ainda nao respondeu. Fechado por `forgetAtlasRole()`.\n\n- O envio mostrava a mensagem de desfecho e navegava 543 ms depois,\n  destruindo o proprio toast. Amostrando a tela a cada 20 ms por 5 s, NENHUM\n  toast chegou a aparecer. No sucesso a perda e barata, porque o atlas novo na\n  tela diz o mesmo. Custava a frase inteira no ramo de AVISO, a unica que\n  nomeia as imagens que ficaram para tras. Agora o aviso fica e o sucesso\n  navega.\n\nESTADO DE CLAUSULA, no mesmo commit:\n\n- 7.2 dizia \"tornando-o remoto\" e descrevia so a porta do mapa. Agora nomeia\n  as DUAS portas e diz que a da lista e copia.\n- 1.4 ganha a nota de que a semente do papel por atlas passou a se declarar\n  semente, com o piso fechado intacto.\n\nO QUE NAO FOI CONSERTADO, e fica dito:\n\n- Sobra uma janela de 3,8 s em que o F5 desenha a tela de somente leitura,\n  agora em silencio. Encurta-la e mexer na ordem do boot.\n- A restauracao pela Lixeira falha no e2e, e MEDI que ela falha tambem na\n  arvore limpa. Nao e regressao daqui.\n- O portao do vazamento de namespace passou limpo duas vezes e anunciou\n  conserto. Rodei uma terceira e o defeito voltou. A marca continua valida.\n\nSuite: 433 arquivos, 8547 casos. ESLint e Stylelint limpos. Backend intocado.\nMenu, envio, troca de atlas e ausencia do aviso conferidos no navegador; o\natlas enviado foi relido no banco de destino.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019dxAo2dGErtzCS3iP2PcCA",
+      "sha": "1011cb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1011cb0a33e8323aa15edcef4aa03cae38423c36",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-08-25T15:54:19.000Z",
+      "author": "Maj Diniz",
+      "message": "processings: campo da extensao 3.0 ausente nao derruba o algoritmo em banco 2.5\n\nO campo `fontes` pertence a extensao de qualidade da EDGV Orto 3.0 / Topo 2.0.\nNum banco Orto 2.5 nenhuma tabela o tem, e `feat.attribute(\"fontes\")` levanta\nKeyError, matando os dois algoritmos antes de gravar nada.\n\nA escrita tinha o mesmo defeito, em silencio: os seis campos da extensao\n(fontes, status_ciclo_vida, validacao, confirmacao_geometria,\nconfirmacao_atributos, confiabilidade) eram setados por nome, e o\n`setAttribute` devolve False sem avisar quando o campo nao existe.\n\nDuas funcoes novas em processingUtils, no mesmo padrao que showFeatureSources\ne cycleSideVisibility ja usavam (`lookupField(...) == -1`):\n\n- `optional_attribute`: le o campo que pode nao existir, devolvendo o default.\n- `set_optional_attributes`: seta so os campos existentes e DEVOLVE a lista\n  dos ausentes, que o algoritmo publica no feedback em vez de ignorar.\n\nVerificado contra o banco de edicao 1w Beira Rio 50k (Orto 2.5): com o\nconserto guardado no stash os dois reproduzem o KeyError; com ele aplicado,\n186 torres e 30 identificadores conferidos NO BANCO, validos, no SRID da\ncamada, sem torre fora da moldura, a mais de 5 m da linha de transmissao ou\ndentro de massa d'agua, e sem identificador a mais de 50 m da via.\n\nUma varredura de todo literal de setAttribute/attribute/lookupField/indexOf\ncruzado com o information_schema confirma que so estes dois algoritmos liam\ncampo ausente sem protecao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MMmnGt86kEodn5qyFKnEDm",
+      "sha": "d6b3305",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/d6b33055ac3d07d00408cd31b2bf3706785a0e74",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-25T15:43:08.000Z",
