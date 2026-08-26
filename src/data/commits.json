@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-25T20:35:24.113Z",
+  "lastUpdate": "2026-08-26T10:40:03.337Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-23T19:16:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,8 +18,8 @@
     "dsgoficial/modelagens": "2026-08-13T12:28:03.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-08-12T20:01:20.000Z",
-    "dsgoficial/sap": "2026-08-18T20:23:45.000Z",
+    "dsgoficial/DsgTools@dev": "2026-08-25T21:06:11.000Z",
+    "dsgoficial/sap": "2026-08-26T09:00:16.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-25T15:17:42.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-26T09:55:13.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-25T19:18:18.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-26T03:42:11.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-25T11:49:25.000Z"
+    "1cgeo/ia_vegetacao": "2026-08-26T09:51:37.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6196,
+    "totalCommits": 6205,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1069,
+      "1cgeo/ebgeo_web": 1070,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -134,8 +134,8 @@
       "dsgoficial/modelagens": 165,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 480,
-      "dsgoficial/DsgTools": 640,
-      "dsgoficial/sap": 175,
+      "dsgoficial/DsgTools": 641,
+      "dsgoficial/sap": 176,
       "dsgoficial/SAP_Gerente": 120,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
@@ -163,13 +163,94 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 623,
+      "1cgeo/chefe_dgeo": 626,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 18,
+      "1cgeo/ia_vegetacao": 21,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-26T09:55:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-26: vetorizar na resolucao nativa, e estender o CLI antes de escrever\n\nConsolidacao da sessao dos dois bancos 50k do PIT 2026 (1g Uniao da\nVitoria e 1m Tres Barras).\n\nMetodo corrigido pela medida, e vale para toda cobertura por IA: vetorizar\nna resolucao NATIVA do raster, nunca reamostrar para 0,2 mm na escala.\nMedido na folha 2867-1, reamostrar de 2,5 m para 10 m DOBRA o numero de\npoligonos e derruba a mediana em cem vezes, com a mesma area total.\n\nMetodo de escrita: quando o CLI nao alcanca a rota, estender o CLI, que e\ncodigo nosso, em vez de cair no SQL de escrita.\n\nTres correcoes no livro-razao: o coalesce que anestesiou a conferencia de\n3.647 geometrias nulas (49a de verificacao-vazia), a varredura de uma porta\nso declarada como negativa (a regra ja estava no MEMORY.md), e ter chamado\nde defeito o nao-commit do plugin, que e desenho da casa.\n\nMEMORY.md de 4.730 para 4.481 caracteres, com o detalhe do ebgeo-web e do\n360 movido para as paginas de wiki.\n\nPoda: tres diretorios de skill que a poda de 2026-08-10 deixou para tras,\nso com bytecode, e o ponteiro morto do oauth_setup.py em cruzar-fontes-sca,\nque hoje vive em carregar-bdgex/scripts.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MMmnGt86kEodn5qyFKnEDm",
+      "sha": "f7527af",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f7527af6b59c5775b2adaa20c2ef5e6c6649f7a8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-26T09:51:37.000Z",
+      "author": "Maj Borba",
+      "message": "Adiciona design fatorial 2^3 completo: scripts de treino, TTA e análise\n\nrun_factorial.py: roda os 5 configs faltantes (aef_only, mb_only,\ndv3_only, aef_dv3, mb_dv3) com protocolo 70-10-20 idêntico ao\nrun_70_10_20.py (100 repeats, partition_seed=500+i, init_seed=7000+i).\n\neval_tta_70_10_20.py: adicionados os 5 novos configs ao CONFIG_FLAGS;\n--target agora aceita todos os 8 slugs.\n\nstat_factorial.py: análise estatística 2^3 completa:\n  Seção A: descritivo por célula\n  Seção B: efeitos principais e interações via contrastes de Yates\n           (t-test pareado / Wilcoxon + Holm-Bonferroni)\n  Seção C: Games-Howell pairwise entre os 8 grupos + Kruskal-Wallis\n  Seção D: IoU e F1 por classe com Games-Howell\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "6fd5f2a",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/6fd5f2a0d74bde50fe816c2f997d0a39acb3a298",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-26T09:36:23.000Z",
+      "author": "Maj Diniz",
+      "message": "a porta do SAP deixa de ser duvida: 4001 e a producao, 3013 e a local\n\nO env-guia.md linha 47 dizia \"porta de producao: o historico cita 4001; doc\nantiga citava 3013, conferir\", e a linha 162 listava isso como pendencia aberta.\nO .env.example repetia a duvida.\n\nResposta do chefe, agora registrada: a producao e a 4001. A 3013 e a instancia\nLOCAL, que se sobe na propria maquina apontando para o BANCO de producao.\nConferido no ar em 2026-08-26 pelo `sap status`: sap 2.3.5, banco 2.3.5,\nmicrocontrole 1.0.0.\n\nReescrita a linha 47, removida a pendencia da 162 e corrigido o .env.example.\nA chave `SAP_SERVER` foi ativada no .env, que e gitignored e e onde IP interno\ndeve viver. SAP_USER e SAP_SENHA seguem fora dele de proposito, porque o proprio\nenv-guia declara a credencial do SAP como variavel EFEMERA de sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MMmnGt86kEodn5qyFKnEDm",
+      "sha": "c38a171",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c38a17175d47d6bc9af1148f8a7fbae4458c7e64",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-26T09:36:03.000Z",
+      "author": "Maj Diniz",
+      "message": "a carta 1w Beira Rio fecha, e o plugin de edicao aprende que Orto 2.5 nao tem `fontes`\n\nTrabalho da sessao de 2026-08-25 que ficou sem commit. O conteudo e das proprias\nentradas: populacao das 3 localidades conferida na API do IBGE (SIDRA 4714,\nCenso 2022), JSON e banco de edicao fechados, e a carta exportada em PDF de\n35,4 MB e GeoTIFF de 11,2 MB.\n\nTres licoes de metodo, todas ja escritas no livro-razao com a contagem de\nrecorrencia:\n- a maioria de producao LEVANTA a divergencia, nao a resolve (41a de regua-cega);\n- exit code nao e veredito (48a de verificacao-vazia);\n- o nome do subtipo nao e a regra (25a de afirmado-sem-medir).\n\nConsertado no ferramentas_edicao o KeyError: 'fontes', que assumia a extensao de\nqualidade da EDGV 3.0 em banco Orto 2.5, onde nenhuma das 69 tabelas tem o campo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MMmnGt86kEodn5qyFKnEDm",
+      "sha": "95ac520",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/95ac5200b5b7ab62fd1a5283621dfcc59fbdd5f6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-08-26T09:00:16.000Z",
+      "author": "Maj Diniz",
+      "message": "sap_cli: cobre o modulo metadados e conserta o dry-run na leitura\n\nO CLI nao alcancava o schema `metadado`, que e o que alimenta o XML ISO 19115\ne o JSON de edicao da carta. Sem ele, preencher metadado de um lote so dava\npor SQL no banco, que a doutrina proibe.\n\nAcrescenta 8 recursos e 7 dominios do modulo metadados, no mesmo padrao dos\ndemais: a registry so guarda rota, nome do model Joi e apresentacao, e o\ncontrato dos campos continua vindo do schema do server/. Nada foi copiado.\n\n  metadado_produto        /metadados/informacoes_produto\n  metadado_responsavel    /metadados/responsavel_fase_produto\n  metadado_palavra_chave  /metadados/palavra_chave_produto\n  metadado_edicao         /metadados/informacoes_edicao\n  metadado_creditos_qpt   /metadados/creditos_qpt\n  metadado_usuario        /metadados/usuario\n  xml_metadado            /metadados/xml/produto/:uuid\n  json_edicao             /metadados/json_edicao/produto/:uuid\n\nSao a familia COLECAO, como a do modulo projeto: POST, PUT e DELETE todos no\ncaminho da colecao, com array no corpo inclusive no DELETE. Todas exigem admin.\n\nConsertado de passagem um defeito que os dois exportadores expuseram: o ramo de\nGET do crud.js ia direto a rede sem olhar o --dry-run. Como precisaServidor()\ndispensa a credencial no dry-run, o comando estourava num token nulo em vez de\ndizer o que faria. Valia para todo recurso de leitura, e `campo obter --dry-run`\nja falhava assim antes desta mudanca.\n\nTres testes novos, todos offline. O do dry-run na leitura foi conferido contra o\nestado anterior: revertendo so o conserto do crud.js, ele falha.\nSuite: 72 testes, 72 passam.\n\nNota para quem vier depois: metadados_route.js nao tem nenhum bloco @swagger\n(projeto_route.js tem 158), entao `sap schema metadado_*` mostra as operacoes\nsem descricao. O contrato dos campos sai completo, porque vem do Joi.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MMmnGt86kEodn5qyFKnEDm",
+      "sha": "04a7e10",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/04a7e10e4114eea25d751bebacc59f9a4e28e6f4",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-26T06:44:08.000Z",
+      "author": "Maj Borba",
+      "message": "Corrige load_perclass para suportar dict {classe: valor}\n\nper_class_iou_tta e per_class_f1_tta em tta_metrics.json são dicts\nkeyed por nome de classe, não listas. load_perclass agora detecta o\ntipo e converte para lista na ordem de CLASS_NAMES.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "319781b",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/319781bd1ad18b004832b31f414ece92095747de",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-26T03:42:11.000Z",
+      "author": "Maj Diniz",
+      "message": "abrir atlas remoto cai de 2949 para 913 ms, e tres defeitos de producao saem do vermelho que ninguem lia\n\nMEDIDO no pacote de producao com backend vivo, tres rodadas, marco conferido por sonda\ndedicada (o atlas monta com estilo COMPLETO de 82 camadas, splash fora, badge online e a\nURL com ?atlas= e ?map=, em 784 ms):\n\n  abrir atlas remoto     2949 -> 913 ms   (-69%)\n  local para remoto      3051 -> 996 ms   (-67%)\n  boot frio do mapa      1636 -> 1486 ms  (-9%)\n  F5 no mapa             1520 -> 1429 ms  (-6%)\n  remoto para local      1828 -> 1716 ms  (-6%)\n  JavaScript por carga   4968 -> 3589 kB  (-28%)\n  logout                  139 -> 142 ms   (sem mudanca)\n\nDE ONDE VIERAM OS DOIS TERCOS, e nao foi dos bytes. Quando a URL trazia ?atlas=, o boot\nmontava e PINTAVA o slot local inteiro, e o wipe apagava tudo em seguida. O ganho maior nem\nfoi a pintura (125 ms): foi a CONTENCAO que ela criava. A prova e um numero so:\n`localAtlasAdoptingRemote` custava 426 ms durante a abertura e 2 ms com a pagina parada.\nSomou-se um `await import()` de deep-link.js que segurava o boot por 201 a 328 ms esperando\nrede, para a funcao retornar na primeira linha sem fazer nada.\n\nDOIS DEFEITOS DE INTERACAO, que nao eram de desempenho e nao eram desta obra:\n\n- `.data-layer-notice` e um painel persistente sobre o mapa e nao declarava `pointer-events`:\n  engolia todo clique na faixa superior. Quem tentasse desenhar ali nao recebia erro, so um\n  clique que nao fazia nada. Zerou de quebra CINCO falhas de Playwright pre-existentes\n  (layers-tab-local, browser-collab-permissions, browser-collab-all-types).\n- `.loading-background` cobre a viewport com z-index 9999, tambem sem `pointer-events`:\n  durante o meio segundo do fade a pessoa via o mapa surgindo e nao conseguia toca-lo, em\n  TODA carga de pagina. O fade custa 531 a 611 ms, mais que o dobro da janela de trabalho\n  inteira do boot. Encurtar os 0,5 s continua sendo decisao de produto.\n\nCARGA SOB DEMANDA. Ferramentas de desenho, militares, de analise e de medida sairam do\npayload ansioso por um registro de fabricas preguicosas; turf (619 kB, 257 sitios em 35\narquivos) saiu por DOIS funis, `ensureControl` e `getCompleteFeatureFromSource`, em vez de\n35 consertos; gdal (187 kB) saiu por carregador memoizado. turf, gdal e milsymbol passaram a\ndividir `utilities/vendor-loader.js`.\n\nTROCA DE ATLAS AO VIVO, implementada e medida, mas AINDA NAO LIGADA A GESTO NENHUM.\n`switchAtlas` delega o ramo remoto inteiro a `openRemoteAtlas` (zero pipeline novo) e o ramo\nlocal reusa o que ja existia. Economiza ~1150 ms de boot por transicao. O gancho\n`__ebgeoSwitchAtlas` existe para medir e exercitar; a porta visivel e decisao de produto.\n\nDEFEITOS VIVOS CONSERTADOS DE PASSAGEM:\n- `disconnect()` nao zerava `_atlasId`, entao a aba anunciava no tab-lock um atlas que\n  ninguem tinha aberto, e o `?atlas=` da URL mentia. Ja existia em `switchToNewLocalAtlas`.\n- `clearFeatureSources` nascia com `setData` cru sobre source migrada, o que apaga em\n  silencio o diff que uma ferramenta acabou de enfileirar. Passou pelo despachante.\n- as sources derivadas do limite escapavam do wipe de logout: o limite de um atlas de\n  SERVIDOR continuaria desenhado depois de sair.\n- `layer-opacity-applier` usava lance de excecao como teste de tipo (252 leituras, 209\n  lancando) e escrevia multiplicador identidade 43 vezes por boot. Agora 0 e 0.\n\nBACKEND. Login deixou de ler a mesma organizacao duas vezes (5 -> 4 consultas; refresh\n4 -> 3) e a presenca trocou `SELECT a.*` por so os ids (a linha inteira pesa 5984 bytes\ncontra 160, com 4504 em `settings`). Nenhuma mudanca de payload, nenhuma migracao.\n\nGUARDAS NOVOS, porque conserto que ninguem verifica e so uma linha:\n`teto-de-peso-da-pagina-do-mapa` (orcamento de modulos ansiosos por pasta, FECHADO NOS DOIS\nSENTIDOS: baixar sem editar a tabela tambem reprova), `desempenho-do-boot-do-mapa` com\n`helpers/peso-de-boot.js`, `aviso-de-camada-nao-engole-clique`, `splash-nao-bloqueia-o-mapa`,\n`troca-viva-de-atlas`, `contagem-da-fila-le-em-paralelo`, `logout-nao-fica-pendurado`,\n`opacidade-de-camada-nao-escreve-a-toa`, `ferramenta-tardia-responde-ao-clique`,\n`registro-de-ferramentas-bate-com-a-barra`, `blobs-em-disco`, `auth-om-lida-uma-vez`,\n`atlas-presenca-consulta-estreita`.\n\nO QUE NAO RENDEU, dito por extenso. A onda do logout nao produziu ganho de tempo: o alvo de\n2533 ms era a espera fixa do meu proprio script de medida. O logout custa 139 ms e nunca foi\nlento. Ela fica porque remove desperdicio provado (a cadeia de migracao legada rodando a cada\nlogout, dez limpezas em fila, anuncio em duplicata, saida sem limite de tempo), nao porque\nacelerou algo.\n\nQUATRO CORRECOES DE INSTRUMENTO, todas contra mim, registradas para nao se repetirem:\nespera fixa no fim de uma fase mede a constante; acumulador de tarefas longas que nao zera\npor fase cresce sozinho; `loaded()` do MapLibre espera tile pendente e o ambiente bloqueia o\nOpenStreetMap; o botao de Entrar reaparece no SESSION_CHANGED, muito antes do fim do teardown.\n\nTRES DEFEITOS DE PRODUCAO ACHADOS PERSEGUINDO TESTE VERMELHO PRE-EXISTENTE. Nenhum era de\ndesempenho, nenhum nasceu nesta obra, e os tres estavam denunciados por casos que vinham sendo\nlidos como ruido de ambiente:\n\n- COMPARTILHAR RECURSO PRIVADO ESTAVA QUEBRADO NO CAMINHO PADRAO. `resource-share.modal.js`\n  mandava `expiresAt: null` quando a pessoa nao mexia no seletor de prazo (o padrao, um ano).\n  O `grantSchema` aceita a chave AUSENTE, nunca nula, e devolvia 422. Quem escolhia 7, 30, 90\n  ou 180 dias passava; quem aceitava o padrao, nao. Nos DOIS handlers, grupo e pessoa, e o de\n  pessoa nao tinha cobertura de navegador nenhuma.\n- O AVISO \"CONFIGURACOES SALVAS\" NUNCA FOI VISTO POR NINGUEM. `onSave` o revelava e o\n  `_render()` da linha seguinte remontava o formulario com um aviso novo nascido escondido.\n- A LIXEIRA TRATAVA O DONO COMO ESTRANHO. `_restore` distinguia \"atlas alheio\" por\n  `if (owner_nome)`, e as consultas de lixeira projetam esse campo SEMPRE. Restaurar o proprio\n  atlas perguntava se voce queria mexer no atlas de outra pessoa.\n\nO quarto vermelho era do teste, e vale registrar: ele lia \"ontem\" no relogio UTC e preenchia um\ncampo que a tela le em calendario LOCAL. So reprovava depois das 21h no Brasil. Um caso que muda\nde veredito com a hora mede o fuso, nao o produto.\n\nUMA CORRECAO CONTRA MIM, no meio da propria obra: o primeiro conserto do aviso de camada pos\n`pointer-events: auto` no `__body`, e o bloco de texto e filho dele, entao a prosa voltou a\ninterceptar. O modal de atalhos de teclado estourava em 60 s por causa disso. Meia correcao e\npior que nenhuma, porque parece resolvida. Agora so o que e interativo recupera o clique, e ha\ncaso que reprova se alguem puser o `__body` de volta.\n\nO GUARDA DE PESO REPROVOU SOZINHO quando o payload emagreceu, que e o lado do bicondicional que\nimpede o orcamento de envelhecer por cima: bytes 46 856 910 -> 38 456 561 (-18%) e requisicoes\n559 -> 476 (-15%), deterministicos em 5 de 5 rodadas. Tabela editada com a medida, neste commit.\n\nSuites: frontend 8724 casos de unidade, backend 3874, e a camada de navegador inteira em seis\nfatias (51+52+49+50+51+46), todas verdes com codigo de saida real. Lint e build limpos.\n\nFICA EM ABERTO: ligar a troca ao vivo a um gesto; encurtar o fade de 0,5 s; e um vazamento\nde producao no upload, onde conexao derrubada no meio deixa o blob parcial em disco para\nsempre e a requisicao nunca termina.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019dxAo2dGErtzCS3iP2PcCA",
+      "sha": "c26cc2d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c26cc2d50c06881ce237330d6752952ae206d13a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-25T23:12:51.000Z",
+      "author": "Maj Borba",
+      "message": "Estende stat_70_10_20.py: f1_macro_tta e análise por classe\n\nAdiciona:\n- Suporte a --metric f1_macro_tta (lê de tta_metrics.json)\n- Seção C: IoU e F1 por classe (6 classes EDGV) com Wilcoxon pareado\n  + Holm-Bonferroni e Games-Howell post-hoc por classe\n- load_perclass(): carrega per_class_iou_tta / per_class_f1_tta keyed por repeat\n- paired_analysis() extraída como função reutilizável\n- Resultados por classe salvos em per_class no JSON de saída\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "sha": "65ae0b2",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/65ae0b265148321b5f40b14e1b7a8f49f8ad59d0",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-25T21:06:11.000Z",
+      "author": "Maj Diniz",
+      "message": "reclassifyAdjacentPolygons: flag de commit e chave primaria do provedor\n\nDuas mudancas no reclassifyAdjacentPolygonsAlgorithm, para que ele rode\nheadless (qgis_process, dsgtools_cli) alem de dentro do QGIS.\n\n1. Parametro COMMIT_OUTPUT_FEATURES, seguindo o idioma que o\n   clipAndCopyFeaturesBetweenDatabasesAlgorithm e o convertDatabaseAlgorithm\n   ja usam. Default False, para nao tirar o desfazer de quem roda no QGIS.\n   Sem ele o algoritmo faz startEditing/deleteFeatures/addFeatures e o buffer\n   de edicao morre com o processo, perdendo a escrita em silencio enquanto o\n   log diz \"N features written\".\n\n2. A recriacao da feicao copiava TODOS os atributos do vizinho mais proximo,\n   inclusive a chave primaria do provedor. So o campo \"id\" de texto era\n   regenerado. Em GeoPackage a chave e o \"fid\" inteiro, e como varias feicoes\n   de saida casam com o mesmo vizinho, o commit falhava com\n   \"UNIQUE constraint failed\" em massa. Agora os indices de\n   dataProvider().pkAttributeIndexes() nao sao copiados.\n\nTestado por qgis_process com entrada GPKG e COMMIT_OUTPUT_FEATURES=1:\n5.441/225/70 feicoes viram 3.842/146/39, conferidas relendo o arquivo,\nsem erro de unicidade e sem geometria invalida.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MMmnGt86kEodn5qyFKnEDm",
+      "sha": "2f0f7e1",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/2f0f7e1ef96d9de04b7203aa3fab41b4c59cf124",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-25T19:18:18.000Z",
