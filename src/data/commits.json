@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-26T10:40:03.337Z",
+  "lastUpdate": "2026-08-26T16:22:37.959Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-23T19:16:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-08-13T12:28:03.000Z",
     "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-08-25T21:06:11.000Z",
+    "dsgoficial/DsgTools@dev": "2026-08-26T14:40:52.000Z",
     "dsgoficial/sap": "2026-08-26T09:00:16.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-26T09:55:13.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-26T16:09:05.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-26T03:42:11.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-26T12:20:00.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-26T09:51:37.000Z"
+    "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6205,
+    "totalCommits": 6217,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1070,
+      "1cgeo/ebgeo_web": 1073,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -134,7 +134,7 @@
       "dsgoficial/modelagens": 165,
       "dsgoficial/configuracoes_producao": 204,
       "dsgoficial/ferramentas_edicao": 480,
-      "dsgoficial/DsgTools": 641,
+      "dsgoficial/DsgTools": 643,
       "dsgoficial/sap": 176,
       "dsgoficial/SAP_Gerente": 120,
       "dsgoficial/SAP_Operador": 70,
@@ -163,13 +163,121 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 626,
+      "1cgeo/chefe_dgeo": 629,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 21,
+      "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-26T16:09:05.000Z",
+      "author": "Maj Diniz",
+      "message": "o aerolevantamento do RS sao tres processos, e a area estadual sai por subtracao da federal\n\nLevantamento de fonte primaria (portal de compras do RS e API do PNCP) dos\nprocessos de aerolevantamento LiDAR do Rio Grande do Sul pos-enchente de 2024.\n\nA premissa era \"dois processos\". Sao tres: Uniao a leste (CE 90001/2025,\nR$ 45,9 mi, Consorcio Hidro Sul), Estado a oeste (CE 0069/2025, R$ 31,45 mi,\nConsorcio Geosul) e um terceiro so de fiscalizacao estadual (CE 0031/2026,\nteto R$ 2,53 mi). A Uniao nao tem fiscalizacao contratada.\n\nNao ha sobreposicao, e nao e coincidencia: o TR estadual cita os 167.287 km2\nfederais, recorta o restante com buffer de 1.000 m, e manda os produtos serem\ncompativeis com o edital federal, com o link dele no texto.\n\nAreas MEDIDAS no GeoPackage do proprio edital (167.286,47 e 85.192,52 km2)\nconferem com o declarado. A estadual nao e publicada, e foi reconstruida a\n0,33%, marcada como reconstrucao.\n\nAchado que a imprensa nao tem: o contrato estadual ficou SUSPENSO de\n2026-06-23 a 2026-08-10, e isso so aparece nos anexos do contrato no PNCP.\n\nPara a DGEO: as normas adotadas sao da DSG, mas a DSG nao e parte em nenhum\ndos tres processos, a RF1 sera voada de novo, e o dado federal e patrimonio\ndo MIDR.\n\n- wiki/aerolevantamento-lidar-rs.md, ligada no index, glossario (ENEP),\n  mapa-conceitos, fontes-insumos e operacao-taquari.\n- MEMORY.md ganha o ponteiro (78,9% do teto).\n- consultar-licitacao aprende a classe \"processo de TERCEIRO\", as rotas do\n  PNCP que servem (contrato e anexos do contrato), o `ufs` no plural e o TLS\n  do portal de compras do RS. Learnings resplitado: 18,3 KB -> 9,4 KB quentes.\n- livro-razao: dossie de area sem mapa (cobertura-parcial) e fidelidade\n  demais em mapa de leitura (escopo).\n\nCarrega tambem a entrada Decisions cont. 3 de outra sessao (pedido 195 da\nmapoteca), porque o arquivo e append-only compartilhado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "712b5f2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/712b5f25e45d97a0631b3d5a1911177e97cffd85",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-26T14:49:06.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-26: o carimbo era da nossa propria carga, e o CLI publicava exemplo que nao sabia reler\n\nRevisao dos bancos 1g e 1m do PIT 2026 por agente, com o DSGTools headless.\n\nO que a sessao ensinou, por destino:\n\n- wiki/validacao.md: os 8 workflows homologados do Topo 1.4, as 196 regras de\n  atributacao, e a LACUNA medida (nao ha workflow de hidrografia e altimetria\n  no Topo 1.4, so no Orto 2.5). Mais o que a FOREIGN KEY ja garante: com 265\n  FK validadas, procurar valor fora de dominio e verificacao que nao pode\n  falhar. O que reprova de verdade e a sentinela 9999, o NULL e a combinacao\n  invalida ENTRE colunas.\n- subwikis/dsgtools/cli.md e wiki/dsgtools-cli.md: o qgis_process nao resolve\n  a URI do provider postgres, e a entrada que funciona e o driver PG do OGR.\n  Mais o custo medido (mediana de 7,3 s por algoritmo) e a armadilha da lista\n  vazia, ja consertada na branch dev.\n- Decisions: a mutacao de 16.986 curvas em 4 bancos de producao, com o raio de\n  explosao e a tecnica que preservou a autoria de 845 curvas editadas por 13\n  operadores reais (session_replication_role = replica).\n- livro-razao: 4 desvios, todos pegos por mim. Coagir lista vazia pela\n  APARENCIA quase quebrou 3 parametros de texto. Um comparador que nao podia\n  PASSAR reportou falha falsa numa escrita correta. Uma escrita em producao\n  foi encadeada depois de uma edicao de script que falhou. E here-string de\n  PowerShell entrou literal numa mensagem de commit.\n- learnings da retrospectiva: escrever pagina de wiki por script pula o hook\n  de escrita, e as 3 secoes novas sairam sem acentuacao. Toda escrita de vault\n  por script fecha com os dois linters a mao.\n\nGuards: check_caminhos ok, lint_wiki zerado nas 11 categorias, lint_escrita\nexit 0.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "45bef1d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/45bef1d9e8046ea69b905670afecc3619c5f052d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-26T14:40:52.000Z",
+      "author": "Maj Diniz",
+      "message": "identifySmallFirstOrderDangle: declara os 7 passos que percorre\n\nO `feedbackTotal` valia 5, e o corpo percorre `setCurrentStep(0)` ate\n`setCurrentStep(6)`. O QgsProcessingMultiStepFeedback divide o passo corrente\npelo total declarado, entao os dois ultimos passos reportavam 120 e 140 por\ncento de progresso.\n\nConserto de relato, nao de resultado. Conferido contra banco de producao, sobre\n26887 linhas de drenagem: mesmo returncode e a mesma unica flag de antes.\n\nOutros 5 algoritmos tem o mesmo defeito e ficaram de fora deste commit:\nextendLinesToGeographicBoundsAlgorithm (5 para 6),\nhierarchicalSnapLayerOnLayerAndUpdateAlgorithm (0 para 3),\nidentifyNetworkConstructionIssuesAlgorithm (2 para 4),\nidentifyTerrainModelErrorsAlgorithm (3 para 5) e\noverlayElementsWithAreasAlgorithm (2 para 4).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b26c679",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/b26c679409b248641dd40ed83548e3d3bd6471bb",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-26T14:28:20.000Z",
+      "author": "Maj Diniz",
+      "message": "guarda as duas fontes primarias que decidem a fila E-SR\n\nOs dois papers que sustentam o docs/11 entram em reference/papers/, porque link\nsozinho nao sobrevive ao tempo e os dois decidem se o ESRGAN fica no pipeline.\nAmbos CC BY 4.0, licenca conferida na pagina do arXiv em 2026-08-26.\n\nWolters, Bastani e Kembhavi (Allen Institute), \"Zooming Out on Zooming In\",\narXiv:2311.18082v1, 2023. E o paper dos pesos que este projeto usa. Traz o\nFinding 7, que reprova a saida super-resolvida como entrada de tarefa a jusante.\n\nSarmad, Kampffmeyer e Salberg, \"DiffFuSR\", arXiv:2506.11764v2, 2025. Traz a\ntabela do opensr-test onde o satlas marca alucinacao 0,8004 e distancia\nespectral 12,12, os dois piores da tabela.\n\nO README da pasta registra a atribuicao, os numeros e um alerta: o Finding 7\nreprova usar a IMAGEM gerada, e o Finding 8 do MESMO paper aprova usar os PESOS\ncomo pre-treino. Sao conclusoes diferentes e nao devem ser confundidas.\n\nRegistra tambem o que NAO esta na pasta, com destaque para Debella-Gilo 2025, o\nunico achado controlado favoravel a super-resolucao, bloqueado por 403.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3b5a909",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/3b5a909a82b3d1deb580e32aeb49797629ec6bfc",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-08-26T14:27:08.000Z",
+      "author": "Maj Diniz",
+      "message": "dsgtools_cli: tipa o parametro pelo contrato, nao pela cara do valor\n\nO `run` mandava todo token KEY=VALUE como texto. `LINEFILTERLAYERS=[]` chegava\nao qgis_process como a STRING \"[]\", que ele trata como caminho de arquivo e\nreprova com \"File [] could not be found\". O `describe` imprimia esse mesmo\nexemplo, entao o CLI publicava uma linha de comando que ele proprio nao sabia\nreler. Atingia 37 parametros em 24 algoritmos.\n\nA conversao agora sai do contrato do algoritmo, em `apply_contract_types`, e\nroda ANTES da validacao: `multilayer` le lista JSON, `boolean` vira booleano,\ne `null` vira None fora de parametro de texto. Converter pelo TIPO, e nao pela\naparencia do valor, preserva o algoritmo que recebe JSON como string (TEXT,\nPARAMETER_DICT, VALUE_MAP), que a coercao cega quebraria.\n\nO `_example_args` tambem passa a usar aspas simples quando o valor ja traz\naspas duplas. Com aspas duplas por fora, o shell fechava o token na primeira\naspa de dentro e o exemplo quebrava ao ser copiado.\n\nProvado contra banco de producao: `identifydangles` com `LINEFILTERLAYERS=[]`\nreprovava em 3 de 3 tentativas e agora conclui, com 307 flags sobre 26887\nlinhas de drenagem. 11 testes novos, 77 na suite.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b2430fe",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/b2430fe0644f7d51da97316afc65d3ff52215f49",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-26T14:18:22.000Z",
+      "author": "Maj Diniz",
+      "message": "entra o ramo sem imagem, e a super-resolucao vazava pelo DINOv3\n\nDecisao do chefe, 2026-08-26: rodar o ramo SEM IMAGEM e o ramo com Sentinel 2\nBICUBICA. Os dois entram na fila do E-SR0 com prioridade.\n\nO ramo 0 (sem RGB) fecha a ablacao que faltava. Ja sabemos o que cai sem\nAlphaEarth (1,98 pp), sem MapBiomas (1,91 pp) e sem DINOv3 (1,11 pp). Nao\nsabemos o que cai sem a imagem. Se o ramo 0 chegar perto da receita atual, a\ndiscussao sobre qual super-resolvedor usar perde o objeto.\n\nAchado que muda o desenho de TODOS os ramos: o 05_cache_dinov3.py roda o modelo\nde fundacao sobre o cache_rgb, entao as features do DINOv3 sao funcao da imagem\ndo ESRGAN. Trocar so o cache_rgb NAO remove a super-resolucao do experimento,\nela volta pela porta do DINOv3. Todo ramo precisa regravar tambem o\ncache_dinov3, a partir do proprio RGB daquele ramo.\n\nO ramo 0 exige escolha de metodo, porque o forward monta tudo a partir de\nbackbone.encoder(rgb) e o decoder consome as skips desse encoder. Zero-ablacao\n(rgb constante) custa uma rodada K=5 e nenhuma linha de codigo, mas mede \"RGB\nsem conteudo\". Decoder direto mede o que o contexto sustenta sozinho, e e\narquitetura nova. Recomendado rodar a barata primeiro.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "176f29b",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/176f29bedef1ea45398bb9ed770e849b775e644c",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-26T14:05:07.000Z",
+      "author": "Maj Diniz",
+      "message": "a super-resolucao nunca foi ablacionada, e a literatura de 2025/2026 desconfia dela\n\nRevisao dirigida em cinco frentes paralelas, corte rigido em 2025 e 2026, sobre\no RGB Sentinel 2 super-resolvido que alimenta a receita w50_combo. Vira\ndocs/11_super_resolucao_como_insumo.md.\n\nO achado que mais pesa e sobre o nosso proprio modelo. Wolters, Bastani e\nKembhavi (Allen Institute, o paper dos pesos do Satlas SR) escrevem, verbatim:\n\"Finding 7. Super-resolution outputs are ineffective for machine consumption.\nVia this preliminary study we find that using Super-Res outputs does not\noutperform inputting the original low-resolution images.\" Media de 0,673 com\nSentinel 2 cru contra 0,615 com a saida ESRGAN, em seis tarefas.\n\nO DiffFuSR mede o Satlas na regua opensr-test da ESA: alucinacao 0,8004 e\ndistancia espectral 12,12, os dois piores da tabela. Cerca de 80% do detalhe de\nalta frequencia que ele acrescenta nao existe na referencia.\n\nNo cenario identico ao nosso (S2 10 m para 2,5 m, UNet), a tese de TU Wien de\n2025 poe os oito modelos de SR ABAIXO da interpolacao bicubica, com ortofoto\nreal 20 pontos acima de tudo. E o Beyond Visual Fidelity (270 configuracoes)\nmede que metrica de imagem nao correlaciona com ganho na tarefa, e a correlacao\npode ser negativa.\n\nO padrao que emerge: a SR ganha em classe de estrutura (edificacao, via,\nsuperficie impermeavel, agua) e perde em classe de espectro (campo, solo\nexposto, dossel homogeneo). Metade das nossas 6 classes esta do lado que perde,\ne campo e terreno exposto ja sao as nossas duas piores IoU.\n\nA armadilha que e nossa: a verdade-terreno foi anotada no TileClass SOBRE a\nimagem super-resolvida. Onde o ESRGAN inventou borda, o anotador desenhou em\ncima. Toda comparacao nossa entre com SR e sem SR nasce enviesada a favor da SR.\nNinguem na literatura mediu esse efeito, e medi-lo custa dias de operador.\n\nPropoe E-SR0 (quatro ramos: 10 m nativo, bicubica, ESRGAN, ortoimagem real),\nE-SR1 (as duas grades, Boundary IoU, anotacao cega cruzada), E-SR2 (opensr-test\nsobre a nossa saida) e E-SR3 (a SR sobrevive ao contexto multimodal?). Trocar\n--source-dir no 01_cache_rgb.py e regravar o cache e tudo que separa o ramo sem\nSR, e o 03_dados.md ja documenta esse caminho.\n\nA secao 6 declara o que ficou sem verificacao, incluindo a unica fonte\nFAVORAVEL a SR (Debella-Gilo 2025), bloqueada por 403 em tres rotas. E registra\nduas conclusoes de agente que cairam na conferencia contra a fonte.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "611a694",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/611a694fc98f28a15fc51ccf5c1b6c58bab41c90",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-26T13:42:31.000Z",
+      "author": "Maj Diniz",
+      "message": "a linhagem do XML tem padrao novo, e o arquivo em producao guarda o velho\n\nFecha a sessao de criar-metadados-xml de hoje. O chefe declarou o padrao\nvigente da linhagem: carta topografica com PreparoCDG + Edicao, CDGV vetorial\ncom PreparoCDG + DigitalizacaoTela + ValidacaoQGIS. O padrao de quatro passos\nabrindo em PDI esta aposentado.\n\nO que os arquivos de Producao guardam e o padrao velho, porque sairam do\ncaminho MODELO e nao do gerador do SAP. Comparar a linhagem contra eles compara\ncontra o aposentado, e foi assim que chamei de defeito uma saida correta.\n\nO controle que fecha a questao: pedir ao SAP o XML de um lote JA finalizado e\ncomparar com o arquivo do mesmo lote na pasta. Feito na folha 2944-2 do 1f\nSantiago.\n\nlivro-razao: 28a recorrencia de afirmado-sem-medir, e a 2a vez na MESMA sessao\nde chamar desenho da casa de defeito. Arquivo em producao prova o que ERA o\npadrao, nunca o que E.\n\nFica aberto se o padrao novo vale tambem para a carta ortoimagem, cujo template\nde fallback ainda embute os 4 passos antigos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bd5e7ca",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bd5e7ca41516a5caaed1fa22c8bec8ad4dd81ac7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-08-26T13:40:12.000Z",
+      "author": "Maj Diniz",
+      "message": "o problema da expansao de classes tem nome na literatura: GFSS, nao few-shot\n\nLevantamento de 2024 a 2026 sobre aprendizado com poucos rotulos, filtrado\npelos gargalos reais do projeto (expansao de 6 para 15 classes e transferencia\nde regiao). Vira docs/10_few_shot_gfss.md.\n\nO achado principal e de enquadramento: o OpenEarthMap Few-Shot Challenge\nexpande 8 para 15 classes, com 7 base e 4 novas, em 5-shot. E o nosso caso com\noutro nome, e ja tem protocolo, codigo e vencedores publicados.\n\nQuatro metodos candidatos, do mais barato ao mais caro: FROST (one-shot sem\ntreino sobre DINOv3 congelado), FSSDINO (protototipo congelado, camada\nintermediaria mais semantica que a ultima), HERA (adaptacao de dominio\natualizando menos de 2,7% dos pesos) e Moon e Cho (transferencia de regiao sem\ntreino com 32 a 150 tiles).\n\nSobre a camada do DINOv3: a serie H ja testa l12_l24 e pyramid4 no regime\nTREINADO, e a campanha de agosto ja reprovou a troca. O que a literatura poe de\nvolta na mesa e o regime CONGELADO, sem projecao treinada. Sao medidas\ndiferentes, e o documento declara isso em vez de reabrir o que ja foi decidido.\n\nPropoe E-FS0, uma sonda de separabilidade sobre as features ja cacheadas nas\nquatro layers: horas de CPU, zero GPU, e cabe antes do E0. Nenhum numero citado\nentra na receita sem delta pareado maior que o ruido.\n\nREADME: a arvore de docs voltou a listar 08, 09 e 10, que estavam fora.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ec9187b",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/ec9187bea3848baa2d99c8d85d72410bf59526d1",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-26T12:20:00.000Z",
+      "author": "Maj Diniz",
+      "message": "o andaime de bancada nao era orfao: seis cenarios o importam, e o setimo chegou depois do commit\n\nCORRECAO AO COMMIT ANTERIOR. Eu declarei `backend/tests/bench/lib/` como andaime ORFAO, dizendo\nque nenhuma bancada o importava. Estava errado, e a razao e que eu olhei cedo demais: SEIS\ncenarios de escrita (`escrita-caminho`, `escrita-contencao`, `escrita-fanout`, `escrita-lote`,\n`escrita-multiatlas` e `escrita-sequencia`) importam a lib, e eles nasceram entre 09:14 e 09:18,\ndepois da minha verificacao e um deles depois do proprio `git add`. Era trabalho de fundo ainda em\nvoo que eu nao rastreei.\n\nO que entra aqui e o setimo cenario, o unico que ficou de fora. Conferi que os quinze arquivos de\n`tests/bench/` e de `tests/bench/lib/` parseiam, e que a escrita parou.\n\nFica a licao de metodo, que e a mesma que esta obra pagou varias vezes: uma leitura pontual de\ndiretorio nao distingue \"nao existe\" de \"ainda nao chegou\". Eu deveria ter conferido que a escrita\ntinha parado ANTES de afirmar orfandade, do mesmo jeito que uma amostra pontual de estado de\ninterface nao distingue \"curou\" de \"nunca teve\".\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019dxAo2dGErtzCS3iP2PcCA",
+      "sha": "63daac3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/63daac3fffe41a1706d9e0a8dc336dc9fdf9554b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-26T12:18:25.000Z",
+      "author": "Maj Diniz",
+      "message": "o que sobrevivia ao logout era trabalho que o servidor nunca recebeu, e a premissa errada era do teste\n\nDuas falhas da camada de navegador, as duas de INSTRUMENTO, nenhuma de produto. Nenhuma linha de\ncodigo de producao mudou neste commit.\n\n=== A3b: dado de servidor sobrevivendo ao logout ===\n\n`browser-multi-tab-namespace.spec.js`, caso A3b, falhava 2 de 3 em portas isoladas, dizendo que a\nfeicao continuava legivel em `ebgeo_maps__remote-<id>` depois do logout.\n\nPRIMEIRO O EXPERIMENTO QUE DECIDE, antes de qualquer conserto: o mesmo caso rodou N=6 no commit\natual e N=6 em `4ae7b194`, o anterior a onda que paralelizou o expurgo. Falhou nos DOIS (4/6 e\n2/6, diferenca que nao separa de ruido em N=6). NAO E REGRESSAO.\n\nE A HIPOTESE QUE EU TINHA DADO ESTAVA ERRADA. Eu suspeitava que a aba enxergava o proprio pedido\nde lock ainda na fila e poupava o proprio namespace. O relatorio do expurgo numa rodada vermelha\ndisse `purge=null`: `purgeAllRemoteAtlases` NUNCA RODOU. O lock de montagem nao tem parte nisto.\n\nA causa, correlacionada em 6 execucoes sem excecao:\n\n  verde:    pendingOps=0 -> preserve=false -> wipe + varredura\n  vermelho: pendingOps=3 -> resgate, e a varredura nem e chamada\n\n`_handleLogoutGesture` le a fila ANTES de tudo. Com fila nao vazia, `preserveUnsyncedWorkAsLocal`\nADOTA o namespace como atlas LOCAL, mantendo o `dbSuffix` `remote-<id>` intacto, por desenho de\ncopia zero. O que sobrevivia nao era dado de servidor escapando do expurgo: era TRABALHO QUE O\nSERVIDOR NUNCA RECEBEU, preservado de proposito pela decisao de 2026-08-15. O auto-flush roda a\ncada 1,5 s e o clique em Sair chegava antes.\n\nO caso nao tinha pre-condicao. Agora ele espera `countPendingOperations()` chegar a zero, que e a\npropria grandeza que decide o ramo, relida a cada amostra e sem prazo fixo.\n\nSEGUNDO DEFEITO NO MESMO CASO: `logoutUI` devolvia NO MEIO da destruicao. O botao de Entrar volta\npelo `_render` pendurado em `SESSION_CHANGED`, que `logoutAndDisconnect` dispara ANTES do wipe e da\nvarredura. Medido: na rodada VERDE o registro remoto ainda listava o atlas quando o caso lia os\nbancos, ou seja, ela passava por sorte. Agora o helper espera a pos-condicao da varredura.\n\nUM SINAL FOI TENTADO E RECUSADO: o selo `data-work=\"enviado\"` da barra reprovou 7 de 9, porque ele\nrepinta por evento coalescido de 250 ms e batida de 3 s, entao ja estava em \"enviado\" desde a\nabertura do atlas e a assercao passava SEM NUNCA TER VISTO o desenho entrar na fila. Amostra\npontual, que e a armadilha que o cabecalho daquele arquivo ja nomeia.\n\nAssercao nova: nenhum atlas local adotou o namespace. Assim, uma regressao que reponha o caso no\nresgate aponta a funcao certa em vez de acusar o expurgo.\n\nA3b depois do conserto: 10 de 10.\n\n=== O MESMO DEFEITO, ESCONDIDO POR RETENTATIVA ===\n\n`browser-logout-clears-map.repro.spec.js` reprovava pela mesma premissa, medido em 1 vermelho a\ncada 4 com `--retries=0`. O `retries: 1` da configuracao vinha reportando isso como \"flaky\", que e\numa rodada verde. Mesma pre-condicao aplicada: 8 de 8 rodadas, 16 de 16 casos, com retentativa\ndesligada.\n\n=== A CONFERENCIA DO INSTRUMENTO DE MEDIDA REPROVAVA O PRODUTO POR TER MELHORADO ===\n\n`troca-viva-de-atlas-medida.spec.js` comparava \"recarga menos boot do mapa\" com \"troca ao vivo\",\nsupondo que mediam o mesmo termo por caminhos independentes, com tolerancia de 60%.\n\nNAO MEDEM. A recarga paga DOIS boots: o da pagina de atlas, onde a pessoa escolhe, e o do mapa,\npara onde ela volta. Subtrair so o segundo deixa o primeiro inteiro na conta, e a troca ao vivo\nnao paga nenhum dos dois. O erro so apareceu quando o conserto ficou BOM: numa maquina livre a\ntroca caiu para 1010 ms contra 2864 ms de recarga-menos-boot, e a conferencia reprovou por 65%.\nUm instrumento que dispara quando a coisa medida melhora esta medindo outra coisa.\n\nTrocada por tres afirmacoes que ainda pegam o defeito que ela existia para pegar (um cronometro\napontado para o alvo errado): a troca ao vivo tem de ser positiva, menor que recarga-menos-boot, e\ndentro de uma ordem de grandeza dela.\n\nO NUMERO, remedido com a maquina livre, e MELHOR que o do commit anterior:\n\n  troca por recarga  3609 ms\n  troca ao vivo      1326 ms\n  economia           2283 ms por troca (2,72x)\n\nOs 1286 ms do commit anterior foram medidos sob carga e eram conservadores.\n\n=== ANDAIME DE BANCADA, ORFAO, QUE ENTRA PARA NAO SE PERDER ===\n\n`backend/tests/bench/lib/` sao 1425 linhas de andaime de bancada que ficaram de fora do commit\nanterior. Nenhuma das duas bancadas commitadas as importa: elas so se referenciam entre si, e o\ncabecalho fala de sete cenarios, dos quais dois chegaram. E trabalho real e bem documentado, e\nentra para nao se perder, mas fica DECLARADO AQUI como orfao: ou os outros cinco cenarios vem, ou\nisto e poda, e a poda e decisao do dono.\n\nVerificado: as tres specs tocadas rodam 13 de 13 com saida 0, em portas isoladas.\n\nAVISO DE BANCADA, medido: rodar vitest ou lint em paralelo com o Playwright falseia a medida. Sete\nvermelhos seguidos viraram verde ao parar a carga concorrente. Vale para qualquer medicao futura\ndesta camada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019dxAo2dGErtzCS3iP2PcCA",
+      "sha": "eff9718",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eff9718f18fc43c473901fcb05e6a905b592a89c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-26T10:49:03.000Z",
+      "author": "Maj Diniz",
+      "message": "a troca de atlas ao vivo chega ao usuario, e o 304 das capas deixa de montar 27 MB para joga-los fora\n\nA PORTA, que e o que transforma medida em entrega. `switchAtlas` existia desde ontem e nao tinha\ngesto: o unico jeito de escolher outro atlas era sair para `atlas.html` e voltar, duas navegacoes.\nAgora a acao \"Seus atlas\", que JA existia em dois lugares da pagina do mapa, abre um dialogo em vez\nde navegar. Uma funcao mudou, e os dois gestos mudaram juntos.\n\n  troca por recarga  3600 ms\n  troca ao vivo      2314 ms  (2162 do gesto + 152 de abrir a porta)\n  entregues          1286 ms por troca\n\nA porta foi cronometrada A PARTE de proposito, em vez de ser escondida dentro do numero. E o spec\nde medida deixou de chamar o gancho e passou a CLICAR no cartao, que e o que faz o numero medir o\nproduto em vez do instrumento.\n\nDois chamadores continuam navegando de proposito: o de depois do login e o do atlas que sumiu. Com\neles intactos, o harness de colaboracao nao mudou uma linha e as 35 specs seguem verdes.\n\nAS CAPAS: o Express JA respondia 304 nessa rota, e isso nao adiantava NADA, porque ele deriva o\nETag do CORPO PRONTO. Medido com 200 atlas: 0,2696 s no 304 contra 0,2928 s no 200. O servidor\nbuscava os blobs, fazia o base64 e serializava 27 MB inteiros para entao jogar tudo fora. O\nconserto e a ORDEM: decidir o 304 antes de montar o corpo. Caiu para 0,0087 s, 31 vezes mais\nrapido, com corpo de zero bytes. O corpo do 200 nao mudou, entao nenhum dos sete pontos do\nfrontend que consomem as capas precisou de ajuste.\n\n  N=20   2,7 MB de corpo, laco de eventos bloqueado 16,5 ms\n  N=100  13,7 MB,                                   68,5 ms\n  N=200  27,4 MB,                                  152,9 ms\n\nO SNAPSHOT: as consultas independentes viajam num pacote so. Treze idas ao banco viraram cinco.\n\n  RTT de 3 ms, um snapshot          47,0 -> 17,8 ms\n  P95 com 40 snapshots simultaneos 190,7 -> 100,0 ms\n\nO eixo real e o pool de dez conexoes: o `task()` retinha uma delas durante a serie inteira, e\nencurtar a serie a devolve mais cedo. Em loopback o ganho seria 36%, e isso esta registrado no\nrelatorio como ARTEFATO DE BANCADA, porque nenhum servidor de producao fala com o banco por\nloopback.\n\nO VAZAMENTO NO UPLOAD: conexao derrubada no meio deixava o blob parcial em disco PARA SEMPRE e a\nrequisicao nunca terminava. Eram DOIS vazamentos, e o pior nao era o arquivo: ficavam pendurados o\nstream de escrita aberto, a requisicao e o parser com todos os listeners. Cada aborto vazava um\nDESCRITOR DE ARQUIVO. E eram DUAS rotas, nao uma: a do acervo 360 tem teto de 2 GiB por arquivo e\na limpeza dela vivia num `finally` de controller que nunca era alcancado.\n\nO conserto e um armazenamento proprio que, no aborto, devolve o erro pelo callback do parser. Isso\nreativa a maquina de estado da propria biblioteca em vez de contorna-la, e conserta o descritor de\ngraca. Ordem obrigatoria: desconectar, destruir, e SO ENTAO apagar; inverter produz bug diferente\nem cada sistema operacional.\n\n`refresh_tokens`: o indice parcial sobre `token_hash` sai. A coluna e `UNIQUE`, e isso ja cria o\nbtree; o parcial era subconjunto dele. Medido: 20.000 insercoes custavam 879 ms com ele e 498 ms\nsem, mais 19 MB de indice sobre 420.000 linhas, para nunca decidir um plano. A linha sai da\nBASELINE (instalacao nova nunca o cria) e a migracao 011 faz `DROP INDEX IF EXISTS` (banco\nexistente converge). As duas edicoes sao necessarias: migracao ja aplicada nao se reexecuta.\n\nE a purga, que nunca existiu: nenhum DELETE em `refresh_tokens` em lugar nenhum do backend. Script\nmanual, `--dry-run` por padrao, com o cuidado que decide o caso: o predicado exige o token vencido\nE revogado ha mais de 30 dias, porque e a idade do `revoked_at` que a deteccao de reuso le para\nseparar \"duas abas correram\" de \"alguem roubou o token\". Purgar cedo DESLIGA O ALARME DE ROUBO.\n\nA CORTINA de abertura vai de 500 para 200 ms, de uma constante unica usada na transicao e na\nremocao, que antes eram dois numeros soltos que podiam divergir. Medido: a janela de trabalho do\nboot e de 200 a 250 ms, e a cortina cobria a espera duas vezes.\n\nISOLAMENTO DE TESTE: `TEST_DB_NAME` isolava o BANCO e nao o DISCO. Tres caminhos de arquivo eram\ncompartilhados entre suites paralelas, e o sintoma nao era erro: era caso vermelho em arquivo que\nninguem tocou. Medido: `sv360-ingest` reprovou em \"no leftover .tmp\" numa rodada paralela e passou\n21 de 21 sozinho; `assets3d-sqlite` deu 404 em rota que o proprio caso acabara de semear. Vermelho\nque vem do vizinho e pior que vermelho nenhum, porque ensina a duvidar do teste.\n\nDUAS COISAS QUE FORAM CONSTRUIDAS, MEDIDAS E RECUSADAS, e elas valem tanto quanto as aplicadas:\n\n- `fn_can_produce_resource` avaliada por linha. O conserto ficou 8,4 VEZES MAIS LENTO, e o N real\n  e ZERO (nenhuma linha privada ativa nas quatro tabelas de catalogo). A premissa que eu tinha\n  dado caiu junto: as irmas `LANGUAGE sql STABLE` NAO sao inlined. O planejador so inlina corpo\n  sem FROM e sem sublink, e toda funcao que le tabela precisa de um dos dois. O que torna as irmas\n  baratas e o argumento livre de `Var`, que faz a clausula subir para avaliacao unica. O achado\n  ficou no cabecalho da `008`, com os numeros, para ninguem repetir o caminho.\n- Assinar `ATLAS_SWITCHED` na barra lateral. A suspeita de que o painel de feicao ficava velho foi\n  REPROVADA na bancada, e de forma robusta: cortado um elo, ele fecha; cortados dois, fecha\n  igual. Assinar seria codigo cujo efeito nenhuma leitura distingue de zero, e guarda que nao pode\n  reprovar nao guarda nada. Fica o aviso: a cura nao esta pendurada em nada que fale de \"trocar de\n  atlas\", e sim num `deselectAllFeatures` de lambuja dentro do `switchMap`.\n\nTRES PREMISSAS MINHAS CAIRAM, todas por medida de quem executou:\n- as funcoes irmas nao eram inlineaveis;\n- o painel de feicao nao fica velho;\n- o `EBUSY` do Windows NAO denuncia descritor vazado: a libuv abre com `FILE_SHARE_DELETE`, entao\n  o teste escrito daquele jeito passava sem o conserto, ou seja, era vacuo. Trocado por uma sonda\n  de numero de descritor, calibrada antes de ser usada, que mediu o vazamento em 6 onde a base\n  era 5.\n\nE uma correcao ao commit anterior: a linha de atlas nao pesa \"5984 bytes contra 160\". Aquilo era a\nSOMA de dez linhas. Por linha sao cerca de 598 bytes, com uns 450 em `settings`. A conclusao\nsobrevive, o numero nao.\n\nGUARDAS NOVOS: `atlas-overview-etag` (12 casos, com o controle negativo mostrando que 10 deles\npassam no codigo antigo, porque o ETag do Express discrimina o que o corpo discrimina, e so DOIS\nsustentam o conserto), `upload-abortado-deixa-blob`, `sync-snapshot-pacote`,\n`auth-purga-refresh-tokens`, `porta-de-troca-de-atlas`, `cortina-de-abertura-cabe-no-boot`,\n`painel-de-feicao-na-troca-viva`.\n\nSuites no momento do commit: frontend 8745 casos de unidade, backend 3904 (saida 0, cobertura\n98,26% com os quatro pisos cumpridos), lint e build limpos, e a primeira das seis fatias da camada\nde navegador em 51 de 51. AS OUTRAS CINCO FATIAS AINDA NAO RODARAM neste commit.\n\nFICA EM ABERTO: a varredura de orfaos em disco (decisao de produto que a wiki deixou explicita); a\nfase 2 da porta (capas, presenca, administrar atlas local de dentro do mapa); e quatro superficies\nque a varredura do que fica velho NAO mediu e nomeou como lacuna: barra temporal, painel de\ncomentarios, tabela de atributos e desfazer.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019dxAo2dGErtzCS3iP2PcCA",
+      "sha": "4d5553a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4d5553a147dc8711a661777d20596399dc9c2e84",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-26T09:55:13.000Z",
