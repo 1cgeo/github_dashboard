@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-08-26T22:55:58.303Z",
+  "lastUpdate": "2026-08-27T20:15:06.252Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-08-26T19:24:12.000Z",
+    "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-08-26T20:46:53.000Z",
+    "1cgeo/doc_dgeo": "2026-08-27T18:54:48.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-26T19:39:19.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-27T20:13:55.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-26T19:07:30.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-27T12:21:28.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6231,
+    "totalCommits": 6243,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,11 +122,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1076,
+      "1cgeo/ebgeo_web": 1081,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 540,
+      "1cgeo/doc_dgeo": 543,
       "1cgeo/ferramentas_mgcp": 14,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -163,13 +163,103 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 634,
+      "1cgeo/chefe_dgeo": 638,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-27T20:13:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-27: o AST-10 do portal adota a nomenclatura da DSG, e a rasura do documento e dado\n\nAs 7.951 fotografias publicadas do AST-10 passam para\nAST-10_60k_R-<rolo>_<exposicao>, pelo DIEx 1865-APHC/DSG. 15.902 arquivos\nrenomeados e o footprints.geojson reescrito, com prova em tres frentes.\n\nA letra do rolo ficou FORA do nome: o `A` esta riscado a mao na tabela do\nfoto-indice, e a tarja do filme nunca o traz. A leitura por visao gravava o\ncancelado como se valesse.\n\nAprendizados de classe: rasura no documento e dado; validar contra base\nderivada da mesma fonte e circular; indexar por chave que a propria operacao\nmuda quebra na segunda passada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZQPG9aPuKTQcz6ZBEMCLA",
+      "sha": "690c9ef",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/690c9ef1bab355eca55d39dd904647f9475869b7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-27T18:54:48.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix",
+      "sha": "2cade06",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/2cade06fe0313362f3c4d2cb865221865eacfd86",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-27T18:45:37.000Z",
+      "author": "1º Ten Marcel",
+      "message": "remover espaço",
+      "sha": "3e6872a",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/3e6872aaf480f8bd5c1bfe38c15d95f8a6101a01",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-08-27T17:35:30.000Z",
+      "author": "1º Ten Raul Magno",
+      "message": "mudancas declaracao conteudo correios",
+      "sha": "3007af1",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/3007af121f8da85332aa5d9e717e83e48dad133c",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-27T14:40:49.000Z",
+      "author": "Maj Diniz",
+      "message": "o documento cala sobre a tiragem, e o irmao que contem o seu conjunto nao serve de controle\n\nPedido 197 (20o BIB, DIEx 2330, NUP 64075.005061/2026-10) entra como o decimo\nda campanha ARANDU-ARAUCARIA: 15 folhas 1:50.000, 2 copias cada, 30 no total,\nmais a pasta 23_20BIB_mosaico_arandu com 3 arquivos.\n\nTres reguas duraveis desta rodada.\n\nA familia da quantidade ganhou a cara do SILENCIO, e ela nao e ambiguidade. O\ndocumento nao traz coluna de quantidade nem numero no corpo. Ambiguidade se\ndesempata; ausencia nao, entao ela sobe a mesa sempre. E o que se leva junto e a\nPOPULACAO: oito dos dez pedidos do mesmo bloco de 15 folhas usam 2 copias, dois\nusam 3.\n\nPedido irmao que CONTEM o seu conjunto e controle nulo. O 173 guarda os mesmos\n15 uuid dentro dos 37 dele, e o teste de item passaria sem prova nenhuma. O\ncontrole negativo certo e o OUTRO TIPO da mesma folha: os mesmos 15 MI resolvem\ncomo Carta Ortoimagem com 15 uuid inteiramente distintos, zero coincidindo.\n\nAchado de instrumento, em subwikis/sca/rotas-mapoteca.md: o GET de um pedido\ndevolve os itens em `produtos`, e nao em `produtos_pedido` como o nome da tabela\nsugere, e devolve id inteiro como string. Minha conferencia acusou 17 falhas num\nregistro integro por causa disso.\n\nDesvio meu nesta sessao, e o quinto da mesma familia: ao reescrever a\nlearnings.md por leitura de texto, um CR SOLITARIO virou quebra de linha, dentro\ndo paragrafo que fala justamente do CR do .env. A minha verificacao comparava o\ntexto depois de ler, dos dois lados, com o leitor que corrompia, entao ela nao\npodia reprovar. O conserto foi reconstruir do blob commitado em binario, e a\nregua e medir contra o git, que e a copia intocada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XFkoEHz4DFsgT4YcKCua7q",
+      "sha": "c45bbc5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c45bbc5ac2e3e015da6fc6382c602359bd2b31ef",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-27T13:08:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-27: a super-resolucao da Planet parte do SEN2SR, e metade do erro era calibracao de cor\n\nO pixel entregue de 4,777 m nao e a resolucao: a PSF ajustada contra a nossa orto\nda GRD de 10,37 m, e o ganho visivel de 04/2022 e realce, nao resolucao. Sai o\nSatlas (multi-temporal, perda GAN que alucina onde o alvo alia) e entra o SEN2SR,\nque obriga a baixa frequencia da saida a vir da entrada.\n\nA conferencia visual que o chefe pediu achou o que treze metricas agregadas\nescondiam: o vies medio de cor era pequeno e o desvio entre tiles era de 30% a\n35%. Calibrar por tile leva o RMSE de 30,4% para 15,0%. Metade do residuo que eu\natribuia a janela temporal era calibracao.\n\nProjeto novo em 01-Projects/super-resolucao-planet, com o dossie de transferencia\nem handoff.md. Conceito perene em wiki/super-resolucao-planet. Seis reguas de\nmetodo na skill rodar-campanha-experimentos, e cinco desvios meus no livro-razao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01BavyS61QNhjs3XLduTUeiM",
+      "sha": "e118a69",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e118a69299550b545d674c6ee93c584d2aa42716",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-27T12:21:28.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(deep-link): a gramatica vira contrato congelado, e a PENDENCIA da raiz e apagada\n\nA auditoria item a item do PENDENCIA-LINK-DE-COMPARTILHAMENTO.md (sem crase, o\narquivo nao existe mais) achou o construido inteiro e QUATRO dividas vivas. Ele\nsegue o precedente do PENDENCIAS-INTEGRACAO-MAIN-360.md de 2026-08-21: nao foi\nmarcado como resolvido, foi APAGADO, com o duravel indo para a wiki e o que\ncontinua aberto virando entrada em docs/decisions/decisions-2026.md. Documento de\ntrabalho pendente e o que mais depressa perde sincronia, e conferir codigo contra\nele confirma frase falsa com ar de verificacao.\n\nO QUE FOI INCORPORADO, e em qual pagina, porque as duas respondem perguntas\ndiferentes:\n\n- `docs/wiki/sintese-contratos-congelados.md` recebe a gramatica. Ela e o unico\n  item daquela pagina que nao passa por HTTP, porque e contrato entre VERSOES do\n  produto e nao entre cliente e servidor. Ficam as tres regras (chave so aditiva,\n  ausente cai no padrao e nunca no zero, desconhecida se ignora calada), as quatro\n  formas, a ortogonalidade com a query, e a razao de os vetores dourados serem\n  escritos a mao e existirem identicos nos dois branches.\n- `docs/wiki/sessao-boot-e-ciclo-de-vida.md` recebe a ORDEM, que e o nao-obvio\n  deste pacote: por que a vista 2D e a unica adiada, e por que abrir link de outra\n  pessoa nao pode persistir nem esquecer o `setupMapFeatures`.\n\nAS QUATRO DIVIDAS QUE SOBREVIVERAM estao na entrada de decisao, nomeadas: o espaco\nde id do 3D (o risco, e se a carga nao preservou os ids todo link 3D distribuido\nmorre calado), o nome da foto 360 que e provavel e nao medido, o escopo de atlas\nque nao alcanca o deep link, e a propriedade \"abrir link nao escreve\", que esta\nimplementada e sem teste proprio.\n\nO alvo saiu de `frontend/tests/unit/docs-integridade.test.js` junto com o arquivo,\ncom o comentario dizendo para onde o conteudo foi.\n\nVERIFICACAO, com uma ressalva dita em voz alta. Nove das dez checagens do guarda\nde documentacao passam, incluindo caminho citado, wikilink e \"todo alvo declarado\nexiste\" (esta e a que acusaria o alvo apontando para o arquivo apagado). A decima,\na de simbolo entre crases, estourou o TETO PROPRIO de 30 s duas vezes (34,8 s e\n37,1 s) com a maquina em 993 MB livres de 16 GB: e a classe ja registrada no\nlivro-razao em 2026-08-17, teste que mede tempo de parede mede a maquina. Como\ncommitar simbolo sem verificar nao e opcao, a regra dela foi replicada num script\nsem teto, com o mesmo `RE_SIMBOLO`, as mesmas fontes e o mesmo `semComentarios`:\n413 simbolos conferidos nos quatro arquivos, ZERO pendurados, sobre um indice de\n53449 tokens (o guarda exige mais de 10000). Controle negativo da replica: um\nsimbolo inventado e acusado, e some ao ser removido.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "daad86f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/daad86fe236818edbb31d29bc3f13daa63e764fc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-27T12:02:25.000Z",
+      "author": "Maj Diniz",
+      "message": "test(deep-link): o vetor dourado carrega o modulo uma vez, e para de medir o cache\n\nO primeiro caso do arquivo estourava o limite padrao de 5 s num cache frio.\n`deep-link.js` importa `@store` e o barril `@utils`, e a primeira vez que o Vite\ntransforma esse grafo custa segundos: com o `await import()` dentro dos casos, a\nconta inteira caia no primeiro deles. Passava em cache quente e reprovava em\ncache frio, que e a pior forma de vermelho, porque ela treina o leitor a re-rodar\nem vez de investigar. Mesma classe ja registrada no livro-razao em 2026-08-17: um\nteto padrao e uma afirmacao sobre o hardware de quem escreveu o teste.\n\nO modulo agora e resolvido uma vez num `beforeAll` com teto explicito, e os oito\nsitios leem o namespace ja pronto. NENHUMA ASSERCAO MUDOU: nenhum caso saiu,\nnenhuma expectativa foi tocada e nenhum valor de vetor dourado foi alterado, o\nque importa aqui mais que em outro arquivo, porque sao esses valores que prendem\na promessa de o link abrir nas duas versoes do produto.\n\nO conteudo e byte a byte o que ja esta publicado em `integracao_backend`\n(9d6e6f2b), onde ele roda verde. E o par dos outros dois arquivos de vetor\ndourado, que ja estavam identicos entre os dois branches; este era o unico dos\ntres fora de sincronia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "548127a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/548127a897054601bced91495b819a1d0a82a0c1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-27T11:53:20.000Z",
+      "author": "Maj Diniz",
+      "message": "test(deep-link): o caso do 360 dubla o visualizador, e sai de 5,2 s para 50 ms\n\nO caso \"o adiamento vale SO para a vista 2D\" estourava o limite padrao de 5 s.\n`openDeepLink360` faz `await import()` de `street_view_viewer.js` antes de\nqualquer outra coisa, e aquele modulo arrasta o Three.js: transforma-lo num cache\nfrio custava 5,2 s sozinho. O caso passava isolado e reprovava junto, que e a\nassinatura ja registrada no livro-razao em 2026-08-17 (teste que mede tempo de\nparede mede a maquina, nao o codigo).\n\nO modulo agora e dublado. O caso pergunta POR ONDE o despacho foi, e nunca o que\no visualizador desenha, entao carregar o Three.js era pagar segundos por nada e\ntrocar um teste de roteamento por um teste de tempo de transformacao.\n\nA ASSERCAO FICOU MAIS FORTE, e nao mais fraca. Antes ela conferia que\n`getControl('streetView')` tinha sido consultado, que so diz que o despacho\nCOMECOU. Agora confere que o visualizador foi aberto com a foto e a orientacao do\nlink, que e o que separa \"chegou la\" de \"comecou e morreu no meio\".\n\nMedido em serie, 5 de 5 verdes, com o tempo de teste em torno de 50 ms. Controle\nnegativo: fazer o sinalizador adiar tambem o 360 reprova exatamente este caso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "aca44ca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aca44ca0cc94fda2a190a299a68ff17c0468d62e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-27T11:17:03.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-27: o catalogo do fabricante fechou a peca, e onde a fonte calava eu inventei o mecanismo\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f80117c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f80117cd98e900cbc8377b1b264fc9373a553f11",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/doc_dgeo",
       "date": "2026-08-26T20:46:53.000Z",
@@ -187,6 +277,24 @@
       "sha": "c9812fd",
       "htmlUrl": "https://github.com/1cgeo/ferramentas_ebgeo/commit/c9812fd8cb300ebf30d0c305b0fb18dbd6fbb917",
       "repoUrl": "https://github.com/1cgeo/ferramentas_ebgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-26T20:08:35.000Z",
+      "author": "Maj Diniz",
+      "message": "o link de compartilhamento aprende a apontar para um recurso publico, e a pendencia fica escrita para nao ser redescoberta\n\nCOMMIT DE TRABALHO DE OUTRA SESSAO. Este codigo nao foi escrito por quem o esta commitando. A\nsessao que o produziu trabalhava em paralelo na mesma arvore e parou sem commitar; o dono pediu\nque ele entrasse junto. A separacao em dois commits e deliberada: o commit anterior\n(`119a5bcb`, as bancadas de concorrencia) foi escrito E verificado aqui, este foi so verificado.\n\nO QUE ENTRA. Deep link para recurso PUBLICO especifico (camada base, modelo 3D, foto 360), com o\nlink abrindo direto no lugar. Toca `frontend/src/js/deep-link/` (`deep-link.js`, `parse.js`),\n`toolbar/` (controle e constantes), `baselayers/base-layer.control.js`, `index.js` e `map_sig.js`.\nMais seis arquivos de teste unitario novos em `frontend/tests/unit/deep-link-*`, somando 54 casos.\n\n`PENDENCIA-LINK-DE-COMPARTILHAMENTO.md` na raiz e o registro da propria sessao: o pedido, o estado\nMEDIDO em 2026-08-26, e o motivo de o trabalho precisar acontecer em DOIS branches (`main` e\n`integracao_backend`), porque um link emitido por uma versao precisa abrir na outra. O arquivo\nexiste para que isso nao seja redescoberto.\n\nO QUE FOI VERIFICADO AQUI, e so isso:\n\n  - `npm run lint` do frontend: limpo, com o controle negativo das regras proprias passando\n    (14 casos pegos, 0 falsos positivos, 5 regras provadas).\n  - `npm test` do frontend: 450 de 451 arquivos, 8.774 de 8.775 casos.\n\nA UNICA FALHA E PRE-EXISTENTE E INSTAVEL, e foi investigada antes de ser dispensada.\n`tests/unit/label-tab-helpers.test.js:194` e um teste de propriedade com `fast-check`, ou seja,\nsemente aleatoria. Ele exercita `src/js/tool_manager/helpers/label-tab.helpers.js`, que NAO esta\nneste diff. Rodado isolado cinco vezes seguidas: 5 de 5 passaram. Uma medicao de coisa\nprobabilistica nao e medicao, e por isso a serie esta aqui em vez de um \"deu verde na segunda\".\n\nO QUE NAO FOI VERIFICADO AQUI. A camada e2e do Playwright nao foi rodada nesta sessao. A evidencia\ndela esta no proprio `PENDENCIA-LINK-DE-COMPARTILHAMENTO.md`, que reporta 4 de 4 em\n`frontend/tests/e2e-ui/deep-link.spec.js` com backend e Postgres reais, medido pela sessao autora.\nQuem for continuar este trabalho confira essa perna de novo, porque relatorio de outra sessao e\nponteiro, nao fonte.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0771d4b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0771d4b39d1ca8e19eda267cc2f858377fa4a6b5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-26T20:08:05.000Z",
+      "author": "Maj Diniz",
+      "message": "as bancadas de concorrencia acham o teto, e o que quebra nao e a quantidade de usuarios: e a concentracao deles numa sala\n\nDez cenarios novos em `backend/tests/bench/`, em duas familias. E1 a E7 medem o caminho de\nescrita, com um processo de driver e carga em forma de requisicao. E8 a E10 medem populacao, com\nvarios processos de driver, carga em forma de QUADRO, tudo por WebSocket, e cursor junto. So a\nsegunda familia enxerga o fan-out, e e nela que o sistema quebra.\n\nO NUMERO QUE RESUME. Dois cenarios com os MESMOS mil sockets e taxa de escrita parecida: mil\nusuarios em 264 salas, com uma sala de cem, dao ack mediano de 39.606 ms, 145 sockets derrubados e\nnove das dez conexoes do pool esperando no advisory lock. Quinhentas duplas, escrevendo MAIS\n(661,7 contra 618,8 ops/s), dao ack de 12 ms e zero derrubados. A diferenca e o tamanho da maior\nsala.\n\nA CAPACIDADE, medida. Cinquenta pessoas por sala e mil sockets por processo. Em cem pessoas o ack\nsai de 11 ms para 80 segundos NO MESMO DEGRAU, e as tres reguas (perda de cursor, atraso de\nentrega, socket derrubado) quebram juntas. Nao ha degradacao suave: o descarte de presenca so age\nquando o `bufferedAmount` ja estourou, e a essa altura as ops duraveis ja estao na fila atras dele.\nA contrapressao protege a memoria do servidor, nao a latencia do usuario.\n\nO QUE AS BANCADAS PROVARAM DO LADO BOM, e nao e pouco: o advisory lock cumpre o que o comentario\ndele promete (40.000 ops, oito escritores, cursor incremental sem perder uma), o rollback e limpo\nnos dois caminhos, a idempotencia absorve 800 reenvios sem duplicar, a convergencia LWW nao diverge\nsob contenda, e o ledger nao degrada de 8 mil a 40 mil linhas. Nenhuma op foi perdida em nenhuma\nrodada valida.\n\nTRES LICOES DE INSTRUMENTO, cada uma paga com uma tabela que parecia resultado:\n\n  1. O DRIVER ERA O GARGALO E A BANCADA NAO SABIA. A primeira rodada de mil usuarios acusou ackP95\n     de 41 s e 191 sockets perdidos, com o servidor ocioso. Eram seis processos de driver com 167\n     sockets cada. Agora cada driver mede o proprio laco e a rodada se declara SATURADO em vez de\n     publicar. Regra medida: cerca de 70 sockets por processo de driver.\n\n  2. ATRASO DO LACO NAO E OCUPACAO DO LACO. `monitorEventLoopDelay` mede BLOQUEIO. Um laco que\n     processa trinta mil mensagens curtas por segundo nunca bloqueia, e o histograma marca 16 ms\n     enquanto o processo queima um nucleo inteiro. Demonstrado em bancada sintetica: 84,8% de\n     ocupacao com p99 de 16 ms. `eventLoopUtilization` foi acrescentado ao lado.\n\n  3. O VERIFICADOR PRECISA DE UM CAMINHO INDEPENDENTE. Foi `process.cpuUsage()`, que vem do sistema\n     operacional e nao compartilha linhagem com a libuv, que desmentiu a ocupacao do laco: 0,1% de\n     ocupacao contra 99,6% de um nucleo, dois tercos em tempo de SISTEMA. O custo esta no numero de\n     escritas em socket, nao no JavaScript, e isso muda qual otimizacao vale a pena.\n\nA bancada REPROVA, e nao so cronometra. Toda rodada compara o que o servidor disse com o que o\nledger tem, numa conexao nova: op com ack tem de estar gravada, op sem veredito tem de estar\nausente, op recusada tem de estar ausente, e o cursor incremental tem de ter visto tudo que\ncommitou. Latencia e descritiva; perda de dado sai com codigo 1.\n\n`DIAGNOSTICO-DE-CARGA.md` na raiz consolida o diagnostico, oito problemas com classe de evidencia\ndeclarada (medido, lido, inferencia) e um plano de execucao em sete grupos, cada um com bancada,\nnumero de partida e ALVO declarado antes de mexer no codigo.\n\nVERIFICADO: `npm run lint` e `npm test` do backend, com banco dedicado. 0 falhas, cobertura 98,26%.\nAs bancadas nao entram na suite (`*.bench.mjs` nao casa com `tests/**/*.test.js`) e nao tocam\n`src/`. Nenhum parametro de producao foi alterado nesta mudanca.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bead286",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bead28655d968e06cc5f845855983a6c2dd47a08",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
