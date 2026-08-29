@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-29T15:00:28.112Z",
+  "lastUpdate": "2026-08-29T18:22:16.378Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-28T21:27:31.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-29T17:08:41.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T14:05:19.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T18:20:06.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6288,
+    "totalCommits": 6294,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1108,
+      "1cgeo/ebgeo_web": 1112,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,67 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 648,
+      "1cgeo/chefe_dgeo": 650,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T18:20:06.000Z",
+      "author": "Maj Diniz",
+      "message": "a fase 5 e RECUSADA por medicao, e o as-built das quatro anteriores fica registrado\n\nO gate por recurso no tile esta feito e medido. A seccao (f) de PENDENCIA-TILE-PRIVADO.md\nganha o ESTADO no topo, antes das decisoes, porque sem ele a leitura mais provavel daqui a\num mes e \"isto tudo e plano\".\n\nA FASE 5 (proxy_cache da subrequisicao) NAO FOI FEITA, e a recusa e medida:\ndev/tile-privado/scripts/mede-custo-do-gate.sh, 5 rodadas de 200 pedidos com conexao\nreusada.\n\n  piso (rota sem gate de tile) ....... 1130 us/pedido\n  tile PUBLICO ....................... 1135 us/pedido   (+5)\n  tile PRIVADO por COOKIE ............ 1130 us/pedido   (0)\n  tile PRIVADO por CHAVE DE API ...... 1610 us/pedido   (+480)\n\nO gate custa ZERO mensuravel: o indice em memoria e o memo de decisao fazem o trabalho, e\nas faixas do publico e do cookie se sobrepoem a do piso. O QUE CUSTA E A CHAVE DE API, e\nnao o gate -- `FIND_USER_BY_API_KEY` e uma consulta ao banco POR REQUISICAO dentro do\n`flexibleAuth`, e nao e memoizada, enquanto o JWT do cookie e verificado por assinatura,\nsem I/O. Um cache na subrequisicao compraria atraso de revogacao em troca de um ganho que\na medicao nao acha. Se o volume apertar, o alvo indicado pela tabela e outro: memoizar a\nresolucao da CHAVE.\n\nA PRIMEIRA MEDICAO FOI JOGADA FORA, e o motivo esta escrito no proprio medidor: ela\nlancava um processo de curl por pedido, e o PISO saiu em 35 ms/pedido -- o custo de criar\nprocesso no Windows, nao o do servidor. Nela o tile publico chegou a medir MENOS que o\npiso, que e o sinal de que o instrumento dominava o sujeito.\n\nDUAS CORRECOES DE DOCUMENTACAO, pegas pelo docs-integridade:\n  - minha: o texto novo citava `assetLiberado`, que renomeei para `recursoPrivadoLiberado`\n    na fase 2;\n  - do commit 5780c09c (trabalho paralelo): a decisao que DESCREVE a remocao do\n    `getPhotoImage` e do `getPhotoImageMeta` os citava entre crases, e crase promete codigo\n    que existe. Tirei so as crases, sem tocar no sentido -- o guarda estava vermelho para\n    todo mundo.\n\nVerificacao: docs-integridade verde (10 casos) e npm test do frontend verde (454 arquivos,\n8785 casos), lidos sem pipe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "639b514",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/639b514f8816d2486ef49232c18e9ea2b11a8d1f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T18:08:08.000Z",
+      "author": "Maj Diniz",
+      "message": "o token de sessao passa a viajar em cookie, e o cookie nao autoriza escrita (fase 4)\n\nFase 4 da seccao (f) de PENDENCIA-TILE-PRIVADO.md. O login e o refresh passam a emitir o\ncookie `token` com o MESMO JWT (sem credencial nova, que foi a escolha explicita do dono),\ne o logout passa a apaga-lo.\n\nPOR QUE. Ha pedidos que o NAVEGADOR faz e que nao aceitam cabecalho nenhum: o tile do\nMapLibre, o `img.src` de uma cena 3D, o `<video src>` de uma previa. Sem cookie, a unica\ncredencial que os alcanca e a chave de API na URL, que e portadora, permanente ate a\nrotacao, e aparece no log de acesso do nginx e no `Referer` de tudo o que a pagina\ncarregar depois.\n\nO GANHO MEDIDO, e ele fecha o ultimo defeito do caso 3: a foto de item da cena indoor\ncarrega com o cookie e recusa sem credencial. Aquele caso passou de \"1 porta fechada\nTAMBEM para quem tem direito\" para ZERO. As quatro conferencias de protecao agora somam\n165 casos e nenhum defeito.\n\nA PONTA SOLTA, FECHADA NO MESMO COMMIT. O `auth` estrito reusa o `req.user` que o\n`flexibleAuth` populou, e o `flexibleAuth` le o cookie -- entao emitir o cookie abriria as\n87 rotas de escrita a CSRF. Duas mudancas:\n  - `flexibleAuth` passa a distinguir a ORIGEM do JWT (`authVia` era `'jwt'` para cookie e\n    cabecalho indistintamente; agora e `'cookie'` ou `'bearer'`). Nenhum consumidor\n    comparava `'jwt'`, entao o vocabulario ficou mais informativo sem quebrar ninguem.\n  - o `auth` estrito recusa principal vindo de cookie NOS METODOS QUE ESCREVEM.\n\nA PROPORCAO FOI UM ERRO MEU, CORRIGIDO PELOS TESTES. A primeira versao recusava cookie em\nTODA rota estrita, e onze casos ficaram vermelhos apontando isso -- entre eles\n`GET /auth/me` por cookie, que ja funcionava antes porque a renovacao deslizante emitia o\ncookie. CSRF e problema de ESCRITA: uma leitura cross-site ate sai com o cookie, mas o\nCORS impede o atacante de LER a resposta. A lista e de metodos SEGUROS, nao de inseguros,\npara que um verbo novo caia no ramo restritivo por construcao.\n\nO que decidiu o desenho veio de tres apuracoes paralelas: 94 rotas de escrita, 87 com\n`auth` estrito, 7 pre-sessao e ZERO sob `flexibleAuth` sozinho; CINCO delas aceitam\nmultipart, que e Content-Type CORS-simples e portanto postavel cross-site SEM preflight --\nsao elas que uma defesa baseada so em preflight nao alcancaria; e o bundle vendorizado do\nMapLibre sustenta, elo a elo, que o tile same-origin leva o cookie sem uma linha de\ncliente.\n\n`env.clearCookieOptions()` nasceu porque o segundo ponto de limpeza apareceu: a mesma\nregra (as opcoes da emissao menos `maxAge`) estava para virar copia.\n\nO QUE FICA DECLARADO, no cabecalho da conferencia do caso 3: o VISITANTE DE LINK PUBLICO\nnao ganha cookie. O token dele e efemero e mora so em memoria por contrato do cliente, e\num cookie para ele seria pior -- cookie e por navegador, nao por aba, e sobrescreveria a\nsessao de quem estivesse logado noutra aba.\n\nVerificacao: lint exit 0 e `npm test` do backend COMPLETO verde (3943 casos, piso de\ncobertura em 97,8%), lido sem pipe. Controle negativo rodado: desligada a amarra, caem\nexatamente os 3 casos que a medem; restaurada, os 9 passam. As seis conferencias do\nambiente em serie, 165 ok e zero problema.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "1164c31",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1164c31568a2ef91d5843978a8869715b7873308",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T17:27:56.000Z",
+      "author": "Maj Diniz",
+      "message": "o tile passa a ser gateado POR RECURSO, e o publico volta a sair sem credencial\n\nFases 2 e 3 da seccao (f) de PENDENCIA-TILE-PRIVADO.md. O `auth_request` deixa de\nresponder so sobre a credencial: ele recebe o caminho pedido em X-Original-URI, resolve\ncontra o indice de catalogo da fase 1 e decide.\n\nOS QUATRO DESFECHOS, e a ordem entre eles e o desenho:\n  caminho que NENHUMA linha reivindica -> 401 (decisao 4, que INVERTE a regra do irmao do\n    3D: la o nao reivindicado e publico, e la isso e seguro porque o Node serve o acervo\n    inteiro; aqui o endereco e texto livre digitado a mao e serao centenas de camadas,\n    entao um erro de digitacao numa linha privada publicaria os bytes em silencio);\n  linha PUBLICA -> 200 SEM CREDENCIAL NENHUMA (decisao 5, e e ela que devolve o produto:\n    o visitante anonimo volta a ver camada de dados e o tile publico volta a ser cacheavel\n    na borda);\n  linha privada sem principal -> 401;\n  linha privada com principal -> o MESMO fn_can_see_resource do resto do acervo.\n\nO `location` do ambiente parou de exigir chave de todo mundo, que era o que fechava o\nvazamento e apagava o mapa de quem nao tem login.\n\nCUSTO: zero consulta no caminho publico. O regime sai do indice em memoria e a decisao do\nprivado e memoizada por (chamador, emprestimo, recurso) -- o mesmo memo do 3D, reusado, e\npor isso `assetLiberado` virou `recursoPrivadoLiberado`: ela nunca foi sobre asset.\n\nTRES DEFEITOS MEUS, PEGOS PELOS TESTES, e os tres falhariam CALADOS:\n  1. O `fileoverview` do tile-regime.js prometia que a invalidacao estava pendurada em\n     invalidateAppConfigCache, e eu nao a tinha ligado. Sem isso, uma camada recem-marcada\n     privada seguiria publica pelo TTL de 60 s.\n  2. O runner de teste monta o env EXPLICITAMENTE e nao le .env.test; a base dos tiles\n     posta la ficava inocua com aparencia de configurada. Foi para scripts/run-tests.js.\n  3. O prefixo NU (`/tiles`, sem barra) nao era recortado e virava um caminho que nunca\n     casaria.\n\nE DOIS CASOS DE TESTE QUE INVERTERAM DE SINAL, com o porque escrito ao lado: a sessao JWT\nagora E credencial valida aqui (decisao 3 tira a chave portadora do caminho do navegador),\ne chave morta medida contra camada PUBLICA passou a devolver 200 por desenho -- as amarras\nso se medem onde a credencial e consultada.\n\nVERIFICACAO. Backend: lint exit 0, unit 818 e integration 2857, tudo verde e lido sem pipe.\nAmbiente: as cinco conferencias em serie, 150 casos ok e zero problema. O alvo escrito\nANTES do codigo (confere-gate-por-recurso.sh) saiu de 12 pendentes para 24/24, e o caso 4\navisou sozinho que os dois DEFEITO dele tinham deixado de reproduzir -- que e exatamente o\nque a funcao `defeito` existe para fazer.\n\nUma conferencia foi corrigida por causa de trabalho paralelo, nao meu: o commit 5780c09c\nremoveu a rota /photos/:uuid/image (o 360 virou tiles-only), entao a porta dos bytes da\nfoto saiu de confere-360-servico.sh com o motivo escrito.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "271c851",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/271c851a9c8a0b481158ee23cadf20d0bc48e75c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-29T17:08:41.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-29: o self-evolution do Hermes e no-op, e eu apaguei a chave viva do skillOverrides\n\nAnalise dos commits recentes do NousResearch/hermes-agent com quatro agentes.\nO GEPA fecha como avaliado e descartado: o repo hermes-agent-self-evolution tem\n8 commits, 4 dos 5 pacotes sao placeholder, e evolve_skill.py:183 le um atributo\nque o DSPy nunca muta, entao a skill \"evoluida\" e o baseline.\n\nAdotado: guarda de orcamento da listagem no lint_skills.py (cobra o teto nativo\nde 8000 com codigo de saida); o invariante de rollback no contrato-de-pronto;\n\"o filho nao escreve em memoria duravel\" no subagentes; rodadas de fronteira no\nplanejar-mudanca-sistema; \"tentativa nao resolvida nao vira metodo\" na lista\nnegativa; e o ancoras_sessao.py, piloto do eval de recall.\n\nDois erros meus, os dois corrigidos por medida e registrados:\n1. Abri o relatorio somando as descriptions a mao (41.525 chars) sem ler a\n   wiki/contexto-do-agente, que documenta o skillOverrides desde 2026-07-26.\n2. Chamei de entrada podre a chave `nome-da-skill` e a apaguei. Ela era a VIVA:\n   o skillOverrides casa pelo `name:` do frontmatter, e o _TEMPLATE declara esse\n   nome. Restaurada. O que pegou o erro foi a discordancia entre dois numeros\n   (7435 contra 6555), e o conserto foi extrair custo_da_listagem() como funcao\n   unica que a guarda importa, para as duas nao poderem mais divergir.\n\nListagem em 7435 chars, 92,9% do teto, folga de 565. MEMORY.md a 79,1%.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hgez6MD45KvNq9RWUXf5Mi",
+      "sha": "72c63e7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/72c63e7081e4f041fd8ee3218f30b8edfd8238ab",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T16:58:33.000Z",
+      "author": "Maj Diniz",
+      "message": "o 360 vira tiles-only e converge com o ebgeo_360: arquivo por slug, images.db e colunas inertes fora\n\nA images.db de blob full/preview sai inteira. A rota GET /photos/:uuid/image,\ngetPhotoImage, getPhotoImageMeta, GET_PHOTO_SIZES e blobstore.getImage foram\nremovidos; o unico arquivo de pixel no disco passou a ser o {slug}_tiles.db. A\ningestao (online e o ETL offline) instala so o tiles e EXIGE piramide cobrindo\ntoda foto viva (validatePyramidCoverage), sem instalar {slug}.db. O nome do\narquivo virou por SLUG (UNIQUE(slug) no schema, sem prefixo de OM), com\norganization_id mantida como posse. As cinco colunas de calibracao inertes\n(camera_height, distance_scale, marker_scale na foto; override_distance,\noverride_height no alvo) sairam do schema, INSERT, consultas e payload;\noverride_bearing fica. full_size_bytes/preview_size_bytes ficam como metadado\ndormente.\n\nNo frontend, o fallback de imagem inteira (image?quality=preview|full) saiu do\nvisualizador do mapa e do estudio de calibracao: toda foto compoe por tiles, e o\ntile-loader usa o tile de nivel 0 como fundo, sem tocar na rota removida.\n\nFix de producao achado no caminho: liveManifestPhotoIds. A cobertura de piramide\ne a leitura de pos-merge passaram a considerar so foto VIVA, porque foto\ntombstonada em photos[] nao tem pixel e exigi-la recusava bundle sao.\n\nMigracao de teste ampla: ~20 arquivos do 360 religados a tiles (helper\ntests/helpers/sv360-tiles.js), 2 que testavam so a rota de imagem removidos, os\ndois censos de superficie atualizados.\n\nNesta leva tambem: paridade de catalogo/admin do 360 com o 3D (campos de cartao,\ntransferencia de OM, video de previa por envio) da sessao anterior.\n\nVerificacao: backend lint + test verdes (3929), frontend lint + test verdes\n(8785), e2e de contrato verde (181).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tw6vXX6rE15JjTSsZCx3RJ",
+      "sha": "5780c09",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5780c09c3a29cf193d566accaa917c697a8e7f90",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-29T16:52:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-29: o veto militar decide-se pela aplicacao, e o feed do github datava a edicao\n\nRadar semanal com fan-out por familia: 13 fontes, 331 candidatos, nenhuma falha.\n\nA regua do chefe: clausula de veto militar nao reprova insumo sozinha. Quem\ndecide e a APLICACAO, e o 1 CGEO e orgao de mapeamento nacional alem de OM.\nVale para DINOv3, SAM License e OlmoEarth. NC, ShareAlike e ODbL seguem\nreprovando, por contaminarem o produto, que e outro mecanismo.\n\nConferi a clausula ITAR do DINOv3 no texto literal, e \"DINO Materials\" alcanca\no peso treinado. Recorte: o repo do Hugging Face esta gated e devolveu 401, a\nleitura saiu do repositorio oficial da Meta.\n\nDefeito do proprio instrumento, consertado: o releases.atom do github nao traz\n<published>, so <updated>, e o radar mostrava a data da ULTIMA EDICAO como se\nfosse a da publicacao. Deriva medida de seis meses no torchgeo v0.9.0. O\np_atom agora grava data_tipo e o relatorio rotula \"(editado)\". Provado nas duas\npontas: 10 de 10 editado no github, 5 de 5 publicado no arxiv.\n\nTres investigacoes profundas. KISS-GS: o 228x e contra PLY bruto, e o .sog da\ncasa JA e WebP; medi a composicao do modelo do museu e o teto de qualquer\nrecodificacao e 2,4x. DisasterM3: era copia de terceiro, tarefa de dano e nao\nde carta, zero cobertura sul-americana. worldstrat-agrisr: licenca DIVIDIDA\n(SPOT e NC, Sentinel-2 e CC-BY), serve como validacao externa e nao como\ntreino, com 34 tiles de Agricultura na America do Sul.\n\nAprendizados: createdAt nao protege contra copia de terceiro; a etiqueta de\nlicenca do HF e do repositorio e nunca decide veredito; conferir por\namostragem pegou um filho lendo a coluna de um arquivo no outro.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PdGpGzMdNdWwEwnNLUXUo8",
+      "sha": "29f9aab",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/29f9aab16f594c80f67dc82bfc9880a23655ee9b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-29T14:05:19.000Z",
