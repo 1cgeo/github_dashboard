@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-29T18:22:16.378Z",
+  "lastUpdate": "2026-08-29T22:32:00.487Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-29T17:08:41.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-29T18:22:27.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T18:20:06.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T21:02:07.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6294,
+    "totalCommits": 6302,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1112,
+      "1cgeo/ebgeo_web": 1119,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 650,
+      "1cgeo/chefe_dgeo": 651,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T21:02:07.000Z",
+      "author": "Maj Diniz",
+      "message": "o documento de trabalho do tile privado vira pagina de wiki, e sai da raiz\n\nPENDENCIA-TILE-PRIVADO.md nasceu em 2026-08-20 como apuracao de um defeito e cresceu ate\ncarregar cinco decisoes, um plano de cinco fases e o as-built delas. O trabalho fechou:\no que sobrevive e conhecimento, e conhecimento mora na wiki.\n\n`docs/wiki/tile-privado.md` guarda o que o codigo NAO entrega, que e o criterio da casa:\npor que esta e a unica superficie de recurso privado em que o predicado nao cabe na\nconsulta; as tres coisas que nao se deduzem lendo o gate (o caminho nao reivindicado ser\nRECUSADO, invertendo a regra do irmao do 3D; a linha privada vencer na colisao; e a\nsubrequisicao do auth_request nao levar a query, que faz o gate falhar fechado e PARECER\ncerto); os tres transportes de credencial e o que cada um alcanca; e o custo medido.\n\nSaiu tudo o que era processo: a comparacao das cinco opcoes com a recomendacao superada, a\nlista de fases com o que ja foi feito, e o historico de quem decidiu o que quando. Isso\nvive no diario de decisoes, que e o lugar datado.\n\nAS 21 CITACOES FORAM REAPONTADAS ANTES DE O ARQUIVO SUMIR, em 15 arquivos: constituicao,\nmemoria, livro-razao, diario, seis modulos e testes do backend e quatro pecas do ambiente.\nUma armadilha no caminho: varias diziam \"seccao (f) de ...\", e a pagina nao tem seccao\n(f) -- citar uma seccao inexistente e a podridao que o guarda de doc NAO pega, porque ele\nvalida caminho, link e simbolo, nunca ancora interna.\n\nA CONSTITUICAO MUDOU DE CONTEUDO, e nao so de link. A 10.1 descrevia o DEFEITO (\"os bytes\ndo tile privado nao passam por gate\") e passou a descrever a REGRA, com o estado movido de\n[pendente] para [em obra]: o que falta agora e a sonda com data no deploy e o 422 da linha\nde terceiro. A lista de clausulas abertas foi ajustada junto, que e o que o censo cobra.\n\nVerificacao: docs-integridade e constituicao-estado-das-clausulas verdes (16 casos) DEPOIS\nda remocao do arquivo; lint da raiz exit 0; frontend verde (8800 casos); backend unit verde\n(818). No backend so mudaram comentarios, conferido por diff filtrado. Zero citacao orfa\nao arquivo removido, tirando o comentario historico que registra por que ele saiu da lista\nde alvos do guarda.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "48c8876",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/48c887649af30207c1c5e7e2583f571a7ce4d89a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T19:40:11.000Z",
+      "author": "Maj Diniz",
+      "message": "tira o botao \"Previa\" do cartao do catalogo geral e atualiza a documentacao do 360\n\nO botao \"Previa\" saiu do cartao do catalogo geral do ebgeo (catalog-card.js), a\npedido do dono. Escopo: so o botao do cartao, nao a tela de admin. O ENVIO no\npainel, o dado `previewVideo` que `catalog.service.js` carrega e o modal\n`preview-video.modal.js` FICAM; o botao era o unico que abria o modal, entao ele\nficou sem chamador em src, preservado para um eventual retorno. Sairam junto o\nimport de `abrirPreviaDeVideo` e o icone PLAY, so usado por ele. O teste passou a\nafirmar a AUSENCIA do botao, mantendo os testes do envio e do dado.\n\nDocumentacao atualizada com as mudancas da sessao (tiles-only + nome por slug +\nbotao de previa):\n- `streetview-360.md` e `ingestao-projetos-360.md` ganharam nota no topo: pixel so\n  por tile, images.db e rota de imagem removidas, `db_filename` por SLUG (sem prefixo\n  de OM), `UNIQUE(slug)` global. Os trechos que descrevem o mundo com imagem inteira\n  ou `{orgId}__{slug}.db` ficam marcados como historicos.\n- `resources-catalogo.md`: o botao \"Previa\" do cartao saiu; envio, dado e modal ficam.\n- decisao registrada em `decisions-2026.md` e indice `DECISIONS.md` reconciliado (60/60).\n\nVerificacao: frontend lint + test verdes (8800, docs-integridade incluso), backend\nja verde (3950).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tw6vXX6rE15JjTSsZCx3RJ",
+      "sha": "7ce7187",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7ce7187f708cf0b6231f81767a1d6300c899b3c8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T19:37:39.000Z",
+      "author": "Maj Diniz",
+      "message": "o dono passa a ver o que o link publico expoe, e a amarra do cookie para de derrubar a escrita\n\nFecha a clausula 6.6, que nasceu ha poucas horas com tres itens e nenhum feito. O\nemprestimo do atlas alcanca o visitante do link (6.3, reexaminada e MANTIDA), e o que\nfaltava era o CONSENTIMENTO: um emprestimo e invisivel para quem publica.\n\nOS TRES ITENS:\n  1. `GET /atlas/:atlasId/resources` passou a devolver `name` e `access_level` por item,\n     numa consulta so (UNION das cinco tabelas). O emprestimo ORFAO nao some da lista: ele\n     volta com os dois campos nulos, porque sumir esconderia um vinculo vivo, que e o\n     oposto do que a clausula quer.\n  2. O modal de compartilhamento nomeia os itens privados, num aviso que aparece ANTES do\n     link e independe de ele estar ligado -- quem vai LIGAR e justamente quem ainda nao\n     sabe o que esta prestes a expor. As frases moram num modulo FOLHA\n     (`link-publico-phrases.js`), como os outros da casa.\n  3. (commit anterior) o carimbo de credencial no tile, sem o qual o visitante nao veria o\n     que a decisao diz que ele ve.\n\nUM DEFEITO GRAVE MEU, PEGO PELA CAPTURA DE UI E NAO PELA SUITE. A amarra de CSRF da fase 4\nolhava `authVia === 'cookie'`, e o `flexibleAuth` le o cookie ANTES do Bearer: o cliente\nlogado manda `Authorization` E carrega o cookie (mesma origem, o navegador o envia\nsozinho), entao `authVia` era `'cookie'` em TODA requisicao do app e TODA escrita de TODO\nusuario respondia 401. A suite passava porque cada caso mandava UMA credencial por vez; a\ncaptura, que exercita o navegador de verdade, tomou 401 no `POST /atlas`.\n\nA CORRECAO NAO MEXE NA PRECEDENCIA, que e caracterizada em teste: `flexibleAuth` passou a\nregistrar a PRESENCA do cabecalho (`req.temBearer`) a parte de quem RESOLVEU, e a amarra\nolha isso. O que autoriza a escrita e a presenca do Bearer, e nao a ausencia do cookie: um\nformulario de outro site nao consegue por um cabecalho `Authorization` (exige preflight,\nque o CORS recusa), entao a presenca dele e prova de que o pedido veio de codigo que TEM o\ntoken. O caso do par cookie+bearer entrou na suite.\n\nVerificacao: lint da raiz exit 0; `npm test` do backend COMPLETO verde (3951 casos, piso de\ncobertura); frontend verde (455 arquivos, 8800 casos); e a captura de Playwright rodada\ncontra o ambiente Docker, com o RELATO ao lado (titulo, contagem e texto dos itens) e a\nimagem LIDA: o aviso nomeia os dois privados, ignora a publica, e aparece com o link ainda\ndesligado. A spec temporaria foi apagada, como manda a casa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "bda375f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bda375fe1e4caed19cc9f4ba141a51eb7af29ff3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T19:28:10.000Z",
+      "author": "Maj Diniz",
+      "message": "poda o ultimo junk do tiles-only na calibracao: loadProgressive por photoId, sem montar URLs de imagem\n\nA calibracao montava duas URLs de imagem via `getPhotoImageUrl` so para o\n`loadProgressive` extrair o uuid de volta delas (`uuidDaUrlDeImagem`). A assinatura\npassou a `loadProgressive(photoId)`, e sairam junto: `uuidDaUrlDeImagem`, o\n`loadPanorama` legado (export sem importador, unico caller era o fallback ja\nremovido), o `textureLoader` que so ele usava, e o `getPhotoImageUrl` do\n`calibration/api.js`, sem chamador em src depois disto.\n\nO `project-map.js` tinha o mesmo padrao tiles-first na miniatura: o `try` monta o\ntile de nivel 0 e o `catch` caia para `image?quality=preview`. O fallback saiu; sem\npiramide a miniatura fica sem `src` em vez de pedir uma rota que da 404.\n\nAs assercoes de teste que exercitavam as duas `getPhotoImageUrl` (mapa e calibracao)\nsairam; o carimbo de `?atlasId=` na foto segue coberto pela `sv360ReadUrl` do\ndescritor e do tile.\n\nVerificacao: frontend lint + test verdes (8800), backend ja verde (3950).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tw6vXX6rE15JjTSsZCx3RJ",
+      "sha": "6de2bb8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6de2bb8c4e28b29c480b3fec0feb9323cda770f3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T19:15:23.000Z",
+      "author": "Maj Diniz",
+      "message": "poda o codigo morto do tiles-only: o `base` do descritor e o getPhotoImageUrl do visualizador\n\nO descritor `tiles.json` emitia `base: 'image?quality=preview'`, apontando para a\nrota de imagem inteira que o tiles-only removeu: referencia morta a um 404, que o\ncaminho padrao do cliente (fundo por tile de nivel 0) nunca tocou. O campo saiu, e\no teste que o afirmava passou a afirmar a ausencia.\n\n`getPhotoImageUrl` do `street_view_tool/streetview-api.service.js` ficou sem\nchamador em src depois que o fallback de imagem saiu do visualizador. A funcao e as\nduas assercoes de teste que a exercitavam (a URL do full como destino do fallback,\ne o carimbo de atlas na URL de imagem) foram removidas; o carimbo de `?atlasId=` na\nfoto segue coberto pela `sv360ReadUrl` do descritor e do tile.\n\nVerificacao: backend lint + test verdes (3950), frontend lint + test verdes (8790).\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tw6vXX6rE15JjTSsZCx3RJ",
+      "sha": "0267316",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0267316cbfd4d5ea771bc41dab205ca12854e757",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T18:52:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o carimbo de credencial no tile deixa de ser so do 360 e passa a cobrir o servidor de tiles\n\nItem 3 da clausula 6.6. Sem ele a 6.3 fica escrita e nao vale na tela: o emprestimo do\natlas alcanca o visitante de link publico, mas o token dele e EFEMERO e mora so em memoria\n(por contrato do cliente), entao ele nao tem cookie e nao veria a camada privada que o\natlas lhe empresta.\n\n`frontend/src/js/map/credencial-de-tile.js` generaliza o antigo `sv360TransformRequest`:\nduas bases credenciadas (o servico 360 e o servidor de tiles, as duas lidas do\n`/api/config`), uma regra so. A comparacao continua sendo por ORIGEM e por FRONTEIRA DE\nCAMINHO, nunca por prefixo de string -- com o servico em `https://tiles.example.mil.br/tiles`,\num `startsWith` casaria `https://tiles.example.mil.br.evil.com/tiles` e mandaria o token do\nusuario para o atacante.\n\nO CARIMBO ANTIGO FOI REMOVIDO, nao duplicado: `sv360TransformRequest`, `isSv360Url` e\n`sv360Base` sairam, e os dois sitios que os montavam (o mapa principal e o minimapa do 360)\npassaram ao novo. Duas definicoes da mesma regra foi o defeito que mais me custou nesta\nsessao.\n\nO TESTE FOI MIGRADO INTEIRO, e nao reescrito: os 13 casos existentes valem tal e qual,\nporque a licao deles nunca foi sobre o 360 e sim sobre COMO se compara uma URL (os dois\npredicados ingenuos que eles reprovam sao o prefixo de origem e o prefixo de base). Mais\nsete casos novos para a segunda base, entre eles o vizinho textual `/tilesextra`, o host de\nterceiro que comeca igual, o par que prova que as DUAS bases valem ao mesmo tempo, e a\nfalha FECHADA quando a base nao esta configurada -- este ultimo e a guarda contra os\noutros passarem por vacuidade.\n\nO QUE ELE NAO ALCANCA, e fica dito no cabecalho: `img.src` e `<video src>`. Nao ha API que\ncarimbe cabecalho neles, e por isso o cookie continua sendo o transporte da foto de item da\ncena indoor. Para o visitante de link publico, que nao tem cookie, aquelas fotos seguem sem\ndesenhar.\n\nVerificacao: lint da raiz exit 0, suite do frontend verde (454 arquivos, 8792 casos), e as\nseis conferencias do ambiente em serie contra o `dist` reconstruido: 168 casos, zero\nproblema.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "e54e675",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e54e6756cd17c4883e8cd06670617e3e31207e5a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T18:42:41.000Z",
+      "author": "Maj Diniz",
+      "message": "o emprestimo ao visitante de link publico e MANTIDO, e o que falta vira consentimento\n\nDecisao do dono de 2026-08-29, registrada no diario e na constituicao. Ela nasceu de uma\nproposta que o proprio dono derrubou, e o caminho e o que decide a redacao.\n\nA PROPOSTA ERA restringir o emprestimo a quem tem conta: um visitante deslogado nao\nalcancaria recurso privado. Ela caiu por um argumento simples: o AUTO-CADASTRO E ABERTO,\nentao \"estar logado\" nao e barreira nenhuma, e quem quisesse o recurso criaria uma conta.\n\nO EIXO CERTO NUNCA FOI AUTENTICACAO, E NOMEACAO. Um share nominal significa que alguem com\nautoridade sobre o atlas escolheu aquela pessoa; o link publico e o unico caminho em que\nninguem decidiu quem entra. Postas as tres saidas (manter e avisar; tirar do link publico\nmantendo para os nomeados; acabar com o emprestimo), o dono escolheu MANTER: com aquele\nlink o visitante alcanca o recurso privado emprestado, mesmo deslogado.\n\nO QUE FALTAVA NAO ERA O PREDICADO, ERA O CONSENTIMENTO. Um emprestimo e invisivel na tela\nde quem publica o link, que hoje diz apenas \"qualquer pessoa com o link pode visualizar\neste atlas\". A clausula 6.3 fica VIGENTE e ganha a 6.6, [em obra]: ao ativar o link\npublico, a tela precisa NOMEAR os recursos privados que o atlas empresta.\n\nTres coisas faltam para ela, e nenhuma existe: `GET /api/v1/atlas/:atlasId/resources`\ndevolve o emprestimo sem o nome do recurso e sem o nivel de acesso (medido); o modal de\ncompartilhamento nao tem o aviso; e o `transformRequest` do mapa so reconhece URL do 360,\nentao o token efemero do visitante nao viaja no tile do servidor de tiles, e sem isso a\nclausula fica escrita e nao vale na tela.\n\nTRES GUARDAS ACUSARAM O TEXTO, e os tres estavam certos: o em-dash na prosa (a convencao\npede virgula ou frase separada), a numeracao da clausula nova (`**6.3.1**` nao casa o\nmarcador `^\\*\\*(\\d+\\.\\d+)\\*\\*`, entao o `[em obra]` dela contaminava o corpo da 6.3, que e\nvigente), e a exigencia de declarar a clausula aberta na lista curta.\n\nVerificacao: docs-integridade e constituicao-estado-das-clausulas verdes (16 casos), e a\nsuite do frontend verde, lidos sem pipe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "7ae656d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7ae656d345c13edc03f178b7537da12666a44952",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-29T18:22:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-29: ninguem mediu queda geografica em super-resolucao, e a licenca da OAM nao mora no campo license\n\nPesquisa de implantacao nacional da super-resolucao Planet, do RS para o Brasil.\n\nAchados que viraram memoria:\n- Nao existe estudo que meca queda de super-resolucao de satelite ao trocar de\n  regiao. O Satlas rodou no planeta sem avaliacao fora dos EUA. O analogo mais\n  proximo e o RainShift, e a Amazonia e uma das regioes de teste dele.\n- O escore de fora de dominio vira BANDA do produto, nao relatorio. Sai das\n  ativacoes do proprio passe de super-resolucao, e o Brasil custa ~4,7 h de GPU.\n- Sobreposicao de 25% do lado do ladrilho, e normalizacao por estatistica GLOBAL:\n  normalizar por ladrilho torna a costura impossivel com qualquer aureola.\n- Amazonia e Pantanal, 51,3% do territorio, nao tem ortoimagem aerea aberta de\n  0,3 a 1 m. Medido por duas varreduras independentes. E achado, nao lacuna.\n- Fino demais e PIOR: o lote de 1 m do IBGE exige 4,8x de degradacao contra 63,7x\n  de Salvador a 0,075 m, e por isso e o melhor candidato a proximo lote.\n\nCorrecoes registradas no livro-razao:\n- Li o campo `license` de topo da OpenAerialMap, que vem nulo, e declarei o\n  acervo brasileiro sem licenca. Ela mora em `properties.license`, e ha mosaico\n  municipal em CC-BY 4.0. Terceira vez que licenca sai errada por campo com nome\n  obvio: o gesto virou dump do registro inteiro mais grep, em conventions/fontes.\n- Subagente afirmou ortomosaico PlanetScope no Geobases, que o catalogo nao tem.\n  A amostragem pegou porque conferi justamente o que mais mudava a decisao.\n- O buscador inventou numeros e os atribuiu a um artigo real. Baixei o HTML e\n  nenhum dos cinco aparece. Regra nova em conventions/fontes.md.\n\nNota: PROJECT.md e handoff.md vinham com edicao de sessao paralela nao comitada.\nEntram inteiros porque PROJECT.md referencia secoes que so existem no handoff.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PdGpGzMdNdWwEwnNLUXUo8",
+      "sha": "66dcbd1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/66dcbd1f7fbfe640a042057359df827ffdd0d20c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-29T18:20:06.000Z",
