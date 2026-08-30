@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-29T22:32:00.487Z",
+  "lastUpdate": "2026-08-30T14:46:36.830Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-29T18:22:27.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-30T12:30:12.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T21:02:07.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T23:41:37.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6302,
+    "totalCommits": 6306,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1119,
+      "1cgeo/ebgeo_web": 1120,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,49 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 651,
+      "1cgeo/chefe_dgeo": 654,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-30T12:30:12.000Z",
+      "author": "Maj Diniz",
+      "message": "nucleo: a regua nova se prova contra o PIOR CASO antes de calibrar\n\nRegra nova no CLAUDE.md, secao \"Prova da escrita\", com aval do chefe. Regua,\nfiltro ou metrica nova se prova contra o pior caso que ela existe para pegar,\nANTES de calibrar. Construa o insumo degenerado, confirme que ela reprova, e\nguarde-o como teste. Pergunte o que o filtro descarta, dado que o descarte\nsilencioso costuma incluir justamente o que voce procura.\n\nO que decidiu: a classe `regua-cega` mede 51 eventos em 37 areas no livro-razao,\ne a regra do proprio livro manda subir a doutrina o que atravessa tres ou mais\nareas. O caso desta sessao e o mais nitido: construi uma regua para pegar texto\npicado que nao enxergava texto picado, dentro da sessao em que consertava outra\nregua que reprovava o exemplar.\n\nA linha que ja existia cobria a escrita em SISTEMA. O ponto cego era o\nINSTRUMENTO, que atravessa toda medida do vault: linter de escrita, invariante de\nacervo, regua de desempenho, filtro de amostragem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0186hDLiUjnd6KHEuU2ewUVj",
+      "sha": "c19bbd3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c19bbd39eb8576da424f1f5ffed9afdd4a08e704",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-30T12:19:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-30: o padrao de escrita nasce do corpus do chefe, e a regua nova nascia cega ao picado\n\nO PTS reprovava o autor que mandava imitar: 2,34 violacoes por 100 palavras nos\nartigos do chefe contra 0,28 nos SKILL.md. A causa era o teto de 25 palavras por\nfrase, que reprovava 24,5% da prosa que ele assina. Medido em 104 documentos dele\nde 2016 a 2026, com 81 agentes e 7,0M tokens.\n\nEntra o alvo de DISTRIBUICAO no lugar do teto, com cinco blocos de gesto antes de\numa lista curta de proibicoes. O escrita.md cai de 30.536 para 14.852 bytes.\nNasce o aderencia.py, calibrado por DOCUMENTO e nao pelo agregado, e nove\ncategorias saem do lint_escrita.py por reprovarem o exemplar. Os artigos do chefe\ncaem de 2,34 para 0,14, e o texto sintetico com todos os vicios segue em 12,99.\n\nO deep research (7 dimensoes, 98 achados, 16 agentes) achou quatro defeitos na\nregua que eu acabara de aplicar, e eu confirmei cada um. O pior: ela NAO\nENXERGAVA o texto picado, porque exigia 20 palavras por paragrafo. Tambem\nquebrava na abreviacao militar, o que enviesava contra o chefe e a favor das\nskills. Faltava dispersao, e ela nao estava no hook. Uma acusacao foi refutada\npela minha medida. Entra o desvio-padrao, que a estilometria de 2026 publica como\no eixo discriminante: o chefe da 14,3 e os SKILL.md dao 6,6.\n\nDuas correcoes minhas ficam registradas. A queda do adversativo era artefato de\namostra de tres documentos por ano. E a cota de paragrafo era artefato do proprio\nfiltro: com o instrumento consertado, o paragrafo nao encurtou na era assistida.\n\nDo disler/fixing-smartass-opus-5 entram quatro gestos e tres proibicoes, e\nrecusam-se por medida as proibicoes de ponto e virgula e de analogia. Trocado o\noutputStyle do Claude Code para escrita-dgeo.\n\nO guard pre-commit barrou o primeiro commit e achou um IP interno num artefato\nmeu, citado verbatim de um relatorio de 2017. Removido, e os dois JSON crus\nficaram fora do git.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0186hDLiUjnd6KHEuU2ewUVj",
+      "sha": "081e88e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/081e88ea2bfcf861098bdd4c14a6ef5e824d8263",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-30T00:47:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-29: revisao do vault por 273 agentes, e a propagacao parou dentro da convencao que a impede\n\nDois workflows sobre o vault inteiro, a pedido do chefe. O primeiro auditou por\n12 territorios disjuntos, com dois refutadores adversariais por achado e um\ncritico de completude. O segundo aplicou por 10 editores de arquivos disjuntos,\ncada lote conferido por um leitor que nao escreveu nada.\n\n386 arquivos lidos, 148 achados, 74 sobreviveram (um em cada tres caiu), 99\nconsertos em 61 arquivos. A escrita MELHOROU: 5.677 violacoes para 5.619, taxa\nde 1,50 para 1,48 por 100 palavras, com 502 palavras a mais.\n\nOs 74 eram SETE CLUSTERS, nao 74 itens: RPCMTec de 34 para 33 blocos, o SCO\ndesligado, o auth desacoplado, DSGTools de 205 para 191, `producao_cli` para\n`pit_cli`, marcador de estado congelado e desenho velho ao lado do novo.\n\nO achado de classe: a propagacao parou DENTRO do conventions/fontes.md, cujo\nexemplo de fonte primaria dizia \"o DDL diz 34 blocos, consultada agora\", vencido\ndesde 2026-08-08. Exemplo trabalhado se le como didatica, e por isso escapa.\n\nTres defeitos so a conferencia independente pegou. O pior era invisivel ao\nlinter: um editor converteu em quebra de linha os dois bytes CR LITERAIS do\nenv-guia.md, e o texto que ensinava `tr -d` do retorno de carro passou a ensinar\n`tr -d` de espaco. Restaurado e conferido por `cat -A`.\n\nApagados os dois JSON orfaos da raiz (679 KB, zero citacoes), com o duravel ja\nexternalizado e o bruto recuperavel em 3426852. O 01-Projects/pts-refundacao NAO\nfoi tocado, por estar em sessao paralela. O CLAUDE.md saiu do workflow por ser\nnucleo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hgez6MD45KvNq9RWUXf5Mi",
+      "sha": "cd257f7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cd257f7c6e0be53a0175600acaaacf434b24a955",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-29T23:41:37.000Z",
+      "author": "Maj Diniz",
+      "message": "a documentacao alcanca o cookie e a chave nomeada, e o emprestimo que nao chega ao tile vira clausula aberta\n\nA rodada de escrita depois do gate de tile, conferindo cada afirmacao contra o\ncodigo antes de reescreve-la. A conferencia achou mais desvio do que o roteiro\nprevia, e tres achados sao de codigo, nao de prosa.\n\nO ACHADO NOVO, medido: o emprestimo por atlas NAO alcanca o tile. O ramo de\nemprestimo do predicado depende do atlas em foco, que chega por query, e a\nsubrequisicao do auth_request chega sem query, entao o gate decide sempre com\natlas nulo. Um membro que alcanca a camada so pelo emprestimo ve o item no\npayload aditivo e recebe 401 no tile dela, com ou sem atlasId na URL: a camada\naparece na lista e nao desenha. Isso contradiz a clausula 6.3 exatamente onde\nela mais importa, porque o visitante de link publico alcanca privado SO por\nemprestimo. Aberto como clausula 6.7 [pendente], com o conserto de tres pontas\nnomeado, e a medicao virou caso permanente em confere-martin-nginx.sh.\n\nEle nao foi achado pelas seis conferencias, e o porque e a licao: elas mediam\natlasId INVENTADO, que tem de dar 401, e nunca um emprestimo REAL passando. Um\npar negativo sem o positivo do mesmo eixo passa verde sobre um ramo que nao\nfunciona.\n\nAfirmacoes que estavam falsas e foram corrigidas, cada uma com a data em que\ndeixou de valer: o unico emissor de cookie ser a renovacao deslizante; Node 20\nno cabecalho do backend (o Dockerfile esta em 22 desde que os prebuilds do\nbetter-sqlite3 sumiram para o Node EOL); FIND_USER_BY_API_KEY nao perguntar pela\norganizacao (perguntava desde 2026-08-24); a chave de API ser uma so por conta,\nsem rotulo nem prazo, sem rota de emissao e revogavel so por rotacao (a fase da\n10.7 criou a tabela nomeada); a revogacao em massa ter quatro gatilhos, quando\nsao cinco; o fileoverview de resolveSceneAssets contar o splat entre os\nenderecos que nosso codigo nao busca. A clausula 6.6 fechou como vigente.\n\nDuas armadilhas de verificacao entraram nas regras de teste, as duas medidas\nnesta sessao: duas rodadas do backend na mesma maquina disputam ebgeo_test e o\nvermelho que sai disso se le como regressao (saida por TEST_DB_NAME); e o runner\nmonta o ambiente explicitamente sem ler o .env.test, de modo que variavel posta\nla fica inocua com cara de configurada, que foi o caso de TILE_SERVER_URL, cujo\nmodo de falha e indice vazio recusando tudo.\n\nVerificado: lint da raiz verde nos dois pacotes (com o controle negativo das\nregras proprias), 8800 casos do frontend em 455 arquivos, guardas de\ndocumentacao com controle negativo por caminho e por simbolo, e as seis\nconferencias do ambiente verdes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013r1aF3SwWQt4tEvCB4z2XW",
+      "sha": "3a98310",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a98310116011c1f01be77551437d9f53aa7bc66",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-29T21:02:07.000Z",
