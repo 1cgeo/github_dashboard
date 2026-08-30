@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-30T18:32:18.752Z",
+  "lastUpdate": "2026-08-30T22:33:12.263Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-30T12:30:12.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-30T22:04:02.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-29T23:41:37.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-30T22:10:11.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6306,
+    "totalCommits": 6312,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1120,
+      "1cgeo/ebgeo_web": 1124,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,67 @@
       "1cgeo/github_dashboard": 56,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 654,
+      "1cgeo/chefe_dgeo": 656,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-30T22:10:11.000Z",
+      "author": "Maj Diniz",
+      "message": "relatorio de uso no painel, \"Seus atlas\" volta a navegar, e o indice que as consultas de uso pediam\n\nDuas coisas independentes, tres frentes em paralelo, integracao e verificacao aqui.\n\nRELATORIO DE USO (a ultima camada do plano). `GET /api/v1/uso/resumo` mais a aba Uso,\nso administrador. Nao e instrumentacao nova: e consulta sobre audit_trail, operations,\nusers e atlas.\n\nO CAMPO QUE DECIDE A HONESTIDADE DELE E O `horizonte`, e sao DUAS fontes que limitam\nmetades diferentes: `operations` e PODAVEL (rota de limpeza do administrador), entao um\nrelatorio de 90 dias pode estar medindo 20 sem avisar; `audit_trail` nao e podada.\n`operacoesDesde` alcanca a producao, o ranking, \"Produziram\" e \"Com edicao\";\n`trilhaDesde` alcanca SO \"Entraram\"; e tres numeros nao tem horizonte nenhum (contas\nnovas, atlas criados e excluidos saem de users/atlas por data propria). O aviso NAO\nafirma causa, porque instalacao jovem e historico apagado sao indistinguiveis daqui, e\nele e desenhado FORA do corpo, para sobreviver ao estado vazio — que e quando um\nhistorico apagado por inteiro cai. `null` no horizonte NAO e \"esta coberto\": tabela\nvazia hoje nao prova que sempre esteve, e `desde < null` e false em JS.\n\nO regime de cada metrica e CAMPO (`HOJE|PERIODO`), nao frase escrita a mao em oito\nladrilhos: rotular um estoque acumulado como se fosse do periodo infla o numero sem\nparecer defeito.\n\nINDICE (decisao minha, a partir da medicao do agente): quatro consultas do resumo caiam\nem Seq Scan em `operations`, a tabela que mais cresce, porque o indice existente e\ncomposto com `atlas_id` na frente e o relatorio pergunta pelo periodo SEM atlas.\nMigracao 015, com as medicoes e o custo do lock no cabecalho.\n\n\"SEUS ATLAS\" VOLTA A NAVEGAR para atlas.html, a pedido do dono (\"não gosto desse modal\ndo seu atlas\"). O modal de troca ao vivo, o CSS dele e o teste dele foram PODADOS (1240\nlinhas), com prova de que nada mais os alcancava. `switchAtlas` FICA: ela tem outro\nconsumidor, o gancho de medicao sem interface. Decisao registrada em\ndocs/decisions/decisions-2026.md.\n\nO QUE EU CORRIGI NA INTEGRACAO, e os tres vieram de olhar a tela ou o codigo, nao de\nrelatorio: (1) `instanteDe` estava DUPLICADA byte a byte nas duas abas — 13 linhas com\nquatro ramos de parsing, o tipo de peca que diverge sem ninguem notar — e virou\n`admin/instante.js`; as outras \"gemeas\" NAO sao iguais e ficaram separadas de\nproposito, porque fundir funcao PARECIDA e como se cria defeito acreditando remover\nduplicacao. (2) Um erro de concordancia numa string de interface (\"o numero ... MOSTRAM\"),\nvisto na captura de tela; a frase passou a ter sujeito FIXO, que e a forma que a funcao\nirma ja usava e que impede a proxima entrada da lista de sair agramatical em silencio.\n(3) A wiki, que ainda dizia que o relatorio de uso nao existia.\n\nVERIFICADO depois da ultima escrita: lint limpo, frontend 8961, backend 4077 com o piso\nde cobertura, e2e de contrato 181, e captura do Playwright lida em imagem (a aba Uso\ndesenhando, com os dois avisos de horizonte, e \"Seus atlas\" caindo na pagina de atlas).\n\nNAO VERIFICADO, e dito em voz alta: a bancada `troca-viva-de-atlas-medida.spec.js`\nreprova hoje numa assercao de DESEMPENHO. Medido em serie: a troca ao vivo varia de 1519\na 3348 ms entre execucoes, e a diferenca que a assercao exige (o boot da pagina, ~400 ms)\ne menor que esse ruido — e cara ou coroa por construcao, e o `retries: 1` vinha\nmascarando. A assercao de CORRECAO da troca passa. Nao mexi no limiar: afrouxa-lo para a\nminha rodada ficar verde e o incentivo errado, e a decisao e do dono.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01ENSUYmPAhXNqt2AS21QqxK",
+      "sha": "5e5614c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5e5614c4934514495b12a29021d7ce68b8d62604",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-30T22:04:02.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-30 (2): o rotulo do aerodromo desenhava vazio, e o tile perdeu 55% do peso\n\nSegunda metade do dia: publicar o estilo no EBGeo e emagrecer o tileset.\n\n- o contrato do mapa base do EBGeo entra no learnings da skill, com as duas\n  armadilhas de ambiente (o Vite ocupa a porta 3000, e o /api/config e\n  memoizado por 30 s)\n- o emagrecimento por chave do estilo rendeu 41,24 -> 18,54 GB, e 73% na\n  rede numa posicao de tile em z14. O emagrecimento GEOMETRICO nao paga, e o\n  numero fica registrado para ninguem repetir a conta\n- seis eventos no livro-razao, e o mais grave e de classe: rotulo que nao\n  aparece NAO GERA ERRO em lugar nenhum. O tileset nosso batizou a coluna de\n  `nome`, o estilo pedia `@name`, e a camada nasceu muda\n- duas medidas minhas com conclusao falsa: fracao de FEICAO nao mede area de\n  tela, e captura em escala pequena nao decide cor\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QTfscyRrsgg26mFVoofviu",
+      "sha": "94381e2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/94381e2e8d056120d3917629e5de03da5ce3a173",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-30T21:11:22.000Z",
+      "author": "Maj Diniz",
+      "message": "observabilidade: erro do navegador em tabela, aba Diagnostico, amostra de saude, e o log que passa a gravar a URL certa\n\nCamadas 2, 3 e 4 do plano fechado com o dono (1 dev, rede fechada, muito da operacao\nfeita por agente). Quatro frentes em paralelo, com propriedade de arquivo disjunta;\nintegracao e verificacao finais aqui.\n\nERRO DO NAVEGADOR (camada 2). Migracao 014 + `client_errors`, `POST /diag/erro-cliente`\n(anonimo, limitador proprio, teto de tamanho em todo campo, user_id do token e nunca do\ncorpo) e a captura no cliente (`session/erro-telemetria*.js`, folha, instalada nas quatro\npaginas). A escrita e UPSERT por assinatura que INCREMENTA: o incidente que originou tudo\nisto foram 19 erros identicos em segundos, e uma linha por ocorrencia transformaria um\ndefeito do cliente num ataque ao banco. A assinatura e montada no CLIENTE e a mensagem\nenviada e a NORMALIZADA, senao o agrupamento do servidor deixa de casar com o do cliente\nsem ninguem ver.\n\nABA DIAGNOSTICO (camada 3), so administrador, desktop-only como o resto do painel. Ela le\nos agregados do ARQUIVO de log pela rota admin, reusando o mesmo `diag-consulta.js` do\nCLI: tela e comando nao podem discordar porque sao a mesma funcao sobre a mesma fonte. O\n`diretorioAusente` e o campo que decide a honestidade da tela, e ele vem ANTES do ramo de\nvazio: sem isso a boa noticia verde seria desenhada a partir de um instrumento desligado.\n\nAMOSTRA DE SAUDE (camada 4): uma linha a cada 5 min no mesmo .jsonl, com marcador proprio,\ndistinguindo prazo de erro na sonda do banco. Limite declarado no codigo e no .env.example:\num amostrador dentro do processo nao testemunha a propria morte; quem revela a queda e o\nBURACO na serie.\n\nCONSERTO ACHADO PELA CAPTURA DE TELA, e ele e da camada 1. O log gravava `req.url`, que o\nExpress reescreve ao entrar num router montado e so restaura quando a pilha DESENROLA — o\nque acontece no caminho de erro e nao no de sucesso. Efeito medido na tabela de latencia:\na MESMA rota em duas linhas (`POST /erro-cliente` com 3 chamadas e\n`POST /api/v1/diag/erro-cliente` com 1), e `GET /` com 27 chamadas que era\n`/api/v1/config`. Corrigido para `originalUrl` nos dois middlewares, com repro proprio.\n\nDUAS LICOES NO LIVRO-RAZAO, as duas sobre metodo. O primeiro repro daquele conserto media\num 401 e passava verde COM e SEM o fix, porque o caminho de erro restaura sozinho: escolhi\no caso pela conveniencia do arranjo e nao pelo mecanismo, e so o controle negativo separou\nos dois. E a primeira captura mostrou o painel SEM a aba nova: o instrumento e que estava\nvelho, um Vite do e2e de 26 horas antes que o `reuseExistingServer` reusou, servindo o\ncodigo de ontem porque aquele config nao tem watcher. Documentado no README do e2e com os\ncomandos que revelam a idade do processo.\n\nUma frase da tela afirmava que o servidor nao guarda alem de 7d. Falso: guarda 30 dias, e\n7d e o teto da CONSULTA. Ela mandava desistir de investigar um incidente que esta inteiro\nno disco.\n\nVerificado depois da ultima escrita: lint limpo nos dois pacotes, frontend 8921, backend\n4077 com o piso de cobertura, e2e de contrato 181. O elo cliente-servidor foi provado com\nrequisicao real (tres envios anonimos identicos viraram uma linha com ocorrencias 3, corpo\nacima do teto recusado com 422), e a aba foi lida em imagem de captura do Playwright.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01ENSUYmPAhXNqt2AS21QqxK",
+      "sha": "9aa48fe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9aa48fe281b84176bdda418865a69bb997472ed3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-30T20:07:17.000Z",
+      "author": "Maj Diniz",
+      "message": "o log passa a sobreviver a sessao: um .jsonl por dia, req.id costurando as duas linhas de uma falha, e um comando que consulta\n\nCAMADA 1 de quatro do plano de observabilidade (fechada com o dono em 2026-08-30: 1 dev,\nrede fechada, muito da operacao feita por agente).\n\nO PROBLEMA. O pino sempre emitiu JSON estruturado e ninguem o guardava: stdout do\ncontainer em producao, terminal em dev. Quando o push de sync respondeu 400 em laco, a\nmensagem do servidor simplesmente nao existia mais, e o defeito foi achado por leitura de\ncodigo. Log que nao sobrevive a sessao nao e log, e console.\n\nO ARQUIVO. src/utils/log-diario.js: um .jsonl por dia, poda por idade, LOG_DIR /\nLOG_RETENTION_DAYS / LOG_TO_FILE. Rotacao escrita a mao por decisao do dono, com a\nalternativa (pino-roll) recusada e o custo declarado; o preco foi pago em desenho, com\nrelogio e fs injetaveis e as tres propriedades no fileoverview. Vale em DEV tambem, que e\nonde o incidente aconteceu. O volume no compose e o ponto todo: sem ele o arquivo some no\ndeploy seguinte, que e quando se quer comparar antes e depois.\n\nreq.id. Uma requisicao que falha produz DUAS linhas (errorHandler com a pilha,\nrequest-logger com status e duracao) e nada as ligava. Medido contra o backend real: o\nprimeiro relatorio dizia 4 ocorrencias para 2 erros, em 4 assinaturas. A fusao e\nestrutural (fica o registro que tem `err`, herdando o statusCode do outro), nunca por\ntexto de mensagem.\n\nO COMANDO. npm run diag -- erros|lento|status|linhas, agregacao pura em\nsrc/utils/diag-consulta.js. Agrupa por assinatura com a rota normalizada, recusa janela\nque nao entende em vez de cair num default, e importa o config tarde: a hora de ler log e\njustamente a hora em que algo nao esta configurado.\n\n47 casos novos de teste, com controle negativo escrito nos dois cabecalhos. O guarda\nscripts-da-raiz pegou o `diag` como script de um pacote so e ele entrou na lista de\nexcecoes com o motivo. Decisoes em docs/wiki/observabilidade.md, que declara em voz alta\nas tres camadas que ainda nao existem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01ENSUYmPAhXNqt2AS21QqxK",
+      "sha": "fc9280a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fc9280abd1a7261c7953dc7321cde3fb82e143d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-30T19:32:55.000Z",
+      "author": "Maj Diniz",
+      "message": "a recusa que consulta o banco desce para dentro do savepoint, e o mapId nao-UUID para de derrubar o lote\n\nO push protege cada op com um SAVEPOINT e um catch que classifica violacao de dado e\nrecusa POR OPERACAO, justamente para que uma op ruim nao trave a fila do cliente. As\nduas recusas que CONSULTAM o banco corriam fora dele, e lockedMapDenialReason compara\nop.mapId com maps.id, que e UUID, enquanto sync.schemas.js aceita mapId como string\nqualquer: um mapId nao-UUID (o mapa local Principal e chaveado por nome) levantava\n22P02 na propria checagem, abortava a transacao do lote inteiro e saia como 400\ngenerico. O cliente nao faz dequeue de nao-2xx, entao reenviava o mesmo lote a cada\n1,5 s para sempre. A guarda escrita para impedir o poison batch era alcancavel por\nfora dela mesma, com sintoma identico ao que ela cura.\n\nAs duas checagens passaram para dentro do savepoint que ja existia, antes do INSERT:\nzero comando extra, a op ofensora volta recusada individualmente e o servidor a NOMEIA\nno logger.warn que a recusa por integridade ja tinha.\n\nRepro em sync-mapid-nao-uuid-poison.repro.test.js, com controle negativo verificado\n(revertido, o push responde 400). Dois testes prendiam o comportamento antigo e foram\nre-mirados, nao afrouxados: as duas specs de WS de collab-error-leak (o mesmo gatilho\nagora volta como ack de recusa, e a garantia de nao vazar texto do driver e asserida na\nporta que a op de fato toma) e o caso de sync-push-lock-timeout que usava esse aborto\npara medir a liberacao do advisory lock.\n\nQuatro paginas da wiki afirmavam \"uma op invalida derruba o lote inteiro\" como fato\nvigente; sintese-contrato-erros-http.md ganhou o registro da fresta, que descrevia o\ndesenho e nao o codigo desde 2026-07-25.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01ENSUYmPAhXNqt2AS21QqxK",
+      "sha": "e431b94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e431b9467846b68f016197f87718de2d0a0dccf7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-30T18:46:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-30: a cor do QGIS pegou pela terceira vez, e o rotulo nascia sob a edificacao\n\nSeis frentes revisaram o estilo web da carta em paralelo, e o vault leva\no que e duravel.\n\n- nasce a skill `estilar-carta-web`, nivel-classe, com as onze armadilhas\n  do MapLibre que ja custaram sessao, o metodo de medir o negativo do\n  dado antes de opinar, e o instrumento de captura consertado\n- `conventions/fontes.md` ganha a armadilha do `project_color`: o literal\n  do QML e cache, o hex de dentro do nome e rotulo morto, e quem vale e o\n  triplete inicial do `paleta.gpl`. Reincidiu tres vezes em dois dias, e\n  a terceira quase virou decisao errada do chefe\n- livro-razao: seis eventos, entre eles a proposta de subagente que\n  reabriu decisao ja fechada pelo chefe (instrucao vence medida) e a\n  porta de CDP por hash que fez dois agentes dirigirem o mesmo Chrome\n- Decisions: o registro integral, com os negativos de dado que decidiram\n  desenho e as duas decisoes do chefe (sprite transparente e cultivo em\n  fundo branco)\n- a skill nova nasce em `name-only`: a listagem estava em 7.988 de 8.000\n  caracteres, e com ela por extenso o Claude Code cortaria em silencio\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QTfscyRrsgg26mFVoofviu",
+      "sha": "253413d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/253413df322dadcfa838d27b2aeecf66653d5538",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-30T12:30:12.000Z",
