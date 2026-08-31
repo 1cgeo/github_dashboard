@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-30T22:33:12.263Z",
+  "lastUpdate": "2026-08-31T17:29:51.495Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-28T18:59:37.000Z",
+    "1cgeo/controle_acervo": "2026-08-31T14:02:26.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -54,13 +54,13 @@
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
-    "1cgeo/github_dashboard": "2026-08-06T18:14:17.000Z",
+    "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-30T22:04:02.000Z",
+    "1cgeo/chefe_dgeo": "2026-08-31T15:27:43.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-30T22:10:11.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-08-31T15:40:04.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6312,
+    "totalCommits": 6333,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1124,
+      "1cgeo/ebgeo_web": 1128,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 340,
+      "1cgeo/controle_acervo": 346,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -160,16 +160,205 @@
       "1cgeo/ferramentas_ebgeo": 29,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
-      "1cgeo/github_dashboard": 56,
+      "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 656,
+      "1cgeo/chefe_dgeo": 666,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 25,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-31T15:40:04.000Z",
+      "author": "Maj Diniz",
+      "message": "o mini-mapa do 360 escolhe um mapa base do catalogo, e o zoom dele vem de la\n\nO mini-mapa carregava um estilo OSM escrito a mao em street-view-mini-map-style.js,\ncom URL de tile e de glifo proprias, FORA do catalogo. Num deploy sem saida para a\ninternet o mapa principal vinha do tile server interno e o mini-mapa ficava em\nbranco, sem erro nenhum e sem lugar onde o administrador consertasse. E o\nmaxZoom: 17.9 dele era copia a mao do teto antigo da aplicacao, que virou 21 no\ncommit anterior: a linha ja estava orfa.\n\nPassa a escolher um MAPA BASE do catalogo (streetView360.miniMapBasemap, com\nseletor proprio no painel), e SO o mapa base: a faixa de zoom vem da linha daquele\nmapa base, porque um par proprio aqui seria o terceiro nivel de zoom que a decisao\nanterior acabou de eliminar. O modulo novo delega a resolveBasemapStyle e a\nfirstStyledBasemap, entao um mapa base privado concedido resolve pelo mesmo caminho\naditivo do seletor principal, e o estilo local vira ultimo recurso em vez de unico\ncaminho, porque setStyle(undefined) deixaria o mini-mapa em branco calado.\n\nCONSEQUENCIA REGISTRADA, e nao efeito colateral: o minZoom: 11 do mini-mapa sai\njunto. Ele existia para o mini-mapa continuar parecendo um mini-mapa, e com a faixa\nvindo do mapa base um de piso 2 deixa o mini-mapa afastar ate 2. Esta no codigo, no\nteste e na decisao.\n\nO censo de superficies de recurso ganhou uma classe, e ela nao e porta dos fundos:\n\"toca o catalogo SEM o singleton\" cobre quem recebe o documento por argumento (o\nmodulo novo) ou o le de uma resposta de rota (a aba do administrador), e a assercao\ndela e o ESPELHO da dos outros, exigindo que esses arquivos NAO importem o\nsingleton. Quem passar a importa-lo fica vermelho.\n\nEntra tambem o que faltava da decisao do zoom: docs/wiki (atlas-settings,\nresources-catalogo, config-dinamico), a clausula 2.4 da CONSTITUICAO.md, e a\nentrada datada em decisions-2026.md mais a linha do indice, que o commit anterior\nnao levou. As contagens fecham em 63 e 63.\n\nOs testes de integracao que mediam o zoom por outra camada foram reescritos, nao\napagados: o repro da invariante efetiva passou a medir a recusa na BORDA mais o\ndocumento JA GRAVADO, cujo insumo degenerado e escrito direto no banco porque a API\nnao consegue mais produzi-lo; e o teste de rollback trocou o payload recusado por um\nNUL dentro de uma string, que atravessa o JSON.stringify e morre no cast ::jsonb,\nque e a unica posicao que exerce aquele rollback.\n\nBackend 4115 testes e frontend 8990, os dois verdes em rodada isolada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01JyEkjgbg78EU4TYp8Cvjfs",
+      "sha": "02f7fa4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/02f7fa47352fffa9900d47711c88f95ddda1a276",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T15:27:43.000Z",
+      "author": "Maj Diniz",
+      "message": "nucleo: o pior caso tem de exercitar todos os eixos que a regua afirma medir",
+      "sha": "5b8354a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5b8354a1751f06851bb17f74e9e19aa72b76886e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T15:25:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-31 (3): a regua cega no eixo que o controle nao exercitou, e o marcador de conflito no meio da linha",
+      "sha": "86c5182",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/86c5182b36c0ff38eacd2c70971c79e08e18808c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T15:11:03.000Z",
+      "author": "Maj Diniz",
+      "message": "medir-desempenho-web: o heap do V8 nao ve ArrayBuffer, e listener em elemento morto nao vaza\n\nTres aprendizados medidos na caca ao vazamento do ebgeo_web (branch\nintegracao_backend), todos vindos de o instrumento reprovar a si mesmo antes de\njulgar o sistema.\n\nO que funciona: separar a memoria do processo POR TIPO (renderer contra gpu)\ndecide entre duas hipoteses que pedem consertos opostos; o par ocioso-aberto\ncontra ocioso-fechado separa causa de coincidencia num vazamento por ciclo; e\ncontador de recurso vivo nao passa por coletor de lixo, entao mente menos que\nqualquer numero de memoria.\n\nO que falha: o Runtime.getHeapUsage nao viu 4 MB por ciclo de ArrayBuffer retido,\nporque o buffer mora fora do heap do V8, entao o controle degenerado tem de vazar\nnas DUAS memorias; contar registro bruto de listener acusou +14 por ciclo onde o\nproprio Chrome contava +1, e quem estava errado era a minha sonda; e cenario que\nnao carregou nada tem os mesmos contadores de cenario que nao vaza, entao cada um\npassou a devolver uma prova do trabalho, sob pena de sair marcado INVALIDO.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FJCgQJ8JjuhNVU722VqQzk",
+      "sha": "04c1ac7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/04c1ac7ad1c21c5f857663f91d618aab2a9fc49e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T15:00:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-31 (2): a coluna do mes nao conta o que ninguem cadastrou, e a miniatura tinha porta de saida sem porta de entrada\n\nSegundo bloco da sessao: as quatro perguntas do chefe sobre a Secao 2 do RPCMTec,\no cadastro do Museu do 1o CGEO e a carga de 135 capturas como miniatura. A\ndecisao integral esta em Decisions (2026-08-31 cont. 6), com o raio de explosao.\n\nlancar-rpcmtec: a 2.2 e a 2.4 contam pela `data_edicao`, que nao e a\n`data_cadastramento` -- leia as tres datas da versao antes de chamar a contagem\nde defeito do gerador. Regra do chefe: `data_edicao` e quando o dado ficou\npronto. E cadastro que atrasa alem do fechamento da edicao CUSTA A SERIE MENSAL,\npara sempre: 41 dos 42 modelos de 2026 nunca apareceram em coluna \"no mes\"\nnenhuma, porque entraram 17 dias depois de as sete edicoes fecharem, e edicao\nfechada e retrato congelado.\n\ncadastrar-acervo: produto em referencial LOCAL nao tem geometria propria, e a do\npredio que o abriga se PROVA por `ST_Contains` em vez de se aceitar. Produto de\nmuitos arquivos entra zipado, com o ZIP reaberto e conferido arquivo a arquivo,\num hash adulterado de proposito para ver a conferencia acusar, e o sha256 batendo\ntambem na medida do proprio servidor. Subtipo novo NAO chama\n`criar_views_materializadas()`, porque a view e por par (tipo, escala).\n\nwiki: [[controle-acervo]] ganha a secao da miniatura, que a pagina nao descrevia,\ne o code 6 (Carregado EBGeo) na situacao de carregamento, com o porque.\n\nLivro-razao, cinco eventos, e os dois primeiros sao correcao do chefe: afirmei\nque o acervo nao tinha miniatura tendo olhado UMA tabela de dominio (ela tem\n4.905 linhas em `acervo.miniatura_versao`); quase casei a capa pelo nome, o que\ntrocaria a imagem de 7 produtos, porque 7 nomes existem nas duas subpastas de\ntipo; o heredoc comeu o escape e o multipart saiu com LF, que o busboy recusa com\n500 \"Unexpected end of form\"; o primeiro ensaio da migracao nao podia falhar sem\n`--er-de HEAD`; e tomei por fechado o inventario de uma pasta que outra pessoa\nalimenta, e que cresceu no meio do trabalho.\n\nFica aberto, e nao e desta sessao: o `cadastrar-acervo/learnings.md` passou de\n34 KB e pede poda para a camada de detalhe, que ja existe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "d3a6617",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d3a6617d114ae3f9aec32ba5724d08f24a597fc4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-31T14:59:31.000Z",
+      "author": "Maj Diniz",
+      "message": "o 3D para de vazar listener e de refazer o tileset a cada abertura, e o laco de render para junto\n\nMedido em bancada contra dado real, e nao lido no codigo. Tres defeitos no\nvisualizador 3D, cada um com a medida que o motivou e a que o fechou:\n\n1. initActiveToolChip3D pendurava uma funcao anonima no botao de fechar o chip a\n   cada abertura, e aquele botao nunca sai do documento: +1 listener vivo por\n   ciclo, sem patamar em catorze ciclos, confirmado pela contagem do proprio\n   Chrome. Passa a guardar a referencia e remove-la antes de adicionar, como o\n   laco vizinho dos .button-tool-3d ja fazia. Depois: 289 fixos em catorze ciclos.\n\n2. Reabrir o MESMO modelo destruia o Cesium3DTileset e montava outro identico,\n   cada um nascendo com cacheBytes de 1 GB. Custo: 8,8 MB por ciclo no processo\n   RENDERIZADOR, sem patamar em doze ciclos, com o processo de GPU parado e as\n   contas do proprio Cesium imoveis. Nao era objeto esquecido (uma referencia\n   fraca mostrava um unico tileset vivo o tempo todo), era decodificacao refeita.\n   loadSingleTileset passa a reaproveitar o tileset quando o id nao mudou e ele\n   continua vivo, mantendo camera salva, marcadores, medicoes e bacias, que\n   dependem do mapa e nao do modelo. Depois: memoria plana em 951 MB por doze\n   ciclos, com o renderizador 90 MB abaixo do patamar anterior.\n\n3. pauseRendering ligava o requestRenderMode, que corta o desenho e nao o laco: o\n   app pedia 60 quadros por segundo com o 3D FECHADO, contra 5 por segundo com\n   ele ABERTO e parado. useDefaultRenderLoop passa a desligar no pause e a religar\n   no resume, incondicionalmente e antes de qualquer retorno antecipado. Depois: 0.\n\nA guarda e tests/e2e-ui/vazamento-viewers.spec.js, com a sonda em\nhelpers/sonda-vazamento.js. Dois testes, e a ordem e o metodo: 30.1 exercita um\nvazador deliberado e EXIGE que a regua o reprove; so entao 30.2 julga o app. O\nspec nasceu vermelho no defeito real (button:click +4 em 4 ciclos) e ficou verde\ncom o conserto, que e o controle negativo.\n\nDuas armadilhas ficaram presas na guarda, porque as duas deram verde falso\ndurante a construcao dela: sem linha em a3d.models a rota do asset responde 404 e\no teste passa sem ter aberto modelo nenhum (dai seedModelo3d, e a escrita pela\nrota depois do INSERT para derrubar o memo do indice de modelos); e sem\n.button-tool-3d no documento registerToolEventListeners retorna antes de\nregistrar nada, entao o ciclo passou a devolver essa contagem e ela e asserida.\n\nO 360 e a primeira pessoa foram medidos com a mesma bancada e nao acumulam nada:\n35 panoramicas de 5120x2560 em sequencia deixam a memoria entre 716 e 740 MB sem\ntendencia, e 10 ciclos da primeira pessoa a deixam caindo. O mapa 2D acumula 1\nlistener de abort por alternancia de camada, registrado dentro do maplibre-gl.js\ne sem crescimento de memoria: fica em observacao, sem remendo em biblioteca\nvendorizada.\n\nDetalhe e raio de explosao em docs/decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FJCgQJ8JjuhNVU722VqQzk",
+      "sha": "38aacbb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/38aacbb04c9ecebc41cd4f7331a31684f266ca1e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-31T14:41:34.000Z",
+      "author": "Maj Diniz",
+      "message": "o zoom minimo e maximo passa a ser do mapa base, e o da aplicacao vira fixo\n\nO zoom tinha tres niveis declarados e um so ligado. A aplicacao ([1, 17.9]) era\no unico que chegava ao MapLibre; o do atlas (settings.min_zoom/max_zoom) era\nvalidado, persistido, clonado e coberto por teste, e lido por ninguem; e o mapa\nbase nao tinha nivel nenhum, so o maxzoom da FONTE do estilo, que nao trava a\ncamera (o MapLibre faz overzoom e escala o ultimo tile).\n\nPassa a haver dois niveis, e so um configuravel. A aplicacao e fixa em [2, 21],\nrecusada no override do administrador com 422 nomeado, porque map2d e\nunknown(true) e uma chave apenas retirada do schema seria gravada em\nconfig_settings e derrubaria o valor fixo no deep-merge. O mapa base aperta\ndentro dela por config.minzoom/maxzoom da linha de catalogo, entre 2 e 21, com\nminzoom > maxzoom recusado. Quem edita e o administrador ou o produtor da OM\ndona da linha, pelo gate que ja existia (fn_can_produce_resource). O zoom de\natlas foi removido.\n\nO teto era 17.9 e estava ABAIXO do maxzoom de toda fonte (18 a 20), entao era\nele que segurava as cinco. Subir para 21 so e honesto porque as cinco linhas\nsemeadas passam a declarar a faixa delas: topografica 19, ortoimagem 18, BDGEx\n18, osm 19, imagens 20, piso 2 nas cinco.\n\nA ordem de escrita e a metade que nao era obvia. Medido no bundle em uso:\nsetMinZoom(e) levanta a menos que e <= transform.maxZoom, e setMaxZoom(e)\nlevanta a menos que e >= transform.minZoom. A ordem ingenua estoura ao sair de\num mapa base de teto baixo para um de piso alto, entao a faixa se escreve em\ntres chamadas, baixando primeiro o piso ao chao da aplicacao. O teste dirige um\nmapa falso que impoe essas guardas e traz o controle negativo.\n\nA aplicacao roda FORA do if de troca de estilo: o getter de currentLayer devolve\ncarta-topografica por padrao e o mapa nasce com esse estilo, entao no boot mais\ncomum o bloco inteiro e pulado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01JyEkjgbg78EU4TYp8Cvjfs",
+      "sha": "76f6915",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/76f691587f727476697d974d1ea8a8ee4a3d6f66",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-31T14:02:26.000Z",
+      "author": "Maj Diniz",
+      "message": "a miniatura que nao se renderiza entra pela porta, e sai pelo mesmo funil\n\nO acervo tinha 4.905 miniaturas e ZERO em Modelo 3D e Panoramica 360. Nao era\nfalha da varredura: ela renderiza `pdf`, `tif`, `tiff`, `img` e `ecw`, e os\narquivos desses dois tipos sao `.3dtiles`, `.db` e `.zip`. Nenhum se renderiza,\nentao as 140 versoes nunca foram candidatas, e a ficha desses produtos abria sem\nimagem. A imagem deles so pode vir de captura feita por gente, e faltava por\nonde entrar.\n\nPOST /api/acervo/versao/:versao_id/miniatura, multipart, campo `arquivo`,\nperfil OPERADOR (o mesmo que cataloga produto e edita arquivo: trocar a imagem\nde uma ficha nao e ato de administracao). No CLI, `acervo enviar-miniatura\n--versao_id N --file capa.webp`.\n\nTRES DECISOES QUE VALEM EXPLICAR:\n\nA imagem passa pelo MESMO `finalizar` da renderizada, exportado agora como\n`normalizarImagem`. Guardar o byte como veio deixaria a tabela com dois padroes\nde imagem, um por porta de entrada, e a ficha mostraria formatos e tamanhos\ndiferentes sem que nada acusasse. Entra webp de 374 KB, sai JPEG de 48 KB no\nlado maximo do acervo.\n\n`arquivo_id` fica NULO e o `checksum_origem` e o da imagem ENVIADA. E o que\ndistingue a linha fornecida da gerada, e tem consequencia: a varredura so\nescolhe versao com arquivo renderizavel, entao ela nunca disputa a linha; se a\nversao um dia ganhar um PDF, a varredura passa a gerar por cima, que e o\ndesfecho certo -- o dado do produto vence a captura de tela.\n\nSEM AUDITORIA, e a ausencia e deliberada. `miniatura_versao` e cache derivado, e\na varredura ja regrava linha ali sem registrar nada: uma entrada so no caminho\nnovo daria um historico que mente por omissao.\n\nO que nao e imagem e recusado pela ASSINATURA dos bytes, e nao pela extensao: os\ndois campos que o cliente controla (extensao e mimetype) nao provam nada.\n\nO `acervo_cli` ganhou `multipart` no http, irmao do que o `orcamento_cli` usa.\nO separador e CRLF, e isso custou uma execucao real: com LF o busboy responde\n500 \"Unexpected end of form\", que nao aponta o separador.\n\n8 testes novos, construidos do caso degenerado (nao-imagem com extensao de\nimagem, extensao fora da lista, versao inexistente, perfil insuficiente) antes\ndo caso feliz. O PNG da fixtura e GERADO pelo proprio sharp: a primeira versao\ntrazia um base64 colado que abria no `metadata()` e morria na decodificacao, e o\nteste falhava por um motivo que nao era o testado. A imagem e 900x600 de\nproposito, para a reducao ser observavel -- com 2x2 o teste passaria mesmo que o\nfunil fosse trocado por uma copia dos bytes.\n\nPrimeiro uso: 133 capturas do EBGeo carregadas em 2026-08-31, e o acervo foi de\n4.905 para 5.038 miniaturas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "adbf6ec",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/adbf6ec9e5c79a5b66e915a06118bed898a75df3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-31T13:33:06.000Z",
+      "author": "Maj Diniz",
+      "message": "o modelo 3D indoor navegavel vira subtipo proprio\n\nO tipo 9 tinha dois subtipos, e os dois descrevem o levantamento EXTERNO de uma\ninstalacao: 25 nomeia a codificacao 3D Tiles que o EBGeo serve, e 26 e o\ngenerico. O modelo INDOOR e outra coisa: a captura do interior de um comodo,\nservida como cena navegavel em primeira pessoa, com colisao e marcadores de\nitem. Ele nao e 3D Tiles, e o referencial dele e LOCAL, em metros relativos a\nsala, entao nem geometria propria ele tem: o acervo guarda a do predio que o\nabriga. Sem subtipo proprio ele entraria como 26 e ficaria indistinguivel do\nlevantamento externo em toda consulta por subtipo, incluindo o despacho do\ntemplate de XML do metadado.\n\nO nome diz o que DISTINGUE, e nao a codificacao. O 25 e o 31 nomeiam\nrepresentacao porque ali a representacao e a diferenca; aqui a diferenca e o\nobjeto, e a codificacao gaussiana de hoje pode mudar sem que o produto deixe de\nser o que e.\n\nNAO chama `criar_views_materializadas()`, ao contrario da migracao do tipo 14: a\nview materializada existe por par (tipo_produto, tipo_escala), e o tipo 9 ja tem\nas dele. Subtipo novo nao cria par novo, e o ensaio confere os 266 indices e\nreprovaria se faltasse.\n\nEnsaiado com `--er-de HEAD` sobre os schemas dominio e acervo: 244 codigos de\ndominio convergem e a idempotencia passa duas vezes. Uma migracao no-op de\ncontrole e REPROVADA nomeando \"so no NOVO: subtipo_produto 32\". 3289 testes do\npacote rapido passam.\n\nPrimeiro uso: o Museu do 1o CGEO (produto 6843), catalogado no mesmo dia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "94b725a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/94b725a6f6692857aac05e9ebeef762c29ef8c8a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-31T12:20:47.000Z",
+      "author": "Maj Diniz",
+      "message": "o EBGeo entra como destino de carregamento, e a versao do servico alcanca a do banco\n\nA subsecao 2.4 do RPCMTec se chama \"Entregas detalhada de produtos finais\n(BDGEx, IGW, EBGeo) no mes\" e filtra por `situacao_carregamento <> Nao\ncarregado`. O dominio tinha cinco valores e nenhum nomeava o EBGeo: 2 e 3 sao\nBDGEx, 4 e IGW e 5 e GEDW, que e o portal da Airbus do TREx. Modelo 3D e\nPanoramica 360 sao servidos pelo EBGeo, entao nao havia como declarar a entrega\ndeles, e a 2.4 nunca listaria um. Medido em 2026-08-31: a 2.4 de agosto saia com\nZERO linhas com tres produtos finalizados no mes, e os 42 modelos do ano estavam\ntodos \"Nao carregado\" em todos os arquivos, o unico valor que a tabela permitia\ndizer com honestidade. Decisao do chefe no mesmo dia.\n\nA migracao so acrescenta linha de dominio: nao ha coluna, view nem funcao nova,\no codigo compara `<> NAO_CARREGADO` e nunca enumera os destinos, e por isso o\nMIN_DATABASE_VERSION nao sobe. Ela tambem NAO marca arquivo nenhum, de\nproposito, porque inferir \"esta no EBGeo\" de \"e um Modelo 3D\" gravaria entrega\nque ninguem verificou.\n\nO ensaio rodou com `--er-de HEAD`, e a primeira tentativa nao podia falhar: sem\nessa flag o banco \"anterior\" nasce com o `er/` de hoje, que ja tinha o valor, e\na migracao vira no-op. Com a flag, os 243 codigos de dominio convergem, a\nidempotencia passa duas vezes, e uma migracao no-op de controle e REPROVADA com\n\"so no NOVO: situacao_carregamento 6=Carregado EBGeo\".\n\nTRES CONSERTOS HERDADOS DA MIGRACAO DE 28 AGO, que deixavam dois testes\nvermelhos antes desta mudanca:\n- `er/versao.sql` vai a 3.12.0, como a migracao carimba;\n- `VERSION` do config.js estava em 3.10.0 contra 3.11.0 do `er/versao.sql`, e\n  vai a 3.12.0. O teste `versao_do_servico` ja cobrava isso;\n- `SUBTIPO_PRODUTO` do domain_constants.js nao tinha o code 31 (Panoramica 360\n  em piramide de tiles), que nasceu junto com o tipo 14. O despacho do template\n  de XML do metadado le subtipo, e meio catalogo e pior que catalogo nenhum.\n\n3289 testes do pacote rapido passam.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "db0359f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/db0359fa503baeac8981325fb525319215cd129b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T12:06:06.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-31: a liquidacao se le por 401005 menos 406005, e o estorno nao estava em nenhum dos tres eventos\n\nA sessao conferiu a subsecao 4.3 (RPNP) do RPCMTec contra o SAG, mudou o gerador\ndo relatorio em 1cgeo/controle_acervo (commits 450a63e e 82bd8be) e fez seis\nescritas no SAP 3.0. A decisao integral ja esta em Decisions (2026-08-31 cont. 4),\nlevada ao commit por uma sessao paralela.\n\nconsultar-orcamento: a regua da liquidacao no SAG e o evento 401005 menos o\n406005, e nao a uniao de 511005, 551001 e 551004, cujas 37 linhas sao exatamente\nas mesmas. O par de estorno so existe do lado do 4 (terceiro digito virando 6),\nentao ler so as tres aprova o estorno em silencio. A NS e EVENTO e pode tocar dois\nempenhos: a 2026NS000320 estornou 1.668,84 de um e repartiu entre dois, e a soma\ndas partes bate ao centavo, que e o que prova a leitura. Fecha recontando o\nCONJUNTO, nao so as linhas consertadas.\n\nlancar-orcamento: liquidacao estornada por inteiro se APAGA, porque\n`valor_liquidado` e `number>0` e o modelo nao tem estorno; e a ordem apagar antes\nde criar nao e preferencia, e o guardrail de saldo que a impoe. No PUT, o campo\nque NAO devia mudar tambem se confere, por sha256 no destino.\n\nenv-guia: `source` no .env do vault aborta na linha 85, num valor com parenteses\nsem aspas, e toda chave depois dela some do ambiente sem erro visivel. Carregue\npor laco sobre o grep das chaves da tarefa.\n\nwiki: [[sag]] ganha a regua do evento contabil, e [[rpcmtec]] registra que a 4.3\nso lista o resto com saldo e que a 4.6 nomeia o empenho pelo numero do SIAFI.\n\nLivro-razao: 53a de regua-cega (a conferencia media tres eventos e o alvo estava\nnum quarto), 13a de proveniencia (coluna com o nome certo nao garante a origem\ncerta) e 12a de ambiente-nao-suporta, a quarta do mesmo dia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "b23bd8d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b23bd8de289cf5392d78c3ba3366a2fa18288e11",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-31T12:02:42.000Z",
+      "author": "Maj Diniz",
+      "message": "o contrato da NS sai de \"nao medido\", e a liquidacao se le por 401005 menos 406005\n\nMedido em 2026-08-31 sobre os 15 RPNP de 2026, conferindo a subsecao 4.3 do\nRPCMTec contra o SAG. A linha da NS e um EVENTO, nao um documento: a mesma NS\naparece uma vez por evento contabil e pode tocar mais de um empenho, e a\n2026NS000320 de 07 MAI 26 estornou 1.668,84 da 2025NE000266 repartindo o valor\nentre ela (406,97) e a 2025NE000239 (1.261,87).\n\nA regua da liquidacao e 401005 menos 406005. As 37 linhas de 401005 sao\nexatamente as 37 da uniao de 511005, 551001 e 551004, porque o 401005 e a\ncontrapartida orcamentaria de todas elas, e o par de ESTORNO so aparece do lado\ndo 4. Ler so as tres deixa o estorno passar em silencio, que foi como\nR$ 1.668,84 ficaram contados duas vezes no SAP por quase quatro meses.\n\n`paraSca` e `chave` ficam nulos de proposito, com o motivo escrito: o SAG\nentrega o numero do SIAFI em INSCRICAO01 e as NEs de 2025 no SCA guardam o\ncodigo interno do RPCA Tecnico em `numero`, entao nao ha casamento por numero.\nEnquanto isso for verdade, `sag conferir` nao aceita `ns`.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "82bd8be",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/82bd8bef64123606e2401e2cbb323cfd1d198a41",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T11:59:30.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions 2026-08-31 (cont. 5): o commit do agente vai para a pessoa associada, e a 5.1 de agosto fica inteira\n\nA subsecao 5.1 do RPCMTec de agosto (edicao 8) foi preenchida ponta a ponta, e o\ncaminho ate ela expos dois defeitos de instrumento e uma regra que o chefe mudou.\n\nO NOME DO AGENTE. O AUTORES_NAO_EFETIVO do github_dashboard casava so o literal\n'Claude' e deixou passar 'Claude (Chefe DGEO)', com o teste tirando o insumo do\nproprio conjunto e por isso incapaz de reprovar grafia nova. Decisao do chefe:\ncommit escrito como o agente procura a PESSOA associada, na conta do GitHub e\ndepois no e-mail, e sem pessoa sai da conta INTEIRA. O caso tinha pessoa, a\nconta dinizime, entao conta para o Maj Diniz. O Efetivo passa a separar por\n\"; \". Commit ec46302 em 1cgeo/github_dashboard.\n\nO CORTE DO MATERIAL. O dash material trunca em 60 mil caracteres e o\ncommits.json vem do mais novo para o mais velho, entao o corte come o COMECO do\nmes: o ebgeo_web entrava com 26 de 266 commits, so 29 e 30 de agosto. Refeito\nfora do CLI em 23 pedacos contiguos, 1,47 milhao de caracteres, os 763 commits.\n\nO INSUMO CONGELADO. Gravei de um manifesto anterior a cura do commits.json e a\nconferencia contra o proprio corpo aprovou o erro, o que fixa a regra de reler\ncontra leitura INDEPENDENTE.\n\n16 linhas e 64 celulas conferidas contra o CSV, zero divergencias.\n\nEntram tambem a entrada (cont. 4) sobre o estorno do SIAFI na 4.3, escrita em\nparalelo nesta arvore, e o INDEX.md das skills. O pmc.html, artigo do PubMed\nsalvo em disco, foi apagado a pedido do chefe: era lixo, e trazia um token de\nsessao do NCBI dentro.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018PYo78HLbUb8sa8J7SFd8T",
+      "sha": "f05914e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f05914e632f7956b205cfca6ff429c03b0e1c068",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T11:56:32.000Z",
+      "author": "Maj Diniz",
+      "message": "lancar-rpcmtec: o material da 5.1 cortava o comeco do mes, e o guarda do agente casava so o literal\n\nTres aprendizados da edicao de agosto/2026, todos medidos.\n\nO CORTE. O `dash material` trunca em 60 mil caracteres por repositorio e o\ncommits.json vem do mais novo para o mais velho, entao o corte cai sempre no\ncomeco do mes. O ebgeo_web entrava com 26 de 266 commits, so 29 e 30 de agosto,\n10% de um mes de 26 dias. Um resumo escrito dali descreve dois dias e assina o\nmes. A saida esta registrada: montar o material fora do CLI, sem teto e em\npedacos contiguos no tempo, e conferir a soma dos blocos contra a coluna de\ncommits da 5.1.\n\nO NOME DO AGENTE. O AUTORES_NAO_EFETIVO casava so a grafia exata e deixou\npassar \"Claude (Chefe DGEO)\". A regra nova do chefe esta anotada: procura-se a\nPESSOA associada na conta do GitHub e no e-mail, e sem pessoa o commit sai da\nconta inteira. Consertado em 1cgeo/github_dashboard, commit ec46302.\n\nO INSUMO CONGELADO. Curei o commits.json e gravei a 5.1 a partir de um\nmanifesto gerado ANTES da cura, e o nome do agente foi para o sistema assim\nmesmo. A conferencia contra o proprio corpo aprovou o erro, porque os dois\nvinham do mesmo manifesto velho. A releitura se faz contra leitura\nINDEPENDENTE, e nunca contra o insumo que produziu a escrita.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018PYo78HLbUb8sa8J7SFd8T",
+      "sha": "f34e22c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f34e22c6a8427a0fadda311f8274f26d4b2e39d9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-08-31T11:50:29.000Z",
+      "author": "Maj Diniz",
+      "message": "o commit do agente vai para a PESSOA associada, e o efetivo separa por \"; \"\n\nDuas correcoes da subsecao 5.1 do RPCMTec, as duas pegas ao montar a edicao de\nagosto/2026.\n\nO NOME DO AGENTE. O AUTORES_NAO_EFETIVO era um Set de um literal, 'Claude', e o\ncommit de agosto em 1cgeo/server-healthcheck veio assinado 'Claude (Chefe\nDGEO)'. A grafia com sufixo nao casava, e o nome saiu no CSV da 5.1 pronto para\nentrar no documento assinado. O teste que cobria a regra tirava o insumo do\nproprio Set ([...AUTORES_NAO_EFETIVO][0]), entao nunca poderia reprovar uma\ngrafia nova.\n\nA regra tambem mudou, por decisao do chefe: commit escrito COMO o agente nao\nentra pelo nome do agente, procura-se a PESSOA associada. O autorDoCommit busca\nprimeiro a conta do GitHub que assinou e depois o e-mail do autor; sem pessoa\nassociada devolve null e o shouldIncludeCommit derruba o commit da conta\ninteira, e nao so da coluna Efetivo. O caso medido tinha pessoa: a conta era\ndinizime, que e o Maj Diniz, confirmado na API do GitHub.\n\nO SEPARADOR. A coluna Efetivo passa a sair com espaco depois do ponto e\nvirgula, no CLI e no botao da tela, que escreviam .join(';') e colavam os\nnomes.\n\nOs testes novos reprovaram o estado anterior antes do conserto (5 vermelhos), e\na suite fechou em 24 de 24. No commits.json curei so o registro de agosto, cuja\npessoa eu confirmei na fonte; os 123 anteriores estao em edicoes ja fechadas e\nassinadas, e nao os persigo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018PYo78HLbUb8sa8J7SFd8T",
+      "sha": "ec46302",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/ec463026d47145c9aaeb0e0b2b880c628582ff60",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-31T11:47:59.000Z",
+      "author": "Maj Diniz",
+      "message": "a 4.3 esconde o RPNP quitado, e a 4.6 chama o empenho pelo numero do SIAFI\n\nA 4.3 listava os quinze restos a pagar carregados para 2026, e doze deles ja\nestavam com saldo zero: a tabela do que FALTA liquidar gastava doze linhas para\ndizer nada. O corte usa o saldo CALCULADO no mes, e nao o `rpnp.valor_a_liquidar`\ndigitado, senao a tabela esconderia linha por um numero que ela nao mostra --\ne a edicao de maio perderia o resto que so foi quitado em junho.\n\nO corte e `IS DISTINCT FROM 0`, e nao `> 0`, porque os dois casos que `> 0`\nesconderia sao justamente defeito: saldo NEGATIVO denuncia estorno do SIAFI nao\nlancado (foi o caso da 2025NE000266, com a NS 2026NS000320), e `valor_empenhado`\nnulo e \"nao se sabe\", que `<> 0` sumiria em silencio. O texto de pendencia da\nsubsecao passa a ser \"Nenhum RPNP com saldo a liquidar\", verdadeiro tanto com o\ncadastro vazio quanto com tudo quitado.\n\nA 4.6 vinha nomeando o empenho por `ne.numero`, que para as NEs de 2025 e o\ncodigo interno do RPCA Tecnico (`RPCA-405096`) e nao o numero do SIAFI: o\nrelatorio anunciava \"Nobreak, RPCA-405096\" para o empenho 2025NE000276. Ela\npassa a preferir o `rpnp.empenho_label`, que ja e a fonte do rotulo da 4.3, por\nsubconsulta escalar (JOIN duplicaria a linha de material quando o mesmo empenho\ne carregado como RPNP em dois exercicios). Recebimento cujo empenho nunca virou\nRPNP continua saindo com o codigo RPCA: o numero do SIAFI nao esta em lugar\nnenhum do banco.\n\nTeste de regressao novo, construido a partir do insumo degenerado antes do caso\nfeliz: quitado some, negativo fica, nulo fica, tudo quitado sai vazio, e o resto\nquitado em junho continua na edicao de maio. Ele reprova o codigo anterior em\ncinco dos oito casos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014Vdzy3Fc2qFaCmKyQfkGGj",
+      "sha": "450a63e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/450a63ebfdff2e9dd4ea3085b5423255860b50f6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-08-31T11:45:38.000Z",
+      "author": "Maj Diniz",
+      "message": "os CLIs param de prometer tabela de recuperacao que nao existe, o diagnostico do PIT entra no pit_cli, e o guard volta a rodar no Windows\n\nTres consertos achados usando os CLIs numa campanha real de virada de meta do\nPIT 2026 (dez itens da Meta 1 de Manual para Producao).\n\n1. acervo_cli: a ajuda do `excluir-versao` e do `excluir-produto` dizia\n   \"soft-delete: as linhas vao para as tabelas *_deletado\". As unicas que\n   existem sao acervo.arquivo_deletado e acervo.download_deletado. Nao ha\n   versao_deletado nem produto_deletado: o ARQUIVO e soft-delete, mas as linhas\n   de produto, versao e relacionamento sao REMOVIDAS (produto_ctrl.js), e o que\n   resta e o evento em auditoria.evento com dados_antes e motivo.\n\n   Quem apaga uma versao SEM arquivo (uma folha so planejada, por exemplo) nao\n   deixa linha em tabela de trilha nenhuma, e iria procurar a recuperacao onde\n   ela nao esta. O texto novo diz de onde a reconstrucao sai de verdade, e o do\n   excluir-versao passa a avisar que a UNICA versao de um produto volta 400,\n   guarda que hoje so se descobre pelo erro.\n\n   O texto do `arquivo excluir` ja estava certo e ficou como estava.\n\n2. pit_cli: a rota GET /api/metas/execucao/diagnostico existe desde a 1.19.0 e\n   nunca foi exposta. Ela e a irma do ensaio: o ensaio pergunta se o calculado\n   reproduz o digitado, o diagnostico pergunta o que falta cadastrar, com a\n   coluna sem_data apontando a versao ligada a meta sem data_prevista, que e\n   justamente o que faz uma meta automatica ler ZERO em silencio. Sem ela o\n   conserto sai por SQL a mao contra o banco de producao, que e o que o CLI\n   existe para evitar. Entra como `producao execucao diagnostico --ano <ano>`.\n\n3. .githooks/pre-commit: EXISTIR NAO E RODAR. O laco do guard anti-vazamento\n   parava no primeiro nome que `command -v` achasse, e no Windows `python` e o\n   ATALHO da Microsoft Store, que imprime \"Python nao foi encontrado\" e sai com\n   49. Resultado: o hook abortava TODO commit da maquina acusando vazamento\n   onde nao havia, e o `py` que funciona nunca era alcancado. Cada candidato\n   passa a ser sondado com `-c \"pass\"` antes de ser escolhido. Achado ao ter o\n   proprio commit deste conserto barrado.\n\nAcionadas as duas rotas contra o SAP 3.0 em producao. Testes do acervo_cli e do\npit_cli verdes. Este commit passou pelo hook consertado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Lvg4E64hzjgLQoszAULJ4y",
+      "sha": "426f24b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/426f24b5e6e2461a3c599b49a795e0e050eec3d6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T11:44:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-31: o \"manual\" e do item do PIT e nao do produto, e o ensaio se le mes a mes\n\nDez dos onze itens da Meta 1 de 2026 passam a contar sozinhos do acervo, contra\ndois no comeco do dia. O gatilho foi o Beira Rio 50k, pronto e previsto no item\n1.11, aparecendo \"a mao\" na grade.\n\nO que fica de durable:\n\n- a chave que liga PIT e acervo e uma coluna so, acervo.versao.meta_pit_id, e o\n  INNER JOIN faz a versao sem vinculo virar ZERO indistinguivel de \"o mes nao\n  chegou\". A ordem e cadastro ANTES da virada.\n- o ensaio se le MES A MES: o 1.2 fechava 19 contra 19 no ano e escondia uma\n  folha em abril de um lado e maio do outro, porque o sistema conta pelo mes da\n  data_edicao e o RTM reportou pela entrega.\n- o planejado se distribui pelo LOTE, nunca folha a folha, e antes de escrever\n  se testa se a reparticao e UNICA dado o que ja esta gravado.\n- meta cujo produto nao se cataloga por folha fica Manual por DESENHO: o 1.5 e\n  bloco unico cobrindo as 30, e foi o artefato (13 shapefiles soltos sem MI) que\n  explicou o numero, nao o catalogo.\n\nNasce subwikis/sca/rotas-pit.md, a quarta pagina de rotas do modulo. O pit.md\nfecha a pendencia das metas 1.9, 1.10 e 1.11: vieram da R2, que rege sem\ndocumento, e a falta e da DSG.\n\nTres eventos no livro-razao, sendo o terceiro ambiente-nao-suporta do mesmo dia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Lvg4E64hzjgLQoszAULJ4y",
+      "sha": "0ae60f1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0ae60f198ee7ffc321ceb11c8fa849f9383f624d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T11:03:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-31: o texto da NC nao classifica o credito, e a descricao do item classifica o material\n\nConferencia do SAG da janela de 28 para 31 AGO, e depois a subsecao 4.6 do\nRPCMTec, o recebimento de material.\n\n- a conferencia achou UM empenho, a 2026NE000261 (28 AGO, R$ 2.999,01, ND\n  339033, acao 20XE), que entrou como id 96 contra a NC cadastrada na vespera.\n  Achado em par: NC e NE sao a mesma viagem. As duas linhas do 21GO em \"falta\n  cadastrar\" sao decisao fechada e nao voltam a mesa\n- o grupo de homonimo se resolveu par a par, e os oito registros fecham em valor\n  E data por UG. Achado de instrumento: o `conferir ne` acusava 4 divergencias\n  no 20XE antes da escrita e 8 depois, sem que nenhum daqueles registros fosse\n  tocado, porque o CLI casa por numero e a escolha entre homonimos muda de ordem\n  entre rodadas. A contagem desse grupo nao e metrica\n- na 4.6, a ND nao classifica material: classifica a descricao do ITEM na tela\n  do SAG. O contrato de frota aparece em tres ND, e o item empenhado nas duas de\n  servico diz CONTROLE DE ABASTECIMENTO e ADMINISTRACAO/GERENCIAMENTO, ou seja\n  gestao de frota. A mesma tela transformou R$ 17.722,00 sem finalidade em 14\n  baterias de drone e 2 carregadores\n- a legislacao NAO tem o prazo que o pedido supunha: a Lei 14.133/2021 nao fixa\n  teto para o recebimento definitivo, e o art. 140 remete ao regulamento ou ao\n  contrato. O chefe fixou a convencao da casa de 30 dias corridos da emissao da\n  NE, gravada no proprio campo para nao passar por prazo de contrato\n- o chefe reclassificou a 2026NC400521 como administrativa e ela saiu inteira,\n  com a NE e o recebimento. O texto da NC NAO classifica o credito: \"para\n  atender a DGEO\" aprova quase todo credito que chega ao 1o CGEO. O par 400521 e\n  400522 sai junto, e o criterio de 17 AGO fica mais estrito. Virou secao de\n  wiki, para parar de custar uma pergunta por nota nova\n- 52a de regua-cega: usei o texto da NC como prova de propriedade do credito.\n  34a de afirmado-sem-medir: escrevi o numero previsto do contrato de pronto sem\n  fazer a conta, e errei R$ 1,00\n\nFoi o gesto de ir CADASTRAR que expos o erro de classificacao. A NC dormia no\nsistema desde 07 AGO e nenhuma conferencia a acusava, porque contra o SAG ela\nestava certa.\n\nO `python` do PATH desta maquina e o atalho da Microsoft Store e sai com codigo\n49, e os dois lados do vault reagem de forma oposta. Os hooks do settings.json\nfalham calados, entao guard, lint de escrita, aderencia, lint-wiki e indice de\nskills foram acionados a mao por `py`. O .githooks/pre-commit e fail-closed e\nBLOQUEOU este commit, que e o comportamento certo: com aval do chefe, o `py`\nentrou na lista de candidatos do hook, com o mesmo teste de execucao dos outros\ndois. Segunda sessao do mesmo dia a tropecar nisso, e a primeira registrou so no\ncorpo do commit, o que deixou a recorrencia invisivel.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016AsiPaF6iTzv7LnexusD4q",
+      "sha": "47e6cbb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/47e6cbbd03d4c53b57268b1daee986f09a087cfb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-08-31T10:48:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-08-31: a poda do gaussiano morre no insumo que ninguem guardou, e os 228x tinham outra base\n\nAvaliacao do KISS-GS (arXiv 2608.26948, Fraunhofer HHI) contra o modelo do\nmuseu, a pedido do chefe. Veredito: nada a fazer agora.\n\n- os 228x anunciados sao contra o PLY bruto, e se decompoem em 15,7x de PODA,\n  6,6x de codificacao e 2,2x de ajuste fino. Contra o arquivo que ja esta no\n  disco a codificacao vale 6%, e quem faz esse numero aparecer e normalizar por\n  BYTES POR PRIMITIVO: 15,15 na Tabela 2 do paper contra 16,07 no museu.sog\n- o estagio que carrega o ganho exige as imagens de treino e as poses de camera,\n  que a casa nao guardou junto do .ply. O metodo morre no insumo, e o teste\n  custa uma leitura do CLI. Vira pendencia para o acervo, e independe do\n  compressor da vez\n- a estacao nao tem uv nem toolkit CUDA, e o ffsplat exige CUDA 12.x. A RTX\n  A2000 de 12 GB nao e o gargalo para 1,25 milhao de gaussianos\n- o contrato de item do radar-tecnologico ganha o INSUMO exigido, ao lado da dor\n  nomeada. Novidade sem insumo em maos nao tem ganho, por melhor que seja o\n  numero\n- 33a de escopo no livro-razao: o pedido nomeava um projeto com tres cenas, e eu\n  dei a maior fatia a cena grande, que era a mais interessante e nao a que\n  decidia\n\nGuard rodado a mao (sonda 24 de 24, varredura OK), porque o hook nao acha o\npython desta maquina. O conserto proposto esta no relatorio, e o hook e\nguardrail, entao nao mexi nele sem aval.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Wy3isBxMQwUpfjjAh1Bz8m",
+      "sha": "a21a554",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a21a554e38e394653bc2e8948dbad10ccf2d6428",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-08-30T22:39:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o mapa de um atlas copiado do servidor deixa de abrir chamado pelo UUID\n\nRelatado pelo dono: \"tinha um atlas remoto e com o usuario marcel eu fiz uma copia para o\natlas local, quando eu abro o atlas local o mapa vem com o nome\nfbeae0b2-fc32-4add-91df-a858815cf11e; ao trocar de mapa aparece os nomes corretos\".\n\nA FORMA DE ARMAZENAMENTO. Mapa de atlas de servidor e chaveado por UUID e o nome mora\ndentro do documento. \"Salvar como local\" copia banco a banco, entao as chaves UUID viajam\ninteiras e o slot local fica com TODOS os mapas chaveados por UUID, coisa que o produto\nnao produz de outra forma (o `Principal` local e chaveado por nome).\n\nSAO DOIS DEFEITOS.\n\n(1) O RESOLVEDOR ESTAVA MONTADO CONTRA O ESCOPO ERRADO, e esta e a causa que de fato\nsegurava o sintoma. `initServices()` dispara `mapResolver.initialize` UMA vez, antes de\n`activateBootAtlasScope()`, e o boot so ESPERAVA aquela promessa. Sem conhecer os UUIDs,\n`resolveToName` devolve a entrada de volta (a politica dele), e o mapa abre chamado pelo\nUUID; trocar de mapa \"consertava\" porque outro caminho remonta o resolvedor. Nao e regra\nnova: `adoptMountedLocalAtlas` ja refazia o resolvedor com o repositorio JA montado, com o\nmesmo comentario. O boot era o unico caminho fora dela.\n\n(2) A ESCOLHA DO MAPA, escondida atras da primeira: o ajuste `lastActiveMap` guarda um\nNOME e `initializeRepository` o compara com a lista de CHAVES. Num atlas todo UUID-keyed\nnunca casa, cai em `keys[0]`, e o boot abre um mapa ARBITRARIO. Quem so ve o rotulo errado\nnao percebe que o mapa tambem e outro. A decisao virou peca pura (`store/mapa-de-entrada.js`),\ncom `isKnown` consultado ANTES de `resolveToName` porque este ultimo devolve a entrada de\nvolta quando nao acha, e usa-lo como teste de existencia abriria um mapa APAGADO.\n\nO ERRO DE METODO, que custou mais que o defeito e esta no livro-razao. Eu consertei (2),\nescrevi teste de integracao, rodei controle negativo VERMELHO e declarei consertado. O\ndono deu F5 e o defeito continuou: o teste chamava `mapResolver.initialize` ELE MESMO\nantes de afirmar, ou seja, armava no teste exatamente o passo que faltava na producao, e\no controle negativo caiu na peca que o teste exercitava, nao na que faltava. A pergunta\nque teria pego: o que neste teste a producao nao faz por conta propria?\n\nDai o guarda novo ser ESTRUTURAL (`tests/unit/boot-refaz-o-resolvedor.test.js`): ele\nprende a ORDEM no fonte nos DOIS caminhos que montam repositorio, porque exercitar a\nsequencia real exigiria importar `store.js` inteiro em node sem DOM. O teste de\nintegracao ganhou nota dizendo o que ele NAO cobre, em vez de continuar parecendo que\ncobre.\n\nVerificado depois da ultima escrita: lint limpo, frontend 8969, e2e de contrato 181,\ncontrole negativo do guarda novo conferido (2 casos caem), e o dono confirmou na tela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01ENSUYmPAhXNqt2AS21QqxK",
+      "sha": "0be8b31",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0be8b31d2ed329437fb411d4ff12332d502afd31",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-08-30T22:10:11.000Z",
