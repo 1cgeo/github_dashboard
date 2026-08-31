@@ -8,10 +8,13 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 
-import { authorMapping, AUTORES_NAO_EFETIVO } from '../../scripts/fetchData.js'
+import {
+  authorMapping, AUTORES_NAO_EFETIVO, ehEfetivo, autorDoCommit, shouldIncludeCommit
+} from '../../scripts/fetchData.js'
 import {
   porRepo, triagem, limparMensagem, autoresNaoMapeados, NOMES_CONHECIDOS
 } from '../lib/agregacao.js'
+import { csvConsolidado } from '../lib/saida.js'
 
 function commit (repo, author, message = 'assunto qualquer bem descritivo') {
   return { repo, author, message, sha: 'abc1234' }
@@ -105,4 +108,73 @@ test('o authorMapping e idempotente: nenhum nome normalizado e chave do mapa', (
   const chaves = new Set(Object.keys(authorMapping))
   const colisoes = [...new Set(Object.values(authorMapping))].filter(v => chaves.has(v))
   assert.deepEqual(colisoes, [], 'valor do authorMapping usado tambem como chave')
+})
+
+// O caso degenerado que esta regra existe para pegar: o nome do agente com
+// SUFIXO. Um Set de literais casa so a grafia exata, e o teste vizinho tira o
+// insumo do proprio Set, entao ele nunca poderia reprovar uma grafia nova.
+// Em agosto/2026 passou "Claude (Chefe DGEO)" e o nome chegou ao CSV da 5.1.
+test('o nome do agente com sufixo nao passa por efetivo', () => {
+  assert.equal(ehEfetivo('Claude (Chefe DGEO)'), false)
+  assert.equal(ehEfetivo('Claude'), false)
+  assert.equal(ehEfetivo('Claude Code'), false)
+  // e o militar cujo nome so COMECA parecido continua entrando
+  assert.equal(ehEfetivo('Maj Claudio'), true)
+  assert.equal(ehEfetivo('Maj Diniz'), true)
+})
+
+// Decisao do chefe da DGEO, 2026-08-31: commit escrito COMO o agente nao entra
+// pelo nome do agente. Procura-se a PESSOA associada, na conta do GitHub que
+// assinou e depois no e-mail. Sem pessoa, o commit sai da conta inteira.
+test('commit do agente vai para a pessoa associada, pela conta do GitHub', () => {
+  const c = {
+    commit: { author: { name: 'Claude (Chefe DGEO)', email: 'diniz.ime@gmail.com' } },
+    author: { login: 'dinizime' }
+  }
+  assert.equal(autorDoCommit(c), 'Maj Diniz')
+})
+
+test('commit do agente vai para a pessoa associada, pelo e-mail', () => {
+  const c = {
+    commit: { author: { name: 'Claude', email: 'marcelgfernandes@gmail.com' } },
+    author: null
+  }
+  assert.equal(autorDoCommit(c), '1o Ten Marcel'.replace('1o', '1º'))
+})
+
+test('commit do agente SEM pessoa associada sai da conta', () => {
+  const c = {
+    commit: {
+      author: { name: 'Claude (Chefe DGEO)', email: 'noreply@anthropic.com' },
+      message: 'assunto qualquer bem descritivo'
+    },
+    author: { login: 'ninguem-conhecido' }
+  }
+  assert.equal(autorDoCommit(c), null)
+  assert.equal(shouldIncludeCommit(c), false)
+})
+
+test('commit de militar passa inteiro, e o nome vem normalizado', () => {
+  const c = {
+    commit: {
+      author: { name: 'dinizime', email: 'diniz.ime@gmail.com' },
+      message: 'assunto qualquer bem descritivo'
+    },
+    author: { login: 'dinizime' }
+  }
+  assert.equal(autorDoCommit(c), 'Maj Diniz')
+  assert.equal(shouldIncludeCommit(c), true)
+})
+
+// Decisao do chefe da DGEO, 2026-08-31: a celula Efetivo do documento assinado
+// separa os militares por "; ", com espaco. Sem ele o RPCMTec sai lendo
+// "Maj Diniz;1o Ten Marcel", com os nomes colados.
+test('o CSV separa o efetivo por ponto e virgula mais espaco', () => {
+  const csv = csvConsolidado([
+    { repo: 'a', commits: 3, efetivo: ['Maj Diniz', 'Ten Marcel'] },
+    { repo: 'b', commits: 1, efetivo: ['Maj Borba'] }
+  ])
+  const linhas = csv.split(String.fromCharCode(10))
+  assert.equal(linhas[1], 'a,3,Maj Diniz; Ten Marcel')
+  assert.equal(linhas[2], 'b,1,Maj Borba')
 })

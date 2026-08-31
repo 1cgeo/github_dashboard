@@ -127,9 +127,48 @@ export const authorMapping = {
 // inteiro e ruido e sai da conta. Aqui o commit fica e so o nome sai.
 export const AUTORES_NAO_EFETIVO = new Set(['Claude']);
 
+// O nome do agente vem com SUFIXO variavel ("Claude (Chefe DGEO)"), entao um
+// Set de literais casa so a grafia que alguem lembrou de cadastrar. Em
+// agosto/2026 essa grafia nova atravessou o guarda e chegou ao CSV da 5.1.
+const PREFIXO_AGENTE = /^claude($|[^a-z])/i;
+
+/** O nome e de agente, e nao de pessoa? Casa a grafia exata e o prefixo. */
+export function ehAgente(nome) {
+  const n = String(nome || '').trim();
+  return AUTORES_NAO_EFETIVO.has(n) || PREFIXO_AGENTE.test(n);
+}
+
 /** O autor entra na coluna Efetivo? Aceita o nome cru ou o ja normalizado. */
 export function ehEfetivo(author) {
-  return !AUTORES_NAO_EFETIVO.has(normalizeAuthorName(author));
+  return !ehAgente(normalizeAuthorName(author));
+}
+
+/**
+ * Quem assina o trabalho do commit.
+ *
+ * Commit escrito COMO o agente nao entra pelo nome do agente: procura-se a
+ * PESSOA associada, primeiro na conta do GitHub que o assinou e depois no
+ * e-mail do autor. Sem pessoa associada devolve null, e o commit sai da conta
+ * inteira, nao so da coluna Efetivo (decisao do chefe da DGEO, 2026-08-31).
+ *
+ * O caso medido: o commit de 1cgeo/server-healthcheck de 2026-08-04 tem nome
+ * de autor "Claude (Chefe DGEO)" e conta "dinizime", que e o Maj Diniz.
+ */
+export function autorDoCommit(commit) {
+  const nome = commit && commit.commit && commit.commit.author
+    ? commit.commit.author.name
+    : undefined;
+  if (!ehAgente(nome)) return normalizeAuthorName(nome);
+
+  const login = commit && commit.author ? commit.author.login : undefined;
+  if (login && authorMapping[login]) return authorMapping[login];
+
+  const email = commit && commit.commit && commit.commit.author
+    ? commit.commit.author.email
+    : undefined;
+  if (email && authorMapping[email]) return authorMapping[email];
+
+  return null;
 }
 
 export function normalizeAuthorName(author) {
@@ -137,6 +176,13 @@ export function normalizeAuthorName(author) {
 }
 
 export function shouldIncludeCommit(commit) {
+  // Commit escrito COMO o agente so entra se houver PESSOA associada a ele.
+  // Sem pessoa ele sai da conta inteira, e nao so da coluna Efetivo: a 5.1
+  // reporta o trabalho do efetivo (decisao do chefe da DGEO, 2026-08-31).
+  if (autorDoCommit(commit) === null) {
+    return false;
+  }
+
   if (commit.commit.author.name === 'dependabot[bot]') {
     return false;
   }

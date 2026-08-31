@@ -56,7 +56,7 @@ function ConsolidatedDataExport({ data }) {
         // A coluna Efetivo lista MILITARES. O commit de quem nao e efetivo (o
         // agente) continua contado, e o nome nao entra: quem le o RPCMTec
         // assinado leria "Claude" como pessoa empregada no mes.
-        const authors = _.uniq(commits.map(c => c.author).filter(ehEfetivo)).join(';');
+        const authors = _.uniq(commits.map(c => c.author).filter(ehEfetivo)).join('; ');
         return {
           Repositório: repo,
           'Número de commits': commits.length,

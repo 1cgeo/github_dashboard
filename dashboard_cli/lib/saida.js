@@ -54,7 +54,7 @@ export function markdown (linhas, colunas, rotulos = null, alinhamento = null) {
 export function csvConsolidado (linhas) {
   return [
     'Repositório,Número de commits,Efetivo',
-    ...linhas.map(l => `${l.repo},${l.commits},${l.efetivo.join(';')}`)
+    ...linhas.map(l => `${l.repo},${l.commits},${l.efetivo.join('; ')}`)
   ].join('\n')
 }
 

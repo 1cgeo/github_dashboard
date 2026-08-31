@@ -6464,7 +6464,7 @@
     {
       "repo": "1cgeo/server-healthcheck",
       "date": "2026-08-04T12:52:33.000Z",
-      "author": "Claude (Chefe DGEO)",
+      "author": "Maj Diniz",
       "message": "healthcheck: a sonda usa 127.0.0.1, e nao localhost\n\nO conteiner ficava unhealthy ha quatro dias com o servico FUNCIONANDO: o log\nmostrava metricas de cinco servidores sendo gravadas a cada ciclo, e\nhttp://127.0.0.1:8082/api/dashboard respondia 200 de dentro do conteiner.\n\nQuem falhava era a propria sonda. O Node 18 resolve localhost para IPv6 e o\nservidor escuta so em IPv4, entao ela batia em ECONNREFUSED ::1:8082.\n\nAlarme que mente treina quem olha a ignora-lo, e e o mesmo painel que avisaria\nde uma queda de verdade.",
       "sha": "5980502",
       "htmlUrl": "https://github.com/1cgeo/server-healthcheck/commit/59805027e11ad0741f883671aad05ec88e4d6ed3",
