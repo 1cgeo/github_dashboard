@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-31T23:42:28.304Z",
+  "lastUpdate": "2026-09-01T14:40:29.059Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-08-31T19:50:47.000Z",
+    "1cgeo/doc_dgeo": "2026-09-01T11:23:36.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-08-31T20:56:05.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-08-31T17:51:54.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-01T14:37:24.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6342,
+    "totalCommits": 6373,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,11 +122,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1129,
+      "1cgeo/ebgeo_web": 1159,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 547,
+      "1cgeo/doc_dgeo": 548,
       "1cgeo/ferramentas_mgcp": 15,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -170,6 +170,285 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T14:37:24.000Z",
+      "author": "Maj Diniz",
+      "message": "tres guardas de navegador para as lacunas da verificacao de .ebgeo\n\nA verificacao de importacao de `.ebgeo` tinha medido as partes e nao a cadeia.\nEstas tres specs fecham as lacunas nomeadas, cada uma com controle negativo\nprovado por MUTACAO DE COMPORTAMENTO, nunca por edicao do proprio teste.\n\n`cadeia-completa-atlas.spec.js`: arquivo -> local -> F5 -> servidor -> copia\nlocal, contando em cada perna o que ninguem contava. 3D e 360 por `data_type`\n(`cesium3d_data`, `streetview360_data`), briefings e slides, alem de mapas,\ncamadas, grupos e feicoes. A perna do servidor le SQL e nao o snapshot, porque o\nsnapshot passa pelo cliente.\n\n`ebgeo-round-trip-arquivo.spec.js`: o ciclo pelo DISCO, que nunca fora medido.\nExporta pelo botao real, captura o download, decodifica os BYTES e reimporta. A\nassercao de bytes e a forte, e a razao esta no codigo: dez dos onze mapas da\nfixture tem exatamente uma camada, e `LocalRepository.getLayers` sintetiza a\npadrao quando nao ha conjunto gravado, entao um exportador que perdesse a secao\nde camadas passaria verde na leitura de ESTADO em dez dos onze casos.\n\n`import-aditivo-pela-tela.spec.js`: o botao \"Importar\", que soma em vez de\nsubstituir. O input de arquivo e criado destacado do DOM, entao `setInputFiles`\nnao o alcanca e a spec usa `page.waitForEvent('filechooser')`.\n\nTRES ACHADOS DA RODADA, todos medidos:\n\n1. O arquivo produzido sai com SEIS blobs contra os cinco da fixture, e o extra e\n   a feicao de declinacao magnetica, que carrega blob por contrato\n   (`imageResource: true` no registro de tipos). A fixture veio do branch `main` e\n   nao o trouxe. O produzido esta mais COMPLETO que o insumo, entao a assercao\n   virou superconjunto mais a exigencia de que todo blob a mais pertenca a uma\n   feicao que legitimamente carrega imagem. Igualdade ali reprovaria o produto por\n   causa do insumo; um \"pelo menos cinco\" passaria verde com lixo no zip.\n\n2. `.atlas-header__name` so existe dentro da aba Mapas, e a reimportacao navega\n   para outro documento, entao a aba aberta antes da exportacao nao sobrevive. A\n   falha se lia como defeito do produto e era da spec.\n\n3. A contagem de cartoes da lista era leitura de UMA vez disparada assim que UM\n   cartao ficava visivel, e a lista ainda estava desenhando. Medido em serie: 2\n   reprovacoes em 7 rodadas, ~29%, sempre naquela linha e nunca numa assercao de\n   dado. Virou `toHaveCount`, que retenta e ainda relata esperado e recebido,\n   entao o receio de \"timeout mudo\" que produziu a forma antiga nao se aplica.\n   Depois do conserto, 5/5 e 3/3 em serie.\n\nOs controles negativos: revertendo a correcao de camadas/grupos, a cadeia acusa\n\"servidor: `layers` por mapa\" e o round-trip acusa \"as camadas de cada mapa\nsairam, sem achatamento\"; a spec aditiva NAO acusa, corretamente, porque le\ncamadas do arquivo e nao da tabela de exportacao, e para ela a mutacao foi\ndesligar o sufixo de nome unico, que faz o `Principal` preexistente ir de 1 para\n19 feicoes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "58296d8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/58296d827b719bd03253bf99b395494efe9c77a8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T14:13:01.000Z",
+      "author": "Maj Diniz",
+      "message": "a janela que nenhuma fonte reconstroi depois: o arquivo nao commitado\n\nArquivo de um agente da outra sessao aparece so no git status DAQUELE instante e some de la quando o dono commita; dai em diante o git log o data pelo commit, que e posterior ao momento em que ele ja tinha entrado na sua rodada. Das fontes de divergencia entre duas rodadas, e a unica que nao se reconstroi a posteriori: quando voce for investigar, ela nao esta em lugar nenhum. O que resta e combinar antes, e por isso o aviso vale mais que a arqueologia.\n\nVeio como observacao nao medida da sessao vizinha, que avisou ter tres agentes escrevendo em frontend/tests/e2e-ui agora. Entra como propriedade estrutural, que e o que de fato e: arquivo nao rastreado nao tem historia.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "4a4a76c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a4a76c88266d0d6475f03de3a52673f7f40ff0d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T14:10:29.000Z",
+      "author": "Maj Diniz",
+      "message": "a pergunta que antecede a tabela: as duas sessoes estao na mesma arvore?\n\nNesta maquina, hoje, estavam, e isso e uma classe acima das colisoes de porta, banco e cobertura: o que se compartilha nao e um recurso do teste, e o SUJEITO dele. A sua rodada mede os arquivos da outra pessoa, meio escritos inclusive, e o git status que voce le como sua arvore e a arvore das duas.\n\nMedido: duas rodadas de test:e2e:ui do mesmo lote deram 307 e 308 casos, as duas verdes, e a diferenca era uma spec acrescentada pela outra sessao entre elas (exportar-le-todo-mapa.spec.js, commit 8bdd4ccd, 08:32). Ficou meia hora como divergencia nao explicada porque a minha primeira investigacao comparou conjuntos de spec e linha, respondeu nenhuma diferenca e estava ERRADA; um grep pelo nome do arquivo nas duas saidas achou na hora.\n\nContagem de casos que muda entre rodadas e a mesma familia do denominador de cobertura que muda: contradicao interna, e ela sempre vence a hipotese de que o numero e sobre o codigo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "fb838f9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fb838f9bce5cd5a0f120d5a509aaf41836a6b448",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T14:08:02.000Z",
+      "author": "Maj Diniz",
+      "message": "a raiz nao e uma linha da tabela, ela sao as tres primeiras\n\nO mapa de portas e bancos publicado em 3aaa2a16 isenta o Playwright de contaminar\nmedicao de cobertura alheia, e nao diz nada sobre a raiz. A leitura apressada\ncompleta a frase em favor de si mesma (\"entao posso rodar a raiz durante a\nmedicao do outro\"), e ela esta errada.\n\n`npm test` encadeia `test:frontend`, `test:backend` e `test:e2e`, entao herda a\nlinha do meio inteira: toma `ebgeo_test` e escreve em `coverage/tmp` sob c8,\nporque `run-tests.js` se auto-eleva ao rodar a suite completa. Seguem duas coisas\nque a tabela nao diz sozinha: duas RAIZES colidem entre si, e rodar a raiz\ndurante uma medicao de cobertura alheia contamina a medicao.\n\nImporta porque a raiz e o comando que a constituicao manda rodar antes de todo\ncommit, isto e, o mais frequente dos quatro, e portanto o mais provavel de estar\nno ar quando alguem for medir.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "79edbe2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/79edbe27c6aaed66fbd2ad57a33d3b2d4b698d6f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T14:05:48.000Z",
+      "author": "Maj Diniz",
+      "message": "o mapa de qual camada de teste possui qual porta e qual banco\n\nDescobrimos estas fronteiras uma a uma hoje, cada vez pagando uma colisao. A tabela poe as quatro camadas lado a lado com porta, banco e se escrevem em coverage/tmp, e duas sessoes so colidem se compartilharem uma linha dela.\n\nA consequencia que mais surpreende e que evita coordenacao desnecessaria: o npm test da RAIZ e o Playwright nao colidem em nada, porque a perna de e2e da raiz e outra porta (3911) e outro banco (ebgeo_e2e), e o Playwright sobe o backend por spawn sem passar por c8. Quem roda a raiz so precisa combinar com quem roda test:backend, e quem roda Playwright durante uma medicao de cobertura alheia nao a contamina.\n\nConferido no codigo antes de escrever: constants.js da e2e-ui (3912, ebgeo_ui_e2e), global-setup.js da e2e de contrato (3911, ebgeo_e2e) e o spawn sem c8 em backend.js.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "3aaa2a1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3aaa2a16301816b85c582d41179843cacc397c07",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T13:52:42.000Z",
+      "author": "Maj Diniz",
+      "message": "indentacao: a linha na coluna zero encerrava o bloco aninhado\n\nSegunda linha do paragrafo novo saiu sem os dois espacos, e dentro de um item de lista isso termina o bloco em vez de continua-lo. Deslize de escrita, sem efeito no conteudo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "93bcbdb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93bcbdbb6cc1b64d212f292fa72cb9109636398a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T13:52:24.000Z",
+      "author": "Maj Diniz",
+      "message": "os tres recursos que colidem entre rodadas, e o semaforo que nao serve\n\nA porta 3912 do backend de e2e:ui e o terceiro, e e o contra-exemplo util: aquela colisao GRITA e se NOMEIA, porque alguem escreveu a frase em frontend/tests/e2e-ui/backend.js. Postos lado a lado, os tres dizem o que nenhum diz sozinho: a graduacao nao e de gravidade do recurso, e de quanto o modo de falha foi instrumentado. A porta se nomeia, o banco grita mal (3D000 e 42P01 em arquivos sem relacao), a cobertura nao grita e devolve porcentagem crivel que acusa o codigo de outra pessoa.\n\nE a nao-verificacao, que e o que a leitura do texto anterior sugeria fazer: coverage/tmp NAO serve de semaforo de rodada viva. O clean roda no INICIO, entao residuo de rodada terminada fica ali ate a proxima comecar. Medido com zero processos node vivos: 819 arquivos. Diretorio cheio e o estado de repouso, e quem o usar como semaforo le ocupado sempre e acaba ignorando o semaforo. O sinal valido e a lista de processos, e foi ela que de fato acusou a rodada paralela; a contagem de arquivos foi citada junto como se corroborasse, e nao corroborava.\n\nAs duas adicoes vieram da sessao vizinha e foram conferidas aqui antes de entrar: a frase da porta existe em backend.js:167, e os 819 arquivos com zero node vivos foram medidos nesta maquina.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "1ef16f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ef16f5baaa6a8ac09b7adfe08cf429a893f0345",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T13:49:28.000Z",
+      "author": "Maj Diniz",
+      "message": "a cobertura tambem colide entre rodadas, e essa colisao nao grita\n\nUma sessao vizinha mediu o piso do backend, viu 4368 casos passando com o piso reprovando por 0,46 ponto, viu arvore suja no git status e concluiu que o lote de diag/logging tinha derrubado a cobertura. Medi de novo e obtive um TERCEIRO numero. Ao todo cinco medicoes do MESMO commit e dos MESMOS casos verdes, com statements de 90,11% a 97,9%.\n\nA causa e o instrumento: o c8 coleta por NODE_V8_COVERAGE num diretorio temporario e o .c8rc.json tem clean true, entao duas rodadas simultaneas apagam os arquivos de cobertura uma da outra. O sintoma nao e erro, e um numero plausivel e MENOR com todos os testes passando. As duas rodadas com o diretorio isolado deram numeros identicos ate o denominador (43434/44362), e o piso passa com folga: funcoes em 95,26 contra piso de 93.\n\nTres coisas ficam registradas porque a intuicao erra as tres: o numero BAIXO e o artefato, e a leitura natural aponta para o codigo de outra pessoa; contaminacao tambem pode SOMAR cobertura, entao verde com diretorio compartilhado tambem nao prova nada; e o denominador denuncia antes da porcentagem, porque com all true o total de funcoes deveria ser fixo e variou entre 882, 887 e 925.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "3db307e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3db307ea7619469f042d566ed288662d504dd799",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T13:46:25.000Z",
+      "author": "Maj Diniz",
+      "message": "colorUsage deixa de sumir do .ebgeo e do envio ao servidor\n\nO barril do store exportava como `getColorUsage` o irmao de `repository.js`, que\nmontava a chave com o NOME cru do mapa (`color_usage_${mapName}`). Quem GRAVA e\n`setColorUsageCompat`, que monta a chave RESOLVIDA por `_resolveSettingsKey`,\nisto e, o UUID sempre que `mapResolver` esta de pe e o mapa e keyado por UUID. Os\ndois batem no MESMO store de settings, entao a divergencia era so a string.\n\nMedido, nao inferido:\n\n  gravado sob `color_usage_<uuid>`  ->  {\"#FF0000\":3,\"#00FF00\":1}\n  lido    sob `color_usage_<nome>`  ->  null, e o getter devolvia {}\n\nEfeito: a secao `colorUsage` sumia do `.ebgeo` e do envio ao servidor para TODO\nmapa de chave UUID, que e todo mapa de atlas sincronizado ou importado de\n`.ebgeo`. Os dois consumidores do barril herdavam o leitor errado sem nada\navisar: a tabela de secoes opcionais e a duplicacao de mapa (`map.manager.js`).\n\nO leitor certo ja existia ao lado, com resolucao e fallback\n(`getColorUsageCompat`), e `store-state-manager.js` ja o importava sob este mesmo\napelido. O barril e que tinha ficado para tras, entao a correcao e trocar de quem\nele reexporta, o que conserta os dois consumidores de uma vez. O leitor cru foi\nPODADO em vez de deixado sem chamador, para nao sobrar o que reimportar.\n\nGRAVIDADE, dita por honestidade: `colorUsage` alimenta as amostras de cores\nfrequentes do seletor de cor (`getFrequentColors`). E conveniencia de UI,\nrecomputavel a partir das feicoes, e nenhuma feicao se perdia.\n\nO guarda precisa de um mapa nascido por `addMap` com o log de operacoes LIGADO,\nporque so entao a chave e UUID; com mapa keyado por nome as duas chaves coincidem\ne o codigo defeituoso passa verde. Por isso o primeiro caso assere que a chave\nresolvida DIFERE do nome antes de medir qualquer outra coisa. Revertendo a\ncorrecao, o guarda acusa `expected {} to deeply equal { '#FF0000': 3, ... }`.\n\nComo este defeito escapou da varredura de hoje: a primeira medicao comparou o\ndocumento exportado contra o disco e deu IGUAL nos dois lados, porque a fixture\nnao tem `colorUsage` nenhum. Comparacao em que as duas pontas vem vazias nao e\nmedicao, e eu quase a li como prova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "415ad76",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/415ad762c6a7693faebab99c92d33f4af8440743",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T12:56:23.000Z",
+      "author": "Maj Diniz",
+      "message": "documentacao: a mediana era o defeito, e o buraco tinha duas causas\n\nA linha da wiki que eu mesmo escrevi ontem afirmava que a mediana resolvia a inferencia de intervalo, e o exemplo que a defendia era justamente o regime facil (um buraco em minoria), o mesmo que o teste vazio media. Corrigida com o porque do p10 e a assimetria de custo. Entram tambem: o buraco na serie deixando de significar so queda de processo, a pilha so em 5xx, o inventario do que o servidor registra ganhando a transicao de regime vencido, e a terceira finura do amostrador (prazo proprio e guarda de voo, pelo threadpool compartilhado com a escrita do log).\n\nTres mentiras de outras paginas: tile-privado contava quatro desfechos quando ha seis (falta o 503 de indice nunca construido e o proprio regime vencido); api-rest-atlas justificava o limitador do link publico dizendo que o link e enumeravel, e 128 bits nao sao, sendo o motivo real outro; e auditoria apresentava a impressao digital como propriedade do motor de de-para, quando ela e doutrina para qualquer emissor, com a pergunta que a dispara escrita por extenso.\n\nNo livro-razao, tres eventos de conduta, dois deles meus: o teste que provava so o regime favoravel de um estimador, a edicao por linha de comando cujas crases o shell executou (terceira forma da mesma licao ja registrada), e o relatorio de agente lido como estado presente quando fotografava codigo de duas semanas antes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "ff7abcf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ff7abcfd5d258a1fbd35ade9a9bd58a8bb39d456",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T12:56:23.000Z",
+      "author": "Maj Diniz",
+      "message": "a pilha sai da linha de erro 4xx, e o limitador do diag deixa de ser mudo\n\nMedido nos jsonl reais: 73 a 80 por cento dos bytes de uma linha de erro eram pilha, e os tres arquivos inteiros contem OITO pilhas distintas. A do NotFoundError do roteador custa 1470 bytes e descreve o caminho do HANDLER, nao o caso: a mesma pilha para qualquer URL. A linha 4xx caiu de 1688 para 337 bytes (corte de 80 por cento) e os tres arquivos somados caem 30 por cento. A 5xx fica intacta, que e onde a pilha diz onde o defeito mora.\n\nTres conferencias ANTES de escrever, porque a troca podia nao compensar: a assinatura do relatorio nao usa a pilha (cinco termos, nenhum deles stack), a gaveta do painel some por inteiro num 4xx em vez de abrir vazia (a guarda ja existia, com o comentario dizendo que details vazio e pior que ausente), e o que sobra basta para diagnosticar (tipo, mensagem, codigo, os details do Joi que dizem QUAL campo reprovou, reqId, rota e status). O que se perde e o sitio do throw num 401, custo declarado.\n\nUma armadilha medida e fechada no caminho: sem guarda de re-entrada no serializer, a segunda passada do pino recalcula o tipo do erro a partir do construtor e NotFoundError vira Object. Como o tipo e termo da assinatura, o relatorio inteiro colapsaria numa assinatura so, verde e errado. E o handler do 360, que era a ultima superficie 4xx com pilha, ganhou a mesma regra: e justamente o modulo cujas rotas nao tem limitador, onde um laco de 404 amplifica mais.\n\nO limitador do endpoint anonimo de erro de cliente, o unico anonimo que ESCREVE no banco, dobrou no handler compartilhado e passou a registrar a recusa uma vez por janela, com o envelope 429 conferido byte a byte antes e depois.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "f59886b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f59886b5540686c514cb71c5448df2fa523085dc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T12:55:52.000Z",
+      "author": "Maj Diniz",
+      "message": "o buraco na serie deixa de ser ambiguo entre instrumento morto e processo morto\n\nQuando o disco enche, o log em arquivo se desliga e avisa uma vez num stderr que num container nao sobrevive: a serie de amostras some SEM o processo ter morrido, e o diag saude mostra a mesma assinatura dos dois casos. Era a unica ausencia da amostra que produzia sinal AMBIGUO em vez de sinal nenhum, e por isso a unica que valia acrescentar: atraso de event loop e ocupacao foram verificados e descartados, porque a casa ja mediu ELU em 0,1% com um nucleo a 98%.\n\nA API foi medida nesta plataforma antes de ser usada, e conferida por caminho independente contra o Get-PSDrive, batendo byte a byte no total. Tres armadilhas que a medicao revelou: o tamanho de bloco multiplica (esquece-lo da numero pequeno e plausivel), publica-se o disponivel e nao o livre (no Linux o livre inclui a reserva do root), e os campos de inode vem zerados no Windows porque o conceito nao existe ali, entao um validador que os cobrasse recusaria toda amostra desta plataforma.\n\nPrazo proprio e guarda de voo, porque statfs roda no mesmo threadpool de quatro slots que grava o jsonl: uma medicao por intervalo num volume pendurado satura os quatro em quatro amostras e leva junto o subsistema que escreve o log. Falha da medicao custa o CAMPO e nunca a linha, senao o campo criado para explicar buracos abriria um.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "ec70666",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ec70666f2d65c285a7e8e3dccf3b7c3fdfc08c1f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T12:55:52.000Z",
+      "author": "Maj Diniz",
+      "message": "a trilha deixa de guardar o link publico do atlas por extenso\n\nSao 128 bits de randomBytes, e a rota que os consome nao tem auth nenhum: e uma capacidade portadora. Numa tabela append-only isso e credencial permanente, legivel em qualquer dump ou replica, sobrevivendo a revogacao no produto e a perda da conta de quem leu. A doutrina de impressao digital do audit-diff nao foi violada: ela nao ALCANCA esse caminho, porque a acao de compartilhamento nunca passa pelo motor de regimes. Varridos os cerca de 40 sitios que escrevem details a mao, era o unico que carregava capacidade.\n\nGrava a impressao (a mesma funcao ja exportada, nao uma segunda definicao), que preserva a pergunta que a trilha responde: mudou ou nao mudou entre dois atos. Atlas sem link grava null e NAO a impressao de null, que seria uma constante identica em todo atlas e se leria na tela como valor real compartilhado. Na gaveta, o verbete diz IMPRESSAO por extenso, senao doze hexadecimais sem rotulo se leem como um valor utilizavel.\n\nVale para o que nasce daqui em diante: as linhas antigas continuam com o literal, e nenhum script alcanca dumps ja tirados. Para base ja publicada a resposta honesta e despublicar e republicar o atlas, o que rotaciona o link e mata as copias vazadas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "73518df",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/73518df96a34193fe67b6ed7e1c81eab669e9d45",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T12:55:28.000Z",
+      "author": "Maj Diniz",
+      "message": "o gate que serve estado velho passa a dizer que esta servindo estado velho\n\nQuando a reconstrucao do indice de regime falha, os dois indices caem para o ultimo indice bom e seguem servindo, e a invalidacao preserva esse indice de proposito. A consequencia: um recurso recem-marcado PRIVADO continua sendo servido como public, immutable enquanto o banco estiver fora, sem uma linha em lugar nenhum. Nao e falha de disponibilidade, e um gate de acesso operando sobre estado velho sem dizer que esta.\n\nA linha e por TRANSICAO (entrou, e depois saiu), nunca por consulta, senao seria uma linha por tile no caminho mais quente do produto. A de entrada sai em error e carrega a IDADE do indice, e as duas coisas andam juntas: no instante em que ela e escrita a duracao e, por construcao, desconhecida, entao o nivel e o da pior leitura, e a idade e o que deixa quem le rebaixar o evento sozinho. A de saida fica em info para nao inflar o mesmo relatorio que a entrada existe para alcancar.\n\nNada mudou no acesso nem no cache. Fechar o acesso em regime velho e decisao do dono, e o argumento contra fechar de forma uniforme esta no fileoverview: o indice de tiles recusa caminho nao reivindicado, entao fechar durante uma piscada de banco derrubaria o mapa inteiro, publico inclusive.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "b187811",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b1878119e10acc5606d92ed63dc0eae205e398da",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T12:55:28.000Z",
+      "author": "Maj Diniz",
+      "message": "o diag saude parava de acusar justamente quando a queda era maioria\n\nEle foi entregue hoje por esta mesma linha de trabalho e uma revisao adversarial o derrubou em dois pontos, os dois OBSERVADOS. Travava: mediana zero das distancias dava intervalo zero, e a impressao dizia FALTARAM null de null antes de desreferenciar nulo. E mentia: a inferencia por mediana colapsa quando a queda e MAIORIA, sempre para o lado tranquilizador. Medido com amostrador de cinco minutos e oito horas reiniciando de hora em hora, o comando dizia nenhuma amostra faltando enquanto o mesmo arquivo com --intervalo 5m acusava 74 de 85.\n\nA inferencia passou para o p10. A razao e do dominio e nao estatistica generica: um timer atrasa e nunca adianta, entao as MENORES distancias estimam a cadencia e as maiores SAO os buracos. O percentil foi medido contra p5, p25 e p50, e o criterio e a assimetria de custo: estimativa alta demais produz silencio, que ninguem investiga; baixa demais produz numero absurdo ao lado do intervalo absurdo impresso na linha de cima, que e ruido acionavel. A guarda passou a contar DISTANCIAS, porque duas amostras dao uma distancia e uma distancia dividida por si mesma da zero faltantes por aritmetica. Toda afirmacao sobre faltante carrega a premissa junto, a tranquilizadora inclusive.\n\nO teste que existia provava o REGIME FAVORAVEL, um buraco em minoria, que e onde quase todo estimador acerta: ele ficou, rotulado, ao lado da queda majoritaria, das duas amostras distantes e do percentil degenerado. O comando tambem passou a qualificar cada buraco com a leitura de disco da amostra que o ABRE, como INDICIO e nunca veredito, sem limiar escrito em lugar nenhum.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "82a6cdc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82a6cdc508f359e0f16b7e9e021b4fa689c0ed9a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T11:56:10.000Z",
+      "author": "Maj Diniz",
+      "message": "o ramo morto da fusao de camadas passa a ler o repositorio\n\n`importLayersAdditively` tem duas metades: mapa recem-criado, que recebe as\ncamadas do arquivo direto, e mapa EXISTENTE, que funde com o que ja esta la. A\nsegunda e codigo MORTO no unico chamador de producao, porque `handleImport` da a\ntodo mapa do arquivo um nome inedito (sufixo `_1`, `_2`) e registra cada um em\n`newlyCreatedMaps`, entao a guarda acima sempre desvia.\n\nCodigo morto que le a fonte errada e uma armadilha com prazo: ele acorda no dia\nem que o import aditivo passar a fundir com mapa existente, e acorda quebrado. O\nalvo de uma fusao e por definicao um mapa que JA EXISTIA e pode nunca ter sido\nvisitado na sessao, e a memoria de camada e hidratada um mapa por vez, entao\n`getLayers` devolveria a camada `default` fabricada por `_ensureMapLayersExist`.\n\nO estrago nao e cosmetico, e foi medido revertendo a blindagem: `existingIds`\nnasce sem os ids reais, a camada importada mantem um id que ja existe no disco, e\na fusao grava DUAS camadas no lugar de tres, sobrescrevendo a camada real do mapa.\nColisao de nome se ve na tela; colisao de id apaga.\n\nFica de fora, de proposito, o `getMapGroups` do import aditivo: ele consulta um\nmapa criado segundos antes, que nao tem grupo nenhum, entao o `{}` que a memoria\ndevolve e a resposta verdadeira e nao um cache frio.\n\nUma revisao anterior desta linha de trabalho relatou os dois sitios como defeitos\nvivos. Estava errado: foi inferencia por leitura de codigo, sem medir a\nalcancabilidade. A varredura que fecha a classe esta feita, e os demais\nconsumidores dos getters de memoria (`getVisibleLayerIds`, `getLayerById`, os tres\nsitios de `getMapGroups` em `features_tab`) usam sempre o mapa corrente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "9d9c342",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9d9c3429330fc68cceeff1735387974d819f75f8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T11:32:09.000Z",
+      "author": "Maj Diniz",
+      "message": "exportar deixa de perder as camadas e os grupos de mapa nao visitado\n\nA tabela de secoes opcionais do `.ebgeo` tinha nove getters, e dois deles eram\nSINCRONOS: `getMapGroups` e `getLayers`. Getter sincrono do store significa\nleitura de `memoryStore`, que e hidratado UM MAPA POR VEZ (`setCurrentMap` chama\n`loadGroupsToMemory` e `loadLayersToMemory` para o mapa corrente, e nada carrega\nos demais no boot). Exportar sem visitar cada mapa entregava, para todo mapa nao\ncorrente, as camadas como uma unica `default` INVENTADA por\n`_ensureMapLayersExist` e a secao de grupos vazia.\n\nMedido em navegador real, com um F5 no meio, que e o estado de quem abre o app\nnoutro dia: um atlas de 11 mapas com 17 camadas e 2 grupos chegava ao servidor\ncom 11 camadas e ZERO grupos, as 262 feicoes presentes, sem um erro em lugar\nnenhum. Depois da correcao, 17 camadas e 2 grupos, em 3 de 3 rodadas.\n\nAtinge as duas portas que montam o documento: o botao Exportar e o \"Enviar ao\nservidor\" do menu de conta (a aba Mapas delega para ele). O cartao de\n`atlas.html` nunca perdeu nada, porque le o disco cru por\n`buildLocalAtlasExportData`.\n\nAs duas formas de falha sao diferentes, e a de camada e a pior: grupo falha\nFECHADO (a secao some) e camada falha ABERTO (um numero plausivel). E o defeito\nera intermitente por sessao, porque `importMapGroups` povoa a memoria de grupos\nde todos os mapas por efeito colateral enquanto o irmao de camada so escreve o\nmapa corrente: importar e exportar na mesma sessao escondia a metade de grupo.\n\nA correcao troca os dois pelos gemeos assincronos de repositorio\n(`getMapGroupsFromDB`, `getLayersRepo`). Como a escrita de camada e adiada em\n300 ms por `DebouncedPersist`, `buildExportDataObject` passou a chamar\n`flushPendingLayerWrites` uma vez antes de montar o documento, senao a troca\ncompraria a perda grande pagando com uma pequena.\n\nO guarda que ja existia (`tests/unit/export-optional-map-data.test.js`) nao\npegou e nao poderia: ele dubla o barril `@store` inteiro, entao prende o\ncasamento predicado contra TIPO e e cego a FONTE. Dai os dois guardas novos, um\ncom o dado no disco e a memoria fria, outro no navegador com o F5 como sujeito.\nRevertendo a correcao, o primeiro fica vermelho em 3 dos 5 casos e o segundo\nacusa `[\"default|Padrao\"]`, que e a camada fabricada.\n\nFidelidade conferida campo a campo nas 262 feicoes (nome, cor, espessura,\ntamanho, rotulo, opacidade, tracejado, sidc, `attributes` e geometria): zero\ndivergencia nas tres pernas. A unica troca de id e a das quatro feicoes de\nIMAGEM no envio, que e desenho declarado, porque para elas o id da feicao E o id\ndo blob; emparelhadas por nome, o conteudo bate.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "8bdd4cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8bdd4ccd801c71fc211f6d50c0c9c8051cf6591d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-09-01T11:23:36.000Z",
+      "author": "Maj Diniz",
+      "message": "secretaria: a apuracao de transgressao disciplinar entra na wiki, com os cinco formularios\n\nMotivo: a wiki nao tinha nada sobre FATD. As unicas mencoes a punicao eram\nefeito colateral de outro processo (comportamento nas Folhas de Alteracao,\ndesconto do auxilio-transporte).\n\nSeis paginas em docs/secretaria/fatd/, conferidas no texto do RDE:\n- intro: FATD contra PATD, base normativa, quando cabe, e o quadro de\n  competencia do Anexo III lido pelo colspan (a primeira celula da linha dos\n  sargentos ocupa duas colunas, e a leitura ingenua desloca todos os valores).\n- procedimento: os nove passos do Anexo IV, e as onze falhas de rito que\n  derrubam punicao.\n- enquadramento: os nove elementos do art. 34, § 2º, justificacao, atenuantes,\n  agravantes, classificacao e as faixas do art. 37.\n- prazos-recursos: treze prazos com a fonte de cada um, todos em dias uteis.\n- classificacao-sigilo: quando o processo passa a ser classificado.\n- modelos: os cinco arquivos e como preencher.\n\nTres achados que a norma resolve e o costume erra:\n- O texto do ciente e literal do Anexo V. Modelos que circulam pela guarnicao\n  trocam \"autoria\" por \"autoridade\" e suprimem \"querendo\" e \"por escrito\".\n- Conclusao escrita e decisao sao atos distintos, em alineas seguidas do Anexo\n  IV. Frase pronta com lacuna de negativa nao cumpre o art. 35, § 2º, VIII, que\n  exige fundamentar de forma objetiva e direta.\n- Classificar e restringir sao coisas diferentes. A restricao de acesso vale\n  desde a primeira peca por conter dado pessoal (IGSAS, art. 3º, II), e a\n  classificacao formal so existe apos a assinatura do TCI (art. 11, § 2º).\n  Carimbar antes contraria a norma.\n\nOs cinco ODT saem de um processo real, com os dados do caso trocados por\nmarcadores. A transformacao editou o content.xml no nivel do paragrafo, para\npreservar a formatacao feita a mao. Varridos por identidade, nome, NUP, datas\ndo caso e caixa marcada: limpos. Uma folha cada.\n\nGuardrail: a wiki e publica e nao tem precedente de material de acesso\nrestrito. A pagina de sigilo cita so norma publica (LAI, Decreto 7.724, IGSAS,\nRISG) e remete o procedimento operacional do TCI a Agencia de Inteligencia.\n\nBuild do Docusaurus verde, com onBrokenLinks em throw.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "000cff5",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/000cff5d54a9db8f9f2013805934e4707ad9220e",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:31:45.000Z",
+      "author": "Maj Diniz",
+      "message": "documentacao: o que o servidor passou a registrar, e duas mentiras a menos\n\ndeploy-backend.md afirmava que trust proxy nao e configurado e que req.ip e o IP do proxy. E falso desde que o app.set existe, e a frase dizia literalmente que o campo de endereco recem-acrescentado seria inutil; havia ate contradicao interna com hardening-borda-api. TRUST_PROXY_HOPS passou a existir por escrito no .env.example, com o modo de falha declarado nos dois sentidos.\n\nobservabilidade.md ganha a secao do que o servidor registra (recusa de sync, endereco, 429, erro do 360), a poda de client_errors, a descarga do log na saida e o recorte MENOR do silencio da amostra: exceção e rejeicao nao tratadas agora se explicam, e o buraco na serie sobrou para OOM, SIGKILL, laco travado e maquina reiniciada. O contador de propriedades do log-diario saiu da prosa, porque numero em prosa envelhece calado. erros-api, ack-idempotencia, sintese-limites-collab e auditoria deixam de omitir o registro novo.\n\nNo .gitignore, data/ui-e2e-images/: o Playwright usa um diretorio que a lista nao cobria, e uma rodada deixava dezenas de PNG que um git add . levaria junto. No README da e2e-ui, duas notas de instrumento: a taxa medida do flake da mega, e o achado de que code=1 signal=null NAO distingue queda de encerramento no Windows, sendo o discriminador a linha [queda] no stderr.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "7c59d3d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7c59d3d8962d1d6f31e239568dfe5760717d9230",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:31:29.000Z",
+      "author": "Maj Diniz",
+      "message": "a contagem de erro de navegador passa a dizer o que ela e\n\nO contador do servidor e vitalicio e a listagem filtra so por ultima_em, entao um defeito de meses atras com doze mil relatos que disparou uma vez hoje aparecia na janela de 24 horas com doze mil e peso maximo. Do outro lado o cliente deduplica uma assinatura por sessao, entao as dezenove ocorrencias do incidente que originou esta camada valeriam 1. A tela chamava isso de ocorrencias e ordenava por ele: era a unica coluna que existe para decidir o que consertar primeiro.\n\nA frase agora diz as tres coisas que o numero e: acumulado desde a primeira aparicao, a janela decide quais erros aparecem e nao o tamanho do numero, e ele conta RELATOS e nao ocorrencias. A ordenacao passou a ser por recencia, e o argumento que decidiu nao foi a coerencia com o corte: e que a contagem e vitalicia, entao ordenar por ela e ordenar por um numero que nao fala da janela nenhuma.\n\nA degradacao sem o campo novo do servidor pergunta PRIMEIRO pelo teto e nao pelo total: lista menor que o teto e completa sem o servidor informar nada, e sem esse ramo um servidor de versao anterior com sete erros desenharia pode haver mais fora dela em toda carga, que e o alarme que ensina a ignorar alarme.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "d950beb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d950beb4c8d9fdc9b99094a4a2ad479c4f879f5a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:31:28.000Z",
+      "author": "Maj Diniz",
+      "message": "client_errors ganha prazo de validade, e a trilha ganha o indice que a doc prometia\n\nNao existia um DELETE em todo o pacote, e a rota que alimenta a tabela aceita anonimo por decisao: dentro do proprio limitador o teto permitido e de dezenas de milhares de linhas por dia, permanentes, que e textualmente o modo de falha que o cabecalho da migracao dizia estar evitando. A poda usa a MESMA idade do arquivo de log, porque telemetria de defeito envelhece junto com o log que a explica, e roda de forma oportunista na escrita, no maximo uma vez por hora, sem agendador: se ninguem escreve, nada cresce. O criterio e ultima_em, nunca primeira_em, senao a assinatura de um ano ainda ativa (o dado mais valioso da tabela) seria a primeira a morrer.\n\naudit_trail NAO e podada, por decisao do dono: o relatorio de uso distingue o horizonte podavel do nao podavel, e podar a trilha falsificaria em silencio a conta de quem entrou.\n\nO indice: a premissa de varredura sequencial estava errada e a verdade e pior. O planejador percorria idx_audit_target de ponta a ponta aplicando a condicao na SEGUNDA coluna, ou seja um indice que se chamava cobertura e era lido inteiro, que e a forma de desligar a suspeita de quem olha o plano. O composto foi medido contra o de coluna unica, que o planejador IGNORAVA em cardinalidade media, ficando pior que indice nenhum. Planos, custo de lock e a faixa em que ele deixa de ganhar estao no cabecalho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "f28c9b2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f28c9b2c2d85b127ebfe73683c54cf5601d2f2bf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:31:03.000Z",
+      "author": "Maj Diniz",
+      "message": "o handler de erro do 360 deixa de engolir a propria falha\n\nEle intercepta antes do handler global e nao logava nada: todo erro do modulo saia sem mensagem e sem pilha, e no relatorio colapsava numa assinatura generica. Agora loga na MESMA gramatica do global (mesmo reqId, mesmo originalUrl redigido), porque divergir ali produz assinatura propria e quebra a fusao, que e pior que o silencio: passa a contar errado. O envelope plano continua byte a byte igual, preso por teste.\n\nO nivel foi escolhido com o ehErro na frente: como a linha sempre carrega err, ela entra no relatorio por aquele termo em qualquer nivel, entao 4xx em warn nao custa visibilidade e ganha a separacao entre falha de servidor e erro de cliente. E o registro vem DEPOIS da guarda de headersSent, porque ali o next(err) cai no handler global, que ja loga: antes dela seriam duas linhas para a mesma falha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "75403ba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/75403ba8aae569459b96943c654dbb4d38e054f3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:31:03.000Z",
+      "author": "Maj Diniz",
+      "message": "o endereco do cliente e a recusa do limitador entram no log\n\nNenhuma linha carregava endereco e o handler de 429 nao escrevia nada. Somado a LOGIN_FAILED nao existir na trilha (impossibilidade de esquema: o ator e NOT NULL e numa tentativa falha nao ha ator), uma rajada de login nao deixava rastro consultavel nenhum. O limitador recusava e ninguem ficava sabendo.\n\nA verificacao veio antes da escrita e mudou a conclusao: trust proxy JA e configurado, por TRUST_PROXY_HOPS, entao req.ip e o cliente e nao o proxy. Quem estava errada era a wiki. Loga-se o req.ip cru e nao a chave /56 do limitador, porque o colapso de prefixo e anti-evasao para chavear e joga fora a precisao que a resposta precisa.\n\nO 429 fala UMA vez por janela, derivado do contador que o proprio limitador ja mantem: uma linha por recusa faria o limitador virar o amplificador da rajada dentro do disco, e um mapa de avisados trocaria a rajada no disco por uma no heap. O username entra so onde a chave o inclui, sem caracteres de controle (diag -- linhas imprime num terminal) e com teto. A contra-intuicao que decide a leitura: quem revela varredura de mil contas nao e o 429, e sim o 401 repetido sob o mesmo endereco, porque a chave inclui o usuario e mil contas viram mil baldes com um acerto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "3c7c6e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3c7c6e2104ba15647637b52bd74e28eeb846c158",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:30:42.000Z",
+      "author": "Maj Diniz",
+      "message": "a recusa por operacao do sync deixa de ser muda\n\nE o unico caminho em que o produto descarta trabalho de proposito, responde 200 e nao deixava rastro em lado nenhum: um relato de fila congelada nao tinha como ser confirmado nem negado. Agora UMA linha por lote, agregada por motivo e por alvo, com contagem, sem payload, e carimbando a porta (REST ou socket). As seis recusas sao decididas no mesmo ponto, entao nao ha segunda montagem no WS.\n\nEla sai em warn SEM err e SEM statusCode, ou seja de proposito fora do diag -- erros: recusar escrita em mapa travado e o produto funcionando, e despejar isso no relatorio soterraria o 500 raro sob o comportamento correto frequente. Le-se por diag -- linhas --filtro, e por isso a mensagem e simbolo exportado e escrita sem acento. As cotas contra cliente hostil foram medidas: o motivo do alvo desconhecido interpola texto do cliente, e cortar tudo em 60 entregava a quem investiga um motivo truncado no meio.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "55cb197",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/55cb1973af68443884b609da6f3448678cf63364",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T10:30:42.000Z",
+      "author": "Maj Diniz",
+      "message": "o processo que morre passa a deixar linha, e o log e descarregado na saida\n\nNao havia handler de uncaughtException nem de unhandledRejection, e a pilha ia para o stderr, que nao e destino do pino: o processo morria e o .jsonl, unica evidencia que sobrevive ao fechamento do terminal, nao registrava nada. E o SIGTERM chamava process.exit com fila pendente no fluxo, com fechar() sem um so chamador, perdendo justamente as linhas do desligamento. Agora ha linha fatal com marcador queda, descarga com prazo, e o log fecha por ultimo.\n\nTres coisas medidas. O multistream do pino NAO tem flush, e o flushSync so alcanca destino que tenha um, o que nenhum dos tres nossos tem: quem descarrega e o nosso fechamento. O stdout fica de fora, declarado, e num cano a ultima linha ainda pode truncar. E o temporizador do prazo nao e unref de proposito: no fim de um desligamento o laco pode estar vazio, e um timer unref deixaria o node sair com codigo 0 no meio da espera, transformando a queda registrada num desligamento limpo.\n\nO teste de integracao enfileira 4000 linhas antes de morrer, porque uma linha so sobrevive sem descarga nenhuma e nao discriminaria: o desfecho e 4003 com descarga contra 3 sem. O stderr fala sempre e antes do log, e isso foi exigencia do boot-fail-fast: com o aviso condicional, o EADDRINUSE parava de aparecer e o processo morria sem diagnostico em canto nenhum.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "7a14351",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7a14351cfa086c42e73030a624c52d6d1bd9ee39",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T03:03:32.000Z",
+      "author": "Maj Diniz",
+      "message": "documentacao: os tres termos do ehErro, o nivel como contrato, e a taxa da mega\n\nA wiki dizia que ehErro tinha DOIS termos e ele tem tres, e essa subcontagem nao ficou no papel: foi ela que fez o comentario do amostrador escolher o nivel errado com ar de decisao conferida. Entram tambem o comando saude na constituicao e na wiki, o nivel de cada amostra como contrato com o relatorio, a secao sobre o que nao entra numa linha de log (os dois mecanismos independentes, e por que ligar pgFormatting nao e a saida), e o nome do guarda que passou a sustentar a frase sobre o leitor cego vir antes do vazio.\n\nNo livro-razao, quatro eventos de CONDUTA (nao de produto): o guarda que media forma que o driver nunca produz, a subcontagem que virou premissa de codigo, o guarda por presenca que ficou verde sobre uma secao muda, e o restaurador de controle negativo que falhou calado. No README da e2e-ui, a taxa medida do flake da mega, com o que ja esta descartado como causa e por onde comecar, para que uma mega vermelha nao seja lida como regressao de sync.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "33b7767",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/33b7767806cb919e62ac254d122bd65aee9bef40",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T03:03:19.000Z",
+      "author": "Maj Diniz",
+      "message": "registrar camada de dados pelo painel deixa de ser impossivel\n\nA palavra style tem dois significados no catalogo: em basemaps e um documento MapLibre inteiro, servido verbatim no GET /config; em data_layers e um recorte de pintura (fill, border, label), que por construcao nao tem version, sources nem layers. assertValidStyle rodava para as quatro tabelas, entao o template padrao do formulario, que ja nasce com style.border, era recusado com 400 cobrando version 8 de uma coisa que nunca teve. O cliente ja gateava a validacao por categoria e explicava o porque; quem validava demais era o servidor.\n\nAchado pelo Playwright, que fica fora do npm test e roda a mao, e por isso passou meses invisivel. O repro cobra os DOIS sentidos: o recorte passa em camada de dados e o estilo quebrado continua reprovando em mapa base, senao apagar a validacao inteira ficaria verde.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "7862145",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7862145ea20142b53532281d200a3f915aebe9c2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T03:03:19.000Z",
+      "author": "Maj Diniz",
+      "message": "a aba Diagnostico para de desenhar boa noticia a partir de instrumento desligado\n\nO Pulso nao consultava leitorCego nem as notas de leitura, embora os dois campos viessem no payload dele: com o log desligado ele dizia nenhuma requisicao registrada ao lado de duas secoes dizendo que o leitor estava cego, e sob truncamento mostrava o total DEPOIS do corte como se fosse o do periodo, sendo ele o unico numero da aba que sofre o corte. A latencia tinha a nota so no ramo da tabela. O ladrilho de erros ficava verde quando o numero nao chegava, e a taxa de erro desenhava um chip verde de 0% ao lado dele.\n\nO guarda novo deriva a lista de secoes do proprio codigo (secao nova nasce cobrada), exige que quem nao le log se declare fora com o motivo escrito, e CONTA os desfechos informativos contra as chamadas de nota: a primeira versao dele cobrava so presenca e ficou verde sobre a latencia muda, que e o guarda afirmando o contrario do que a tela faz.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "96b81fd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/96b81fdef46dac3ceee91d411892344fd5734f2b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T03:03:01.000Z",
+      "author": "Maj Diniz",
+      "message": "a amostra que diz que o Postgres caiu passa a ser vista pelo relatorio de erros\n\nEla saia em warn, sob um comentario afirmando que ehErro contava warn como erro. Nao contava: ehErro exige level >= 50, campo de erro ou statusCode, e a linha nao tinha nenhum dos tres, porque o texto da falha mora em banco.erro. Medido importando os dois modulos no mesmo processo, o diagnostico via o amostrador quebrado e nao via o banco caido. Prazo e erro saem os dois em error, porque a distincao que pede providencias opostas mora no campo; a amostra saudavel fica em info.\n\nO teste pergunta ao ehErro REAL em vez de asserir sobre o numero do nivel, que ficaria verde no dia em que o criterio mudasse, que e a divergencia que causou isto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "816b3b6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/816b3b64e852e7dbb9807b7ea6291c3a17fa0f48",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T03:03:01.000Z",
+      "author": "Maj Diniz",
+      "message": "o diagnostico funde em tempo linear e ganha o comando que conta os buracos da serie\n\nfundirPorRequisicao fazia um find da lista inteira dentro do laco de fusao, O(ExN): 100 mil registros levavam 15,9 s e os 200 mil do MAX_REGISTROS extrapolam para dezenas de segundos, com o laco de eventos travado. O gatilho e o administrador abrir a aba durante o incidente, que e a unica hora com esse volume, ou seja, o diagnostico derrubava o servidor pela propria porta. Agora 26,5 ms, com saida identica.\n\nO conserto obvio (guardar so o status do primeiro candidato) muda a resposta, porque a busca antiga excluia o proprio registro rico e o rico so se conhece no fim da passada; a reversao para ele reprova em tres casos, um deles do fuzz. E nasce npm run diag -- saude: a wiki dizia desde sempre que o sinal de queda e o buraco na serie e que a pergunta certa e quantas amostras faltaram, e essa pergunta nao tinha ferramenta nenhuma. Intervalo pela MEDIANA (a media faz um buraco de seis horas virar o intervalo e o relatorio dizer que nada faltou), ausencia devolve nulo e nunca zero, e o trecho anterior a primeira amostra e desconhecido, nao buraco.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "98ec9ec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/98ec9ec3f9ee5a8fae542fe4ba8248a307b018f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T03:02:42.000Z",
+      "author": "Maj Diniz",
+      "message": "a chave de API e o hash de senha deixam de cair em texto claro no log\n\nO pg-promise interpola os valores no texto da SQL antes de emitir o evento, porque pgFormatting fica no default false, entao e.query e err.query nao tem placeholder nenhum: tem a credencial. O redact do pino casa por nome de campo e o campo se chama query, entao nada nunca viu isso. Fecha as DUAS portas (o hook de erro do banco e o serializer de err, que carrega query, params, detail, where e internalQuery) com elidirSql, que tira o valor e mantem a forma.\n\nO guarda anterior media uma fixture que o driver nunca produz (placeholder no texto e params populado), e por isso era verde por construcao; o paramCount que ele protegia publicava zero para toda query desde sempre. O novo provoca erro REAL contra o banco e exige que o erro cru carregue o segredo antes de exigir que o log nao carregue.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "013a615",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/013a615fe1c30ef272261433ccc4ada189bb1ee4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-08-31T20:56:05.000Z",
