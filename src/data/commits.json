@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-01T18:18:00.462Z",
+  "lastUpdate": "2026-09-01T22:30:22.990Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-09-01T15:57:17.000Z",
+    "1cgeo/controle_acervo": "2026-09-01T20:34:33.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-08-31T20:56:05.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-01T19:38:13.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-01T18:09:41.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-01T19:50:38.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6383,
+    "totalCommits": 6391,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1165,
+      "1cgeo/ebgeo_web": 1170,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 347,
+      "1cgeo/controle_acervo": 348,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -163,13 +163,85 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 669,
+      "1cgeo/chefe_dgeo": 671,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-01T20:34:33.000Z",
+      "author": "Maj Diniz",
+      "message": "a previsao de falta da 7.2 aceita um mes, e a janela passa a contar o mes da edicao\n\nA coluna \"Previsao de falta de estoque\" saia em traco nas 34 linhas da edicao\nde agosto/2026, e nao por falta de gerador: a regra se recusava a projetar, por\nduas causas somadas.\n\nO minimo era TRES meses com consumo, e mapoteca.movimento_material nasceu em\njulho/2026. Medido no sistema vivo em 2026-09-01: o livro tem 36 lancamentos ao\ntodo, dos quais 8 sao consumo, todos em agosto/2026, somando 20 unidades em 8\ndos 34 materiais. Com o minimo em tres, a coluna so nasceria na edicao de\nnovembro.\n\nE a janela descartava o mes da propria edicao, sob o argumento de que o mes\ncorrente ainda esta andando. O argumento nao vale aqui: o RPCMTec de agosto se\nescreve em setembro, com agosto fechado. O efeito era a tabela imprimir\n\"Consumo no mes: 7\" numa coluna e \"-\" na coluna seguinte, que e a que divide\npor ele.\n\nO chefe decidiu, em 2026-09-01: minimo de UM mes, mesma media de sempre (a dos\nmeses com consumo na janela), e o mes da edicao dentro dela. O `+ 1` no inicio\nmantem a janela em doze, e nao treze.\n\nO que se perde, e e deliberado: um mes de acaso agora vira data com cara de\napurada. Ficou escrito na constante, com o pedido de rever quando houver um ano\nde livro.\n\nNenhum teste cobria a regra ate aqui, e o unico arquivo do repo que a nomeava\nera o proprio controller. Entra rpcmtec_previsao_falta.test.js, com os casos que\nela tem de REPROVAR: material sem consumo na janela, consumo fora da janela, as\nduas bordas da janela (setembro/2025 conta, agosto/2025 nao, que e o que prende\nos doze meses), estorno negativo, e estoque zerado dizendo \"Sem estoque\" em vez\nde uma data no passado. Rodado contra o codigo ANTERIOR ao conserto, ele reprova\n5 dos 8 casos. Suite rapida inteira verde: 140 suites, 3297 testes.\n\nAs sete edicoes fechadas de 2026 nao mudam: agosto e o unico mes com consumo e e\nposterior a todas elas, entao `edicao conferir` nao acusa divergencia nova na\n7.2. A edicao 8 esta aberta e recalcula na proxima leitura.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LMyFBCcUN6TzC747osp2hi",
+      "sha": "aac3705",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/aac37059206421c8659c8186126152b679c19902",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T19:50:38.000Z",
+      "author": "Maj Diniz",
+      "message": "documentacao dos lotes C e D, e a terceira premissa refutada no livro-razao\n\nA wiki ganhou por que o CLI le em fluxo e a rota le com anel (a assimetria e deliberada: reusar o leitor da rota mudaria respostas em silencio), por que o erros faz duas passadas, o que o --filtro casa de verdade e o que ele NAO deixa de casar, e o campo de enderecos nas duas superficies com as duas leituras de distintos igual a um.\n\nNo livro-razao, duas linhas. A primeira registra a TERCEIRA premissa minha refutada no mesmo dia, e o que ela ensina nao e prestar mais atencao: as tres tem a mesma forma (virei premissa de briefing uma leitura que nao fiz), e o que mudou entre a primeira e as duas ultimas foi o briefing INSTRUIR a conferencia antes da escrita. A instrucao vale mais que a atencao porque nao depende de eu lembrar. A segunda registra o ponto e virgula no lugar do && entre verificar e commitar, que fez um commit sair com o docs-integridade vermelho: a forma que sobrevive a pressa nao e a que lembra a ordem, e a que impede a acao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "c497f12",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c497f12e795482a48ce50ff5ce546a42a0dca3f1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T19:50:24.000Z",
+      "author": "Maj Diniz",
+      "message": "a aba mostra de quantos enderecos veio cada pico, e nomeia as duas leituras\n\nmapearGrupo aparava o exemplo para quatro campos e o endereco morria ali. Ele passa a atravessar como campo agregado do grupo, e o exemplo continua com as MESMAS quatro chaves: o exemplo e a ocorrencia mais recente, e um endereco ali se leria como a origem quando e so o ultimo a chegar.\n\nCinco estados, e o quinto e o que se erra: distintos igual a um cujo unico endereco e a sentinela de endereco indeterminavel NAO e um cliente so, e a tela o nomeia a parte. Sem esse ramo a frase diria o oposto do que a sentinela significa. A constante e copia declarada, e a degradacao esta desenhada: se as duas deixarem de casar, o estado cai em unico, que ainda nomeia as duas leituras, entao o custo e uma frase a menos e nunca uma frase falsa.\n\nServidor de versao anterior fala UMA vez por secao e nao por linha, porque o mesmo aviso em vinte linhas e o alarme que ensina a ignorar alarme. Teto de exibicao de tres: quem responde um ou trezentos e a contagem de distintos, que nao e cortada, e a lista so nomeia quem domina.\n\nLIMITE DECLARADO: o bloco novo nao foi visto em tela nenhuma. O laco aprovado para UI e captura do Playwright, e o arnes roda com NODE_ENV=test, onde o log em arquivo fica desligado por construcao, entao a aba desenharia leitor cego. Verificado: logica pura e fiacao estrutural. Por conferir: layout, cor e quebra de linha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "5a23fc6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5a23fc628a51d5ef4b288eb86fc824a651b95d92",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T19:50:24.000Z",
+      "author": "Maj Diniz",
+      "message": "o CLI de diagnostico le em fluxo, e o endereco entra no relatorio agregado\n\nO comando fazia readFileSync do arquivo inteiro, com 338 B de heap por registro, enquanto a rota tem anel de 200 mil. A parede era dura e foi CONFIRMADA, nao deduzida: num arquivo de 565 MB (2,1 M linhas) o readFileSync morre com ERR_STRING_TOO_LONG antes de qualquer filtro, e reduzir a janela nao salvava, porque o arquivo era lido e parseado inteiro antes do corte por tempo. Depois: pico de 488 MB para 79 MB nos 402 mil registros, e o arquivo que matava o comando responde.\n\nNAO reusei o leitor da rota, de proposito: traria o anel de 200 mil para o CLI e mudaria respostas em silencio, porque o comando ve o arquivo inteiro e e isso que faz o saude contar buracos numa janela longa. O erros faz DUAS passadas e nao e desleixo: para decidir o destino da linha do request-logger e preciso saber se existe linha rica com aquele reqId em qualquer ponto da janela, INCLUSIVE depois.\n\nO endereco entra AGREGADO por assinatura (distintos mais os principais, com teto e ordem deterministica), nunca em assinaturaDeErro. Um achado quase matou o campo: a linha do errorHandler nao carrega ip, e e justamente ela que a fusao mantem, entao ler so o registro fundido daria zero em todo grupo de erro de rota. E distintos igual a um sobre muitas ocorrencias tem DUAS leituras (cliente unico ou TRUST_PROXY_HOPS errado), que o comando nomeia sem escolher, imprimindo o censo da janela inteira, que e o que as separa.\n\nUma premissa do briefing foi refutada e esta declarada: casar a linha crua NAO faz --filtro time deixar de casar tudo, porque time e chave do pino em toda linha do disco. A diferenca real esta no escape, e o problema do operador foi resolvido por outra via (o comando diz quando o filtro casou a janela inteira).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "d50a05e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d50a05e21c8345473e2a188ef481aa9e7d7bc544",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-01T19:38:13.000Z",
+      "author": "Maj Diniz",
+      "message": "modelo-gaussiano-navegavel: limpar splats espurias vira passo 2, e o texto novo reacentuado\n\nTrabalho de sessao paralela, que estava pendente na arvore desde a abertura\ndesta sessao. Conteudo dela, revisao de forma minha.\n\nSKILL.md ganha o passo 2 (limpar as splats espurias ANTES de rotacionar), com\nos quatro estagios de corte, o veto ao SOR (pega 100% do flutuante solitario e\n0% do flutuante em cacho, e come 88% de um cabo real), a nuvem LiDAR como regua\nexterna e o corte por CONJUNCAO. Os passos seguintes renumeram de 3 a 8, e as\nduas referencias a \"passo 1\" seguem apontando para a medicao.\n\nlearnings.md ganha 325 linhas de 2026-09-01: o veu do ceu, o editor de limpeza\na mao e a nuvem LiDAR.\n\nConserto de forma: as 325 linhas novas entraram sem acentuacao, contra a norma\ndo vault. Reacentuei 77 ocorrencias que o lint_escrita apontava, mais o \"e\"\nverbal que ele nao ve (porque \"e\" tambem e palavra), protegendo bloco de\ncodigo, code inline, [[link]] e URL. Conferido: os 3 conjuntos batem byte a\nbyte com o original, e a contagem de linhas nao mudou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LMyFBCcUN6TzC747osp2hi",
+      "sha": "2770e79",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2770e79482c65f5b639c9d75406264a10f870912",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-01T19:31:05.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-01: a ata assinada diz o que a API cala, e preco no piso e item mal especificado\n\nPE 32/2026 do 2o CGEO homologou: os 23 itens do bloco do 1o CGEO\nfecharam em R$ 82.882,00 contra R$ 107.720,87 estimados.\n\nGanhos de metodo em consultar-licitacao:\n- o PDF da ata e FONTE, nao anexo. So ele traz a amarracao ata-empresa,\n  a clausula que nomina o orgao participante item a item, e a coluna\n  MARCA. Nesta compra a marca dos cartuchos nao era HP, sobre\n  especificacao que diz \"Original\".\n- preco muito abaixo da mediana e hipotese de item MAL ESPECIFICADO.\n  O item 28 (P2V72A, 300 ml) homologou a R$ 595, piso dos 17 registros\n  federais, contra mediana R$ 1.117 dos demais.\n- modulo-material/4_consultarItemMaterial ignora o filtro e devolve a\n  base toda. A rota certa e modulo-pesquisa-preco/1_consultarMaterial.\n- filtro por nome em dado brasileiro precisa tirar o acento, senao a\n  negativa mente.\n\nwiki/sped-protocolo: idsAssinantes e idsAprovadores sao String e nao\nlista, siglaOm e obrigatorio ao criar, e compra de material de consumo\nclassifica em 031.12, nao na 062.11 do modelo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LMyFBCcUN6TzC747osp2hi",
+      "sha": "cd91b64",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cd91b64ef27ff9c13ef41e439288b2ca13ce2fa5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T18:20:10.000Z",
+      "author": "Maj Diniz",
+      "message": "a decisao entra na convencao do arquivo, e sem em-dash\n\nEscrevi o cabecalho como ## com travessao e titulo capitalizado; a convencao do arquivo e ### AAAA-MM-DD: titulo em minuscula, sem regua horizontal entre entradas. O travessao ainda reprova o docs-integridade, que cobra a regra tipografica da constituicao.\n\nO commit anterior saiu com esse teste VERMELHO, e a causa foi minha: pus a verificacao e o git commit na mesma linha, separados por ponto e virgula, entao o commit nao dependia dela. E exatamente a primeira licao da secao Verificacao da constituicao (verificacao que chega depois da acao nao e verificacao), cometida por quem passou a sessao consertando essa classe nos outros.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "0c572fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0c572fca7ab42de8b2560994440bfc43e55704c8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T18:19:08.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao: o teto do regime vencido fecha o 3D inteiro, e isso e escolha\n\nO dono confirmou o fechamento amplo. Registrado com a alternativa recusada por extenso (alcance estreito, uma linha) e os tres argumentos que decidiram: assimetria dos erros (alto e reversivel contra silencioso e irreversivel, com public immutable retendo por um ano), o pouco que o estreito compra (a janela em que ele ajuda e a mesma em que o memo do /api/config ja pode ter expirado e o boot e fail-fast nele), e o decisivo: o conservador com knob mantem as duas opcoes alcancaveis em runtime, enquanto o estreito assa a permissiva no codigo.\n\nFica declarado o custo que a decisao carrega: o knob e UM para os dois indices, entao subi-lo para ganhar disponibilidade de 3D afrouxa tambem o de tiles, que e onde o risco de vazamento e mais concreto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "35c9d57",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/35c9d57cab505985fa1b87050a79cd9aed5e262c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ia_vegetacao",
       "date": "2026-09-01T18:13:39.000Z",
