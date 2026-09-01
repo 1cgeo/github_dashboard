@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-01T14:40:29.059Z",
+  "lastUpdate": "2026-09-01T18:18:00.462Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-08-27T12:02:25.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -16,7 +16,7 @@
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2026-08-13T12:28:03.000Z",
-    "dsgoficial/configuracoes_producao": "2026-07-08T20:31:03.000Z",
+    "dsgoficial/configuracoes_producao": "2026-09-01T16:38:10.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-08-26T14:40:52.000Z",
     "dsgoficial/sap": "2026-08-26T09:00:16.000Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-08-31T14:02:26.000Z",
+    "1cgeo/controle_acervo": "2026-09-01T15:57:17.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -40,7 +40,7 @@
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
-    "1cgeo/ferramentas_mgcp@qgis4": "2026-08-31T18:55:39.000Z",
+    "1cgeo/ferramentas_mgcp@qgis4": "2026-09-01T16:23:22.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-08-25T15:54:19.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
@@ -60,9 +60,9 @@
     "1cgeo/chefe_dgeo": "2026-08-31T20:56:05.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-01T14:37:24.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-01T18:09:41.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-08-26T14:28:20.000Z"
+    "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6373,
+    "totalCommits": 6383,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,17 +122,17 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1159,
+      "1cgeo/ebgeo_web": 1165,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
       "1cgeo/doc_dgeo": 548,
-      "1cgeo/ferramentas_mgcp": 15,
+      "1cgeo/ferramentas_mgcp": 16,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 165,
-      "dsgoficial/configuracoes_producao": 204,
+      "dsgoficial/configuracoes_producao": 205,
       "dsgoficial/ferramentas_edicao": 480,
       "dsgoficial/DsgTools": 643,
       "dsgoficial/sap": 176,
@@ -141,7 +141,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 346,
+      "1cgeo/controle_acervo": 347,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -165,11 +165,101 @@
       "1cgeo/autolabeller": 144,
       "1cgeo/chefe_dgeo": 669,
       "1cgeo/fotos_aereas": 29,
-      "1cgeo/ia_vegetacao": 25,
+      "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-09-01T18:13:39.000Z",
+      "author": "Maj Borba",
+      "message": "feat(experimental): novos operadores de fusão + RemoteCLIP + scripts de lançamento\n\nNão faz parte do modelo final (D_Hier DV3Inject continua só DINOv3/sum) --\nmaterial experimental para comparadores identificados em\npesquisa/analises/novos_experimentos.md (repo doutorado_artigo_d_hier).\n\nmodel.py: 2 novos dv3_mode:\n  - gated: soma residual gateada por canal (inspirado em zhou2026adapt/\n    GeoSAM, que usa gate escalar único -- desvio documentado no código).\n  - dv3_xattn_rfm: atenção cruzada SUBSTITUI a soma (fórmula RFM-Seg,\n    zhang2025boosting, Eq. 5-6), diferente do xattn existente (que soma\n    E atenção). Reusável para DINOv3 ou RemoteCLIP via dv3_dim.\n\nRemoteCLIP vision-only (sem componente de texto/LLM), novo insumo experimental:\n  - pipeline/data_prep/07_cache_remoteclip.py: extrai patch tokens do\n    encoder de imagem (checkpoint público via HF Hub chendelong/RemoteCLIP).\n    Parte da extração NÃO testada em execução real nesta sessão (sem\n    torch/open_clip disponíveis) -- checagem de forma explícita no script,\n    levanta erro claro em vez de seguir com shape errada.\n  - config.py/config.example.yaml: novo path remoteclip_cache.\n  - dataset.py: dv3_source={dinov3,remoteclip}.\n  - train.py/kfold.py: --dv3-source, --dv3-dim (auto-detectado do cache se\n    omitido); checkpoint agora grava dv3_source/dv3_dim além de dv3_mode.\n  - requirements.txt: open_clip_torch, huggingface_hub, pillow.\n\nScripts de lançamento (split 70/10/20, mesmas seeds de run_70_10_20.py):\n  - run_new_experiments.py: treina dv3_only_xattn, clip_only_xattn,\n    mb_only_gated.\n  - eval_tta_new_experiments.py: TTA D8, mesmo formato de\n    eval_tta_70_10_20.py.\n  - stat_new_experiments.py: testes pareados (Shapiro->t-test/Wilcoxon +\n    Holm-Bonferroni) isolando operador e fonte separadamente, + Games-Howell.\n\nNenhum script novo foi executado nesta sessão (sem GPU) -- só py_compile.\nVer pesquisa/analises/novos_experimentos.md (repo doutorado_artigo_d_hier)\npara parâmetros exatos e passo a passo completo de execução.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NSYK5k6UPJ2n4cWtuYVCjs",
+      "sha": "87f16ca",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/87f16ca3981cd950c4e17fb81e519f9e29f6f33a",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T18:09:41.000Z",
+      "author": "Maj Diniz",
+      "message": "documentacao do lote B, e o knob de acesso que faltava no env.example\n\nREGIME_STALE_MAX_MS entra no .env.example com o que decide o numero: ele e orcamento de EXPOSICAO e nao de desempenho, cinco minutos da cinco vezes o TTL do indice, zero e valido e e o regime mais estrito, e o valor se escolhe a partir das linhas de transicao, que carregam a idade real observada.\n\nCorrigidas as tres linhas que diziam enquanto o banco estiver fora sem teto (wiki, tile-privado e o contrato do backend), e a de tile-privado que prometia 503 onde o codigo dava 500. O contrato do backend ganhou tambem a regra do cause: pendure em cause, NUNCA no message nem noutro campo enumeravel, porque o message vai para o cliente e o campo enumeravel escapa da dobra do serializer. Esse arquivo e carregado como instrucao em toda sessao, e sem essa linha o proximo tradutor de erro de driver nao tem o que seguir.\n\nNo livro-razao, duas linhas, e a primeira registra uma recorrencia minha: pela segunda vez no dia passei adiante num briefing uma propriedade de codigo que eu nao tinha lido. O que mudou entre as duas e o que vale: na segunda o briefing mandava confirmar antes de escrever e parar se estivesse errado, e a refutacao chegou junto com a medicao, antes de virar codigo.\n\nNo README da e2e-ui, a taxa medida de dois casos que flakeiam na rodada longa e passam 3/3 isolados, com a ressalva de que isolar muda as condicoes: a assimetria sustenta o negativo (nao e defeito do produto), nao o positivo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "7ac7018",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7ac7018fa799c1660c2a91269ffe0cbeb38ecad4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T18:09:23.000Z",
+      "author": "Maj Diniz",
+      "message": "erro que traduz outro erro preserva o original em cause\n\nsv360.pyramid.js traduzia qualquer falha num BadRequestError dizendo que o arquivo nao e SQLite valido, e perdia o erro original: um EACCES ou EBUSY num bundle de dezenas de GB virava arquivo corrompido, e o operador procurava corrupcao onde havia permissao. Feito como capacidade da base (quarto parametro opcional de AppError, terceiro em ValidationError porque details ja ocupa o segundo) e nao como remendo nos dois sitios: sem isso o proximo tradutor perde a causa de novo.\n\nA premissa do briefing era que a elisao precisava alcancar o cause. MEDIDO no pino 8.21 instalado, ela nao alcanca e nao precisa: o serializer nunca copia a causa como campo, ele dobra message e stack e pula a chave por nome. Com um erro do Postgres pendurado como causa, carregando detail com a linha inteira e query com credencial dentro, o dado da linha esta AUSENTE e nao elidido, o que e mais forte. A assercao e sobre a PROPRIEDADE (o segredo nao esta la) e nao sobre o mecanismo, entao vale nos dois regimes.\n\nControle negativo que prova onde a capacidade mora: reverter a unica linha de encaminhamento no super derruba 7 de 24 casos e leva junto os do 360.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "7a9d0ee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7a9d0ee4ff850d2ae2673cd209123418952c681c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T18:09:23.000Z",
+      "author": "Maj Diniz",
+      "message": "o indice de regime velho ganha teto de idade, e o 503 prometido passa a existir\n\nO indice velho servia por tempo indeterminado, entao um recurso recem-marcado privado seguia sendo entregue como public immutable enquanto o banco estivesse fora. Agora ha REGIME_STALE_MAX_MS (5 min, faixa validada em NUMERIC_ENV_RULES no mesmo commit), e passado ele a resposta que ENTREGA bytes deixa de ser dada. O ramo privado nao e alcancado: ele pergunta ao banco, nao ao indice, e ha controle negativo provando que ampliar o teto ate ele transforma o 401 do privado em 503.\n\nDUAS premissas do briefing foram refutadas com evidencia, e a segunda muda o alcance. Caminho nao reivindicado ja e 401 vale no indice de tiles e NAO vale no de 3D, onde o nao reivindicado e PUBLICO e e servido: la as afirmacoes sem lastro sao duas, e o teto cobre as duas, o que fecha o acervo 3D inteiro passado o teto. Esta asserido de proposito e escrito no fileoverview, para ser decisao e nao surpresa; o alcance estreito e uma linha, ao custo de reabrir o caso que motivou o teto.\n\nE tile-access.js NUNCA respondeu 503 quando o indice nao existia: fazia next com o erro cru do driver, que nao e AppError e nao esta no PG_ERROR_MAP, entao o desfecho real era 500 enquanto o comentario acima prometia 503 e a wiki repetia a promessa. Os dois casos agora sao 503 de verdade.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "fcae36d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fcae36d4d8c3ff326eff7448873f626e8e9d9485",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/configuracoes_producao",
+      "date": "2026-09-01T16:38:10.000Z",
+      "author": "1º Ten Marcel",
+      "message": "estilos mgcp qgis4",
+      "sha": "b61d692",
+      "htmlUrl": "https://github.com/dsgoficial/configuracoes_producao/commit/b61d692fb4f7695b631ed13523a7354239331ea1",
+      "repoUrl": "https://github.com/dsgoficial/configuracoes_producao"
+    },
+    {
+      "repo": "1cgeo/ferramentas_mgcp",
+      "date": "2026-09-01T16:23:22.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix",
+      "sha": "e62842f",
+      "htmlUrl": "https://github.com/1cgeo/ferramentas_mgcp/commit/e62842f1a3f03157c4ec08b392824d887ace54b7",
+      "repoUrl": "https://github.com/1cgeo/ferramentas_mgcp"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T16:18:16.000Z",
+      "author": "Maj Diniz",
+      "message": "rotacionar o JWT_SECRET quebra a comparacao da trilha, e ninguem avisava\n\nA mesma chave deriva a impressao digital da trilha, que responde se um valor MUDOU entre dois atos sem guardar o valor. Trocado o segredo, toda impressao anterior fica incomparavel com as posteriores e a gaveta afirma que mudou o que nao mudou: sem erro, sem aviso, sem marcador na linha. O efeito e responder ERRADO, nao quebrar.\n\nO que torna isso caro e a coincidencia de momento: rotacionar segredo e higiene obrigatoria depois de um vazamento, ou seja o dia em que alguem vai LER a trilha. Enquanto a linha nao carregar a epoca da chave, a mitigacao e operacional e esta escrita nos dois lugares que quem opera le: anote a data, e trate como sem valor comparacao que cruze aquele instante.\n\nJunto, o Gate 0 das linhas antigas com o link publico literal: as duas consultas somente leitura que respondem se ha o que fazer, e a regra de decisao. Rotacionar o link e o unico ato que neutraliza, porque alcanca as copias que ja sairam; reescrever a trilha nao e conserto, viola append-only e troca risco real por sensacao de resolvido. Medido no banco de desenvolvimento hoje: zero atlas publicos e zero linhas com o literal, entao aqui nao ha o que fazer.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HwbwjxoPNv7BwQPK16boAN",
+      "sha": "2ec913f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2ec913f359e17e778bbe131359be92644bd3b320",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T16:04:15.000Z",
+      "author": "Maj Diniz",
+      "message": "a analise processada era testavel, e a premissa que dizia o contrario era minha\n\n`processed_los` e `processed_visibility` eram os unicos tipos de feicao sem\ncobertura de round-trip, e o motivo registrado era falso: eu escrevi que\n\"exigiriam o servico de elevacao no ar\". Nao ha servico nenhum naquele caminho.\n`getTerrainElevation` so chama `map.getTerrain()` e `map.queryTerrainElevation()`,\ndo MapLibre, e a unica guarda e `isTerrainAvailable(map) => map.getTerrain()\n!== null`, que faz `activate()` das duas ferramentas recusar. A dependencia era\nTERRENO LIGADO, como o dono apontou, e terreno se liga.\n\nA spec instala um relevo sintetico (dois metodos do MapLibre substituidos, com\numa colina entre os dois pontos da visada) e dirige as ferramentas REAIS pela\nbarra: 1 `los`, 1 `visibility`, 2 `processed_los` e 1 `processed_visibility`,\ndepois exporta pelo botao, decodifica os BYTES e reimporta num atlas novo. O que\ne sintetico e so a fonte de elevacao; a matematica, a persistencia, a exportacao\ne a importacao sao as de producao. O que um verde NAO prova, e esta escrito la, e\na correcao numerica da visada contra um DEM real.\n\nO relevo e parte do sujeito, e o controle negativo mostra por que: achatando a\ncolina, `processed_los` cai de 2 para 1, porque o PAR `-visible`/`-obstructed` so\nnasce quando a geometria sai `MultiLineString`. O gate de terreno tambem e\nasserido nos dois sentidos (os dois botoes desabilitados antes de injetar,\nhabilitados depois), senao \"liguei o terreno\" nao provaria nada.\n\nDUAS ESPERAS DA SPC NASCERAM QUEBRADAS, e a classe vale mais que o conserto:\n`page.waitForFunction` com predicado `async` NUNCA espera, porque a funcao\ndevolve uma Promise e Promise e truthy, entao a primeira sondagem passa\nqualquer que seja o valor. O efeito foi encadeado: a espera de ativacao liberava\nos cliques antes de `activate()` armar o roteamento, nada era desenhado, e a\nespera de contagem escondia isso ate a spec reprovar paginas adiante. Medido, a\nespera de balde retornou em 314 ms com o balde em ZERO e prazo de 120 s. As duas\nviraram `expect.poll`, que aguarda a promessa antes de comparar.\n\nCorrecao factual que veio junto e que eu tinha dito errado: em terreno plano o\nLOS nao gera ZERO saidas, gera UMA, pelo ramo `else` de\n`generateProcessedFeatures`. E o par que depende da obstrucao.\n\nO `@fileoverview` de `lacunas-de-fixture-round-trip.spec.js` deixou de afirmar a\nimpossibilidade e passou a registrar a refutacao, apontando para a spec nova.\n\nEm serie depois dos consertos: 3/3.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "3dc3e62",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3dc3e62834de1c223d8866eddf33bed10d7353d9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-01T15:57:17.000Z",
+      "author": "Maj Diniz",
+      "message": "a fila de atendimento ganha a impressao em lote que o detalhe do pedido ja tinha\n\nO detalhe do pedido seleciona varios itens e registra a impressao de todos numa\npassagem desde 2026-08-13. A fila de atendimento nao, e ela e a tela onde a\npessoa passa o TURNO, item apos item: a medida que justificou o lote la (43 dos\n132 pedidos com item passam de 20 itens, mediana 10, maior 132) vale com mais\nforca aqui.\n\nNADA DE NOVO ABAIXO DA TELA, e e por isso que o diff e pequeno. As tres pecas ja\nexistiam: POST /mapoteca/impressao sempre recebeu `registros: [...]` e grava as N\nlinhas numa transacao (era o que o plugin do QGIS usava), o\n`openRegistrarImpressaoDialog` ja aceita item OU lista porque serve as duas\ntelas, e o data-table ja tem `selectable`, `selectAll` e `clearSelection`. O que\nfaltava era a selecao.\n\nSEM GATE DE PERFIL, ao contrario do detalhe do pedido, que testa\n`pode.operador`. A rota '/atendimento' e de EXECUCAO no manifesto do modulo\n(operador e gerente), entao quem so consulta nao chega a esta tela.\n\nA selecao se apoia no `rowKey` que ja estava la (`produto_pedido_id`): ela mora\nnuma CHAVE, e nao na linha visivel, e por isso atravessa a paginacao e a\nrepintura que cada registro dispara. Depois de gravar, `clearSelection()`: a\nchave continua existindo depois do lancamento, e sem limpar o item ja lancado\nficaria marcado, com o proximo clique lancando-o de novo.\n\n\"Selecionar todos (N)\" so aparece quando os itens nao cabem numa pagina. A caixa\ndo cabecalho marca a PAGINA de proposito, e com pageSize 10 um pedido de 132\nitens exigiria 14 viradas justamente no pedido que mais precisa do lote. Os dois\nbotoes entram encostados a direita da barra de resumo que ja existia: barra\npropria empurraria a tabela para baixo nos pedidos de um item.\n\n5 testes em arquivo proprio, e eles REPROVAM o estado anterior: com\n`selectable: false`, tres dos cinco falham porque a caixa da linha nao existe.\nO de \"selecionar todos\" usa 12 itens contra pageSize 10, para que passar na\npagina e passar no conjunto sejam resultados diferentes.\n\nOs 313 testes de modules/mapoteca passam, e o build do client fica limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017XMhJxetfPBm82coYNzSqA",
+      "sha": "83c1044",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/83c1044b5fe0116f7de409d5da60936c904b0044",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-01T14:50:41.000Z",
+      "author": "Maj Diniz",
+      "message": "as duas lacunas de fixture: comentario espacial e imagem anexada a feicao\n\nO README das fixtures `.ebgeo` declara tres conteudos que elas NAO tem, e por\nisso toda a verificacao de round-trip feita ate aqui tinha esse ponto cego. Esta\nspec fecha os dois primeiros SEMEANDO pelo proprio app, em vez de esperar por uma\nfixture nova.\n\nA terceira, as feicoes de analise processadas, fica DECLARADAMENTE de fora, com o\nmotivo escrito: sao saida de algoritmo sobre terreno e exigiriam o servico de\nelevacao no ar. Um duplo mediria a serializacao de um literal escrito pela\npropria spec.\n\nDUAS CORRECOES AO QUE EU TINHA SUPOSTO, as duas achadas lendo o codigo:\n\n1. `collectUsedImageIds` NAO colhe de `feature.properties.images`. Ele colhe o id\n   da propria feicao mais os ids dos icones personalizados. A imagem anexada\n   nunca entra no zip: ela atravessa INLINE, dentro do `data.json`, como data URL.\n   A spec assere as duas metades, incluindo que o zip fica sem blob nenhum, para\n   que a sobrevivencia do payload nao seja lida como \"o blob viajou\".\n\n2. `guardComment` recusa toda escrita de comentario com `not-authenticated`\n   quando nao ha sessao. Um fluxo deslogado faria `addComment` devolver\n   `undefined` em silencio, e a spec mediria dois vazios. Por isso ela faz login\n   real e mantem o atlas LOCAL do comeco ao fim.\n\nO CONSERTO DE CORRIDA QUE ELA CUSTOU, medido e nao suposto: a assercao do toast\nde exportacao vivia depois de `await baixado`, e falhava sempre. Um\nMutationObserver instalado antes do clique mostrou que o toast E criado, com o\ntexto exato, e ja saiu do DOM quando o evento de download resolve. Ou seja, o\nexportador avisava e a spec lia \"nao avisou\". A espera passou a comecar ANTES do\nclique, junto com a do download, porque `expect(...).toBeVisible()` sonda a partir\ndo instante em que e chamado. A spec irma de round-trip nao sofria disso porque\nexporta onze mapas e o toast dela nasce tarde o bastante.\n\nControle negativo por mutacao de comportamento: desligando a secao `comments` da\ntabela de exportacao, a spec acusa \"o arquivo carrega a secao de comentarios do\nmapa / Received: undefined\". Em serie depois do conserto: 3/3.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Hvn32Pe6Hk1wdxGN5QiNfJ",
+      "sha": "52b7642",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/52b7642963a6f27c660eba0c3895291536d54def",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-01T14:37:24.000Z",
