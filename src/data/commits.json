@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-02T18:31:16.335Z",
+  "lastUpdate": "2026-09-02T22:29:47.282Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-02T15:59:44.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-02T17:46:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-02T21:28:23.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-02T16:37:31.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6444,
+    "totalCommits": 6446,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -163,13 +163,31 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 673,
+      "1cgeo/chefe_dgeo": 675,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-02T21:28:23.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-02 (cont. 2): o CATSER esconde a familia do aluguel, e a ortoimagem nao e desenho em linha\n\nLevantamento de outsourcing de plotter A0/A1 para processo proprio da DGEO,\ne o projeto novo no vault com a especificacao fechada pelo chefe.\n\n- 01-Projects/outsourcing-plotter/: PROJECT.md (estado), pedido-orcamento.md\n  (minuta pronta, NAO enviada por decisao do chefe) e precos-referencia.md\n  (os 19 registros com A0/A1 confirmado pela descricao do orgao, de 635 colhidos).\n- wiki/dados-abertos-compras: secao nova sobre o catalogo de SERVICO (CATSER),\n  com as tres armadilhas medidas e os eixos de preco que ele nao carrega.\n- consultar-licitacao/learnings: varrer pelo nome do ITEM e nunca da CLASSE;\n  o eco do nome do CATSER na descricao; o codigo nao define escopo; as tres\n  unidades de medida; cor e cobertura de tinta.\n- levantar-fornecedores/learnings: conferir sancao na RAIZ do CNPJ; a empresa\n  de melhor prova do equipamento pode ter a pior prova do escopo.\n- Decisions 2026-09-02 (cont. 4) e tres eventos no livro-razao, dois deles\n  recorrencia de regra ja escrita.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Ce4BMM81xrZdnnQTT3deVf",
+      "sha": "c8ba005",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c8ba0054d9384bffaf7a6e5a237386ee54e7ddaa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-02T21:18:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-02 (cont. 1): o codigo de folha do decreto aponta a EDICAO, e o selo manda sobre o cadastro\n\nAtendimento ao perito judicial dos autos 5011579-24.2023.4.04.7009/PR (PARNA\nCampos Gerais). Os tres codigos do art. 2o do decreto sao a nomenclatura ANTIGA\nda DSG e casam com as pranchas de 1980, 1960 e 1964, nenhuma delas a edicao\nvigente na data do ato. O decreto nao declara datum, e o selo declara: Corrego\nAlegre-MG, Pilar Astronomico de Ponta Grossa e SAD 69, conforme a edicao.\n\n- wiki/sistemas-geodesicos.md (nova): os referenciais do acervo, os parametros\n  oficiais e a norma, o par sem parametro, o periodo de transicao ate 2015-02-25,\n  as duas quadriculas da prancha antiga, e como medir se o GeoTIFF foi\n  transformado ou re-etiquetado. Inclui a armadilha do cs2cs devolvendo\n  identidade por no-op do PROJ.\n- wiki/nomenclatura-carta.md: secao nova com a equivalencia entre o indice antigo\n  e a INOM vigente, medida em quatro pranchas, e a regra de que o codigo impresso\n  identifica a PRANCHA.\n- entregar-lai/learnings.md: o selo manda sobre o cadastro; o documento identifica\n  a edicao; ponteiro do repositorio virando numero de ato; e a regua de compressao\n  medida por erro por pixel. Split de demand-paging: a camada quente caiu de 15 KB\n  para 11 KB e o detalhe foi para references/.\n- cadastrar-pedido-mapoteca/learnings.md: o --palavra-chave ignorado que devolve\n  tudo, e o --dry-run que nao toca a rede.\n- Decisions e livro-razao: a entrada (cont. 3) e seis eventos de correcao.\n- MEMORY.md: o metadado que discorda da peca impressa, e o instrumento ganhou\n  mais dois casos.\n\nEste commit carrega tambem as entradas (cont. 1) e (cont. 2) do dia em\nDecisions/, escritas por outra sessao no mesmo arquivo append-only e ja presentes\nna arvore de trabalho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Rd3VRx5eXbeao3mukkkiDV",
+      "sha": "b015606",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b015606c49475087436c6ba453b694cc08fdc3af",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-02T17:46:54.000Z",
