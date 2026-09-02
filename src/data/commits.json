@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-02T14:13:27.500Z",
+  "lastUpdate": "2026-09-02T18:31:16.335Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-02T10:28:57.000Z",
+    "1cgeo/ebgeo_web": "2026-09-02T15:59:44.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-02T11:31:37.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-02T17:46:54.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-02T13:05:27.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-02T16:37:31.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6428,
+    "totalCommits": 6444,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1204,
+      "1cgeo/ebgeo_web": 1219,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,157 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 672,
+      "1cgeo/chefe_dgeo": 673,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-02T17:46:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-02: o servidor sem saida atravessa pela LAN, e o timeout mata calado\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y3LDSEs6mFd3PbvPJyc9Mc",
+      "sha": "f53ed94",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f53ed944770f4e32f729668ed4926635271e1c64",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T16:37:31.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as quatro decisoes do lote, os adendos de fechamento e o livro-razao\n\nEntradas de 2026-09-02 para o blob colado, a membresia de grupo, a guarda de NaN e a importacao sem perfil; adendos nas entradas de ontem (mover camada: a divida do grupo foi fechada e a alternativa recusada estava factualmente errada; importacao sem teto: os dois custos declarados foram fechados); linhas do livro-razao (contrato-implicito da membresia; teste-que-nao-prende do bloco que documentava o NaN); e os paragrafos de architecture.md sobre blob de imagem, membresia e compactacao.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "23f1306",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/23f13061a851a78e1b81eaacbb0f2368f8b9fbaa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T16:37:31.000Z",
+      "author": "Maj Diniz",
+      "message": "importacao: o perfil so e calculado quando o interruptor esta ligado, e a chave da fila ganha sequencia e marca d'agua\n\nA importacao calculava o perfil de elevacao de cada linha (26 turf.along e 26 consultas de terreno por linha) para um interruptor que nasce desligado e que o painel so honra ligado; o gesto de desenhar linha fazia o mesmo. Nenhum dos sete consumidores de profileData precisa dele antes de o interruptor ligar, e updateFeaturesProperty ja recalcula sob demanda. Medido em 2000 linhas: 52 mil chamadas de turf e 104 mil consultas de terreno viram zero, e 3,2 MB deixam de ir para o IndexedDB e para o sync. Na fila, acima de MAX_QUEUE_SIZE cada enqueue relia todas as chaves e compactava (CREATEs puros nao comprimem): marca d'agua adia a proxima compactacao para tamanho mais um degrau, e _compact deixa de zerar _totalKeys (a outra metade do quadratico). Medido em 12000 CREATEs: 2000 compactacoes e 12,9 s viram 2 e 51 ms. E a chave da fila (op_ts_uuid) desempatava por UUID aleatorio quando o timestamp era igual, o que a revisao pegou pelo agrupar: o group_feature create podia sair antes do group create e o INSERT gateado por EXISTS do servidor escrevia zero linhas em silencio, com o par convergindo pelo documento e a perda so no snapshot (75%% das vezes para 3 membros). A chave vira op_ts_lamport_uuid, com parse estrutural pela esquerda (lastIndexOf ja foi defeito pago: o id e opaco e pode ter sublinhado), chaves antigas continuam lidas e dequeuadas, e o teste prova por peek() que o grupo sai antes dos membros, com controle negativo deterministico. Controles negativos relatados em cada guarda.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "f0ed05f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f0ed05f4b1ee2f402b9e3d45c691201e9340f16b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T16:37:31.000Z",
+      "author": "Maj Diniz",
+      "message": "imagem: a correcao de zoom sem referencia vale fator 1, e dimensao nao finita nunca chega ao desenho\n\ncalculateZoomCorrectedValue subtraia createdAtZoom sem conferir se existia, e a segunda copia da aritmetica em updateAllImageSizes produzia NaN a cada passo de zoom para imagem sem referencia (dado antigo, ou arquivo cujas imagens trazem largura e altura em vez de width e height). No main esse dado trava o thread principal ao selecionar a imagem, apertar Esc e trocar de mapa no zoom alto. Sem referencia finita o fator e 1, como a divisa ja fazia; currentZoom nao finito idem; maxValue nao finito e ignorado; valor-base nao finito cai em fallbackValue; createdAtZoom igual a zero continua ancora, porque varias ferramentas carimbam zero por padrao. A dimensao da imagem entra no desenho por dois funis (calculatedSize e o poligono de selecao) e os dois coagem por eixo. A suite ja cobria os oito desfechos NaN num bloco que os afirmava como comportamento atual documentado: o verde era a prova de que o defeito continuava, e o backlog ganhou a licao. Controle negativo: 24 de 62 vermelhos com as duas linhas antigas. Spec de uma browser afirma vivacidade da pagina no gesto que travava.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "e50156a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e50156a260257254536ddcda3ad8f1acc542d14d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T16:37:30.000Z",
+      "author": "Maj Diniz",
+      "message": "grupo: a membresia vira op de sync, e a saida da feicao chega ao servidor e ao par\n\nremoveFeatureFromAllGroups tirava a feicao do grupo, atualizava metadado e soft-deletava o grupo que ficava com um membro, sem logar op nenhuma, em toda exclusao de feicao e no mover de camada. A verificacao no servidor decidiu o desenho: groups nao tem coluna de membros (um group update com a lista nova e aplicado com a lista descartada, e o inbound do par substitui o documento inteiro, entao um teste de duas browsers fecharia verde sobre um servidor defasado); o alvo group_feature ja existia com create e delete escopados. O que faltava era o cliente: EntityType.GROUP_FEATURE, logGroupFeatureOperation com entityId descartavel por op (a compactacao agrupa por entityId e a coluna e UUID), create em createGroup e combineGroups (a membresia nunca nascia como op) e delete por grupo afetado na saida, mais group delete quando o grupo cai a um membro; guarda de idempotencia, porque o codigo antigo dissolvia todo grupo pequeno a cada chamada. Backend intacto. E2e de contrato prova que a linha de juncao e apagada e que o desenho rejeitado nao move membresia.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "aa23c88",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa23c881cbba056966679d29ae09f3050606dd18",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T16:37:30.000Z",
+      "author": "Maj Diniz",
+      "message": "colar: o blob da feicao de imagem colada sobe ao servidor, pelo mesmo ajudante da transferencia de camada\n\nColar uma feicao de imagem num atlas de servidor duplicava o blob so no IndexedDB, e o par recebia a feicao com a moldura de erro (defeito declarado no cabecalho do clipboard). A metade do cliente ja existia na transferencia de camada e vira um ajudante unico da store, uploadCopiedBlobsIfRemote, com o portao de atlas remoto dentro, import() dinamico da porta bulk (que preserva o id local) e retorno com uploaded, failed e skipped (icone SVG recusado pelo mime nao e falha). O colar sobe os ids novos de toda feicao com blob e SEM regenerador (simbolo militar, medida e declinacao continuam regenerados no par) antes de addFeatures; Colar Aqui e Duplicar passam pelo mesmo paste. Controle negativo: 4 de 11 vermelhos sem a subida. Spec de duas browsers cujo discriminador e o blob no par, nao a imagem no mapa, porque o placeholder de erro tambem conta como imagem.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "8ef641c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8ef641c386f945a2f4a8714852fc30f78fe17478",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T15:59:44.000Z",
+      "author": "Maj Diniz",
+      "message": "imagem: a correcao de zoom sem referencia vale fator 1, e dimensao nao finita nunca chega ao desenho\n\ncalculateZoomCorrectedValue subtraia createdAtZoom sem conferir se existia, e a segunda copia da aritmetica em updateAllImageSizes produzia NaN a cada passo de zoom para imagem sem referencia (dado antigo, ou arquivo cujas imagens trazem largura e altura em vez de width e height). Com esse dado, selecionar a imagem pela aba, apertar Esc e trocar de mapa no zoom alto travava o thread principal da pagina: 6 de 6 rodadas antes, medido por sonda Playwright, e 3 de 3 vivas depois desta mudanca, o que transforma a hipotese do NaN em causa medida. Sem referencia finita o fator e 1; currentZoom nao finito idem; maxValue nao finito e ignorado; valor-base nao finito cai em fallbackValue; createdAtZoom igual a zero continua ancora, porque varias ferramentas carimbam zero por padrao. A dimensao entra no desenho por dois funis (calculatedSize e o poligono de selecao) e os dois coagem por eixo. A suite ja cobria os oito desfechos NaN num bloco que os afirmava como comportamento atual documentado: o verde era a prova de que o defeito continuava. Controles negativos: 24 de 73 vermelhos com as duas linhas antigas do helper; 6 de 32 com a coercao do funil revertida. Porte da mesma correcao feita no integracao_backend, adaptado ao que o main nao tem (sem modelo de zoom da divisa, sem teste de geometria de imagem, sem Playwright).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "34f9214",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/34f92140c1446078db25eb78aa7b73d3c38fcec1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T15:08:47.000Z",
+      "author": "Maj Diniz",
+      "message": "desempenho do boot: as faixas de bytes e de requisicoes de script sao remedidas, com a parte deste lote separada da deriva\n\nOs dois tetos deterministicos do spec (40,4 MB e 500 modulos, medidos em 2026-08-25) estouraram na rodada completa do Playwright: 41 386 533 bytes e 506 modulos em 5 de 5 rodadas. O lote de 2026-09-02 (colar, importacao, medicao 3D, camadas entre mapas, alca de continuacao) responde por 7 modulos ansiosos e 82 886 bytes de fonte, 3% da deriva de bytes, e foi quem levou a contagem de 499 para 506; o resto e deriva acumulada das duas linhas de trabalho desde a medicao anterior, que nenhuma rodada acusou porque este spec e o unico guarda e so roda no Playwright completo. As tres faixas (boot frio e transicoes) sao recentradas em mais ou menos 5% da medida de hoje, com a data propria e a atribuicao escrita no porque de cada uma. Spec rodado sozinho depois: 2 de 2.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "4090c82",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4090c82c7638d53494b659f42261014e9b052332",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:15:11.000Z",
+      "author": "Maj Diniz",
+      "message": "as abas Diagnostico e Uso entram por import() ao abrir, e o admin.html volta a 670 kB\n\nO teto de peso do admin.html tinha subido de 800 para 950 kB com a medida\ndas duas abas novas (882 kB). A reducao prometida naquele commit: o registro\nde abas de admin/index.js passa a carregar diag-tab.js e uso-tab.js por\nimport() na primeira visita (admin/lazy-tab.js: metadado ansioso para o\ntrilho, espera nomeando a aba, failureState com \"Tentar de novo\", promessa\nmemoizada para nao criar duas instancias numa troca de aba durante a carga,\nlimpeza da aba real propagada e guarda contra a promessa que resolve depois\nda troca). Medido com build fresco: 882 -> 670 kB em 24 arquivos, os 212 kB\nviraram quatro chunks que o HTML nao referencia; vite.config.js intocado. O\nteto desce para 720 e o piso sobe para 600 na mesma tabela, como a regra\ndela manda. Testes de comportamento com dublê de fabrica e cinco controles\nnegativos medidos; Playwright no deep link ?aba=diagnostico verde.\n\nVerificado apos a ultima escrita: frontend inteiro verde, lint dos quatro\narquivos limpo, teste de peso verde contra o dist recem-construido.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01J2aP4vazdPvZDwgcCzo18h",
+      "sha": "1e15a1b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1e15a1b4a17c2c360b1677b35e2b3be82c1d2b2a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:13:30.000Z",
+      "author": "Maj Diniz",
+      "message": "testing.md: aria-disabled e o click() do Playwright, e o runner rodado da raiz\n\nTres rodadas de um spec foram perdidas em 2026-09-02 porque o Playwright trata aria-disabled como desabilitado: click() espera para sempre pelo comando que a casa desenha bloqueado por ESTADO de proposito, e toBeEnabled() mede o contrario da regra. A regra ganha a forma certa (dispatchEvent no clique, evaluate de el.disabled na asserçao) e o modelo; e registra que o runner rodado da raiz do monorepo carrega os specs com outra instancia e termina em No tests found com cara de rodada.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "b5f6f6d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b5f6f6d03e5a26b7a0d23c306eda27e67a478025",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:12:28.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as cinco decisoes do lote, o livro-razao e as regras de arquitetura\n\nEntradas datadas de 2026-09-02 para os cinco itens em decisions-2026.md e no indice; linhas do livro-razao (contrato-implicito: listas fechadas gemeas do colar, cascata escrita so de um lado do envelope, o plural de removeFeatureFromAllGroups, a assimetria local/remoto de lockedMaps, e o retorno undefined de updateFeature); a secao nova de modelo-conflito-lww.md sobre o create em linha viva (inerte no mesmo mapa, MOVER noutro), e os paragrafos de architecture.md sobre a trava de outro mapa, a operacao composta fora do withMapDocument, o blob dos tres tipos regeneraveis que nunca sobe, e a alca de continuacao.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "63ddf7b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/63ddf7bd05da550f2378c5dfb97417bed9a426f7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:12:28.000Z",
+      "author": "Maj Diniz",
+      "message": "linha, seta e divisa: uma alca em cada ponta continua a feicao\n\nCom a feicao selecionada, dois botoes em Marker DOM acima do primeiro e do ultimo vertice entram no modo de desenho da propria ferramenta continuando a MESMA feicao: a ponta clicada vira a ancora em drawPoints, semeada DEPOIS de setActiveTool, o preview desenha a espinha inteira com as propriedades da feicao, e o botao direito conclui com um unico updateFeature (mesmo id, um passo de undo). Neste branch a alca so nasce para quem tem UPDATE_FEATURE (a vista somente-leitura esconde as barras de desenho, e a alca seria o buraco dela); o estado nao ganha superficie nova, porque a alca acompanha a alca de vertice, que nao nasce com mapa travado, e o predicado e reconsultado no clique. A escrita vai store antes da fonte: updateFeature devolve undefined tambem no sucesso, entao a feicao e relida por getFeatureById e a fonte so recebe a geometria que o store confirmou. Continuar pela ponta inicial PREPENDE (cabeca da seta fica no fim); a divisa preserva createdAtZoom, zoomCorrectionEnabled e ratios do escalao e regenera textos e circulos pela fila serial. O teste de peso da pagina do mapa e recentrado com a medida do lote (o HEAD estava a 6 kB do teto por deriva anterior) e as linhas do ORCAMENTO passam a contar os modulos ansiosos novos deste lote inteiro. Playwright: a serie de tres achou o spec clicando debaixo do chip de ferramenta ativa, e o spec foi corrigido, nao o produto.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "e0c6a86",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e0c6a869814c91a5e5ea5b10c9205c7def321391",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:12:27.000Z",
+      "author": "Maj Diniz",
+      "message": "camadas: mover ou copiar uma camada inteira para outro mapa do atlas, e o par espelha a cascata de exclusao\n\nBotao de mais acoes no cabecalho da camada, menu por modelo puro (layer-menu-actions.js, irmao do menu de mapa: por posto o item some, por estado ele fica com aria-disabled e o clique recusa nomeando o estado) e modal de escolha do mapa. A operacao (transferLayerToMap) e composta e NAO toma o withMapDocument, porque a fila e sem reentrancia e addFeatures e deleteLayerFeatures ja tomam a chave cada um; a camada do destino e lida e escrita pelo repositorio (o LayerManager fabrica so a camada padrao para mapa nao hidratado e a persistiria por cima das reais), com a op de camada logada a mao com o mapId do destino; a trava do destino se le por isMapLocked, porque memoryStore.lockedMaps so e completo em atlas remoto; destino primeiro, leitura de volta, rollback do registro e dos blobs; mover leva os ids e nao libera blob (deleteLayerFeatures ganha releaseImages), copiar cunha ids novos e, em atlas de servidor, sobe os blobs pela porta bulk (que preserva o id local) antes das ops de feicao. LOS e visibilidade nao viajam: o copy as pula e diz quantas, o move e recusado. A trava da origem so barra o move. De passagem: deleteLayerFeatures passava o tipo plural a removeFeatureFromAllGroups, que indexa pelo singular. E o par passa a espelhar a cascata de exclusao de camada do servidor (regra 2.2 do sync.service), que ate aqui deixava as feicoes da camada apagada no documento do par ate o proximo snapshot; sem isso, o mover deixava uma copia obsoleta na origem do par. O e2e de contrato refutou uma premissa: o upsert de feicao do servidor tinha um guard que nunca sobrescreve linha viva e nao escrevia map_id, entao NENHUM create movia feicao de mapa (o moveFeaturesToMap antigo tinha o mesmo defeito, nunca medido). A regra do servidor muda no mesmo commit: create que chega para linha viva em OUTRO mapa do mesmo atlas e um MOVER, o ultimo a chegar vence, e a repeticao no mesmo mapa continua inerte; preso por teste de integracao do backend e pelo e2e de contrato.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "2da54d0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2da54d06b06c75c688a388b3e26be1093edfe029",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:12:27.000Z",
+      "author": "Maj Diniz",
+      "message": "medicao 3D: a area sai em metros e quilometros quadrados, sem hectares\n\nAs duas formatadoras privadas viram um modulo puro de zero imports na raiz de 3d_models_viewer_tool (formatArea3D sem o ramo de hectares, formatDistance3D verbatim, formatMeasurementResult3D). Aqui a medicao 3D e entidade de sync e result.formatted VIAJA ao par, entao a exibicao deriva do valor: um build novo mostra m2/km2 mesmo recebendo ha de um build antigo, e finalizeMeasurement continua gravando formatted. O modulo cai no chunk cesium-integration junto dos importadores (o Rolldown nao honra a fixacao em core para essa pasta, medido por sourcemap), e a aresta do chunk do painel para o do Cesium ja existia (barril de modais), provada por controle negativo com build. O teste de propriedade usa gerador limitado a faixa: o fc.double sem limite reprovava 1 vez em 11 com o ramo de hectares reposto.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "88649ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/88649ce08ac24d3cd9ef553a98513877531a5d22",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:12:27.000Z",
+      "author": "Maj Diniz",
+      "message": "importacao: sai o teto de 1000 geometrias, e a preparacao mostra progresso\n\nOs dois tetos (importGeoJSON, que serve GeoJSON, Shapefile, KML, KMZ, GPX e CSV, e o MAX_FEATURES do conversor de CSV) subiram de 100 para 1000 num commit chamado bug fix, sem medicao, e saem a pedido do dono. A persistencia continua um lote unico (addFeatures), sem chunk; o laco de preparacao por feicao passa a rodar sob o indicador de progresso existente, com passo adaptativo (ate 100) e cessao do event loop, e o overlay some no finally. O que muda em atlas remoto e declarado na decisao: addFeatures loga uma op por feicao, FLUSH_BATCH_SIZE 25 contra MAX_OPS_PER_PUSH 500, e acima de MAX_QUEUE_SIZE a compactacao de CREATEs puros nao comprime. Sem evento de telemetria: nao existe evento de importacao com contagem e criar um exigiria espelho no backend. O teste do teto vira dois que provam o contrario, e a funcao de passo ganha casos puros.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "2ac5880",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2ac58804d7f34565daaae9eba0d5f1329b006a72",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-02T14:12:27.000Z",
+      "author": "Maj Diniz",
+      "message": "colar: medida de coordenacao e declinacao chegam com o simbolo, e F5 e colar leem a mesma lista\n\nO estilo das duas camadas le icon-image da propriedade id da feicao; o colar gerava id novo e duplicava o blob sob ele (hasImageResource, derivada do registro), mas loadPastedImages varria uma lista FECHADA de dois buckets, anterior aos dois tipos, e o carregamento pos-F5 varria os quatro a mao. Ninguem registrava a imagem do id novo, e a colagem local nunca passa pelo caminho remoto que redesenha. IMAGE_RESOURCE_STORAGE_TYPES nasce derivada por getStorageTypeFromSource (plural irregular) e layers/feature-images.js devolve os pares id/feicao que os dois pontos consomem; em setImages o ramo do regenerador (simbolo militar, medida e declinacao redesenham do SIDC no par, sem blob) fica intacto. O blob de feicao image colada em atlas de servidor continua so local, defeito ja declarado no cabecalho do clipboard e fora deste lote. Controle negativo: 4 de 10 vermelhos no teste de integracao sem a correcao. Playwright de uma browser: 6 de 6 em serie.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0197JMX6jWpC6hdwNC6urCfY",
+      "sha": "91db9db",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/91db9db25e2391ba4ddfeeadd5458ca9a66adf9c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-02T13:05:27.000Z",
