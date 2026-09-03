@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-03T14:16:51.652Z",
+  "lastUpdate": "2026-09-03T18:27:15.243Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-03T12:30:31.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-08-13T12:28:03.000Z",
+    "dsgoficial/modelagens": "2026-09-03T15:53:38.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-01T16:38:10.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-03T12:21:14.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-03T12:46:19.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-03T16:03:51.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-03T12:40:42.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6460,
+    "totalCommits": 6472,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -131,7 +131,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 165,
+      "dsgoficial/modelagens": 167,
       "dsgoficial/configuracoes_producao": 205,
       "dsgoficial/ferramentas_edicao": 480,
       "dsgoficial/DsgTools": 647,
@@ -163,13 +163,121 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 680,
+      "1cgeo/chefe_dgeo": 690,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T16:03:51.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 10): o dominio do destino recusa o dado da origem, e a descoberta vinha tarde demais\n\nConversao Topo 1.3 para 1.4 perdeu 11 feicoes por execucao em silencio, com\nllp_limite_legal_l gravando 0 de 10. O chefe decidiu que os dois codigos sem\nequivalente na 1.4 saem por filtro, nao por 9999. Nenhuma modelagem tocada:\no conserto e todo em conversao_modelagens (commit 4a1cf8e no dsgoficial).\n\n- converter-modelagens: 12 aprendizados novos no learnings (checagem estatica\n  contra viva, valor_A e valor_B como lados fixos, colapso que exige sentido,\n  precedencia da classe sobre o global, CHECK por classe, convencao do 0 para\n  9999) e o portao de dominio no procedimento da SKILL, com a ordem traduzir,\n  filtrar, ignorar, e a nota de que a decisao 1 contra 2 e do chefe\n- Decisions: entrada integral mais a linha do indice\n- livro-razao: 4 eventos, dois deles regua-cega e verificacao-vazia, que\n  seguem sendo as duas classes que mais atravessam area no vault\n- MEMORY.md: de 94,2% para exatos 80,0% do teto comprimindo a exposicao de 14\n  linhas que ja apontam para a wiki, sem perder linha nenhuma (37 antes e\n  depois). Metodo registrado no learnings da retrospectiva\n- lint-wiki zerado, indice de skills regenerado, guard de caminhos ok\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01UdiEyewTiaXH7YYudUfzVF",
+      "sha": "7d82183",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7d82183f40f02958764d74860aababbe18b5a1aa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-03T15:53:38.000Z",
+      "author": "Maj Diniz",
+      "message": "conserta a conversao 1.3 para 1.4 e poe um portao de dominio no conversor\n\nNuma conversao Topo 1.3 para 1.4 de 2026-09-03, `llp_limite_legal_l` gravou\n0 de 10 feicoes e `llp_limite_especial_a` 20 de 21. O dado trazia `tipo = 3`\ne `tipo = 1`, codigos que NENHUM dos dois modelos declara. A conversao rodou\npor quatro minutos, o retry linha a linha do escritor virou aviso no log, e o\nresumo terminou sem dizer que uma classe inteira tinha saido vazia.\n\nNada nas modelagens muda. O conserto e todo em conversao_modelagens/.\n\nMAPEAMENTO 1.3 -> 1.4\n\n- limite legal `tipo = 3` (Limite Municipal) e limite especial `tipo = 1`\n  (Terra publica, vocabulario 2.1.3) nao tem equivalente na 1.4: saem por\n  filtro declarado. O filtro do limite especial vai nas TRES classes que\n  carregam `tipo_limite_especial`, senao o centroide e a linha de edicao\n  ficariam no destino apontando para um poligono que nao foi convertido.\n- ponto de controle: `tipo` 12 e 13 (Centro perspectivo, Ponto\n  fotogrametrico) sumiram de `tipo_pto` na 1.4 e viram 9 (Ponto de controle);\n  `referencial_altim` 4 (Local) e 99 (Outra referencia) sao o mesmo conceito\n  nos dois modelos, e a bijecao vale nos dois sentidos.\n- elemento viario: `modal_uso` 7, 10 e 14 estao no dominio dos dois lados,\n  mas o CHECK da classe na 1.4 nao os admite. Vao para 97.\n- unidade da federacao: `sigla` era varchar na 1.3 e virou smallint com FK em\n  `sigla_uf` na 1.4. Entra a tabela das 27 UF, gerada do proprio DDL. Medido:\n  4 dos 10 bancos 1.3 do servidor guardam 'PR', 'RS', 'SC' nessa coluna.\n\nMAPEAMENTO EDGV 3.0 <-> TOPO 1.4\n\n- gruta e caverna tinham os codigos TROCADOS entre os modelos (3.0: 15 =\n  Caverna, 20 = Gruta; 1.4: 19 = Gruta, 20 = Caverna). O mapeamento so\n  declarava 15 -> 19 e deixava o 20 passar direto, entao toda caverna virava\n  gruta e toda gruta virava caverna.\n- 15 blocos de traducao colapsavam varios valores num so sem declarar\n  `sentido`. Lidos de tras para frente, o conversor reatribuia e vencia o\n  ultimo: `material_construcao` 98 (Outros) virava 23 (Terra) em 72 classes.\n  Isso zerou as 91 ambiguidades do repo.\n\nCONVERSOR\n\n- `checar_dominios.py`, novo. Confere os valores da origem contra o que a\n  classe de destino admite, respeitando filtro, traducao, default, FK e CHECK.\n  Le o modelo do BANCO de destino, nao do DDL: o DDL diz como o banco deveria\n  ter nascido, e o portao precisa saber o que ele aceita agora.\n- o portao roda ANTES de ler feicao e aborta com a lista, nomeando as tres\n  saidas (traduzir, filtrar, ou `--ignorar-dominio` aceitando a perda).\n- `--dry-run` passa a responder a pergunta de dominio, que nao respondia.\n- o relatorio separa tres perdas que viravam um numero so: descartada por\n  filtro declarado, classe de origem sem entrada no mapeamento, e escrita\n  incompleta (classe que sai vazia vem marcada). Perda agora sai com codigo 1.\n\nCI\n\nO workflow chamava `jq --argfile b path_to_your_schema.json`, arquivo que nao\nexiste no repo, e comparava mapeamento com schema por igualdade. A CI que\ndizia validar os mapeamentos nao validava nada. Agora valida contra o schema\nde verdade, roda a checagem estatica com teto por par (o numero so pode cair)\ne trata ambiguidade de traducao como falha sempre.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01UdiEyewTiaXH7YYudUfzVF",
+      "sha": "4a1cf8e",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/4a1cf8e0f0a46819fa2d04e3426381c7ea7a4153",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T15:48:19.000Z",
+      "author": "Maj Diniz",
+      "message": "modelo-gaussiano-navegavel: a primeira cena aerea e o filtro de nevoa (sessao paralela de 2026-09-02), e a instancia recomendada do EBGeo na wiki\n\nCommit do resto da arvore a pedido do chefe: SKILL.md e learnings.md da skill\nmodelo-gaussiano-navegavel (cena aerea, sentido do eixo, nevoa sob o terreno,\nlimiar de guarda pelas duas populacoes, desempenho) e a nota em wiki/ebgeo.md\nsobre a instancia do 7. CTA como recomendada. Conteudo escrito por outra\nsessao; guard de caminhos e lint de escrita passados antes de commitar.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "3e1df80",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3e1df80aa9efa77e3d10e5fb37767879734af745",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T15:46:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 10): fechamento de estilos e legenda da carta cadastral de Cacequi\n\nLearnings em exportar-carta (QML por PyQGIS, legenda SVG no lugar, elemento\ncopiado traz estilo e transformacao, conferencia por visao a 400 dpi lado a lado\ncom o original), livro-razao com a reprovacao da legenda, PROJECT.md fechado.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "8817759",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8817759c8cdc3024041ec50e8f4ea3a6baddbd57",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T15:41:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 9): a seguranca publica ganha o lilas, e a linha LOCALIDADES sai da conferencia por visao\n\nNona cor de edificacao (30xx, lilas) no QML, QGS, legenda e folha de Cacequi 5k;\na linha LOCALIDADES consertada apos comparacao a 400 dpi com o original\n(contorno tracejado herdado, hachura sem a rotacao, amostra sem o translate).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "1582ea5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1582ea5712ffed3bb7684509c6c17c59e55ae129",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T15:31:45.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 8): a generica e a nao operacional voltam a LOCALIDADES, e a carta 1:50.000 da casa da o revestimento das vias\n\nLegenda de Cacequi 5k com os simbolos do original de volta e oito categorias em\nESTRUTURAS; analise da nona cor; revestimento das vias e ferrovia pela Arandu\n50k (MI 2963-3), com a correcao unpaved = primario; learnings em\nconverter-modelagens.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "abb9562",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/abb9562562b701ec47e300c10892fd2032a1ac03",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T15:25:52.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 8): o GabDEM sai CC-BY-SA e toma o lugar do GEDTM30, e o filtro que salvou um reprova o outro\n\nQuinto MDT medido, pelo instrumento da RT 11 e sobre as MESMAS 174 folhas\n1:25.000 do Convenio RS e 47.153.865 celulas. Produto formal ainda nao emitido.\n\nDuas provas antes de qualquer medida, e sao elas que dao valor ao resto. A\nGRADE: os centros de pixel do GabDEM caem nos mesmos nos de 1 arco-segundo dos\noutros tres, conferido contra src.sample com divergencia ZERO em 400 pontos, e\no controle negativo de meio pixel REPROVA. O AREA_OR_POINT dele difere dos\ndemais e nao serve de prova. O INSTRUMENTO: remedi os quatro produtos antigos\ndo zero, a contagem de celulas saiu identica e as vinte metricas publicadas\nvoltaram com 8 mm de divergencia. Precisei remedir porque o gdal_contour do\nQGIS 4.2.0 sumiu da maquina, e comparar numero novo com numero de outro\nbinario e trocar o instrumento no meio da medida.\n\nO resultado. Cota: segundo dos cinco nas sete metricas, ganha do FABDEM em\n74,1% das folhas e do GEDTM30 em 76,4%, enquadra 119 de 174 contra 88 e 77.\nForma: ganha do FABDEM em 10 dos 12 indicadores com significancia, e e o\nproduto cuja energia de curvatura de perfil mais se aproxima da referencia\n(1,158), a frente do proprio FathomDEM, que erra por suavizar demais. Curva:\nvence o GEDTM30 nos 10 indicadores, e contra o FABDEM troca excesso de anel\n(2,089 contra 1,662) por melhor acordo posicional nos DOIS sentidos.\n\nA licenca, informada pelo chefe, e o que decide: o GabDEM e produzido pela\npropria DSG a partir do Copernicus de 30 m, sai CC-BY-SA 4.0 e pode ser gerado\nem qualquer lugar do mundo. Decisao 1 tomada: ele substitui o GEDTM30, e a\ntroca nao tem contrapartida. Decisao 2 na mesa do chefe: acabar com a divisao\npor finalidade, ao preco de +0,855 m de RMSE contra o FathomDEM.\n\nDois defeitos DIMENSIONADOS, e nos dois um caso nao era uma taxa. Contra a rede\nGNSS o RMSE dele e o pior dos cinco, e 72,3% disso vem de UM ponto em 3.268;\nsem ele cai a 1,628 m. A varredura dos oito tiles achou 1.015 celulas de pico\nem 103,68 milhoes, em aglomerados de no maximo 20 celulas, e 16 dos 21 maiores\naparecem tambem no FABDEM e no FathomDEM.\n\nO filtro gaussiano, que salvou o GEDTM30, REPROVA aqui: corrige a contagem de\nanel e passa do ponto na razao do TRI (de 1,010 para 0,843) e na energia de\ncurvatura (de 1,178 para 0,650), gastando a fidelidade de forma que e a\nvantagem do produto, e cobrando terreno na crista e no talvegue. O excesso de\nanel do GabDEM nao e ruido solto, e sim estrutura que carrega terreno junto.\n\nSkill avaliar-mdt criada, na terceira execucao do metodo (RT 05/2024,\nRT 11/2026, esta), com o par avaliar-mdt vs gerar-relevo-carta na\nDESAMBIGUACAO. Wiki avaliacao-mdt reescrita com os cinco produtos, pagina\ngabdem criada e ligada. A esteira e a saida ficam FORA do versionamento, porque\ncarregam caminho de maquina e o UNC das 348 folhas do Convenio; o duravel saiu\nantes para a skill e para a wiki.\n\nUm erro meu no livro-razao, que o chefe pegou na primeira leitura: a tabela\npareada do artefato saiu com o sinal invertido nas quatro linhas, dizendo que o\nGabDEM ganhava do FathomDEM em 98,9% quando perde nessa proporcao, enquanto a\nprosa ao lado dizia o certo. Regua que sobrou: entregavel que calcula o mesmo\nfato por dois caminhos confere um contra o outro antes de sair.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01EnwiQmKBexr5zsCvuoZ22C",
+      "sha": "43bd8c1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/43bd8c17ec3223bf92446122d45ca247871bfe69",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T15:20:08.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 7): a edificacao ganha hachura na nao operacional, borda unica e a cor do tema da area de uso especifico\n\nSegunda rodada de estilos de Cacequi 5k: QML e QGS por PyQGIS, legenda com\nquarta linha e hachura, folha reexportada, conferido por visao.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "115a164",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/115a1646abff5e64f5138b382142690c0ae31290",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T14:54:30.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 6): a legenda da carta cadastral ganha folga, nomes curtos e o vermelho vai para a saude\n\nQuatro correcoes do chefe nos estilos e na legenda de Cacequi 5k, aplicadas no\npacote (legend_5k.svg no lugar, dois QML, QGS, gerador, exportador no QGIS\n4.2.1) e conferidas por visao. PROJECT.md com o bloco de folha e estilos.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "bb5d3bb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bb5d3bb6e6a15039882bb1133c6eb43b66e7143b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T14:35:35.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 5): o rotulo da edificacao vive no poligono quando ha footprint, e no ponto quando nao ha\n\ntexto_edicao de constr_edificacao_a e _p de Cacequi a partir da triagem manual\ndo chefe (21 textos): 18 no poligono pareado, 3 no ponto, sem duplicata.\nRegra no learnings de converter-modelagens, PROJECT.md e decisao do dia.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "3a478d3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3a478d3c3eaff41dbfe511e4aa0cfbead6215cef",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-03T14:25:00.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(conversor): declara geoalchemy2 como dependencia do requirements.txt\n\nto_postgis() do geopandas exige geoalchemy2 para mapear geometria pro\nSQLAlchemy, mas o pacote nao estava listado. Retry em chunks (postgis.py)\nchama to_postgis em cada nivel, entao a falta do pacote derruba bulk,\nchunk e linha a linha igual -- reproduzido o WRITE_ERROR reportado\n(aux_moldura_a) e confirmada a correcao num venv limpo.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01UdiEyewTiaXH7YYudUfzVF",
+      "sha": "7881e7d",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/7881e7d3f4e6617e47c9a3992094a00f39a58926",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T13:13:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 4): a cobertura de Cacequi volta a sair so do raster, e a atributacao fecha sem 9999\n\nTres correcoes do chefe: area edificada refeita da classe 1 do mosaico sem\nfechamento calibrado pelo Overture (40 poligonos, 314 ha; agua identica),\natributacao sem nenhum 9999 (revestimento por extensao da amostra do Overture\ndepois de dois instrumentos reprovarem), cultivo 196. Livro-razao com as duas\nclasses (escopo e cobertura-parcial), learnings e wiki corrigidos, PROJECT.md.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "8886542",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/88865422d83cf5a1cf8f4a87ce942cc9266dfbba",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-03T12:46:19.000Z",
