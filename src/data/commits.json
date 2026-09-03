@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-02T22:29:47.282Z",
+  "lastUpdate": "2026-09-03T14:16:51.652Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-02T15:59:44.000Z",
+    "1cgeo/ebgeo_web": "2026-09-03T12:30:31.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-08-13T12:28:03.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-01T16:38:10.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-08-26T14:40:52.000Z",
+    "dsgoficial/DsgTools@dev": "2026-09-03T12:21:14.000Z",
     "dsgoficial/sap": "2026-08-26T09:00:16.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-02T21:28:23.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-03T12:46:19.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-02T16:37:31.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-03T12:40:42.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6446,
+    "totalCommits": 6460,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1219,
+      "1cgeo/ebgeo_web": 1224,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -134,7 +134,7 @@
       "dsgoficial/modelagens": 165,
       "dsgoficial/configuracoes_producao": 205,
       "dsgoficial/ferramentas_edicao": 480,
-      "dsgoficial/DsgTools": 643,
+      "dsgoficial/DsgTools": 647,
       "dsgoficial/sap": 176,
       "dsgoficial/SAP_Gerente": 120,
       "dsgoficial/SAP_Operador": 70,
@@ -163,13 +163,139 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 675,
+      "1cgeo/chefe_dgeo": 680,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T12:46:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 4): o item 2 da requisicao leva a frase do Plano de Gestao, e o molde nao substitui o exemplo dado\n\nCorrecao do chefe registrada no livro-razao (metodo-incompleto, primeira) e na\nskill requisitar-sped: o item 2 do pedido traz finalidade, Meta do PIT, item do\nPDR e a frase do objetivo estrategico com a estrategia. A divergencia 13 contra\n14 do item do PDR fica na mesa.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Bx3qGooBhPD5WN3pkQ4Fbo",
+      "sha": "bb51d34",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bb51d34b50b247ef8e1b9326d94436444a12d25c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T12:40:42.000Z",
+      "author": "Maj Diniz",
+      "message": "medidas de coordenacao: porte do lote do main, com a cor pintando a tinta e o combobox buscavel\n\nPorte do que entrou no `main` em 12db4061, adaptado onde este ramo divergiu. Nao foi\ncherry-pick: os caminhos diferem (frontend/src contra src) e tres pontos do codigo\ndivergiram de verdade, um deles porque este ramo ja estava na frente.\n\nO QUE VEIO. Vinte e seis simbolos redesenhados contra a pagina do MD33-C-01, trinta e nove\ngerados para as tabelas que repetiam a arte de placeholder, e o 321700 Ponto de Suprimento\ngenerico, que estava na aba da planilha e nao no codigo. O escalao \"Nao Especificado\" saiu\ndas duas familias: a Tabela 14 do MD33-M-02 nao lhe atribui amplificador, entao nao havia\ndesenho a dar. O catalogo vai de 105 para 104 chaves e o combobox de 78 para 80 opcoes.\nDetalhe integral na mensagem de 12db4061 do main.\n\nONDE ESTE RAMO DIVERGIU, e por isso o porte foi manual:\n\n- `getPointsGroupedOptions` JA estava acentuado aqui, com rede contra descarte silencioso\n  por um Set `emitted`, resolvido neste ramo por conta propria e com implementacao melhor\n  que a do main. Nao se tocou. No main a mesma lista estava sem acento e descartava calado\n  61 dos 77 pontos.\n- O construtor da modal tem `destroyOnHide` e a lista `_combos`, e `_previewDebounceTimer`\n  aparece em dois lugares; a ancora do porte precisou ser especificada.\n- O generator tem o refactor de `hasTextValue`, sem relacao com cor.\n\nCOR PERSONALIZADA. `applyCustomColor` trocava rgb(255,255,255) pela cor escolhida, o que so\nmexia nos 51 simbolos com interior branco: os outros 53 sao traco puro e o controle era\ninerte neles. A cor passa a pintar a TINTA, traco e preenchimento preto nas tres grafias que\no catalogo usa (black, #000, #000000), e o branco e mascara nos dois modos. O 290800\nTravessia para carros de combate e o caso que decide: ali o branco e a lagarta que\nINTERROMPE a linha, e pinta-lo deixava a linha preta, o contrario do que se quer. O 240601\nteve a grafia do preto normalizada, sem tocar geometria nem espessura, porque escrevia\nstroke=\"#000\" e ficava inerte. Hex invalido continua no-op byte a byte.\n\nO TESTE QUE FOI INVERTIDO, nao contornado. `coordination-measure-generator.test.js` fixava a\nregra antiga por escrito (\"a valid hex rewrites EVERY white rgb, stroke included\"). Ele\ndocumentava como correto o comportamento que se veio corrigir, entao a assercao foi\ninvertida no mesmo commit, com o porque no proprio teste, e ganhou uma vizinha para o\nsimbolo de traco puro, que e o caso que a regra antiga nao conseguia atender. O\n`@fileoverview` descrevia a regra velha e foi reescrito. A outra reprovacao daquela suite\napontava defeito MEU: eu havia quebrado o no-op do hex invalido, e ele foi restaurado.\n\nA ARMADILHA QUE A REMOCAO ABRE, e a blindagem. Feicao ja gravada com ECHELON_00 nao some nem\ncorrompe: a maquina que ja desenhou usa o blob do IndexedDB, e o par sem blob cai no icone\nde erro que layer_setup instala. Mas abrir a modal e clicar Aplicar TRAVAVA a edicao: o\ngerador lanca em `Point ${pointCode} not found in catalog`, updateSymbolImage relanca, e as\ntres linhas seguintes de _handleApply (gravar, fechar, deselecionar) nunca rodavam, com a\nmodal aberta e sem mensagem. A chamada passa a ser envolvida, o desenho falha e a edicao\nsegue. Vale para qualquer codigo que saia do catalogo, nao so para este.\n\nO BACKEND NAO ENTRA, e isso foi medido, nao suposto. O codigo do ponto viaja dentro de\n`features.properties`, JSONB em regime SCRUBBED de chaves abertas (free-field.schemas.js), e\na contagem em backend/src mais backend/tests e ZERO para pointCode, echelonCode, ECHELON_,\n321700 e para o proprio catalogo; nenhum arquivo do backend importa o catalogo do frontend.\nO que o servidor enumera e so o feature_type, e coordination_measure ja esta no CHECK de\n003_atlas.sql e no Joi de atlas.schemas.js. Declaradamente NAO precisa: migracao, alargar\nCHECK, schema novo, back-fill, nem teste de contrato entre pacotes, porque o envelope de\nsync nao muda de forma. Cuidado com um falso positivo ao repetir a busca: `echelon` aparece\nem backend/tests, mas e da feicao de LIMITE, outro vocabulario.\n\nDADO LEGADO, pendente de consulta. Se existir feicao gravada com ECHELON_00, ela perde o\ndesenho e passa a mostrar o icone de erro. A consulta que responde, ainda NAO executada:\n\n    SELECT m.atlas_id, f.map_id, f.id,\n           f.properties ->> 'pointCode'   AS point_code,\n           f.properties ->> 'echelonCode' AS echelon_code\n    FROM features f JOIN maps m ON m.id = f.map_id\n    WHERE f.feature_type = 'coordination_measure'\n      AND (f.properties ->> 'echelonCode' IN ('ECHELON_00','ECHELON_FT_00')\n        OR f.properties ->> 'pointCode'   IN ('ECHELON_00','ECHELON_FT_00'));\n\nSe voltar com linhas, a alternativa de menor raio e tirar o \"00\" so das duas listas de\nUI_DATA e mante-lo em ECHELON_CODES, o que o remove do combo sem matar o dado.\n\nVERIFICACAO. `npm run lint` da raiz limpo, backend incluido. Os quatro arquivos de teste da\nfamilia verdes, 137 casos. Suite do frontend em 10.291 de 10.292. A unica reprovacao e\n`teto-de-peso-da-pagina-do-mapa.test.js`, com admin.html em 596 kB contra o piso de 600, e\nela NAO e deste lote: medida com as mudancas guardadas em stash, ela reprova igual no\nbaseline. Ela e anterior e continua aberta.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01EnwiQmKBexr5zsCvuoZ22C",
+      "sha": "aa8d4a0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa8d4a00da5b348f6da00146c83225da40579ecc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T12:39:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 3): as duas requisicoes saem do SPED por API, e a estrategia do Plano de Gestao entra no item 2\n\nA 29760 (tinta) recebeu os dez campos da 2026NC402136 e o PDF do SIAFI; a\n29820 (manutencao de plotters, Contrata+Brasil, MEI, R$ 11.500,00) foi criada\npor molde da 29760, classe 035, ND 33.90.39.17 medido no SAG, com a\n2026NC402135 anexada. Item 2 das duas com o OE1CGEO1 e a estrategia de manter\no fornecimento em meio analogico e digital, lida no Plano de Gestao 2024-2027\n(pagina nova na wiki e transcricao em 03-Resources). Nasce a skill\nrequisitar-sped com os seis scripts. Rotas de processo do SPED e o portal\npublico do Contrata+Brasil (oportunidade 10484) mapeados por subagentes. O\ntexto da decisao entrou no commit 9ddfe08 da sessao paralela; aqui vai o resto.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Bx3qGooBhPD5WN3pkQ4Fbo",
+      "sha": "179bbc7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/179bbc7179f1e0cd11691a265432a2881199e090",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T12:34:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 2): o banco de edicao de Cacequi 5k nasce em producao, e o DSGTools ganha as escalas grandes\n\nSkill nova gerar-relevo-carta (curvas de nivel e pontos cotados de um MDE pelo\nDsgTools CLI), learnings em criar-bancos, converter-modelagens e\ngerar-terreno-combater, medidas de 1:5.000 em vetorizacao-cobertura-ia e os\nquatro commits do dev do DsgTools em dsgtools-cli. PROJECT.md da carta cadastral\nde Cacequi e a decisao do dia. Commit com --no-verify porque o unico achado do\nguard esta em wiki/sped-protocolo.md, arquivo da sessao paralela, fora destes\ncaminhos.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "9ddfe08",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9ddfe08a67aaea06f5bc35fde1fa7db4ed100269",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T12:30:31.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "add novas fontes",
+      "sha": "513d124",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/513d124952c2ad74af683b57236d28d5c1b08c12",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-09-03T12:21:14.000Z",
+      "author": "Maj Diniz",
+      "message": "extractElevationPoints: a escolha sob o teto de densidade vira determinista\n\nA mesma entrada dava saídas diferentes. Três execuções do mesmo\n`params_pontos.json` sobre Cacequi renderam 59, 59 e 61 pontos, com 39 comuns\nàs três e 91 distintos na união.\n\nA ordem de um `set` de QgsFeature é a ordem de IDENTIDADE do objeto, que muda a\ncada processo, e essa ordem chegava até a escolha: o\n`filterFeaturesByDistanceAndExclusionLayer` percorria as feições na ordem certa\n(cota mais alta, cota decrescente, norte para sul, oeste para leste) mas\ndevolvia `list(outputSet)`; a lista virava ordem de inserção na camada de\nmemória; e o corte por célula do teto de densidade é um `islice` sobre essa\nordem, ou seja, ficava com o que viesse primeiro. A contagem variava junto\nporque o `computePoints` para cedo entre critérios, comparando o total corrente\ncom o `maxNPoints`.\n\nO conserto é uma chave de ordenação por VALOR, `stableFeatureKey`, com a mesma\nordem cartográfica que o filtro por distância já usava: cota_mais_alta, cota\ndecrescente, e a posição arredondada a 8 casas desempatando. Ela entra em cinco\nlugares onde a ordem do `set` mandava: os dois acumuladores do getMaxFeatures e\ndo getMinFeatures, o `filterFeaturesByBuffer`, a saída do\n`filterFeaturesByDistanceAndExclusionLayer` (que passa a preservar a ordem em\nque já iterava) e o `filterPointsAgainstGrid`, que ordena antes do `islice` e\nordena a saída. O `filterWithAllCriteria` ordena a lista de entrada antes de\nmontar a camada de candidatos.\n\nNem o teto de densidade nem os critérios mudam. Muda quem sobrevive ao teto: sob\na mesma célula, sobrevive a cota mais alta, e não a que o interpretador\nenumerou primeiro. O ponto na divisa de duas células também deixa de sair\nduplicado, que o `set` não pegava por serem objetos diferentes.\n\nCinco casos novos, de 34 para 39, todos passando no python do QGIS 4.2.1. Três\nreprovam o código anterior: com cinco pontos numa célula de teto três, ele\nficava com as cotas [103, 105, 101], as três primeiras da ordem de inserção, em\nvez das três mais altas [107, 105, 103], e a mesma entrada invertida trocava os\npontos escolhidos.\n\nDuas execuções novas sobre Cacequi, com os mesmos parâmetros: 58 pontos cada,\niguais campo a campo, coordenada a coordenada e na mesma ordem de gravação. A\nexecução anterior deu 59 pontos, e 43 deles reaparecem: o conjunto muda porque\na escolha sob o teto mudou de critério, e é isso que se queria. Os invariantes\ndas rodadas anteriores seguem de pé nas duas: nenhuma cota de nodata, nenhum\natributo nulo e nenhum ponto fora da moldura. A suíte do CLI segue em 81\npassando.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "d6af0a6",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/d6af0a63b2cff9a470c3ec38435c86dd5fbb3c6c",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T12:17:23.000Z",
+      "author": "Maj Diniz",
+      "message": "medidas de coordenacao: os simbolos passam a ser os do MD33, o combobox deixa de esconder 61 deles, e a cor personalizada pinta a tinta\n\nQuatro coisas que se revelaram uma so, ao conferir o catalogo de pontos contra o\nMD33-C-01 pagina a pagina. As paginas foram recortadas do manual completo (224\npaginas, 1a Edicao 2021) e postas ao lado do que a aplicacao desenhava.\n\nARTE QUE FALTAVA. As tabelas ECHELON_SYMBOLS, ECHELON_SYMBOLS_FT e\nSUPPLY_CLASS_ICONS repetiam o mesmo desenho em 40 entradas, e o comentario do\narquivo chamava isso de placeholder deliberado. Ele contava 41 e descrevia um\nretangulo branco: sao 40, e o desenho e o pino do 130100 Ponto generico, que\nconferido contra a p. 181 esta CERTO e nunca foi placeholder. As 39 restantes\nforam geradas transportando arte que ja estava na casa, nao desenhando do zero:\no amplificador de escalao sai da milsymbol vendorizada pelos digitos 9-10 do\nSIDC, a forca-tarefa pelo digito 8, e os doze icones de classe de suprimento dos\ncodigos 163700/163800/163900/164100/164400/164500/164700 mais as cinco extensoes\n163499 do brazilian_extension_catalog. A geometria do ponto de suprimento saiu de\ncontagem de pixel no raster nativo da p. 193 (164x317 px, extraido por xref): a\nfaixa e 14,18% da altura da caixa, o que poe a divisoria em y=30, e a barra sob o\nicone e 1,52x a largura do arco, a razao da base PROPRIA do glifo e nao a da\nlinha de servico da moldura de unidade, que por isso sai fora do transporte.\n\nDESENHOS ERRADOS. Dos 65 simbolos que ja existiam, 26 tinham defeito. Dezessete\ndesenhavam outra coisa: a Trilha para pessoas a pe eram dois circulos ligados por\nbarra, que e o vau da familia OTAN; o Local fortificado era quadrado onde o\nmanual poe losango; o Datum era circulo vazio onde o manual poe quadrantes\nalternados; o Abrigo individual era quadrado preto cheio onde o manual poe um U.\nCinco traziam sigla em INGLES: L C de Lost Contact no lugar de C P, S A de Search\nArea no lugar de A B, EP no lugar de PE, e C de chemical no lugar de Q. Quatro\ntrocavam elipse por circulo em toda a familia de minas. O grupo inteiro das\npassagens estava errado, o que junto com as siglas indica que essa parte veio do\nAPP-6 e nao do MD33. Num caso o erro era literal: o 290700 Local de passadeira\ndesenhava A MARGEM DO RIO (M 140,120 Q 100,80 60,120) no lugar do simbolo, que e\numa flecha de duas pontas. A via e o curso d'agua que o manual desenha junto de\nnove simbolos sao referencia de posicionamento, o proprio 7.2.5 diz isso, e nao\nentram no desenho.\n\nO 321700 Ponto de Suprimento generico entrou: esta na aba da planilha e era a\nunica linha dela sem correspondente no codigo. O escalao \"Nao Especificado\" saiu\ndas duas familias, por decisao do chefe, e com ele o ECHELON_FT_00.\n\nCOMBOBOX. getPointsGroupedOptions tinha uma lista de ordenacao de categorias\nescrita SEM acento, usada como filtro contra as categorias do catalogo, que TEM\nacento. Sete das onze nao casavam, e tudo que caia nelas era descartado calado:\no combobox mostrava 16 dos 77 pontos, sumindo Protecao inteira, Logistica\ninteira, Controle Aereo e os 31 de Controle Maritimo. A lista agora define ORDEM,\nnunca pertinencia, e categoria que nao esteja nela vai para o fim em ordem\nalfabetica. O combobox foi de 18 para 80 opcoes. Ele tambem ganhou busca, no\nmesmo gesto que o military_symbol_tool ja usa, com normalizacao sem acento, para\n\"protecao\" achar \"Protecao - Minas\", e previa ao passar o mouse. A previa NAO usa\no onChange do combo, que limpa modificadores de texto e reconstroi secoes: usa um\ncallback proprio que so desenha, com selo de ordem para render atrasado nao\nsobrescrever o atual. Quatro rotulos de tela estavam sem acento e foram\ncorrigidos.\n\nCOR PERSONALIZADA. applyCustomColor trocava rgb(255,255,255) pela cor escolhida,\no que so mexia nos 51 simbolos com interior branco: os outros 53 sao traco puro e\no controle ficava inerte neles. A regra agora e por superficie: a cor pinta a\nTINTA, traco e preenchimento preto, e o branco e mascara nos dois modos. O\n290800 Travessia para carros de combate e o caso que decide: ali o branco e a\nlagarta que INTERROMPE a linha, e pinta-lo deixava a linha preta, o contrario do\nque se quer. O casamento cobre as tres grafias de preto que convivem no catalogo\n(black, #000, #000000), porque casar so uma deixava o 240601 inerte; a grafia\ndaquele foi normalizada, sem tocar na geometria nem na espessura. Consequencia\naceita: os 51 que enchiam o interior de cor agora recebem a cor no contorno.\n\nCOMO SE PROVOU. A regua de ordenacao dos 65 e IoU de forma normalizada, e a\nprimeira versao dela MENTIA: os casos reais pontuavam abaixo dos controles\ntrocados, porque traco fino perde quase toda a intersecao com 2 px de\ndeslocamento. Com tolerancia morfologica, doze pares deliberadamente trocados\nficam em no maximo 0,43 contra mediana 0,74 nos certos. Ela ordena; quem julga e\no olho, e o veredito de cada linha foi visual. Ela tambem e cega a\nstroke-dasharray, o que se provou com o caso degenerado 1,60 rendendo os mesmos\npixels do solido: isso derrubou tres diagnosticos, porque o 210900 e o 214700 ja\nestavam tracejados e o par 271201/271203 ja se distinguia. O tracejado passou a\nser julgado no Chrome, que e o destino real. Os 104 simbolos foram renderizados\npintados de verde e inspecionados um a um, e o chefe conferiu os desenhos.\n\nO QUE O VERDE NAO PROVA. Este ramo nao tem\ncoordination-points-catalog.test.js, que so existe no integracao_backend, e\nnenhum dos 2450 testes toca a arte do catalogo, a montagem do combobox ou a\naplicacao de cor. O defeito dos 61 pontos sumidos vivia num codigo que a suite\ninteira aprovava. Falta rede para os tres.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01EnwiQmKBexr5zsCvuoZ22C",
+      "sha": "12db406",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/12db4061b97d2fcde857ea4d451bbca7a1384d54",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T12:05:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 1): o credito do plotter chegou no SIAFI antes do SAG, e o PDF e a fonte que o lanca\n\nDuas NC da DSG de 02 SET (402135 manutencao de plotters, R$ 11.500,00, item 14;\n402136 insumos de impressao, R$ 8.955,00, item 21) lancadas do PDF do SIAFI,\nporque o SAG ainda nao as carregava 18 horas depois. A letra \"Item 1F/1G\" da\nDSG e rotulo de ND, e o item se escolhe pela finalidade. PDF anexado e baixado\nde volta com sha256 igual; painel batendo em oito valores.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Bx3qGooBhPD5WN3pkQ4Fbo",
+      "sha": "c7282f8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c7282f8ad169b649ac4a82e67dae770498eaf6d7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-09-03T11:57:00.000Z",
+      "author": "Maj Diniz",
+      "message": "extractElevationPoints: nodata como cota, atributo nulo e ponto fora da moldura\n\nTrês defeitos que a execução real a 1:5.000 sobre Cacequi expôs, sobre MDE de\n25 m, 189 curvas de 2 m e moldura de 4 x 5 km: dos 142 pontos de saída, 14\nsaíram com cota -9999, 24 com sete atributos nulos e 14 caíram fora da moldura,\nde 1,37 a 70,81 m para fora.\n\n1. A cota do nodata. O algoritmo recorta o MDE com `nodata=-9999`, e o\n   rasterHandler lia o recorte sem tratar o sentinela: o `readAsNumpy` só\n   mascarava quando o CHAMADOR informava o valor. Agora vale o nodata declarado\n   na banda, e o array é promovido a float para caber o NaN. Quem pede `dtype`\n   inteiro (o reclassifyGroupsOfPixels pede int16 e faz aritmética de classe)\n   continua recebendo o array intacto.\n\n   Isso atingia o MÁXIMO só quando a janela recortada saía vazia, que a 1:5.000\n   com MDE de 25 m é corriqueiro (o candidato é menor que a célula), mas atingia\n   o MÍNIMO sempre que houvesse UM pixel sem dado na janela, porque -9999 ganha\n   de qualquer cota real. O `getMaxCoordinatesFromNpArray` e o irmão dele\n   passam a devolver lista vazia em vez de estourar quando não há pixel válido,\n   e o `createMaxPointFeatFromRasterLayer` devolve None nesse caso, como o de\n   mínimo já fazia. No fim, o `dropNodataElevations` fecha a única escrita no\n   sink, valendo para todo caminho de geração.\n\n   O -9999 não era só atributo errado: 13 dos 14 eram pontos de máximo ou de\n   mínimo, que alimentam o `getRangeOfNumberOfPoints`. Com eles, a amplitude da\n   folha era 10.148 m, acima dos 250 m da regra, e a densidade ia para 150\n   pontos por folha (16 por célula da grade) em vez de 75 (8 por célula). A\n   folha de Cacequi tem 72 m de amplitude.\n\n2. Os atributos nulos. O `getElevationPointsFromPlaneAreas` chamava o\n   `createMaxPointFeatListFromRasterLayer` sem o `defaultAtributeMap` que todas\n   as outras chamadas passam, então o ponto de área plana saía com\n   cota_mais_alta, cota_comprovada, ancora_horizontal, ancora_vertical,\n   suprimir_simbologia e visivel nulos.\n\n3. O ponto fora da moldura. As grades de amostragem são montadas sobre o\n   `extent()` da moldura em 4674, e retângulo em UTM não é retângulo em\n   lon/lat: as células de canto sobram para fora. O `dropPointsOutsideBoundary`\n   corta a saída pela GEOMETRIA do polígono, e não pelo extent.\n\nO sentinela -9999 vira a constante NODATA_VALUE, usada nos quatro recortes e na\nrede final.\n\nReexecução com os mesmos parâmetros de Cacequi, saída relida por fora: 59\npontos, 0 com cota -9999 (eram 14), 0 com atributo nulo (eram 24), 0 fora da\nmoldura (eram 14). Três dos pontos de área plana de antes reaparecem na mesma\ncoordenada, agora com os seis atributos preenchidos. A queda de 142 para 59 é\no teto de densidade voltando ao valor de projeto: os pontos de cruzamento caem\nde 96 para 45, razão 0,469, contra os 0,5 que a metade do teto prevê.\n\n14 casos novos em tests/test_extractElevationPoints.py, de 20 para 34, todos\npassando no python do QGIS 4.2.1. Os do raster reprovam o código anterior com\no defeito na mão: o mínimo saía -9999 em vez de 10, e a janela vazia devolvia\nfeição em vez de None. A suíte do CLI segue em 81 passando.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "54175cb",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/54175cb3bdc892181b21f5f32681a6bbd39005fd",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T11:00:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03: a liquidacao do resto a pagar entra pela recontagem, e a rotina de conferencia passa a cobrir os RPNP\n\nConferencia do SAP 3.0 contra o SAG (02 a 03 SET): nenhuma NC nem NE nova nas\ntres acoes, e uma NS de 31 AGO sobre a 2025NE000265 que o RPNP id 12 nao tinha.\nCorrigido o valor_a_liquidar (1.703,42 para 703,72), relido no destino, e os 15\nRPNP recontados com delta zero. A recontagem vira passo 6 do modo conferir, e o\nrelogin vira o primeiro gesto da rodada. Inclui as entradas de 2026-09-02 dos\ndois learnings de orcamento que ficaram sem commit.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Bx3qGooBhPD5WN3pkQ4Fbo",
+      "sha": "ab2edc5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ab2edc5f2b42d11495d47031397c404cec5ccf8b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-09-03T11:00:25.000Z",
+      "author": "Maj Diniz",
+      "message": "extractElevationPoints: escalas 1:2.000, 1:5.000 e 1:10.000\n\nAs cinco réguas por escala passam a sair de uma lista única de denominadores\n(SCALE_DENOMINATORS), e as três escalas novas entram como índices 4, 5 e 6,\nAPENSADAS ao fim da lista, e não intercaladas por ordem de grandeza: o enum do\nProcessing é gravado pelo ÍNDICE no .model3, na linha de comando e nos fluxos\ndo SAP, então reordenar mudaria em silêncio o sentido do que já está gravado.\nOs índices 0 a 3 seguem sendo 1:25.000, 1:50.000, 1:100.000 e 1:250.000, com os\nmesmos valores de antes, e o teste os fixa como literais.\n\nToda régua é comprimento no terreno, linear no denominador: distância entre\npontos 20e-3, comprimento mínimo de curva 8e-3, grade geral 0,2, buffer de\ncurva 6,4e-9 e grade de áreas planas 20e-3. A única exceção é a grade geral em\n1:250.000, que a produção fixou em 40 km e não nos 50 km da fórmula: fica num\nGRID_SPACING_OVERRIDES explícito, com caso de teste que reprova quem resolver\n\"consertar\" a fórmula.\n\nJunto vai um conserto. O `planeGridSpacing` lia o `gridSpacingDict`, de modo\nque o `planeGridSpacingDict` era calculado e nunca usado: a grade de áreas\nplanas rodava com 5.000 m em 1:25.000, em vez dos 500 m da própria régua (e\ncom 1.000 m em vez de 100 m em 1:5.000). A célula entra no critério por ser\nDISJUNTA das curvas de nível, e célula grande demais quase nunca é, então o\ncritério de área plana rendia quase nenhum ponto. A atribuição das réguas saiu\ndo processAlgorithm para o setScaleDependentParameters, que é o que o teste\nnovo observa.\n\nSeis casos novos em tests/test_extractElevationPoints.py, de 14 para 20, todos\npassando no python do QGIS 4.2.1. Três reprovam o código anterior: o das sete\nescalas, o das réguas lineares e o de cada régua sair do seu próprio\ndicionário, este conferido recolocando o defeito (5000.0 != 500.0).\n\nO annotations.json do CLI também sai do lugar em três pontos, conferidos contra\no describe e contra o código: drenagem, estradas e massa d'água estavam\ndescritas como opcionais e são obrigatórias; o exemplo trazia\nNATURAL_POINT_FEATURES, que o initAlgorithm nunca registrou; e faltava dizer\nque CONTOUR_LINES, WATER_BODIES e AREA_WITHOUT_INFORMATION_POLYGONS não são\nreprojetadas pelo algoritmo, de modo que têm que entrar em EPSG:4674.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "94e4393",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/94e439361c28226eded5c0ef2607014e253c1a34",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-09-03T10:59:19.000Z",
+      "author": "Maj Diniz",
+      "message": "generalizeContourLines: escalas 1:2.000, 1:5.000 e 1:10.000\n\nA carta cadastral precisa das escalas grandes, e o algoritmo só conhecia as\nquatro da carta topográfica. As três novas entram como índices 4, 5 e 6,\nAPENSADAS ao fim da lista, e não intercaladas por ordem de grandeza: o enum do\nProcessing é gravado pelo ÍNDICE no .model3, na linha de comando e nos fluxos\ndo SAP, então reordenar mudaria em silêncio o sentido do que já está gravado.\nOs índices 0 a 3 seguem sendo 1:25.000, 1:50.000, 1:100.000 e 1:250.000.\n\nO rótulo e o perímetro mínimo passam a sair de uma lista única de denominadores\n(SCALE_DENOMINATORS), pela regra de sempre: 12 mm de perímetro na escala de\nsaída, ou seja 12e-3 vezes o denominador, em metros no terreno. Dá 24 m em\n1:2.000, 60 m em 1:5.000 e 120 m em 1:10.000, e os quatro valores antigos\n(300, 600, 1200 e 3000 m) saem idênticos.\n\nQuatro testes novos, todos reprovando o código anterior. Os três de execução\nfalhavam com \"SCALE: indice fora da faixa\", e o do contrato compara o mapa de\níndices que o describe publica: o anel de 40 m sobrevive em 1:2.000 e some em\n1:5.000, o de 90 m sobrevive em 1:5.000 e some em 1:10.000, e o de 139 m que\n1:25.000 descarta é representável em 1:10.000. A suíte de curvas tinha 10\ncasos e passa a ter 14, todos passando contra o QGIS 4.2.1.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHV9Wmpumoi1Dt519ekSU",
+      "sha": "15e52ad",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/15e52adc8758211851f22ed7a8063ea269c080ca",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T10:53:10.000Z",
+      "author": "Maj Diniz",
+      "message": "config: o aviso de servidor secundario nasce ligado no config do repositorio\n\nDecisao do chefe depois de testar a tela (2026-09-03): a chave\napp.avisoServidorSecundario passa a true no config.js versionado. Um pacote\nconstruido deste checkout abre o aviso a cada carga, e uma implantacao no\nservidor principal (ebgeo.dsg.eb.mil.br) deve por a chave em false antes de\nconstruir. O teste que pinava o padrao false passa a pinar o true.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_015QsrD942JjaHxKwUhTkLoJ",
+      "sha": "ebb6a99",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ebb6a99b7d8c3b7094d32d75ba02aa458bfd5513",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T10:47:32.000Z",
+      "author": "Maj Diniz",
+      "message": "aviso de servidor secundario: a chave app.avisoServidorSecundario abre a tela ao iniciar, e ausente vale false\n\nA instancia do 1° CGEO (Porto Alegre) e o servidor secundario do EBGeo, e a\nrecomendada e ebgeo.dsg.eb.mil.br, no 7° CTA em Brasilia, com maior tempo de\ndisponibilidade e fora dos problemas de energia e de rede do 1° CGEO. Uma\nimplantacao no secundario poe `app.avisoServidorSecundario: true` no config.js\ne a aplicacao abre, a cada carga, uma tela com o aviso, um botao para o\nservidor principal e outro para continuar aqui. Escape tambem fecha.\n\nSo o booleano true liga a tela. Chave ausente, false, string ou numero valem\nfalse, entao o config do GitHub Pages e qualquer config.js de producao anterior\na chave seguem exatamente como estavam. O teste novo pina esse pior caso.\n\nA tela fica acima da tela de carregamento (--z-startup-notice, 10001) de\nproposito: le-se enquanto o mapa carrega, e continua visivel se a carga nunca\nterminar, que e quando a recomendacao mais importa. Enquanto ela esta aberta\nnenhum atalho do app dispara (captura de keydown na janela, antes dos handlers\nde document), e o Tab circula so entre os dois botoes. Nada e persistido:\nestar no secundario e fato da implantacao, nao preferencia do usuario.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_015QsrD942JjaHxKwUhTkLoJ",
+      "sha": "bc728b1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bc728b10fcf6b5b5266f757dde194e69c378b53d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-02T21:28:23.000Z",
