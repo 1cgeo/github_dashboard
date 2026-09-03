@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-03T18:27:15.243Z",
+  "lastUpdate": "2026-09-03T22:31:11.686Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-03T12:30:31.000Z",
+    "1cgeo/ebgeo_web": "2026-09-03T20:59:04.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-03T16:03:51.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-03T20:05:31.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-03T12:40:42.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6472,
+    "totalCommits": 6486,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1224,
+      "1cgeo/ebgeo_web": 1236,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,139 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 690,
+      "1cgeo/chefe_dgeo": 692,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T20:59:04.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: acionar o painel de atributos num teste, em vez de so le-lo\n\nO `createAttributePanel` do controle envolve a montagem do painel num try/catch que\nso faz `console.error`. Um lance ali dentro nao aparece como erro na tela: a aba\nEstilo abre vazia, ou pela metade, e quem usa ve um controle \"sumido\" sem que nada\nacuse. Nao havia teste algum acionando esse caminho.\n\nO teste monta o painel com dubles (painel, controle e helpers de UI), porque o\nbarril `@tools/helpers` puxa modulos acoplados ao DOM e ao MapLibre, que nao\ncarregam no ambiente `node`. O que ele afirma nao e o desenho de cada controle, e\nsim que o painel CHEGA AO FIM sem lancar, e em que ordem ele monta.\n\nSete casos, dois deles de pior caso: feicao magra, sem nenhuma propriedade de\nestilo (vinda de importacao antiga ou de colagem), e feicao sem espinha, em que\nnao ha comprimento para medir. Nos dois o painel tem de montar assim mesmo, e o\nseletor de cor tem de estar la.\n\nEscrito para investigar um relato de que a cor havia sumido do painel. Ele PASSA:\no seletor de cor e o primeiro controle e carrega o valor da feicao, inclusive nos\ndois piores casos. Entao o defeito relatado nao esta no painel, e fica em aberto.\nO teste continua valendo, porque o caminho seguia sem regua nenhuma.\n\nVisto reprovando ao remover o seletor de cor: cinco dos sete casos caem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "bc81283",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bc812832c0d57031ddf6b78dcd14c9ed14b3ffa5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T20:54:36.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: entra na conversao entre tipos lineares e ganha Inverter Linha\n\nCONVERSAO. `coordination_line` entra em LINEAR_SOURCES, ao lado de linha, seta e\nlinha de limite, com as quatro tabelas que o modelo exige: rotulo de menu, nome de\ntipo, faixa de largura e o que a feicao PERDE ao sair (o simbolo do catalogo, o\ntamanho e a distancia). O ramo de destino nasce com a cor, a espessura e a\nopacidade traduzidas, mais o tamanho de simbolo adaptativo do proprio zoom e a\ndistancia derivada dele, entao uma linha convertida fica igual a uma desenhada\nagora. A ancora de zoom e o instante da conversao, mesma regra da linha de limite.\n\nO `generateTargetGeometry` passou a despachar as duas linhas militares juntas,\nporque as duas tomam `(properties, zoom)` enquanto as ferramentas de desenho tomam\na espinha.\n\nINVERTER. Nao e cosmetico: o apice do pico e o laco da concertina sao colocados a\npartir do rumo LOCAL, sempre para `bearing - 90`, entao inverter a espinha gira o\nrumo em 180 graus e o simbolo passa a apontar para o outro lado. E a pergunta\ndoutrinaria de para onde o obstaculo aponta.\n\nA funcao e separada da `reverseArrow` de proposito: as duas geometrias tomam\nargumentos diferentes, entao um helper comum teria de ramificar por tipo de\nqualquer forma. Esta delega ao controle, cujo `updateFeaturesProperty` ja regenera\na geometria e reescreve a fonte viva para `baseCoordinates`.\n\nREGUAS. A do inverter mede o lado por PRODUTO VETORIAL, e nao por\n`turf.pointToLineDistance`, que devolve distancia SEM SINAL: com ela o `Math.sign`\nda sempre 1 e o teste passa a medir nada, que foi o meu primeiro erro aqui. Ela\ntem contraprova: o losango, que e simetrico, ocupa as mesmas posicoes invertido, e\nse isso passar a falhar os dois testes de lado estao medindo outra coisa. Vista\nreprovando ao tirar o rumo do apice.\n\nO teste da conversao deixou de fixar 6 direcoes e passou a derivar da lista\n(`n * (n-1)`), pelo mesmo motivo que o da migracao temporal deixou de repetir a\nversao: numero copiado reprova codigo certo na proxima vez que a lista crescer.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "d75a59d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d75a59dd3ec69bcf8e1434e58b1ed179c3346307",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T20:44:56.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: remover todo resquicio do nome antigo, que nunca foi entregue\n\nO tipo e o balde antigos existiram apenas dentro do dia de hoje, entre commits, e\nnunca chegaram a nenhum usuario. Logo nenhum dado gravado os contem, e todo o\nmaquinario de renomeacao era codigo morto que so servia para confundir quem\nlesse depois.\n\nA migracao v2.2 -> v2.3 deixa de renomear e passa a fazer a UNICA coisa de que ela\nprecisa: garantir que todo mapa gravado tenha a colecao `coordination_lines`. Isso\ncontinua sendo necessario, e por um motivo que nao mudou: um mapa criado antes da\nferramenta nao tem a chave, o setup de camadas monta a fonte a partir dela, e sem\na fonte a ferramenta ativa, aceita clique e nao desenha nada, sem erro e sem log.\n\nA funcao pura virou `ensureCoordinationLines`, com o mesmo contrato de antes:\ndevolve null quando nada muda, que e o que evita reescrever todo mapa de todo\natlas num bump que nao lhes diz respeito. O importador de `.ebgeo` chama a mesma\nfuncao, entao os dois caminhos seguem sem poder divergir.\n\nSairam 53 linhas com o nome antigo, de onze arquivos, incluindo o comentario\ninterno do SVG do icone. Ficam de pe apenas quatro ocorrencias da PALAVRA, e\nnenhuma e o identificador: duas no modulo de visibilidade, sem relacao nenhuma\n(\"elevation angle barrier\"), e duas que nomeiam o SIMBOLO 290199 do MD33, que se\nchama mesmo Linha de barreiras. Essas duas passaram a citar o codigo do simbolo ao\nlado do nome, para ninguem as ler como o tipo que se foi.\n\nReguas vistas reprovando: sem a criacao do balde caem tres casos; sem a chamada no\nimportador cai o da fiacao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "9b7acb9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9b7acb937429a9bb2ad0d3439c35f281d25c1b40",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T20:34:51.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao v2.3: garantir o balde de linhas de coordenacao tambem no mapa que nunca teve uma, e nao so renomear\n\nO mecanismo de migracao no boot ja existia e estava certo: o\n`initializeRepository` chama `detectMigrationNeeded` e `safelyMigrate`, e o elo\nv2.3 estava na cadeia. Quem estava errada era a MINHA migracao.\n\nEla so renomeava `barrier_lines` para `coordination_lines` onde havia um balde\nvelho para renomear, e devolvia null para todo mapa que nunca teve uma linha de\nbarreiras. Esses mapas, que sao a maioria, ficavam sem NENHUM dos dois baldes. O\nsetup de camadas entao nao tinha colecao para montar a fonte, e a ferramenta\nativava, aceitava clique e nao desenhava nada.\n\nNormalizar a forma da colecao e trabalho da migracao, nao do renderizador. O\ncommit anterior (582a6689) tornou o setup de camadas tolerante ao balde ausente, o\nque continua certo como defesa, mas tratava o sintoma. Este trata a causa, e vale\npara os DOIS caminhos, porque o importador de `.ebgeo` chama a mesma funcao pura.\n\nO ramo que devolve null ficou mais estreito e mais honesto: nada a renomear E o\nbalde novo ja em forma. So nesse caso o mapa nao e reescrito.\n\nVista reprovando: com o ramo antigo (`if (!temLegado) return null`), o caso do\nmapa que nunca teve linha nenhuma cai.\n\nAchado pelo chefe, apontando que a migracao automatica no boot ja existia e\ndeveria ter resolvido isso.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "c7fdd85",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7fdd851f2998512d002c5ef845e0c1089cfc10d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T20:32:12.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: as camadas nascem tambem no mapa que nunca teve uma, em vez de a ferramenta desenhar nada\n\nO `setupCoordinationLineLayers` desistia quando `features.coordination_lines`\nfaltava, guarda que eu copiei do boundary sem perguntar se cabia. Cabe la, porque\no balde `boundarys` esta no esqueleto do repositorio ha muito tempo e sempre\nexiste. NAO cabe aqui: um mapa criado antes desta ferramenta nao tem a chave, e a\nmigracao v2.3 so acrescenta uma onde havia `barrier_lines` para renomear.\n\nNesses mapas a fonte e as tres camadas nunca eram criadas, e o efeito e o pior\ntipo: a ferramenta ativa, aceita clique e NAO DESENHA NADA. Toda escrita da\nferramenta passa por `getSource(...)?.setData`, e o encadeamento opcional engole a\nausencia sem erro, sem log e sem nada na tela. A frente ocupada, que e o vizinho\nmais parecido, nunca teve essa guarda.\n\nO balde ausente passa a ser lido como lista vazia, que e o que ele significa. A\nleitura tambem tolera balde corrompido, porque `setOrCreateSource` monta\n`{ type, features }` sem checar e gravaria `features: undefined`, que nao e\nGeoJSON valido.\n\nA regua usa um duble de mapa (getSource/addSource/getLayer/addLayer), o que torna\no setup testavel em node sem MapLibre. Vista reprovando: reposta a guarda, tres\ndos cinco casos caem, entre eles o do mapa que nunca teve o balde.\n\nAchado pelo chefe, ao relatar que a ferramenta se comportou mal na primeira vez\nque a usou. NAO explica os outros dois sintomas que ele descreveu (todas as\nferramentas parecendo ligadas, e o chip de ferramenta ativa sumindo), que seguem\nem aberto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "582a668",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/582a668957438012f9918a133d0d0aace7245a48",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T20:09:56.000Z",
+      "author": "Maj Diniz",
+      "message": "medidas de coordenacao: o Escalao vira Nucleo, com contorno aberto na largura do escalao, e o icone do KMZ deixa de sair borrado\n\nESTE LOTE NAO E MEU. E o trabalho da sessao paralela que cuidou das medidas de\ncoordenacao ao longo de 2026-09-03, e que encerrou antes de commitar. Commitado\npor ordem do chefe para o trabalho nao ficar orfao na arvore, e assinado aqui so\nporque nao havia mais quem o assinasse.\n\nO que o diff carrega, lido do proprio codigo e dos dois testes novos:\n\n- O Escalao virou NUCLEO no catalogo de pontos de coordenacao, com os 26 pontos\n  ganhando nome e categoria propria. Os codigos `ECHELON_*` foram MANTIDOS, que e\n  o que projeto ja salvo guarda no disco.\n- O contorno do Nucleo abre na largura do escalao, com as pontas na altura do\n  corte, e abre mais para o escalao mais largo, como a figura do manual mostra. A\n  elipse e simetrica em torno do centro, para o icone ancorar nela.\n- A situacao entra no formulario ao lado da identificacao, tracejando o contorno e\n  deixando o simbolo de escalao continuo, e sobrevive a cor personalizada, que\n  roda antes dela.\n- O icone rasterizado acima do tamanho logico volta do disco no tamanho certo: o\n  `loadSingleImage` passou a receber `pixelRatio`, o `collectImageResourceRatios`\n  a informar a razao por imagem, e o `addImage` a recebe-la.\n\nOs dois testes novos vieram junto, `nucleo-medida-coordenacao.test.js` (13 casos) e\n`kmz-escala-do-icone.test.js`.\n\nConferido antes de commitar, porque congelar estado incoerente sob assinatura\nalheia seria pior que deixar sem commit: eslint e stylelint limpos, 109 arquivos e\n2591 testes passando.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "e6f0b08",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e6f0b08ade091e7614acc5afaf6cf74653cd1a78",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T20:05:31.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 12): a Linha de Barreiras vira Linha de Coordenacao, e o esquema do atlas sobe para 2.3\n\nQuatro commits na main do 1cgeo/ebgeo_web (07b16899, 24b07975, 6106449e,\na5471c20), com tres sessoes editando a mesma arvore de trabalho e nenhuma\nperdendo trabalho.\n\nDECISAO. A ferramenta militar de linha nasceu para o simbolo 290199 do MD33 e no\nmesmo dia generalizou para os cinco simbolos LINEARES do catalogo, num combobox.\nO tipo `barrier_line` virou `coordination_line`, com migracao v2.2 para v2.3 nos\nDOIS caminhos, porque a renomeacao nao e aditiva e feicao no balde velho sumiria\nsem erro. O segundo caminho (o `.ebgeo` importado, que nunca passa pela migracao\nde armazenamento) foi achado pelo chefe perguntando se a versao do arquivo tinha\nmudado.\n\nWIKI. A ferramenta entra em [[ebgeo-web]], com os cinco simbolos, os dois eixos\nque o catalogo encoda e as tres invariantes que vieram de medida.\n\nLIVRO-RAZAO. Tres desvios meus: inventei um mecanismo para explicar a divergencia\nde medida com a sessao vizinha em vez de testa-lo (37a de afirmado-sem-medir);\nli uma listagem truncada por `head -5` como conteudo do diretorio e um instantaneo\ndo `ps` como ausencia num intervalo (66a de regua-cega); e inocentei a sessao\nvizinha da quebra do node_modules por raciocinio, alem de atribuir um servidor\nvite ao chefe pelo horario (34a de diagnostico-raso). Tres atribuicoes por horario\nno dia, nenhuma certa.\n\nLEARNINGS. A memoria do harness e por PROJETO, nao por sessao: encontrei tres\nparagrafos de hoje que eu nao escrevi, e sob sessao paralela a retrospectiva tem\nde LER antes de anexar. E `node -e` com aspas duplas deixa o bash comer o que esta\nentre crases: seis tokens de codigo sumiram de um paragrafo de wiki, e o grep de\nconferencia foi quem pegou.\n\nMemoria do harness (fora do vault): turf.along contra nearestPointOnLine, regua\nque repete a constante, mais dois defeitos de ambiente desta maquina (a junction\ndo worktree que apaga o alvo real, e o npm ci que precisa de --offline nesta rede).\n\nGuard de caminhos limpo em 770 arquivos. Lint-wiki sem erro. Delta de escrita zero\nna wiki e nas decisoes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "e3b0621",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e3b0621611635072bf08f7bec9c657b5a72e1e13",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T19:57:32.000Z",
+      "author": "Maj Diniz",
+      "message": "importacao: o .ebgeo escrito antes da v2.3 tambem passa a ter o balde de linhas renomeado\n\nA migracao v2.2 -> v2.3 cobria o IndexedDB e deixava de fora o caminho do\nARQUIVO. Um `.ebgeo` exportado antes da renomeacao chega pelo importador, que\nvalida a versao e normaliza a forma, e nunca passa por `migrateToV2_3`. Como\nMIN_SCHEMA_VERSION e 1.3, TODO arquivo aceito hoje foi escrito antes da v2.3 e\npode trazer `barrier_lines`.\n\nSem isso as feicoes entravam no armazenamento num balde que ninguem le, numa\nfonte que ninguem cria, e sumiam do mapa sem erro nenhum: exatamente a falha que\na migracao existe para impedir, so que pela outra porta.\n\nO `normalizeMapDataForCurrentVersion` passa a chamar a MESMA funcao pura da\nmigracao de armazenamento, entao os dois caminhos nao podem divergir. Os dois\npontos de importacao (substituir e acrescentar) ja passavam por ele.\n\nA regua e em duas camadas, porque o servico importa `@store` inteiro e nao carrega\nno ambiente `node` da suite: o COMPORTAMENTO segue provado direto na funcao pura,\ne a FIACAO por leitura estatica do servico. Vista reprovando: trocada a chamada\npor `null`, o teste da fiacao cai.\n\nAchado pelo chefe ao perguntar se a versao do .ebgeo tinha mudado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "a5471c2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a5471c20b0938a8a79a384c01627c2e70b0adc4a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T19:46:56.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: a linha de barreiras vira ferramenta de cinco simbolos lineares do MD33, com combobox e migracao para v2.3\n\nA ferramenta desenhava um simbolo so, o 290199. Agora desenha cinco, escolhidos\nnum combobox, e o tipo passa a se chamar `coordination_line` para parar de\nmentir:\n\n  290100  Linha de obstaculos    pico triangular, interrompe a linha\n  290199  Linha de barreiras     losango vazado, interrompe a linha\n  290302  Cerca de arame         tres tracos cruzados sobre a linha inteira\n  290303  Cerca de arame dupla   dois pares de tracos sobre a linha inteira\n  290307  Concertina             laco fechado apoiado na linha inteira\n\nTODOS sao o mesmo problema de desenho, uma polilinha com um glifo repetido a um\nespacamento regular, e diferem em exatamente dois eixos, que e o que o catalogo\nnovo encoda: se o glifo INTERROMPE a linha ou cavalga sobre ela intacta, e qual e\na forma. O catalogo nao tem imports, entao o painel le os nomes sem arrastar a\ngeometria (e o turf global) para o chunk dele. A forma em si mora na geometria,\nonde o turf esta.\n\nUm detalhe que o eixo novo trouxe: o layout e pedido pela PEGADA real do glifo,\nnao pelo tamanho autoral, porque a cerca dupla ocupa 1,6 vezes o tamanho e a\ninvariante `pegada <= 0,5 x espacamento` so protege o que recebe. O piso do\nslider de distancia segue a mesma pegada, senao ele ofereceria um valor que a\ngeometria alarga por baixo do usuario.\n\nRENOMEACAO E MIGRACAO. `barrier_line` virou `coordination_line`, e o balde\n`barrier_lines` virou `coordination_lines`, em 30 pontos de registro mais a pasta\ne os arquivos. Esta migracao NAO e aditiva, ao contrario da temporal: uma feicao\ndeixada no tipo velho ficaria num balde que ninguem le, numa fonte que ninguem\ncria, e sumiria do mapa sem erro nenhum. Por isso a v2.2 -> v2.3 reescreve de\nverdade, carimbando 290199 no que ja existia, que e a unica coisa que a\nferramenta antiga sabia desenhar. Ela FUNDE com o balde novo em vez de\nsobrescrever, porque um mapa tocado por versao mais nova pode ter os dois.\n\nREGUAS, todas vistas reprovando antes de passar:\n- trocar `interrupts` da cerca de arame reprova, e o pico com um quarto ponto\n  tambem: os dois eixos do catalogo estao mesmo sendo lidos;\n- a fusao virada sobrescrita reprova, e parar de carimbar o simbolo tambem.\n\nO teste da migracao temporal deixou de repetir a constante '2.2' e passou a\nderivar de ATLAS_SCHEMA_VERSION. Ele reprovava codigo certo a cada mudanca de\nesquema, que e o mesmo defeito de regua que mordeu a sessao das medidas de\ncoordenacao hoje.\n\nUma coisa medida e NAO consertada, para ficar registrada: num simbolo que nao\ninterrompe a linha, o glifo e ancorado no ponto do turf.along e a espinha e\ndesenhada reta entre os vertices clicados, entao ele flutua sobre ela pelo\narqueamento do circulo maximo. Medido em 1,13 m numa linha leste-oeste de 10 km,\nou 0,3% da altura do proprio laco. Nos simbolos que interrompem isso nao aparece,\nporque as duas pontas da costura vem do along (a suite mede 0,000 m).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "6106449",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6106449ee734fef86ea1360dfb3e9385044529e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T19:14:05.000Z",
+      "author": "Maj Diniz",
+      "message": "exportacao: a correcao de zoom volta a alcancar as medidas de coordenacao, que apontavam para fonte inexistente\n\nA entrada de `coordination_measure` em ZOOM_INVARIANT_SOURCES nomeava\n`coordination-measures-source`, string que nao existia em mais nenhum lugar do\nprojeto. A fonte real e `coordination_measures` (criada em symbol.layers.js:53 e\nmapeada em store.constants.js:96); `coordination-measures-layer` e o id da\nCAMADA, nao o da fonte.\n\nO `correctSourceFeatures` faz `getSource(config.sourceName)` e devolve `false`\nquando vem undefined, entao a correcao nunca se aplicava as medidas de\ncoordenacao na exportacao de PDF nem na do Garmin. Falhava calada: sem excecao,\nsem log, e indistinguivel em tempo de execucao de um mapa que simplesmente nao\ntem feicoes daquele tipo. O simbolo saia no tamanho errado quando o zoom de\nexportacao diferia do zoom em que foi desenhado.\n\nVem com a regua que pega a classe inteira, e nao so esta palavra: a lista tinha\ndez entradas e nenhuma era conferida contra as fontes que o app cria. O teste\nnovo cruza os `sourceName` declarados com os nomes literais que aparecem nos\ncinco criadores de fonte, e foi visto REPROVANDO com a string velha antes de\npassar com a nova.\n\nEle afirma de proposito menos do que poderia: nao \"toda fonte do app\", porque ha\nfontes criadas a partir de variavel (terreno, street view, grade, modelos 3D) e\noutras montadas por interpolacao no shape.layers, que varredura textual nenhuma\nenumera. A afirmacao e que um nome DECLARADO pelo exportador aparece, escrito por\nextenso, em algum lugar que cria fonte. A largura da varredura so erra numa\ndirecao: um criador esquecido reprova entrada boa, nunca esconde entrada ma.\n\nAchado pela sessao das medidas de coordenacao ao revisar o commit anterior.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "24b0797",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/24b07975f0adaf4f7b134e90a7ca7cce9ef22790",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T19:05:10.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de barreiras: a ferramenta militar nova, com o losango repetido por espacamento, teto de 120 e continuacao pelas pontas\n\nDesenha o simbolo 290199 do MD33: uma polilinha interrompida em intervalos\nregulares por um losango vazado, com a linha entrando no vertice esquerdo e\nsaindo no direito. Tudo sai num MultiLineString unico, entao uma camada de\nlinha desenha o conjunto e o losango fica vazado de graca, sem feicao\ndependente, sem fonte irma e sem gancho de restauracao.\n\nTres numeros medidos contra o turf que o app entrega decidiram o desenho:\n\n- O recorte do vao usa lineSliceAlong, nao lineSlice. O segundo reprojeta o\n  ponto por vizinho mais proximo planar enquanto o along interpola por circulo\n  maximo, e a discordancia deixa degrau entre a linha e o losango: 1,13 m numa\n  linha de 10 km e 113,59 m numa de 100 km, contra 0,00 m em todos os casos com\n  lineSliceAlong.\n\n- Teto de 120 losangos por feicao. Uma linha de 100 km presa a tela e vista em\n  z=22 pede 51.277 losangos, 358.941 vertices e 135 ms para montar. A passada de\n  zoom regenera toda feicao presa a tela por quadro, e 30 feicoes a 200 losangos\n  levaram 20,0 ms contra o orcamento de 16,7 ms, enquanto a 100 levaram 8,0 ms.\n  Ao bater no teto o espacamento alarga, para o padrao seguir cobrindo a linha\n  inteira em vez de parar no meio.\n\n- Invariante tamanho <= 0,5 x espacamento. A fracao da linha comida pelos vaos\n  e exatamente tamanho/espacamento, e sem o limite um losango de 3 km a cada\n  1 km funde todos os vaos e nao sobra linha visivel nenhuma.\n\nA ancora de zoom e a mesma da linha de limite, createdAtZoom mais\nzoomCorrectionEnabled: ligada, o traco cresce e os losangos ficam no terreno;\ndesligada, o traco fica e os losangos encolhem em quilometros.\n\nA continuacao pelas pontas entra em EXTENDABLE_SOURCES. Os losangos nao precisam\nde remapeamento, ao contrario do escalao da divisa, porque sao postos por\nespacamento absoluto em km e nao por fracao do comprimento: uma linha mais longa\nso carrega mais deles, e os que ja estavam nao se movem.\n\nDe quebra, o botao de ferramenta deixa de escrever \"undefined\" no atalho e no\nbadge quando a ferramenta nao tem tecla.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019tgkBvrkB7S5LwzoJ9QWvi",
+      "sha": "07b1689",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/07b16899e09c22ca957c2eaf8e7c24bded01539b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T18:49:32.000Z",
+      "author": "Maj Diniz",
+      "message": "divisa: o corte entra no menu da feicao e o modelo puro vai para o chunk core\n\nFecha o commit anterior com os dois pontos que faltavam.\n\n- feature-header.helpers: o botao de corte deixa de ser exclusivo da linha e\n  passa por SPLITTABLE_LINEAR_SOURCES, com rotulo e carregamento por tipo. O\n  import segue dinamico, pelo mesmo motivo que as operacoes de seta: aresta\n  estatica daqui para um chunk de ferramenta recria o ciclo core <-> ferramenta.\n- vite.config: boundary-split.model vai para o chunk core, como a\n  boundary-zoom.model ao lado. E folha pura, e o menu de contexto o importa\n  estatico para decidir se mostra a entrada; deixado em military-tools ele faria\n  o core depender de um chunk que depende do core. Medido no build: o modelo cai\n  em core, a orquestracao fica em military-tools e carrega so no clique.\n\nO indice deste commit foi montado hunk a hunk, para nao carregar o trabalho nao\ncommitado de outra sessao ativa nos mesmos dois arquivos.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Rdn9Q67GdsYvcjyXxqB62L",
+      "sha": "9bf7b54",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9bf7b548e7d83f28b273163c0be3dc42ae0e451a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-03T18:48:09.000Z",
+      "author": "Maj Diniz",
+      "message": "divisa: o corte em duas, com o escalao indo para a metade que o contem em vez de ser duplicado nas duas\n\nA Linha de Limite ganha o \"Cortar Linha de Limite\" que a linha comum ja tinha,\nnos mesmos dois pontos de entrada (menu do clique direito e menu da feicao no\npainel), com modo de clique temporario e Esc para cancelar.\n\nO que nao era traducao do line-split.js:\n\n- O escalao mora em ratio do comprimento TOTAL, entao copiar as instancias\n  duplicaria cada simbolo nas duas metades e nenhuma copia ficaria onde o\n  usuario desenhou. Medido no turf real, numa divisa de 71 km cortada a 40%:\n  a copia ingenua move o simbolo mais de 1 km, nas duas metades. O\n  boundary-split.model remapeia lendo cada ratio como distancia absoluta,\n  entrega o simbolo a metade que o contem e reexpressa a fracao. A metade que\n  fica sem nenhum recebe um centrado, porque o getSymbolInstances recusa array\n  vazio e inventaria exatamente esse: escrever e a diferenca entre guardar o\n  que o mapa desenha e guardar uma mentira.\n- A espinha vem de properties.baseCoordinates. A geometry da divisa e uma\n  MultiLineString que mistura os segmentos com os tracos dos X, e contar\n  geometry.coordinates.length ali conta PARTES, nao vertices. O gate do menu\n  que a linha usa passaria por acidente numa divisa sem espinha nenhuma.\n- Corte sobre um vertice e encostado NO vertice e a emenda nao repete o ponto:\n  segmento de comprimento zero nao tem rumo, e todo simbolo, rotulo e alca da\n  divisa e posicionado por um.\n- Tres fontes mudam, nao uma. O replaceSplitBoundary faz boundarys, os\n  circulos e os textos numa tarefa so da fila serial do controle, porque uma\n  passada de zoom lendo no meio gravaria de volta um estado sem as metades.\n\nDuas divergencias deliberadas do corte de linha, as duas para o lado bom: as\nescritas vem ANTES da remocao, entao escrita bloqueada deixa duplicata\nrecuperavel em vez de buraco; e as tres operacoes vao em startBatchUndo, entao\num Ctrl+Z desfaz o corte inteiro, contra os tres do corte de linha.\n\nVerificacao: lint limpo, 106 arquivos e 2555 testes passando, e vite build sem\naviso de chunk circular. As reguas foram provadas quebrando o modelo de\nproposito nos tres eixos que ele afirma medir (elegibilidade lendo a geometria\nderivada, copia ingenua dos ratios, vertice repetido na emenda): 12 testes\nreprovaram, cada eixo com o seu. O teste de turf real mede a posicao no eixo\nque a ferramenta usa, comprimento de arco, onde o remapeamento fecha ao\nmilimetro; a checagem no terreno ficou com tolerancia MEDIDA e a causa ao lado,\nporque o turf.along anda pela geodesica e o nearestPointOnLine le o segmento\ncomo reta em graus, e os dois discordam em 34,8 m num segmento de 66 km.\n\nNao testado no navegador: o repo proibe ferramenta de preview, entao o clique\nna tela fica para o chefe.\n\nFaltam dois arquivos deste lote, segurados de proposito porque carregam tambem\ntrabalho de outra sessao ativa na mesma arvore: a regra de manualChunks do\nboundary-split.model em vite.config.js, e o botao de corte generalizado em\ntool_manager/helpers/feature-header.helpers.js. Entram assim que a sessao\nvizinha autorizar ou commitar os hunks dela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Rdn9Q67GdsYvcjyXxqB62L",
+      "sha": "dd4fbd0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dd4fbd0417ed1c8c32e691ba154ad796b23b017a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-03T18:44:51.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 11): tres geodesias no mesmo desenho, e o escalao sai de cima da divisa\n\nCorte da Linha de Limite implementado no ebgeo_web_main (branch main), com tres\nsessoes editando a mesma arvore e nenhuma perdendo trabalho. O codigo nao entra\nneste commit: o CLAUDE.md daquele repo proibe commit, e o lote fica para o chefe.\n\n- wiki/ebgeo-web: secao nova sobre as tres geodesias do desenho. O turf.along\n  anda pelo circulo maximo, o nearestPointOnLine, o lineSlice e o\n  pointToLineDistance leem o segmento como reta em graus, e o MapLibre desenha\n  reta no Mercator, que e a convencao do segundo grupo. Quem decide o que o\n  usuario ve e o renderizador. O desacordo e quase todo perpendicular, e por\n  isso comprimento e posicao dao numeros com razao de 236 vezes para a mesma\n  causa. Medido: o escalao da divisa sai 52,6 m de cima da linha em 100 km e\n  210,3 m em 200 km, enquanto a borda do vao fica em 0,00 m, porque o\n  lineSlice projeta e o getCenterAndBearing nao. Registrado, nao consertado\n- livro-razao: 2 eventos. Um afirmado-sem-medir (inventei um mecanismo para\n  explicar tres ordens de grandeza e mandei sem testar; a sessao vizinha\n  derrubou medindo) e um regua-cega (teto de 1 m chutado, sem o piso de ruido\n  do instrumento, que era de 34,8 m)\n- memoria do harness: trabalho-paralelo-no-mesmo-repo ganhou tres blocos. A\n  sessao vizinha e enderecavel e o aviso vai na ABERTURA da frente, com a lista\n  dos blocos e nao dos arquivos; suite que o vizinho reporta sobre os meus\n  arquivos vem datada da rodada dele; e numero de vizinho nao e prova, pelo\n  mesmo motivo que relatorio de subagente nao e\n- lint-wiki zerado em onze checagens, indice de skills regenerado dentro do\n  orcamento, guard de caminhos ok em 770 arquivos\n\nPendente do chefe: a wiki diz que funcionalidade nova vai para integracao_backend\ne nunca para a main (decisao de 2026-08-14), e hoje tres frentes construiram na\nmain. Mais duas normas propostas para o nucleo (relato de sessao vizinha nao e\nprova; o teto da regua sai do piso de ruido medido) e a divida de poda dos\nlearnings, com 16 acima do alvo e o da retrospectiva em 60 KB.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Rdn9Q67GdsYvcjyXxqB62L",
+      "sha": "68ff420",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/68ff42098252e6ed176b2dd250e4d791b787696c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-03T16:03:51.000Z",
