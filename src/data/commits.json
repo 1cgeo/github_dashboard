@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-04T18:14:14.168Z",
+  "lastUpdate": "2026-09-04T22:15:53.668Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-04T17:48:18.000Z",
+    "1cgeo/ebgeo_web": "2026-09-04T18:32:12.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-04T17:48:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-04T22:02:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-04T09:30:09.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6520,
+    "totalCommits": 6533,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1250,
+      "1cgeo/ebgeo_web": 1251,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,130 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 708,
+      "1cgeo/chefe_dgeo": 720,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T22:02:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 25 e 26): consolida o MEMORY.md abaixo do gatilho, com o servidor do EBGeo e a paleta cadastral no estado atual\n\nCinco linhas encurtadas com o detalhe já na wiki, o estado do servidor do EBGeo\n(Martin sobra, nginx desperdiça, não migrar, SSD sem backup) e a padronização\ncadastral no estilo Overture fundida na linha do Cacequi. De 5.034 para 4.592\ncaracteres, relido do disco pelo memoria_orcamento.py.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PgZvNR2oNhvXWWN1hhUnsF",
+      "sha": "7f43676",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7f436762f988d8136aaa6f33e89fa5ba1ceed4c7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T21:57:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 25 e 26): o Martin do EBGeo sobra e o nginx desperdiça, não vale migrar, e a padronização cadastral entra no estilo Overture de z16\n\nAuditoria do Martin 1.12 no servidor do EBGeo com três subagentes conferidos por\namostragem: 67% dos tiles chegam ao Martin por cache mal configurado, 35% dos pedidos\nsão 304 sem Cache-Control, o tilestats do tippecanoe custa dez vezes mais CPU por tile\n(causa provada em container descartável), e o site pede tiles que não existem. Página\nwiki/martin-ebgeo com a proposta em quatro blocos, nada aplicado. Comparação dos três\nservidores em wiki/servidor-ebgeo: não migrar; o risco é o SSD único sem backup.\n\nPadronização de cores cadastral (Cacequi 5k) resolvida pelo cores_do_qml.py e aplicada\nao overture_layer.js do servidor por decisão do chefe (creme 15p, z16, faixa interna,\npark em lazer, cemetery só contorno), publicada nas releases 20260904_181321 e\n20260904_184620. Página wiki/padronizacao-cores-cadastral, decisões cont. 25 e 26,\ninstrumento de captura por CDP na skill estilar-carta-web, learnings de quatro skills\ne quatro eventos no livro-razão.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PgZvNR2oNhvXWWN1hhUnsF",
+      "sha": "d7164b2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d7164b21fa426c8c721fb73ae209b14311d65530",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T21:38:28.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: estrategias novas medidas antes de propostas, e a esteira do sol esta cega desde a poda do full_webp\n\nSeis agentes de pesquisa (mapa e satelite, SfM feed-forward e esferico,\nupright e pontos de fuga, industria e fusao, iluminacao, cameras e humano no\nlaco), com 24 afirmacoes conferidas na fonte pelo pai, e tres pilotos medidos\nno acervo real com o disco do sol como verdade independente.\n\nO que muda: o calibrar.py e o sondar.py leem full_webp, aposentado em\n2026-08-19, e nenhuma varredura nova roda antes de portar o leitor para os\ntiles (0,16 s por foto para remontar). O giro relativo entre vizinhas sai das\nfeicoes DISTANTES por rotacao pura, com 0,6 a 0,9 grau de mediana em CPU: a\nparalaxe baixa que derrubou o SfM como mapa e o que faz a rotacao pura fechar.\nCadeia so de vizinhas deriva; arestas ate a quarta vizinha e ancora por\ncomponente fecham (bancada do agente: 71 graus contra 1,4). O foco de expansao\ncontra o heading do GPS da rumo absoluto sem sol em cidade (2 graus) e degenera\nem cena distante (cica). Uma ancora humana por faixa fecha a viatura por conta\n(3 por faixa, 1.743 no acervo, 6 h). pycolmap 4.2.0 instala aqui com camera\nesferica nativa e averaging alinhado a gravidade. OrienterNet aceita a EDGV\nsem retreino. VGGT e DINOv3 proibem uso militar. A GoPro Fusion grava\nmagnetometro no JPG bruto que o Fusion Studio descarta.\n\nNada gravado no index.db. Sete pilotos com portao a mesa do chefe, em\nreferences/estrategias-2026-09.md. Relatorios em references/pesquisa-2026-09,\nferramentas de medida em pilotos/.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "c02233c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c02233c4efc884fefd2b8b675fffdf5746c6c44b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T19:58:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 24): o padrao do borrao de rosto fecha em elipse 1,8x, feather 0,12 e sigma 0,35, e o lote da ExpoEx sai aplicado\n\nDecisao cont. 24, evento de estilo no livro-razao (duas rodadas de \"fraco\" no\narquivo, causa geometrica), historico na pagina da wiki, descricao da skill\nenxugada para caber no orcamento da listagem.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "0d221b9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0d221b9e15d9fed20bff048608124fa83d242688",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T19:55:42.000Z",
+      "author": "Maj Diniz",
+      "message": "anonimizar-rosto-360: --fotos reexporta so o que mudou e funde a prova; gravacao atomica pega o imwrite calado com arquivo preso\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "5a7b772",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5a7b772cc53c245a2dbd80058457ce549da64010",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T19:49:09.000Z",
+      "author": "Maj Diniz",
+      "message": "anonimizar-rosto-360: o fraco era geometrico, o miolo da elipse ficava dentro do rosto; lote da ExpoEx fecha em 1,8x, feather 0,12 e sigma 0,35\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "5a590d6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5a590d6a729f6f6ae1a80e04ffb71a4c88948306",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T19:35:35.000Z",
+      "author": "Maj Diniz",
+      "message": "anonimizar-rosto-360: o aplicador aceita --sigma, --fator e --feather, e o lote da ExpoEx sai mais forte (0,35 e 1,4x)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "2f9b8a5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2f9b8a59fb6214b49ee9ab71c168b08deee1ebb9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T19:23:50.000Z",
+      "author": "Maj Diniz",
+      "message": "anonimizar-rosto-360: o lote da ExpoEx passa pelo editor e pelo aplicador, e a regua ganha piso de detalhe\n\n101 fotos revisadas a mao pelo chefe (1.258 caixas desligadas, 90 acrescentadas,\nsigma 0,24), aplicadas no original em JPEG q95 com diferenca zero fora das\nelipses. O pior caso da regua era cabeca escura sem detalhe a medir: caixa com\nvariancia abaixo de LO_MIN sai da medida e conta a parte.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "9c156b8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9c156b880d0fd9d6876ae73e011a459a3d8e0970",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T18:48:10.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 23): renumera a entrada da anonimizacao de rosto, que colidiu no cont. 22 com a sessao paralela\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "3d23d37",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3d23d37f073dcd466f27e4f52926534aa0a54f3f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T18:47:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 22): rosto no 360 da ExpoEx, YuNet em recortes, borrao eliptico suave e editor de um clique\n\nProspeccao com quatro agentes de pesquisa e dois de conferencia visual, cada\nrelatorio conferido por amostragem na fonte. Pagina wiki/anonimizacao-rosto-360\ne skill anonimizar-rosto-360 (proposta) com os scripts do piloto e do editor.\nDecisao cont. 22, quatro eventos no livro-razao, regra do pai que confere antes\nde ler em conventions/subagentes.md, MEMORY.md comprimido para 82% do teto.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E571UAbWuLJUyfP6j7kztr",
+      "sha": "a41fc6f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a41fc6f55250d79a6e20015cb2cdd8d249d30532",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T18:32:50.000Z",
+      "author": "Maj Diniz",
+      "message": "medir-desempenho-web: bloco das ferramentas vai por inteiro ao detalhe, resumo na camada quente\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "f419ed5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f419ed5a0a646130bb8a40d4101488273ed894a8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T18:32:12.000Z",
+      "author": "Maj Diniz",
+      "message": "ferramentas: guarda de arrasto morta apagada, arrasto de um quadro commita, clique sem os 250 ms, LOS, visibilidade e pincel na bancada\n\nAs cinco pendencias do relatorio, por tres agentes em arquivos disjuntos\n(docs/ferramentas-linha-de-coordenacao-2026-09-04.md):\n\n- forceUpdateMainSource perde a guarda this.uiManager.isDragging nas nove\n  ferramentas: o campo nunca era atribuido, e a medida no MoveHandler\n  mostrou que o arrasto so escreve selection-boxes e entrega a geometria\n  em _endDrag com a flag ja em falso, entao a fonte nunca guarda posicao\n  parcial e uma guarda viva so descartaria a escrita sem reaplicar. Testes\n  force-update-during-drag-* afirmam a politica; reguas ui-manager-guard-*\n  proibem this.uiManager em controle.\n- Fim do arrasto de alca faz flush do scheduler quando ha ponteiro\n  estacionado (linha, poligono, seta, frente ocupada, limite, linha de\n  coordenacao, visibilidade): o arrasto que nasce e morre no mesmo quadro\n  volta a commitar. Testes drag-flush-*.\n- Limite e linha de coordenacao commitam o vertice no clique; a dedup fica\n  por isPointTooClose. Teste click-commit-military.\n- bench/ferramentas.mjs ganha los, visibility e brush (requerTerreno,\n  modoDesenho arrastar, semeadura, processado), 184 autotestes.\n\nSuite: 149 arquivos, 3.197 testes verdes.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "6a2d166",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a2d166eb9b13cd804344da4c898cb2bce01c105",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T18:31:43.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 22): as cinco pendencias das ferramentas fecham, e a pagina que fechava sozinha era o Chromium da automacao\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "5dd3014",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5dd3014d6cc1e1766d0e184154ecb4122e74a30c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-04T17:48:36.000Z",
