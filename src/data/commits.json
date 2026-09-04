@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-03T22:31:11.686Z",
+  "lastUpdate": "2026-09-04T14:07:22.176Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-03T20:59:04.000Z",
+    "1cgeo/ebgeo_web": "2026-09-04T09:54:24.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-09-01T11:23:36.000Z",
+    "1cgeo/doc_dgeo": "2026-09-04T11:35:22.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-09-01T16:38:10.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-03T12:21:14.000Z",
-    "dsgoficial/sap": "2026-08-26T09:00:16.000Z",
+    "dsgoficial/sap": "2026-09-02T12:07:19.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-03T20:05:31.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-04T13:29:17.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-03T12:40:42.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-04T09:30:09.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6486,
+    "totalCommits": 6506,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,11 +122,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1236,
+      "1cgeo/ebgeo_web": 1244,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 548,
+      "1cgeo/doc_dgeo": 549,
       "1cgeo/ferramentas_mgcp": 16,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -135,7 +135,7 @@
       "dsgoficial/configuracoes_producao": 205,
       "dsgoficial/ferramentas_edicao": 480,
       "dsgoficial/DsgTools": 647,
-      "dsgoficial/sap": 176,
+      "dsgoficial/sap": 177,
       "dsgoficial/SAP_Gerente": 120,
       "dsgoficial/SAP_Operador": 70,
       "dsgoficial/EBGeo_Desktop": 82,
@@ -163,13 +163,184 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 692,
+      "1cgeo/chefe_dgeo": 702,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T13:29:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 17): o Cacequi 1:5.000 entra no acervo antes de virar item, e o pedido do CCOp chega sem documento\n\nO CCOp/Cmdo CMS pediu nove folhas 1:50.000 do bloco de Cacequi e Rosario do Sul mais a\ncarta especial de Cacequi a 1:5.000, tres copias de cada em sulfite 120g, sem DIEx e sem\nNUP, recebido em 02 SET e entregue em maos em 04 SET. A RN08 fixou a ordem: folha nossa\nnao catalogada NAO vira avulso, entao o produto entrou primeiro no acervo (6844, versao\n8294, subtipo 28, lote 137 no projeto 12) e so entao o pedido 205, com 10 itens, 30\ncopias e 10 lancamentos de impressao.\n\n- Decisions: a entrada integral mais a linha do indice. Numerada como (cont. 17) porque\n  a 15 e a 16 de hoje ja estavam tomadas por commits de sessoes vizinhas.\n- cadastrar-pedido-mapoteca: rodada nova, mais duas regras no corpo da SKILL. Pedido sem\n  documento e sem NUP nao tem chave de deduplicacao, entao rodar o plano de novo CRIA\n  outro pedido; e o ciclo do pedido ja entregue tem QUATRO atos quando a folha falta no\n  acervo, com o forma_entrega_id no POST e nao na troca de situacao. A rodada do pedido\n  201 desceu para a camada de detalhe, e o arquivo quente encolheu de 33,4 para 32,6 KB.\n- cadastrar-acervo: entrada nova. A moldura de produto nosso sai do BANCO DE EDICAO e o\n  rotulo de grade do PDF e o segundo instrumento; o subtipo 28 mora na VERSAO porque o\n  define_produto dele e falso; a assinatura de nome_arquivo_padrao; PDF solitario e tipo\n  1 em 591 de 591 versoes; e o psql -c quebra com acento no Git Bash. Corrigido o fato\n  contraditado de que a pasta carga/ nao existiria neste clone: ela existe.\n- carta-cadastral-cacequi: o estado passa a registrar a carta no acervo e a entrega, e a\n  folha A0 deixa de sair do GPKG do pacote (o qgz aponta o banco de producao, e o PDF\n  traz curvas e pontos cotados).\n- livro-razao: um evento. A varredura de mojibake por regex reprovou texto correto,\n  porque \"A com til\" e legitimo em caixa alta (regua-cega, 67a). Quem mede e a\n  comparacao exata do gravado contra o pretendido.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01KThaUWb9MBEgkhBpCcUovu",
+      "sha": "13127f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/13127f601bae4e4aaa6441a2dce4f51d5d7b4196",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T12:09:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 16): o client local so alcanca o servidor pelo IP, e o TileJSON tem de virar URL absoluta\n\nSegunda parte da sessao do servidor do EBGeo: levantar o ebgeo_web da `main` na\nestacao contra os dados de producao. Tres defeitos empilhados, cada um so\nvisivel depois que o anterior saiu.\n\n- wiki/servidor-ebgeo.md: secao nova \"Consumir este servidor de um client\n  local\". O caminho pelo nome publico falha em ABRIR CONEXAO (2 de 6 tentativas\n  medidas, com o servidor ocioso e sem 5xx no log daqui); o TileJSON do Martin\n  sai sempre com esquema `https` por causa do X-Forwarded-Proto fixo, e esta\n  maquina nao tem TLS; e a reescrita tem de gerar URL ABSOLUTA, porque o\n  MapLibre pede tile de dentro de um worker de blob, onde relativo nao resolve.\n  Nos dois ultimos o sintoma e mudo: tela de carregamento eterna, console limpo.\n- wiki/ebgeo-web.md: a configuracao de producao NAO esta no git (dez arquivos\n  modificados e cinco nao rastreados vivem so no clone do servidor), os basemaps\n  renomeados em 31/08 (Topografica e o `osm-overture`; o antigo\n  `carta-topografica` virou DSG) e o estilo inicial que sai do import do\n  `map_sig.js`, e nao do config.\n- livro-razao: dois eventos. Apontei o basemap lendo o nome do arquivo no repo\n  em vez da configuracao viva (codigo-real-manda, 37a), e limpei o localStorage\n  INTEIRO de um origin compartilhado para forcar um basemap, levando junto os\n  tokens de outras aplicacoes (alvo-largo-demais, 14a).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016dfDjGbCcu4tWEy8RxpBWW",
+      "sha": "7258b1a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7258b1a53b6d923c6e0c21629342f21f1daba308",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-09-04T11:35:22.000Z",
+      "author": "Maj Diniz",
+      "message": "relatorios: o RPCMTec de agosto/2026 entra assinado, e a tabela do ano ganha a linha 04SET26\n\nAssinatura digital em 2026-09-04 07:22:45 -03:00, lida do dicionario /M do PDF.\nO nome segue a serie do ano (RPCM_Tecnico_<Mes>_2026_assinado.pdf), e nao o download.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Lw7LiKrE8bkrydmD4rZp1X",
+      "sha": "7143cc1",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/7143cc184b551f20ea6d0279267d8cf3facf9b0f",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T10:58:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 15): o servidor do EBGeo entra na wiki, e a skill de dockers passa a conhecer duas maquinas\n\nLevantamento do servidor de producao do EBGeo (chaves SERVIDOR_EBGEO_SSH_* do .env), que\nate hoje nao existia em lugar nenhum do vault.\n\n- wiki/servidor-ebgeo.md: pagina nova. Os oito containers do compose unico, o NGINX rota a\n  rota com as seis decisoes nao obvias, onde mora cada dado, o deploy por releases e as\n  armadilhas medidas. Ligada em index, mapa-conceitos, glossario e nas quatro vizinhas\n  (ebgeo, ti-infraestrutura, ebgeo-360 e ebgeo-3d), estas duas com aresta tipada.\n- env-guia.md: as tres chaves de acesso, que estavam orfas de documentacao.\n- atualizar-dockers: a skill passa a cobrir os DOIS servidores (description, acesso e a\n  diferenca de topologia), mais a armadilha do log em /dev/stdout, que trava o docker exec\n  e leva o ssh junto.\n- learnings: como provar que o nome publico chega naquela maquina (marca unica no log, e\n  nao md5 do corpo), como achar o que esta fora de servico (volume montado x location) e\n  por que o grep vai no artefato PUBLICADO antes de propor apagar 20 GB.\n- conventions/saida.md: entrega gravada fora do vault tambem segue a acentuacao, e nenhum\n  guard a cobre.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016dfDjGbCcu4tWEy8RxpBWW",
+      "sha": "076405a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/076405a6d0e8745c958cc708e61415a52fc12d76",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T10:17:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'main' of https://github.com/1cgeo/chefe_dgeo\n\n# Conflicts:\n#\tDecisions/DECISIONS.md\n#\tDecisions/decisions-2026.md",
+      "sha": "cbe8714",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cbe8714b1ec89ddf789c1e5846ff2f09ed6729d2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T10:15:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 13): o bloco do Saica entra folha a folha, e o MI da tabela cede ao desenho do bloco\n\nPedido 204 da mapoteca (DIEx 2244-s3/S3/4o RCB, Op Menna Barreto): 16 itens,\n12 quadrantes de 25k mais as 4 folhas maes de 50k. A celula \"Saica-NE\" veio com\nMI de Santa Catarina, e quem a desmascarou foi o retangulo de 3 por 4 ao qual\nfalta exatamente 2979-2-NE, nao a regra do MI.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Bh7aUsXTHRfGTr3oSv4N43",
+      "sha": "314a917",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/314a917ce1ff6f749da4085519f8d50c83ed9f6d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T09:54:24.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: concertinas simples, dupla e tripla, fosso anticarro, sapa e trincheira entram no catalogo, e so o simbolo marcado como cheio ganha preenchimento\n\nLote que estava pendente no clone da main desde 2026-09-03 19:51: a geometria ganha o\ntrilho continuo ao lado da concertina e o dente repetido que E a linha (sapa, trincheira,\nfosso anticarro), o catalogo passa a ser a unica lista de simbolos, e a camada de\npreenchimento so pinta os codigos marcados `filled`, porque a camada fill do MapLibre\nfecha e pinta qualquer geometria. Tres testes novos (concertinas, fosso anticarro,\nzigzag). O `avisoServidorSecundario: false` do config ficou de fora: e ajuste de\nimplantacao, e o teste do repositorio prende o `true`.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHWfcBFT67TY7xrkXAE4V",
+      "sha": "75ffa4f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/75ffa4fac7aa448ad57002150f5ab78b1b4c4e5d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T09:30:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04 (cont. 14): o aviso nasce desligado na integracao, e o administrador liga pela aba Sistema\n\nAdendo da manhã: a decisão do chefe que inverte o padrão do aviso de servidor secundário (com a\nopção no painel), o ponteiro na wiki do ebgeo-web, e a preferência na skill portar-lote-ebgeo-web\n(quando o destino tem porta de configuração viva, o padrão do código é o neutro e a porta liga).\nD1 e D2 aplicados na árvore da `main` pela sessão dela, sem commit.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "37da1a3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/37da1a3cd13f3362ccc5f622c56a562ed075af28",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T09:30:09.000Z",
+      "author": "Maj Diniz",
+      "message": "aviso de servidor secundario: nasce DESLIGADO, e o administrador liga pela aba Sistema sem reiniciar\n\nDecisão do chefe de 2026-09-04, que inverte a metade do padrão da decisão de ontem: uma tela\nque toda implantação e todo desenvolvedor precisavam apagar tinha o padrão errado. O parse\n`resolveAvisoServidorSecundario` encolhe para `override === 'true'`: ausente, vazio, 'false' e\n'sim' valem false, e só o literal liga. A variável AVISO_SERVIDOR_SECUNDARIO continua existindo\npara a instalação que não tem quem clique.\n\nA segunda porta é o painel. A aba Sistema (frontend/src/js/admin/config-tab.js) ganha a seção\n\"Aviso de servidor secundário\", com a caixa `admin-config-aviso-secundario` ligada a\n`app.avisoServidorSecundario` e o campo `admin-config-url-principal` ligado a\n`app.urlServidorPrincipal`, no mesmo diff de campos curados que a aba já enviava por\nPUT /config/admin; o override invalida a memoização e chega a GET /api/config no próximo\ncarregamento do mapa, sem reinício. A URL é validada como http(s) no cliente, espelho do leitor\nda tela, e só viaja não-vazia, porque `Joi.string().uri()` sem `.allow('')` reprovaria o\nsalvamento inteiro em 422.\n\nOs dois harnesses de e2e deixam de fixar AVISO_SERVIDOR_SECUNDARIO=false, que virou o padrão. O\nspec novo frontend/tests/e2e-ui/admin-aviso-servidor-secundario.spec.js liga pelo painel, lê\nGET /api/config, abre o mapa e vê a sobreposição com o href do botão principal, desliga pelo\npainel e vê o mapa sem ela, e restaura DESLIGADO num finally afirmado por HTTP cru, porque o\noverride persiste no banco da bancada e contaminaria todo spec seguinte. O spec do aviso segue\nprovando a tela por remendo de GET /api/config, independente do painel.\n\nDocs: entrada de 2026-09-04 em docs/decisions, a de 2026-09-03 marcada como superada na metade\ndo padrão, índice em 82 de cada lado, e o parágrafo de deploy-backend.md reescrito.\n\nVerificação, depois da última escrita: lint da raiz limpo; frontend 10538 testes em 532\narquivos; backend 4966 (dez de unidade e onze de integração no aviso, invertidos e ampliados);\ne2e de contrato 201; Playwright dos três specs do aviso e do painel, 5 de 5. Controles negativos\nvistos reprovando: com o parse revertido ao padrão ligado caem 3 de 12 casos de unidade e 4 de 11\nde integração (`true !== false`); com a linha do diff da caixa trocada por um `void`, o spec do\npainel reprova em `Expected: true / Received: false` depois de a tela dizer \"salvas\".\n\nA `main` não muda: as duas linhas do produto discordam agora no padrão do aviso, por decisão.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "719ebfd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/719ebfdb8e0753b18776acf2e9b2be2fd1b159ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T09:27:04.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions-2026: remover marcadores de conflito que o rebase de 2026-09-04 deixou passar\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHWfcBFT67TY7xrkXAE4V",
+      "sha": "10710dd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/10710ddf5cdad6cc756166284fc0e57bfa341e60",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T09:24:32.000Z",
+      "author": "Maj Diniz",
+      "message": "desempenho do mapa 2d: a correcao de zoom vai para a GPU, o terreno para de consultar em dobro, e a troca de base preserva o que a aplicacao desenhou\n\nAuditoria de 2026-09-03 sobre bc812832 (seis auditores por recorte mais bancada em\nPlaywright com contadores e perfil de CPU), com os consertos e as medidas em\ndocs/desempenho-maplibre-2026-09-03.md.\n\n- zoom: leitura sincrona da colecao por serialize() (utilities/geojson-source.js),\n  saida antecipada com fonte vazia, e o tamanho visual constante calculado na GPU por\n  expressao composta (layers/styles/zoom-expression.js) em onze propriedades; os\n  passes em JavaScript ficam no zoomend, e por quadro so para feicoes com a correcao\n  desligada. Medido: 278 getData por gesto com 170 feicoes viram zero.\n- terreno: uma consulta por amostra e amostrador em lote com o zoom resolvido uma\n  vez (terrain/terrain-elevation.js); viewshed cede a thread tambem ao colar; perfil\n  de linha so com o interruptor ligado; setProjection com hillshade visivel deixa de\n  prender os tiles do raster-dem em reloading (dois quadros), o que travava o idle e\n  a captura de tela.\n- troca de base: setStyle com transformStyle preservando fontes e camadas do app\n  (baselayers/style-transform.js) e setupMapFeatures em modo preservado quando o mapa\n  e o mesmo (layers/setup-mode.js). Medido: 4.600 mensagens ao worker viram uma.\n- painel de feicoes so reage a sourcedata de conteudo; LOD validado e reaplicado apos\n  cada setStyle (map/tile-lod.js); hover com lista de camadas\n  (tool_manager/helpers/hover-query.helpers.js); medicoes coalescidas por rAF;\n  snapping idempotente; marcadores de medicao soltos na troca de mapa; fundo de texto\n  sem worker; opacidade por tipo de camada; bounds repassados as fontes; fila de sync\n  rearmada so apos crescer; hachura em gerador unico; um jumpTo por movimento na\n  rotacao; catalogo lido uma vez; aba de mapas so visivel; cor e opacidade coalescidas.\n- D1 e D2 vindos da integracao_backend: dois cliques a menos de 250 ms perdiam o\n  primeiro vertice na Linha de Limite e na Linha de Coordenacao; a conversao Ponto\n  para Medida de Coordenacao saia quatro vezes maior sem o pixelRatio.\n\nLint limpo; 2.736 testes verdes em 129 arquivos (eram 2.605 em 111).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHWfcBFT67TY7xrkXAE4V",
+      "sha": "7cbc6ee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7cbc6ee79e15172b25473d588e7f6ebb96c3739f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T08:55:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-04: a correcao de zoom vai para a GPU, o terreno declara bounds por TileJSON, e D1 e D2 entram na main\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHWfcBFT67TY7xrkXAE4V",
+      "sha": "c8d9fef",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c8d9fefb2dde6faf31a44ea1075c00ec50a3fe90",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T08:30:30.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03: o custo do mapa 2D do EBGeo Web estava no aplicativo, e o raster-dem do MapLibre 5.18 prende na troca de projecao\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDHWfcBFT67TY7xrkXAE4V",
+      "sha": "3ee461b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3ee461b90ba4e0a819c4bbff1c2179a71f1ac1ff",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-04T02:40:06.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-03 (cont. 1): o porte da main entra na integracao por lote coordenado, e a UI so se prova por captura lida\n\nSkill nova portar-lote-ebgeo-web (name-only), com o método do porte coordenado por agentes com\narquivos próprios, as colisões que mudam o desenho (versão de esquema, chunking, escrita por\nsync, config hidratado, backend que enumera o tipo) e a escada de verificação até a captura de\ntela lida. Quatro linhas no livro-razão (intervalo de diff que excluía ancestrais, cobertura\nparcial da suíte em node, poll que resolveu no meio do gesto, heredoc que reprova no parser). A\nconvenção de subagentes ganha a seção de vários filhos na mesma árvore. A wiki do ebgeo-web e a\nmemória ganham o ponteiro do porte, e a decisão do dia entra no diário e no índice.\n\nCommit montado por plumbing (índice temporário) porque outra sessão escreve sem commit nos\nmesmos MEMORY.md, Decisions e wiki/ebgeo-web.md: este commit leva só os meus trechos.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "938e649",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/938e649621ac627f8e7b917f002931a65e50ebd1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T02:27:51.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as cinco decisoes do porte, a linha do livro-razao e os numeros da wiki\n\nEntradas de 2026-09-03 em decisions-2026.md e no índice: o aviso nasce LIGADO e vem do servidor,\ncom o tipo novo entrando pela baseline; a versão de esquema FICA em 2.3 e o balde novo se garante\nna leitura; a Linha de Coordenação entra pela mesa de ferramentas tardias, com o modelo de zoom\nnos helpers e a banda do teto recentrada; e os dois consertos da família linear (dois cliques\nrápidos são dois vértices) mais o Núcleo no KMZ. Uma linha no livro-razão para a conversão que\ncopiou três campos do gerador e deixou o quarto. Em atlas-modelo-de-dados.md, o CHECK passa a\naceitar 21 tipos e SOURCE_TYPES a ter 19, os dois medidos. As contagens dos dois arquivos de\ndecisão batem em 81.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "684d652",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/684d6521dfb651bc709ebf07d5ab07db58eaf888",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T02:27:51.000Z",
+      "author": "Maj Diniz",
+      "message": "porte do main de 2026-09-03: linha de coordenacao, corte da divisa, nucleo, e dois defeitos da familia linear consertados\n\nPorte do que entrou no `main` entre 12db4061 e bc812832 (a Linha de Coordenação, o corte da\nLinha de Limite em duas, o Núcleo das medidas de coordenação e a correção da fonte inexistente\nna exportação), adaptado ao contrato deste ramo. Não foi cherry-pick: os caminhos diferem, e\nquatro pontos do destino mudaram o desenho. O lote foi portado por cinco agentes em paralelo\ncom arquivos próprios, revisado por um sexto, e fechado com captura de tela em Chromium real,\nque achou o defeito mais caro do dia (adiante).\n\nLINHA DE COORDENAÇÃO (07b16899, 6106449e, a5471c20, 582a6689, c7fdd851, 9b7acb93, d75a59dd,\nbc812832). Os cinco símbolos lineares do MD33, o combobox, os dois cursores, o teto de 120\nglifos, a continuação pelas pontas, o Inverter Linha e a conversão entre os quatro tipos\nlineares. Onde este ramo divergiu: a ferramenta entra como TARDIA pela mesa de\ntool-registry.js, e não em map_sig.js; o modelo de zoom mora em tool_manager/helpers/, como o\nda divisa, sem regra de bundler; toda escrita na fonte passa pelo despachante de diff, porque\num setData cru com diff na fila perde dado; finishExtending grava, relê e só então pinta. A\nMIGRAÇÃO v2.3 do `main` colidiu com a v2.3 deste ramo (Meu Atlas), e o chefe decidiu manter a\nversão: o balde `coordination_lines` se garante em TEMPO DE LEITURA, pela mesma função pura\n(`ensureCoordinationLines`, em store/repository.utils.js), nos três caminhos de entrada de\nmapa (arquivo .ebgeo, snapshot do servidor, IndexedDB), sem reescrever o disco. O setup de\ncamadas tolera balde ausente e corrompido, como defesa.\n\nCORTE DA LINHA DE LIMITE (dd4fbd04, 9bf7b548). O modelo puro em tool_manager/helpers/, a\norquestração na pasta da ferramenta com import dinâmico, e a gravação por operações de sync na\nordem create, create, delete dentro de um lote de undo: escrita bloqueada deixa duplicata, nunca\nburaco. A repintura das fontes derivadas (textos e círculos) vem DEPOIS de a store aceitar as\ntrês escritas, e agora recusa calada quando uma delas sumiu, em vez de anunciar fracasso sobre\num corte que já está gravado.\n\nNÚCLEO E EXPORTAÇÃO (e6f0b08a, 24b07975). O Escalão vira Núcleo, com contorno aberto na largura\ndo escalão, situação tracejando o contorno e Força-Tarefa; os códigos ECHELON_* gravados são\nmantidos. O símbolo é rasterizado acima do tamanho lógico e registrado com `pixelRatio`, que\nviaja em properties e chega ao par pela regeneração remota. A cor personalizada deste ramo\n(que pinta a tinta) e a situação COMUTAM, e isso é asserido nas duas ordens. Em\nZOOM_INVARIANT_SOURCES a entrada das medidas apontava para 'coordination-measures-source',\nfonte que não existe; a régua nova cruza toda fonte declarada com os criadores de fonte.\n\nDOIS DEFEITOS ACHADOS NO CAMINHO, os dois herdados do `main` e consertados aqui:\n- A conversão Ponto -> Medida de Coordenação copiava width, height e anchor do gerador e\n  deixava o pixelRatio de fora: o símbolo convertido saía quatro vezes maior que o mesmo código\n  desenhado pela ferramenta. Duas linhas em feature-header.helpers.js, presas por teste.\n- Dois cliques a menos de 250 ms perdiam o primeiro vértice, na divisa e na linha nova: o\n  temporizador que separa clique de duplo clique era cancelado e re-armado com o ponto novo, e\n  o clique direito que finaliza descartava o vértice pendente do mesmo jeito. Medido em\n  Chromium real (100 ms, um vértice; 400 ms, dois). O vértice pendente passa a ser gravado\n  quando chega um clique distinto ou o clique direito (`_commitPendingClick`).\nE um terceiro, do porte: o Núcleo nasce com `pointCode: 'ECHELON'`, código de tela que o\ncatálogo não tem, e a regeneração de imagem do KMZ entregava as propriedades cruas ao\ngerador, que lançava, e o Placemark saía sem ícone. `resolveDrawablePointCode` no catálogo, e\no KMZ passa por ela.\n\nINTEGRAÇÃO. A banda do teto de peso da página do mapa foi recentrada (638 módulos, 10740 kB no\ngrafo completo; o lote trouxe 140 kB, quase todo sob demanda, e o teto já estava vencido por\nderiva antes dele). A âncora do guarda de fiação do menu de conversão passou a procurar depois\ndo início do bloco. O manual público ganhou a seção da Linha de Coordenação, que nem o `main`\ntinha.\n\nVerificação, tudo rodado DEPOIS da última escrita: lint da raiz limpo nos dois pacotes; suíte\ndo frontend em 532 arquivos e 10538 testes (linha de base do dia, antes do lote:\n517 e 10.292); backend em 4961; e2e de contrato em 201 casos de 57 arquivos; Playwright inteiro\nem Chromium real: 345 casos verdes em 1,0 h, 1 instável verde na segunda tentativa, e 1 reprovado sob a carga da rodada inteira (browser-collab-conversao-linear, o caso do Leitor, cujo menu da feição não montou a tempo) e verde 3 de 3 rodado isolado; o test.fail declarado de E3 continua declarado. Os specs novos de navegador: vertices-em-cliques-rapidos (4),\ncorte-da-divisa-pelo-menu (1) e secondary-server-notice (3). As capturas de tela foram lidas:\nos losangos e a concertina ao longo da linha, o Núcleo com o escalão e o corte com os escalões\ndistribuídos entre as metades.\n\nO QUE FICOU DE FORA, e por quê: a v2.4 (recusada pelo chefe); atalho de teclado para a\nferramenta nova (S, D, F, W e K tomadas); a imprecisão medida de 1,13 m em 10 km no glifo que\nnão interrompe a linha (herdada, registrada); e os dois defeitos acima no `main`, cuja árvore\nestá sob outra sessão neste momento.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "bc83293",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bc83293c8e8333ba1ed61a956e29c6f4490d4d4f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T02:27:47.000Z",
+      "author": "Maj Diniz",
+      "message": "aviso de servidor secundario: a tela abre apos a hidratacao do config, e as bancadas de e2e sobem com ela desligada\n\nPorte de bc728b10 e ebb6a99b do `main`, adaptado ao invariante deste ramo: config.js não\ncarrega dado de implantação, e a chave só existe DEPOIS de `applyRuntimeConfig`. Um módulo que\na lesse no import leria a casca vazia e a tela nunca abriria, dissesse o que dissesse a\nimplantação. Por isso a decisão (`deveMostrarAviso`, `urlDoServidorPrincipal`, `montarModelo`)\né lida por CHAMADA, com parâmetro de padrão avaliado a cada vez, e `initSecondaryServerNotice`\nentra em index.js logo depois da hidratação e antes do primeiro `await` longo: a tela existe\npara ser lida enquanto o mapa carrega e para continuar de pé se a carga nunca terminar.\n\nA URL do servidor principal saiu do código e vem de `app.urlServidorPrincipal`; ausente, vazia\nou de esquema executável (javascript:, data:, vbscript:, file:), o botão não se desenha e a tela\nabre só com \"Continuar\". O rótulo e o parágrafo derivam do hostname publicado. O foco é\ndevolvido a quem o tinha ao fechar, como fazem os diálogos da casa. Captura de keydown na\njanela enquanto aberta, Tab só entre os botões, Escape fecha, nada persistido.\n\nAS DUAS BANCADAS DE E2E sobem o backend descartável com AVISO_SERVIDOR_SECUNDARIO=false: o\npadrão do servidor é ligado, e a sobreposição sentaria sobre o primeiro clique de todo spec de\nnavegador. O aviso tem o próprio spec de Playwright, que o liga remendando a resposta de\nGET /api/config a caminho do navegador (o controlador responde `{ data }`, e é dentro de `data`\nque o cliente lê) e prova a tela acima do mapa, o href do botão, o fechamento pelos dois\ncaminhos e a ausência sem a chave.\n\nVerificação: 41 casos unitários (a transição antes e depois da hidratação, os quatro piores\ncasos de valor, a ordem no boot medida por posição na fonte, a ausência da chave no config\nestático), vistos reprovando por sete mutações distintas, entre elas a decisão lida no escopo do\nmódulo (11 casos caem) e a chamada movida para depois do `await` de verificação de e-mail. Três\ncasos de Playwright verdes em Chromium real.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "889e19d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/889e19d5a4e6d3a50c240e6fc41ee9a46ed6ef63",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T02:27:47.000Z",
+      "author": "Maj Diniz",
+      "message": "backend: o tipo coordination_line entra no CHECK, no Joi e no snapshot, e o aviso de servidor secundario vem do /api/config\n\nA Linha de Coordenação do `main` (6106449e) é o primeiro tipo de feição novo desde a\nconsolidação das baselines, e o servidor enumera `feature_type` em três lugares, ao contrário\ndo lote de medidas de coordenação (aa8d4a00), que mediu por que não precisava de backend. Aqui\nprecisou, e cada cópia foi conferida contra as outras: o CHECK `valid_feature_type` na baseline\nde atlas (editada sem migração nova, por autorização do chefe de 2026-09-03 para esta fase de\ndesenvolvimento), `VALID_FEATURE_TYPES` em atlas.schemas.js, e o esqueleto mais o\n`typeToCollection` do snapshot em sync.service.js (`coordination_lines`). As propriedades da\nferramenta viajam no JSONB de regime SCRUBBED (free-field.schemas.js), então nada a declarar.\n\nUm banco de dev JÁ CRIADO não recebe a baseline editada; o SQL a rodar à mão é:\n\n    ALTER TABLE features DROP CONSTRAINT valid_feature_type;\n    ALTER TABLE features ADD CONSTRAINT valid_feature_type CHECK (feature_type IN (\n        'point', 'line', 'polygon', 'text', 'image',\n        'circle', 'rectangle', 'ellipse', 'brush', 'sector',\n        'arrow', 'boundary', 'occupied_front',\n        'military_symbol', 'coordination_measure', 'coordination_line',\n        'magnetic_declination',\n        'los', 'visibility',\n        'processed_los', 'processed_visibility'\n    ));\n\nO ALTER foi provado contra o pior caso num banco descartável: com a lista antiga o INSERT do\ntipo novo reprova (23514), com a nova ele passa do CHECK e morre na FK de map_id, e um tipo\ninventado continua reprovando.\n\nO AVISO DE SERVIDOR SECUNDÁRIO (bc728b10 e ebb6a99b do `main`) ligava a chave no config.js\nversionado. Aqui config.js é só o formato e dado de implantação vem de GET /api/config, então\no payload ganha `app.avisoServidorSecundario` (booleano) e `app.urlServidorPrincipal`, lidos de\nAVISO_SERVIDOR_SECUNDARIO e URL_SERVIDOR_PRINCIPAL no boot. O padrão é LIGADO, espelhando a\ndecisão do chefe no `main` de que o checkout nasce avisando e o servidor principal desliga na\nimplantação; só o literal `true` liga, e qualquer outro valor desliga. As duas chaves entram no\nschema de override do administrador com tipo, para um \"sim\" digitado morrer em 422 em vez de\nvirar string que o cliente lê por `=== true`.\n\nVerificação: `npm run lint:backend` limpo; suíte do backend em 4961 casos, 20 acima da linha de\nbase de 4941 medida antes do lote, exatamente os casos novos (features-all-types e\nsync-advanced com o tipo, aviso-servidor-secundario com 10 e config-aviso-servidor-secundario\ncom 8). Controles negativos vistos reprovando: sem o CHECK, a feição do tipo novo não chega ao\nbalde e a op é recusada com HTTP 200; com o bloco `app` revertido, sete dos oito casos do\npayload caem com `undefined`; com o parse trocado por coerção, 'sim' passa a valer true.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "eb5461d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb5461d690fcf16e62238cba6d5def8c8f5b3a21",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-04T02:27:46.000Z",
+      "author": "Maj Diniz",
+      "message": "assets: as fontes Noto Sans Condensed, o sprite com duas chaves novas e os padroes de backup no .gitignore\n\nPorte de 513d1249 do `main` (\"add novas fontes\"), que chegou sem mensagem. O que ele carrega,\nlido do próprio diff: quatro famílias de glifos (Noto Sans Condensed, Bold, Italic e Light, 256\narquivos `.pbf` cada, conferidos um a um contra o `main`), o sprite com 466 chaves contra as 464\ndaqui (as duas novas são `star-fill` e `capital`; o sprite branco é idêntico nos dois ramos e não\nmudou), a miniatura `topografica-thumb.webp` e os padrões `*.bak`, `*.bak-*` e `*.bak.*` no\n`.gitignore` da raiz, que aqui é o arquivo com a âncora de `.claude/worktrees/`.\n\nNenhum arquivo de código dos dois ramos cita \"Noto Sans Condensed\" nem a miniatura nova. Os\nglifos servem a um estilo de mapa base que aponta para `MAPLIBRE_GLYPHS_URL`; a miniatura entra\ncomo o `main` a deixou, sem consumidor, e fica registrada como tal para a poda decidir.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011k1ihMuKUDcQXtTR9c6N8V",
+      "sha": "a195adf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a195adfab9a789bae5998db1c7fff9a2ab6f471c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-03T20:59:04.000Z",
@@ -700,6 +871,15 @@
       "sha": "c73885b",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c73885b08844aeeecfd9b5952ed84e0c015f9de0",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-09-02T12:07:19.000Z",
+      "author": "Maj Diniz",
+      "message": "sap_cli: a organizacao produtora vira recurso, com listar e atualizar\n\nO `organizacao_id` de informacoes_produto e dominio E registro editavel: nome,\nsigla, endereco, telefone e site dela vao para o XML de metadados de todo\nproduto. A chave e o `code`, nao um id serial, e o PUT sobrescreve os cinco\ncampos de contato, entao o teste fixa que atualizar sem `code` reprova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_015DmKZEpYrNaEX8kv4F14JA",
+      "sha": "585826d",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/585826d1239765e4cc66ed36a20c83614b5f8f20",
+      "repoUrl": "https://github.com/dsgoficial/sap"
     },
     {
       "repo": "1cgeo/ebgeo_web",
