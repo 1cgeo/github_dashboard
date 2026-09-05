@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-05T13:21:04.347Z",
+  "lastUpdate": "2026-09-05T17:15:26.956Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-05T08:53:19.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -56,11 +56,11 @@
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-08-04T13:57:51.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-05T08:54:15.000Z",
+    "1cgeo/autolabeller": "2026-09-05T16:22:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-05T16:25:58.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-05T08:48:31.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-05T14:52:09.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6554,
+    "totalCommits": 6581,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1267,
+      "1cgeo/ebgeo_web": 1273,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -162,14 +162,239 @@
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 144,
-      "1cgeo/chefe_dgeo": 724,
+      "1cgeo/autolabeller": 151,
+      "1cgeo/chefe_dgeo": 738,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T16:25:58.000Z",
+      "author": "Maj Diniz",
+      "message": "sessao paralela 2026-09-05: o RPCMTec de agosto assinado e publicado entra na casa do ano, e o radar guarda tres licoes de 2026-09-04\n\nDa limpeza paralela sobraram tres edicoes nao commitadas, e a limpeza remota\ntinha reescrito os mesmos arquivos. A main local foi trazida a origin por\nfast-forward e as edicoes foram refeitas sobre a versao nova: a casa do ano\nganha a linha de agosto (assinatura digital em 2026-09-04 e PDF no doc_dgeo)\nsem o banner do SAP que a limpeza tirou; o learnings do radar-tecnologico\nrecebe, sobre a camada quente reestruturada, as tres secoes de 2026-09-04\n(o briefing do pai que vira fato na boca do filho, o registro restrito do\nZenodo, o rotulo editado calibrado contra a fonte). A edicao de wiki/index.md\nera so a data do bloco de estatisticas e foi descartada, porque o linter a\nregenera.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "8de223e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8de223e681cff0918dcce1802d175e8b9db13de7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: metodo de melhoria, consolidacao da rodada, CLAUDE.md na epoca 1.5.0 e correcoes documentais\n\nmetodo-2026-09-05.md: sete principios ligados as falhas que os motivaram,\nciclo em cinco passos com criterio de aceite, tabela de ablacao com defaults\ne o que so o corpus confirma. consolidacao-2026-09-05.md: achados V1..V9\nverificados na fonte, decisoes, integracao (212 testes). CLAUDE.md: epoca\n1.5.0, baseline 1.4.0 marcado como nao comparavel, Python do sistema, nota\ndo motor de fonte. programa: B2/B4 medidas sobre laco de SA que nao executa.\ndesign-decisions: PerceptPPO lido certo. regras-por-classe: 74 QMLs,\ncobter_vegetacao_a em H, cor efetiva por classe.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "2c63078",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/2c630783a4fbd22e0c20d1178eb12f940d0ade98",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(export): font_color efetivo, | sempre quebra, ink.geojson, aviso de CRS geografico; fix validar_raster\n\nfont_color passa a ser a cor data-defined (project_color('..._#RRGGBB'),\n#4B4B4B no produto) com font_color_source; a barra vertical e sempre quebra\nde linha (wrapChar vazio em 22 de 84 regras vazava o literal); export_ink\ngrava a tinta que restrictions/water/symbols nao cobrem; aviso quando o CRS\nda folha e geografico. validar_raster.py desempacotava as triplas de\nRESTRICTION_LAYERS como pares. Compilado no Python do QGIS 4.0.0; o export\nreal nao foi executado (sem projeto nem banco nesta maquina).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "c36288d",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/c36288d177ecdefc0201670126abf46c2140139d",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(visualize): reusa evaluate.rebuild_glyphs e desenha a tinta dentro da caixa pontuada\n\nO snapshot desenhava a caixa um leading abaixo do que o score pontua (sem\nreancoragem, motor fixo, sem justificacao por regime) e a tinta do texto\noutro leading abaixo da caixa (ancora padrao do Pillow): erro mediano de\n24,2 px (2,05 mm) em 20 rotulos de MI_2944-1, agora 0,34 px. E o instrumento\nda ratificacao visual (O4): as ratificacoes anteriores olharam imagem\ndeslocada. 12 testes, dois deles medindo os pixels da tinta renderizada.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "21be37f",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/21be37fb736221ae5bf4e233e49f7777c721be7b",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(place): bloco ABLATION com seis mecanismos medidos; convencao pelo centro, SA desligado, tinta\n\nCada mecanismo atras de uma chave (override PLACE_ABLATION=\"chave=1,...\").\nLigados: retire_sa (fases 2 e 3 nunca executavam; saida identica byte a\nbyte, md5 provado), conv_center (quadrante pelo centro como o objetivo:\nmedia de -0,162271 para -0,127721 em 2 folhas da base antiga, objetivo 1.4.0\ncongelado), descent_passes = 8, ink (_W_INK = IOTA = 3.0, R9 como gate).\nDesligados por piorarem a folha densa: ring_by_regime (-0,081638, respiro\nde rotulos largos) e energy_complete (-0,065839, steer de 1000 dos gates\ndentro da energia soft). Com tudo desligado o arquivo reproduz a epoca 1.4.0\nbyte a byte. Numeros da base antiga valem pela direcao; o corpus decide.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "9cc9d8c",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/9cc9d8c23f604b29c1f5cc1b67fb41779dadd743",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "emenda 1.5: R9/P9 (tinta x tinta), distancias ideais por classe, grid 1:100k; epoca constituicao-v1.5.0\n\nObjetivo: gate R9 (letra inteira sob tinta da mesma classe de cor) e termo\nP9 com IOTA = 3.0, medidos por geometria (ink_conflicts); IDEAL_DIST_MM por\nclasse igual ao dist dos QMLs com piso 0,30 mm e default do regime B 0,5 mm\n(ET-RDG); GRID_SPACING 1:100k = 4 km e aviso explicito em CRS geografico;\nstamp_restrictions (morta e quebrada) removida. Constituicao 1.5: premissa 3\ncorrigida, Anexo B item 3 (mascara do produto ignorada), P1 com a ordem\nmedida do PerceptPPO, Anexo C com Freeman e Ahn (1987) e as regras de grid\npublicadas. Agregador e extrator com a coluna ink (guard de header recusa\nTSV 1.4.0). Baseline 1.5.0 ainda nao existe: reexecutar 18 folhas +\ntopo20_0013 na producao com os TSVs 1.4.0 arquivados.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "819770a",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/819770ac954ed7d33fd52ae7497832fad2f5752b",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: ink_conflicts, conflito geometrico tinta do rotulo x tinta do mapa + tools/ink_audit.py\n\nPrimitivas no padrao de gates.py: contexto de tinta por folha (restrictions,\nsymbols, water, ink.geojson), fracao da area de cada letra coberta por tinta\ndo mapa por classe de cor, matriz de severidade texto x tinta (diagonal 1,0)\nvezes a hierarquia do editor (1.3.7), pior glifo domina. A mascara de 0,2 mm\ndo produto e IGNORADA por decisao de projeto (2026-09-05). O import de gates\ne local para o modulo importar no Python do QGIS (sem cv2). 21 testes\nsinteticos conferiveis a mao; ink_audit.py lista os conflitos por rotulo.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "b57e269",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/b57e269b0e3ca265fca6b02c0bead815a43ded08",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-05T16:22:54.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: rodada de pesquisa multiagente 2026-09-05 (estado da arte, normas, auditoria, proposta 1.5)\n\nQuatro relatorios de subagentes Opus, revisados e verificados na fonte pelo\nagente raiz: estado da arte de algoritmos e implementacoes (PAL, Maplex,\nMapnik, MapServer, MapLibre), regras cartograficas de posicionamento com\nextracao dos 74 QMLs do produto (D1..D27), auditoria da geracao de candidatos\ndo place.py (L1..L15) e a proposta de emenda 1.5 (tinta x tinta por geometria).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01C1nsxh8DQXWHhhvTFotDXP",
+      "sha": "76a3620",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/76a362017708ceac246b81f1f574021c3a87a54c",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T16:22:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'\n\n# Conflicts:\n#\tDecisions/DECISIONS.md",
+      "sha": "1b3bae3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1b3bae33a089772e2d59a37509de1bc52396083c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T16:20:35.000Z",
+      "author": "Maj Diniz",
+      "message": "2026-09-05 (cont. 2): orcamento, credito e contratacoes so no SAP 3.0, o RPCMTec inteiro de la, e o codigo sem chamador sai\n\nDecisao do chefe. Saem pdr.md, ncs.md e pca.md do ciclo-2026 (o duravel conferido em lancar-orcamento, controle-orcamentario, rpcmtec e wiki/pca; duas regras e as pendencias do PE 32/2026 e da requisicao 29760 movidas antes). Ponteiros de pit, relatorios-mensais, briefing, consultar-licitacao, consultar-orcamento, requisitar-sped, consultar-sap e controle-orcamentario apontam o SAP 3.0. A pagina rpcmtec deixa de carregar a contradicao da numeracao: a estrutura e a que o SAP 3.0 gera. Apagados os 7 scripts geometria-primeiro da conflacao, verificar_borrao.py e gerir_usuarios_auth.py; consultar_atos.py vai para lancar-rpcmtec/scripts; CONFLATE_* saem do catalogo. anonimizar-rosto-360 e elaborar-nce passam a name-only (listagem de 7.980 para 6.866 de 8.000). Entrada em Decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01684tJVYqWDizGSLj366WpF",
+      "sha": "fc5c38b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fc5c38b758b9dfca77cd56c206e3724f82edc4b3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T15:43:16.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-05 (calibrar-orientacao-360): o ramo GRAFO entra no corpo da skill, o learnings de 27 KB vira camada quente de 10 KB mais detalhe, e a politica do y vai a memoria\n\nSKILL.md ganha o terceiro ramo (GRAFO): a convencao y = heading - psi, os seis\npassos com os cinco scripts de pilotos/, os tres juizes mais a visao em ponto\nde controle, o que o ramo nao faz, e a Verificacao com a regua de fonte que a\nauditoria reprovou. A Fase 0.4 passa a rotear para ele, e a saida diz que o\nfull_webp foi podado e a leitura e pela piramide de tiles.\n\nlearnings.md volta a ser licao de classe (cinco novas: formula deduzida contra o\ngravador certo, verdade reprovada pela auditoria, dois juizes da mesma ancora,\nlista vazia de instrumento cego, log vazio e buffer) mais as regras do ramo\nGRAFO; as dez secoes narradas vao inteiras para references/learnings-detalhado.md\n(prova de perda zero linha a linha). pilotos/saida_pilotos/ sai do versionamento.\n\nMEMORY.md: o y e OFFSET sobre o heading e so se grava com dois juizes, com\nbackup do index.db. A retrospectiva anota que o split de learnings e parte do\nfechamento de sessao longa, e que a classe \"verdade que passou pelo filtro\"\nrecorreu na mesma skill e subiu para a Verificacao da SKILL.md.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "3631456",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3631456321af5087fff8036e8aa23041f0ba3689",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T15:42:18.000Z",
+      "author": "Maj Diniz",
+      "message": "merge origin/main: a limpeza do vault de 2026-09-05 entra sobre o ramo GRAFO do 360 e o porte do EBGeo Web\n\nOs dois lados nasceram da mesma base (6c28cc3). A origin trouxe a limpeza por\ndezoito agentes (indice de decisoes renormalizado, banner do SAP fora de 94\narquivos, camada quente das skills 21% menor). O clone trouxe o ramo GRAFO da\ncalibrar-orientacao-360 (cigi, convencao do y, Cascavel gravado) e a\nretrospectiva cont. 30 do porte do EBGeo Web.\n\nConflitos, e como fecharam: Decisions/DECISIONS.md fica com o indice curto\ndeles mais as quatro linhas locais de 2026-09-05 no mesmo formato;\ndecisions-2026.md fica com as quatro entradas locais e a da limpeza, e cada\nentrada local ganha o paragrafo \"Do indice:\" com o texto que so existia no\nindice; wiki/ebgeo-web.md fica com a redacao deles mais a linha local de\n2026-09-05 (madrugada). Ha dois \"2026-09-05\" sem cont. (o grafo do cigi, local,\ne a limpeza, remota), escritos em paralelo; nenhum foi renumerado.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "2b8934d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2b8934d8e50a0e8860fe84590b71910baaae4742",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T15:35:08.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-05 (cont. 30): as pendencias do porte fecham nas duas linhas, e as reprovacoes do gate viram causas medidas por sonda\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "3d7269a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3d7269ad437a1ef33a3e1c3a86d9807d16c947cc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T15:30:18.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'\n\n# Conflicts:\n#\t.claude/skills/calibrar-orientacao-360/learnings.md\n#\t.claude/skills/conventions/subagentes.md\n#\t.claude/skills/retrospectiva/learnings.md\n#\tDecisions/DECISIONS.md\n#\tDecisions/decisions-2026.md\n#\tMEMORY.md\n#\tlivro-razao.md",
+      "sha": "5b618ff",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5b618fff7630948f5753e79b42e74c304d4ed4f8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T15:22:57.000Z",
+      "author": "Maj Diniz",
+      "message": "limpeza 2026-09-05: indice de decisoes volta a ser indice, camada quente das skills cai 21%, banner do SAP sai de 94 arquivos, nucleo e projetos enxutos\n\nDezoito agentes em duas ondas (auditoria e piloto, depois reescrita), conferidos por amostra. Decisions/DECISIONS.md de 422 KB para 56 KB com 483 entradas casadas ao integral; camada quente de 69 skills de 1.755 KB para 1.382 KB com o detalhe recebendo o que desceu; wiki sem as duas paginas de harness, linha-do-tempo pela metade, controle-acervo e edgv-topo-20 com Historico; nucleo sem historia e duplicata; PROJECT.md de cinco projetos reescritos como estado atual; 27 contradicoes SKILL x learnings resolvidas pelo lado datado e 10 marcadas para o chefe. Poda: vault-em-pts, contexto-do-agente e portugues-tecnico-simplificado (movidos para catalogo-skills/references e escrita.md secao 7), catalogo-rotas-sap.md. Entrada integral em Decisions/decisions-2026.md (2026-09-05).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01684tJVYqWDizGSLj366WpF",
+      "sha": "3b906ff",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3b906ff822a782301d379084fe3db1e23cb78704",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T14:52:09.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as quatro decisoes da rodada de pendencias, tres licoes no livro-razao e os fatos da memoria\n\nDecisões de 2026-09-05 em `docs/decisions/decisions-2026.md` e no índice (89 de cada lado): o\nMapLibre lido só pelo ponto único com régua de escopo; a caixa de seleção acompanhando o quadro\ncom cache e o `zoomend` para o chefe; o teste do índice de auditoria afirmando o caminho por\n`target_id` no Postgres 18; e o menu da engrenagem acompanhando a rolagem do painel em vez de\nfechar. Livro-razão: o teste que prendia a escolha do planejador, a leitura única da fonte viva\nque corria com o quadro seguinte, e as duas hipóteses escritas antes da medida no menu. MEMORY:\no ponto único do MapLibre como invariante e quatro armadilhas medidas (debounce que cancela o\npróprio rAF, plano de consulta, scroll em captura, leitura após limpeza).\n\nVerificação: `docs-integridade` (10 casos) verde; linter da wiki sem aviso novo.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "d7a7462",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d7a74622ad8bdeedbb7609d0c9556e59765af8c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T14:49:21.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: o spec do logout espera as fontes vivas zerarem, e o da conversao linear assenta o painel pelo mesmo helper nos dois postos\n\n`browser-logout-clears-map.repro`: a asserção das fontes vivas era uma leitura ÚNICA logo\ndepois de o store zerar, e a limpeza das fontes é assíncrona por desenho: o `ALL_DATA_CLEARED`\nfaz o despachante agendar a escrita da coleção vazia para o quadro seguinte, e o worker do\nMapLibre a aplica em seguida. Medido em 2026-09-05 com sonda: `setData(points) 0` sai 2 ms\ndepois do evento, a leitura única feita antes desse quadro via a feição do servidor, e a\nreleitura 3 s depois via zero. A asserção vira `expect.poll` com teto de 5 s (um quadro e um\nworker, não uma rede), e continua reprovando quando a limpeza nunca vem, que foi como ela\nacusou o defeito real do commit anterior. Depois: 3 rodadas isoladas, 6 de 6.\n\n`browser-collab-conversao-linear`: o caso do Leitor selecionava e abria a engrenagem em\nseguida, sem a espera pelo painel assentar que `openConversionRow` já tinha; a espera vira o\nhelper `selectAndSettle`, usado nos dois caminhos. Não era a causa da instabilidade (essa era\no `scroll` do foco, consertada no app), mas é a mesma espera para todo caminho que clica no\npainel depois de selecionar. Depois: 3 rodadas isoladas, 12 de 12.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "268eeee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/268eeee33fbbeec404f0cecf5aa465bd29bfcd52",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T14:49:20.000Z",
+      "author": "Maj Diniz",
+      "message": "saida da conta: a origem do store e lida antes do teardown, senao a limpeza inteira e pulada e a feicao do servidor fica na tela\n\nMedido em 2026-09-05 com sonda no spec `browser-logout-clears-map.repro` (ganchos em\n`setData`/`updateData` da fonte `points`, no evento `ALL_DATA_CLEARED` e no clique de sair):\nnuma de cada duas ou três saídas voluntárias nada acontecia depois do clique, nem evento nem\nescrita, e a feição do SERVIDOR ficava desenhada na fonte viva com o store já vazio. A saída\nque passava emitia `ALL_DATA_CLEARED` 150 ms depois do clique e escrevia `setData(points) 0`.\n\nCausa: `const eraRemoto = isRemoteStoreSync()` era lido DEPOIS de `logoutAndDisconnect` e dos\navisos, vários `await` adiante da leitura do atlas montado; nesse intervalo a origem pode ser\nmarcada LOCAL por outro caminho assíncrono (o sweep de namespaces remotos, o resgate de\ntrabalho não enviado), e o `clearAllDataStore` condicionado a `eraRemoto` era pulado. A\nleitura passa para o mesmo instante em que se lê `mountedRemoteAtlasId()`, antes do primeiro\n`await` do teardown.\n\nRégua `logout-le-a-origem-antes-do-teardown.test.js` (2 casos, de ORDEM no arquivo: a leitura\nexiste uma vez e vem antes de `logoutAndDisconnect`; nenhum `await` a separa da leitura do\natlas montado). É régua de texto e por isso é fraca sozinha; vista reprovando os dois casos com\na leitura no lugar antigo. A prova de comportamento é o spec de navegador, cuja asserção também\nfoi consertada no commit seguinte: depois deste conserto a sonda passou a ver o evento e a\nescrita em toda saída, e o que restava era a leitura única do spec antes do quadro em que o\ndespachante aplica a coleção vazia. Lint limpo.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "ab40f3a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ab40f3a0e621682765c2840f618cda56e78e710f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T14:49:20.000Z",
+      "author": "Maj Diniz",
+      "message": "painel: o menu da engrenagem acompanha a rolagem do proprio painel em vez de fechar no clique que o abriu\n\nMedido no navegador em 2026-09-05, com sonda no spec `browser-collab-conversao-linear` (a\npilha da remoção e os eventos entre o clique e o sumiço): o clique na engrenagem anexa o menu\nao `body` e, 1 a 11 ms depois, o FOCO que o clique dá ao botão rola `.feature-panel-content`\npara trazê-lo inteiro à vista. O ouvinte global de `scroll` do menu, registrado no documento em\nfase de captura, via a rolagem de qualquer elemento e chamava `closeAllFeatureDropdowns`. Em\ncerca de metade das aberturas o botão estava na borda do contêiner e o menu sumia antes de o\nusuário ver; o painel NÃO era reconstruído (o `renderId` não mudava), o que derrubou a\nhipótese anterior da cascata de reconstruções.\n\nRegra, pura em `tool_manager/helpers/dropdown-scroll.model.js`: rolagem de um elemento que\nCONTÉM o botão ativo reposiciona o menu (ele é filho do `body`, posicionado pelo\n`getBoundingClientRect()` do botão, então acompanha); rolagem da página, do mapa ou de outra\nlista continua fechando. O ouvinte consulta a regra e chama `positionFeatureDropdown`.\n\nTeste `dropdown-scroll-do-painel.test.js` (4 casos, com objetos falsos, sem DOM): o caso\nmedido reposiciona; outra lista, a página e o próprio botão fecham. Controle negativo: com a\ndecisão trocada por `false`, o primeiro caso reprova. A metade do navegador é o spec\n`browser-collab-conversao-linear`, que abre o menu depois de selecionar nos dois postos:\n3 rodadas isoladas, 12 de 12 casos, contra 2 de 3 rodadas com reprovação antes. Lint limpo.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "4bff2b8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4bff2b8fb7f32c2d120b8969f935e2a6f0205600",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T14:40:12.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: as 1.360 fotos dos cinco de Cascavel recebem o y do grafo e da visao, com backup, releitura e prova de produto a partir do banco\n\n\"Vamos aplicar\" do chefe. Gravacao projeto a projeto na copia mestre local do\nindex.db: backup consistente antes de cada um (cinco arquivos em backups/),\nUPDATE so em foto nao revisada, releitura de cada linha (1.360 de 1.360).\nFontes gravadas: grafo+prior 475, proj+visao 726, sol+prior 102, grafo+sol 57.\nVerificacao independente do gravador: as 7 revisadas seguem com o y do chefe,\n40 linhas sorteadas batem, contagens por fonte fecham. Prova de produto com o\ny lido do BANCO: rua na linha central em tres fotos sorteadas de fontes\ndiferentes. Ficam 379 na fila e o deploy, que e fluxo do chefe.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "46eb000",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/46eb000918e843ac5796e83e9e777ebc4298fdab",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T14:27:00.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: lista de gravacao dos cinco de Cascavel em ensaio (1.360 de 1.739), e o 15a fecha com menos memoria\n\nO 15a_ciainfmot fechou o ensaio com --nfeatures 4000 e saida sem buffer\ndepois de o sistema matar a rodada por memoria: 690 fotos gravariam (94 pela\nfaixa ancorada, 596 pela constante do projeto aprovada pelo juiz em oito\nfaixas), 170 para a fila. Total dos cinco: 1.360 de 1.739, 379 para a fila,\n7 revisadas intocadas. A mediana com sinal dos juizes fica em +2 a +5 graus\nem todos os projetos (a faixa da direita da via, nao erro). Decisao\nregistrada; nada gravado no banco.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "571a97d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/571a97d7efed432dbd06fe6de0a83e343f60a948",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T14:12:16.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: a visao tambem ancora, e o cmd_4a_bda_inf converge em tres rodadas do juiz\n\nOnde o sol nao serve (cmd_4a: 2 deteccoes limpas em 106 fotos), o desvio com\nsinal que o juiz de visao mede nas vistas do meio da faixa corrige a\nconstante do projeto: 191,8 graus deu +15 (rua a direita), 214,4 deu -9,\n205,4 deu +2 de mediana com sinal, 11 de 14 vistas no centro e nenhuma vista\ndo meio acima de 10. Y_PROJ_FORCADO no qc_vistas.py e no decide_gravacao.py\ncarrega a constante confirmada; a lista do cmd_4a passa de 2 para 89 fotos\n(87 com fonte proj+visao). Nada gravado no banco.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "e615ce4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e615ce4df4e1477e6e4be52c04d4518494dcf090",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T14:06:10.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: decisao de gravacao cruzando o grafo com o juiz de visao, e o gravador com backup e releitura\n\ndecide_gravacao.py cruza a proposta do aplicador com os vereditos de visao:\nfaixa ancorada pelo sol limpo grava o y do grafo; faixa sem sol grava a\nconstante do projeto so quando o juiz aprovou as vistas do meio da faixa (duas\nou mais a 10 graus, confianca alta ou media, nenhuma acima de 10). gravar_y.py\nfaz o backup consistente, grava so foto nao revisada e rele cada linha.\nqc_vistas.py aceita a pasta do aplicador; grafo_aplicar.py deixa o fallback de\nmatriz essencial atras de --essencial (11 arestas em 318 fotos, a 1 a 2 s por\npar). Nada gravado no banco.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "886bbd0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/886bbd0d1d61dc92928b44bf46a30e50e426a4e9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T13:56:37.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: aplicador do grafo, juiz de visao em pontos de controle, e a convencao y = heading - psi medida\n\nOs cinco de Cascavel (1.746 fotos) passaram pelo aplicador em ensaio: contra\nas 7 fotos revisadas pelo chefe, 6 ficam a menos de 4,4 graus. Politica A\n(dois juizes) grava 271, B (mais o prior em faixa ancorada) 645, C (mais o sol\nna foto) 723; 836 ficam em 23 faixas sem sol usavel.\n\nJuizes de visao (Opus, um por projeto, 133 vistas de controle centradas no\nazimute da foto seguinte): 4 a 5 graus de mediana fora da foto 0 em quatro\nprojetos; cmd_4a_bda_inf com 14,5 graus e vies para a direita, causado por\ntres borroes de halo com residuo de elevacao de -6 a -7 graus que o portao\nde 8 aceitava. Portao passa a 4 graus com peso pelo residuo. A foto 0 da faixa\nnao serve de ponto de controle (saida de patio).\n\nConvencao do visualizador medida em seis projetos gravados pelo calibrar.py:\ny = heading - psi, centro 0 grau; os \"centros por familia\" da noite eram o\ndobro do offset de montagem, e ponta_grossa_1 nao tem vies. backup_index.py\nfaz o backup consistente do index.db antes de qualquer escrita (ordem do\nchefe). Nada gravado no banco.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "12a25ec",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/12a25eccbedd586b5a1cc9cc79d5e0f2d97a05b5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T13:26:13.000Z",
+      "author": "Maj Diniz",
+      "message": "selecao: a caixa de selecao e as selecoes remotas passam a acompanhar o quadro de zoom de verdade, com cache e sem leitura de fonte por quadro\n\nA premissa era a inversa. O relatório da `main` e o lote de zoom deixaram declarado que a\n`selection-highlight` e as seleções remotas \"seguem por quadro em JavaScript\". Medido num gesto\nde `easeTo` de 1,5 nível em 1,5 s: 92 eventos `zoom`, 92 chamadas do handler, e só 2 passadas\nlocais e 1 render remoto, os dois DEPOIS do gesto. Causa testada: os dois debounces cancelavam e\nreagendavam o próprio quadro. O MapLibre pede o quadro seguinte antes de emitir o `zoom`\ndaquele quadro, então a entrada dele vem na frente na lista e o handler mata a própria\ncallback, ainda na fila do mesmo quadro: 183 cancelamentos de rAF por gesto com o defeito, 1\nsem ele. A caixa só se atualizava quando o gesto parava.\n\n- Agendar uma vez em vez de cancelar e reagendar. `_buildBox` partido em resolução do alvo\n  (assíncrona, lê a fonte) e montagem da caixa (síncrona); a lista resolvida é reaproveitada\n  pelo quadro de zoom e invalidada pelos três eventos que já existiam; guarda de escrita por\n  referência na local e por conteúdo na remota (medido: 46 escritas carregavam 1 geometria\n  distinta); reentrada do Turf única.\n- Medido (Chromium, ANGLE, 300 pontos de fundo), antes e depois: local com 1, 10 e 50\n  feições, passadas 2 para 47, escritas 2 para 3, JS por gesto 0,3 para 1,9, 5,5 e 10,7 ms;\n  remota com 1, 10 e 50, renders 1 para 46, resoluções de fonte 1, 10 e 50 para ZERO, escritas\n  1 para 0. Cadência p50 16,7 e p95 16,8 ms em todos os casos. O contraste que decidiu o cache:\n  por quadro sem ele a remota fazia 2.300 resoluções e 46 escritas (13,7 ms).\n- O que a captura mostrou: o lado da caixa em pixels ao longo do gesto é 2,828 com e sem o\n  conserto, porque seis controles guardam a caixa em `properties.selectionBox` e quem a\n  reescreve é o passe deles; este gerente corrige por quadro a margem em pixels das treze\n  ferramentas que não guardam caixa. Está no `@fileoverview`.\n- O global `maplibregl` sai dos dois gerentes e da camada de cursores remotos, que importam o\n  ponto único (a régua do lote irmão cobrou).\n\nRecusados: caixa como expressão de estilo (ela é feição de fonte própria, lida por painel,\nexportação e cabeçalho) e tirar a quantização de 0,5 nível (23 vezes mais montagens de caixa,\ncadência idêntica). Fica para o chefe decidir: `zoomend` em vez de por quadro (10,7 ms de JS\npor gesto com 50 feições, cadência intacta, comprando a margem certa nas treze ferramentas);\na quantização de 0,5 nível, que deriva até 19% de tamanho na tela; a assimetria entre o cache\nquantizado local e a remota que remonta do zero.\n\nTestes: `selection-highlight-passe-de-zoom` (8 casos; 4 vermelhos em HEAD: 0 contra 14 ou\nmais passadas, 10 escritas contra 1, 0 geometrias contra 4, 30 reentradas contra 1),\n`remote-selections-passe-de-zoom` (6; 3 vermelhos em HEAD), `remote-cursors-layer` e\n`presence-awareness-no-mock-seam` adaptados. Conferência independente com os dois gerentes\nrevertidos: 7 reprovações; restaurados, 29 verdes. Lint limpo; suíte 11.276 verdes em 576\narquivos; Playwright de presença e seleção 6 verdes, incluindo `browser-collab-selection-drag`.\n\nDefeito para outro lote: o cabeçalho de `zoom-pass-events.test.js` diz que `getData()` é ida\nao worker; na 6.7.0 é linha principal, 0,006 ms por chamada; a regra continua boa (é\nO(feições na fonte)), o motivo escrito envelheceu.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "fc6b9ad",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fc6b9adca725c416897bcce4a29326238a7428a3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-09-05T12:50:15.000Z",
@@ -178,6 +403,24 @@
       "sha": "ccfb6c2",
       "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ccfb6c284643b6ce62f1a2fb75bb38e289026ec4",
       "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T09:18:32.000Z",
+      "author": "Maj Diniz",
+      "message": "maplibre: os modulos da aplicacao importam o ponto unico, e uma regra de lint reprova a volta do global\n\nDesde o lote do 6.7.0 (`4e2cb2f3`) o MapLibre entra por `map/maplibre.js`, que ainda gravava\n`window.maplibregl` para os módulos que liam o global. Medido em `fb2df4b1`: 20 arquivos de\n`frontend/src` com 29 sítios de leitura do global (o grep por `maplibregl.` dizia 28, mas nove\nsó citam em JSDoc e um estava fora dele, `terrain/terrain-elevation.js`, que lia\n`globalThis.maplibregl?.LngLat` e o `?.` quebra o padrão).\n\n- Dezenove módulos passam a `import { maplibregl } from '@js/map/maplibre.js'`; o ponto único\n  continua gravando o global só para quem está FORA do bundle (a bancada, os `page.evaluate`\n  do Playwright e a calibração por spec), e o cabeçalho dele diz isso. No navegador,\n  `mod.maplibregl === window.maplibregl` é verdadeiro com 85 nomes: uma instância, não duas.\n- Régua de ESCOPO, não de texto: `eslint-rules/no-maplibre-global.js` acusa a referência ao\n  identificador que não resolve para ligação local E `window`, `globalThis` e `self\n  .maplibregl`, o que `no-restricted-globals` não alcança; exceção só para o ponto único, por\n  caminho. Vista reprovar quatro vezes antes de valer: contra os 20 arquivos reais, contra\n  quatro formas construídas no probe, com a exceção alargada de propósito, e com as duas\n  asserções de que está ligada revertidas uma a uma. Conferência independente: um\n  `window.maplibregl.LngLat` reintroduzido num arquivo é acusado pelo lint; restaurado, limpo.\n- `terrain-elevation.js` não era troca mecânica: o `wrap()` do objeto montado à mão não\n  normalizava longitude além do antimeridiano, que lia 0 m calado (lido em `terrain.ts:221` do\n  pacote); o import fica e o ganho virou caso de teste.\n- Cinco testes trocam a costura do dublê de `globalThis.maplibregl` por `vi.mock` (com\n  `vi.hoisted` onde o import é estático), ganho de isolamento.\n\nVerificação: lint do frontend limpo; suíte 576 arquivos, 11.273 testes verdes; Playwright\n`vertices-em-cliques-rapidos`, `base-layer-selector`, `browser-basemap-privado` e\n`calibracao-barra` 11 de 11; build fresco com as duas páginas sem mapa idênticas kB a kB e as\ncom mapa em +1 arquivo e +1 kB, `teto-de-peso` 46 verdes sem afrouxar piso; capturas do mapa e\nda calibração (os dois mapas montados) lidas, specs temporários apagados.\n\nDefeitos achados no caminho: `tiles-360-troca-de-atlas.test.js` deixava passar uma rejeição\nnão tratada com o arquivo verde (consertado); em-dash em JSDoc de `calibration/project-map.js`\n(consertado); dois comentários mortos do lote do 6.7.0 (um virou asserção); um vermelho de\n`rectangle-geometry` em 4 passadas da suíte que não reproduz isolado (3 de 3); e a guarda de\nporta do e2e atribui \"porta 3912 ocupada\" a órfão de rodada anterior quando é outro agente\nrodando ao mesmo tempo.\n\nFora: os JSDoc que citam `{maplibregl.Map}`, a suíte do backend e o Playwright inteiro.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "4e2aca4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4e2aca4157b90412368424939af3f103d7af26c4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T09:01:26.000Z",
+      "author": "Maj Diniz",
+      "message": "calibrar-orientacao-360: o grafo fica a 2 a 3 graus do revisor do cigi onde a visao tem apoio, e a faixa do banco esconde 1.180 cortes\n\nOrdens do chefe em 2026-09-05: backup do index.db antes de qualquer escrita\n(entra na politica do y), foco no projeto de viatura revisado a mao, e\nconferir se a faixa do banco e relevante. Nada escrito no banco.\n\nO cigi (190 fotos, todas revisadas) tem y = 325 em 181 e 9 correcoes a mao,\ntodas em curva ou corte: o manual e heading + constante. Contra ele, o grafo\ncom ancoras do sol em 20% e portao de apoio (aresta abaixo de 15 inliers nao\nvota) da 1,8 grau de mediana e 8,0 de p90; nas 124 fotos com apoio de 100\ninliers ou mais, 2,7 e 7,9. Sem portao, um segmento de 33 fotos em mata\nfechada (0 a 8 inliers, sem sol) fez o grafo divagar ate 176 graus enquanto o\nprior acertava: nasce a regua de apoio por foto, e a ancora do sol vira\nrobusta (Huber de 10 graus).\n\nA faixa vem do id de sessao e esconde parada e salto: 221 das 404 faixas de\nviatura tem corte interno, 1.180 cortes no acervo, 5 no cigi (85 a 1.247 m,\n100 a 644 s), e e ali que o revisor corrigiu a mao. O grafo nao liga atraves\ndo corte, e a foto anterior ao corte herda o heading da anterior.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018rNG7FwdT6PUyBbFZkayyu",
+      "sha": "afb1101",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/afb110124f987dcff77e2c463f250dcc012ce59d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
