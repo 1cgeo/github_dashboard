@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-05T22:01:02.230Z",
+  "lastUpdate": "2026-09-06T13:30:42.718Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-05T20:39:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-05T16:22:54.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-05T21:05:26.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-06T10:30:16.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-05T19:48:57.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-05T20:34:19.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
   },
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6598,
+    "totalCommits": 6605,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1289,
+      "1cgeo/ebgeo_web": 1291,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -163,13 +163,58 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 151,
-      "1cgeo/chefe_dgeo": 739,
+      "1cgeo/chefe_dgeo": 744,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-06T10:30:16.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'main' of https://github.com/1cgeo/chefe_dgeo\n\n# Conflicts:\n#\tDecisions/DECISIONS.md\n#\tDecisions/decisions-2026.md",
+      "sha": "57bb2a7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/57bb2a7485494b127e66d247854e33b582b9af29",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-06T08:53:52.000Z",
+      "author": "Maj Diniz",
+      "message": "2026-09-06: o l2tools ganha repositorio 1cgeo/l2tools (privado), e o vault aponta para ele\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "ac54720",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ac5472093345f38569aad721b545a2329bd47624",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-06T03:46:52.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-06: o dado bruto do Zenmuse L2 le-se sem o DJI Terra (RTK em RTCM3, RPOS, IMU e LDR decodificados, preparar_l2.py a 0,5 m do gabarito), pagina de wiki, projeto, decisao e regra de rotulo para subagentes\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "e532834",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e532834b56c6c72917947584eda994a998f60270",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-06T00:12:31.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao cont. 31: o marcador do namespace do atlas fica, e o proximo passo e o lote de sonda da corrida\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "ac7c9ca",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ac7c9ca061e3d580175128d55df8ab9e12f6c5e2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-05T22:45:07.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-05 (cont. 31, gate): o Playwright inteiro da branch fecha em oito fatias, e a licao do Vite orfao do e2e entra na skill\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "0c25fab",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0c25fab3c4b732de1c9c034d9b242a532da6637b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-05T21:05:26.000Z",
@@ -186,6 +231,24 @@
       "message": "bancada: a semeadura do cenario zoom para de degenerar o retangulo, e `criacao` conta o que o store ganhou\n\nRetroporte do conserto que o porte para a `integracao_backend` achou por rodar a bancada de\nverdade (commit a9a43781 de la). Nada aqui e do produto: os dois defeitos sao do INSTRUMENTO.\n\nO cenario zoom do RETANGULO saia com \"29 de 30 feicoes\" enquanto a linha acima dizia\n`criacao: 30/30`. O gerador de pontos dava passo fixo so em LONGITUDE (`cx + k * 0.006`) e\nsorteava a latitude de novo a cada ponto (`cy + rnd(0.004)`). Toda ferramenta de RAIO ignora\nisso, porque a distancia e dominada pelo passo em longitude; o retangulo cobra o piso de 10 m\nem LARGURA E ALTURA por separado, e a altura saia so do ruido. Dois sorteios uniformes em\n[-0,004, 0,004] caem a menos de 0,00009 grau (os 10 m) em cerca de 2,25% das vezes, o que\npreve cerca de 50% de chance de pelo menos uma perda em 30 retangulos; na linha de integracao\na serie de oito rodadas mediu cinco com perda de 1 a 3 feicoes, com o controle portado E com o\nanterior, e nenhuma das outras tres formas perdeu uma feicao sequer. Aqui o mesmo invalido\napareceu no aquecimento da rodada de 2026-09-05.\n\nE `createFeature` recusa em SILENCIO o insumo que nao passa no piso (avisa na tela e volta, sem\nlancar), entao o `try/catch` da bancada contava a chamada como criada, e as duas contagens\ndivergiam sem ninguem ver.\n\nOs dois lados foram consertados. A semeadura saiu de dentro da pagina e virou\n`pontosDaSemeadura`, pura e exportada, com passo fixo nos DOIS eixos e ruido menor que metade\ndo passo; `criarFeicoesPagina` passou a receber os lotes prontos do Node e a devolver `ok`\ncomo a DIFERENCA no store (`getCurrentMapFeatures()[cfg.tipo]` antes e depois), com\n`chamadas`, `noStoreAntes` e `noStoreDepois` ao lado; e a linha de log denuncia a diferenca,\nalem de imprimir o ultimo erro, que antes ficava no objeto e nao na tela.\n\nREGUA NOVA (eixo 14, treze verificacoes), com o GERADOR ANTIGO como pior caso e um sorteio\ndeterminista, para o resultado nao depender da sorte da rodada. Vista reprovar: com a semeadura\nrevertida, a separacao minima em latitude sobre 2.000 lotes e de 0,0000011 grau, oitenta vezes\nmenor que os 0,00009 do piso do retangulo, e a separacao em longitude nao cai, que e a razao de\nso o retangulo cair. A regua tambem cobra o texto de `criarFeicoesPagina` (a leitura do store\nantes e depois, e o `ok` que sai da diferenca), porque a funcao roda dentro do navegador e nao\ne chamavel do autoteste; com `ok` de volta as chamadas, dois casos reprovam.\n\nE UMA REGUA DAQUI QUE PASSAVA VERDE SOBRE O DEFEITO QUE ELA EXISTE PARA PEGAR. A verificacao do\neixo 13 procurava `B.superavel = null;` no texto de `instrumentar`, e essa mesma atribuicao\naparece no `__zerar`: apagando a zeragem DENTRO do `_render` e a contagem por `B.superavel`, o\nautoteste devolvia UMA falha para DUAS linhas apagadas. Agora ela ancora no PUSH DO QUADRO\n(`B.quadros.push(...)` seguido da zeragem), e o mesmo controle negativo devolve as duas.\n\nAutoteste da bancada de 259 para 271 casos, em 14 eixos. Tres controles negativos rodados, cada\num desfeito por copia com o sha256 conferido na volta: semeadura revertida (2 vermelhos),\nmarcador de supersessao revertido (2 vermelhos, contra 1 antes do aperto da regua), `ok` de\nvolta as chamadas (2 vermelhos). `eslint` limpo nos dois arquivos.\n\nA bancada com navegador NAO foi rodada neste lote, de proposito: o invalido do retangulo ja\ntinha sido visto aqui e a causa foi fechada com serie e medida na linha de integracao.\n\nFICOU DE FORA: `bench/README.md` continua sem dizer que a semeadura garante separacao nos dois\neixos e que `criacao` conta o que o store ganhou.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
       "sha": "e014b70",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e014b7016e5600bd71e5c6c5a549cfb36b22c7e0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T20:34:19.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: o README da bancada registra as quatro formas, as colunas que nao dependem do relogio e a semeadura nos dois eixos\n\nComplemento do porte das quatro formas (a9a43781): os descritores, o campo `snapa`, as colunas `resolve`, `res/quadro` e `timers`, o critério novo de `perdidos` (com o pior caso de 179 em 180 no autoteste) e a semeadura com passo nos dois eixos, porque o retângulo recusava em silêncio a feição com menos de 10 m de altura e a bancada contava a chamada como criada.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "076dde9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/076dde98b6ff44c23f1c1dd581be01c3b427523e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-05T20:33:22.000Z",
+      "author": "Maj Diniz",
+      "message": "porte: as quatro formas passam pelo utilitario de quadro, e a bancada daqui conta resolve e timer\n\nPorte da `main` (41f2dfab, 1ddb982b e 4b554b78) para esta linha, no estado FINAL de la: as\nreguas das formas ja chegam fundidas ao `preview-timer-regua.test.js` e a coluna `perdidos`\nja chega com o criterio novo, entao os dois arquivos intermediarios da `main`\n(`preview-um-quadro-formas`, `preview-sem-timer-formas`) nao existem aqui e nao foram criados.\n\nO circulo, a elipse, o retangulo e o setor resolviam o snap em cada evento bruto de movimento\ne entregavam a geometria por `setTimeout(..., 8)`, que nao coalesce nada porque 8 ms cabe\ndentro dos 16,7 ms do quadro. Agora os quatro usam o `createPreviewScheduler` como as nove\nferramentas de linha desta branch: dois portoes por controle (o preview do desenho mais o\narrasto da alca, que nunca vivem juntos, e o indicador de antes do primeiro clique), o evento\nbruto so estaciona o ponteiro, e o snap, o indicador, a geometria e o `showPreview` correm\ndentro do `onFrame`. O `_onEditPointerUp` ganhou o `flush()` na primeira linha, que e o que\nfaz o arrasto nascido e morto num quadro ainda mover a feicao. Os dois `setTimeout(..., 8)` de\ncada controle saem, e com eles o trio `previewRafId` / `pendingPreviewUpdate` /\n`geometryDebounceTimer`. A semantica ficou intacta: o piso de 10 m do circulo e do setor, o de\n0,01 da elipse, os 10 m de largura e altura do retangulo, a abertura de 60 graus vinda do\nDEFAULT_PROPERTIES, e o `activeHandleType`/`activeHandleId` que o pointerdown fixa.\n\nO CONTRATO DO DESTINO NAO MUDOU. A feicao continua indo a fonte principal so pelo despachante\nde diff (`updateData`); o feedback e as alcas continuam em `setData` cru, em fonte nao\nmigrada. Medido: `updateData` na fonte principal por gesto de conclusao e 1 antes e 1 depois\nnas quatro, com `setData` cru em zero.\n\nO QUE DIVERGE DA `main`, e por que. O import usa o alias desta linha\n(`@tools/helpers/preview-scheduler.js`), como as nove ferramentas de linha daqui, e nao o\ncaminho relativo de la; foi o unico dos 33 hunks dos quatro controles que nao casou por bloco\nexato. E o comentario dos descritores da bancada ancora no ramo `this.drawPoints.length === 2`\ndo `handleMapClick` em vez de citar numero de linha: os numeros que a `main` escreveu ja\nestavam errados la antes do porte e mudaram de novo com ele.\n\nMEDIDO NA BANCADA, cenario desenho, `--snapping true`, k=8, 3 s de mouse sintetico, duas\nrodadas, arvore parada, renderer real (ANGLE/NVIDIA RTX A2000), relogio valido:\n\n  ferramenta | quadros    | interv p95     | >33 ms | resolve      | res/quadro    | timers\n  circle     | 118 -> 179 | 84,3 -> 19,0   | 19 -> 0 | 1448 -> 180 | 12,27 -> 1,01 | 267 -> 93\n  ellipse    | 130 -> 179 | 69,6 -> 19,8   | 17 -> 0 | 1448 -> 180 | 11,14 -> 1,01 | 270 -> 93\n  rectangle  | 130 -> 175 | 68,5 -> 18,8   | 19 -> 2 | 1456 -> 180 | 11,20 -> 1,03 | 266 -> 93\n  sector     | 128 -> 180 | 69,9 -> 18,9   | 18 -> 0 | 1456 -> 181 | 11,38 -> 1,01 | 271 -> 92\n\nAs duas grandezas que nao dependem do relogio da maquina sao as que dizem o que o porte fez:\no snap resolvido uma vez por QUADRO em vez de uma vez por evento, e os timers armados no gesto\ncaindo a um terco. Os cenarios zoom e conclusao nao se moveram.\n\nREGUAS, todas vistas reprovando o estado anterior DESTA arvore antes do porte:\n`preview-timer-regua.test.js` vai de 9 para 13 controles e de 31 para 96 casos, absorvendo as\nduas reguas que a `main` mantinha a parte, com as duas adaptacoes desta linha (o\n`vi.mock('@layers/geojson-dispatcher.js')` com o `fake-geojson-dispatcher.js` daqui, e o\n`beforeAll` que paga o primeiro import dos quatro controles fora do orcamento de 5 s de um\ncaso). O `drag-flush-draw.test.js` ganhou os quatro describes. Contra os controles nao\nportados: 44 vermelhos (40 na regua fundida, 4 no arrasto); depois, 114 verdes. Controle\nnegativo por forma, revertendo uma de cada vez por copia: 11 vermelhos em cada, e as quatro\nvoltaram com sha256 identico. O `flush` foi provado por REMOCAO no circulo: sem ele, o arrasto\nde um quadro deixa de mover o raio.\n\nBANCADA DE FERRAMENTAS, no formato desta branch (que conta `setData` e `updateData` separados\npor fonte): os quatro descritores, o campo `snapa`, o contador de chamadas a\n`snapping.resolve` envolvendo o singleton do servico pela URL que a PAGINA carregou (o `?t=`\ndo HMR entrega outro exemplar, com `_instance` nulo), o contador de `setTimeout` armados no\ngesto, e as colunas `resolve`, `res/quadro` e `timers`. O contador e cobrado contra si mesmo:\ncontador nao instalado reprova o cenario, e ferramenta que declara `snapa` com o snapping\nligado e zero chamadas contadas reprova dizendo que o contador nao esta no servico que a\nferramenta usa.\n\nA COLUNA `perdidos` PARA DE ACUSAR O PREVIEW QUE FOI DESENHADO. A supersessao e a latencia\ndividiam a mesma variavel, e com o preview escrevendo uma vez por quadro, colado no render, a\nfonte quase nunca esta assentada no instante da sonda. Agora sao dois marcadores: o da\nsupersessao morre em TODO render, e `perdidos` conta so a escrita que outra substituiu dentro\ndo MESMO intervalo de quadro. O criterio saiu do envolucro da pagina e virou `avaliarFeedback`,\npura, com o pior caso do autoteste sendo a sequencia real (180 escritas, cada uma seguida do\nseu quadro, a fonte nunca assentada), vista devolver 179 perdidas com o criterio antigo e zero\ncom o novo.\n\nUM DEFEITO DO INSTRUMENTO QUE A RODADA REAL ACHOU, e que nao e do porte: o cenario zoom do\nRETANGULO reprovava com \"27 de 30 feicoes\" em cerca de metade das rodadas, com o controle\nportado E com o anterior, e em nenhuma das outras tres formas. A semeadura da bancada dava\npasso fixo so em LONGITUDE e sorteava a latitude de novo a cada ponto; forma de raio nao se\nimporta, mas o retangulo cobra o piso de 10 m em largura E altura por separado, e a altura\nsaia so do ruido. Dois sorteios uniformes em [-0,004, 0,004] caem a menos de 0,00009 grau (os\n10 m) em cerca de 2,25% das vezes, o que preve cerca de 50% de chance de pelo menos uma perda\nem 30 retangulos, e foi o que a serie de oito rodadas mediu. E `createFeature` recusa em\nSILENCIO, sem lancar, entao a bancada contava a chamada como criada. A semeadura saiu de\ndentro da pagina e virou `pontosDaSemeadura`, pura, com passo fixo nos dois eixos, e\n`criarFeicoesPagina` passou a devolver `ok` como a diferenca no STORE, com as chamadas ao lado\ne a diferenca denunciada no log. Depois disso, quatro rodadas de retangulo com 30/30 e zoom\n`ok`; e o retangulo remedido no estado ANTERIOR com o instrumento ja corrigido reproduz o\nantes (123 quadros, 1456 resolve, 11,84 por quadro, 268 timers), o que mostra que o conserto\nnao toca o eixo medido.\n\nAutoteste da bancada de 281 para 293 casos, em 14 eixos. Um deles nasceu de um controle\nnegativo que pegou a propria regua nova: a verificacao do marcador de supersessao passava\nverde com a zeragem do render apagada, porque a mesma atribuicao aparece no `__zerar`. Agora\nela ancora no push do quadro, e o mesmo controle negativo devolve as duas falhas.\n\nPROVA VISUAL, apagada depois de lida: spec temporario de Playwright com backend e banco\nproprios, desenhando as quatro formas pelo botao da barra e por dois cliques, com uma rajada\nde movimento entre eles. As oito imagens mostram o preview tracejado vivo (circulo, elipse\nachatada, retangulo, fatia de 60 graus) e a feicao criada com as alcas, e o painel batendo com\na fonte no circulo, no retangulo e no setor. Nenhum erro de pagina.\n\nVERIFICACAO, depois da ultima escrita: 12 arquivos de teste que tocam as quatro formas e o\nutilitario de quadro, 335 casos, verdes; autoteste da bancada 293/293; `eslint` limpo nos oito\narquivos do lote. A suite inteira e o lint da raiz sao o portao seguinte.\n\nFICOU DE FORA: `bench/README.md` (compartilhado com a bancada de terreno) continua sem as\nquatro formas na tabela, sem o campo `snapa`, sem as colunas novas, sem o criterio novo de\n`perdidos` e sem a semeadura consertada. E tres defeitos PRE-EXISTENTES nao foram tocados: a\nelipse guarda quilometros e o painel escreve metros (`add_ellipse_geometry.js` linhas 89, 180\ne 193 contra `feature-identification.js` linhas 369 e 370), o `setTimeout(..., 10)` em volta\ndo `createEditHandles` no fim do arrasto do retangulo, e o `updateSelectionHighlight()` que\nfalta no `updateUIAfterEdit` do retangulo.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "a9a4378",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a9a4378110e6decc0103a2916124bb23c75b4602",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
