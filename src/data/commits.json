@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-06T22:02:48.459Z",
+  "lastUpdate": "2026-09-07T15:39:05.814Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-06T19:53:38.000Z",
+    "1cgeo/ebgeo_web": "2026-09-07T14:35:23.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6621,
+    "totalCommits": 6623,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -122,7 +122,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1298,
+      "1cgeo/ebgeo_web": 1300,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -170,6 +170,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-07T14:35:23.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: o caso do aviso de servidor secundario acompanha a chave desligada\n\nO commit `4cbe59d2` (2026-09-06) desligou `app.avisoServidorSecundario` no\nconfig versionado e deixou `tests/unit/secondary-server-notice.test.js`\nafirmando o contrário: 1 vermelho em 3.682 na suíte inteira, desde então. O\ncaso é reescrito com a razão nova (o alertdialog captura o teclado e volta a\ncada carga, a instância local virou bancada, e o dado de implantação mora no\nconfig de cada servidor), e passa a afirmar `false` no versionado, com quem\nimplanta no servidor secundário pondo `true`. Os outros oito casos, inclusive\no pior caso (config que não conhece a chave não abre a tela), não mudam.\n\nVerificação: `npx vitest run tests/unit/secondary-server-notice.test.js`,\n9 de 9.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NjwAjPE3sy6uLaz7BuQYmD",
+      "sha": "135f85f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/135f85f5ace24990c64c3f18585f340e749ffa87",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-07T14:34:07.000Z",
+      "author": "Maj Diniz",
+      "message": "limpar tudo: o repositorio limpo nasce na versao corrente, nao na 1.7 legada\n\n`clearAllDataStore` (`src/js/store/store.js`) carimbava `schemaVersion` com o\n`SCHEMA_VERSION` legado ('1.7') e não limpa `ebgeo_atlas`. Na mesma versão o\ngesto é inerte, porque o detector lê o registro de atlas sobrevivente e responde\nque nada precisa rodar. Na implantação SEGUINTE o registro deixa de bater com a\nconstante, o detector cai no settings, lê 1.7 e roda `migrateToV2` sobre dado\n2.x: todo id de feição, camada, grupo e mapa é regenerado, o registro de atlas\né substituído, e como `ebgeo_images` é chaveado pelo id da feição, todo blob\nfica órfão. Medido em 2026-09-07 com a fixture de produção (805 feições, 149\nPNG): quem limpou sob a 2.2 e abriu a 2.4 ficou com 0 de 805 ids sobreviventes\ne 146 blobs alcançáveis viraram 0, sem desfazer. O import não aditivo não tem o\ndefeito, porque re-carimba depois de limpar; a única porta é o botão \"Limpar\nTodos os Dados\" (`maps.tab.js`, `map.manager.js`).\n\nO conserto é carimbar `ATLAS_SCHEMA_VERSION`: repositório recém-limpo é\nrepositório novo, e nasce na versão corrente. O import e o reexport de\n`SCHEMA_VERSION`, `MIN_SCHEMA_VERSION` e `MAX_SCHEMA_VERSION` ficam, porque o\nimportador lê `MIN_SCHEMA_VERSION` pelo barrel `@store`. O registro de atlas\ncontinua sobrevivendo à limpeza de propósito: ele guarda o exagero do terreno, e\napagá-lo faria `ensureAtlas` recriar o padrão.\n\nVerificação:\n- `tests/integration/limpar-tudo-carimba-versao.repro.test.js`, 4 casos com\n  `localforage` em memória indexado por nome (o padrão de\n  `import-phantom-map.repro.test.js`), rodando o `clearAllDataStore` inteiro:\n  o pior caso montado à mão (1.7 sem registro de atlas manda o detector para a\n  cadeia v1), o carimbo, o `needed: false` com o registro apagado, e a\n  sobrevivência do `ebgeo_atlas`. Antes do conserto 2 reprovam\n  (`expected '1.7' to be '2.4'`, `expected true to be false`); depois 4 passam.\n  Controle negativo reproduzido pelo orquestrador: `store.js` revertido ao HEAD\n  por cópia, 2 de 4 reprovam; restaurado, 4 de 4;\n- suíte inteira da `main`: 3 vermelhos em 3.682 antes, 1 depois; o que fica é\n  `secondary-server-notice.test.js`, que o commit anterior deixou afirmando o\n  contrário do config e entra em commit próprio;\n- `npx eslint` nos dois arquivos, saída vazia.\n\nO que não se recupera: quem já passou pela implantação seguinte depois de\nlimpar perdeu os ids velhos, e os blobs órfãos não voltam. O conserto protege\ndaqui para a frente e o rollback.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NjwAjPE3sy6uLaz7BuQYmD",
+      "sha": "2bd89de",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2bd89de22bcc0a7859eadac25e9e960673345147",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T21:16:16.000Z",
