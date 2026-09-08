@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-07T22:40:16.809Z",
+  "lastUpdate": "2026-09-08T14:17:16.390Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-05T16:22:54.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-07T22:25:28.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-08T10:17:28.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-07T22:24:03.000Z",
@@ -112,7 +112,7 @@
     "1cgeo/ia_vegetacao": true
   },
   "stats": {
-    "totalCommits": 6650,
+    "totalCommits": 6652,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -163,13 +163,31 @@
       "1cgeo/github_dashboard": 57,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 151,
-      "1cgeo/chefe_dgeo": 761,
+      "1cgeo/chefe_dgeo": 763,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-08T10:17:28.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-09-08: a conferencia do SAG fecha o exercicio, o credito de publicidade fica fora, e os dois empenhos do evento tecnico entram\n\nRodada de conferencia do modulo orcamento do SAP 3.0 contra o SAG, exercicio\n2026. Nenhuma nota de credito diverge em valor ou data, as oito notas de\nempenho de numero repetido fecham par a par por unidade gestora, e os quinze\nrestos a pagar fecham com delta zero (R$ 184.987,10 nos dois lados).\n\nO chefe recusou a 2026NC402122 (publicidade oficial, R$ 4.000,00) e o empenho\ndela, a 2026NE000270. As duas ficam fora, como a 400522 e a 400659.\n\nEscritas duas notas de empenho: a 2026NE000273 (id 100, R$ 675,00, NC id 115) e\na 2026NE000274 (id 101, R$ 2.499,01, NC id 116), as duas do evento tecnico de\ngeoinformacao em Goiania. O texto do SIAFI da segunda cita a NC errada, e o\nvinculo saiu pela natureza de despesa e pela aritmetica.\n\nProva: corpo montado da fonte por codigo com nove asercoes por documento,\nreleitura no destino campo a campo contra o valor pretendido, sha256 da\nfinalidade nas duas pontas, e recontagem do conjunto. O painel foi de\nempenhado R$ 611.204,28 e saldo R$ 3.596,04 para R$ 614.378,29 e R$ 422,03, ao\ncentavo da previsao escrita antes da escrita.\n\nTres aprendizados atualizados. O que corrige erro: a nota de empenho passou a\nter chave unica em (ug, gestao, ano, numero), e a receita antiga de que rerodar\numa carga duplica ja nao descreve o sistema.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "66bf947",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/66bf94712493afdea3a8a18def3520fc60f33bea",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-07T23:00:48.000Z",
+      "author": "Maj Diniz",
+      "message": "decisao 2026-09-07 (noite): as fotos orfas de quem limpou os dados na main ficam como estao, e a transicao EBGeo 3.0 encerra o dia com tudo empurrado\n\nO chefe decidiu não agir sobre as fotos órfãs (o vínculo foto para feição não é recuperável; as\nopções de devolver os bytes como arquivos, avisar e contar ficam no PROJECT sem prazo). A\ndemonstração ao vivo foi derrubada por PID e o banco descartável dela removido. Os três\nrepositórios (vault, `integracao_backend`, `main`) iguais à origin.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NjwAjPE3sy6uLaz7BuQYmD",
+      "sha": "948a3f4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/948a3f4b11065602ca4593eff8f450302ac22837",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-07T22:25:28.000Z",
