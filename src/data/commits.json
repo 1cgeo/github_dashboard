@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-09T18:25:38.033Z",
+  "lastUpdate": "2026-09-09T22:24:01.534Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-09-01T16:23:22.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-08-25T15:54:19.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-09-09T21:10:39.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -56,7 +56,7 @@
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-09-05T16:22:54.000Z",
+    "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
     "1cgeo/chefe_dgeo": "2026-09-09T10:44:32.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6756,
+    "totalCommits": 6758,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -135,7 +135,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 167,
       "dsgoficial/configuracoes_producao": 205,
-      "dsgoficial/ferramentas_edicao": 480,
+      "dsgoficial/ferramentas_edicao": 481,
       "dsgoficial/DsgTools": 647,
       "dsgoficial/sap": 177,
       "dsgoficial/SAP_Gerente": 120,
@@ -164,7 +164,7 @@
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 151,
+      "1cgeo/autolabeller": 152,
       "1cgeo/chefe_dgeo": 764,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
@@ -173,6 +173,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-09-09T21:40:42.000Z",
+      "author": "Maj Diniz",
+      "message": "io: todo open de texto declara UTF-8, e o setup acha o QGIS que existe na maquina\n\nOs JSON do pipeline sao gravados com `ensure_ascii=False`, de proposito, para o\narquivo ficar legivel. Entao \"Tres Barras\", \"Campo da Agua Verde\" e \"Colonia\nTigre\" viajam como bytes UTF-8, e quem os abria sem `encoding` pegava o default\nda PLATAFORMA, que no Windows e cp1252. Isso estraga de dois jeitos:\n\n- os cinco bytes que o cp1252 nao define (0x81, 0x8D, 0x8F, 0x90, 0x9D) estouram\n  UnicodeDecodeError. Foi o que derrubou o `_extract_metrics.py` numa folha real\n  do 1m Tres Barras e matou a agregacao inteira, sem `results.tsv`: \"Agua\" e\n  U+00C1, que em UTF-8 e `C3 81`;\n- os outros decodificam calados e ERRADOS, que e pior: \"Tres Barras\" vira uma\n  string com um caractere a mais, e texto de rotulo com largura errada nao\n  levanta excecao, so muda o glifo e o score.\n\nNenhum dos dois chegou a corromper score neste repo, porque os dois leitores do\ncaminho quente (`load_features_list` e o `open` do labels.json em `evaluate.py`)\nja passavam encoding. O estrago media era a agregacao e as ferramentas de\ninspecao. Consertadas as 16 chamadas restantes, em 11 arquivos, mais a contagem\nde features em python inline dentro do `run_setup.sh`, que era a que deixava\n\"? features\" no resumo do setup.\n\nA regua e `tests/test_encoding.py`, que varre src/, src_qgis/, tools/ e tests/\ncom `ast` e reprova qualquer `open()` de texto sem `encoding`. No estado\nanterior ela reprova 16 chamadas. Ela tambem se autotesta contra um arquivo\ndegenerado, para nao virar instrumento mudo, e vem com ida e volta de texto\nacentuado pelos leitores de verdade do repo.\n\nJunto, dois tropecos de ambiente que apareceram na mesma rodada:\n\n- `run_setup.sh` fixava o `python-qgis.bat` do QGIS 4.2.0. Nesta maquina o 4.2.0\n  e uma pasta pela metade, sem esse arquivo, e so o 4.2.1 tem a estrutura. Agora\n  o script resolve a instalacao mais nova que de fato tenha o interpretador,\n  aceita `QGIS_PY` do ambiente e para com mensagem clara quando nao acha nenhuma.\n- os tres `.sh` de `src_qgis/` tinham BOM, e o bash reclamava\n  \"#!/bin/bash: No such file or directory\" na linha 1 antes de seguir.\n\nSuite: 220 testes passando (216 antes, mais 4 do arquivo novo).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "1205804",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/12058048bf5e53cb6a6b005040bbd5d817577324",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-09-09T21:10:39.000Z",
+      "author": "Maj Diniz",
+      "message": "grid: o carry do DMS nao troca mais o hemisferio, e a folha para de gerar tick fora da moldura\n\nO `_normalize` somava no grau sem olhar o sinal (`self.degrees += extra_degrees`).\nO sinal do valor mora em `degrees` e a magnitude em `minutes` e `seconds`, entao\no carry tem de andar na direcao da MAGNITUDE: `-25 graus 59' 60\"` e -26, e virava\n-24.\n\nBastava o bbox reprojetado de uma folha cair um fio ao norte do grau inteiro\n(`ymax = -25.999999999999996`) para o `generateMinuteTickOnFrame` receber -24\ncomo fim do intervalo e marchar dois graus para fora da folha. Medido no banco de\nedicao do 1m Tres Barras (1:50.000, oito folhas): a SG-22-Z-A-I-2 gerou 135 ticks\npor borda em vez de 15, e 196 das 816 cruzetas cairam fora das oito molduras, uma\ndelas a 166 km. As outras sete folhas nao disparavam porque o ruido de ponto\nflutuante caiu para o outro lado, o que e a pior forma do defeito: ele escolhe\numa folha do lote.\n\nO ramo de minutos negativos tinha o mesmo erro de direcao (`degrees -=`), entao o\nmetodo passou a normalizar por magnitude total em segundos, com o sinal reaplicado\nno fim.\n\nJunto vai um segundo defeito da mesma familia, achado pelo teste: entre -1 grau e\n0 o sinal se perdia inteiro, porque ele so era marcado no grau e `-0` nao existe.\nAgora o sinal vai na primeira componente nao nula, e a coordenada perto do equador\npara de trocar de hemisferio.\n\nO teste roda sem QGIS e sem banco (`python -m unittest discover -s tests` de\nmodules/gridGenerator). Antes do conserto ele reprova em 8 dos 11 casos, incluindo\no insumo degenerado que veio da folha real.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "c14fae1",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/c14fae104b2fb41d46aaba5bd69c72a23c7f4f3e",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-09T10:44:32.000Z",
