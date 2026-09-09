@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-08T22:29:58.480Z",
+  "lastUpdate": "2026-09-09T14:17:30.535Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -54,15 +54,16 @@
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
-    "1cgeo/github_dashboard": "2026-08-31T11:50:29.000Z",
+    "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-05T16:22:54.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-08T10:17:28.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-09T10:44:32.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-07T22:24:03.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z"
+    "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z",
+    "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -109,10 +110,11 @@
     "1cgeo/chefe_dgeo": true,
     "1cgeo/ebgeo_backend": true,
     "1cgeo/fotos_aereas": false,
-    "1cgeo/ia_vegetacao": true
+    "1cgeo/ia_vegetacao": true,
+    "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6652,
+    "totalCommits": 6756,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -160,16 +162,224 @@
       "1cgeo/ferramentas_ebgeo": 29,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
-      "1cgeo/github_dashboard": 57,
+      "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 151,
-      "1cgeo/chefe_dgeo": 763,
+      "1cgeo/chefe_dgeo": 764,
       "1cgeo/fotos_aereas": 29,
+      "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 26,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-09T10:44:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-09: a reconta do liquidado vira passo da conferencia, passagem e diaria de reuniao saem do PDR, e cinco ponteiros mortos para a casa do ano sao consertados\n\nEscrita no SAP 3.0 nesta sessao (tres decisoes registradas): duas liquidacoes\ncriadas contra a 2026NE000129 (ids 153 e 154, R$ 5.177,02, abertas desde 18 AGO)\ne duas notas de credito reclassificadas para Extra-PDR (ids 109 e 110).\n\nSkills:\n- consultar-orcamento: a reconta do liquidado do exercicio sobe de learnings\n  para PASSO 5 do modo de conferencia, com a familia de seis eventos, e entra\n  na Verificacao. Antes o modo so comparava valor e data do empenho.\n- lancar-orcamento: a letra do historico da DSG e a ALINEA do PDR, e quem\n  classifica e o valor autorizado nela; diaria se classifica pela finalidade.\n\nWiki:\n- sag: a liquidacao do exercicio tem tres eventos (401002, 401020, 401022) e\n  seus estornos, nao um; e o RO foi exercido pela primeira vez.\n- pdr: a regra da alinea, perene, valida para qualquer ano.\n\nPonteiros mortos consertados (o pdr.md e o ncs.md da casa do ano sairam em\n2026-09-05 e nove arquivos ainda os citavam): SKILL de lancar-orcamento,\nciclo-2026/pit.md, ciclo-2026/relatorios-mensais.md, outsourcing-plotter e\nwiki/pdr. As entradas de Decisions ficam como historico.\n\nMemoria: MEMORY.md de 5.973 para 5.420 caracteres (99,5% para 90,3% do teto),\ncomprimindo as linhas do L2 e do EBGeo Web contra a wiki e o projeto, com\nperda zero conferida item a item.\n\nLivro-razao: dois eventos (regua-cega e evidencia-descartada).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VsMrjodDgxEVF7CkS97PSW",
+      "sha": "34b80ed",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/34b80edce3a8152f26f6f428b6fb2115719890b0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T09:31:17.000Z",
+      "author": "Maj Diniz",
+      "message": "release: accept six-flight corpus for normal 0.5.0",
+      "sha": "ea21eca",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/ea21ecac7d071fe49dc105161d4b8afe8d239c32",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T09:02:30.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: record flight 007 acceptance and verified interrupted-output cleanup",
+      "sha": "6c0cd5d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/6c0cd5df8136e505e3fe5af19d5d1085d89cbd70",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T08:34:33.000Z",
+      "author": "Maj Diniz",
+      "message": "test: resume frozen corpus safely after interruption",
+      "sha": "ac6a49d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/ac6a49d8f901dcdb8bd32d40866dbbb17e7ac2ae",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-09-09T08:33:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Inclui l2tools no acompanhamento do dashboard",
+      "sha": "ffa44e1",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/ffa44e1350b5908706db9686d105fd09ccaa338a",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T02:27:46.000Z",
+      "author": "Maj Diniz",
+      "message": "test: compare registration against overlapping flight on identical cells",
+      "sha": "e59ff85",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e59ff85f505b060a4a10e0c998c31bf6b5874d0f",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T02:19:48.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: replace obsolete operational guidance with current policy",
+      "sha": "0bd859c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/0bd859cea5b9db68ecdd2b0e908001e66929849a",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T02:12:13.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: consolidate release acceptance evidence and current usage",
+      "sha": "63ef9e8",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/63ef9e8127548d9a4fa444bc957fb9be24f11571",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T01:46:37.000Z",
+      "author": "Maj Diniz",
+      "message": "Documenta politica atual e automatiza provas da entrega normal",
+      "sha": "93d1ffe",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/93d1ffeeabd960b3b1f76ca7e6b8424043595bd0",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T01:28:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Corrige dominio interno do MDT e prepara validacao integral da 0.5.0",
+      "sha": "612ca45",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/612ca457379aedfa1b4206f768384e68d249defb",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T00:50:07.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: separate maneuver observations and register supported position regimes",
+      "sha": "ae8c2eb",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/ae8c2eb77b396740c79d19ed78b00401c8a702cd",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-09T00:07:50.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: define normal release acceptance on the six-flight corpus",
+      "sha": "1360df8",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/1360df85a3e5495bde029c0f92ff2c6b9460d821",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T23:52:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Document temporal classification counterexamples and raster regressions",
+      "sha": "1c3a548",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/1c3a5480428ea73c2f9c1d97efd1dbd50c4a3252",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T23:32:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit local density counterexamples and isolate release packaging",
+      "sha": "5666e7b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/5666e7b228c4ed08fc113257e0a21222567b991a",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T23:07:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Consolidate processing policy and add mandatory ground disagreement maps",
+      "sha": "c3124d8",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/c3124d8ba4423567d1d584537a3b1f4fa8e41118",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T22:45:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Trace raster changes to point decisions and audit frozen processing integrity",
+      "sha": "fa76f8b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/fa76f8b317f251c038dc7c5f77c0c1221c598cde",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T22:10:16.000Z",
+      "author": "Maj Diniz",
+      "message": "Reject strip corrections with unsupported or degrading spatial validation",
+      "sha": "2e7cfe5",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/2e7cfe594405c67bfc41521efa288db5354b2165",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T21:32:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Withdraw unvalidated sparse-ground option and define geometry-first correction plan",
+      "sha": "3b0c4a7",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/3b0c4a78c1152eaad461249edb54316c16318f3d",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T11:08:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Record verified rc.2 publication and remaining geometric limitations",
+      "sha": "4658116",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/4658116e207a7109936b61db5dbc6d250f62bdca",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T11:04:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Close rc.2 integrated validation, default regression and audited cleanup",
+      "sha": "d3ce364",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/d3ce364f7565ca5365e39ec7176be21025fa92e6",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T10:54:00.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit all six sparse-ground counterfactuals and prove real-cloud color invariance",
+      "sha": "3f53db3",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/3f53db342ff091e144e87dd35a90169c31b54159",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T10:44:35.000Z",
+      "author": "Maj Diniz",
+      "message": "Make photo projection independent of point ordering and document failed integration audit",
+      "sha": "e47e860",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e47e86087d9fe9f713d62d19767cf99f00aa553c",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T10:24:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Add opt-in density-aware sparse ground recovery with temporal anchors and provenance",
+      "sha": "c07493d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/c07493deb6fd7deadc1eb9a6de5877cbbcb57243",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-08T10:17:28.000Z",
@@ -178,6 +388,249 @@
       "sha": "66bf947",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/66bf94712493afdea3a8a18def3520fc60f33bea",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T10:04:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Isolate sparse ground failures in turns and compare guarded recovery prototypes",
+      "sha": "481ae4c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/481ae4ca03faa532e0c50bede8681bf77ffeb8d0",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T09:45:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Record verified rc1 publication and remaining terrain work",
+      "sha": "83ff63d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/83ff63d1babadd1c0d152210001db1b52f50e95a",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T09:43:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit 004 terrain holes and reject unsupported planar recovery",
+      "sha": "178e9f5",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/178e9f5a8943ad2f7c56015993f04dc21af654f2",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T09:31:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Close release evidence with clean-environment reproduction and optional launcher",
+      "sha": "f5beba1",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/f5beba1740036ce7d1d9f9fe9723e2da574d8e53",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T09:22:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Verify packaged 004 pipeline and document isolated runtime corruption",
+      "sha": "a3d24b3",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/a3d24b31aec7e26dd31806feb0dc72b923e7b99f",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T09:00:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Guard RPOS CSV integrity and isolate experimental regime registration",
+      "sha": "610cc6b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/610cc6bca6b7bd3e6d57d928b900210425236bca",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T06:12:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Explain pole classification failures and verify unchanged labels",
+      "sha": "07056a0",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/07056a0b255f8b56a885082a92a14ba9c5800a26",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T05:57:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Preserve exact upstream notice bytes in Git",
+      "sha": "acb248e",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/acb248ef9dd05ea524f716910d8817b7d201f7f2",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T05:56:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Prepare licensed reproducible packaging and protect existing release artifacts",
+      "sha": "97c9715",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/97c9715a54e5c86e7f0a8b13d4a4250ea0001afd",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T05:54:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Trace maneuver contribution to DSM without changing raster values",
+      "sha": "e65ef20",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e65ef20ba552214c9bfbf7546b361a88f06d333b",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T05:39:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Validate symmetric strip registration and audit LAZ reader consistency",
+      "sha": "c810cf9",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/c810cf906d7988dd7454f30441790396b7c64ef7",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T05:34:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Preserve supported high surfaces and require structural evidence for towers",
+      "sha": "5f49576",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/5f49576801c1eb138bf1279211a7972fb6484c83",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T04:58:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit false tower labels and trace canopy loss across overlapping flights",
+      "sha": "bd6ed0a",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/bd6ed0af8d7e6a935fdc0c85fe6d7f5bef8f9f2c",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T04:45:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Stop misdiagnosing Python exceptions as machine failures",
+      "sha": "e1b717b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e1b717bfd91be45873c92d2d21069a9e949b87a4",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T04:24:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Integrate opt-in geometric classification with full LAZ RGB verification",
+      "sha": "636ffc9",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/636ffc9fc878c0a872f979e62c2b5c3c3efc8a68",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T04:05:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Split strips at trajectory jumps and validate relative vertical regime candidate",
+      "sha": "9f2d513",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/9f2d51399358554c2bec56187818a7b6839c268e",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T03:42:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit terrain return policy and validate observable strip registration candidates",
+      "sha": "fa796b3",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/fa796b3649f7bbc153005055f99ca9d620f058e3",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T03:21:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Verify experimental corrected positions in LAZ and preserve trajectory provenance",
+      "sha": "664918d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/664918d171d7375fcb25b1be5504d7bcf8433b38",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T02:57:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Validate roof plane support and classify experimental descriptors per strip",
+      "sha": "318bf07",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/318bf071fab71cc3fcb7775330c53ba32b5e4ab0",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T02:36:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit roof strip geometry and expose opt-in XYZ structure protection",
+      "sha": "bec6f30",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/bec6f30ebd943a9ba889666663d0ae3b0c799fc2",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T02:00:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(georref): align quaternion signs and report datagram continuity",
+      "sha": "6052a30",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/6052a302ccf2e057c3c8a92deec8672ac76cb0e7",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T01:31:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Validate header CRC16 and audit Snappy geometry; prototype semantic classes",
+      "sha": "582e65b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/582e65bf79b80050227dde5d8eac9879968e9025",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T00:59:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(decoder): decompress Snappy PANS and preserve full physical returns",
+      "sha": "53550b6",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/53550b658d73e19cec17060b62a906630f010697",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T00:12:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Conclui ensaios de consenso 004 e 006 e registra efeitos indiretos",
+      "sha": "ccc682c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/ccc682cd6fd3e7fa86c6bdbdcf55b1e192db0786",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-08T00:09:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Isola segundo alcance e audita hipoteses com regressao dos seis voos",
+      "sha": "cf23e27",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/cf23e2785fc45366462964e72b7ac06dc016415b",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T23:15:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Investiga ambiguidade E-S e propagacao no alcance com contraprovas",
+      "sha": "e46dc70",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e46dc70c829acc529daa185511c1d7b6af90dfa1",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T23:04:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Corrige contratos do decoder e preserva ecos com regressao dos seis voos",
+      "sha": "3617f1c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/3617f1c1eb84b41a670352c50982fb69d3a2898d",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -378,6 +831,15 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T15:50:03.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.0: provas do instalado e a reprodutibilidade da limpeza nas notas; medidas do build\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0174C2UpjC5bJntCgSSt6Jcf",
+      "sha": "e628adc",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e628adc6b06da0435a7e6c2004f74759fb622805",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-07T15:28:25.000Z",
       "author": "Maj Diniz",
@@ -385,6 +847,15 @@
       "sha": "2d87aaa",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2d87aaafca9f0ab3015d3ad06ddd4c75924be3d7",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T15:25:19.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.0: notas da versao com os numeros da rodada final (007 e 008 em roseta), achados e coordenacao de 2026-09-07\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0174C2UpjC5bJntCgSSt6Jcf",
+      "sha": "687c47d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/687c47d20a1f6150c31e5cc314ff191324f87cb6",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -441,6 +912,24 @@
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T13:57:30.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.0: regra do k por modo de varredura: a ancora da F2 so na roseta; o repetitivo volta ao calculo da 0.3.0 byte a byte (o AGL 2,8 m mais alto deixava um bloco denso de ruido a 23 a 27 m abaixo do solo dentro da folga no penta, e o MDT ganhava um poco de 29 m)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0174C2UpjC5bJntCgSSt6Jcf",
+      "sha": "c0667cb",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/c0667cbd07307f5fce55154755f1c7b2cc599743",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T12:46:56.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.0: varredura nao repetitiva decodificada (janela de theta e cadeia por modo, byte 20 do cabecalho conferido pelo dado) e ancora do alcance sem circularidade (AGL do pacote pela moda, k por ponto pelo RPOS menos o solo global); pesquisa e provas de 2026-09-07\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0174C2UpjC5bJntCgSSt6Jcf",
+      "sha": "a5de224",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/a5de224d0b42122546dd99d686f52caccc436b47",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-07T03:58:26.000Z",
       "author": "Maj Diniz",
@@ -448,6 +937,150 @@
       "sha": "525122b",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/525122bdc8a32b01588c6ec076b46e7f7e9f3a23",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T03:52:39.000Z",
+      "author": "Maj Diniz",
+      "message": "instalador 0.3.0: LZMA conservador e repeticao da compressao (islzma morreu 3 de 3 na maquina); nota da versao corrigida (o solo baixo a 115 m e do 005, o penta bate com o 80m); provas do instalado 14/14 e 10/10\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "65ae837",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/65ae837900126a82c112a25cb228c1948a51b222",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T03:24:45.000Z",
+      "author": "Maj Diniz",
+      "message": "cancelamento durante etapa com subprocesso devolve 4; provas de bancada do pacote no contrato atual (14/14 etapas, 10/10 codigos)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "d63aae9",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/d63aae91d167caa87c7cca83b27443f60bd8698f",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T03:04:16.000Z",
+      "author": "Maj Diniz",
+      "message": "assinatura da maquina: LazrsError 'ArithmeticDecoder length is zero' na releitura de LAZ integro (penta, colorir)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "cfc572e",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/cfc572eb24a603073eaa21c711a0dc5e43dda799",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T02:57:17.000Z",
+      "author": "Maj Diniz",
+      "message": "classificar so exige o PDAL no caminho do SMRF (maquina sem QGIS derrubava a cadeia depois do CSF); --versao imprime a versao do pacote\n\nPego pela prova de pasta limpa do instalador 0.3.0 (ambiente sem Python, QGIS, PROJ ou GDAL): a etapa classificar chamava exigir_pdal antes de decidir pelo solo do CSF, e o pdal.exe do QGIS no PATH das maquinas de desenvolvimento escondia o defeito.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "117b566",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/117b566cbcfa05e7aef0c9cf7f69a3778b375e49",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T02:44:03.000Z",
+      "author": "Maj Diniz",
+      "message": "README e nota da versao: a recusa da varredura nao repetitiva\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "9a65312",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/9a653128c9a0005035b98a98e31a88062981a8a5",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T02:44:03.000Z",
+      "author": "Maj Diniz",
+      "message": "decodificar: recusa o voo com mais de 5% dos bytes sem explicacao (varredura nao repetitiva), em vez de entregar nuvem 65 m fora do lugar como ok (voo 008)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "f452b5b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/f452b5b23e2ab37ad8df29fe58294e3b1f2da870",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T02:26:45.000Z",
+      "author": "Maj Diniz",
+      "message": "assinatura da maquina: 'values to unpack' (007, tupla fixa desfeita)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "ced661b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/ced661b467d2bb04906ffe9711aaf5a26edfb221",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T02:26:01.000Z",
+      "author": "Maj Diniz",
+      "message": "decodificar: a etapa repete qualquer morte do lote (ele e retomavel e tem o contador por pacote), e o IndexError do laco quente conta como maquina\n\nPenta, lote 10-20: IndexError em unwrap_range linha 361 num pacote que fecha 3 de 3 vezes isolado; a etapa desistia na primeira tentativa por falta de assinatura. Agora so o pacote que falha tres vezes com o mesmo erro e descartado, e a etapa tenta ate 12 vezes com pausa.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "10fcb00",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/10fcb001c2549cb3b51da4b5b788028d3780f7fb",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T02:22:13.000Z",
+      "author": "Maj Diniz",
+      "message": "mitigacao da maquina: a assinatura de corrupcao aceita KeyError e AttributeError com objeto onde devia haver valor, e os outros codigos de morte dura do Windows; guarda do poco no raster com janela de 15 m; nota da versao 0.3.0\n\nO penta final morreu no lote 80-84 com 'KeyError: <method append of list objects>' e o 007 com o codigo 0x80000003 (breakpoint), que a assinatura anterior (so TypeError e 0xC0000005) tratava como defeito de dado. A guarda do poco a 10 m errava por 8 cm um poco na borda da area (a mediana era puxada pelo proprio poco); a 15 m ele vira 4% da janela: 003 com MDT minimo de 560,1 para 563,9 m, pior caso 24 de 24 e 48 de 48, corte de 3 m intocado. A nota da versao declara o solo 2 a 4 m baixo demais a 115 m (defeito do decodificador, 41,9% da area comum com o 80m) como o item aberto que decide o uso na altura normal.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "32ebae4",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/32ebae4debdebc1c8b32deb06fa03e285880697a",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:56:19.000Z",
+      "author": "Maj Diniz",
+      "message": "integracao 0.3.0: config das 14 etapas, relatorio com as reguas, guarda do poco no raster, folga de estrutura no bit 0, cabos e torres protegidos, documentacao e relatorios de implementacao\n\nRodadas de ponta a ponta no 003 e no 80m com verificacao por visao (bancada/vistas_antes_depois.py): 80m com ilegitimos removidos de 93,0% para 96,1% e legitimos mortos de 1,26% para 1,21% pela playback, coluna do nadir de 4.560 para 1.484 pontos acima de 15 m, cabos 5.487 e torres 4.321, MDT minimo de 562,8 para 565,0 m; 003 com picos do MDS acima de 10 m de 261 para 59 celulas e o poco do MDT (560,1 m) fechado pela guarda no raster (mediana de 15 m, 4 m), MDT minimo 563,9 m. Preenchimento do MDT ate 10 m (3 m crivava o terreno de vazio sob copa). A maquina de desenvolvimento e um i9-13900K degradado, e o canario esta em bancada/estresse_maquina.py.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "a869360",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/a8693606ae74bc2f956d686ddbd95acd25ded4cb",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:36:58.000Z",
+      "author": "Maj Diniz",
+      "message": "RBMC: tres degraus de confianca no certificado do IBGE (truststore, certifi, HTTP puro com aviso), porque a raiz da Sectigo falta em maquina Windows nova e a base nao baixava (CERTIFICATE_VERIFY_FAILED, foto do chefe)\n\nProvado: caminho normal 200 pelo repositorio do Windows; verificacao forcada a falhar desce os degraus e baixa por HTTP puro com aviso no log; erro que nao e de verificacao (DNS) sai na hora sem cair para HTTP.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "e7d8e92",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e7d8e9240524e54a5d8f10ce5c43df9afaf2692d",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:36:44.000Z",
+      "author": "Maj Diniz",
+      "message": "MDT e MDS: mediana por passagem e entre passagens, preenchimento com limite e mascara de quatro valores, MDS sem despique, GeoKeys de citacao e unidade, regua de qualidade no resultado\n\nRugosidade p95 sobre chao liso de 0,0867 para 0,0531 m no 80m; o CRS estava certo e o LOCAL_CS era o PROJ_LIB da maquina apontando para o proj.db do PostGIS; picos do MDS contados e nunca despicados (a mediana 5x5 apaga copa fina e nao ve 84% do lixo).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "7a58181",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/7a58181add658c5739b6ebc4e9d076e15f9f2bba",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:36:44.000Z",
+      "author": "Maj Diniz",
+      "message": "etapa faixas: passagens de voo pela trajetoria em point_source_id, listra por par sobre solo liso, plano por faixa aplicado e idempotente\n\n80m: 3 faixas, 21,8% dos pontos em manobra (65535), listra por par de -0,195/-0,143/-0,089 m para -0,063/+0,013/-0,043 m, quatro piores casos aprovados (dz de 1 m recuperado, copa nao desloca, capoeira recusa medir, roll de 1 mrad recuperado).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "ef40679",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/ef406790c54cc3c552010d3e897a7d534bcdcc60",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:36:44.000Z",
+      "author": "Maj Diniz",
+      "message": "limpeza: descarte pelo sinal do decodificador com corroboracao por direcao de raio, ruido baixo antes do solo, CSF no ultimo retorno, below-surface, confianca da coluna, classe 18 e withheld, cabos e torres protegidos\n\nNo 80m: ilegitimos removidos de 93,0% para 96,6% pela regua da playback; a coluna de lixo do nadir cai com a corroboracao por raio (por passagem ela era aprovada em 76%); cabos e torres classificados antes da decisao de ruido alto, com pegada e resgate. O produto sai sem withheld; a nuvem completa em apoio/ guarda o ruido marcado (classes 7 e 18).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "f3620e8",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/f3620e8cae26c7fd51dd04b796338410fa59f02d",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:36:44.000Z",
+      "author": "Maj Diniz",
+      "message": "decodificador: ruido_decoder por ponto, cadeia cortada em 5, faixa da fisica local, scan_angle e gps_time ajustado, sequencia .LDR~1, inventario recusa L3, e a mitigacao da maquina (lote retomavel, repeticao por etapa)\n\nBit 0 (alcance cru fora da janela fisica, com folga de 2 m para estrutura alta): tira 44% dos ilegitimos do 80m matando zero legitimos; bit 3 marca os retornos extras inventados nos voos de retorno unico (0,3 a 0,4% das cadeias). A coloracao preserva cabecalho e dimensoes extras. As mortes por 0xC0000005 sao da maquina (Python puro morre na mesma taxa): lote por pacote retomavel, 12 tentativas com pausa crescente, repeticao no rodar de toda etapa; npz identicos bit a bit.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "862dff7",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/862dff7490b63ca0868c5f0985cf49b8c140864d",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-07T01:36:44.000Z",
+      "author": "Maj Diniz",
+      "message": "pesquisa 2026-09-06 (noite): limpeza, solo, MDT, MDS, decodificador, sensor e LAS, faixas, buscas em russo e mandarim, e o diario da coordenacao\n\nOito frentes com log conferido por amostragem. O lixo e erro de alcance registro a registro sobre o raio do laser; o alcance cru fora da janela fisica separa (lift 11); ruido baixo vem antes do solo; os picos do MDS sao lixo (foto nadiral), nao eucalipto; a listra e de 5 a 31 cm e o modelo e plano por faixa; o poco do MDT e metade real, metade capoeira; varredura nao repetitiva nao decodifica; a corrupcao de memoria e a maquina (i9-13900K).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "d91cdc1",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/d91cdc1c4c5cc9948c9cfb640112de0642731039",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -459,6 +1092,24 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T21:15:48.000Z",
+      "author": "Maj Diniz",
+      "message": "logs/: os diarios de experimento de cada frente entram no repositorio (texto, 0,5 MB), porque a pasta de trabalho local vai ser apagada\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "08c1541",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/08c15412aca26eb6db5a5b8d2a74720090eade23",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T21:07:25.000Z",
+      "author": "Maj Diniz",
+      "message": "0.2.2: cancelar e fechar a janela derrubam a arvore inteira do motor e nao abrem dialogo sem janela (processo fantasma medido pelo chefe); prova com o motor real\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "dd77462",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/dd774621e13bf038e45defff0c966632e17f9b7a",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T21:05:31.000Z",
       "author": "Maj Diniz",
@@ -468,6 +1119,15 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T20:59:39.000Z",
+      "author": "Maj Diniz",
+      "message": "0.2.1: CRX2RNX e ppk.conf no pacote (a base da RBMC abria so com cache, e o PPK era pulado em silencio); prova do pacote exige a linha do PPK\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "0f8be05",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/0f8be053e83062d396ef0c099fb4fb413a4b54ad",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T20:57:12.000Z",
       "author": "Maj Diniz",
@@ -475,6 +1135,33 @@
       "sha": "8585748",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/85857488569b3e5f348a700be2be48c73439870d",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T20:48:13.000Z",
+      "author": "Maj Diniz",
+      "message": "README: instalador pela pagina de releases do GitHub, sem zip portatil; README-dev: como publicar a release\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "f7d00f9",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/f7d00f9c26e90440abd4b523c63eab88380bc64e",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T20:45:18.000Z",
+      "author": "Maj Diniz",
+      "message": "Registros do build e instalador 0.2.0\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "892f40c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/892f40c4cedbff0f841a043ed206038d9d6c6719",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T20:29:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Executavel inteiro (despacho -m, bin/rtklib, figura sem matplotlib), MDT interpolado na area voada, cabos e torres fora do MDS, vistas do 80m por visao\n\n- l2app-cli.exe parava na primeira etapa (nao despachava '-m'), depois nao achava o\n  convbin em bin/rtklib/, depois caia na figura da coloracao sem matplotlib; os tres\n  consertados e a prova de tres pacotes pelo proprio executavel passa (13 etapas)\n- mdt_mds: MDT interpolado dentro da area voada (mascara em apoio/, fracao no\n  relatorio); MDS sem as classes 14 e 15; raio de vizinhanca do PDAL nos rasters\n- fios_torres.py: cabos (14) e torres (15) pela geometria, na limpeza; contagem no\n  relatorio; memoria so com contagens de vizinhos\n- o teto de altura pela playback foi tentado e retirado: a playback da DJI\n  descarta cabo e torre (docs/pesquisa-limpeza.md)\n- docs e READMEs atualizados\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "671585b",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/671585b2b2ba77dd41351d4e364216bd2dcec9b4",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -504,6 +1191,24 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T19:32:02.000Z",
+      "author": "Maj Diniz",
+      "message": "Pasta de saida so com os produtos finais, MDT e MDS em numpy, tela sem 'motor real', tres READMEs\n\n- entrega.py: <rotulo>_nuvem.laz, <rotulo>_mdt/mds_<res>m.tif e <rotulo>_relatorio.md\n  na raiz; log, config, resultado, GNSS, trajetoria e nuvens intermediarias em apoio/\n  (chefe, 2026-09-06: 'sai muito lixo no output'); cache da RBMC ao lado da saida\n- mdt_mds: rasterizacao numpy (nuvem_np com o raio de vizinhanca res*sqrt(2) do\n  PDAL, geotiff proprio), mesma grade, sem PDAL nem GDAL; medida contra o PDAL\n  no penta (MDT RMSE 0,076 m, mesma cobertura); PDAL so com limpeza.motor pdal\n- interface: nada de 'motor real' na tela; so a simulacao se identifica; a prova\n  parte do modo 'sem base' em vez do que o QSettings guardou\n- README.md (usuario), README-avancado.md (CLI e config), README-dev.md (codigo)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "da17ab0",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/da17ab08b919528dc4eebaa535cb13980eafbe5f",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T18:54:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Rodada real inteira pela interface (penta, base RBMC): limpeza sem PDAL no motor, solo final pelo CSF, CSF com uma thread, dialogo coerente com a fonte da posicao, pesos medidos\n\nTres rodadas do voo penta inteiro pela janela em 2026-09-06 (docs/app-ui.md):\n- etapa limpar chama l2motor.nuvem.limpar_np (limpeza.motor np, raio 0,75 m,\n  min_k pela densidade, CSF 1 m); a cadeia PDAL fica como limpeza.motor pdal\n- classificar: o solo final e o do CSF da limpeza; a nuvem limpa, colorida e\n  classificada e um arquivo so, e MDT e MDS saem dela; SMRF so em nuvem bruta\n  (e sem repetir o outlier estatistico do PDAL)\n- CSF com OMP_NUM_THREADS=1: o mesmo dado da o mesmo produto (provado no 80m)\n- dialogo final: o aviso 'sem correcao por base' depende de fonte_posicao;\n  rotulo da etapa fecha em N de N; sobras nao contam o mesmo arquivo duas vezes\n- avisos GNSS sem duplicata no log, stderr do rnx2rtkp so com returncode != 0\n- pesos da barra = segundos medidos na rodada real\n- docs: achados.md (Zenmuse L3 fora do escopo, o que foi medido), CONTRATO,\n  app-motor, app-ui, pesquisa-limpeza, README\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "872e816",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/872e8165c767bb6d12fd0edbe104d4d165e9630b",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T18:39:51.000Z",
       "author": "Maj Diniz",
@@ -522,6 +1227,33 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T17:05:11.000Z",
+      "author": "Maj Diniz",
+      "message": "achados: produtos finais com os parametros da pesquisa; app-ui: confirmacoes\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "12c8890",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/12c88902adda6da0173edfbcad2c9775f28836a8",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T17:03:44.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao: README, CONTRATO, relatorio e diario da mudanca de estrutura\n\n- docs/CONTRATO.md: a tabela de DONOS vira \"o que e cada pasta\", agora que as\n  cinco frentes entregaram, e a \"estrutura alvo\" vira a estrutura de fato.\n- README.md: as pastas novas, como rodar a UI (`python -m l2app`) e o CLI\n  (`python -m l2motor`), e o `preparar_l2.py` como atalho para\n  `python -m l2motor.preparar`.\n- docs/app-motor.md: a arvore de pastas e a secao de migracao, que descrevia\n  trabalho futuro e passaria a mentir. Fica escrito por que NENHUM subprocesso\n  virou funcao nesta passada.\n- docs/migracao.md: o relatorio. Tabela de origem para destino, os imports\n  trocados, as duas colisoes de nome, onde a resolucao de caminho mora agora,\n  e seis pontos em aberto.\n- logs/migracao.md: o diario, com o comando e o numero de cada passo, o estado\n  verde de antes e o de depois lado a lado.\n- o build_ultimo.json e o build_medida.json do build de prova, que saiu com\n  usa_codigo_real=true e entrada em l2app/ e l2motor/.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "4a76d77",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/4a76d772b1465e88c4cbc82cabfafa872c5b5804",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T16:55:37.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao: imports de pacote, um so resolvedor de raiz e subprocesso por -m\n\nSegundo passo da migracao. O primeiro so moveu; este ajusta o conteudo.\n\n- l2motor/raiz.py continua o UNICO resolvedor: RAIZ agora e a raiz do\n  repositorio, MODULOS aponta caminhos de pacote, preparar_sys_path() e\n  script() sairam, e entraram EXECUTAVEIS, modulo_executavel() e\n  ambiente_python(), que poe a raiz no PYTHONPATH do subprocesso.\n- os cinco subprocessos do motor deixam de receber caminho de arquivo e\n  passam a rodar como `python -m l2motor.<subpacote>.<modulo>`:\n  decodificar_lote, preparar, limpar_nuvem, colorir e converter_trajetoria.\n- os sys.path.insert espalhados sairam. Dentro do pacote os imports viraram\n  relativos; na bancada existe um bancada/_raiz.py, o unico lugar de la que\n  sabe onde a raiz fica.\n- l2motor/voos.py: os dois voos de teste deixam de aparecer por extenso no\n  codigo. A pasta sai de L2_VOOS ou da pasta ao lado do repositorio, e o RPOS\n  original do penta, que mora fora, sai de L2_RPOS_PENTA e NUNCA cai em\n  silencio para a copia reescrita.\n- o caminho do QGIS sai de nuvem.py e limpar_nuvem.py: L2APP_QGIS_BIN, o\n  pdal.exe do PATH, ou a instalacao sob ProgramFiles, nessa ordem.\n- spec do PyInstaller e build.ps1 com a tabela de pastas nova; .gitignore\n  seguindo empacotamento/ na raiz.\n- preparar_l2.py da raiz vira um atalho de tres linhas para l2motor.preparar.\n\nProvado: as contagens do voo 80m com max_pacotes=3 e todas as saidas batem\ncom as de antes na unidade, e o MDT e o MDS saem com o mesmo sha256.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "f9f31eb",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/f9f31eba10055e37534402f456ec2a88c27621e6",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-06T16:39:05.000Z",
       "author": "Maj Diniz",
@@ -529,6 +1261,15 @@
       "sha": "f73e48d",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f73e48d3ef30ebd0e657048ad21fd0350ba0191b",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T16:26:55.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao de estrutura: so os git mv, sem editar conteudo\n\nO repositorio vira a aplicacao, na forma que o chefe decidiu em\ndocs/CONTRATO.md. Este commit move e nao edita nada, para o diff do\nproximo ficar legivel.\n\n  app/motor/l2motor/       -> l2motor/\n  app/motor/gnss/          -> l2motor/gnss/\n  ldr/ (decodificador)     -> l2motor/decodificacao/\n  trajetoria/              -> l2motor/trajetoria/\n  georref/ (o do motor)    -> l2motor/georref/\n  pipeline/ (nuvem)        -> l2motor/nuvem/\n  empacotamento/sem_pdal/{nuvem_np,geotiff}.py -> l2motor/nuvem/\n  pipeline/ (gnss)         -> l2motor/gnss/\n  preparar_l2.py           -> l2motor/preparar.py\n  app/ui/l2app/            -> l2app/\n  app/bin/                 -> bin/\n  app/empacotamento/       -> empacotamento/\n  sondas/, provas e prototipos -> bancada/\n  app/CONTRATO.md          -> docs/CONTRATO.md\n\npipeline/ppk.py colidia com o ppk.py da frente GNSS e virou\nl2motor/gnss/ppk_bancada.py. pipeline/ppk.conf era copia byte a byte do\nl2motor/gnss/ppk.conf e saiu.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "1b99adc",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/1b99adcc9ce21fddd0f634ce6d1c23a81192265e",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -558,6 +1299,24 @@
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T16:01:21.000Z",
+      "author": "Maj Diniz",
+      "message": "parametros da pesquisa: raio 0,75 m com min_k por densidade, CSF 1,0 m, MDT por IDW sem janela\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "450b72f",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/450b72f291c2bf43ec2b57d1af7dfdbf36ddeac8",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T16:00:52.000Z",
+      "author": "Maj Diniz",
+      "message": "pesquisa: limpeza, solo, MDT e MDS medidos contra a playback (raio 0,75 m com min_k por densidade, CSF 1,0 m, IDW sem janela, MDS por maximo), licencas e prototipos\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "63d2459",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/63d24590755bf0858ac3908cdb0f530b1a0b2f22",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T15:58:27.000Z",
       "author": "Maj Diniz",
@@ -565,6 +1324,15 @@
       "sha": "c40bc44",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c40bc44ab17f35103eb1e10624c1a3c8d5906ff2",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:57:28.000Z",
+      "author": "Maj Diniz",
+      "message": "limpar_np.py: limpeza sem PDAL em minutos (penta 28 M pontos em 109 s), produto final ldr_rpos_utm_limpa_rgb.laz\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "47a2b94",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/47a2b94b4d29701ee6f60c11338aee65ab579846",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -585,6 +1353,132 @@
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:42:41.000Z",
+      "author": "Maj Diniz",
+      "message": "converter_trajetoria: guarda em todos os usos do IMU ausente; provado em pasta rala sem RTL nem IMU\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "16e4aa9",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/16e4aa96ce034b58f9ef591ab559565eb014f137",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:42:10.000Z",
+      "author": "Maj Diniz",
+      "message": "converter_trajetoria: RTL e IMU opcionais; motor: implicacoes do inventario por tipo ausente, com prova\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "89f6061",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/89f60619b179ec990b78ef89b254784328f8986b",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:38:08.000Z",
+      "author": "Maj Diniz",
+      "message": "app/motor: pacote l2motor (13 etapas, CLI com jsonl, log de erro, relatorio, cancelamento por sinal e stdin), provas nos dois voos\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "7b05cd6",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/7b05cd6ae93ddcf43e66b5ffe5a83d6bba5b3d4a",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:36:52.000Z",
+      "author": "Maj Diniz",
+      "message": "app/empacotamento: PyInstaller one-dir (307 MB), Inno Setup (72 MB), RTKLIB e RNXCMP em app/bin, cadeia sem PDAL (CSF, KD-tree, GeoTIFF) 17x mais rapida, prova em pasta limpa\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "9aa27bb",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/9aa27bbdddde4e228f41f4b681279e214115d1ee",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:30:49.000Z",
+      "author": "Maj Diniz",
+      "message": "app/ui: tela simplificada para o nao especialista (tres escolhas), simbolo da DSG e icones, 62 provas\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "e5497a6",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e5497a6f06dc45956b8e46df204bd3b84b8e473e",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:18:03.000Z",
+      "author": "Maj Diniz",
+      "message": "contrato: simbolo da DSG como identidade definitiva da UI e do executavel\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "0fd70fe",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/0fd70feb8234112278269f78edbaaacfd4f50589",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:15:38.000Z",
+      "author": "Maj Diniz",
+      "message": "app/motor/gnss: RBMC automatica (tabela de 123 estacoes), PPK no RTKLIB e trajetoria corrigida com braco de alavanca medido no MRK\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "22be02f",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/22be02f4a9166fb5fe50b0f9b0f048166b79fdd1",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T15:13:27.000Z",
+      "author": "Maj Diniz",
+      "message": "contrato: UI simples para o nao especialista, CLI completo; DSG.svg como reserva do simbolo\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "6613f9a",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/6613f9acdc90f6ceb1952c5b05b1a22e31064d41",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T14:48:49.000Z",
+      "author": "Maj Diniz",
+      "message": "app/ui: L2 Processador (PySide6, tela unica, QProcess com --jsonl, mock do motor, 56 provas)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "e5327d5",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/e5327d56d7cbca9a0849b228b9243a4484a4f190",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T14:48:10.000Z",
+      "author": "Maj Diniz",
+      "message": "contrato: cancelamento cooperativo tambem pela linha 'cancelar' na entrada padrao\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "fcefa28",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/fcefa28123c088b076095712c753ac88ea98a774",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T14:07:45.000Z",
+      "author": "Maj Diniz",
+      "message": "contrato: estrutura alvo do repositorio como aplicacao (migracao depois das frentes)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "0ef97b0",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/0ef97b070077ab343466a577642c90055ee4c3f4",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T14:06:10.000Z",
+      "author": "Maj Diniz",
+      "message": "contrato: modo CLI obrigatorio (l2app-cli, jsonl, codigos de saida)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "6f1f61d",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/6f1f61d42e1094be58eeebd03bbfe43d0d7d95c4",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T14:03:39.000Z",
+      "author": "Maj Diniz",
+      "message": "app: contrato da aplicacao (interface do motor, config, etapas, donos de pastas)\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "b02fc4c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/b02fc4c18c99ab470bfeeddff011bf10462db402",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T13:53:57.000Z",
+      "author": "Maj Diniz",
+      "message": "limpar_nuvem.py (classe 7, outliers, altura sobre o solo, prova contra a playback); SMRF em ultimo/unico retorno e MDS pelo primeiro retorno\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "c9e0bb4",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/c9e0bb4f309c6dcb9e114cb4cea3f0a570818574",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-06T13:31:27.000Z",
       "author": "Maj Diniz",
@@ -592,6 +1486,24 @@
       "sha": "cd43609",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd43609f4e9464bb074ccbd9eed213c41283d607",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T13:17:21.000Z",
+      "author": "Maj Diniz",
+      "message": "gramatica dos registros de codigo (byte alto = codigo, byte baixo = alcance mod 256) com referencia do mesmo laser; etiqueta de data por voto e ressincronismo de blocos; 7 pacotes do penta recuperados\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "5fa6bc2",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/5fa6bc2d3abb2cab12b71a9104c3249c7ab99b70",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T12:16:32.000Z",
+      "author": "Maj Diniz",
+      "message": "colorizacao por projecao direta (--colorir), refletividade: resultado negativo medido e intensity zerada\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "7bf7127",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/7bf7127a739a4d1a0802fca8c01ca01cf4d8bd4d",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -603,6 +1515,15 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T09:39:40.000Z",
+      "author": "Maj Diniz",
+      "message": "classe 7 pela fisica (faixa do solo global) antes do SMRF; MDT e MDS dos dois voos conferidos contra a playback\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "b075040",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/b0750403d97cf83cb799ab984a6888167b41be4c",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T08:53:52.000Z",
       "author": "Maj Diniz",
@@ -612,6 +1533,15 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T08:53:16.000Z",
+      "author": "Maj Diniz",
+      "message": "preparar_l2.py em fluxo: decodificacao em subprocessos, desdobramento ancorado no solo, familias delta, tempo por bloco; docs e README atualizados\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1EbGdLJ4j7CWcnnKBDJKb",
+      "sha": "f35b95c",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/f35b95ceebb3cc6c446a1b6cb7675435d596cd35",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-06T03:46:52.000Z",
       "author": "Maj Diniz",
@@ -619,6 +1549,15 @@
       "sha": "e532834",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e532834b56c6c72917947584eda994a998f60270",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/l2tools",
+      "date": "2026-09-06T03:43:55.000Z",
+      "author": "Maj Diniz",
+      "message": "l2tools: engenharia reversa do dado bruto do Zenmuse L2 e preparar_l2.py (2026-09-05/06)",
+      "sha": "500c1d0",
+      "htmlUrl": "https://github.com/1cgeo/l2tools/commit/500c1d03e2b171b62a35ccd9dc7272b13c142248",
+      "repoUrl": "https://github.com/1cgeo/l2tools"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
