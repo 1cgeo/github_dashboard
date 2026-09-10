@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-10T18:15:00.202Z",
+  "lastUpdate": "2026-09-10T22:23:21.015Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-09-03T15:53:38.000Z",
+    "dsgoficial/modelagens": "2026-09-10T20:47:50.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-10T16:08:32.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-03T12:21:14.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6761,
+    "totalCommits": 6762,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -133,7 +133,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 167,
+      "dsgoficial/modelagens": 168,
       "dsgoficial/configuracoes_producao": 206,
       "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 647,
@@ -173,6 +173,15 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-10T20:47:50.000Z",
+      "author": "Maj Diniz",
+      "message": "achata Z na escrita, casa rotulo por caixa, destrava o renomeio de classe e desfaz a troca povoado/nucleo\n\nLevando duas folhas de Carta Topografica Vetorial da DSG (Shapefile EDGV\n2.1.3, 0570-1 ABICO e 0094-3 IGARAPE MATIRI, 4.257 feicoes) ate a Topo 1.4,\na cadeia gravou ZERO feicao nas duas, e o que passava depois disso chegava\ncom atributo errado sem ninguem reclamar. Quatro consertos, cada um com o\nteste que REPROVA o estado anterior (test_valores_e_dimensao.py).\n\nESCRITA: Z indo para coluna 2D\n\nO produto vem PointZ/PolylineZ/PolygonZ e nenhuma tabela de dado dos modelos\nEDGV declara coluna 3D (as tres LineStringM do repo estao dentro de uma VIEW\nde auditoria). O destino recusava linha a linha com \"Geometry has Z dimension\nbut column does not\", e as sete classes saiam vazias. O writer passa a ler a\ndimensao declarada em `geometry_columns` e achata SO quando o destino e 2D:\ncoluna 3D, se existir um dia, continua recebendo o Z.\n\nTRADUCAO: rotulo que difere so na CAIXA\n\nA comparacao era `str(a) == str(b)`. O mapeamento copia fielmente o rotulo do\nDDL do modelo (a 2.1.3 grava 'Meandro Abandonado') e o produto entregue\nescreve 'Meandro abandonado': a traducao nao casava, o rotulo cru atravessava\na cadeia e o destino gravava 9999. Passa a comparar sem espaco nas bordas e\nsem caixa. Varridos os 34 arquivos de mapeamento do repo, ZERO dominios tem\ndois rotulos que colidam sob essa normalizacao, entao ela nao funde codigo.\nPega tambem 'Represa/Acude' e 'Nao Identificado'.\n\nRENOMEIO DE CLASSE QUE VIRAVA NO-OP\n\n`mapped` nasce copia da origem inteira, e o guard `attr_destiny not in mapped`\n(herdado do python_caller da era FME) lia isso como \"ja preenchido\". Regra de\nclasse SEM traducao cujo destino tem o nome de uma coluna da origem nunca\ndisparava: `tipotrechomassa -> tipomassadagua` era no-op, e 29 trechos de\nmassa d'agua de uma folha chegaram como 9999 (Desconhecida) em vez de 1\n(Rio). O guard passa a valer so para regra COM traducao, que e onde ele foi\nfeito para valer. Sao 1.074 regras destravadas nos 34 mapeamentos; as 1.081\ncom traducao ficam exatamente como estavam, e ha teste de controle para isso.\n\nJunto com a caixa, `cobter_massa_dagua_a` saiu de 41 de 68 poligonos em 9999\npara NENHUM: 28 Rio, 27 Lago, 12 Meandro, 1 Represa.\n\nMAPEAMENTO 2.1.3 -> 3.0: povoado e nucleo trocados\n\nA 2.1.3 tem `tipoaglomrurisol` 5 Povoado e 6 Nucleo; a 3.0 tem\n`tipo_localidade` 1 Nucleo e 2 Povoado. A traducao declarava 5=>1 e 6=>2, ou\nseja, trocava um pelo outro. A perna seguinte, 3.0 para Topo 1.4, esta certa\ne propagava a troca. As vizinhas do mesmo arquivo estao corretas (loc_cidade\ncrava 5, loc_vila crava 6), o que aponta escorregao numa entrada so. Sem\n`sentido` declarado, a bijecao estava errada nos dois sentidos.\n\nDRY-RUN COM ORIGEM SHAPEFILE\n\n`_origem_shapefile` contava com `import fiona` dentro de um `except Exception`\ngenerico. O geopandas 1.x usa pyogrio e o fiona pode nao estar instalado: o\nImportError era engolido e TODO dry-run de origem shapefile respondia\n\"~? feicoes\". Tenta pyogrio antes, e aproveita o cabecalho para avisar quais\ncamadas vem em 3D. Isso conserta test_dry_run_descreve_o_plano_e_nao_escreve_nada,\nque ja falhava antes destas mudancas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019n1SecLpkYenFfycx2Gob5",
+      "sha": "621d2fd",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/621d2fdb2ea81a54ef035e88754cfb2850936aa9",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "dsgoficial/configuracoes_producao",
       "date": "2026-09-10T16:08:32.000Z",
