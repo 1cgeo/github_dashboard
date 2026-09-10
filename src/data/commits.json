@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-09T22:24:01.534Z",
+  "lastUpdate": "2026-09-10T14:11:13.007Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-09-01T16:23:22.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-09-09T21:10:39.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-09-10T11:40:06.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-07-12T21:18:50.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-09T10:44:32.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-10T10:13:43.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-07T22:24:03.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6758,
+    "totalCommits": 6760,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -135,7 +135,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 167,
       "dsgoficial/configuracoes_producao": 205,
-      "dsgoficial/ferramentas_edicao": 481,
+      "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 647,
       "dsgoficial/sap": 177,
       "dsgoficial/SAP_Gerente": 120,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 764,
+      "1cgeo/chefe_dgeo": 765,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 26,
@@ -173,6 +173,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-09-10T11:40:06.000Z",
+      "author": "Maj Diniz",
+      "message": "cli: o portao de frescor mede o relogio do destino, e para de reprovar o lote gravado em share\n\nO export confere no disco se cada folha saiu, comparando o st_mtime do arquivo\ncom o instante de inicio. O st_mtime vem do relogio de quem HOSPEDA o arquivo,\ne o inicio vinha de time.time() desta maquina: duas bases de tempo diferentes\nsempre que a saida e um share de rede.\n\nNo share de producao da DGEO a defasagem medida foi de 204,5 s (arquivo escrito\nas 07:58:10 locais nasce com mtime 07:54:45). Todo arquivo recem-escrito la\nnasce mais velho que o inicio, e o lote inteiro sai como\n\n  [falhou] 2854-2.json nao gerou: Carta_Topografica_2854-2.pdf\n  0/1 folha(s) exportada(s)\n\ncom o PDF de 25 MB pronto no disco e o log do plugin dizendo \"1/1 produto(s)\ncom sucesso\". Falso negativo do portao, em qualquer lote gravado em share.\n\nO conserto poe as duas medidas na mesma base: um marcador escrito e lido NA\nPROPRIA PASTA DE SAIDA da o instante de inicio no relogio do destino, seja ele\nlocal ou remoto. Pasta que recusa o marcador cai no relogio local, que e o\ncomportamento antigo.\n\nRegressao em tests/test_carta.py, com o pior caso construido (relogio local\n205 s adiantado) e o controle explicito de que a referencia antiga reprova o\nmesmo arquivo. Revertendo so o conserto, 2 dos 44 testes falham, um deles com\n\"arquivo recem-escrito reprovado\".\n\nProvado tambem no share real: o mesmo comando que dizia [falhou] agora diz\n[ok] 1/1 folha(s) exportada(s).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NdeNd6D2B81H8xfwydTLXL",
+      "sha": "ee6d2b7",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/ee6d2b7603d2426d58f366cf60a570c32989d69e",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-10T10:13:43.000Z",
+      "author": "Maj Diniz",
+      "message": "aprendizados 2026-09-09: a prova campo a campo do passthrough sai dos pontos, o carry do DMS trocava o hemisferio, e o contrato do processing se le do registry\n\nconverter-modelagens, tres achados da conversao do 1m Tres Barras para edicao:\n\n- A prova campo a campo do passthrough sai das classes de PONTO, porque o `id`\n  chega inteiro no destino, e as duas colunas que divergem em 100% das linhas\n  sao de AUDITORIA, carimbadas pelo trigger no INSERT.\n- A checagem de \"ficou algo fora da moldura\" tem de ser rodada na ORIGEM antes\n  de comemorar o zero no destino, senao um instrumento mudo daria o mesmo zero.\n- Extracao e edicao podem estar em revisoes diferentes do mesmo modelo (aqui\n  Topo 1.4.5 contra 1.4.6) e o passthrough nao reclama: o destino fica com uma\n  classe que a origem nao tem como alimentar.\n\nexportar-carta, o que a bateria de processings de edicao ensinou:\n\n- Duas versoes do plugin convivem na maquina, uma por PERFIL, e a do perfil\n  QGIS3 (1.3.33, com PyQt5) nao carrega no QGIS 4.\n- O contrato do algoritmo se le do REGISTRY, nunca de um grep: foi assim que\n  apareceu o `ONLU_SELECTED` e as mudancas de parametro entre 1.3.33 e 2.1.5.\n- O `.bat` do ambiente copia o `python-qgis.bat`, e limpar o PYTHONPATH mata o\n  `import qgis`.\n- A prova do grid ganhou um segundo eixo, a contencao na moldura por\n  `tipo_grid`. Foi ele que pegou 196 cruzetas fora das molduras, uma a 166 km,\n  e a causa era o carry de minutos do `_normalize` somando rumo ao zero num\n  grau negativo. Consertado no commit c14fae10 da branch qgis4 do\n  dsgoficial/ferramentas_edicao, com regressao que reprova 8 dos 11 casos na\n  versao velha.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017YEbfn6QAf5iwLFAHZS5oe",
+      "sha": "670705c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/670705ca6b1fd21c6fe25f5413e762ea995370d7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/autolabeller",
       "date": "2026-09-09T21:40:42.000Z",
