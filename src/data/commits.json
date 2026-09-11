@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-10T22:23:21.015Z",
+  "lastUpdate": "2026-09-11T14:10:23.054Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-10T10:13:43.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-11T10:50:37.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-07T22:24:03.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6762,
+    "totalCommits": 6765,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 765,
+      "1cgeo/chefe_dgeo": 768,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 26,
@@ -173,6 +173,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-11T10:50:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-11 (cont. 1): condicionar o filtro do GabDEM por declividade e atenuar, nao desligar, e o alfa otimo desenha um U\n\nMedido a pedido do chefe, sobre as mesmas 174 folhas e o cache da referencia.\n\n- Escrevendo o resultado como alfa*variante + (1-alfa)*v1, o alfa que minimiza\n  o erro tem forma fechada. Por faixa de declividade da propria v1 ele da um U:\n  cheio abaixo de 1 grau, cerca de 0,5 entre 1 e 10, 0,6 a 0,85 entre 10 e 20, e\n  cheio acima de 20. Repete-se nas duas variantes.\n- Contra o teto de 146 Mm2 (oraculo de celula), desligar por declividade\n  recupera 1%, por concavidade 0%, pelos dois 2%, e atenuar por alfa 17%, que\n  valem 8 cm de RMSE agregado na B e 5 cm na C.\n- A concavidade so separa entre 10 e 20 graus, e o decil concavo calculado no\n  proprio MDT so coincide com o da referencia em 34,9% na janela 3x3, 67,6% na\n  9x9 e 89,1% na 41x41: se entrar na regra, tem de vir de janela grande.\n- 83% do teto fica fora do alcance de qualquer regra por declividade e\n  concavidade. O condicionamento melhora a margem; quem muda o patamar e o\n  operador assimetrico.\n- Learnings partido ganhou a secao de condicionamento, e tres edge cases\n  desceram para a camada de detalhe.\n\nArtefato: https://claude.ai/code/artifact/d75da027-6c18-42a6-a60e-a580762a7512\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "13e547c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/13e547c30e0f235a02133c6cd0b5edfa358bd26d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-11T10:06:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-11: a liquidacao de 09 SET dos Correios entra, o reforco do SIAFI explica os cinco centavos que ontem viraram causa inventada, e as duas UG do 1 CGEO sao duas UASG ativas\n\nConferencia de rotina contra o SAG (exercicio 2026, banco 3.13.0) mais o\nlancamento que ela achou, e a correcao de um diagnostico de ontem.\n\n- Escrita no SAP 3.0: liquidacao id 156, R$ 1.288,84, 09 SET, documento\n  2026NS000862, contra a 2026NE000125 (id 64). Reconta do exercicio fecha em\n  R$ 526.226,47 nos dois lados; RPNP em delta zero, R$ 184.987,10.\n- Correcao: os R$ 0,05 da 2026NE000010 eram REFORCO de 09 SET (2026RO000015),\n  nao item mal lido no cadastro de 20 AGO. A irma 2026NE000012 prova, porque o\n  valor dela mudou de R$ 1.999,40 para R$ 2.000,00 entre duas rodadas, com o\n  2026RO000014 de R$ 0,60 no meio. Novo passo 7 da conferencia: ler a tela `ro`.\n- Medida a pedido do chefe: 160382 e 167382 sao duas UASG ativas, de orgaos\n  diferentes (Comando do Exercito e Fundo do Exercito, CNPJ distintos). Corrige\n  processos-administrativos, dados-abertos-compras e sag.\n- Retrospectiva: MEMORY.md de 5.052 para 4.817 caracteres, com o processador\n  degradado movido para ti-infraestrutura; tres learnings atualizados; livro-razao\n  com o evento diagnostico-raso; marcador do PDR 2025 agora carrega a medida do\n  SAP 3.0 e diz por que ela nao fecha a contradicao.\n\nEste commit carrega tambem as quatro linhas de indice e as entradas de 2026-09-10\nque estavam no working tree sem commit, de outra sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016uhpemxNcZXLtdwqB85D4N",
+      "sha": "8a8851d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8a8851dcb3519d1d3766449e8a47131689b63019",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-11T09:27:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-11: as variantes B e C do GabDEM enterram a versao 1, o veredito vira por camada, e estrato tirado da referencia contamina o nivel\n\nSete produtos sobre as mesmas 174 folhas do Convenio RS, pelo mesmo\ninstrumento de 2026-09-03, com afericao de 8 mm contra a RT 11/2026.\n\n- B e C consertaram o pico (1.082 celulas anomalas para 52) e o excesso de\n  anel (2,09 para 0,79, alvo 1,0), ao preco de suavizacao que cobra no\n  talvegue. Em cota as duas empatam (p = 0,07).\n- O veredito e por CAMADA: curva de nivel pede a C, ponto cotado pede a B, e\n  com um produto so para a folha inteira a escolha e B.\n- Regra de metodo nova: estratificador tirado da referencia contamina o NIVEL\n  da metrica, e o sinal e o vies comum a todos os candidatos. Alargar a janela\n  do TPI de 3 para 21 celulas derruba o vies de quem nao tem relacao com a\n  cadeia; so a diferenca entre versoes sobrevive.\n- O learnings de avaliar-mdt passou de 16,7 KB e foi partido em camada quente\n  (10,3 KB) e references/learnings-detalhado.md (7,9 KB).\n- MEMORY.md consolidado de 90,3% para 84,2% do teto.\n\nArtefato: https://claude.ai/code/artifact/2f4bc8c5-72fe-452d-970d-66e85b0334e5\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V9zTm57dGMENzGGhWVZ6BQ",
+      "sha": "76c6cbe",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/76c6cbe1d74248246bf7c3f4c92378c8dac15514",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/modelagens",
       "date": "2026-09-10T20:47:50.000Z",
