@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-11T14:10:23.054Z",
+  "lastUpdate": "2026-09-11T18:18:49.065Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-09-05T12:50:15.000Z",
+    "1cgeo/controle_acervo": "2026-09-11T18:01:58.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6765,
+    "totalCommits": 6768,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -143,7 +143,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 351,
+      "1cgeo/controle_acervo": 354,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -173,6 +173,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-11T18:01:58.000Z",
+      "author": "Maj Diniz",
+      "message": "conserta o import que o build reprovou no editor de geometria\n\nO LIMITES_MAPA entrou no import errado. O editor de geometria importa de DOIS\nmodulos cujo caminho contem \"base\" -- `@components/modal/modal-base.js` e\n`./base.js` -- e a edicao em lote casou o primeiro.\n\nO resultado derrubou o SAP em producao: o `start_docker.sh` faz `docker stop`,\n`rm` e `rmi` ANTES de construir, entao a construcao reprovada deixou o servico\nsem imagem para subir.\n\nO QUE PEGOU, E O QUE NAO PEGOU. A suite do cliente passou em 2.216 de 2.216:\no editor de geometria nao tem teste que o importe, e um import quebrado so\naparece para quem resolve o modulo. Quem pegou foi o `npm run build`, que faz\nanalise estatica de TODOS os modulos. Rodar a suite nao substitui rodar o\nbuild, e dai em diante o build entra antes de empurrar mudanca de cliente.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Gmq6oxvE6nujmTVL7U9mB5",
+      "sha": "e45c341",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e45c341656d7868d9e6801b63c6fac839e5128cc",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-11T17:58:03.000Z",
+      "author": "Maj Diniz",
+      "message": "o mapa se identifica para a OSM, e para de pedir o mundo\n\nAs seis telas do SAP que tem mapa passaram a mostrar o tile de \"Access\nblocked\", 403, no lugar do fundo. A causa era NOSSA, e nao o proxy da rede\nnem a OpenStreetMap ter bloqueado o IP.\n\nA POLITICA DE USO DELES (osm.wiki/Blocked) lista os motivos de bloqueio, e o\nSAP dava causa a tres.\n\n1. MISIDENTIFICATION, que e a causa principal. O helmet() poe\n   `Referrer-Policy: no-referrer` por PADRAO, e o app.js so sobrescrevia CSP,\n   COOP e Origin-Agent-Cluster. Com isso o navegador apagava o Referer de todo\n   pedido que saisse das nossas paginas, inclusive dos tiles, e a frase da\n   politica e literal: \"all tile requests must be identifiable to a particular\n   website or application. For websites, Referer is required\". Ninguem\n   escolheu esse cabecalho: ele veio de brinde.\n\n   Passa a `strict-origin-when-cross-origin`, que e o padrao dos navegadores e\n   o minimo que identifica: manda so a ORIGEM, sem caminho e sem query. O\n   token da tile MVT vive na query, entao ele nao vaza.\n\n2. RATE-LIMITING. A fonte nao declarava `maxzoom`, entao o MapLibre assumia 22\n   e pedia z20, z21 e z22, que a OSM nao serve e tem de recusar um a um. Passa\n   a declarar 19, que e ate onde eles servem, e o MapLibre AMPLIA o tile do 19\n   em vez de pedir o que nao ha.\n\n3. SCRAPING. Os mapas nasciam sem `minZoom`, sem `maxBounds` e com o globo\n   repetido na horizontal: numa tela larga, afastar o zoom pedia varias copias\n   do planeta inteiro. Entra um `LIMITES_MAPA` unico no base.js, que os SETE\n   mapas da casa espalham no construtor. A caixa e a AMERICA DO SUL, e nao o\n   Brasil, porque precisa conter o bloco W058N06 do MGCP.\n\nPOR QUE FUNCIONAVA ANTES. Os mapas sao novos: entraram entre 28 JUL e 09 AGO\nde 2026, seis telas em duas semanas, e a Divisao inteira sai por um IP so. O\nbloqueio nao veio de um commit, veio do acumulo.\n\nAS REGUAS. No servidor, a do Referer foi provada contra o pior caso ANTES de\nvaler: com o `referrerPolicy` removido, isto e, com o `no-referrer` de volta,\nos dois testes centrais FALHAM. No cliente, 15 testes sobre a configuracao,\nentre eles uma varredura que conta os sete mapas e cobra que cada um herde os\nlimites, com o numero sete verificado para a regua nao passar por omissao.\n\nDE QUEBRA, a rede de rastreabilidade volta ao verde. O commit 615208c\nacrescentou `PUT /metas/grupos/:ano/:numeroMeta` e nao a declarou em\nusuario_cadastro.test.js, que cobra agregado de auditoria para toda rota de\nescrita: a suite ficou vermelha no master desde entao, porque antes de\nempurrar so rodei as suites do PIT. A rota entra na lista com o agregado dela.\n\nSuite do cliente em 2.216 de 2.216. No servidor, 5.037 de 5.038: a que sobra\ne `schemas/campo`, que estoura a pilha num regex do Joi sobre uma string de\n56 MiB, so com a suite inteira, e passa isolada. E anterior e de outra\nnatureza.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Gmq6oxvE6nujmTVL7U9mB5",
+      "sha": "b4b1b48",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b4b1b48132c97a82ea09dd41c45be8770135f93b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-11T15:39:20.000Z",
+      "author": "Maj Diniz",
+      "message": "renomear a meta do PIT: o ato proprio que o resolverMeta prometia\n\nO nome do GRUPO (\"Meta 5 - Servicos de Capacitacao em Geoinformacao e Apoio\nde Levantamento Topografico\") so era gravado na criacao. O resolverMeta\ndevolve o grupo existente sem sobrescrever, de proposito, para que a ultima\nlinha digitada nao mande no nome do bloco inteiro, e o comentario dele\nprometia um \"ato proprio\" que nunca foi construido: nao havia UPDATE em\npit.meta em rota nenhuma.\n\nE o nome MUDA. O PIT 2026 R2, assinado em 8 SET 2026, rebatizou a Meta 5 de\n\"Servicos de Capacitacao em Geoinformacao...\" para \"Servicos de Estagio em\nGeoinformacao...\", com os mesmos itens embaixo. O nome do grupo sai impresso\nno RPCMTec, entao o relatorio assinado levava o que a primeira carga\nescreveu, sem porta nenhuma para consertar.\n\nO comentario do DDL dizia \"revisao nenhuma o altera\", e isso era premissa e\nnao medida. Corrigido junto.\n\nPUT /api/metas/grupos/:ano/:numeroMeta, administrador global, corpo\n{nome, motivo}.\n\n- NAO e ato de revisao, e por isso nao exige revisao aberta: o grupo nao\n  promete nada, entao nao ha o que declarar. O nome e IDENTIDADE, como ano,\n  numero e item, e identidade se corrige por ato proprio.\n- EXIGE MOTIVO, pela mesma razao da correcao de transcricao: separa \"a DSG\n  renomeou\" de \"digitei errado\", e e o que sobra na auditoria.\n- O grupo se endereca por ANO e NUMERO, como o documento o apresenta, e nao\n  pelo id da linha. E o par que a UNIQUE do banco garante.\n- Declarada antes de '/:id', como '/anos' e '/exercicios', senao 'grupos'\n  cairia na rota do id.\n\nNo pit_cli vira `producao meta renomear --ano 2026 --numero-meta 5`. O\ncontrato sai do Joi vivo, sem catalogo copiado.\n\nOs 11 testes de banco cobrem primeiro o que a rota existe para RECUSAR\n(grupo inexistente, sem motivo, motivo curto, nome so de espaco, chave\ndesconhecida no corpo estrito, nao-administrador, exercicio encerrado), e em\ntodos conferem que o nome NAO mudou. Depois o caminho feliz e o que ele nao\npode arrastar: o grupo vizinho e os itens do proprio grupo ficam intactos.\nEssa regua foi provada contra o pior caso antes de valer, com um UPDATE que\ncasava por `ano` em vez de `id`: ela reprova. Fecha com a regressao que a\nporta nova poderia abrir, que e o resolverMeta voltar a sobrescrever.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Gmq6oxvE6nujmTVL7U9mB5",
+      "sha": "615208c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/615208cf17fb9c5c5adfa194516285bb3501c1ea",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-11T10:50:37.000Z",
