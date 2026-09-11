@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-11T18:18:49.065Z",
+  "lastUpdate": "2026-09-11T22:22:48.291Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-07T20:07:10.000Z",
+    "1cgeo/ebgeo_web": "2026-09-11T21:40:42.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-09-11T18:01:58.000Z",
+    "1cgeo/controle_acervo": "2026-09-11T19:21:03.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-08-20T18:22:11.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-09-11T19:32:46.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-11T10:50:37.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-11T21:43:50.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-07T22:24:03.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6768,
+    "totalCommits": 6774,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1319,
+      "1cgeo/ebgeo_web": 1320,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -143,7 +143,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 354,
+      "1cgeo/controle_acervo": 355,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -153,7 +153,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 387,
+      "dsgoficial/pytorch_segmentation_models_trainer": 388,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 768,
+      "1cgeo/chefe_dgeo": 771,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 26,
@@ -173,6 +173,60 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-11T21:43:50.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo web: o LOS e o viewshed atacados, a linha 3D construida e reprovada por gosto, e a copia local estava 28 commits atras\n\nDuas entradas na Decisions de 2026-09-11.\n\nA cont. 9 registra o trabalho nas duas ferramentas de analise de terreno (arraste\ndesligado, nos editaveis, alturas ate 200 m, PNG do perfil em 2400 x 1350, o\nrendimento cronometrado da varredura e a fusao radial das celulas) e, no centro\ndela, a variante que FALHOU: o LOS desenhado como raio 3D de verdade, por camada\ncustom com renderingMode 3d. Ela foi construida, vista funcionar contra o terreno\nde producao, e removida a pedido do chefe por GOSTO, e nao por defeito\n(\"funcionou perfeitamente, eu so nao gostei\"). Nao havia numero contra a variante,\ne inventar um seria pior do que registrar o julgamento pelo que ele e.\n\nA cont. 10 registra o achado que parou a medicao de desempenho antes que ela\nacontecesse: a copia local estava 28 commits atras, na MapLibre 5.18.0\nvendorizada, enquanto a main esta na 6.7.0 pelo npm desde 2026-09-04. O primeiro\nsuspeito e o instrumento, e desta vez o instrumento era o checkout inteiro. Depois\nda atualizacao, a bancada da casa mostrou que o engasgo com terreno ja estava\nconsertado: 5,0 ms parado e 60 fps em todos os gestos, contra os 27 ms da\nreferencia.\n\nNa wiki, o mecanismo durou mais que a variante: a secao de drapejamento de\nebgeo-web guarda a lista fechada de tipos que o MapLibre drapeja, por que a\ncamada custom escapa dela, por que o terreno a oclui de graca e o que ela cobra em\ntroca. A secao leva marcador de contradicao, porque foi lida da 5.18.0 e a main\nesta na 6.7.0, onde o caminho de render-to-texture mudou.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "fc2cb09",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fc2cb09535d48e9ad1141111be0a3d911d256808",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-11T21:43:28.000Z",
+      "author": "Maj Diniz",
+      "message": "copa feminina e mapoteca: o rabo da sessao de 2026-09-10 que ficou sem commit\n\nAs duas entradas da Decisions daquele dia (cont. 1 e cont. 2) ja estavam\nversionadas, e estes dois arquivos, que elas referenciam, nao. O PROJECT.md\nregistra a atributacao do 1x fechada e a edificacao da 10k decidida como so area,\ne o learnings.md recebe o ajuste da skill.\n\nCommit separado de proposito: nao e trabalho desta sessao, e pode ser descartado\nsozinho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "42ce6ad",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/42ce6ad51165ca581027f61f2e6d1bdfb5a198a7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-11T21:40:42.000Z",
+      "author": "Maj Diniz",
+      "message": "analise de terreno: LOS e viewshed deixam de arrastar e ganham nos editaveis, a varredura rende por tempo e as celulas se fundem por raio\n\nArrastar a feicao transladava a geometria sem reler o terreno debaixo dela, entao\nentre a solta e o fim do recalculo a tela mostrava o resultado antigo na posicao\nnova. `canMove` devolve falso nas duas, e com isso saiu o encanamento de\nmovimento que ficou inalcancavel (um dos metodos, `recalculateLOSAfterMove`, ja\nchamava dois metodos que nao existem no arquivo).\n\nQuem move a analise agora sao os nos. O LOS ganhou observador e alvo, com fonte e\ncamada `los-edit-handles`, preview por scheduler e recalculo na solta. O no\ncentral do viewshed existia decorativo (`user_isEditingHandle` falso e\n`updateFromHandle` devolvendo nulo para `center`) e passou a mover o observador.\n\nDesempenho, medido na bancada com dado de producao, RTX A2000, caso populado:\n\n- O preview das duas ja estava em 4,8 ms por quadro, com 1 setData e 1 snap por\n  quadro, e nao tinha o que ganhar.\n- A varredura do viewshed custa 8 a 23 ms, mas o `await nextPaint()` a cada 5\n  raios custava 957 ms de um total de 979 (abertura 359). Rende por TEMPO\n  decorrido agora, com orcamento de 60 ms.\n- Fusao radial das celulas: consecutivas do mesmo raio com a mesma visibilidade\n  viram uma cunha so, o que e exato e nao aproximado. Concluir um viewshed caiu\n  de 84,8 para 29,4 ms de latencia, o store de 367,8 para 146,0 ms, as features\n  processadas de 581,9 para 189,2 ms, e os quadros acima de 33 ms de 6 para zero.\n- O `cellData` ia inteiro para as duas metades processadas pelo espalhamento de\n  propriedades, 196 KB copiados duas vezes por viewshed, no source e no\n  IndexedDB, e saiu.\n\nTambem: alturas de observador e alvo ate 200 m nas duas; o PNG do perfil passa a\nser re-renderizado fora da tela em 2400 x 1350, porque copiar os pixels do painel\nde 450 px entregava imagem grossa demais para relatorio; e o\n`dissolveVisibilityCells`, que era um `return cells` com nome de dissolve, saiu.\n\nO estilingue de `drag-flush-analysis` disparou como o comentario dele previa (\"the\nday the LOS grows a handle drag, this test fails\") e foi reescrito para cobrar o\n`flush()` no fim do arrasto, em vez de cobrar a ausencia do arrasto.\n\n18 provas novas em `los-handles` e `visibility-viewshed-custo`, todas conferidas\nreprovando o codigo anterior. A fusao e coberta pelo pior caso que ela existe para\nnao estragar, a alternancia celula a celula, onde nao pode inventar ganho.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "8b61111",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b611113aa73c3faedc967ccf77132604255ea8d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-11T19:32:46.000Z",
+      "author": "Maj Borba",
+      "message": "feat: add SLICO label correction, extract shared region-correction core\n\nSLICO (zero-parameter SLIC superpixels) as a region-generation ablation of\nSAM label correction, for the ISPRS review's region-vs-SAM comparison\n(descricao_experimento_slico.md in the article repo). Stages 2/3 (majority\nvote, per-class eligibility) are shared byte-identical with SAM via a new\napply_region_correction core; only stage 1 (region partition) differs.\n\n- tools/region_correction/: apply_region_correction (accepts SAM-style\n  overlapping mask lists via the existing loop path, or a dense SLIC-style\n  label map via a new vectorized path — a non-overlapping partition needs\n  no per-region ordering), parse_correction_targets, chunk_cache_key.\n  SegmentListCache (renamed SAMSegmentCache, same format) + new\n  LabelMapCache (one dense array per chunk instead of one array per region\n  — matters at SLICO's scale of ~1000+ segments/chunk vs SAM's dozens).\n- tools/slico_correction/: SLICOLabelCorrectionConfig, SlicoLabelCorrector.\n  n_segments (default 1000/256x256 patch) is a density anchor scaled to the\n  actual chunk area, so granularity stays constant regardless of\n  chunk_size — deliberately independent of SAM's per-patch mask count\n  (avoids coupling the two region generators at runtime). Optional\n  match_sam_cache_dir for secondary granularity-matched sensitivity\n  analysis only.\n- New CLI command build-slico-corrected-masks, alongside\n  build-sam-corrected-masks.\n- tools/sam_correction/: apply_sam_correction and SAMSegmentCache keep\n  their public names/signatures/behavior, now delegating to the shared\n  core. No behavior change — existing tests pass unmodified.\n- Tests: tests/test_region_correction.py, tests/test_slico_label_corrector.py,\n  100% coverage on all four touched/new modules. Full suite: 3626 passed,\n  5 pre-existing failures unrelated to this change (missing optional\n  `transformers` dep, same root cause as the already-ignored\n  test_embedding_extractor.py).\n- Docs: website/docs/user-guide/slico-label-correction.md (new),\n  cross-linked from sam-label-correction.md and coreset-selection.md.\n  conf/examples/slico_label_correction.yaml. CHANGELOG.md Unreleased.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XJda2EqTkSzs1NNFtmr94q",
+      "sha": "7fe22ad",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/7fe22ad9cde83d0ed7a4376d0f94e4484332d2c3",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-11T19:32:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-11 (cont. 2): o PIT 2026 R2 assinado chega com doze mudancas, o mapa do SAP cai pelo Referer que o helmet apagava, e o RTM ganha duas abas\n\nO PIT 2026 R2 (8 SET 2026) chegou e trouxe DOZE mudancas em cinco metas, e nao\nso os tres itens da Meta 1 que a DSG havia comunicado. Transcricao verbatim\nnova em 03-Resources/pit/, e o pit.md do ciclo reescrito para as TRES revisoes.\nDecisao do chefe: o item 1.8 fica em 1 contra as 4 do documento, e a\ndivergencia fica escrita.\n\nO MAPA DO SAP, e o diagnostico que eu errei antes de acertar. As seis telas com\nmapa mostravam o tile de \"Access blocked\", 403. Afirmei que era o proxy Squid da\nrede, com base em curl de UM tile; o chefe insistiu que era do SAP, e era: o\n`Referrer-Policy: no-referrer` que o helmet poe por PADRAO apagava o Referer de\ntodo pedido, e a politica da OSM cobra identificacao. Bloqueio por politica mede\nCOMPORTAMENTO ao longo do tempo, e pedido solto nao o reproduz.\n\nO RTM ganhou as abas META1_DETALHADA e EXTRA_PIT, com cinco subagentes\nconferidos por amostragem contra a fonte. A prova que fecha: a META4 gerada sai\ncom 3.244 linhas, identica em contagem a planilha preenchida a mao.\n\nCORRECOES AO VAULT, as tres por envelhecimento e nao por erro de quem escreveu:\na wiki do RTM dizia META1_DETALHADA manual (nao e mais), trazia a polaridade\nTROCADA do EXTRA_PIT (o lado autorizado e o que esta no SAP 3.0, e quem faltava\nera a LAI, que vem da mapoteca), e o vault registrava dois geradores de ODS onde\nha UM.\n\nDUAS MEMORIAS NOVAS, as duas de erro meu em producao:\n- teste-verde-com-import-quebrado: 2.216 testes passaram com import no modulo\n  errado e so o `npm run build` pegou; e build reprovado DERRUBA o servico,\n  porque o start_docker.sh apaga a imagem antes de construir.\n- header-de-seguranca-apaga-o-referer: o padrao do helmet quebra tile de\n  terceiro, e o sintoma parece bloqueio de rede.\n\nLIVRO-RAZAO: duas correcoes de producao, `causa-anunciada-sem-teste` e\n`verificacao-parcial`.\n\nFORMA NOVA DE `regua-cega`, a classe que lidera o razao com 85 eventos em 56\nareas: a regua ancorada num trecho que o PROPRIO defeito altera nao pode\nreprovar. Um teste cortava o SQL em `indexOf('WHERE mv.numero_meta')` e a\nmutacao que ele existia para pegar mudava esse mesmo texto: passava verde.\nRegistrada no learnings da retrospectiva, com proposta ao nucleo pendente do\naval do chefe.\n\nNAO ENTRAM neste commit os arquivos de outra sessao que ja estavam modificados\nna arvore (cadastrar-pedido-mapoteca/learnings.md e copa-feminina-2027/\nPROJECT.md). A entrada cont. 2 da DECISIONS e daquela sessao e vai junto, porque\no arquivo e append-only e a entrada esta completa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Gmq6oxvE6nujmTVL7U9mB5",
+      "sha": "2d53791",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2d537913658daba43e961360fb5ed4c54dc832d5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-11T19:21:03.000Z",
+      "author": "Maj Diniz",
+      "message": "o RTM ganha as abas META1_DETALHADA e EXTRA_PIT\n\nO gerador do RTM produzia UMA aba, a META4_DETALHADA. As outras sete da\nplanilha que sobe para a DSG seguiam manuais. Entram duas.\n\nCOMO AS ABAS FORAM MEDIDAS. Nada aqui foi deduzido do nome da coluna: as tres\nabas sairam do `1_CGEO_RTM_AGO_26_preenchido.ods`, o relatorio de agosto de\n2026 preenchido a mao, lido celula a celula.\n\n  META1_DETALHADA   13 colunas, largura 1023, 193 linhas de dado\n  EXTRA_PIT          7 colunas, largura 1024,  44 linhas de dado\n\nA largura nao e enfeite: a celula repetida que fecha a linha tem de casar com\na declaracao de colunas da semente, e errando o Calc desenha a borda no lugar\nerrado sem reclamar.\n\nAS SEMENTES SAO DERIVADAS, e nao desenhadas. Os estilos que o gerador escreve\n(`ro2`, `ce130`, `ce156`, `ce134`) e os do cabecalho (`ro1`, `ce1`) vivem no\ncontent.xml e no styles.xml da semente do META4; semente nova desenhada do zero\nabriria sem borda, e o Calc so desenha diferente, nao avisa.\n\nA DATA DA CARGA (BDGEx) SAI VAZIA, por decisao do chefe em 2026-09-11. Ela nao\nexiste no banco: a busca em `er/` por data_carga|data_carregamento|bdgex_id|\nid_bdgex|data_publicacao devolve ZERO, e o que existe\n(`acervo.arquivo.situacao_carregamento_id`) diz o ONDE e nunca o QUANDO. Em vez\nde criar coluna, a celula fica em branco para preenchimento a mao, como e hoje.\nO teste cobra o vazio: preenche-la com `data_edicao` \"porque estava vazia\"\nreprova.\n\nA META1 LISTA FOLHA PLANEJADA, e nao folha pronta. A conta fecha: 187 e a soma\ndo `quantidade_prevista` dos 11 itens, e as 193 da planilha sao 187 mais 3 do\nitem 1.8 (o documento promete 4, o SAP guarda 1) mais 3 linhas que nao sao da\nMeta 1. Contra producao a consulta devolve 165, e a diferenca de 22 e o lote\n`2026_1v_CDGV_COMBATER_50k`, que existe com ZERO versoes cadastradas. O numero\nvai a 187 quando o cadastro fechar.\n\nO EXTRA_PIT CRUZA DUAS FONTES, e essa foi a correcao que salvou a aba. A\n`pit.demanda_extra` sozinha devolve 15 linhas onde a planilha tem 44: as 29 LAI\nestao na MAPOTECA, como pedido de cliente LAI (34 em 2026) e de orgao publico.\nSao dois modulos do SAP 3.0, e nao dois sistemas: o SAP antigo nao entra.\n\nDE QUEBRA, o CLI dizia `admin` nas tres operacoes do recurso `anuario` e as\nrotas exigem `verifyGerente`. O campo so alimenta a ajuda e o --dry-run, entao\nera mapa mentiroso para quem lesse o contrato.\n\nPROVA CONTRA DADO REAL, e nao so teste. Geradas as tres abas contra o banco de\nproducao, acumuladas ate agosto: a META4 sai com 3.244 linhas, IDENTICA em\ncontagem a planilha preenchida, e ela e o controle do caminho inteiro. O\nEXTRA_PIT ate julho fecha em 30/07, a mesma data de corte da planilha.\n\nDIVERGENCIA QUE NAO FOI CONCILIADA, de proposito: as 8 folhas de CDGV COMBATER\ntem `situacao_carregamento_id` = 2 (BDGEx Ostensivo) no cadastro, e a planilha\nescreve `Reposit'orio DSG` nelas. Sao duas medidas do mesmo parametro que\ndiscordam. Derivar o destino do nome do lote seria chute, e apagar a carga que\no cadastro registra seria pior: a aba sai com o que o cadastro diz, e o teste\nprende a divergencia em vez de esconde-la.\n\nREGUAS. 105 testes nas quatro suites do RTM, mais as duas rotas novas na lista\nde leitura do `rpcmtec_guarda` (139). Cada regua foi vista REPROVAR antes de\nvaler, por mutacao do codigo que ela protege. Tres delas nasceram cegas e foram\nconsertadas: uma cortava o SQL por um trecho que a propria mutacao alterava,\noutra morria com erro de tipo antes de exercitar cinco casos, e uma terceira\nmedia data a meia-noite local, que em UTC-3 nao vira o dia -- ela PASSOU sob\nmutacao ate ser reescrita para as duas bordas.\n\nSuite do servidor em 5.143 de 5.143. Build do cliente passa.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Gmq6oxvE6nujmTVL7U9mB5",
+      "sha": "d96be73",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d96be73f906d521920313bb7455b7d4178a1bf63",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-09-11T18:01:58.000Z",
