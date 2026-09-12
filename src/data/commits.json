@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-11T22:22:48.291Z",
+  "lastUpdate": "2026-09-12T13:28:11.405Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-11T21:40:42.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-11T21:43:50.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-12T08:37:05.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-07T22:24:03.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-12T13:14:50.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-01T18:13:39.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6774,
+    "totalCommits": 6784,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1320,
+      "1cgeo/ebgeo_web": 1329,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 771,
+      "1cgeo/chefe_dgeo": 772,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 26,
@@ -173,6 +173,96 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-12T13:14:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Protege dados na migração da main e confirma descarte no logout\n\nMigração isolada e recuperável dos dados legados, com verificações de integridade e proteção entre abas. A saída voluntária confirma o descarte de pendências remotas e impede seu reenvio após reentrada, preservando os atlas locais.\n\nValidação: lint nos dois pacotes; 12.137 testes frontend, 5.009 backend e 201 de contrato aprovados; 7 cenários de navegador para saída e isolamento, além das verificações de migração documentadas.",
+      "sha": "8a561be",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8a561befd5f1a572e4babb0ba61af30de0c3faff",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-12T08:37:05.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-12: a integracao backend medida, a regua que perguntava se a funcao EXISTIA, e o drapejamento reconferido na 6.7.0\n\nDECISOES. Duas entradas: a noite de medicao da `integracao_backend` (cont. 11) e o\nsombreamento do relevo como escolha do administrador (2026-09-12), com as linhas\nde indice.\n\nA SKILL QUE APRENDEU foi a medir-desempenho-web, e a licao subiu para o CORPO\ndela, secao 3, porque governa a proxima execucao: **perguntar se existe nao e\nprovar que atende**. A descoberta da bancada media `typeof g.getCacheKey ===\n'function'` e passava, enquanto TODA variante morria de TypeError; a verificacao\nde existencia e o disfarce mais comum do eixo nao exercitado. Entraram tambem a\nregra das TRES rodadas quando o veredito compara faixas (duas dao UMA medida) e o\nregistro da resposta HTTP falha com `server`, `x-cache-status` e `content-type` --\nfoi esse cabecalho que respondeu, numa rodada, o que quatro rajadas de teste nao\nresponderam.\n\nCONTRADICAO FECHADA na wiki, de 4 para 3. A secao de drapejamento de\n[[ebgeo-web]] fora lida da MapLibre 5.18 e estava marcada para reconferencia na\n6.7.0: reconferida arquivo por arquivo na versao instalada, e os tres pontos\nvalem sem mudanca (a lista fechada de tipos drapejaveis e IDENTICA, o\n`getDepthModeFor3D()` continua LEQUAL/ReadWrite, e o `drawCustom` entrega esse\nmodo ao `renderingMode: '3d'`). O que a 6.x mudou de fato foi o POOL, do qual a\nsecao nunca dependeu.\n\nCORRECAO DE PROPRIA LAVRA, caçada na consolidacao: eu havia escrito o gargalo do\npasse da caixa de selecao como achado novo, e a wiki ja registrava o mesmo\nveredito medido na `main` em 2026-09-05. As tres copias passaram a dizer que a\nmedida CONFIRMA aquela, agora sobre o Overture real.\n\nLIVRO-RAZAO, dois eventos: `regua-cega` (86 em 57 areas, a classe que lidera) e\n`premissa-desatualizada` -- copiei para o comentario do schema novo a\njustificativa das chaves vizinhas sem conferir se ainda valia, e o editor JSON\nque ela citava saira do painel em 2026-08-29. Comentario de codigo vizinho e ECO,\nnao fonte.\n\nPROJETO. O bloco de desempenho da integracao entrou em ebgeo-3-transicao, e o 404\nintermitente do TileJSON foi para a mesa do chefe como item 7, porque quem\nresponde e o nginx do SERVIDOR e a falha derruba a inicializacao de camadas reais\nem producao.\n\nMEMORY.md de 80,3% para 79,5% do teto, por compressao de exposicao, sem perder\nponteiro. Guard limpo em 829 arquivos, lint de skills 0 erros, wiki com 0 links\nquebrados e 0 orfas.",
+      "sha": "a3d61d7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a3d61d71b7d102f1056a23f49c02b5445103ce8f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-12T08:19:25.000Z",
+      "author": "Maj Diniz",
+      "message": "sombreamento do relevo: a escolha e do administrador, e nao havia caminho nenhum pela tela\n\nO padrao de `config.static.js` e `false` e CONTINUA sendo (decisao do dono): a casa\nnao decide por todo mundo, e quem liga e quem opera. O que faltava era a opcao.\n\nAQUI A DECLARACAO CRIA A CAPACIDADE, ao contrario das chaves vizinhas, e a\ndiferenca e a data: o editor \"Avancado (JSON)\" saiu do painel em 2026-08-29, entao\nso alcancava `map2d.hillshade.enabled` quem chamasse `PUT /config/admin` a mao --\na rota ja aceitava, por `map2d` ser `.unknown(true)`. A caixa \"Sombreamento do\nrelevo\" nasce na secao Mapa 2D da aba Sistema, ao lado de \"Projecao globo\".\n\nA BORDA DE TIPO vem junto pela razao das vizinhas: o cliente le o valor por\n`=== true`, e um `\"sim\"` chegado por qualquer caminho deixaria a camada DESLIGADA\nem silencio, com o painel mostrando o valor salvo. E a falha que\n`avisoServidorSecundario` fechou em 2026-09-03.\n\nA tela manda SO `enabled`. O `deepMerge` de `getAppConfig` devolve nome, camada e\ntinta do estatico; mandar o bloco inteiro daqui congelaria a paleta na versao que\naquela tela leu, e uma mudanca no servidor nunca mais alcancaria o deploy.\n\nROTA ACIONADA, com administrador temporario criado e apagado:\n\n    PUT com \"sim\"   -> 422  map2d.hillshade.enabled: enabled deve ser verdadeiro ou falso.\n    PUT com true    -> 200\n    GET /api/config -> enabled: true (boolean), bloco intacto (camada hillshade,\n                       fonte hillshadeSource, 6 chaves de tinta, nome preservado)\n    desligar        -> false\n\nA limpeza falhou na primeira tentativa por chave estrangeira, e isso foi o banco\nconfirmando que a escrita aconteceu: `config_settings.updated_by` passou a apontar\npara o usuario temporario. Autoria solta, usuario apagado, releitura em zero.\n\nProvas: 8 casos no backend, entre eles que `\"true\"` e `\"false\"` passam CONVERTIDOS\nem booleano de verdade (e isso que torna aceita-los seguro) enquanto `\"sim\"`, `1`,\n`0` e `null` morrem na borda; e 10 no frontend, dos quais 5 sao controles negativos\nque mutilam a fonte e exigem que a mesma leitura reprove. Frontend 12.090 de\n12.090, lint limpo nos dois pacotes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "d2f956e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d2f956e827f3728206ca871b66431e1e29249c2d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-12T00:41:40.000Z",
+      "author": "Maj Diniz",
+      "message": "bancada: registrar QUEM respondeu a falha, porque a investigacao do 404 recomecava do zero a cada vez\n\nO 404 intermitente do TileJSON do Martin nao reproduz isolado (300 pedidos pelo\nproxy, 252 direto no servidor, 40 sob carga de 150 modulos do Vite: 200 em\ntodos), e so aparece a partir do navegador. Sem saber de quem e a resposta, cada\nrodada ruim recomecava a mesma investigacao.\n\nTres cabecalhos bastam para separar: `server` diz quem respondeu,\n`x-cache-status` diz se o cache do nginx participou, e `content-type` denuncia o\nindex.html servido por fallback com status 200 -- que foi como os sprites\nfaltantes se disfarcaram de sucesso.\n\nA primeira rodada com isso ja respondeu: `server: nginx/1.10.3`, corpo\ntext/html. A falha e do nginx do SERVIDOR, nao do caminho local, e portanto\nalcanca producao. E 22 das 177 falhas eram TILEJSON, entre eles os das oito\nmolduras, `municipios_2022`, `distritos_2022` e `area_drone`: sem o TileJSON a\nfonte nao inicializa, e a camada some sem erro visivel.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "177ff45",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/177ff4584d850ee1e8bca60c0489040f781f266b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-12T00:17:45.000Z",
+      "author": "Maj Diniz",
+      "message": "sprites: faltavam os tres arquivos do `rdg_transparente`, e o Vite respondia o index.html no lugar deles\n\nO estilo Overture declara o sprite `etrdg` em `./images/rdg_transparente`, e a\nintegracao tinha so o `.png` base: sem o `.json`, sem o `@2x.json` e sem o\n`@2x.png`. O pedido caia no fallback de SPA do Vite, que devolve `index.html`\ncom HTTP 200, e o MapLibre reclamava de `etrdg:areia`, `etrdg:brejo` e\n`etrdg:cultivo` -- um 200 de HTML e pior que um 404, porque nao parece falha.\n\nOs tres vieram do servidor (`/ebgeo/images/`) e batem byte a byte com os do\n`ebgeo_web` main. O sprite tem 26 icones, e os tres que o console cobrava estao\nla.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "beb5e24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/beb5e247b220db1b14fc56270339e0a52ee233f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-12T00:17:35.000Z",
+      "author": "Maj Diniz",
+      "message": "estilo de mapa base: o validador aceitava camada sem `type`, e um estilo assim desenha menos do que declara, sem erro nenhum\n\nMedido em 2026-09-11 contra o estilo Overture real: o gemeo do servidor e o do\ncliente aprovavam `{ version: 8, sources: {}, layers: [{ id: 'x' }] }`. Uma\ncamada sem `type` o MapLibre simplesmente NAO desenha, e uma camada apontando\nfonte que o estilo nao declara e a mesma falha com causa mais barulhenta. As duas\npassavam, e o documento e servido VERBATIM no `GET /config` publico.\n\nO contrato da camada agora e cobrado dos dois lados, com a mesma semantica: `id`\nstring nao vazia, `type` string nao vazia, id sem repeticao, e `source` (quando\nhouver) apontando fonte declarada. Background sem source segue valido, que e a\nforma do proprio Overture de 159 camadas.\n\nNove casos entraram na TABLE compartilhada, que o describe de ESPELHO replica\ncontra o gemeo do frontend, mais quatro no lado do cliente. Duas fixtures de\nteste usavam `layers: [{ id: 'c' }]` e so eram \"validas\" porque a guarda era\ncega; foram corrigidas, nao a guarda.\n\nFrontend 12.080/12.080, backend sem falha, lint limpo nos dois pacotes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "f4c8b77",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f4c8b77aaf70a29d560e341f605dd1aff3f7d9c8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-12T00:17:19.000Z",
+      "author": "Maj Diniz",
+      "message": "bancada: a sonda da chave de cache falava a assinatura velha e derrubava TODA variante, e a de ferramentas nao sabia trocar de mapa base\n\nA bancada de terreno estava morta nesta branch. O app passou a receber\n`getCacheKey(feature, control)` e a ler `feature.properties.id`; a sonda daqui\ncontinuava mandando uma string, entao `feature.properties` era undefined e o\nTypeError levava junto toda variante, inclusive a base `atual`.\n\nA regua da descoberta passava porque so perguntava se a funcao EXISTIA. Eixo nao\nexercitado, aprovado por omissao. Agora a descoberta CHAMA a funcao com uma\nfeicao (`chaveAceitaFeicao`), a sonda erra para REPROVA em vez de excecao, e o\nremendo de `selecao-exata` usa a assinatura do app -- escrever `(featureId)` ali\ndevolvia `[object Object]-<zoom>` para toda feicao, uma chave para todas, o\noposto do que a variante existe para medir.\n\nA bancada de ferramentas ganhou `--base <id>`: troca pelo caminho do app\n(`applySharedBasemap`) e prova com estilo aplicado, fontes presentes e TILE\nCARREGADO. Sem ela a ferramenta era medida sobre o mapa base que o app abre, que\nnesta branch e um esboco de OSM em raster de 18 linhas, e nao a carta de\nproducao. Sobre o Overture real o `render p50` do desenho do LOS vai de 2,7 para\n4,4 ms: a mesma ferramenta, quase o dobro do quadro.\n\nE as duas passaram a registrar a RESPOSTA HTTP FALHA com metodo, status e\ncaminho, agrupada por caminho na saida. O `console: 404 (Not Found)` do Chromium\nnao diz de que recurso, e quarenta linhas iguais nao apontam para lugar nenhum;\nfoi essa coluna que mostrou que os 404 eram tiles de DEM no z12, dentro da\ncobertura, e nao falta de cobertura como a leitura anterior sugeria.\n\nAutotestes: 330 -> 336 e 293 -> 304 casos. Os eixos novos foram provados contra o\npior caso ANTES de valer -- tirando a linha do validador a suite cai para\n334/336, e volta a 336/336 com ela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "edd6792",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/edd67920306c9692dc8d81cd7d045dca8574e2ae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-11T23:06:12.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: a varredura do import concorrente com mock acha mais cinco, e vira regua\n\nO flake da migracao 3.0 nao era unico. A varredura dos 1.365 arquivos de teste\nachou CINCO com o mesmo padrao: `vi.resetModules()` seguido de `import()` em\n`Promise.all`, todos mockando `localforage`, que e o ingrediente que torna o defeito\nmudo (o localforage real nao falha, ele funciona contra o `fake-indexeddb` do setup\nglobal e le o que outro teste deixou).\n\nOs cinco foram serializados, com o diagnostico no comentario de cada um. O `main`\nnao tem nenhum caso.\n\nE a varredura virou REGUA, porque feita a mao ela nao se repete: um teste varre a\nsuite inteira e reprova o arquivo que juntar os tres ingredientes, nomeando-o.\nEla carrega o proprio controle negativo (varreu menos de 100 arquivos = caminho\nerrado, e a regua passaria vazia) e cinco casos do recortador de blocos, entre eles\no `Promise.all` sem import, que e uso legitimo e NAO pode acusar.\n\nConferido que ela reprova: devolvido o `Promise.all` a um dos cinco, a regua cai e\ndiz qual arquivo.\n\nProva: tres rodadas da suite inteira, 12.076 de 12.076.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "fc6eece",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fc6eece2ddeadab110ec0d2eda1c4147a7dadae3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-11T22:55:12.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: o `Promise.all` depois do `resetModules` corria contra o mock do localforage, e a migracao lia um banco de verdade\n\n`store-schema-migration-v3.0.test.js` reprovava em cerca de DUAS DE TRES rodadas da\nsuite inteira, e passava sempre isolado. O sintoma era o `ebgeo_global` terminando\nvazio e o `safelyMigrate` logando `Migration needed: null -> 3.0`, enquanto a\nleitura crua do armazenamento falso dizia `2.2` no mesmo instante.\n\nA causa, achada por sonda e nao por leitura: a loja que a migracao usava NAO era o\nduplo do teste. Sem `__dbName`, sem `__backing`, e lendo `3.0`. O `loadModules()`\nfazia `vi.resetModules()` e logo seis `import()` concorrentes num `Promise.all`, e\nas resolucoes corriam contra o re-registro do mock de `localforage` no grafo novo:\nde vez em quando um modulo pegava o localforage REAL. Como o setup global instala\n`fake-indexeddb`, esse caminho nao falha, ele funciona contra um banco de verdade\nque SOBREVIVE entre os testes do arquivo, e a migracao passava a ler a versao que um\nteste anterior deixou. Por isso o arquivo isolado sempre passava: sozinho nao havia\nteste anterior de quem herdar o `3.0`.\n\nO conserto e serializar as seis importacoes. O diagnostico inteiro ficou no\ncomentario, para ninguem devolver o `Promise.all` achando que otimiza.\n\nProva: OITO rodadas seguidas da suite inteira, 12.069 de 12.069, contra as duas em\ntres que reprovavam antes.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "a089ba7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a089ba7c60b02055b53459cabe25b5a13feabae0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-11T22:54:58.000Z",
+      "author": "Maj Diniz",
+      "message": "analise de terreno: o LOS e o viewshed da main chegam aqui, e o telefone para de ser o ultimo caminho que os arrastava\n\nReplica do commit `8b611113` da `main`, assentado nas APIs desta branch em vez de\ncopiado: o `createPreviewScheduler` no lugar do gate de rAF na mao, o\n`queryFeaturesAtPoint` no lugar do `queryHoverFeatures`, e o patch pelo dispatcher\nde GeoJSON preservado onde a `main` ainda escrevia com `setData` cru (o\n`updateHandlePropertiesToSource` ganhou o `center` DENTRO do patch, sem trocar o\nmecanismo).\n\nO que vem da main:\n\n- Arraste desligado nas duas ferramentas (`canMove` falso), porque transladar a\n  geometria sem reler o terreno debaixo dela mostra o resultado antigo na posicao\n  nova. O maquinario de movimento que ficou sem chamador saiu junto.\n- Nos editaveis: observador e alvo no LOS, com fonte e camada `los-edit-handles`; e\n  o no central do viewshed, que existia decorativo (`user_isEditingHandle` falso e\n  `updateFromHandle` devolvendo nulo para `center`), passou a mover o observador.\n- Alturas de observador e alvo ate 200 m; PNG do perfil re-renderizado fora da tela\n  em 2400 x 1350; rendimento da varredura por TEMPO decorrido; `cellData` fora das\n  metades processadas; e a FUSAO RADIAL das celulas, que na bancada derrubou a\n  latencia de concluir um viewshed de 84,8 para 29,4 ms, o store de 367,8 para\n  146,0 e as processadas de 581,9 para 189,2, com os quadros acima de 33 ms indo de\n  6 para zero.\n\nO QUE NAO VEIO DA MAIN, e e desta branch: o caminho de mover do TELEFONE nao\nconsultava `canMove`, e era o ultimo que ainda arrastava uma visada ou um viewshed.\nCom o desktop recusando e ele nao, a mentira sobreviveria num dos dois, que e pior\ndo que qualquer um dos dois estados inteiros. O `_podeMover` pergunta a ferramenta\npelo `tool-registry`, no mesmo caminho que o `move_handler` usa, e a recusa diz o\nque fazer no lugar. Duvida nunca vira recusa: tipo sem ferramenta, ferramenta sem\n`canMove` e falha de carga do modulo seguem movendo.\n\nAs reguas desta branch cobraram o port em 37 guardas, e as tres que pegaram defeito\nmeu estavam certas: o snap resolvido num evento de movimento cru, o `flush()` que\nfaltava no fim do arrasto do LOS, e o controle do viewshed dependendo de\n`updateFromHandle` devolver `center` (agora cai para o centro da feicao). Os demais\nguardas descreviam a realidade que o commit trocou e foram REESCRITOS, com uma\ntroca de regua que vale registrar: onde eles CONTAVAM celulas, passaram a conferir\na EXTENSAO radial coberta, porque um teste que so conta aprovaria uma fusao que\nengole celula.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01V2mjPgc1ML4CM96TdYJEbc",
+      "sha": "af71cc9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/af71cc98a4803ae090e9dced260ae67dafc6aa79",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-11T21:43:50.000Z",
