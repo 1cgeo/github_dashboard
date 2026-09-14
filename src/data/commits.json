@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-13T22:16:21.926Z",
+  "lastUpdate": "2026-09-14T16:16:30.206Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-11T21:40:42.000Z",
+    "1cgeo/ebgeo_web": "2026-09-14T14:46:33.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-09-11T19:32:46.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-09-14T15:18:40.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-12T08:37:05.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-14T10:39:21.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-13T15:53:51.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
-    "1cgeo/ia_vegetacao": "2026-09-13T15:07:48.000Z",
+    "1cgeo/ia_vegetacao": "2026-09-14T02:24:26.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
   },
   "repoPrivate": {
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6874,
+    "totalCommits": 6885,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1417,
+      "1cgeo/ebgeo_web": 1418,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -153,7 +153,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 388,
+      "dsgoficial/pytorch_segmentation_models_trainer": 392,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -165,14 +165,113 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 772,
+      "1cgeo/chefe_dgeo": 777,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
-      "1cgeo/ia_vegetacao": 28,
+      "1cgeo/ia_vegetacao": 29,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-14T15:18:40.000Z",
+      "author": "Maj Borba",
+      "message": "Add AIO2 mean-teacher baseline (Liu et al., TGRS 2024)\n\nNoisy-label training baseline for the ISPRS resubmission's SOTA\ncomparison (review #3), cross-checked against the official reference\nimplementation (https://github.com/zhu-xlab/AIO2) rather than the\npaper text alone.\n\n- utils/act_trigger.py: ACTTracker — Adaptive Correction Trigger, near-\n  verbatim port of early_learning_detection.py. Detects the warm-up ->\n  correction switch epoch without ground truth. Default window_sizes\n  matches the official README's published example; the paper's buffer\n  z is not a free hyperparameter in the code, it's mean(window_sizes).\n- utils/o2c_correction.py: online_object_correction — Online Object-\n  wise label Correction, generalized to multiclass (official code is\n  binary-only, building footprints). Two decisions needed only because\n  of the generalization, neither in the original paper: configurable\n  conflict_resolution (priority_order | teacher_confidence) for when\n  two classes propose the same pixel, and a \"fixed classes\" restore\n  step mirrored from apply_region_correction (SAM/SLICO) that protects\n  any pixel whose original class isn't eligible, regardless of what\n  was proposed for it.\n- custom_models/mean_teacher_wrapper.py: MeanTeacherWrapper, plain\n  nn.Module (mirrors the BaseDomainAdaptationMethod split) — student +\n  EMA teacher pair.\n- model_loader/mean_teacher_model.py: MeanTeacherModel(Model) +\n  find_nearest_checkpoint. Two-phase design (two Trainer.fit() calls,\n  mirroring the official code's two CLI invocations rather than an\n  in-run weight rewind): phase 1 warm-up self-stops when ACT triggers;\n  phase 2 applies O2C every step once model.o2c_active is set. New\n  correct_base config (\"iter\" default vs \"epoch\") controls whether the\n  correction source is recomputed live every step or snapshotted once\n  per epoch — independent of correct_model (which network). No new\n  loss class needed: reuses WeightedDiceCrossEntropyLoss.\n- conf/examples/mean_teacher_aio2.yaml, zhu2019_boundary_relaxation.yaml\n  (the latter missed when BoundaryLabelRelaxationLoss first landed),\n  website/docs/user-guide/mean-teacher-aio2.md.\n\nTests: test_act_trigger.py, test_o2c_correction.py,\ntest_mean_teacher_wrapper.py, test_mean_teacher_model.py — 109 tests,\n100% coverage on all four new modules.\n\nDesign decisions (conflict resolution, the fixed-classes fix, the\nnoise-type mismatch this baseline has with this project's data, the\ncorrect_base caching trade-off) are also logged in the article\nrepository (doutorado_artigo_sam_noisy_labels/descricao_novos_experimentos.md,\n\"Adendo\" section) for traceability back to the paper's methodology.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XJda2EqTkSzs1NNFtmr94q",
+      "sha": "167c02d",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/167c02d24b8d3f437abd2c4544ca6c07449f665e",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-14T14:46:33.000Z",
+      "author": "Maj Diniz",
+      "message": "tile-lod: o LOD da camera inclinada vale para toda fonte, nao so para as que existiam na partida\n\nO setSourceTileLodParams do MapLibre so escreve nas fontes que existem no\ninstante da chamada e nao guarda padrao para as seguintes. O app chamava uma\nvez, no createMap, antes de o estilo carregar, e reaplicava so depois de um\nsetStyle. Medido no navegador com [4, 8] no config: 0 de 100 fontes com o\nparametro na partida pela base padrao, e ainda 0 depois de ligar o terreno,\nde criar fonte em execucao e de \"trocar\" para a base que ja estava no mapa.\n\ninstallTileLodParams aplica o par fonte a fonte, guarda as cobertas por\nobjeto (o setStyle troca o objeto sob o mesmo id) e ressincroniza em\nmap.addSource, styledata e sourcedata com metadata. Com o codigo novo, a mesma\nsonda da 100 de 100, 102 de 102 e 103 de 103.\n\nPor que importa: o estilo Overture troca de camada em z14, e o worker so monta\na camada no tile cujo zoom cabe no minzoom dela. Com o LOD padrao a faixa\ndistante recebe tile z12 e z13 e sai branca. [4, 8] elimina a faixa na camera\nmedida (z14,1, pitch 65), com 46 tiles de terreno contra 19.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01WGPEiWu4x4ejnR2Q1vs98W",
+      "sha": "75e2ed0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/75e2ed075cf9b3d4498251fe9274ece962e930ce",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-14T13:41:06.000Z",
+      "author": "Maj Borba",
+      "message": "Fix flake8 F821: undefined name 'Window' in quoted annotations\n\nsam_label_corrector.py used List[\"Window\"] as a forward-ref type\nannotation in two method signatures, but rasterio.windows.Window was\nonly ever imported lazily inside function bodies elsewhere in the\nfile, never at module scope — pyflakes evaluates quoted annotations\ntoo, so 'Window' was undefined at the point flake8 checks it. Add a\nTYPE_CHECKING-guarded import; keeps rasterio out of the module's\nruntime import path (unchanged), satisfies the linter.\n\nBroke CI's strict flake8 step (E9,F63,F7,F82 — F821 is in the F82\nfamily) on main after 5f68dde. Verified: flake8 --select=E9,F63,F7,F82\nnow reports 0 violations repo-wide; test_sam_label_corrector.py\n(45 tests) still passes.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XJda2EqTkSzs1NNFtmr94q",
+      "sha": "842fc49",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/842fc4909540f77ae53f2dbf17c0c9b46d75d4da",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-14T13:38:23.000Z",
+      "author": "Maj Borba",
+      "message": "Add BoundaryLabelRelaxationLoss (Zhu et al., CVPR 2019)\n\nLabel-relaxation component only (video propagation, the paper's other\ncontribution, doesn't apply — no video sequences in this project).\nMaximizes probability mass over the union of classes present in each\npixel's 3x3 hard-label neighbourhood instead of forcing the single\nannotated class; reduces exactly to cross-entropy on interior pixels.\nNeighbourhood membership computed via a single max_pool2d over the\none-hot label, no per-pixel loop.\n\nPlugs in via the existing simple-loss path (cfg.loss), no Model\nsubclass needed. ISPRS review #3 SOTA noisy-label baseline (condition\nZhu2019 in the experiment matrix).\n\n- custom_losses/boundary_relaxation_loss.py\n- config_definitions/loss_config_definition.py: ConfigStore registration\n- tests/test_boundary_relaxation_loss.py: 15 tests, incl. exact\n  CE-reduction proof and ignore_index edge cases\n- website/docs/user-guide/boundary-label-relaxation.md\n- CHANGELOG.md\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XJda2EqTkSzs1NNFtmr94q",
+      "sha": "4d777f7",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/4d777f74fea3163ee1bd1e9a4173a45b5c5ff28b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-14T13:19:53.000Z",
+      "author": "Maj Borba",
+      "message": "feat: pluggable image sources, SLICO threading, SAM prefetch, rename bags->base_mask\n\nBuilds on the SLICO/region_correction work already on main (7fe22ad): adds\nfour ways to point at source imagery, real parallelism for both SAM and\nSLICO, and renames include_bags/bags_raw to stop assuming the mask being\ncorrected is always the specific \"BAGS\" dataset from the original experiment.\n\n## Pluggable image sources (new tools/mbtiles/image_source.py)\n\nmbtiles_path (SAM + SLICO) and each lulc_paths entry now accept four forms:\nsingle file (unchanged), a directory matched by spatial bounds (existing\nbehavior, now explicit as match_by=\"bounds\"), a directory matched by\nfilename basename against the mask tile (match_by=\"basename\" — no file\nopened to build the index, just listed), or a CSV manifest (path column\nrequired; optional mask_path column for direct O(1) tile-keyed lookup —\nmirrors the tile_id,image_path,mask_path,<lulc> CSV convention already used\nby tools.soft_labels; optional minx,miny,maxx,maxy[,crs] columns as a\nspatial fallback). Direct tile-keyed lookup is always tried before bounds\nsearch. No new dependency — built on rasterio.vrt.WarpedVRT, no GDAL/osgeo\nbindings in this project.\n\n## Parallelism\n\n- SLICO: n_workers config, ThreadPoolExecutor at tile granularity (each tile\n  owns its output file — no shared-file write contention), tiles ordered by\n  estimated chunk count for load balancing. skimage.slic and rasterio I/O\n  both release the GIL, so this is real wall-clock parallelism. Verified with\n  an unmocked end-to-end test: threaded and sequential runs produce\n  byte-identical output (tests/test_slico_label_corrector_integration.py).\n- SAM: points_per_batch config (exposes AMG's own point-prompt batching,\n  previously silently defaulted) and prefetch config (next chunk's I/O reads\n  on a background thread while SAM processes the current chunk — GPU compute\n  itself isn't batched across chunks, SAM's public API is one image per\n  call). SamLabelCorrector._process_chunk split into _read_chunk_inputs\n  (I/O, own dataset handles, safe off-thread) and _run_sam_and_correct\n  (cache/inference/correction/write, stays on the calling thread).\n\n## Renamed include_bags -> include_base_mask, bags_raw -> base_mask\n\nPure rename, no behavior change. masks_dir can point at any mask, not just\nthe topographic-vector-source (\"BAGS\") dataset from the original experiment.\n\n## Tests\n\ntest_image_source.py, test_alignment_tiled_source.py,\ntest_slico_label_corrector_integration.py (new); test_region_correction.py,\ntest_sam_label_corrector.py, test_slico_label_corrector.py extended for the\nrenamed API and new config fields. 100% coverage on all touched/new modules\n(611 stmts, 126 tests passed locally).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01XJda2EqTkSzs1NNFtmr94q",
+      "sha": "5f68dde",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5f68dde1e4da1e5f0c3dc1c3b6ce1fb36d1f3857",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-14T10:39:21.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo 404 do martin: o mecanismo do cache sincronizado entendido, a vitima medida era a propria bancada, e as orientacoes ao engenheiro gravadas\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01WGPEiWu4x4ejnR2Q1vs98W",
+      "sha": "768c13f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/768c13f895a0060f1e85d08e29bddf5e3c7e7251",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-09-14T02:24:26.000Z",
+      "author": "Maj Borba",
+      "message": "fix(eval_tta): adiciona CONFIG_FLAGS faltantes do cubo natural + feat(baseline_classical): RGB puro (HGB/RF)\n\neval_tta_new_experiments.py: full_sum_natural, aef_dv3_natural,\nmb_dv3_natural nao estavam em CONFIG_FLAGS. run_full_sum_natural_followup.sh\nchamava --target full_sum_natural, que falhava com argumento invalido;\no erro ficava mascarado por '| tee' dentro de 'set -e', entao o pipeline\nseguia em frente sem TTA. full_sum_natural terminou 100/100 treino sem\nTTA ate essa correcao (TTA relancado manualmente depois, ver repo do\nartigo). Flags espelhadas de NEW_CONFIGS em run_new_experiments.py.\n\nbaseline_classical.py: novo --source rgb (RGB puro, pixel a pixel,\nsem AEF/DINOv3/MapBiomas, block=1, sem mode_pool) + --model {hgb,rf}\n(RandomForest como checagem secundaria, hgb continua sendo o numero\ncitado no artigo). --with-rgb nao se aplica a --source rgb.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NZ5d3zVNf6KGXuEQP5FgRn",
+      "sha": "e4e1d1e",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/e4e1d1e999f1cd30517d0486173dd36ccd295cbe",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-14T00:06:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-13 (cont. 2): os sete defeitos do Overture consertados, com teste que reprova o codigo de antes\n\nAutorizado pelo chefe. Quatro commits no edgv_topo_20 e a suite em 24 casos, dos quais\n10 sao controles negativos.\n\nO que rendeu, medido no dado real do release 2026-08-19.0: **662 de 18.603\nedificacoes passam a gravar `nome`, contra 0 antes**, com perda residual zero; **3 dos\n295 limites do recorte do Sul gravam `em_litigio = 1`**, contra 9999 em todos; e 25\nfeicoes de agua voltam ao recorte de Florianopolis, o poligono de oceano entre elas.\n\nDois defeitos novos apareceram durante o conserto. O tema `land_use` **nunca foi\nconvertido**, por nao ter SELECT nem entrada no THEME_TYPE_MAP: as regras dele eram\ninertes desde a rev 1.3, e as tres que removi por valor inexistente eram o segundo\ndefeito de um tema ja desligado. E o refino por tag **nunca disparava**, porque a\ngenerica vinha antes com desempate alfabetico: medido, a generica casava 119 feicoes e\no refino de futebol zero, e agora o refino casa 99 e a generica 19.\n\nA licao de metodo se repetiu pela terceira vez, agora no eixo S4 que eu mesmo\nacabava de escrever: o insumo degenerado dele vivia no mesmo par (tema,type) do\ncontrole negativo do refino e reprovava os dois controles. **O insumo degenerado de um\neixo nao pode capturar o insumo de controle de nenhum outro.**\n\nNenhuma carga foi executada e o banco nao foi tocado. Os dois defeitos que restam sao\ndecisao do chefe: a precedencia da vegetacao e os quatro codigos de `tipo_veg` por\nbioma.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X6577ZNaYdqXsLMpw7yN8L",
+      "sha": "97cf8f1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/97cf8f1cd2fa1a46043c5e46478a97ac30c52cd9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-13T23:43:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-13 (cont. 1): 379 das 414 regras do Overture gravam nome NULL, e a conversao do Sul perdeu o toponimo em quase tudo\n\nAchado ao fechar a fatia de places, por dois agentes em caminhos que nao se falam, e\nreproduzido chamando a funcao de producao. Supera o recorte por contencao como o\ndefeito mais caro da sessao.\n\nTres pecas que so juntas mentem: o SELECT cria o apelido `names.primary AS name`; o\n`apply_mapping` resolve a origem com `props.get(src_key)` sem travessia de caminho\npontuado (linha 247); e 379 das 414 regras declaram justamente a chave pontuada,\ncontra 13 que declaram o apelido. A prova e a funcao de producao devolvendo\n`{'tipo': 2025, 'nome': None, 'altura': 12.0}` com as props que o SELECT entrega.\n\nPassou quatro meses invisivel porque `nome` e NULLABLE, a carga nao falha, o\nrelatorio conta feicao e nao atributo, e regra que grava NULL produz linha identica a\nde feicao sem nome na fonte.\n\nPlaces fechou a fatia: 2.045 das 2.354 categorias da taxonomia de 2026-03-04\ncobertas (86,9%) contra 452 se so o campo mudasse, e no piloto de Porto Alegre 93,1%\ndos POIs casam contra 17,1% do v1.7. Quatro nos \"sobreviventes\" foram esvaziados pela\ntaxonomia e passariam por qualquer teste de existencia (`automotive` de 74 categorias\npara 1).\n\nWiki e DECISIONS atualizadas, lint limpo em 0 links quebrados e 0 orfas.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X6577ZNaYdqXsLMpw7yN8L",
+      "sha": "0987591",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/098759156d88124e5eb3496ab05611ad547eede8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-13T23:33:20.000Z",
+      "author": "Maj Diniz",
+      "message": "porte do overture 2.0.0: a contagem cai de 439 para 432 regras, porque a fatia de places mudou depois do primeiro consolidado\n\nConsolidei as oito fatias assim que os arquivos apareceram no disco, sem esperar a\nnotificacao dos oito agentes, e o de places ainda escrevia. O consolidado tinha 11\nregras que a fatia nao tem mais e faltava 4 que ela passou a ter.\n\nO defeito passou pelas duas reguas, porque as 439 eram todas validas: o artefato\nestava consistente e errado, montado de duas versoes da mesma fatia. Arquivo no\ndisco nao e entrega, a entrega e a notificacao do agente. Reconsolidado em\n`e9e71fe` no edgv_topo_20, com 432 regras, 48 tabelas alvo e zero reprovacao nas\nduas reguas; as 148 regras de places apontam 148 nos e os 148 existem na taxonomia\noficial de 2026-03-04.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X6577ZNaYdqXsLMpw7yN8L",
+      "sha": "d8c1e7c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d8c1e7c9d466d657dbf8c2c0a53dc0dad5873a65",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-13T23:31:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-13: o radar semanal com o arXiv fora do ar, e o crosswalk do Overture portado para o 2.0.0 com seis defeitos que o schema novo nao causou\n\n**O radar semanal.** 90 candidatos de 8 fontes, 5 itens em (A) mais (B), 85\ncortados. O achado que decide foi o Overture schema 2.0.0, e ele abriu o trabalho\ndo resto da sessao. Duas fontes de arXiv NAO foram lidas (ReadTimeout e depois\nHTTP 429 firme), entao a linha de artigo fica sem varredura desde 2026-08-29, e o\nrecorte esta declarado. Falha minha: retentei na mesma sessao e as retentativas\ninflaram o contador de falhas de 1 para 3, que e o gatilho de poda do passo 9; as\nduas fontes NAO sao candidatas a poda, porque o contador conta invocacao e nao\nrodada. Quatro aprendizados no learnings da skill, entre eles que a janela de 10 do\n`releases.atom` repoe release velha como novidade (QGIS 3.44.10 de maio chegou como\nnova, quando o corrente e 4.2.2), que `license: other` pode significar licenca\nINEXISTENTE (o MALiBU3D diz \"TODO: licence to be defined\"), e que um PMTiles de\n198 GB entrega o esquema completo em duas requisicoes de faixa.\n\n**O porte do Overture para o schema 2.0.0**, pedido pelo chefe, esta em\n`overture_2_0/` no repo edgv_topo_20 (commit `08c355c`) e FORA de producao. 439\nregras em 8 fatias, 48 das 100 tabelas alcancadas, duas reguas sem reprovacao.\nVeredito perene em [[porte-overture-2-0]], decisao integral em decisions-2026.\n\nO que forcou o porte tem data: o 2.0.0 remove o campo `categories` de place, a\nlinha 376 do executor depende dele, e o release de setembro traz a quebra. O diff\ndo schema e curto, medido nos artefatos dos DOIS lados: um valor de enum novo em\n751, um campo removido, `class` e `subtype` obrigatorios em `land` e `water`, dez\ndefaults mortos.\n\nSeis defeitos achados no caminho, nenhum causado pelo 2.0.0: o recorte do executor\ne CONTENCAO e nao intersecao em 10 dos 11 SELECT; o `map` de booleano nunca casa\nporque `str(True)` e 'True' (e sob ele havia um segundo defeito que o primeiro\nmascarava); dez regras defeituosas em 414, seis que nunca converteram feicao; uma\ndecisao do gap doc contrariada por 5 regras da propria rev 1.7; os quatro codigos de\n`tipo_veg` por bioma que o criterio de porte e fisionomia condena; e `source_tags` e\n`ST_Area` ausentes do executor, de que 34 regras novas dependem.\n\nAchado de metodo, e entrou no MEMORY: **a regua nasceu errada duas vezes pelo mesmo\nmecanismo, um eixo matando a regra degenerada antes de o outro ser exercitado**.\nTres dos oito eixos existem porque subagentes montaram insumo degenerado contra a\nregua e provaram que ela aprovava escrita que o banco recusaria. E a parafrase do\npai virou fato na boca do filho pela SEGUNDA vez: passei \"a restinga foi removida do\nesquema\" como fato, a wiki dizia isso do esquema do modelo de IA, e o agente me\ncorrigiu com a linha 1395 do DDL na mao.\n\nWiki: pagina nova [[porte-overture-2-0]], estado de [[overture-maps]] atualizado\npara 09/2026 com a contagem certa de regras do v1.7 (414, e nao as 394 do metadata\ndesatualizado). Lint da wiki limpo: 0 links quebrados, 0 orfas, 0 fora do index.\nMEMORY.md em 84,3% do teto, acima do gatilho: a consolidacao por fusao foi feita e a\nPODA depende do chefe.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X6577ZNaYdqXsLMpw7yN8L",
+      "sha": "af1628b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/af1628b67b046da1a51e45cbdfe453892323147c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-13T15:53:51.000Z",
