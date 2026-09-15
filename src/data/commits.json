@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-09-15T14:45:00.513Z",
+  "lastUpdate": "2026-09-15T18:48:44.320Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-09-14T14:46:33.000Z",
+    "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-15T14:36:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-15T15:51:18.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-13T15:53:51.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6889,
+    "totalCommits": 6891,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1418,
+      "1cgeo/ebgeo_web": 1419,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 780,
+      "1cgeo/chefe_dgeo": 781,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 29,
@@ -173,6 +173,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-15T15:51:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-15 (cont. 1): a visibilidade 3D do EBGeo publicada, e o sourcemap vira a prova barata do deploy\n\nDecisao (cont. 2 de hoje): os quatro consertos da analise de visibilidade 3D do\nebgeo_web e o patch na cesium-viewshed vendorizada, com o raio de explosao\nnomeado (toda analise 3D, 1,36 vez de densidade de texto no eixo vertical, nao\nvisto na tela porque o Chrome dirigido roda noutra maquina) e a volta por\ndeploy.sh --rollback. Em producao na release 20260915_123413.\n\nwiki/servidor-ebgeo: contradicao fechada. O disco esta em 63% com 332 GB livres,\ncontra os 93% com 66 GB que a pagina trazia de onze dias antes, e a folga de\naperto que justificava cautela nao existe hoje. Mais duas coisas que so se\naprendem publicando ali: o clone e do administrador e o root recusa todo git com\n\"dubious ownership\", e a arvore suja do clone e a MESMA frente aberta na estacao\ndo chefe, com a release no ar ja construida dela.\n\natualizar-dockers, o que muda o gesto:\n- O SOURCEMAP publicado carrega o fonte original, entao o marcador da prova pode\n  ser um IDENTIFICADOR novo do commit, que nao sobrevive a minificacao mas\n  sobrevive inteiro ali, e fecha os dois lados sozinho. Isso dispensa a ginastica\n  da frase, que vira o ultimo recurso.\n- Toda sonda de artefato declara um marcador de CONTROLE que existe nos DOIS\n  lados, e controle em zero condena a SONDA, nunca o deploy. Subiu para a\n  Verificacao da SKILL.md porque a armadilha de escolher o chunk pelo NOME pegou\n  pela QUINTA vez, com a linha do learnings lida no mesmo turno: reler a regra\n  nao pega esta classe, e o que pegou foi o controle.\n- Publicar com outra pessoa editando na maquina pede guarda medida: lsof no .swp\n  para achar o editor vivo, foto md5 da arvore alheia antes do pull e depois do\n  build, e aborto antes da troca do symlink.\n- Quente compactado onde havia ponteiro para o detalhado (prova da imagem,\n  grep -c em bundle, os tres casos de docker exec do SCA). Segue em 18,3 KB,\n  acima da faixa de 13 a 14: o re-split fica proposto, nao feito.\n\nlivro-razao: dois eventos de regua-cega. O duble do store devolvia a propria\nreferencia onde o real clona, e a regua passava ANTES e DEPOIS do conserto; e a\nsonda do bundle apontada ao chunk pelo nome, salva pelo controle.\n\nMemoria do harness (fora deste repo): atualizador-com-lista-branca-de-campos,\ncopia-congelada-na-view-diverge-do-store e duble-mais-gentil-que-o-real.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5725056",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/57250568b8554ca14bc7521b39fd03d1bf634db9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-15T15:21:14.000Z",
+      "author": "Maj Diniz",
+      "message": "visibilidade 3D: campo horizontal e distancia voltam a valer, e o setor entrega os graus pedidos\n\nO painel mandava {parameters: {horizontalAngle, distance}} ao updateViewshed, que\nso conhecia `properties` e `observerHeight`: o campo caia em silencio, o retorno\nvinha com o valor velho, e o cone era recriado igual. Por isso a altura do\nobservador funcionava e os outros dois pareciam bugados.\n\nTres consertos:\n\n1. O store passa a fundir `updates.parameters`, no mesmo padrao do updateMarker.\n\n2. Os tres atualizadores refrescam a copia que a entidade de origem carrega em\n   properties.viewshedData. O painel e reconstruido dela quando o marcador e\n   clicado de novo, entao a copia velha fazia o valor reverter na tela mesmo com\n   o store ja gravado.\n\n3. A reparticao do setor acima de 150 graus tirava 1,5 grau de cada sub-setor sem\n   mexer no espacamento: a 360 graus a uniao cobria 355,5 e as bordas externas\n   paravam 0,75 grau antes de cada lado. A folga da costura passa a sair do\n   espacamento, a uniao cobre o total pedido e as bordas caem em +-total/2. O\n   comentario dizia 0,1 grau desde que a divisao foi escrita, e o codigo sempre\n   usou 1,5: a constante virou SEAM_MARGIN_DEGREES, com a origem registrada.\n\nE um patch na cesium-viewshed vendorizada: o shadow map do spot light recebia o\naspecto do CANVAS como aspectRatio, mas a textura dele e quadrada (2048x2048).\nComo o fov do Cesium vale para o eixo maior, um canvas 16:9 entregava 88,5 graus\nde campo vertical enquanto o shader seguia prometendo 120, e a mesma analise\nmudava de forma quando a janela mudava. Com aspectRatio 1 o fovy iguala o fov.\n\nReguas, todas vistas REPROVAR o codigo de antes:\n- tests/store/viewshed-parametros.test.js (4 de 6 falhavam; os 2 controles,\n  observerHeight e properties, passavam antes e depois)\n- tests/unit/viewshed-3d-parametros-no-painel.test.js (4 falhas sem o refresh da\n  copia; o duble do store clona na leitura, como o real faz pelo deepClone)\n- tests/unit/viewshed-3d-setor-repartido.test.js (11 falhas no desenho antigo,\n  medindo a UNIAO e as bordas, nao a soma dos angulos)\n- tests/unit/viewshed-3d-campo-vertical.test.js (5 falhas sem o patch: 88,5 graus\n  em 16:9, 72,3 em 21:9 e 29,1 na janela 4000x600; exercita os DOIS eixos, e o\n  canvas retrato denuncia o horizontal)\n\nSuite: 3.792 passam. A unica falha, secondary-server-notice, vem de uma edicao\nnao commitada de src/js/config.js que ja estava na arvore. vite build limpo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "6e15b59",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6e15b592b733149c6e12595b48d9edd90c933edb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-15T14:36:36.000Z",
