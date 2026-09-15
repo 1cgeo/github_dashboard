@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-14T23:03:18.581Z",
+  "lastUpdate": "2026-09-15T14:45:00.513Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-14T14:46:33.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-09-11T19:21:03.000Z",
+    "1cgeo/controle_acervo": "2026-09-15T14:06:20.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-14T10:39:21.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-15T14:36:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-13T15:53:51.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 6885,
+    "totalCommits": 6889,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -143,7 +143,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 355,
+      "1cgeo/controle_acervo": 356,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 777,
+      "1cgeo/chefe_dgeo": 780,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 29,
@@ -173,6 +173,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-15T14:36:36.000Z",
+      "author": "Maj Diniz",
+      "message": "curadoria: o ponteiro do ultimo relatorio acompanha o de 2026-09-15\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014j1zezVxKKYyMfvCE462wJ",
+      "sha": "b6fd17f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b6fd17fe9e72c6c87dcadd979211ecca46da9b14",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-15T14:36:12.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings da rodada de orcamento e licitacao de 2026-09-14/15\n\nPendentes na arvore desde antes desta sessao, e entram sem edicao minha: a\nconsulta por ITEM do pregao do 5o CGEO (participacao se responde por item, nunca\npela compra, e o modelo da ata nao e o do pedido) e o par de licoes da rodada de\nrotina do orcamento.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014j1zezVxKKYyMfvCE462wJ",
+      "sha": "472e285",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/472e28556b71f84d2d7c4ce22d6e1ae26e46aa80",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-15T14:35:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-15: a capacitacao ganha foto e video, e o SAP 3.0 vai a 3.15.0\n\nA sessao inteira num sistema so: as duas telas de capacitacao (ministrada, a 2.6\ndo RPCMTec, e recebida, a 6.2) passaram a aceitar foto e video como a atividade\nde campo ja aceitava, e o resultado esta no ar desde hoje.\n\nO QUE ENTROU NA MEMORIA:\n\n- Decisions 2026-09-15 (cont. 1), integral mais a linha do indice: por que a\n  tabela nova espelha `campo.imagem` coluna a coluna (para UMA galeria servir as\n  duas telas), por que as rotas nascem dentro do molde que herda as guardas do\n  modulo, por que o controlador cobra o tipo OUTRA VEZ, e onde a galeria mora na\n  tela, decidido pelo chefe entre tres opcoes.\n- wiki/capacitacao ganhou a secao que faltava, \"Onde a capacitacao se registra\",\n  e o par de backlinks com [[controle-acervo]], [[rpcmtec]] e\n  [[trabalho-de-campo]]. Zero links quebrados e zero orfas no lint.\n- wiki/controle-acervo: linha de Historico e o \"Estado atual\" refeito com o que\n  foi MEDIDO no ar (servico e banco na 3.15.0), sem estender a medida ao que nao\n  foi medido (a producao cartografica segue sem medida nova).\n- ciclo-2026: a versao do banco estava congelada em 1.6.0 de julho, e a pendencia\n  (a) do `preserve_omitted` fechou -- o conteiner serve o commit 6404d4d, e o\n  `b79de98` e ancestral dele.\n- livro-razao: quatro desvios, sendo dois que o proprio instrumento pegou (a\n  troca de classe CSS em lote criando nome colidente, e o laco de teste ancorado\n  no rotulo que o efeito medido altera) e um que quase passou -- a tarefa em\n  segundo plano reportando \"exit code 0\" sobre uma suite que nunca andou.\n- conventions/saida.md e a Verificacao da retrospectiva: a regra de nao passar\n  prosa pela linha de comando foi quebrada NO MESMO TURNO em que foi lida, e o\n  gesto que a faz valer (reler no destino) subiu para a Verificacao da skill.\n- atualizar-dockers: o 17o deploy, e duas regras novas -- a frase de interface\n  migra ANTES da tela quando o componente e compartilhado (a contagem e que\n  separa), e o `MIN_DATABASE_VERSION` que sobe torna a ordem migrar-depois-trocar\n  obrigatoria, e nao preferencia.\n- MEMORY.md drenado de 84,3% para 79,8% do teto, por COMPRESSAO e nao por\n  descarte: quatro linhas ficaram com o flag e o ponteiro, e cada detalhe que\n  saiu foi conferido na pagina ou na skill que o guarda.\n\nAs duas entradas de Decisions de hoje andam juntas porque dividem o arquivo: a\nprimeira (a liquidacao da frota de 14 SET) e da sessao anterior.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014j1zezVxKKYyMfvCE462wJ",
+      "sha": "e147a51",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e147a516c10f1dfbd65db6c35f43b3fe8ca2d6ac",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-15T14:06:20.000Z",
+      "author": "Maj Diniz",
+      "message": "a capacitacao ganha foto e video, como a atividade de campo ja tinha (3.15.0)\n\nPedido do chefe: nas duas telas de capacitacao (MINISTRADA, a 2.6 do RPCMTec, e\nRECEBIDA, a 6.2) poder anexar foto e video do jeito que o campo ja aceitava. Ate\naqui o registro visual da instrucao que a Divisao deu, e do curso que o militar\nfez, nao tinha onde morar.\n\nBANCO. `rpcmtec.capacitacao_imagem`, espelho de `campo.imagem` coluna a coluna\n(bytes em BYTEA, `tipo` foto/video no mesmo CHECK, `mime_type` anulavel). O\nespelho e o que permite UMA galeria servir as duas telas: uma tabela com outro\ndesenho obrigaria a uma segunda, e a que ficasse de fora da correcao seguinte\nseria a que todo mundo ve. O ensaio de migracao confirma que o caminho de\natualizacao chega onde a instalacao nova chega, e que reaplicar nao quebra.\n\nSERVIDOR. Cinco rotas por tipo, DENTRO do molde `rotasDeCapacitacao`: e o que as\nfaz herdar as duas guardas (ministrada cobra `pit`, recebida cobra `efetivo`).\nO controlador cobra o tipo OUTRA VEZ, na consulta, e nao e redundancia -- a\nguarda aprova o operador de Efetivo em toda rota da recebida, e o id que ele\nmanda pode ser o de uma foto da MINISTRADA. O teto do arquivo e a lista de MIME\nsairam de `campo_schema` para `utils/midia.js`, lidos pelos dois modulos: duas\nlistas divergem na primeira que alguem editar, e esquecer de REMOVER de uma\ndelas serve tipo perigoso na origem da aplicacao, calado.\n\nCLIENTE. A galeria virou `components/midia/galeria-midia.js` (classes `campo-`\npara `midia-`), e `pages/campo/campo-midia.js` ficou como a amarracao do campo.\nNa capacitacao ela abre pela LINHA da lista, num modal proprio: quem so CONSULTA\ntem de ver a foto, e o formulario de edicao e do operador; e a galeria grava na\nhora, enquanto o formulario grava no \"Salvar\". A lista ganhou a coluna Midia com\na contagem, e a confirmacao de exclusao diz quantos arquivos vao junto.\n\nPROVA. As reguas novas foram vistas REPROVAR antes de aprovar: sem o recorte de\ntipo no controlador, o caso do banco falha; com o servico fixo na ministrada, o\ncaso do cliente falha. A varredura de rastreabilidade pegou as seis escritas\nnovas (58 -> 64) e elas entraram declaradas. Suite de banco 1395, rapida 3771,\ncliente 2220, mais `npm run build`.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014j1zezVxKKYyMfvCE462wJ",
+      "sha": "6404d4d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6404d4dd66af4e2cfa6fa99555363a4ab7f63e4d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
       "date": "2026-09-14T15:18:40.000Z",
