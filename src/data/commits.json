@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-16T18:47:33.002Z",
+  "lastUpdate": "2026-09-16T22:46:51.839Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-16T18:45:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-16T19:41:47.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-16T18:25:15.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-16T20:29:41.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-15T23:57:27.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7085,
+    "totalCommits": 7089,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1601,
+      "1cgeo/ebgeo_web": 1604,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 787,
+      "1cgeo/chefe_dgeo": 788,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 32,
@@ -173,6 +173,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T20:29:41.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa base: o catalogo do servidor vence o que vem embutido no cliente\n\nDUAS VEZES NO MESMO DIA um valor embutido no cliente sobrepos o que o servidor publica, e as\nduas apareceram na mesma tela: a lista de mapa base saiu como \"Topografica, Ortoimagem,\nTopografica, BDGEx\", com o terceiro cartao desenhando OSM cru (relato do chefe, 2026-09-16).\n\nO ESTILO (`basemap-style.js`). `resolveBasemapStyle` consultava o embutido primeiro, com um\nreceio declarado no cabecalho: preferir a copia publicada para os cinco ids embutidos\n\"repontaria em silencio as cinco camadas que todo deployment traz\". O custo do outro lado e\nmaior, e e o desta linha do produto: os cinco modulos de `baselayers/` sao ESBOCOS aqui (o\n`carta_topografica.js` sao 18 linhas de OSM cru, o `carta_ortoimagem.js` e a URL de\ndemonstracao do MapLibre), enquanto a `main` traz neles a carta DSG de 4.817 linhas e a\nOrtoimagem de 3.185. Com o embutido vencendo, o administrador publicava a carta DSG no catalogo\ne a tela desenhava o esboco por baixo dela, sem um erro em lugar nenhum.\n\nAgora o publicado vence e o embutido e a QUEDA. O que a inversao preserva: quem nao publica\nestilo continua caindo no embutido, e um publicado malformado continua contando como ausente,\nentao o esboco segue sendo a rede de seguranca.\n\nO ROTULO (`base-layer-selector.control.js`). O cartao escrevia `thumbnailConfig?.label ||\nlayerConfig.name`, e o rotulo fixo de `carta-topografica` e \"Topografica\" enquanto o catalogo de\nproducao o chama \"DSG\". Dai os dois cartoes de mesmo nome. O detalhe que faz disto descuido e\nnao desenho: TRES LINHAS ACIMA, a miniatura do mesmo cartao ja punha `layerConfig.image` na\nfrente. Era so o nome que nao seguia o catalogo. Invertido nos dois lugares em que o rotulo e\nescrito (o cartao da lista e o rotulo do botao).\n\nMedido com o `/api/config` REAL depois dos dois consertos, os quatro mapas base de producao:\n\n  osm-overture         \"Topografica\"  190 camadas  base, places, rotulos, buildings\n  overture-ortoimagem  \"Ortoimagem\"   136 camadas  base, places, rotulos, divisions\n  carta-topografica    \"DSG\"           97 camadas  asc, world_ebgeo, area_com_dados\n  bdgex                \"BDGEx\"          3 camadas  bdgex, natural_earth_raster\n\nReguas:\n\n- `tests/unit/rotulo-do-mapa-base-vem-do-catalogo.test.js` (NOVA), com o controle negativo\n  rodado contra a ordem antiga devolvendo exatamente o relato: `[\"Topografica\",\"Ortoimagem\",\n  \"Topografica\",\"BDGEx\"]`, tres nomes distintos de quatro. Ela mede o rotulo e a MINIATURA lado\n  a lado, porque consertar um e deixar o outro seria a mesma classe de erro.\n- Dois testes existentes fixavam a ordem antiga de proposito e foram REESCRITOS com a razao:\n  `basemap-estilo-publicado` (o caso virou \"o publicado ganha\", com um caso NOVO para a queda) e\n  `baselayer-style-uniqueness.repro` (a sobreposicao do administrador deixa de ser inerte).\n\nVerificacao: `npx vitest run` com 13.054 de 13.054, zero falhas; `npm run lint` limpo; e as 44\nfontes, sprites e glifos dos quatro estilos acionadas uma a uma contra o servidor real, todas\nrespondendo, com a unica externa sendo o WMS do BDGEx, que so a EBNet alcanca.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "9c123b4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c123b42aad9e1626c177a198e097ce91ba0059b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T20:29:10.000Z",
+      "author": "Maj Diniz",
+      "message": "boot: quem nunca abriu o EBGeo nao recebe mais a tela de recuperacao\n\nO RELATO, de 2026-09-16: uma pessoa que nunca tinha aberto o EBGeo entrou pela primeira vez,\nrecebeu a tela de \"problema na atualizacao\" e baixou um pacote de recuperacao. O pacote foi\nmedido e veio VAZIO (`records: []`, `inventory: []`): a aplicacao interrompeu o boot de um\nusuario novo para lhe oferecer o resgate de um acervo inexistente.\n\nA CAUSA sao duas condicoes que so se encontram FORA da estacao de quem desenvolve:\n\n1. `classifySource` so reconhece o escopo vazio quando ja existe atlas no registro\n   (`inventory.length === 0 && entries.length`). Num navegador novo o registro esta vazio, a\n   guarda nao vale, e a funcao devolve `kind: 'local'` com inventario ZERO.\n\n2. `prepareLegacyTransition` entao exige Web Locks, e `navigator.locks` so existe em CONTEXTO\n   SEGURO. Por `localhost` ele existe, e por isso o defeito nunca apareceu aqui; por\n   `http://<ip>:<porta>` da rede interna ele NAO existe, e a chamada lanca `lock_unavailable`.\n\nO CONSERTO E NO PONTO DO LOCK, e a primeira tentativa (tratar o escopo vazio como `empty` na\nclassificacao) foi DESFEITA porque a suite pegou: `instalacao nova nasce isolada sem escrever\nbancos da main` reprovou. Pela decisao de 2026-09-13 os bancos sem sufixo sao os da `main`, e a\ninstalacao nova precisa nascer num escopo proprio (`upgrade-<uuid>`); trata-la como \"nada a\nfazer\" a mandaria escrever justamente la.\n\nO que o lock protege e a COPIA concorrente (o caso `dois boots convergem para uma copia`). Com\ninventario vazio nao ha copia, e o que resta e a criacao do slot, que `commitDestination` ja\nresolve por registro. Entao o portao segue sem lock NESSE caso, por uma funcao que repete a\nmesma sequencia, e continua recusando no outro, que e onde ha dado de alguem em jogo.\n\nISTO ALINHA A TRANSICAO AO RESTO DO PRODUTO. `write-coordinator.js` e `api-client.js` ja\ndeclaram no cabecalho que degradam sem Web Locks (\"plain HTTP, a hardened embedder\"), porque o\nproduto e servido por HTTPS e o regime degradado e a excecao. A transicao legada era o unico\nlugar que LANCAVA em vez de degradar.\n\nReguas novas, as duas vistas reprovar o codigo anterior:\n\n- `tests/store/transicao-legada-de-instalacao-nova.test.js`: o navegador novo SEM locks passa e\n  nasce isolado; o mesmo desfecho COM locks (que e por que o defeito nunca apareceu aqui); e o\n  CONTROLE do outro lado, um escopo COM dado no mesmo navegador continuando a parar com\n  `lock_unavailable`. O duble de `navigator` e `vi.stubGlobal`, e nao `delete navigator.locks`:\n  o `navigator` do ambiente de teste nao aceita a remocao e o delete passa calado (a primeira\n  versao desta regua rodou a transicao inteira achando que a tinha desligado).\n- `tests/store/boot-de-instalacao-nova.test.js`: o boot de quem nunca abriu nao escreve NENHUM\n  erro no console, nao menciona escopo preservado em canal nenhum, carimba a versao corrente\n  (e nao o literal legado 1.7), devolve um mapa utilizavel, e semeia o MINIMO, medido em vez de\n  suposto: o carimbo e um mapa chamado `Principal`, sem registro de atlas, que nasce depois e\n  por outro gesto. A DISCRIMINACAO fecha o arquivo: com UMA chave de dado e sem carimbo, o\n  mesmo boot fala e preserva.\n\nVerificacao: `npx vitest run` com 13.054 de 13.054, zero falhas; `npm run lint` limpo. O\nPlaywright nao foi rodado, por decisao do chefe nesta sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "ba10cbb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ba10cbbe7700c5edb1d25dcb62923a4eeecf252f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T19:58:55.000Z",
+      "author": "Maj Diniz",
+      "message": "posto: a tela escreve a abreviatura, e nao o nome por extenso\n\nNo Exercito o posto se escreve abreviado (`1º Ten`, `Cap`, `TC`, `Gen Bda`), e a forma por\nextenso nao e a que aparece em documento, em assinatura nem em lista de pessoal (decisao do\nchefe, 2026-09-16). A tabela `ranks` ja carregava as duas formas e a semente ja trazia a\nabreviatura certa nas 19 linhas: o que estava errado era a ESCOLHA, em duas camadas.\n\nBACKEND, dezesseis consultas em quatro modulos (`users`, `auth`, `atlas`, `access-groups`)\nprojetavam `r.nome AS posto_graduacao`. Passam a projetar\n`COALESCE(<alias>.nome_abrev, <alias>.nome)`. A queda para o nome e de proposito:\n`nome_abrev` e anulavel (o schema aceita null e o painel permite limpar), e um posto sem\nabreviatura tem de aparecer por extenso em vez de sumir da tela.\n\nFRONTEND, tres seletores rotulavam pelo nome: o do painel de usuarios\n(`buildDomainOptions`), o do perfil da conta (`rankOptions`) e o do auto-cadastro\n(`_domainOptions`). Os dois mapeadores compartilhados ganharam um rotulo INJETAVEL, com o\nnome como padrao, porque a OM continua se escrevendo por extenso: um conserto que abreviasse\ntudo trocaria \"Diretoria de Servico Geografico\" por uma sigla onde ninguem pediu.\n\nReguas, vistas REPROVAR o codigo anterior:\n\n- `backend/tests/integration/posto-abreviado.test.js` (NOVA): 4 de 6 vermelhas, com\n  \"Primeiro Tenente\" no lugar de \"1º Ten\" nas quatro superficies (`/users/me`, o login, a\n  lista do administrador e o resumo do atlas). Os dois controles ja passavam: o ramo da queda\n  para o nome, e o catalogo do `/api/config` continuando a trazer as DUAS formas, que e o que\n  a tela de administracao de pessoal edita. A familia e de quatro modulos e o arquivo cobre os\n  quatro: medir so o `/users/me` deixaria tres superficies livres para divergir amanha.\n- `frontend/tests/unit/posto-abreviado-nos-seletores.test.js` (NOVA): o contrato do rotulo nos\n  tres seletores, com o controle de que a OM continua pelo nome.\n- Dois testes existentes fixavam a forma antiga e foram REESCRITOS com a razao, nao apagados:\n  `register-tenant-claim` (o posto derivado de `/users/me`) e `busca-de-pessoas-nao-enumera`\n  (a projecao que prova que o posto continua na linha depois de sair do casamento da busca).\n\nQuatro testes existentes fixavam a forma antiga e foram REESCRITOS com a razao, nao apagados:\n`register-tenant-claim`, `busca-de-pessoas-nao-enumera`, `users-admin` (tres asserçoes) e\n`users-search-scope`.\n\nVerificacao, depois da ultima escrita: `npm test` do backend com 5.266 de 5.266 e zero falhas,\nnuma rodada SOZINHA (duas rodadas concorrentes colidem no banco `ebgeo_test`, e a primeira\ntentativa reprovou 18 casos por isso); `npx vitest run` do frontend com 13.054 de 13.054;\n`npm run lint` limpo nos dois pacotes; e a leitura das superficies vivas pelo ambiente de rede,\nonde o `/users/me` e a lista do administrador passaram a devolver `Maj` e `1º Ten`.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "5c38b86",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5c38b8619947e24c643aa9a7642c0c07bec598ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-16T19:41:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-16 (cont. 4): a variante V7 assume o GabDEM ganhando nas tres dimensoes, e a serie de cinco entregas mostra o retorno decrescente do eixo unico\n\nNove produtos sobre as mesmas 174 folhas, mesmo instrumento, afericao em 8 mm e\nmascara identica de 47.153.865 celulas.\n\n- A V7 deriva da R2 e e a PRIMEIRA entrega que ganha da anterior nas tres\n  dimensoes: 6 dos 7 indicadores de cota, 8 dos 12 de forma e 5 dos 10 de curva.\n  RMSE agregado 2,972 m, 132 folhas enquadradas, e a melhor posicao de curva da\n  familia (p90 de 34,2 m contra 32,5 do FathomDEM).\n- Onde ela NAO e a melhor das cinco: a versao 1 no TRI de Riley e no ganho da\n  tangente, a variante B no cucuruto e na rede GNSS, e a R2 na depressao. Todas\n  por centesimos, todas no mesmo eixo.\n- A serie das cinco entregas e a leitura que importa: o RMSE agregado ganhou\n  0,66 m, depois 0,06 e depois 0,02, enquanto o TRI desceu monotonicamente de\n  0,959 para 0,826 e a razao de comprimento de curva de 1,017 para 0,873. Ganho\n  decrescente num eixo com custo constante no outro.\n- A rampa por declividade continua sem ser implementada, pela terceira entrega\n  seguida, e e a unica recomendacao que ataca o outro eixo.\n- Gesto novo: derivar a esteira de analise com ASSERCAO por troca, que e o\n  conserto do no-op silencioso da rodada anterior e ja abortou uma derivacao\n  errada nesta.\n\nArtefato: https://claude.ai/artifact/6qjpgFWvSeMZqamdCrdfTS\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "fe14672",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fe146720f338f541b1e53b7a49db08a682b98aff",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-16T18:45:29.000Z",
