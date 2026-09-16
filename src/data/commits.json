@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-16T14:44:57.057Z",
+  "lastUpdate": "2026-09-16T18:47:33.002Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-07-30T12:16:44.000Z",
-    "1cgeo/doc_dgeo": "2026-09-16T14:13:46.000Z",
+    "1cgeo/doc_dgeo": "2026-09-16T15:28:50.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-16T14:35:47.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-16T18:45:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-16T10:32:19.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-16T18:25:15.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-15T23:57:27.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7074,
+    "totalCommits": 7085,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,11 +124,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1596,
+      "1cgeo/ebgeo_web": 1601,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
-      "1cgeo/doc_dgeo": 550,
+      "1cgeo/doc_dgeo": 552,
       "1cgeo/ferramentas_mgcp": 16,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 783,
+      "1cgeo/chefe_dgeo": 787,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 32,
@@ -173,6 +173,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-16T18:45:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-16 (cont. 3): o PIT 2027 ganha casa e skill, e a proposta fecha em 380 folhas contra as 603 pedidas\n\n- 01-Projects/ciclo-2027/pit.md, casa nova do ano em planejamento: a demanda da DSG\n  (857 itens, 734 folhas pela tripla produto/escala/MI, 603 na fila de producao), a\n  contraproposta (86 Cartas Topograficas e 294 Ortoimagem), o plano de quatro campos\n  de dez dias sobre 68 folhas e os 44 alvos de 3D que eles levam na carona.\n- wiki/pit.md ganha a secao perene \"Como a demanda chega (A-1)\", com os tres universos,\n  o rotulo sfc e a regra de que a negociacao e do PRODUTO e nunca da area. A\n  wiki/ciclo-anual.md registra 2027 como ano em planejamento, sem tirar 2026 do ativo.\n- skill responder-demanda-pit (name-only), com a regua do INOM e o autoteste que\n  reprova o caso degenerado: SH-99-Y passava por 1:500.000 porque a regua so olhava a\n  forma do texto. Entrada no DESAMBIGUACAO contra consultar-produtos e consultar-sap.\n- livro-razao: quatro eventos, com a versao planejada contada como pronta (o fato ja\n  estava escrito na wiki, e eu fui medir no banco sem grepar) e a area de envelope\n  comparada com area de uniao, que inverteu a conclusao sobre o peso dos campos.\n\nAs Decisions ficam fora deste commit: a entrada 2026-09-16 (cont. 6) esta escrita nos\ndois arquivos, mas a arvore tem mudanca de outra sessao neles.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01E6aTPhPDKqgSg93Kz3gBAB",
+      "sha": "b3caa9e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b3caa9e244a40ec7be35e16d5b55cc356c72f6ca",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T18:25:15.000Z",
+      "author": "Maj Diniz",
+      "message": "store: sub-entidade de mapa nasce como update, e a posicao declara a base na primeira\n\nA CAUSA do defeito que o commit anterior (`f7ad93ef`) tratou no servidor. Os tres emissores\nde sub-entidade de mapa decidiam o tipo da op por \"havia valor local antes?\":\n\n  settings.operations.js:160  grade    previousGridStyle ? UPDATE : CREATE\n  settings.operations.js:98   notas    previousNotes?.title ... ? UPDATE : CREATE\n  map.operations.js:1068      posicao  isUpdate ? UPDATE : CREATE\n\nEntao a PRIMEIRA gravacao de cada uma num mapa nascia `create`, e um `create` de\nsub-entidade caía no ramo de criacao de mapa do servidor, que insere a linha inteira com\n`data.name` nulo: o Postgres reprovava por NOT NULL antes de olhar o `ON CONFLICT`, e o\nusuario lia \"Alteracao descartada: campo obrigatorio ausente\". As tres passam a ser UPDATE\nsempre, que e o que sempre foram: uma sub-entidade nao e uma linha, e uma COLUNA de um mapa\nque ja existe (`grid_style`, `notes_*`, os cinco de posicao), e quem cria a linha e a op de\n`map`, a unica que carrega o nome.\n\nO SEGUNDO CUSTO DO `create`, e o que justifica mexer aqui mesmo com o servidor consertado:\n`entityMutationContract` so monta o PATCH para `update`. Um `create` viajava sem a lista de\nunidades alteradas, e sem ela a disputa e julgada sobre o BLOCO em vez da unidade — a grade\npassava a colidir com quem tivesse mexido noutra unidade do mesmo mapa.\n\nUMA CORRECAO DO QUE EU AFIRMEI ANTES, medida por regua: o `create` NAO desligava a deteccao\nde conflito. A base observada sai do `previousData`, e o `previous` da grade e o das notas\nsempre carregam a revisao do mapa (`readMapRevision`), entao a base ia declarada nos dois\ntipos. O caso de `viewshed-parametros`, em que a base faltava, era o da minha sonda, que\nmandou `create` sem `baseVersion` — nao o do cliente.\n\nA POSICAO ERA A EXCECAO, e por isso mudou mais que as outras duas: o `previousData` dela era\n`null` sem posicao anterior, com o racional escrito ao lado de que \"uma criacao nao observa\nrevisao nenhuma\". O racional caiu junto com o `create`, entao ela passa a declarar a revisao\ndo MAPA tambem na primeira gravacao, na mesma forma da grade. Sem isso, a primeira posicao\nsalva de cada mapa seguiria sendo aplicada por ordem de chegada. Documento sem revisao\ndegrada para o mesmo LWW de antes, sem prometer base nenhuma.\n\nReguas:\n\n- `tests/unit/subentidade-de-mapa-declara-base.test.js` (NOVA), vista reprovar o codigo\n  anterior em 3 dos 5 casos: o tipo da grade, o patch da grade e o tipo das notas. Os dois\n  que ja passavam sao o controle da correcao acima (a base declarada) e o controle de que o\n  tipo nao depende do que havia antes.\n- `tests/store/map-operations.test.js`: dois casos REESCRITOS com a razao, nao apagados. Eles\n  fixavam a verdade antiga de proposito (\"registra CREATE na primeira posicao\", \"declara a\n  revisao so quando havia posicao anterior\"), e cada um agora diz no comentario o que mudou e\n  por que.\n- `tests/integration/map-settings-write-ahead.test.js`: a sequencia esperada do diario passa\n  de `['update','create','update']` para tres updates, com a razao no lugar.\n\nVerificacao, depois da ultima escrita:\n\n- `npx vitest run`: 13.025 de 13.033. As 8 vermelhas sao de CARGA (a maquina estava com o\n  dev server e o backend de pe): `boot-escopo-de-atlas`, `ws-client`,\n  `operation-queue-wipe-de-entrada` e `wipe-unificado-de-atlas` passam as 79 isoladas.\n- `npm run lint` da raiz: limpo, com os dois controles negativos das regras da casa passando.\n- Playwright NAO foi rodado, por decisao do chefe nesta sessao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cd25659",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd25659f2327c03cba7cd3c8a64c414bddfa4536",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T18:09:43.000Z",
+      "author": "Maj Diniz",
+      "message": "sync: sub-entidade de mapa que chega como create deixa de ser recusada\n\nLigar a grade pela PRIMEIRA vez num mapa nunca chegava ao servidor. A frase que o usuario\nlia e \"Alteracao descartada: campo obrigatorio ausente\", e ela e definitiva: o cliente e\ninstruido a guardar uma copia e aceitar o que esta no servidor, porque reenviar nao muda o\ndesfecho.\n\nA CADEIA, reproduzida pela API contra um banco com o acervo real:\n\n`setGridStyle` decide o tipo da op por `previousGridStyle ? UPDATE : CREATE`\n(`settings.operations.js:160`), entao a primeira gravacao da grade num mapa nasce CREATE. O\n`gridStyle` roteia para `target: 'map'` (`ENTITY_TYPE_MAP`), e um `create` de mapa cai no\nUPSERT que insere a LINHA INTEIRA com `data.name` — que uma op de grade nao carrega. O\nPostgres avalia o NOT NULL da tupla proposta ANTES de resolver o `ON CONFLICT (id)`, entao\nnem o mapa ja existir salva: 23502 em `maps.name`, o lote inteiro volta recusado por\nintegridade. Da segunda vez em diante a op vira UPDATE e passa, o que fazia o defeito\nparecer intermitente.\n\nO ALCANCE E A FAMILIA INTEIRA, medido op a op pela API: os CINCO sub-tipos de\n`ENTITY_TYPE_MAP` (`gridStyle`, `mapNotes`, `mapPosition`, `mapTemporal`, `baseLayer`) eram\nrecusados como `create` e aplicados como `update`. Tres ja tem emissor de `create` no\ncliente hoje: a grade e as notas em `settings.operations.js`, a posicao salva em\n`map.operations.js:1068`. Ou seja, escrever as notas ou salvar a posicao pela primeira vez\nnum mapa tinha o mesmo destino da grade.\n\nO CONSERTO e o rebaixamento em `normalizeOperation`: um `create` de SUB-ENTIDADE e\nsemanticamente um `update`, porque a sub-entidade nao e uma linha, e uma COLUNA de um mapa\nque ja existe. Ele fica no servidor, e nao so no cliente, porque o navegador de quem ja usa\no sistema continua emitindo `create` e uma fila local presa nao se desfaz sozinha. Nao abre\nporta: o caminho de update escreve pela lista de colunas do sub-tipo, que e mais estreita\nque a do INSERT, e a criacao de mapa continua sendo op de `map`, a unica que carrega o nome.\n\nA CAUSA no cliente fica de fora deste commit e vai a mesa do chefe: `previousX ? UPDATE :\nCREATE` nos tres emissores deveria ser UPDATE sempre, pela mesma razao semantica. Com o\nservidor consertado, a op nasce errada e chega certa.\n\nRegua nova, `tests/integration/sync-subentidade-de-mapa-como-create.test.js`, vista REPROVAR\no codigo anterior: quatro casos vermelhos (a grade, as notas, a posicao e os dois sub-tipos\nsem emissor), e os dois CONTROLES verdes nos dois estados, um por lado do rebaixamento: o\nnome do mapa sobrevive a um create de sub-entidade, e um create de `map` continua criando o\nmapa. Depois do conserto, 6 de 6.\n\nVerificacao, toda depois da ultima escrita:\n\n- `node scripts/run-tests.js tests/integration/sync-*.test.js`: 474 de 474.\n- `npm test` (backend inteiro): 5.260 de 5.260, zero falhas.\n- `npm run lint` do backend: limpo, com o controle negativo das regras da casa passando.\n- Prova no ambiente real, fora da suite: zerei o `grid_style` do mapa de um atlas com dado,\n  empurrei o MESMO `create` que falhava, e ele aplicou gravando `{\"format\":\"utm\",\n  \"visible\":true}`, com o nome do mapa intacto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f7ad93e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f7ad93efec42deb92d563900014c271802ffa6c2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T17:10:43.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: o dev/README descreve os tres passos novos de paridade\n\nCada um com o uso, a tabela de flags, o numero medido que justifica a existencia dele e a\narmadilha que ele evita. Sao as tres secoes novas (`import-catalogo-3d-legado`,\n`import-catalogo-360-legado`, `import-estilos-basemap`) mais a linha do `tutorialUrl`, que\nentra na secao do `import-config-catalog` porque e dele que ela fala.\n\nA ordem entre `import-config-catalog` e `import-estilos-basemap` esta escrita nos dois\nlugares, no cabecalho do script e aqui: o primeiro SUBSTITUI o `config` de cada mapa base,\nentao rodar na ordem errada apaga os quatro estilos e devolve a tela as duas cartas\ntopograficas iguais.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "f735d3f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f735d3f714aeb82636118dcea40536e5893a10a9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T17:09:42.000Z",
+      "author": "Maj Diniz",
+      "message": "dev: os tres passos que faltavam para a paridade com o acervo da producao\n\nCarga do acervo REAL do servidor num banco limpo (catalogo, gazetteer, piloto de 3D e\n360) expos tres lacunas entre o que a producao serve hoje e o que a travessia entrega.\nCada uma virou um script de `dev/`, no mesmo desenho dos que ja moram la: dry-run por\npadrao, `DATABASE_URL` do ambiente ou de `backend/.env`, e nada que crie linha sem os\nbytes correspondentes.\n\n`import-catalogo-3d-legado.mjs`. O `models3d:adotar` reconstroi a linha de catalogo a\npartir do cabecalho `meta` do proprio `.3dtiles`, de proposito: e o que permite readotar\num acervo sem banco nenhum. So que o cabecalho guarda a PRODUCAO (token, contagem de\ntiles, envelope geodesico) e nao o CATALOGO. Medido no acervo do servidor em 2026-09-16,\ncom os 105 modelos: `meta.name` e o slug, e os 105 tem nome amigavel, descricao,\npalavras-chave e local no `index.db` do servico antigo, alem de 6 com `heightOffset`\ndiferente de zero (o `serra_dourada` tem 793). Sem este passo a travessia publica 105\ncartoes chamados `13bib`, `4rcb`, `cmdo14bda`, sem miniatura, sem busca por\npalavra-chave, e seis modelos fora da altura certa. A miniatura so e gravada quando o\narquivo existe na pasta apontada, porque a origem tem `preview_thumb` nulo nos 105 e o\nservico antigo deriva o caminho por convencao: derivar sem conferir gravaria 105 URLs\nque respondem 404. Readotar depois deste script devolve ao arquivo apenas `name` e\n`heightOffset` (medido), entao a ordem e adotar, enriquecer, e repetir o enriquecimento\ndepois de qualquer readocao.\n\n`import-catalogo-360-legado.mjs`. O `sv360-import.js` monta o manifesto do projeto com\nslug, nome, centro, foto de entrada, data e arquivo (`sv360-import.js:359-373`), e nem\nele nem o `mergeProject` tocam em `description` e `location`, embora as duas colunas\nexistam nas duas pontas e a API nova as SIRVA (`sv360.queries.js:70`). Os 36 projetos do\nservidor tem as duas preenchidas. O conserto definitivo e uma linha no manifesto, mas ele\nmexe no nucleo COMPARTILHADO com o envio online do painel administrativo e pede a revisao\ndo dono; este script e o passo de fora, que nao toca o caminho online e so preenche campo\nvazio, nunca sobrescreve o que um administrador escreveu.\n\n`import-estilos-basemap.mjs`. Os construtores estaticos de `config.static.js:214-225`\ncobrem cinco ids genericos, montando um raster de uma camada a partir das URLs do\nambiente. O que a producao serve sao outros quatro, desenhados: a Topografica do Overture\n(12 fontes, 190 camadas), a Ortoimagem do Overture (16 fontes, 136 camadas), a DSG do\natlas Perseu (5 fontes, 97 camadas) e o BDGEx. Sem estilo, `osm-overture` e\n`overture-ortoimagem` caem no fallback do frontend e a tela mostra DUAS cartas\ntopograficas iguais, que foi o sintoma medido. A alternativa era portar 38 mil linhas de\nestilo que a `main` ainda edita a mao (a padronizacao cadastral de Cacequi esta aplicada\ndentro do `overture_layer.js`); pelo banco, o estilo e dado de configuracao e segue o\ncaminho do resto do catalogo. Sao 237 KB, e o `GET /api/config` vai de 23 para 259 KB.\n\nA UNICA coisa que ele muda no estilo e o `sprite`, de URL absoluta do nome publico para\ncaminho relativo ao documento (`./images/sprite`), que e a forma que o `glyphs` do mesmo\narquivo ja usa. Absoluta so funciona onde aquele nome resolve. Caminho de raiz\n(`/ebgeo/images/...`) tambem nao serve, e isto foi medido: o app e servido sob `/ebgeo/`\nem producao e na RAIZ pelo servidor de desenvolvimento, e ali `/ebgeo/images/sprite.json`\ncai no fallback de SPA e volta o `index.html` com HTTP 200, com o sintoma de icone que\nnao desenha e console limpo. Relativo vale nos dois, e o MapLibre resolve sprite na\nthread principal, onde a base do documento existe.\n\n`import-config-catalog.mjs` deixa de trazer `app.tutorialUrl`. O legado aponta\n`./docs/doc.html`, estatico do `publicDir`; pela decisao D16, de 2026-09-15, o tutorial\nvirou `tutorial.html`, entrada do bundler, com padrao `./tutorial.html` em\n`config.static.js:17`. Gravar o valor legado FOSSILIZA o caminho morto por cima do padrao\nvivo, e o sintoma nao e erro: o botao do tutorial abre a propria aplicacao numa aba nova,\nporque o servidor de desenvolvimento devolve `index.html` com 200 para caminho\ndesconhecido. Caminho de pagina e decisao do frontend, e o lugar dele e o padrao do\nbackend; o administrador ainda pode sobrescreve-lo pela tela.\n\nORDEM QUE E CONTRATO, e rodar fora dela apaga trabalho: `import-config-catalog.mjs`\nSUBSTITUI o `config` de cada mapa base, nao o mescla, entao uma reimportacao do config\nderruba os quatro `style` de volta a nada. Config primeiro, estilos depois, sempre. Esta\nno cabecalho do script.\n\nVerificacao: os quatro rodaram em dry-run e em apply contra um banco limpo com o acervo\nreal, e o resultado foi conferido contra a FONTE, nao contra o retorno da escrita. O\ncatalogo 2D: 153 campos iguais ao `config.js` do deploy, zero divergencias, com controle\nnegativo de cinco mutilacoes (linha ausente, linha inativa, nome trocado, campo do\n`config` trocado, linha ativa a mais) e a regua reprovando as cinco. O catalogo 3D: 33\ncampos iguais ao que o `/api/v1/models` do servico antigo serve para os tres modelos do\npiloto, com aviso nomeado nos dois eixos em que o backend novo calcula diferente\n(`locate.height` e chao mais 500 m aqui, contra o envelope la: 46,9 e 51,0 m). O 360: 548\ncampos iguais ao `index.db`, 864 alvos, 76 piramides para 76 fotos vivas. As quatro\nfontes, dois sprites e os glifos dos quatro mapas base foram acionados um a um pela\norigem local: 44 respondem, zero falhas, e a unica de fora e o WMS do BDGEx, que so a\nEBNet alcanca. `npx eslint dev/`: limpo.\n\nFica de fora deste commit, de proposito: o apontamento local para producao em\n`frontend/vite.config.js`, que o proprio arquivo marca como nao commitar, e os dois\n`package-lock.json`, que o `npm install` desta maquina so marcou com `peer: true` sem\nmudar versao nenhuma.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "b0a72c8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b0a72c835dcbf04136a1687b1a4a74212eb19fb8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-16T17:07:55.000Z",
+      "author": "Maj Diniz",
+      "message": "porte: campo horizontal e distancia da visibilidade 3D voltam a valer\n\nPorte do commit `6e15b592` da `main`, com o contrato deste repositorio. O defeito\nestava inteiro aqui, e era o mesmo: o painel manda\n`{ parameters: { horizontalAngle, distance } }` ao `updateViewshed`, que so conhecia\n`updates.properties` e `updates.observerHeight`. O campo caia EM SILENCIO, o retorno\nvinha com o valor velho e o cone era recriado igual, e por isso a altura do observador\nfuncionava e os outros dois pareciam defeito do desenho 3D.\n\nDois consertos:\n\n1. O store passa a FUNDIR `updates.parameters`, no mesmo padrao do `updateMarker`. E a\n   familia do atualizador com lista branca de campos: o que nao e citado e descartado sem\n   erro, e o sintoma e um parametro da tela funcionar e os vizinhos nao.\n\n2. Os tres atualizadores (distancia, campo horizontal, altura do observador) refrescam a\n   copia que a entidade de origem carrega em `properties.viewshedData`. O painel e\n   reconstruido dela quando o marcador e clicado de novo, entao a copia velha fazia o\n   valor reverter na tela mesmo com o store ja gravado.\n\nDOIS DOS QUATRO CONSERTOS DA `main` NAO ENTRARAM, e nenhum por esquecimento:\n\n- O `aspectRatio: 1` do shadow map ja esta em `services/viewshed-3d.js`, com o racional\n  escrito ao lado. La foi patch no vendor ofuscado; aqui o viewshed e codigo da casa\n  desde a decisao D15.\n- A reparticao do setor esta A FRENTE: a `main` fez a folga da costura sair do\n  espacamento, mantendo 1,5 grau, e aqui `SEAM_NARROWING_DEGREES` e ZERO desde\n  2026-09-16, porque a folga foi medida como fresta continua de 3 a 4 px de chao cru na\n  direcao de visada. Portar o 1,5 seria regressao, e `tests/unit/viewshed-3d-geometria.js`\n  ja prende o eixo.\n\nReguas, as duas vistas REPROVAR o codigo anterior desta arvore:\n\n- `tests/store/viewshed-parametros.test.js`: 5 de 7 falhavam (os 2 controles, a altura do\n  observador e as propriedades, passavam antes e depois). Ela tem um caso que a `main` nao\n  tem, e e do contrato daqui: a operacao de sync tem de levar o parametro novo, porque um\n  valor que so chegasse ao documento local voltaria ao velho no primeiro empurrao do\n  servidor.\n- `tests/unit/viewshed-3d-parametros-no-painel.test.js`: 4 de 5 falhavam. O duble e do\n  MODULO `services/viewshed-3d.js`, e nao do global `Cesium.ViewShed3D` da `main`, e ele\n  clona na leitura como o store real faz pelo `deepClone` (duble mais gentil que o real\n  aprovaria o codigo defeituoso).\n\nVerificacao, toda depois da ultima escrita:\n\n- `npx vitest run`: 13.023 de 13.028. As 5 vermelhas sao timeout de 5 s em casos que\n  chamam o ESLint e o `git` por dentro (`maplibre-construtores-regua`, os tres censos e\n  `portao-de-montagem`), com a maquina sob carga; rodadas isoladas, as 59 passam em 1,9 s.\n- `npx eslint` nos quatro arquivos: limpo.\n- `npm run build`: limpo em 3m09. Ele tambem refez o `dist/`, que era de 05 SET e nao\n  tinha o `tutorial.html`; era essa a vermelha de `teto-de-peso-da-pagina-do-mapa` na\n  rodada anterior, e ela some com o build novo.\n- Playwright NAO foi rodado, por decisao do chefe nesta sessao.\n\nA familia foi conferida: `updateMarker` e `updateMeasurement` tem a mesma lista branca,\nmas quem os chama so manda chaves que elas conhecem, e as duas ja refrescam os visuais. O\nviewshed era o unico furado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "cb5fe0a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cb5fe0a21b6a13edf3f30eb72922eba4d02de6f3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-16T15:55:54.000Z",
+      "author": "Maj Diniz",
+      "message": "learnings da mapoteca: a API serve os bytes do acervo, e o 250k indexa por MI numerico\n\nSete entradas da rodada de pedidos 208, 209 e 210 (2026-09-15 e 16), escritas\npor outra sessao e pendentes no working tree.\n\nO de maior peso: a rota `GET /api/acervo/arquivo/<uuid_arquivo>/download`\nserve os bytes em perfil de consulta, e a skill operou dois dias na crenca de\nque a unica fonte era o share da mapoteca, que esta estacao nao monta. Ela\ndispensa a caca a pasta vizinha, que so acha o que ja foi impresso: duas\nCartas Ortoimagem 1-DSG de 2025 nao estavam em nenhum dos 13.381 PDF do share.\n\nAs outras: no 1:250.000 o documento nomeia por INOM e o acervo indexa por um MI\nnumerico que pode ter letra; \"tem a edicao de 1981?\" tem tres respostas\npossiveis e pedir \"a primeira edicao\" erra nas tres; edicao historica costuma\nser TIF e o PDF e o tipo_arquivo_id 2; produto tematico se identifica pelo\npedido irmao mais a miniatura; pedido de carta que ainda vai ser produzida\nnasce em 7 e ganha pasta com aviso; e a chave MAPOTECA_PEDIDOS_DIR ja embute o\nano.\n\nTirei uma linha orfa que uma edicao malsucedida deixou no arquivo: era a cauda\nda entrada do CR no nome de arquivo, repetida sem acento e comecando com uma\ncrase solta. A entrada original, na linha acima, esta inteira e nao foi tocada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "1859b42",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1859b42d7edfa02a67ae32afbca93fe7354c9e38",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-16T15:53:08.000Z",
+      "author": "Maj Diniz",
+      "message": "GeoSGB analisado e registrado: a suscetibilidade serve, a base planimetrica nao, e a licenca esta em aberto\n\nPagina nova wiki/geosgb.md, do acervo aberto do Servico Geologico do Brasil\nmedido pela fonte em 2026-09-16 (catalogo de downloads, GeoServer, Rigeo e a\npagina de dados abertos do SGB).\n\nO que serve: as Cartas de Suscetibilidade a Movimentos de Massa e Inundacoes e\nos setores de risco geologico, em WFS aberto. Medido por resultType=hits:\n1.878.919 poligonos de movimento de massa no pais e 37.625 no RS, 587.892 de\ninundacao e 18.736 no RS, mais 17.838 setores de risco (2.413 no RS, 2.957 em\nSC, 244 no PR), modelados e validados em campo pelo SGB entre 2022 e 2023. E o\nproduto que a DGEO calculou a mao para a Defesa Civil na Operacao Taquari.\n\nO que nao serve: a base planimetrica dos 883 pacotes SIG por folha INOM. O\nLeia-me de cada pacote declara a proveniencia, e num piloto de seis ela e carta\nimpressa do IBGE (1976, 1988, 2005) ou da SUDENE/DSG (1977) reposicionada sobre\nmosaico GeoCover do Landsat 7 de 14,25 m. Sobra um uso so: nas folhas 1:100.000\nque so existem em papel, a drenagem e a malha viaria ja estao vetorizadas.\n\nO bloqueio: tres declaracoes de licenca que discordam. O rodape do portal diz\nCC BY-NC 4.0 e fala do SITE, a pagina de dados abertos declara que o SGB nao\ntem PDA, e o GetCapabilities traz AccessConstraints NONE. Vai a assessoria\njuridica antes de qualquer uso em produto publicado.\n\nNegativa com recorte declarado: o catalogo de 5.261 arquivos nao tem nenhum\nproduto de terreno nem foto-indice, o que fecha um dos quatro caminhos abertos\nem 01-Projects/grade-fotos-ast10. O SIAGAS, com 390.063 pocos, fica de fora\nporque nao ha classe de poco de agua na EDGV Topo 2.0.\n\nTambem: SGB entra na lista de orgaos autoritativos de fontes-insumos, duas\nfontes trimestrais novas no radar (sgb-geoservicos e rigeo-sgb) e tres\naprendizados na skill radar-tecnologico (rodape de portal nao e licenca de\ndado, o portal responde pela rota interna, e o insumo se reprova pelo Leia-me).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "83f8ca0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/83f8ca0b88d4c0ffc9ef14fca2b771011dbe7863",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-16T15:43:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-16 (cont. 2): dez projetos podados, a 03-Resources dissolvida, e a regua que vivia em dois lugares discordava\n\nPoda mandada pelo chefe, com aval explicito para mexer no nucleo (principio 3).\n\nDez projetos apagados: avaliacao-mde-pit2027, imoveis-3bsup, carta-cadastral-cacequi,\ncopa-feminina-2027, orientacao-360-beira-rio, outsourcing-plotter, pts-refundacao,\nsistema-unico, super-resolucao-planet e ciclo-2025. A 03-Resources inteira saiu, com os\n42 arquivos de transcricao verbatim.\n\nTres decisoes dele, tomadas sobre a medida levada antes de apagar: o imoveis-3bsup sai\nsem commit (38 arquivos e 19 MB nunca versionados, logo irreversivel); podar os dez,\ninclusive os quatro com pendencia numerada; e editar nucleo e guardrails.\n\nO durave migrou antes: a consolidacao de 2025 para wiki/relatorios-2025, o sistema-unico\ne o imoveis-3bsup para paginas novas de wiki, o estado e as onze pendencias do Planet\npara a pagina perene (que dizia \"nenhum treino rodou\" desde 2026-08-29), e as licoes de\nclasse para converter-modelagens, avaliar-mdt, criar-molduras, calibrar-orientacao-360,\nextracao-documentos e levantar-fornecedores. Dois artefatos resgatados: o\nregras_landuse_topo14.json e a minuta de pedido de orcamento.\n\n116 citacoes reescritas para o documento original. Na CLAUDE.md, duas linhas; no\nwiki-schema, tres; em conventions/fontes, duas; em saida, uma. Saiu o VERBATIM_DIR dos\ndois guards.\n\nO achado da sessao: a MESMA regra era cobrada por dois pontos que isentavam coisas\ndiferentes. O pre-commit isentava em-dash por blockquote E por pasta, e o hook de Write\nisentava so por pasta. Enquanto a pasta existiu a divergencia ficou dormente. Tirar a\npasta deixaria o hook mais duro que o commit, e o autoteste acusou. Conserto: alinhar o\nhook ao pre-commit. Gesto novo em contrato-de-pronto.md.\n\nTres eventos no livro-razao: substituicao em massa de citacao emenda a prosa (a\nconferencia e o DIFF, nunca a varredura); alarguei frase para agradar o aderencia.py e\numa delas inventou fato (regra nova em escrita.md 6.2.1); e a regua em duas copias.\n\nProvas: check_caminhos limpo em 766 arquivos, lint_wiki com 0 links quebrados e as 3\ncontradicoes anteriores a hoje, lint_skills 0 erros, autoteste do verificar_escrita.py\nem 13 de 13, e o split do avaliar-mdt conferido numero a numero.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017KuBJqxhJcqyHMXyzYN7dB",
+      "sha": "a018ee3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a018ee3cea959052fbbba509850bd229a46c9236",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-09-16T15:28:50.000Z",
+      "author": "1º Ten Marcel",
+      "message": "Merge branch 'main' of https://github.com/1cgeo/doc_dgeo",
+      "sha": "322c54b",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/322c54be64ac07660d7d9c1083d7f6b930ff91fb",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-09-16T15:28:44.000Z",
+      "author": "1º Ten Marcel",
+      "message": "folder antigo 1DL",
+      "sha": "ee6a2c3",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/ee6a2c3de02329a60bcf752f701f9b243bbbfed0",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-16T14:35:47.000Z",
