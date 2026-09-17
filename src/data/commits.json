@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-17T18:55:00.437Z",
+  "lastUpdate": "2026-09-17T22:46:14.890Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-17T16:54:04.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-17T20:25:15.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-17T11:01:09.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-17T21:20:17.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-15T23:57:27.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7110,
+    "totalCommits": 7113,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1613,
+      "1cgeo/ebgeo_web": 1615,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 796,
+      "1cgeo/chefe_dgeo": 797,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 32,
@@ -173,6 +173,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-17T21:20:17.000Z",
+      "author": "Maj Diniz",
+      "message": "somente leitura: o seletor de mapa base e as barras do 360 e do 3D somem\n\nO RELATO DO DONO (2026-09-17, testando um mapa somente leitura na rede local): \"testei aqui um mapa\nsomente leitura e ele ainda está exibindo a escolha de basemap. Tambem quero que as ferramentas do\n360 e 3d sejam suprimidas no modo de somente leitura do mapa\".\n\nAS QUATRO SUPERFÍCIES perguntavam SÓ pela trava do mapa (`isCurrentMapLockedSync`) e nada sabiam do\npapel no atlas, que é exatamente a metade que o inventário de 2026-09-16 nomeou. Elas nasceram fora\ndaquele censo porque não desenham nada errado sobre um mapa travado: o defeito só aparece para quem\nentra com compartilhamento `read` ou por link público.\n\n  - O SELETOR DE MAPA BASE. Trocar de base é ESCRITA: `setBaseLayer` pede `GuardAction.UPDATE_MAP`,\n    grava uma op `baseLayer` no documento do mapa e PROPAGA a troca aos outros usuários do atlas\n    (foi o que esta mesma linha ganhou em 2026-09-16). O leitor via o cartão, clicava, e a escrita\n    morria no guarda da store, que é o \"desenha e recusa\" que o dono mandou eliminar. A ação citada\n    é a que o comando exerce, e não o padrão do módulo.\n  - AS BARRAS DO 360 E DO 3D. A regra de CSS que faz o desenho já existia e já era a certa\n    (`#toolbar-360.map-locked .button-tool-360:not(#help-360)` e\n    `#toolbar-3d.map-locked .button-tool-3d:not(#help-3d, #voar-camera)`): o que faltava era a conta.\n  - A ABA DE CAMADAS, pelo mesmo motivo e no mesmo gesto.\n\nUM SEGUNDO DEFEITO NO MESMO LUGAR, achado ao consertar o primeiro: a barra do 360 aplicava o estado\nAPENAS no evento, e nada o aplicava na ABERTURA. Ela nascia inteira sobre um mapa travado e só se\ncorrigia se alguém destravasse e travasse de novo.\n\nO ASSINANTE ÚNICO é o conserto da causa, e não só do sintoma. Cada superfície assinava\n`MAP_LOCK_CHANGED` por conta própria, o que cobre metade: com o papel na conta, entrar, sair,\nconectar e trocar de atlas mudam a resposta sem tocar em trava nenhuma.\n`assinarEdicaoIndisponivel` (em `store/edicao-indisponivel.js`, onde a conta já morava) assina os\ncinco eventos, chama o callback UMA VEZ na assinatura e devolve como desassinar. `MAP_LOCK_CHANGED`\ncobre dois fatos de propósito: `setCurrentMap` o emite ao trocar o mapa ativo, e a trava é por mapa.\n\nOS PORTÕES DE GESTO acompanharam o desenho: seis `isCurrentMapLockedSync` viraram `semEdicaoSync`\n(no 360, marcador e as duas orientações; no 3D, a ativação de ferramenta e as duas da câmera). O\ncomando escondido ainda é alcançável por atalho de teclado, e o portão é o que fecha esse caminho.\n\nA CLASSE CONTINUA `map-locked` nos dois CSS, pelo custo de trocá-la em dois arquivos e nos testes\nque a leem. O que ela significa desde hoje é \"não dá para editar agora\", pelo motivo que for, e as\nduas folhas dizem isso por escrito onde a regra mora.\n\nVERIFICACAO. O censo de somente leitura ganhou as quatro superfícies e três blocos novos (o CSS das\nduas barras, os seis portões de gesto e o assinante único): 26 casos, verdes.\n`npm run lint` rc=0 e `npm run test:frontend` verde depois da última escrita (711 arquivos, 13.167\ncasos).\n\nPROVA DE TELA, com dois navegadores contra o ambiente real em HTTPS, um atlas compartilhado como\n`read` e o DONO como controle positivo em cada linha:\n\n                          LEITOR                      DONO\n  seletor de mapa base    ausente                     presente\n  barra 360 (botões)      só `help-360`               add-marker, salvar-orientacao, share, help\n  barra 3D (classe)       `map-locked`                sem classe\n\nO QUE NAO FOI PROVADO NA TELA: a lista de botões visíveis do 3D. A barra não chegou a ficar visível\nno ambiente headless para nenhum dos dois usuários (o Cesium não monta a cena ali, como já\nregistrado em 2026-09-16), então o que a sonda pôde discriminar foi a CLASSE, que é o que decide, e\no CSS que a consome está preso por teste.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "bf405fb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bf405fbc7a914d10115994b964480a067313d70b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-17T20:44:51.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: o botao do meio gira e inclina, sem tecla nenhuma\n\nO PEDIDO DO DONO (2026-09-17): \"no maplibre consigo configurar o botão do meio para inclinar e girar\no mapa? Hoje o botão direito é menu, e para inclinar ou girar é shift e ctrl, mas queria tb uma\nversão sem shift e ctrl com o botão do meio\".\n\nA RESPOSTA DA PRIMEIRA PERGUNTA É NÃO, e foi medida na fonte instalada: na 6.9.1 o botão de cada\ngesto do MapLibre é um literal dentro da fábrica do handler (a de rotação por mouse aceita o botão\nesquerdo com Ctrl ou o botão direito, e nada mais), não há opção que o altere, e o gerenciador de\nhandlers só expõe a lista interna deles. O app não depende disso: ele declara `dragRotate: false`\nem `createMap` e traz o gesto próprio desde 2026-09-01, então a decisão é de\n`map/drag-rotate.model.js`.\n\nO GESTO. `resolveDragMode` devolve `DRAG_MODE.BOTH` para o botão do meio, ANTES da recusa por\nbotão, e sem olhar modificador nenhum: o botão do meio é o gesto inteiro e responde igual com Ctrl,\nShift ou Meta apertados. Ele é o único botão livre no mapa, e é por isso que serve: o esquerdo\nseleciona e arrasta, o direito abre o menu de contexto e encerra desenho em andamento. O\n`preventDefault` que já existia no `mousedown` mata de graça o autoscroll do Windows, que sem ele\nrolaria a página em vez de girar o mapa.\n\nO QUE A MUDANÇA QUEBRAVA, e é a parte que o modelo não vê. `_onMouseUp` comparava o botão solto com\no ESQUERDO FIXO e ignorava os demais. Isso era certo, e continua sendo, para um clique com o direito\nnão encerrar um arrasto do esquerdo: encerrar ali reabilita o `dragPan` com o esquerdo ainda\napertado, e o MapLibre retoma a panorâmica do ponto velho do mousedown. Só que, com o botão do meio\narrastando, a mesma linha faz o `mouseup` DELE ser ignorado e o gesto nunca terminar: o mapa segue\ngirando com o botão solto, o `dragPan` fica desabilitado, e nada no console diz nada. O handler\npassa a guardar o botão que começou, e só ele termina. Pelo mesmo motivo, a engolida do clique\nsintético do fim do arrasto passa a ser de `auxclick` quando o gesto foi do meio, que é o evento que\nesse botão dispara.\n\nVERIFICACAO. Bloco novo em `frontend/tests/unit/drag-rotate-model.test.js` (o botão basta sozinho,\nignora todo modificador, e o '1' de um evento sintético mal montado não vale) e a suíte nova\n`frontend/tests/unit/drag-rotate-botao-do-meio.test.js`, com onze casos sobre o HANDLER, `window` e\no container do mapa duplicados, e os dois controles que preservam a regra antiga.\n\nCONTROLE NEGATIVO, executado em 2026-09-17: devolvendo `e.button !== 0` ao `_onMouseUp`, reprovam os\nTRÊS casos do fim do gesto (a câmera continua andando com o botão solto, o `dragPan` não volta, e a\nengolida é armada no evento errado) e os outros oito seguem verdes.\n\n`npm run lint` rc=0 e `npm run test:frontend` verde depois da última escrita (711 arquivos, 13.156\ncasos). Nota de instrumento: numa rodada com o servidor de desenvolvimento no ar, três suítes de\nlinha de coordenação estouraram o `beforeAll` de 10 s que carrega o bundle do turf; rodadas isoladas\ne a rodada com a máquina livre passam as três (154 casos).\n\nPROVA VISUAL, contra o ambiente real e com o botão do meio de verdade: bearing de 0 para -60 e pitch\nde 0 para 27 num arrasto só; soltando o botão, mover o ponteiro por mais 400 px não mexe a câmera; a\npanorâmica com o esquerdo volta a funcionar logo depois; e o modal de atalhos mostra a linha nova.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "4408365",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4408365dc69362e1c1c195dbcfc07a38f363583d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-17T20:25:15.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-17 (cont. 9 a 12): o campo de faixa nao e valor, e a rota muda nao e negativa\n\nLevantamento de ata federal para adesao de duas workstations de drone, e os\nquatro desvios que ele expos.\n\n- consultar-licitacao: filtrar candidato por atributo do catalogo descartou 11\n  federais validos, entre eles o primeiro colocado, porque o campo e a FAIXA do\n  atributo. A proibicao foi para o procedimento da SKILL.md e a Verificacao\n  ganhou o passo que roda todo filtro contra um caso que ele tem de aprovar.\n- As rotas de empenho e de adesao do modulo ARP sao MUDAS, provado por controle\n  positivo contra ata cujo documento nomeia dois empenhos. Zero de rota muda nao\n  vira frase de relatorio.\n- Achados de endpoint: possibilidadeAdesao como portao independente do teto, a\n  rota /atas com envelope data, a busca que casa identificador por fragmento e\n  indexa nota de empenho como contrato, o modulo-uasg que voltou a responder, e\n  o numeroItem do modulo ARP que e o item da ATA e nao o da compra.\n- levantar-fornecedores: idade, capital social e CNAE pegam o fornecedor de\n  ocasiao que a sancao nao pega, e isso vai como ressalva, nao como corte.\n- conventions/saida.md: quinto caso do transporte de texto, agora corrompendo a\n  REGUA e reprovando arquivo correto, com reincidencia no mesmo turno. Arquivo\n  de entrega vai em UTF-8 com BOM e CRLF, com acentuacao.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "71a2ba8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/71a2ba8641c26b20945f5fa5ff9811ea5b3b8ec1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/DsgTools",
       "date": "2026-09-17T18:32:07.000Z",
