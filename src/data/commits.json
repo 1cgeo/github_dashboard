@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-17T14:48:37.807Z",
+  "lastUpdate": "2026-09-17T18:55:00.437Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-09-10T20:47:50.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-10T16:08:32.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-09-17T14:11:28.000Z",
+    "dsgoficial/DsgTools@dev": "2026-09-17T18:32:07.000Z",
     "dsgoficial/sap": "2026-09-02T12:07:19.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-05-27T17:35:30.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-17T14:47:09.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-17T16:54:04.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-17T11:01:09.000Z",
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7106,
+    "totalCommits": 7110,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "dsgoficial/modelagens": 168,
       "dsgoficial/configuracoes_producao": 206,
       "dsgoficial/ferramentas_edicao": 482,
-      "dsgoficial/DsgTools": 648,
+      "dsgoficial/DsgTools": 650,
       "dsgoficial/sap": 177,
       "dsgoficial/SAP_Gerente": 120,
       "dsgoficial/SAP_Operador": 70,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 794,
+      "1cgeo/chefe_dgeo": 796,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 32,
@@ -173,6 +173,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-09-17T18:32:07.000Z",
+      "author": "Maj Borba",
+      "message": "docs(changelog): fecha 5.2.1 como release de correção e reabre 5.3.5 - dev\n\nAs correções de bug acumuladas no ciclo dev desde o 5.2.0 (BDGEx,\nextração de pontos cotados, Unbuild Polygons/Center Point and\nBoundaries) saem antecipadas via backport pontual pro master como\n5.2.1, fora do fluxo normal de release cheio -- por isso o dev não\nincrementa Y (fica 5.3.x): a data de hoje fecha o ciclo dessas\ncorreções e abre 5.3.5 - dev só com as melhorias de escala ainda não\nlançadas (Generalize Contour Lines e Extract Spot Elevation).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+      "sha": "ca5617d",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/ca5617d3bdb246ace3415fa75c6a17d22a1c0684",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-17T16:54:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-17 (cont. 6 a 8): a prova tem de percorrer o caminho do usuario\n\nSessao de rede do DSGTools: as camadas do BDGEx nao carregavam no QGIS. O\ndefeito nao era do plugin nem do BDGEx, e o que eu embarquei primeiro nao\nconsertava o que o chefe via.\n\nwiki/ti-infraestrutura ganha duas secoes medidas, e a primeira INVERTE o\nreflexo que a pagina ja ensinava. Para servico interno o conserto e bypassar\no proxy; no QGIS o bypass e a causa. Com proxy no Windows e o proxy do QGIS\nem branco, o QGIS nao alcanca nenhum host que o sistema manda contatar\ndireto: dez hosts medidos no 3.44.14 e no 4.2.1, as duas polaridades, e so o\nloopback escapa. O eixo nao e com proxy contra sem proxy, e decisao\nexplicita contra heranca, e as tres configuracoes coerentes funcionam. A\nsegunda secao mede o repositorio de confianca: o conjunto de CAs do QGIS E a\nloja ROOT do Windows, 81 contra 81, enquanto o urllib carrega 150, a loja\nmais o pacote dele. Isso derruba a premissa escrita no DSGTools em agosto, e\nexplica o dialogo de excecao SSL que uma estacao mostrou, cuja armadilha e\ngravar excecao permanente por host.\n\nconventions/contrato-de-pronto ganha tres regras e o caso que as produziu. A\nprova percorre o CAMINHO do usuario, mesma thread inclusive, porque medir a\ncamada pela thread principal aprovou uma tela que ficava branca. Alavanca\nque funciona com valor podre nao e a alavanca, porque a fabrica de proxy que\neu embarquei produzia o mesmo efeito devolvendo 127.0.0.1:9. E bancada que\nreprova todos os cenarios ainda pode estar certa: declarei a minha quebrada\ne o QGIS Desktop do chefe reproduziu a saida dela erro por erro.\n\nlivro-razao: tres eventos, verificacao-vazia, afirmado-sem-medir e\ndiagnostico-raso, os tres reincidentes.\n\nMemoria do harness: duas paginas novas, o defeito de proxy do QGIS e a\ncredencial que mora no authcfg. MEMORY.md do vault intocado, em 79,8% do\nteto.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "50b52eb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/50b52eb87453e34d78c504f31d23f2bc343920e7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-17T16:26:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-17 (cont. 2): a superacao do elogio tem duas formas, e a de escopo exige o documento que delimita o encargo\n\nElogio do apoio ao CIAvEx redigido e aprovado no conferidor. Duas correcoes do\nchefe no mesmo paragrafo viraram regra na skill: o testemunho externo atribui-se\na OM quando chegou por audio, e \"Excedendo suas atribuicoes\" e falso quando\ninstruir era o encargo designado, o que o DIEx que pediu o apoio dizia no assunto.\n\nO corpus ganhou o sexto exemplar (28703, o do Beira-Rio) e a secao das pecas\nvizinhas que a varredura acha e nao sao do genero. O procedimento ganhou a\nvarredura do SPED por assunto, que achou tambem o pedido de dispensa como\nrecompensa pelo mesmo fato, e o trio de fontes primarias de capacitacao\nministrada. Divergencia aberta: 18 capacitados no SAP 3.0 contra 20 na Memoria.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "0cb24e8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0cb24e8c2038363bdf5f01f60103146b653907b7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-09-17T15:03:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(bdgex): troca contorno inutil por aviso, e corrige premissa medida errada\n\nO contorno anterior (insertProxyFactory) nao resolvia o problema do usuario.\nEle fazia o dataProvider().block() passar na thread principal e me deu um\n\"camada valida\" enganoso, mas a tela renderiza em outra thread e continuava\nem branco, sem erro nenhum. Medido: 512x512 com uma unica cor e job.errors()\nvazio. Pior, o efeito vinha de INSERIR a fabrica e nao do que ela devolvia,\nporque queryProxy nunca era chamada e uma fabrica devolvendo proxy podre\nfuncionava igual. Sai inteiro.\n\nO defeito e maior do que o BDGEx. Em maquina com proxy no sistema e o proxy\ndo QGIS em branco, o QGIS nao alcanca NENHUM host que o sistema manda\ncontatar diretamente: medido com QTcpSocket cru, sete hosts nessa condicao\nfalham todos com \"The proxy type is invalid for this operation\" e nem abrem\no socket, enquanto os dois que devem passar pelo proxy chegam la e so falham\nem autenticacao. So o loopback escapa. Uma hipotese intermediaria minha, de\nque a quebra vinha da excecao casar por nome e nao por IP, foi REPROVADA\npelo caso degenerado: quatro hosts internos onde nome e IP concordam falham\nigual.\n\nFica o que tem conserto no plugin: o retry do GetCapabilities com gerente de\nrede proprio, que monta o menu, e um aviso honesto dizendo que a camada nao\nvai desenhar enquanto o proxy nao for decidido em Configuracoes, Opcoes,\nRede. Servem as duas formas, rotear o BDGEx pelo proxy ou preencher o proxy\ne excluir o host do BDGEx para ele ir direto; as duas foram medidas\ndesenhando, com WFS em 5.572 feicoes. O aviso vai para o log sempre e para a\nbarra uma vez por sessao, dentro de try/except porque ele mora no caminho de\nSUCESSO e o iface nao existe no qgis_process nem no dsgtools_cli.\n\nCorrige tambem a premissa escrita em 90f3bd48 e no CHANGELOG, que a medida\nderrubou: o urllib NAO ignora o repositorio de confianca do sistema. Ele\ncarrega 150 raizes contra 77 do Qt, a loja ROOT do Windows inclusa, e a raiz\nlocal do Kaspersky aparece nas duas. O conjunto do Qt e exatamente a loja\nROOT, 81 certificados e nenhum fora dela.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "8551de4",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/8551de49dde81d4fc299e171124d0c4a468d7d0e",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-17T14:47:09.000Z",
