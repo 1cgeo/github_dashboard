@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-17T22:46:14.890Z",
+  "lastUpdate": "2026-09-18T14:15:50.425Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-09-10T20:47:50.000Z",
+    "dsgoficial/modelagens": "2026-09-18T12:46:49.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-10T16:08:32.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-17T18:32:07.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-09-14T15:18:40.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-09-18T13:14:35.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-17T20:25:15.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-18T13:11:01.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-17T21:20:17.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-18T10:02:30.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-15T23:57:27.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7113,
+    "totalCommits": 7124,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1615,
+      "1cgeo/ebgeo_web": 1621,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -133,7 +133,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 168,
+      "dsgoficial/modelagens": 169,
       "dsgoficial/configuracoes_producao": 206,
       "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 650,
@@ -153,7 +153,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 392,
+      "dsgoficial/pytorch_segmentation_models_trainer": 394,
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 797,
+      "1cgeo/chefe_dgeo": 799,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 32,
@@ -173,6 +173,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-18T13:14:35.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GPU-accelerated O2C via cuCIM, auto-detected with exact CPU fallback\n\nonline_object_correction's connected-component labelling ran per-image,\nevery batch, CPU-only (.cpu().numpy() + skimage/scipy) — a real hot path\nin correct_base=iter mode. Evaluated kornia.contrib.connected_components\nfirst and rejected it: verified against skimage on realistic 256x256\nmasks, it mismatched in 41/60 trials at its default num_iterations=100,\nand needed ~512 iterations (5x default) to reach 0/60 in that sample with\nno formal convergence guarantee — not acceptable for an operation that\ndecides which pixels a published method corrects.\n\nSwitched to cuCIM (RAPIDS) instead: connected-component labelling has an\nexact solution, so cuCIM's output is identical to skimage's by\nconstruction, not empirically approximated. Single implementation\nparameterized by xp/ndi/label_fn (numpy+scipy+skimage vs cupy+cuCIM) so\nthe CPU path is untouched and still exactly what's tested. GPU path\nauto-selected via use_gpu=None when the input tensor is already CUDA and\ncuCIM is importable; DLPack zero-copy, no host transfer. use_gpu=True\nforces it (raises clearly if cuCIM missing); use_gpu=False forces CPU\nregardless of device.\n\npyproject.toml already had a gpu-ml extra pinning cucim-cu12/cupy-cuda12x\nto the CUDA 12.x line, which happens to be exactly what a Tesla V100\nneeds (compute capability 7.0, and torch's default wheel moved to CUDA 13\nwhich dropped Volta support) — documented that connection in the README's\nnew \"AIO2 O2C GPU Acceleration\" section.\n\nNot exercised by this dev machine (no CUDA) beyond the dispatch-decision\nlogic — TestGpuCpuEquivalence in test_o2c_correction.py is the actual\ncorrectness check, skipped here, runs on any CUDA host.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Q1hszByfgkxWc9AFg87LbC",
+      "sha": "e0a8d02",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e0a8d02dba5bcfded84b6f79da5546b7142b788c",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-18T13:11:01.000Z",
+      "author": "Maj Diniz",
+      "message": "pedidos 212 e 213 da mapoteca: o azul da articulacao nao e selecao, e o mosaico do CIBSB se pergunta\n\n- Pedido 212 (DIEx 5897-3a Secao/Cmdo 3a DE): mosaicos de Faxinal do Soturno\n  para o Arandu 2026, 8 itens e 32 copias. O retangulo azul do anexo marca a\n  folha com edicao moderna, e quem delimita e o recorte da imagem.\n- Pedido 213 (DIEx 16125-SCMT/Chefia/SSMR, 3a RM): 3 mosaicos especiais do\n  CIBSB 1:50.000, cadastrado ja entregue (impressao lancada, situacao 5,\n  retirado no CGEO). O CIBSB 1:50.000 tem dois produtos (3834 e 4190) e o\n  documento usa as duas palavras; o chefe decidiu o 3834.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4698a8d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4698a8da79fb90b9141a9891e1850cf1ee1951fe",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-18T12:46:49.000Z",
+      "author": "Maj Diogo Oliveira",
+      "message": "atualiza gitignore",
+      "sha": "d6bb122",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/d6bb1229aac3304dbec6f1257bba6c0fc2e767ff",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-18T12:04:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-18: negativa por codigo de catalogo nao e negativa, e so o fabricante prova compatibilidade\n\nLevantamento de sete itens de campo para adesao (Starlink, camera 360, Matrice\n4E, binoculo, base RTK, radio HT e notebook), e as duas correcoes que o chefe\npegou.\n\n- Afirmei que nao havia base RTK em ata federal viva depois de varrer os quatro\n  codigos de geodesia e topografia, todos com zero itens. O chefe apontou um\n  pregao do 5 CGEO e havia DUAS, na mesma compra, cadastradas como \"pecas e\n  componentes de topografia\" e como \"antena GPS\". Conserto no procedimento da\n  SKILL.md (passo 3.5): quando o codigo nao achar, varra o DIA da vigencia\n  inicial sem filtro de produto e filtre local pela UASG.\n- Respondi sobre Starlink olhando so o catalogo de servico, e ele corrigiu que\n  kit e assinatura sao itens separados. O kit mora em \"sistema de comunicacao\n  movel\", achado lendo os itens de uma dispensa real do Exercito.\n- Compatibilidade nao se prova em documento de licitacao: o D-RTK 2 que o 5 CGEO\n  registrou nao atende Mavic 3E nem Matrice 4, e so a lista do fabricante diz.\n- A tabela de participantes tem a NOSSA coluna: o 1 CGEO ja e participante de\n  tres itens de acessorio de Mavic 3E naquela ata, onde o caminho e empenho e\n  nao adesao.\n- Inventario do PE 90001/2026 do 5 CGEO (8 atas vivas, 13 itens, tetos) e a\n  tabela de onde cada equipamento mora no catalogo, no detalhado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018LZQmA6BTgxnHzUgduGPWM",
+      "sha": "7e67211",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7e6721181cc2f8c84482c0ef22c986135365eb68",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-18T10:02:30.000Z",
+      "author": "Maj Diniz",
+      "message": "comentarios: o painel LEVA ate o comentario, e da para editar o texto\n\nQUATRO PEDIDOS DO DONO (2026-09-18), tres deles defeitos que so o uso mostrou. O que os une e o\nmesmo assunto: a lista de comentarios atravessa superficies, entao \"ir para\" tem de LEVAR.\n\n1) FECHAR O QUE ESTA ABERTO. \"Se tiver com 3d aberto ou 360 e clicar num comentario do maplibre na\n   barra lateral deve fechar o 3d/360 e ir pro comentario.\" O painel agora fecha o visualizador que\n   NAO e o destino, antes de ir. A conta e por SUPERFICIE e nao por comentario: ir de uma foto para\n   outra nao fecha o 360, senao a tela piscaria a toa.\n\n2) EDITAR O COMENTARIO. Cada entrada (raiz ou resposta) ganhou \"Editar\" para quem pode modifica-la,\n   com o mesmo gate de resolver e excluir, que o servidor aplica pela coluna `author_id`. O editor\n   nasce com o texto atual e com o salvar ja liberado, porque editar e quase sempre corrigir: caixa\n   vazia obrigaria a reescrever tudo, e botao desabilitado obrigaria a mexer no texto antes de\n   poder salvar. Grava por `updateComment`, no cartao comum, entao as tres superficies ganham junto.\n\n3) A FOTO ERRADA. \"Ao no mapa principal clicar num comentario do 360 ele abre na foto errada.\"\n   A camada de comentarios do 360 e montada na ABERTURA do visualizador, e andar pela seta troca a\n   foto por `loadPhoto`, que nao passa por la. A camada ficava com a foto da abertura: desenhava os\n   baloes da foto ERRADA e, pior, GRAVAVA o comentario novo com ela -- e ai o painel abria noutra\n   foto mais tarde. Ela passa a assinar `STREETVIEW_360_PHOTO_CHANGED`, trocar o escopo e fechar o\n   cartao que ficou para tras.\n\n4) O 3D NAO ABRIA. \"Ao no mapa principal clicar num comentario do 3d o 3d nao abre.\" O painel\n   chamava `openViewerWithTileset`, que MONTA a cena do Cesium e mais nada; quem esconde o mapa 2D e\n   mostra o container do 3D e `setFullMap(false)`, dentro do `openViewer` do CONTROLE. A cena\n   existia, invisivel, e a tela nao mudava. E o mesmo engano que a revisao com visao de ontem pegou\n   na minha sonda -- desta vez ele estava no produto.\n\nUM QUINTO DEFEITO, QUE A PROVA ACHOU e nao estava no pedido: o cartao da superficie anterior ficava\nna tela. Indo do mapa para o 360, o popup do MapLibre continuava aberto POR BAIXO do panorama, e a\npessoa lia a conversa ERRADA sobre a superficie nova. A primeira rodada da sonda mediu esse cartao\npor engano e chegou a editar o comentario errado, o que tornou o defeito visivel. `closeCard` virou\nmetodo publico do overlay, e o painel fecha os cartoes das outras superficies junto com os\nvisualizadores.\n\nVERIFICACAO. `npm run lint` rc=0 e `npm run test:frontend` verde depois da ultima escrita (712\narquivos, 13.189 casos). Oito casos novos em `comentario-por-superficie.test.js` prendem os quatro\npedidos mais o quinto defeito, incluindo a regra de que o 360 e o 3D continuam sem chamar a escrita\npor conta propria (`updateComment` entrou na lista ao lado de `addReply`, `resolveComment` e\n`removeComment`).\n\nPROVA DE TELA, contra o ambiente real em HTTPS, cada item medido no seu gesto:\n\n  item 3 (gravacao)  abre a foto A, NAVEGA para a B, comenta -> gravado com a foto B (era a A)\n  item 1             com o 360 aberto, clicar no comentario do mapa -> 360 fecha, mapa aparece,\n                     thread do comentario certo abre\n  item 3 (volta)     clicar no comentario do 360 -> abre o 360 NA FOTO CERTA, com o cartao dele\n  item 2             \"Editar\" na entrada -> texto novo no store e na tela, e na lista lateral\n  item 4             clicar no comentario do 3D -> o visualizador 3D ABRE, com o cartao dele\n  o quinto           em cada passo, UM cartao na tela, e o dele: 2d, depois 360, depois 3d\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "1ba66c7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ba66c77a0516eee29d31fad4f3d5b5cf57e73a4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-18T09:33:03.000Z",
+      "author": "Maj Diniz",
+      "message": "dev: o terreno do 3D tambem sai do ambiente autossuficiente\n\nMEDIDO EM 2026-09-18, tentando abrir um modelo 3D nesta estacao: o visualizador ficava em\n\"Carregando cena...\" para sempre, com o container em `display: none` e o canvas em 0x0. A causa nao\nera o modelo: era o TERRENO. O Cesium busca o `layer.json` do provider de terreno e, sem resposta,\na cena nunca fica pronta -- a unica pista era um `ERR_CONNECTION_REFUSED` no console, sem nada na\ntela dizendo o que faltava.\n\nO terreno do 3D e um SERVICO A PARTE do terreno do 2D (`MAP3D_TERRAIN_URL` contra `TERRAIN_URL`), e\nso a producao o serve. O ambiente que o dono pediu em 2026-09-17 -- \"para nao depender de pegar\ncoisas do servidor de producao do ebgeo\" -- ja desligava grid, sombreamento e terreno do 2D, e\ndeixava este de fora por nao ter sido exercitado ate hoje.\n\nQUEM DESLIGA E O OVERRIDE, e nao a variavel de ambiente: `node --env-file` carrega o `.env` do\nbackend por cima do que se passa na linha de comando, entao `MAP3D_TERRAIN_URL=\"\"` nao teve efeito\nnenhum. O override de `config_settings.app_config` vence, que e o mesmo mecanismo que o resto desta\nfuncao ja usa, e `--restaurar` devolve o terreno junto com os outros tres.\n\nSem terreno o Cesium usa o elipsoide, que e o comportamento declarado de quem nao tem terreno no\nproprio `config.service.js` (\"So habilita quando ha URL configurada\").\n\nO QUE ISTO NAO RESOLVE, e fica dito: o `.3dtiles` precisa estar onde `MODELS_3D_DIR` aponta. Nesta\nestacao os tres modelos do acervo (`serra_dourada`, `cmdo14bda`, `4rcb`) ja estao em disco, mas a\nchave do `.env` aponta para uma pasta que nao existe aqui -- e ai o backend responde 404 no\n`tileset.json` e o visualizador abre vazio. E ajuste de ambiente do operador, nao de codigo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "26d2679",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/26d2679ae46a7956f14e90023fad63ecb90cab4a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-18T08:58:34.000Z",
+      "author": "Maj Diniz",
+      "message": "rotulo: as tres superficies de \"Seus atlas\" que a revisao visual achou\n\nA TROCA PARA \"Meus Atlas\" (2026-09-17) alcancou nove superficies e deixou tres para tras. Elas\napareceram na REVISAO COM VISAO pedida pelo dono: a captura do painel de comentarios mostrava, no\nmesmo quadro, a grade de acoes da aba Mapas com o botao \"Seus atlas\".\n\n  - o botao `open` da grade de acoes da aba Mapas, que e a porta do mapa para a tela de atlas;\n  - as duas frases de recuperacao de migracao (\"Reabra o EBGeo para acessa-lo em ...\").\n\nPOR QUE A VARREDURA ANTERIOR NAO AS PEGOU: eu procurei o rotulo nos arquivos que ja estavam no diff\ndaquela leva e conferi que nao sobrava nada em TEXTO DE TELA nos que eu tinha tocado. As tres estao\nem arquivos que aquele trabalho nao tocava, e o `grep` que eu rodei depois filtrava justamente por\n`textContent`/`innerHTML`, que nao alcanca `label:` numa tabela de acoes nem template string.\n\nA REGUA DE M4 FOI ATUALIZADA, e nao contornada: `aviso-de-atlas-local.test.js` prende o rotulo do\nbotao porque a decisao M4 (2026-08-24) foi que a porta diz o NOME da tela de destino, e nao\n\"Abrir\". Essa decisao continua de pe; o que mudou foi o nome da tela. O caso agora exige\n\"Meus Atlas\" e diz por que, com a data.\n\nVERIFICACAO. `npm run test:frontend` verde (712 arquivos, 13.181 casos) e lint rc=0. Na tela, com a\naba Mapas aberta: a grade mostra \"Meus Atlas\", e `document.body.innerText.includes('Seus atlas')`\nresponde false.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "861a42f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/861a42fd42e2efcc47f8e0c03fb99d103fe3323b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-09-18T01:32:02.000Z",
+      "author": "Maj Borba",
+      "message": "feat: idempotent ExperimentsRunner + parallel Pipeline runner with GPU-aware DAG scheduling\n\nExperimentsRunner: resume now defaults to true (idempotent re-launch by\ndefault); new overwrite (bool | list[run_idx]) forces specific completed\nruns to redo, cleaning stale output dirs first. Applies to both the\nseed-only and k-fold loops.\n\nNew PipelineRunner (mode: run-pipeline): runs a DAG of independent\nexperiment steps — different models/losses/datasets, or non-Hydra CLI\ncommands (e.g. pytorch-smt-tools data-prep tools) — each as its own\nsubprocess. Steps declare depends_on for ordering (validated for unknown\nrefs/cycles) and gpus/vram_gb for scheduling: gpus=0 draws from a CPU\npool, gpus=1 bin-packs onto free VRAM, gpus>1 reserves whole GPUs\nexclusively for distributed (DDP) steps, via CUDA_VISIBLE_DEVICES.\nIdempotent by default (pipeline_state.json), same overwrite semantics as\nExperimentsRunner, on_error stop/continue, preflight config validation\npass, and per-step + master log files.\n\n163 tests (TDD), full repo suite re-run clean (0 new failures).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Q1hszByfgkxWc9AFg87LbC",
+      "sha": "0e06979",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/0e069795939abc445df1c6174823433c953c7860",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-18T00:33:37.000Z",
+      "author": "Maj Diniz",
+      "message": "comentarios: o 3D fecha o pedido, e o painel lista as tres superficies\n\nTerceira e última etapa do pedido do dono (2026-09-17). O 3D ganha o mesmo sistema, e o painel de\ncomentários passa a listar as três superfícies com o caminho de volta para cada uma — que é a outra\nmetade da decisão dele: o comentário desenha só onde nasceu, e a lista é quem leva até ele.\n\nO 3D é o gêmeo do 360, com a API da superfície dele: a âncora é o modelo mais o ponto sobre ele\n(`lng`, `lat`, `alt`, o que `scene.pickPosition` devolve), o desenho é uma entidade do Cesium com um\nbillboard desenhado num canvas (a MESMA figura do pino do mapa e do balão do 360: a cor do autor com\nas iniciais dentro e o contador de respostas), e o cartão é ancorado em pixel, pela mesma razão do\n360. O cartão, os gates e as ações continuam vindo de `comment_tool/comment-card.js`.\n\nNOMES IGUAIS AOS DO MAPA, e isso é escolha: o comentário 3D guarda `lng`/`lat`/`alt`, e não um par\nde nomes próprio, porque o 3D é o mapa com uma altura a mais. Um vocabulário novo obrigaria o painel\na saber de qual superfície veio para ler a mesma coisa.\n\nO CLIQUE NUM BALÃO EXISTENTE GANHA SEMPRE, mesmo com o modo de comentar ligado: clicar para\nresponder é mais frequente que criar outro exatamente em cima.\n\nO PAINEL DESPACHA POR SUPERFÍCIE. Clicar numa linha leva ao comentário: no mapa voa até a\ncoordenada, no 360 abre a foto JÁ APONTADA para a direção dele (pelo `targetOrientation`, o mesmo\ncaminho que a aba de camadas usa para abrir uma foto virada para um marcador) e no 3D abre o modelo\ne voa até o ponto. O despacho é por `surface`, nunca por adivinhar qual campo está preenchido — é\njustamente adivinhar que faria um comentário 3D, que TEM `lng`/`lat`, ser tratado como do mapa. A\nlinha ganhou a etiqueta da superfície (\"Mapa 1 · 360\"), e o mapa continua sem etiqueta de propósito:\nele é o caso comum, e etiquetar todas as linhas só acrescentaria ruído.\n\nVERIFICACAO. `npm run lint` rc=0 e `npm run test:frontend` verde depois da última escrita (712\narquivos, 13.181 casos). A suíte nova `comentario-por-superficie.test.js` (13 casos) prende o que\nimporta: que comentário SEM o campo conta como do mapa (é o estado de todo comentário já gravado, e\ntratá-lo como outra coisa apagaria conversa alheia da tela), que o escopo separa duas fotos e dois\nmodelos, e — em teste de fonte — que as três superfícies montam O MESMO cartão e que nenhuma delas\nchama `addReply`, `resolveComment` ou `removeComment` por conta própria, porque essas são as REGRAS.\n\nPROVA DE TELA, contra o ambiente real em HTTPS:\n\n  3D    botão de comentar visível; comentário gravado com surface \"3d\", o modelo e lng/lat/alt;\n        UMA entidade `comment-3d-…` na cena; `focarComentario3D` abre o cartão `comment-thread`\n        com a entrada e o botão Resolver.\n  painel  as três linhas, com as etiquetas \"Mapa 1 · 360\", \"Mapa 1\" e \"Mapa 1 · 3D\".\n\nE O GATE NOVO FOI VISTO FUNCIONANDO, por acidente de sonda: a primeira versão criou o comentário 360\ncom um nome de foto inventado, e ele sumia da coleção depois de gravado. Não era defeito — era o\nextrator de referência que esta leva acrescentou ao sync recusando a op que cita um recurso que o\nautor não alcança. Com a foto real, a linha aparece. A sonda passou a usar a foto do acervo, e a\nrazão está escrita nela.\n\nO QUE NAO FOI MEDIDO NA TELA: o desenho do billboard 3D em pixel. No ambiente headless o modelo não\nchega a pintar (a imagery e o terreno não respondem ali, como já registrado em 2026-09-16), então o\nque a sonda pôde discriminar foi a ENTIDADE na cena, que é o que o Cesium desenha, e o cartão.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "cf4b7ba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf4b7ba13c196d207344ce7c73efee956cd9d6db",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-18T00:19:09.000Z",
+      "author": "Maj Diniz",
+      "message": "comentarios: o 360 ganha o sistema inteiro, com o cartao do mapa\n\nSegunda etapa do pedido do dono (2026-09-17): comentar DENTRO da foto 360, com as mesmas regras e\nfuncionalidades do mapa. A fundação (o campo `surface`, o cartão comum e a poda) veio no commit\nanterior; aqui é a tela.\n\nO QUE O USUÁRIO GANHA: um botão de comentar na barra do 360, o clique na cena escolhendo onde a\nconversa fica, o balão com as INICIAIS do autor e o contador de respostas desenhado sobre o\npanorama, e o cartão da conversa abrindo no clique — responder, resolver, reabrir e excluir, tudo\nvindo de `comment_tool/comment-card.js`, o mesmo módulo que o mapa usa.\n\nA ÂNCORA É A DO MARCADOR 360: foto, direção e inclinação. O balão é projetado pelo mesmo\n`projectPOI` e entra no MESMO hit tester, o que lhe dá projeção, alcance de clique e reprojeção a\ncada giro sem nada novo. Ele entra DEPOIS dos POIs de propósito: com um comentário exatamente sobre\num ponto, quem ganha o clique é o comentário, que é a coisa que tem conversa atrás dela.\n\nO CARTÃO É ANCORADO EM PIXEL, e isso é decisão, não atalho: dentro da esfera não existe coordenada\nonde pendurar um popup, e um cartão que perseguisse o balão andaria pela tela enquanto a pessoa lê e\nescreve. Ele nasce onde o gesto aconteceu, é mantido dentro do container (perto da borda ele\nescaparia da tela) e fica até ser fechado.\n\nO BOTÃO SOBREVIVE AO SOMENTE LEITURA, e é a regra do produto: o Comentarista é o somente leitura\nMAIS a função de comentar, então esconder o botão junto com os de edição tiraria dele a única coisa\nque ele sabe fazer. A regra de CSS que esvazia a barra ganhou a exceção `#comment-360` ao lado de\n`#help-360`, e quem decide se o botão aparece é `podeComentar()`, que pergunta por `CREATE_COMMENT`.\n\nO DEFEITO QUE A MEDIÇÃO PEGOU, e que nenhuma suíte pegaria: o balão era projetado sem `distance`.\n`sphericalToMeters` multiplica a distância pelos senos e cossenos da direção, então `undefined` vira\nNaN nos três eixos; o marcador entrava no hit tester com `screenX` NaN e o resultado era não\ndesenhar e não ser clicável, SEM erro nenhum no console. A sonda que achou isso leu o hit tester por\ndentro (`{\"balao\":[{\"x\":null,\"y\":null}]}`); depois do conserto, `{\"x\":551,\"y\":400}` e o hit test\nresponde `comment`. A constante agora tem o porquê escrito ao lado.\n\nVERIFICACAO. `npm run lint` rc=0 e `npm run test:frontend` verde depois da última escrita (711\narquivos, 13.168 casos). Os censos da casa cobraram três coisas e as três foram atendidas: o tipo\n`'comment'` do marcador entrou no censo de permissão como HOMÔNIMO (com motivo: é o que está\ndesenhado na esfera, não quem pode desenhar), o par (arquivo, campo) de `comments-360.js` entrou no\ncenso de referências, e o teto do grafo completo subiu de 708 para 709 arquivos, com o arquivo novo\nnomeado e a razão de ele não entrar no grafo ANSIOSO.\n\nE O ARRANQUE DO BACKEND COBROU A PEÇA QUE FALTAVA, que nenhum teste tinha pegado: o guarda estático\nde `catalog.service.js` recusa subir quando uma superfície do registro não tem perna em\n`COUNT_ATLAS_REFS_TO_RESOURCE`. A perna de `comments.modelo3d` foi escrita (conta os atlas vivos\nque citam o modelo num comentário), e a prosa que enumerava as superfícies 360 sem perna passou de\ntrês para quatro, nomeando `comments.foto360`.\n\nPROVA DE TELA, contra o ambiente real em HTTPS, o gesto inteiro pela UI:\n\n  o botão aparece                     -> sim\n  clique na cena                      -> cartão `comment-compose` aberto\n  enviar                              -> gravado com surface \"360\", a foto, heading 353.3, pitch 0\n  o balão desenha                     -> overlay de 5232 para 6059 pixels\n  clique no balão                     -> cartão `comment-thread`, 1 entrada, com Resolver\n  responder                           -> 2 entradas, a segunda com o texto da resposta\n  resolver                            -> cartão fecha e o balão SAI do panorama (overlay 5110)\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "b309f2a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b309f2a270f4c4fe57707cbfb27a1f29992cd1f6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-18T00:04:02.000Z",
+      "author": "Maj Diniz",
+      "message": "comentarios: a fundacao para 360 e 3D, com o cartao e as regras num lugar so\n\nO PEDIDO DO DONO (2026-09-17): \"da mesma forma que temos sistema de comentários no maplibre quero no\n360 e no 3d, com as mesmas regras e funcionalidades\". Decisão dele na mesma conversa: o comentário\ndesenha SÓ na superfície onde nasceu, e as três aparecem juntas no painel, que leva até elas.\n\nEste commit é a FUNDAÇÃO, e não a tela: o modelo, o cartão comum, a poda e o gate do servidor. O\ndesenho no 360 e no 3D vem em seguida, sobre isto.\n\nUMA ENTIDADE, E NÃO TRÊS. O comentário continua sendo `comment`, na coleção do MAPA, com o mesmo\ndocumento lateral, o mesmo guarda de permissão e o mesmo sync. O que muda é `surface` mais a âncora\nque aquela superfície usa, pelo padrão do MARCADOR de cada uma:\n\n    '2d'  -> lng, lat                     (a coordenada do mapa)\n    '360' -> photoName, heading, pitch    (a foto e a direção dentro dela)\n    '3d'  -> tilesetId, lng, lat, alt     (o modelo e o ponto sobre ele)\n\nO precedente é o cursor de presença, que ganhou `surface` em 2026-09-16 pela mesma razão. E os\ncampos ATRAVESSAM O SERVIDOR SEM MIGRAÇÃO, medido antes de escrever a linha: o payload de `comment`\nestá em `SCALAR_PAYLOAD_ENTITIES`, que preserva todo escalar; o INSERT grava `JSON.stringify(data)`\ninteiro na coluna `data` JSONB; e o retrato devolve `...c.data`.\n\nO CARTÃO VIROU MÓDULO (`comment_tool/comment-card.js`), com as regras dentro: os dois gates (quem\ncomenta, quem modifica ESTE comentário), responder, resolver, reabrir, excluir, o tempo relativo e a\nautoria. \"As mesmas regras e funcionalidades\" só é verificável se for O MESMO código — três cópias\ndivergem no dia em que uma delas mudar. O que NÃO foi para lá é o pino e o posicionamento: o 2D\nancora por coordenada num popup do MapLibre, o 360 desenha no canvas do panorama e o 3D numa\nentidade do Cesium, e não há nada em comum entre os três.\n\nO OVERLAY DO 2D passa a montar esse cartão e a FILTRAR POR SUPERFÍCIE. O filtro não é decorativo: o\ncomentário do 3D tem `lng`/`lat` (o ponto sobre o modelo) e desenharia no mapa como se fosse dele.\n\nA REFERÊNCIA NOVA EXIGE PODA, e esta é a parte que o pedido não menciona e o produto cobra. Um\ncomentário 360 guarda o NOME DA FOTO e um comentário 3D o id do MODELO: os dois são referência a\nrecurso de catálogo, que pode ser privado. Sem tratamento, um `.ebgeo` exportado levaria o id junto\ne a tela do destinatário mostraria uma conversa sobre algo que ele não alcança.\n\n  - duas superfícies novas nos DOIS registros (cliente e servidor), que o teste de espelho compara;\n  - `podarDocumentoDeComentarios`, com uma regra própria: a CONVERSA CAI INTEIRA. A resposta não tem\n    âncora, só `parentId`, então nenhuma varredura por id de recurso a alcançaria, e deixá-la seria\n    guardar conversa sem o que ela comenta. É a mesma razão do `ON DELETE CASCADE` da tabela;\n  - o GATE do sync no servidor: `resource-ref.extractors.js` ganhou o target `comment`, que lê as\n    duas chaves. Sem ele, um comentário feito dentro de uma foto privada seria aceito de quem não\n    alcança aquela foto. Isto é segurança, e não inventário.\n\nVERIFICACAO. `npm run lint` rc=0 e `npm run test:frontend` verde depois da última escrita (711\narquivos, 13.168 casos); no backend, os censos de referência (`sync-referencia-de-recurso-censo`,\n`classificacao-de-referencias`) passam. As réguas da casa cobraram quatro coisas nesta leva e as\nquatro foram atendidas com dado, não com número novo: o orçamento de módulos ansiosos da pasta\n(3 -> 4, com a razão escrita), o espelho dos dois registros, a fixture DOURADA da poda (que ganhou\ncomentários nas três superfícies, mais duas respostas) e o censo de pares (arquivo, campo). O caso\nnovo da resposta órfã reprova se a segunda passada do podador sair.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VTP918LpCrcN552H3KAm8V",
+      "sha": "a3dfb9b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a3dfb9bc31af7eec9ec0e54e2cb593d99723b99c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-17T21:20:17.000Z",
