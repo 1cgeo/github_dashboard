@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-19T17:53:36.136Z",
+  "lastUpdate": "2026-09-19T22:16:23.629Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-19T14:59:40.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-19T19:05:13.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-19T17:10:39.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-19T22:07:16.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7142,
+    "totalCommits": 7155,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1630,
+      "1cgeo/ebgeo_web": 1641,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 802,
+      "1cgeo/chefe_dgeo": 804,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T22:07:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(auth): harden self-registration and password recovery",
+      "sha": "bee3471",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bee34718be379302e68500175f96f0fed48fd3d2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T21:39:40.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(map): preserve tool cursors and brush saves across tool switches",
+      "sha": "0e38586",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e38586ed746912c0eb92b6ce5a9760b156fbb94",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T21:17:15.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: cancel 360 marker placement with Escape and close chip",
+      "sha": "61fc73c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/61fc73c369f529ce20db239696cf4cb6fc856571",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T21:00:09.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: render remote selections for lazy tools",
+      "sha": "19cc357",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/19cc357d59d3cbb626fd3d33df2acea9e97063bf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T20:42:41.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: choose accessible basemap before creating maps",
+      "sha": "5e20b0a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5e20b0aa47d538a3400a0c5524aabbed17b3d54c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T20:22:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: restrict map locking to atlas managers and owners",
+      "sha": "c8d735a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c8d735a1517948d6b8a6ffa3a43362625e0b7e7a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T20:00:44.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: keep 3D and 360 count badges aligned when tilting map",
+      "sha": "1645093",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1645093300e529f51a160a72a65db87f535c854f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T19:48:40.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: cycle basemaps and convert polygon outlines safely",
+      "sha": "23c3b86",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/23c3b8604d57047f0ed8f5618d8204a01f70bc06",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T19:26:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Restrict comment editing to its author across UI and sync",
+      "sha": "82a6179",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82a6179d0036791595da9e2a789ae4e79dcdacce",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-19T19:05:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-19 (cont.): a base mundial de limites ganha pagina, e a metrica que so existe onde o sistema funciona sobe com o conserto\n\n- wiki/limites-mundiais-arco-no: estado da carga na Topo 2.0, custos e o que segue aberto (oceano funde mares), ligada no index, glossario, mapa e vizinhas\n- wiki/edgv-topo-20: topo reescrito para a 0.17.0 com contagens medidas no master (73 classes, 65 dominios, 166 tabelas), e o banco local novo\n- contrato-de-pronto: metrica medida so em regiao fechada sobe quando o conserto fecha regiao\n- saida: stdout redirecionado sai em cp1252 no Windows, conserto por reconfigure ou PYTHONIOENCODING\n- livro-razao: cont. 9, custo-sem-medida (PostgreSQL local e memoria)\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "4551896",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4551896a0b30927c7d1f109aec5755a6dedd8c5e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T19:04:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Add first-person collaboration and unify spatial comment tools",
+      "sha": "d9f19dd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d9f19dd9ef06bfeeabd0b28bdc92b6dbf6bfd8a1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-19T18:45:33.000Z",
+      "author": "Maj Diniz",
+      "message": "divisas entre mares costuradas antes da extracao, e o banco local com a base corrigida\n\nO chefe achou no QGIS uma divisa entre mares solta no Pacifico, depois que a\ncarga tinha sido aprovada: a conferencia provava que o banco reproduzia o GPKG,\ne nao que o GPKG fechava (livro-razao, regua-cega). A causa eram 12 divisas\nperdidas pela extracao por chave de segmento, que exige vertices identicos nos\ndois mares. O costurar_divisas.py as recupera antes da extracao (vertices a\nmenos de 1e-6 grau em grupo, vertice em T em todas as copias do segmento), e o\nGPKG atual tem zero ponta solta e zero divisa de OCEAN sem linha, com os\nlimites legais identicos byte a byte. Decisao em decisions-2026, cont. 2.\n\ncriar-bancos/learnings: matar o cliente nao mata a consulta no PostgreSQL, e a\nsubida em recuperacao estoura o prazo de 60 s do servico no Windows\n(PGCTLTIMEOUT).\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "05f554e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/05f554e8bef985f11bed57e82fd01405af89b38e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-19T18:10:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: make additive and server atlas imports atomic",
+      "sha": "07278ef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/07278ef6811c9bf56ed8648d38bebe9a9a0d35ed",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-19T17:10:39.000Z",
