@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-20T14:03:20.454Z",
+  "lastUpdate": "2026-09-20T18:08:46.489Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-09-20T09:03:00.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-20T13:07:56.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-20T17:39:30.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7168,
+    "totalCommits": 7176,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1653,
+      "1cgeo/ebgeo_web": 1661,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -173,6 +173,78 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T17:39:30.000Z",
+      "author": "Maj Diniz",
+      "message": "style(sidebar): mark the active map on the badge, never with a green pill\n\nThe recent-map rail is solid brand green, so every surface painted on it is\ngreen too: the active pill was black at 24% OVER the rail, which darkened the\ngreen instead of replacing it. The leftover rectangle separated from the rail\nby 1.51:1 — strong enough to read as a box, too weak to be the signal.\n\nAll state now lives on the badge, which is what the eye is looking for anyway:\nthe active one keeps the white ring and the scale, the inactive ones recede\nunder a veil of the rail's own color, and hover lifts that veil instead of\npainting a surface. The hover pill goes with it, along with the button's now\ninert transition and a hover label rule that repainted white on white.\n\nThe veil is a pseudo-element rather than `opacity` because the badge holds a\nwhite initial: at 0.5 the letter drops to 2.61:1 against its own badge and only\nclears AA again at 0.9, which recedes nothing. It also darkens the two light\npalette hues, where the letter climbs from 3.09:1 (lime) and 2.94:1 (gold) to\nabout 3.6:1 — both already failed AA before this change.\n\nThe label keeps pure white for the same reason: at 60% it measures 2.82:1 over\nthe rail and at 75% it measures 3.54:1, against 5.01:1 for pure white. The\nrecession happens on the badge and on the weight, never on text color.\n\nThe thumbnail branch inherits the ring. It is unreachable today (every item is\nbuilt with `thumbnail: null`), but the pill was what covered it, and a branch\nwith no marker at all is a trap for whoever wires it up.\n\nVerified: stylelint passes on the file. Lint and the full suite were NOT run —\nthe machine is busy with parallel work.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a2b8ba3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a2b8ba3664079a16db949db5bb73b6b7b90a2153",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T17:38:47.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): wait for the peer's regenerated raster, and follow the renamed atlas label\n\nTwo browser specs were red before this lot, confirmed against a228add8 in a\ndisposable worktree (0 of 4 there for the first one).\n\nbrowser-collab-symbol-snapshot-regen read getImage on the peer right after the\nremote-applied stage. The chain ends when the op is applied and persisted; the\nraster regeneration it triggers is asynchronous (lazy milsymbol import, canvas,\nblob write), so the read raced it and got null. It now polls for the local blob\nfirst, the same signal the first case of the file already waits on. Serial runs\nwithout retries: 1 of 3 before, 5 of 5 after.\n\nmaps-tab-atlas-header still asserted 'Seus atlas' after the label became\n'Meus Atlas' in dcfe021a.\n\nLeft open, recorded in the ledger: ebgeo-round-trip-arquivo and\ncadeia-completa-atlas fail because the export now refuses an image without a blob\n(35f15bcb) and the fixture carries one such reference.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "f1c82f6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f1c82f6a25b803d327ff5367c4185953eece1482",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T16:19:11.000Z",
+      "author": "Maj Diniz",
+      "message": "test: browser measures for re-encoded GIF/BMP, a 20s global test timeout, and the ledger\n\nThe GIF/BMP spec gains the cases that were declared unverified (animated GIF, BMP,\nthe upload to the server, the peer, Firefox). The vitest timeout goes to 20s with\nthe measurement in the comment: cold import() under a loaded machine consumed the\n5s default in three unrelated files in one day. The testing rules record the\ncapture-that-waits-for-state rule, and the ledger records the day's lessons with\nwhere each one was codified.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "f076c5e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f076c5edee659d14b1f8960e4e4bba66e5ec311f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T16:19:11.000Z",
+      "author": "Maj Diniz",
+      "message": "style: one brand green, at AA, on every surface that paints it\n\nThe owner counted four greens on one screen. Now --primary is the 700 step\n(#15803d, 5.02:1 with white text, up from a step that failed AA), and everything\nthat paints solid brand green is that value:\n\n- --sidebar-bg resolves to --primary, and the rail states darken with black ink\n  instead of lightening (every rail label measures 5.02:1 or more);\n- the app bar of atlas.html and admin.html is flat --primary instead of a 900/800\n  gradient, and it is 56px tall. It measured 92px while its token said 68: the\n  min-height applied to the content box and the padding added on top. The only\n  spec that measures the bar ran on the one page where a global border-box made\n  the token true;\n- the olive #508D4E is gone from the inline opening screen of four HTML files, the\n  theme-color of five, and 24 literals in JS (3D marker, catalog art, PDF layers);\n- the two resting gradients that still mixed solid steps are flat.\n\nLoading screens: the 3D and first-person loaders now cover the whole viewport,\nsidebar included, since a loader pinned to the viewer container left two\nrectangles of the same green side by side. The sidebar is kept at its resting\nz-index while a loader is visible or fading, by :has(). The three map-less pages\ndraw the same opening block as the map (300px logo plus progress bar); they drew\na smaller logo and no bar. The 360 viewer has no loading screen and is unchanged.\n\nHover and pressed states stay darker by definition. Guards, each with a negative\ncontrol: um-verde-so (resolves the token and compares every hand-written copy,\nrefuses solid-step gradients), abertura-igual-nas-quatro-paginas, and\ncarga-dos-visualizadores-cobre-a-trilha.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8d2d18c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8d2d18c82619f39a7757a9f480cbf2cb6b914286",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T16:18:50.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(boot): draw the 'Preparando seus dados' card only when the wait is real\n\nThe legacy upgrade gate runs on every boot of the four pages that touch the local\narchive and usually settles in a fraction of a second, so its white card flashed\nover the green opening screen on every page load. The card is now armed instead of\ndrawn: it appears after 700 ms, or at once on the first copy-progress tick.\n\ncancel() is the load-bearing half. The gate reuses the same screen slot for the\nrecovery screen, so a timer firing late would draw progress over a finished boot\nor replace the recovery screen. Both exits cancel first, and the unit test fires\nthe late timer by hand instead of trusting browser statistics. Side effect, and\nthe intended one: the gate no longer removes the opening splash on every boot, so\nthe green screen now covers the whole boot as each page already expected.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8f36727",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f36727249fb8c6bdc16d08191461c0a3d5bd971",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T16:18:50.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(signup): load the signup modal on demand, and keep two dialogs from fighting\n\nThe signup form, its searchable select and the password-match model leave the\neager graph of the map and atlas pages and arrive by import() on the first click.\nMeasured on the built output: 16 kB off each page (the 40 kB estimate given\nearlier was wrong, and the weight test says so). The ceiling test now lists those\nmodules as dynamic-only, on both sides: absent from the eager graph, present in\nthe full one.\n\nTwo defects found by review of the first version are fixed and pinned by specs:\nthe signup opened over the recovery view when the person switched views while\nthe module was loading, and the login closed AFTER the signup appeared, which\nremoved the scroll lock the signup had just set. The offline sentence no longer\noffers a retry that the browser module map makes impossible.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "986a76f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/986a76f8cdbbec83458ce6f8b3ce706287cfc0a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T16:18:33.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync-status): never attempt the pendency panel import while offline\n\nMeasured in Chromium and Firefox: an import() whose fetch fails stays recorded as\nfailed in the page module map, and the next attempt is refused without touching\nthe network (abort, 404, offline then online). 'Try again' was therefore false.\nThe control no longer attempts the load when navigator.onLine is false or the\nsync connection is explicitly OFFLINE, and the three phrases say what actually\nworks in each outcome (loads by itself, reload when the network is back, reload).\n\nThe unit file also stops leaking live controls between cases. Its count-off-by-one\nflake moved to a different case on every root run; stamping each control at\nconstruction showed the extra load came from controls built outside the main\nhelper, which nothing tore down. Every constructor now goes through one watcher.\nSerial runs of the isolated file: about one red in three to seven before, 30 of\n30 green after.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "d56ac57",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d56ac57db9717e92be98d448644830be82df87ac",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T16:18:33.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mailer): the password reset e-mail names the screen path it sends people to\n\nThe message told the reader to paste the code without saying where. It now gives\nboth paths (the recovery screen still open, or Entrar > Esqueci minha senha >\nJa tenho um codigo), and a unit test requires every label it quotes to exist in\nthe login modal, so the text cannot drift from the screen.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "130910b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/130910b36d295d7404c98368022b6d2d73c5e856",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-20T13:07:56.000Z",
