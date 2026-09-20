@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-19T22:16:23.629Z",
+  "lastUpdate": "2026-09-20T14:03:20.454Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-19T19:05:13.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-20T09:03:00.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-19T22:07:16.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-20T13:07:56.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7155,
+    "totalCommits": 7168,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1641,
+      "1cgeo/ebgeo_web": 1653,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 804,
+      "1cgeo/chefe_dgeo": 805,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T13:07:56.000Z",
+      "author": "Maj Diniz",
+      "message": "test: take the cold import out of the test budget, the root cause of three flakes in one day\n\nmigracao-main-riscos-abertos failed 2/10 under oversubscription with 'Test timed out in 5000ms' and passed alone. Measured: the migration takes 9-19 ms idle and loaded; the COLD import() behind it goes from 175 ms to 7.7-11.2 s, dropping to 320 ms once the worker's transform cache is warm. The 5 s budget was spent by the bundler. A beforeAll with its own timeout warms the imports once (resetModules still re-evaluates per case). 12/12 under the same load. The ESLint-loading case of maplibre-construtores-regua timed out 1/6 in idle serial full runs and gets its own budget. The first hypothesis (a 50 ms BroadcastChannel window) was wrong and never failed in 28 runs; moderate load (30 processes on 32 cores) does not reproduce.\n\nVerified at this tip: root lint exit 0; root npm test exit 0 (frontend 13607, backend 5383 with 98.32% statements, e2e contract 250, zero skipped).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "a228add",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a228add8f84af0922a4ce20c19e151dc00d5539d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T13:07:56.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(people): order the person listings by what the screen writes\n\nThe atlas card members, the people search and the group members still ordered by the civil name after the screens started writing rank and war name. Two of them have a LIMIT after the ORDER BY, so the wrong key also chose WHICH rows survived. The card now orders by military precedence (ranks.sort_order descending, no rank last) and then the displayed name; search and group members order by the displayed name. The name key is a column of both UNION halves, because Postgres refuses an expression when ordering a UNION: the first version put it there and the whole overview answered 500, caught by the new test before any screen. Fixtures order civil and war names in OPPOSITE directions; with the old queries the test is 0/3.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "7027b8e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7027b8e772bfc2b1842ae038332479afc7cde579",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T12:23:38.000Z",
+      "author": "Maj Diniz",
+      "message": "test: fix a time-based wait that flaked under load, and recentre the built weight band with both sides measured\n\nsync-status-control failed in four full runs on one day, each dismissed by a different session as 'not mine', and passed 10/10 alone: the click opens the panel through import() and the settle helper waited one event-loop turn. Positive assertions now wait for the state. The map page built weight went 4134 -> 4166 kB against a 4150 ceiling, measured with a fresh build on both sides (baseline in a throwaway worktree at cd99fb20); today's six lots are +32 kB, the ceiling is now 4220, and lazy-loading sign-up is recorded as the first lever if it tightens again. Ledger: six entries.\n\nVerified at this tip: root lint exit 0; root npm test exit 0 (frontend 13607, backend 5380 with 98.32% statements, e2e contract 250, zero skipped); 21 browser cases across the six specs this lot created or touched, serial, retries=0.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "80452ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80452ce081d8bebdf28a64799dc68b826ce2b1f6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T12:23:38.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(people): one composer names people as rank + war name + unit on every screen\n\nResource sharing, atlas creation, the atlas card, group members and the grants inventory now use militaryPersonLabel; the admin accounts table keeps the civil name as primary (its question is which ACCOUNT this is) with the military form on the login line. The rule existed in four copies and only one had been fixed; the other three are gone and a structural census fails a new copy. Grant listings and group members gain war name, abbreviated rank and unit acronym (additive, LEFT JOIN, no e-mail or role). A server comment claiming users.nome was the war name was false and is corrected. The sign-up e2e now types the war name in the UI and reads it back from the database and from people search.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "b6724a5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b6724a5c087c2b7e3f4c76c8205fc817feba3ec7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T12:23:38.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(images): close the Quill image doors, bring GIF/BMP back where a canvas re-encodes, and stop a late insert from overwriting another slide\n\nThe briefing editor had five image doors and the ceiling lived in one. Paste, drop and pasted HTML with an inline picture now end in the same path as the button (compression, pixel ceiling, the same sentence); a pasted WebP no longer vanishes, an inline SVG is refused by MIME in both data-URL spellings, and transparency comes out white instead of black. GIF and BMP are accepted again by the two doors that re-encode through a canvas, whose output format is now DECIDED (JPEG stays JPEG, everything else becomes PNG) instead of inherited: the tool used to ask the canvas for a GIF, which no browser encodes.\n\nCritical fix: making the pasted-HTML door asynchronous opened a window in which switching slides let the old, detached editor fire a text-change handler that read the NEW editor, writing slide B's HTML into slide A and autosaving it. The same defect existed behind the toolbar button. The editor now captures slide and editor as a pair and detaches the listener on switch and on close, and the insert aborts with a notice when the editor has left the page. Proven in the real briefing editor with the losing interleaving made deterministic; without the fixes slide A is stored as slide B's content.\n\nAlso: pixel ceiling on the admin catalog thumbnail, a pure tested verdict for the custom point icon (a failed decode was accepted as a legal 64x64 icon), and browser proofs for animated GIF first frame, BMP, and the re-encoded blob reaching the images table as PNG.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "6a550ef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a550ef7bdae9982c24bb07efb93965384bdad1f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T12:23:38.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(auth): wide sign-up form, searchable unit picker, password eye, and a recovery view of its own\n\nSign-up: two columns in three groups, everything on one screen at 1366x768 (the modal hid 395 px before), a searchable combobox for the unit that matches name and acronym ignoring case, accents and every keyboard spelling of the ordinal, a show/hide eye on both password boxes and a live verdict under the confirmation. Free text that matches no unit never submits an id.\n\nPassword recovery: login and recovery are now mutually exclusive views of one dialog, in two steps, with a back command and Escape going back instead of closing; neither view scrolls, phone included. Texts rewritten at the owner's request: the view opens with the e-mail code, the administrator is the fallback line after sending, and nobody reads 'bytes' any more. The eye is a reusable helper applied to all five password inputs; clearing a password also hides it. One dialog at a time: a second activation reuses the open one.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "6900d3c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6900d3c3b53d3b4f3e3c36f5efb99ce42ae07558",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T10:12:03.000Z",
+      "author": "Maj Diniz",
+      "message": "test: recentre the map page weight band with the drift measured\n\nMeasured on both sides with the same walker: 526 modules / 7408 kB eager at clean HEAD (cd99fb20, throwaway worktree), 529 / 7437 with today's four batches. Today's share is +3 zero-import leaves and +29 kB; the other 528 kB since 2026-09-13 entered unmeasured and had left HEAD 22 kB under the ceiling. Also records two ledger entries and the capture-waits-for-state rule in testing.md.\n\nVerified at this tip: root lint exit 0; root npm test exit 0 (frontend 13486, backend 5368 with 98.31% statements, e2e contract 250, zero skipped).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1ac237b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ac237b913320a2fd213339f8c8a6b6c649b8eec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T10:12:03.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(account): make the Entrar button readable and reachable\n\nThe old button was 64x34 px (below the 44 px touch target), 3.30:1 contrast (fails AA), 5 px off the edge and overlapped the phone search bar. It is now a solid pill with a person icon, 44 px tall, 5.02:1, ringed in white so it survives dark basemaps, and it drops below the search on phones. atlas.html gains the same action in the top bar when signed out and the server is reachable. App-bar actions also get aria-label, since their visible label is hidden under 640 px.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1bfeca1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1bfeca18e2e35d21ece6b79b094bd3677d146c60",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T10:12:03.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(sharing): name people as rank + war name + unit in the sharing modal\n\nUser search, shares, owner and the overview members gain nome_guerra, the abbreviated rank and the unit acronym (additive, nothing renamed). Search also matches the war name. One pure zero-import composer builds the label with a five-step fallback, since rank, war name and unit are all nullable; the @login stays as secondary text because it is the only unique field on the row.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8f12c3a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f12c3a57a6ca8703cfe9f3ea9f1db1fcc2897ed",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T10:12:02.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(images): refuse oversized images at every intake door, and say why\n\nThe image tool and drag-and-drop read any file whole before asking anything; three galleries carried their own copy of the 10 MB literal and dropped wrong types in silence. Every door now shares one byte/MIME gate (10 MB, mirrors the server) plus a new PIXEL ceiling (8192 px side, 50 MP) that catches the decompression bomb the byte ceiling cannot see. Every refusal shows a pt-BR toast naming the limit and the measured value, from one pure phrase module.\n\nBehaviour change: GIF and BMP are now refused by the image tool and the drop, matching the server allowlist. An empty MIME falls back to the extension only on the doors that re-encode through a canvas. Not covered: the admin catalog thumbnail (no pixel ceiling) and images pasted straight into the Quill editor.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "bba8074",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bba8074231086ba9a18333cc37b3d5abbdbee9f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T10:12:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(context-menu): drop QAN export from the line right-click menu\n\nThe option stays for polygons. The decision moved to a pure gate (qan-menu-gate.js) with a unit test that also pins the wiring. Lines still export QAN from the Azimutes tab of the feature panel; the generator is untouched.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "3d5c2e5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3d5c2e5546e33c28b96912cc0f9671df536133c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-20T09:03:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-20: o metodo do GabDEM entra na wiki pelo codigo, o aperfeicoamento com IA ganha casa de projeto, e o segundo leitor vira passo da skill\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>",
+      "sha": "c2f3115",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c2f311575cc326ba29a2be96302eb7d51d553d05",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T01:07:30.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: absorb the 2026-09-19 audit reports and close the launch backlog\n\nThe sixteen audit/plan/simulation documents left in docs/ on 2026-09-19 are\ngone; what they held that the code does not say (the why, the rejected\nalternatives, the measured traps) moved into the wiki, decisions-2026 and the\nledger. Five wiki pages that had started contradicting the code (import order\ninverted, openRemoteAtlas no longer wiping, markStoreLocal gone from the catch,\nsetImages regenerating unconditionally) were corrected, the nine English\ndecision entries were rewritten in the house format, and the ledger lines of\nthe day gained their lesson arrows.\n\ndocs/reviews and docs/seguranca are removed. The vendor manifest, its script\nand its test went with the folder they inventoried (empty since 2026-09-15);\nthe open launch items were resolved here or recorded, with owner, in a single\ndecision entry:\n\n- password byte cap (bcrypt's 72) shared by all five password schemas\n- logout barrier covers every server namespace the census counts, measured\n  with two real tabs (5/5, retries 0)\n- SVG custom icons rasterised to PNG on upload, same id\n- the ten partial permission clauses proved (20 cases, 7 negative controls)\n- Docker base pin raised to the 2026-09-19 index, built without cache\n- pending Playwright specs remeasured in series; two instrument fixes\n- keepNames does not survive terser: tool type now comes from the registry\n\nscripts/ is dissolved; dev/ is the only loose-script folder. The 323 audit\nlogs and .audit-artifacts were deleted from the working tree (untracked).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "cd99fb2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd99fb2052a47f5605611c84c93ef5cd7ec86864",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-19T22:07:16.000Z",
