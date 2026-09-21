@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-20T22:19:08.484Z",
+  "lastUpdate": "2026-09-21T16:21:58.177Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-20T09:03:00.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-21T12:09:58.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-20T22:13:01.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-21T16:07:29.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7188,
+    "totalCommits": 7223,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1673,
+      "1cgeo/ebgeo_web": 1705,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 805,
+      "1cgeo/chefe_dgeo": 808,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,321 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T16:07:29.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the phantom map is closed from both ends, and what stays open is declared\n\nDecisions log entry with what was measured, the three classes of writer, the refused alternative and what is still open (the local replacing import clears the resolver without the mark, the colour count also lives by name, orphan layer and group side stores, two copies of the empty map document). N12 leaves the module wiki.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "4f7cf40",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f7cf4047cbe10d94c135843d46103a2f3d893fb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T16:07:29.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(viewers): saving the 3D camera and the 360 orientation announce success only when the store confirms\n\nBoth viewers discarded the store's return and announced success. A refusal does not throw (role, locked map, and now a map the atlas no longer has), so a refused save put the success toast next to the refusal.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "76bde70",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/76bde7074b815f56e97c335e91840fccc3eb518c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T16:07:29.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): a snapshot restores the resolver mark and reconciles the current map, and leaving a deleted map no longer depends on the Maps tab\n\nMeasured in two real browsers before fixing. Right after opening a server atlas the map resolver had a FULL index and a FALSE initialised mark, because snapshot activation cleared it and re-registered the pairs without restoring the mark: the fast name-to-id path of the local repository was off for the whole session and the colour count was stored by name. A snapshot in the middle of a session, with the open map renamed while the tab was offline, left disk and memory on different names, a null navigation pointer and a drawing tool that produced nothing. And a peer deleting the open map left a tab that had never opened the Maps tab sitting on the deleted map in silence, because the redirect lived in that tab and sidebar tabs are built on demand. `replaceAll` clears, registers and marks in one step. The snapshot and the live DELETE announce CURRENT_MAP_STALE_REMOTELY, and a subscriber next to the author's rename re-keys by id through the same routine or leaves for the atlas's initial map with a warning that names both maps. The Maps tab loses its delete branch and its dead helper: with both alive there were two warnings and two redirects racing to possibly different maps. The three map settings had a guard that THREW, and a refusal that throws reaches nobody: it now emits `map_missing` and returns an empty persistence, from inside the transaction. 12 of 12 in series, no retry.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "b1cb590",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b1cb5906b0af6c1da5a3b0c8d781ed19182436a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T16:07:29.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): content writes stop minting a phantom map, and the refusal has a phrase\n\nThe tolerant read answers a MISSING map with a full-shaped empty document, and the write that followed minted a record keyed by the map NAME. On a server atlas the op left with a non-UUID context and the anti-leak filter dropped it before flush, with no error: a gesture accepted and thrown away. An inventory sorted every writer into three classes. GESTURE writes go through a single door (store/mapa-inexistente.js) and refuse with `map_missing` and a phrase the person can read; DERIVED writes (colour count, navigation pointer, regenerated bitmap) skip in silence, because opening and switching maps already writes with no edit at all; CREATION keeps writing what did not exist. Remote scope only: on a local atlas the name-keyed map is the normal path. 3D and 360 enter by the same door, in the single funnel of each file and before the document lock, and saving the camera or the orientation now returns a boolean instead of `undefined` on both success and refusal. A dead check in moveFeaturesToMap is gone, with the test that passed only because its double returned null. A census fails an unclassified writer, and its rule is CALLING the door, not citing it. The existence question lives INSIDE the transaction at every site: a first version asked it before the lock, which put a disk read outside the transaction's scope stamp, so an atlas switch during it let the write land in the other atlas.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8b0da52",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b0da5275a63553c932f8607ce8f022b1bde3116",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T14:42:06.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao: cache e ponteiro de navegacao nao sao edicao, e a recusa lembrada leva a versao da regra\n\nA producao reprovou a primeira versao da juncao no mesmo dia: a pessoa\natualizou o servidor e recebeu a mesma tela. A juncao rodou e recusou por\n\"mesmo mapa nos dois lados\", porque a primeira abertura da versao nova CRIA\na contagem de cores de um mapa que nao tinha nenhuma\n(performInitialColorAnalysis). A reproducao anterior montou o estado das\n09:13 com a contagem ja regravada pela versao nova, e por isso passou.\n\nMedido de novo na fixture de 11 mapas, sem nenhuma edicao: abrir e trocar\nde mapa grava a contagem de cores de cada mapa aberto, o lastActiveMap e o\nPNG da declinacao que falte.\n\n- late-legacy-plan.js: DERIVED_KEYS (color_usage_) nunca e edicao e segue o\n  mapa que veio da antiga; PREFERENCE_KEYS (lastActiveMap) fica com o valor\n  da versao nova quando os dois lados mudaram. O PNG regenerado fica como\n  limite conhecido, declarado no cabecalho.\n- legacy-transition.js: a recusa lembrada leva LATE_RULE_VERSION, e recusa de\n  regra mais antiga e decidida de novo; sem isso o navegador da pessoa\n  continuaria respondendo pela memoria.\n\nProva: o caso sem contagem de cores reproduzido no navegador com a copia de\nrecuperacao da pessoa (tela antes, junta depois); a fixture de 11 mapas com\nnavegacao nos dois lados junta, e sem a regra do ponteiro da tela. Controle\nnegativo das 14 guardas, cada uma reprovando o proprio teste.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "70382a8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/70382a8aa67e11db7f07bf3ea64840955afe48d3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T14:15:08.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: four open points of the temporal audit are closed, and the map-setting lock becomes a declared client convention\n\nThe decisions log records the owner's N3 decision with the inventory table, and N1, N2 and N5 with what was measured and what was refused. The module wiki drops the four closed points and gains N12, the fragility the N1 measurement opened: the resolver is not initialised on a freshly opened server atlas, and a name divergence mints a phantom map in silence.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "ca828ec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ca828ec9ac6f8e341f09c9a019150320597b9491",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T14:15:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(collab): an unknown message type is logged once per type per socket, not once per frame\n\nA tab loaded before the temporal presence frame was removed keeps sending it, about twelve times a second during playback, and the gateway default wrote one log line per frame. The decision moved to a leaf: once per type per socket, capped at 16 types and with the label cut at 64 characters, because the type comes from the client and the fix must not become a memory or log-volume vector. Nothing answers the sender and nothing closes the socket. The set lives on the socket, so a client in a reconnect loop still yields one line per reconnection.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "5f47265",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5f472655b164b75288194fb6c10d9ee11451a613",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T14:15:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(tools): converting a point respects role and lock, like the linear conversions do\n\nThe two point-conversion commands were drawn for anyone and called the conversion directly. The store leaves refuse by role and by MAP lock, but never by layer or feature lock, so converting a locked point worked while converting a locked line was refused with a reason. The point model gains the sibling decision table, with the phrases and the capability list IMPORTED from the linear model: a missing capability hides the commands, a locked map, layer or feature draws them with aria-disabled and refuses the click naming the state. Both conversion functions ask again before any side effect.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1045662",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/10456622dda670667a848e8f4f85a03e6ca10c68",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T14:15:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): every map-setting write asks the disk for the map lock, and the notes editor stops claiming success\n\nThe server locks the CHILD targets of a map and lets map-level settings through, so on a locked map those settings are a client convention (owner decision, 2026-09-21). An inventory closed by two paths found eleven write sites in three files. Notes and grid received the map NAME and asked about the CURRENT map, dropping the argument; on a local atlas the in-memory set only knows the current map, so a freshly opened tab answered unlocked for everyone. renameMap asked the same incomplete set. The notes editor announced success without reading the store's answer, which was false for every Reader. A census derived from the operation vocabulary fails a new map sub-type until it is classified, and fails a producer that asks the current-map predicate.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "b3ff8ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b3ff8ce45d652907a69919e30cc2a950e28ff10d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T14:15:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): a map rename arriving from a peer re-keys the peer's memory, by event\n\nMeasured before fixing, in two real browsers: after a colleague renamed the map a peer had open, the disk said the new name and the memory said the old one, no card was marked current, and the feature the peer drew next landed in a PHANTOM map keyed by the old name while its op died in the queue. An F5 repaired it, so the defect was live-session only. The inbound handler cannot import the state manager, so it emits MAP_RENAMED_REMOTELY after the disk is written, and a subscriber next to the author's renameMap calls the SAME two re-keyings the author calls. 30 of 30 in series, no retry. This commit carries map.operations.js whole, so it also holds the lock hunks described in the next commit: renameMap asks the DISK for the lock, isTargetMapLocked is exported, and three lock refusals speak through the store event instead of console.warn.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "d310d16",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d310d16a4cbf3c26d2affe22b5b8b2a7242319c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T13:39:47.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao: o que a versao antiga grava depois da transicao entra sozinho, e a tela fica para o conflito\n\nRelato de producao (2026-09-21): as duas linhas dividem a origem, a pessoa\nabriu a versao nova, voltou a antiga e desenhou duas linhas, e a nova parou\nna tela de recuperacao. O atlas novo estava intocado desde a transicao, entao\nnada se perdia trazendo as linhas, e a tela pedia a decisao assim mesmo.\n\n- late-legacy-plan.js: fusao de tres vias por impressao digital, com o MAPA\n  como unidade de conflito (chave, id e nome), duas bases (uma de cada lado)\n  e as causas que mantem a tela: mesmo mapa nos dois lados, mapa apagado na\n  antiga, imagem apagada com o destino editado, migracao instavel.\n- legacy-transition.js: o portao copia e migra a origem atual num escopo de\n  trabalho, grava o plano no diario e escreve no lugar, com retomada. Atlas\n  montado em alguma aba adia; origem apagada por ordem nao serve de base.\n- migration-recovery.js: com a pagina aberta vira aviso e entra ao recarregar;\n  a frase da tela deixa de nomear uma causa so.\n- telemetria: migracao.resultado ganha juncao e conflito nos dois pacotes.\n\nMedido antes: abrir, arrastar e dar zoom nao grava nada no atlas (0 de 9,\ncom controle positivo). Controle negativo: as nove guardas desfeitas uma a\numa, cada teste reprovou. O relato foi reproduzido no navegador com a copia\nde recuperacao da pessoa (nao versionada), e a prova reprovou o antigo.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "a8e38af",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a8e38afd42429cd9d90ef35b778fa58a1cb4abb3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T12:09:58.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-21 (cont.): a base mundial de limites chega a producao, e a memoria volta abaixo do gatilho\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "3e3e4f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3e3e4f6513dcfa7a39a3bf92ada2fbe0fe24ce1d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T12:08:18.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into retro-merge",
+      "sha": "76b260c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/76b260c1fe812cdb8399caa883622331ce953ac0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T12:07:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-21: restaurar backup como banco novo, com a régua de linhas tirada do próprio dump\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "2e1f322",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2e1f322b291e15e4536bb946df055564b502eca5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:17.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(temporal): the audit is executed and leaves the repository; what stays open lives in the module wiki\n\n64 of the 65 standing findings were fixed (the antimeridian stays out by cost). The diagnosis document is removed by the owner's order: the table of where each fix is pinned goes to the decisions log, the open points (N1 to N11) go to the module wiki, and the full text stays in git history (7cfc2dd3, 4486fde7). The migration test now RUNS the 2.2 step, the tutorial documents temporal import, the gear by mode and the slide instant, the page-weight budget records the seven pure leaves born here, and the rules gain the capture lesson that a toast is born at opacity zero and Playwright visibility does not look at opacity.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "a9e45b1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a9e45b13ff32592c4a7ccfd9e33b715ce7a9c9ec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(briefing): the timeline bar joins the clean stage, and the slide instant is captured and restored in all three modes\n\nThe timeline bar was in neither the slide control vocabulary nor the presentation rules, so the audience could scrub, play and reach Reschedule through the gear. It is the ninth slide control, hidden by default, and the gear never shows while presenting. 3D and 360 slides zeroed the cursor, so their marker set depended on the previous slide; capture now reads the switch from ONE source and the rule has no mode. Leaving the presentation gives back the person's instant and stops playback at both ends, the cursor travels with the map name so it is clamped once against the right bounds, and the editor switch acts on the slide's map.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1cb7aed",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1cb7aedbfdec46d90124ee986374abd451387c2b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): trajectory edits are undoable, work by touch and keep the selection, and the panel refuses what it used to store\n\nNo trajectory edit could be undone, clicking a handle deselected the feature in the same gesture (measured: 3 to 4 keypoints, selection to zero), the editor listened to mouse events only, and dragging a feature moved only keypoint 0 on desktop while the phone and paste moved the whole route. Property writes accept an opt-in undo, lit once per gesture in the editor and in the trajectory panel; the editor publishes a stateless handle predicate the selection manager consults; handle drags are pointer events whose cancel DISCARDS; and dragging the feature carries the whole route. The panel refuses an inverted window and an instant that would change who the anchor is, naming the field; an empty instant clears the derived DTG; the calendar no longer restricts dates to the ruler window; the DTG checkbox is drawn and refuses the click naming the state; marker panels follow the read-only rule. The lens does not change the data: DTG derivation runs in any mode, because Reschedule only exists in relative mode and a pause there cancelled its re-derivation.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "da42146",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/da4214699e9a27d9842545a4308bd82a64e21049",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): one visibility rule for the map, 3D, 360 and the PDF, and one owner for layer opacity\n\nThe 2D map tested OVERLAP with the quantised cell of the cursor while 3D, 360 and the PDF legend tested the INSTANT: with unit HOUR and the cursor at 10:00, a feature starting at 10:20 showed on the map and vanished everywhere else. A window predicate with the exact semantics of the MapLibre filter now serves the three surfaces, and a test evaluates the same corpus through the predicate and through the filter expression. An inverted window is never visible on either side. Reveal uses the step window instead of the raw cursor and became a factor INSIDE the opacity applier, the single owner of the paint: with two writers, layer opacity had no effect while reveal was on and went back to 100% when it was turned off (measured in the browser). Reveal reaches 3D, 360 and the legend, the PDF states the instant it depicts in both engines, derivation does not run with the timeline off, and the trajectory pass exits early when nothing is displaced.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "6352292",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/63522927a1c69072509cd4b2d930e67b4cfefe0a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): the config respects the map lock, reschedule is one batch, and the controller publishes nothing while off\n\nWriting the temporal config asked for the role and never for the lock, and Reschedule on a locked map moved D-day for everyone while moving no feature. The write now asks the DISK for the lock, and reschedule is one logical batch that only records the new origin if the features moved. The gear validates the window in both modes without closing, and closing is idempotent and idle while an operation runs. The controller zeroes bounds and cursor while off and on map change (remembering the cursor per map), applies through one chain, skips the off branch when there is nothing to undo, pauses when a 3D or 360 viewer opens, keeps the last cell whole at the end, and defines speed as a fraction of the window (1x crosses it in 60 s). The degenerate-window stop tests the WINDOW: tested on the advance, it killed every playback on its first frame, whose dt is zero by construction, and only the rewritten UI spec saw it. The ruler drag is a pure state machine with all three exits, and the ruler has full ARIA, focus on click and Home, End, PageUp and PageDown.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "c9ccd83",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c9ccd83ef7e962ee819529188b5ad656ce546882",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): the temporal config and the slide cursor have a domain on the server, and the cursor survives the copy\n\nThe contract of `temporal_config` lived only in the client: the rule that named the column never saw a temporal value, because the op carries six loose fields. A leaf module now normalises unit and mode by exact vocabulary and the limits as epoch ms, on the column and on the echoed payload, and never refuses the op (a refused op freezes that client's outbound queue); an inverted window loses its end. The slide cursor was missing from the ColumnSet, from both row builders and from the send-local-atlas payload, so clone, import and upload delivered slides with the timeline on and no instant; it now travels, and the three doors plus the incremental one read a single rule. Ten contract and UI specs froze values no client produces (lowercase units, ISO text, an object as cursor) and were rewritten with the real vocabulary.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "81e7c85",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/81e7c8573027a01e0cb1b5f412144e5e23ba8d01",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:16.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(presence): nobody's timeline instant travels any more (owner decision P1)\n\nPresence says whether a person is on the map; the timeline is each person's own view, like the on/off switch, playback and speed since 2026-09-20. The temporal presence frame leaves both packages: the send and the receive, the state kept on the socket and handed to late joiners, and the label in the online list. Two structural guards and a test against the real backend fail if it comes back. An old tab that still sends the frame falls in the gateway default, which logs and neither answers nor closes the socket.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "c0799cb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c0799cb869113a09746b54a906724c0b7f945896",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): converting a point keeps its time, and the KMZ export carries the validity window\n\nConverting a point into a military symbol or a coordination measure copied a fixed list of six properties and dropped the validity window, the trajectory, the attributes and the images. The block is now built by a pure model that also carries the authored home position, so converting during playback does not persist the interpolated spot. The KMZ export writes the window as a TimeSpan and says in a note that the trajectory is not represented; gx:Track was evaluated and refused, because it replaces the geometry for every reader that does not implement it.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "f9d7ec5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f9d7ec5d32b5169297a583c13bd9b5b83d98ef3a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(import): dates are read by declared shapes, and what degrades is counted and said\n\n`toEpoch` went through `Date.parse`, so 05/11/2024 became May 11th, 25/12/2024 was dropped and 2024-01-01 landed on the previous day. It now matches declared shapes (day before month, ISO with and without zone, the military DTG the product itself writes, epoch ms), refuses impossible dates and applies a 1900 to 2200 range. An unreadable coordinate drops the keypoint instead of becoming 0, an inverted window loses its end, key precedence is declared, the reserved temporal names derive from one list and ignore case, and unreadable cells and inverted windows are counted per batch and warned about, in the CSV panel and in the general importer.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "092d99a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/092d99ab4e6ad4600a822f88fb512178e6c0daa3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T12:04:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): renaming and duplicating a map carry its temporal config, on the author and on the peer\n\nThe temporal config and the map lock are app settings keyed by MAP NAME. Renaming moved neither (the UUID branch had no line for name-keyed side stores, and the comment claiming otherwise was false), duplicating copied the features with their dates and none of the window, and a rename arriving from a peer left both under the old name. The repository now transfers the name-keyed side stores after both branches, the memory re-keys config and view, the copy inherits window, unit, mode, origin and the SAVED switch before entering the new map, and the inbound handler reuses the same transfer. Also inbound: a snapshot restores and announces the temporal mirror it clears, and a temporal op that beats its map waits for it instead of being stored under the id.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8879c7b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8879c7b086f8c4071986f76971a6897396e88a9a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T10:26:48.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(audit): second pass on the temporal audit, the owner's presence decision and the closed plan\n\nThe owner asked for the findings that only a front had asserted to be re-checked before the plan was\nclosed. Of those 39: 36 stand, two of them measured in a browser (leaving \"reveal hidden\" wipes the\nlayer opacities, and worse than reported: with the mode on the opacity slider has no effect at all;\nclicking a trajectory midpoint inserts the keypoint and deselects the feature in the same gesture);\none fell (the settings gear IS hidden for a reader, by the view-only body class, so only the\nmap-lock half remains, which was already its own finding); two stay plausible, being races that\nonly a serial measurement would close.\n\nOwner's decision recorded: a person's temporal instant is NOT propagated. Presence says whether\nsomeone is on the map; the timeline is each person's own visualisation. Today it travels on purpose\n(client frame on every cursor change, retained on the socket, handed to late joiners, drawn in the\nroster as \"em D+3\"), so the two findings about it stop asking for a fix and ask for removal, on both\npackages.\n\nThe plan is closed in seven lots, each a commit with a regression test per finding.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "4486fde",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4486fde725e62c96e6b56776e59674bc7e71ca02",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T10:14:33.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(audit): diagnosis of the temporal system, six fronts, nothing fixed yet\n\nThe owner asked for a full audit of the temporal module because it was barely used in the field.\nSix read-only fronts ran in parallel (model and render; controller and bar; store, sync and presence;\nper-feature editing; 3D, 360, briefing and PDF; import, export and docs), each bound to a file, a\nline and a concrete failure scenario. The report separates what was re-checked by a second path\n(own reading or a node run) from what only one front asserts, and says so per finding. Nothing was\nmeasured in a browser.\n\nThe heaviest findings, all re-checked: renaming a map drops its temporal config (it is keyed by map\nNAME and the rename never moves it); dd/mm/yyyy dates are parsed as mm/dd/yyyy or dropped, silently;\nconverting a point into a military symbol drops validity window and trajectory; no trajectory edit\nis undoable and \"clear\" asks nothing; the temporal config is writable on a LOCKED map, and\n\"reschedule\" on a locked map moves D-day for everyone while moving no feature; cloning or importing\nan atlas loses the frozen instant of every slide; and the 2D map and the 3D/360/PDF-legend decide\nvisibility by two different rules.\n\nThe document is a diagnosis and leaves the repository when the findings become fixes with tests.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "7cfc2dd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7cfc2dd3b0107325c02748c52185c9a8f5c2262b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T09:56:05.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(view): clearing the saved position clears the saved base layer and temporal switch too\n\n\"Limpar posição salva\" cleared the camera only. Since the saved position became the saved VIEW, that\nleft a map with no saved camera still carrying the base layer and the temporal switch somebody had\nsaved with it, which nothing on screen showed and no gesture could remove (owner, 2026-09-21).\n\nclearMapView is the mirror of saveMapView: one gate (level and map lock), one logical batch, three\nleaves. The base layer cannot become ABSENT, because maps.base_layer is NOT NULL on the server, so\nclearing writes the base a map is born with, read off the one place that defines it. Like the save,\nit does not touch the screen of the person doing it, and a leaf that is already clear is not called.\nThe manager now reports a refusal as a refusal instead of \"removed\".\n\nVerified on both sides: the integration suite pins the batch, the untouched screen and the two\nrefusals; the contract e2e pushes the clearing batch to the real backend and reads the row back\n(camera null, birth base, switch off, map NOT deleted); and the menu, the confirmation and the\nsaved state before and after were read off a capture of the dev stack.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "09d2ea1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/09d2ea1abbadf0fd5c2e4504d5ba2ce8c8fcc5b6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T09:35:26.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): entering a map announces its temporal switch, like it announces the lock\n\nOpening a local atlas could leave the maps tab showing the clock ON while the timeline bar stayed\nhidden. Since the switch became view state of the person (2026-09-20) it is PINNED on entry from the\nsaved value, silently, and applySavedMapTemporalView emits only when the value CHANGES, which the pin\nhad just made impossible. The bar is event-driven, so it kept whatever it had read before the boot\nswitched scope; the maps tab READS the view, so it showed the truth.\n\nsetCurrentMap now emits MAP_TEMPORAL_CHANGED for the map being entered, flagged automatico (nobody\nclicked, so usage telemetry does not count an activation), next to the lock event it already emits.\n\nThe rate is low and the series does not converge (1 failure in 11 opens of the local atlas from the\natlas page without the announcement, 0 in 8 with it), so what proves the fix is the losing order made\ndeterministic in tests/store/map-operations.test.js: the pin happens inside the double, and the\nannouncement has to come after it, carrying the pinned value.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "54a4414",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/54a4414dbeec3aa6ed84875ddf85d6c034a1d6d6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T08:57:44.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(boot): the public visit paints the map it has just activated\n\nA public visit opened with no feature on screen, by a race. activateAtlasInitialMap switches the\ncurrent map and paints nothing; the account path (openRemoteAtlas) has always ended with an explicit\nswitchMap, and the visitor path, which mounts its namespace on its own, never had that line. What\npainted was the FIRST paint of the boot, when it happened to come after the snapshot. When the\nsnapshot came later, the boot painted the empty local default, the sidebar showed \"Mapa 1\" as\nactive, and nothing repainted until a map switch or a remote op.\n\nMeasured in series against the dev stack, atlas of two maps, five features on the active one,\ncounting rendered GeoJSON features nine seconds after each load: 2 loads of 6 with features without\nthe line, 8 of 8 with it. With a single map the race was nearly always won, which is why a clean\nreproduction the day before showed the features and the report was wrongly pinned on a neighbouring\ndefect (the visitor's drag). The decision entry that carried that attribution is corrected.\n\nGuard: a structural test on the ORDER in both paths, plus a census by git ls-files of every caller\noutside the store, since the property is one line and one line vanishes in a rewrite.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "3406d5c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3406d5cc3c969b6a659dde378e3a3ccd121e806d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T01:01:23.000Z",
+      "author": "Maj Diniz",
+      "message": "chore(db): fold the nine post-baseline migrations back into the eleven domain baselines\n\nNothing has been deployed, and the owner asked for the migrations to be consolidated again. Between\n12/09 and 20/09 the sequence grew from eleven baselines to twenty files: eight DDL increments and one\ndata-only regularization. Each increment now lives in the baseline of its domain (identity, atlas,\nsync), with the new columns at the END of each CREATE TABLE in the order the ALTERs had created them,\nso even the physical column position matches. The default-layer regularization leaves without a\nreplacement: a fresh install has no legacy row to repair, and the test case that executed that file\nleaves with it, with the reason written in its place.\n\nProof, same method as the first consolidation: two disposable databases, one built by the twenty\nfiles and one by the eleven baselines, PostgreSQL catalogs compared WITHOUT ignoring column order.\n564 columns, 196 constraints, 176 indexes, 19 functions (by body hash), 6 triggers, 3 sequences and\n28 column comments coincide. The comparator went through a negative control first: with one column\nremoved from the new baseline it named the column.\n\nCitations of the removed files in code, tests and docs now point at the file that holds the object.\n\nDeclared cost: a development database applied by the old sequence has an identical schema and a\ndiverging tracking table; the migrator refuses it the next time a migration has to be applied, and\nthe way out is to recreate it. The server does not migrate on boot, so it keeps serving until then.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "5351977",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/53519779eae6494876b3c723355f3671c69d5444",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T00:27:16.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(account,sharing): people are named by rank and war name, the owner is not a member, and the public link is an address\n\nSix requests of the owner, one afternoon.\n\n- The account corner, the bar of the map-less pages and the online roster write \"Maj Diniz\", not\n  the login. The session keeps a displayName, preserved when the per-atlas role is re-set by a\n  payload that knows nothing about the person. Initials and hue stay keyed on the login.\n- The sharing screens offered the atlas OWNER as a member: the people search does not exclude the\n  caller and both screens filtered only against the member list. The owner showed up twice, once as\n  owner and once as reader. The client stops offering it (peoplePickOutcome) and the server refuses\n  the share with 409. Two integration cases pinned the old 201 as behaviour; they now demand the\n  409 and plant the legacy row directly to keep proving it does not demote the owner.\n- The public link was shown and copied as a bare 32-char token. The server now composes an address\n  on app.urlBaseLinkPublico (env URL_BASE_LINK_PUBLICO, default https://ebgeo.dsg.eb.mil.br,\n  overridable in the admin \"Sistema\" tab) and serves it as publicUrl beside publicLink, in the\n  sharing config and in the answer of publishing.\n- A public link opened by a signed-in person was swallowed on the first line of the function that\n  opens it: no request, no notice, and the browser ended on atlas.html. It now resolves first and\n  opens through the ACCOUNT, by the same pipeline as ?atlas=, with a notice.\n- The public visit loses the persistent banner (one arrival toast remains) and the visitor's\n  pointer is neither sent nor retained nor relayed; the positionless frame still travels, because\n  it carries the active map, and the visitor is still counted in the roster.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "7d8fd19",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7d8fd1974f4701b9b6bcaf4ec16322dda511eac8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T00:27:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(selection): a reader gets no handles and cannot drag, and the click that ends a drag is not a click\n\nTwo defects the owner hit on the same afternoon, both in the selection path.\n\nA level that cannot edit (reader, commenter, the anonymous visitor of a public link) got the\nvertex handles on click and could drag a feature: the map painted the move, the store refused the\nwrite, and the screen kept a geometry that exists nowhere until the next remote op repainted the\nsource. Only the map lock made the surface inert. The role now rides the same cut, asked by\ncapability through the guard (edit-surface.js), and the three selection paths hand the feature to\nthe control through one method; two of them never raised the flag, not even for the lock.\n\nEditing a vertex of a polygon, line or arrow deselected the feature and left the handles on\nscreen. The handle drag became a pointer drag whose pointerdown calls preventDefault, which cancels\nthe compatibility mousedown and not the click; MapLibre suppresses the click that ends a drag by\ncomparing it with the last mousedown it saw, and it stopped seeing one. The rule is restored where\nthe map click is consumed (click-after-drag.js), from the pointer events themselves.\n\nMeasured on the dev stack before and after: selection 1 -> 0 with eight handles rendered, then\n1 -> 1; on a public visit, handles 0 and the drag pans the map instead of moving the polygon.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "c390739",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c390739dddbad6fcc8b1a236c0d2e25a9d751744",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T23:34:00.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(tablet): the product answers to a finger, and a ruler measures whether it does\n\nUntil today the only layer that exercised the UI ran in a desk context, so the whole\ntouch half of the product was verified by READING code. This lot fixes what that\nreading, and then a real measurement, turned up across the four surfaces.\n\nTHE RULER REPLACES THREE HAND-WRITTEN LISTS. The report asked for small targets to be\nfixed by inventory (\"a 16 by 16 div\" in 3D, \"three targets\" in 360, \"seven\" in first\nperson). Opened, most of those were not targets at all: the crosshair carries\n`pointer-events: none`, the thumbnail is decoration, the key pad is a keyboard hint.\n`alvos-de-toque.tablet.spec.js` measures the BOX of every actionable element on the four\nsurfaces and fails below 44px, printing what it measured on stdout. It found exactly one\noffender in the whole product: the search field at 42px, on every screen. It also caught\nitself once: an ancestor with `display: none` zeroes a child's box without zeroing its\n`display`, so the 3D bar was being skipped while the case passed.\n\nTHE MAP. Undo and redo existed only as Ctrl+Z and Ctrl+Y, which on a tablet is no door at\nall. Both got a toolbar button, and the rule moved out of the keyboard into\n`map/undo-redo.runner.js`, whose re-entrancy guard is per MODULE: with two doors, a\nper-caller flag lets a tap during a running shortcut fire both, and the second undoes what\nthe first just did. A group popup now lays out as a LIST under a coarse pointer, because\nin the grid the button is an icon plus a badge carrying the KEYBOARD shortcut, with the\nname living in `title`, which is a hover bubble and never appears on a tablet.\n\nTHE 360. Seven fixes, and the costliest was one of ORDER: `assignHitRadii` ran before POIs\nand comments joined the list, so only the navigation arrows got the fingertip floor. The\nother two fell back to `radius * 1.5` with NO floor, which is why it stayed quiet: a POI at\nthe default size offered 36px of diameter, and `markerSize` 6 offered 18. Alongside: an\nabsolute floor for coarse pointers, the drag threshold read from `pointerType` (5px for\neveryone meant a tap on an arrow was read as a drag and navigation simply did not happen),\nthe missing `pointercancel`, the finger that stopped turning the sphere after a pinch, the\npinch that zoomed the photo behind a comment card, `touch-action` moved out of an inline\nstyle on the CONTAINER (where it is inherited, killing card scrolling) and onto the\ncanvases, and a Touch tab in the help, which offered only Mouse and Keyboard.\n\nTHE 3D. `scene.pick` searched for a target in THREE pixels, the ruler of a mouse. Reading\nthe code found three sites; the census found SIX, and the three missed were the measurement\nand viewshed selections. The 3D measurement closed by right click or double click, so on a\ntablet it could be started and not finished; it got the same finish button as the 2D tools,\nthrough the same helper. And a tileset's `cacheBytes` was a flat 1 GB; it now comes from\n`services/orcamento-de-memoria.js`, which drops to 256 MB when the machine declares 4 GB or\n4 cores and does NOT drop when there is no clue, since Firefox and Safari publish no\n`deviceMemory`.\n\nFIRST PERSON. Looking around moved from mouse events to pointer events, and the drag\nstopped reading `movementX`, which is optional on a touch pointer: where the browser does\nnot fill it, it reads zero and the camera simply does not turn, with no error. It now\nmeasures the difference between two `clientX`. Walking did not exist at all there, since\nWASD, the arrows, Space and Shift are absent on a tablet: `walk/touch-stick.js` is an\nanalogue stick plus jump and crouch, and the walker scales speed by the vector's magnitude,\nwhich leaves the keyboard identical because two keys already saturate the cap. The\nimmersive button asks for Pointer Lock and now disappears under a coarse pointer, since\nthere is no pointer to capture and nothing the person could unlock. The loading bar was a\ntwo-second `@keyframes` that finished full with 18 MB still to come; the body is now read\nas a stream and the bar says how many MB of how many, staying indeterminate when there is\nno `Content-Length` instead of inventing a position.\n\nTWO DEFECTS CAME FROM READING THE CAPTURE, not from a test: the stick's knob escaped its\nbase at the end of the travel, and the key-hints card sat in the opposite corner telling the\nperson to use a keyboard they do not have, next to the control just born to replace it.\n\nVERIFIED: root lint exit 0; frontend 755 files and 13809 cases; the tablet Playwright config\n9 passed. Negative control on every logic fix, by exit code. The four red cases in the root\nrun belong to another session's in-flight `session-context.js` and `account.control.js`,\nwhich are NOT in this commit.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "953064c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/953064c981c4e586e559b016ebd22856deab3d92",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T23:17:05.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(briefing): the sync badge and the online roster leave the stage, and the slide checkboxes go two columns\n\nThe owner still saw the sync status label while presenting. An inventory of the\nstage taken as a SIGNED-IN user on a SERVER atlas found exactly two leftovers in\nthe top-right corner: the sync status badge and the online users roster. Both\nare session chrome that only exists in that scenario, which is why the anonymous\ncapture of the previous commits never showed them. They join the account area,\nthe atlas name badge and \"share this view\" in the set hidden for every slide.\n\nThe per-slide control checkboxes in the editor are laid out in two columns, with\nthe group title spanning both; reading order stays the order of the closed list.\n\nThe browser spec forces the three session elements on screen before presenting\n(a local anonymous atlas never draws them), so the assertion cannot pass over\nnothing.\n\nVerified: root lint; frontend 13800, backend 5400, contract e2e 253; Playwright\nspec with --retries=0; stage and checkbox images read. The first full root run\nof this batch lost one backend FILE mid-run\n(update-sobre-tumulo-recusado.repro.test.js, no assertion message, 14 cases not\nrun) with no backend diff in the tree from either session; alone it gave 16 of\n16 four times in a row, and the backend leg re-run was 5400 of 5400.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "ff805c4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ff805c489d4b27c38ec7946adeb1570be42aa4db",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-20T22:38:24.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(briefing): search and navigation join the per-slide controls, and the atlas badge never shows\n\nTwo more entries in the closed list of controls a slide may show while presented:\nthe search bar, and the navigation cluster as ONE choice (zoom, fullscreen and\ncompass live in `.bottom-controls-right`, and the owner asked for a single\ncheckbox for all of them). Both default to false, like the rest. The atlas name\nbadge joins the account area and \"share this view\" in the set that is hidden for\nevery slide.\n\nThe list is mirrored in both packages and the server drops any key outside it,\nso the two files move together; no migration, the keys live in the JSONB column\nadded by 020. The count left the prose of the decision, the wiki and the test\nheader: it said \"six\" and aged within the hour.\n\nThe browser spec forces the atlas badge on screen before presenting, because a\nlocal atlas never draws it and the assertion would have passed over nothing;\nnegative control measured (without the CSS rule the case fails on the badge).\n\nVerified: root lint and root npm test (frontend 13759, backend 5400, contract\ne2e 253), plus the Playwright spec with --retries=0. The first root run of this\nbatch failed on the module ceiling because of an uncommitted module of the\nparallel session in the shared tree, and once on\nmigracao-main-riscos-abertos.repro.test.js, green 5 of 5 alone and green in the\nsecond full run.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "56d289c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/56d289c5596170dad28b08bab0c689324fa82321",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-20T22:13:01.000Z",
