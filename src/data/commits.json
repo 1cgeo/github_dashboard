@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-21T16:21:58.177Z",
+  "lastUpdate": "2026-09-21T23:07:07.920Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-06-08T23:36:21.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-09-02T11:31:56.000Z",
+    "1cgeo/ebgeo_360": "2026-09-21T20:29:29.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-08-26T20:11:11.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-21T12:09:58.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-21T20:37:21.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-21T16:07:29.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-21T22:33:01.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7223,
+    "totalCommits": 7245,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1705,
+      "1cgeo/ebgeo_web": 1720,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -157,7 +157,7 @@
       "1cgeo/geoswarm": 66,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 62,
+      "1cgeo/ebgeo_360": 64,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 29,
       "1cgeo/0Bug_Report": 3,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 808,
+      "1cgeo/chefe_dgeo": 813,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,204 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T22:33:01.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the three upload doors, the receipt that empties the source, the cursor that moves, and a baseline worktree that ate node_modules\n\nDecision entry for the day, with the correction of my \"client only\" estimate, the refused alternative, the price of the moving cursor and one new OPEN finding (the server's lock gate reads only the destination map of an operation, so a locked map loses features to a move). The architecture rule and the namespace wiki say what was measured. Three ledger lines, one of them for damage I caused: git worktree remove --force crosses a node_modules JUNCTION on Windows and deleted 81 real backend packages; repaired by npm ci with the lockfiles checked by hash, and the testing rule now says to undo the junction first, measured in a scratch directory.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "c3e2302",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c3e23029198cf49fd61b83a134a79b3f6ca8e7d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T22:33:01.000Z",
+      "author": "Maj Diniz",
+      "message": "test(perf): the boot weight bands are re-measured, with the growth attributed by an independent path\n\nThe dev boot served 57 555 344 script bytes against a ceiling of 55 770 000 and 601 requests against 594, deterministic in two batteries. Attributed without the browser, by walking the static import graph of src/js/index.js at the commit that set the previous band and today: 545 files and 7.38 MB of source against 578 and 8.15 MB, that is 10.4% more source for 8.4% more served bytes, the ratio between the two standing at 7.1 to 7.2. No new external package entered the boot and no on-demand module leaked into it: 39 small leaf files, 182 files that grew, 160 commits in eight days. Organic growth, so the bands are re-centred with the cause written next to them. No reduction was made.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8053996",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/805399654c4a025ada97139f8aef50b75ed10373",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T22:33:01.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): the refused layer move stops asking for a reload it never needed, and the durable cursor moves with the tail\n\nStep one of the plan was to make the source of a refused move converge by itself. Reading the live path showed it already does: the push receipt of a feature create that declares a move carries the canonical operation with previousMapId, and resolveLocalEdit re-applies it through the inbound path, which removes the feature from its previous map. Measured through the screen with the refusal injected at the right instant (the IndexedDB put, since the repository instance the test reaches is not the one the store uses), four runs of four: disk in 0.5 to 1.5 s, MapLibre source within 2 s, no reload. The measurement made hours earlier rebuilt the divergence BY HAND after the receipts had settled, so it measured the state it built and not the path to it; the sentence said \"Recarregue a página\" in a ten-second toast that outlived the duplicate it described. It now says the features leave on their own once the server confirms, that a server refusal is announced, and that the empty layer stays. Step two: until now only a snapshot wrote the durable cursor, so every reload re-pulled the whole tail since the atlas was first opened. A tail applied in full on a generation proved complete now moves it to currentVersion, under three conditions that are each a way the cursor could lie (every operation landed, same active generation, forward only). The price is measured in the same spec: a divergence rebuilt after the first reload survives the second one. The network gain was not measured in a long real session.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "3512bec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3512bec927af25879aadabf4e57d683aa625e707",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T22:33:00.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(import): a picture with no file becomes a question on the three ways up to a server, and the server is told\n\nThe three doors an atlas goes up through (the mounted local atlas, the local card of the atlas page, a .ebgeo imported straight into the server) refused on the first original with no file: \"Uma imagem original está ausente. Nenhum atlas foi publicado.\" One picture whose file exists nowhere made the atlas impossible to publish, forever, without saying which picture, and it kept cadeia-completa-atlas.spec.js red on the send leg. The third door mattered more since the exporter may now write a file KNOWING a picture is missing. The three now ask BEFORE any network write (missingImagesUploadConfirm and classifyMissingImages, in the exporter's leaf module), with one sentence for the disk and one for the file; cancel publishes nothing and the caller stays silent, because a decision is not a failure. With nobody to ask it fails closed. It crosses both packages, and my earlier \"client only\" estimate was wrong: beginImport requires every original the payload cites to be in the manifest. The server accepts missingImageIds, checked three ways so it is no loophole (no overlap with the manifest, nothing declared that the atlas does not cite, every cited original in exactly one list), stores no new column (the set is derived again at commit) and records the count in the ATLAS_CREATE audit entry. Negative controls on both sides.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1f969f0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1f969f0594a732ebfda14e22bf4d1f73dda10d79",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T20:37:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-21 (cont. 6): a missao Porto Uniao entra no ebgeo-360 de producao, e o heading invertido ganha regua\n\nTres projetos 360 (5o_becmb, 5o_rcc, cimh; 5.151 fotos) na producao, com a\nCIMH clareada em cinza por decisao do chefe, 1.158 headings desvirados e o\nrumo calibrado por dia. A skill de calibracao aprende a regua do heading\ncontra o sentido de marcha, a montagem que muda de um dia para o outro e a\nrodada de confirmacao em fotos novas; o qc_vistas passa a respeitar o\npor_faixa, e o calibrar.py acha o bruto da missao pela MISSAO_PORTOUNIAO_DIR.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Aht7UtrdmfPBmM1sSMD4ze",
+      "sha": "65fd245",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/65fd245ac8f5bbbdf3c82203aab119e9791a5239",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T20:35:58.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-21 (cont. 3): pedido 215 da 14ª Bda Inf Mtz, e a 523 ganha a edição encartada na 529\n\n- Pedido 215 (DIEx 5626-E3/14ª Bda Inf Mtz): 10 folhas, 22 cópias, Op ARANDU e Op Mão Amiga, pasta 11_14_BDA_INF_MTZ.\n- Acervo: a 523 ganha a 2ª Edição de 2003 (versão 8421) com o PDF da 529, no molde da 537 encartada na 538.\n- Correção do chefe no livro-razão (fonte-do-vault-ignorada, 8a vez) e na Verificação da SKILL.md; o caso vai à wiki nomenclatura-carta.\n- cadastrar-acervo: a rota upload-web/versao e o gotcha da data em 00:00Z; split da camada quente (15 KB para 10,8 KB).\n- cadastrar-pedido-mapoteca: split da camada quente (45 KB para 10,4 KB), sem perda de linha.\n- env-guia: chave ACERVO_250K_DIR.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "654309b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/654309bba1d5e9634b0f259b49bc3e1f66f0f2b5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T20:32:11.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-21 (cont.): o PE 36 homologa, a tinta sai pelo estimado, e o sancoes.py para de negar sem arquivo\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "34db580",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/34db5800f0b7587696c97e618eef8d3292b05d1f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T20:31:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into retro-merge-0921\n\n# Conflicts:\n#\tDecisions/DECISIONS.md\n#\tDecisions/decisions-2026.md\n#\tlivro-razao.md",
+      "sha": "57acb0a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/57acb0aa92b60e5fc8860e94c79ed3edaed57984",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-09-21T20:29:29.000Z",
+      "author": "Maj Diniz",
+      "message": "portouniao: a CIMH calibrada por dia e com o heading desvirado, e os tres em producao\n\nA montagem mudou do dia 13 para o 14 (333,43 contra 297,4, conferido por\nvisao em fotos novas), e 1.158 fotos da CIMH vinham com o heading apontando\npara a foto anterior: a vista com trafego olhava para tras. O runbook traz a\nregua geometrica que as acha, o conserto e a prova do antes e depois.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Aht7UtrdmfPBmM1sSMD4ze",
+      "sha": "676fcb8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/676fcb8d185a3715f09e6da4a6c4d0141827b15b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-21T20:29:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-21: as cartas de SARP da planilha entram no acervo, e o catálogo passa a seguir o selo\n\nCruzamento das 185 cartas da planilha Organizacao Drone com o SAP 3.0,\ncadastro de 105 produtos e 108 versões, 32 trocas de PDF e reclassificações,\nregistrados na DECISIONS. Método no corpo das skills cruzar-fontes-sca\n(modo lista de arquivos) e cadastrar-acervo (carta especial só-PDF em lote),\ndetalhe datado no learnings-detalhado, e o boot local corrigido nas skills\nque ainda mandavam usar o script apagado.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "bf90324",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bf903247a09e10c933d0fcc0e975d6c15a6e28f1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T19:13:02.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the orphan image becomes a question on export, and the same orphan is declared open on the send-to-server door\n\nDecision entry with the measured orphan, the refused alternatives and the rule (the loss is never silent and never a trap). Ledger line: a red that was checked as pre-existing three lots in a row was a product defect, and its message named the cause on the first line. Declared OPEN, measured and not fixed on purpose: sending a local atlas to the server refuses on the same orphan since 07278ef6 (atomic publication), which keeps cadeia-completa-atlas.spec.js red on leg 3; turning that refusal into a question means publishing an atlas known to be incomplete, which is the owner's call.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "f4fc032",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f4fc032eebc2f5ebcf951f6b6cb7ab77849fc4d9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T19:13:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(export): one image without a file no longer blocks the export of the whole atlas\n\nSince 35f15bcb the .ebgeo exporter threw when an image feature or a custom icon had no blob (\"Imagem <id> indisponível. Aguarde a conexão e tente exportar novamente.\"). That closed the silent loss of before and opened a worse door: ONE orphan image made the WHOLE atlas impossible to export, forever, and on a local atlas the sentence named a way out that does not exist. Orphans are real: the 2.2 fixture 01-completo.ebgeo declares four image features and carries three blobs, which kept ebgeo-round-trip-arquivo.spec.js red on a clean HEAD for two days. The exporter now reads the blobs BEFORE writing the file, counts what is missing among what is required (image features and custom icons), names the count and the map, and asks. Cancel produces no file; confirm exports everything, the feature staying in the file without its picture, which is the state it already has on that disk. Two sentences, because the way out differs: a server atlas may just not have downloaded the blob, a local atlas has nowhere to get it from. The rule is in a zero-import leaf, ebgeo-missing-images.js. Negative control: with the cancel return removed, four cases fail. Page-weight budgets updated by measurement (748 files, import_export 16).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "47f93ea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/47f93ea00de7a86d163785c50996e1ac201258d4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T19:11:05.000Z",
+      "author": "Maj Diniz",
+      "message": "migracao: mapa recarimbado sem trabalho nao e edicao, provado por contencao\n\nA producao reprovou de novo, e desta vez a causa foi lida no navegador da\npessoa (IndexedDB, por uma pagina 404 da mesma origem, sem o app rodar e sem\ngravar nada): o diario recusou com same_unit porque maps/Principal mudou do\nlado novo. Ele foi regravado as 09:13:56 pelo build daquela manha mexendo so\nno sync, sem operacao nenhuma na fila (as tres operacoes dela eram a\ncontagem de cores).\n\nO diario guarda impressoes, nao conteudo, entao a base nao se compara sem o\nsync. O que se prova e que nada se perde:\n\n- legacy-transition.js: inertMapChanges. Um mapa que mudou no destino nao e\n  edicao quando o conteudo dele, sem os blocos sync, esta todo contido no\n  mapa migrado da antiga (campos iguais, cada feicao presente e igual) e a\n  fila de operacoes do destino nao tem delete naquele mapa. A contencao nao\n  ve apagamento; a fila e o que impede ressuscitar a feicao apagada na nova.\n- late-legacy-plan.js: entrada inert, e LATE_RULE_VERSION 3, para a recusa\n  guardada no navegador da pessoa (regra 2) ser decidida de novo.\n\nProva: o estado do navegador dela, registro a registro (mapa novo fora da\nordem do atlas, ponteiro e cracha mudados, Principal carimbado), junta com a\nregra nova e da o mesmo legacy_changes sem ela. Controles negativos das seis\nguardas novas, inclusive a memoria de regra anterior.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "605eb2f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/605eb2f6218e43df3b9897f9dae3247e30d53be2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-09-21T18:36:34.000Z",
+      "author": "Maj Diniz",
+      "message": "portouniao: importa os tres projetos da missao, com a CIMH preparada\n\n5o_becmb (133), 5o_rcc (81) e cimh (4.937) entram no PROJECTS, e a ExpoEx\nsai de ativa, porque o UUID aleatorio a duplicaria numa nova rodada.\n\nA CIMH chega por pasta preparada: 12 fotos tinham a coordenada de antes do\najuste no QGIS, e 52 (2424 a 2475) sairam da camera com a exposicao travada\nem 1/8192 s e entram clareadas so com o que foi gravado.\n\nscripts/conferir-migracao.js e o pos-flight que o runbook pedia a mao: rele o\nindex.db contra o backup e contra a pasta que entrou, na extensao da escrita,\ne reprova rodado contra a pasta errada.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Aht7UtrdmfPBmM1sSMD4ze",
+      "sha": "084a36a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/084a36a3df15e7691502f07825f02ff94abbaec9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T18:12:18.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the layer move names its source outcome, and the way out the screen promises was measured\n\nThe first version of the sentence promised 'reload the atlas to return to the state of the server', unmeasured. In two real browsers, 3 of 3: a reload DOES take the moved features out of the source map, and not through a snapshot. The durable cursor only advances when a snapshot is activated, so the tail a reload pulls still carries the creates of the move itself, and each one removes the feature from its previous map. A record that exists only on that disk survives the reload. The sentence became specific. Left open: since the cursor stays at the version of the opening, every reload of a session pulls the whole tail again, and it only grows.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "e91fb15",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e91fb15a437b599d76beb7d2be1131e3b3a826e0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T18:12:18.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(layers): moving a layer says what happened to the source, and the recoverable duplicate gets a name\n\nA move writes the features to the destination under the SAME ids and only then empties the source. The return of that emptying was discarded. When it was refused mid-gesture (a peer locks the source map, or the role is lowered, between the destination write and the emptying), the operation came back as success and the screen announced 'layer moved, the EMPTY layer stayed in the source map', false twice over: the layer was full, and the same features sat in both maps on that computer while the server, which applies a known id as an upsert that changes the row's map, had them only in the destination. The result now carries sourceEmptied, sourceMissing and sourceRefusal, and the emptying is READ BACK by an independent path, like the destination already was, because the return value cannot tell a refusal from 'nothing to remove'. With the source still full the layer record is left alone and the tab neither deselects nor wipes the features from the MapLibre sources. A source map DELETED by a peer leaves no duplicate at all, and nothing is attempted there, otherwise the gesture door would say 'this map no longer exists' over a transfer that rescued the layer. The sentence moved to a pure module. Refused alternative: undoing the destination or emitting a delete on the source, which with a shared id and LWW by arrival would erase the row the create had just moved.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "f61d2db",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f61d2dbcade463f8c2f45d8d016091ac2ff3525b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T17:24:51.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the four points the phantom map left open, checked one by one, and two of them were described wrong\n\nThey had gone into the decisions log from an agent's report, without being checked. Read in the code, one did not exist, one was more serious than described, and only two were what the report said. The log entry says which and why, and the rules gain the colour count and the layer and group doors.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "8b9ffa1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b9ffa166d28c8ea2a5c46eb50a805ec69cbe836",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T17:24:51.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(store): a dead import helper leaves, and the empty map document has one source\n\nThe function said to clear the resolver without its mark had no caller since atlas replacement by import became atomic: it was dead code, re-exported by the barrel and doubled in two tests whose 'was not called' assertions passed by construction. It leaves with them. The empty map document was written out twice, each copy with its own consumers (the tolerant read and the import on one side, the birth base layer of 'clear saved view' on the other). Only the feature buckets were held together, indirectly, by the type census; the rest was equal by accident. The repository copy now derives from the other, adding id, name and sync. Checked before deleting: the two were identical line by line apart from those three fields.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1c8e35a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1c8e35a2a00a891fbf41a0ea7f89948d018eca9d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T17:24:50.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor(sync): the colour count stops being synced, on both sides (owner decision)\n\nIt had two keys that never met. The local write stored it by map id and synced it into the atlas settings keyed by map NAME; the snapshot rewrote it by name; and the reader, finding the id key, ignored the name key (a peer's update never arrived) or migrated and deleted it, for the next snapshot to recreate. A renamed or deleted map left its old name in the atlas settings forever. The value is DERIVED from the features and each client recomputes it. The send, the send-local-atlas payload, the dead disk read behind it, the rehydration and the server merge key are gone. An OLD client that still sends the key is accepted and the key is dropped in silence, because a refused op freezes that client's outbound queue. The stored value stays inert, with no migration. The sibling mapBadgeColors is a user choice and keeps travelling, pinned by a test. The .ebgeo file keeps carrying the count as an optional section. Refused alternative: keying the sync by id.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "c07d6df",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c07d6dff287c395d26908089e03d7d99179878e5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T17:24:50.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): layer and group writes stop fabricating a missing map, and two screens stop painting a refused change\n\nThe phantom-map inventory had classified layer writes as DERIVED, from a comment about a debounced persistence that left the tree on 2026-09-13. They are GESTURES, in a transaction and with a sync op, and so are group writes. Both funnels fabricated the structure of a missing map and resolved its id to the name itself: on a server atlas, creating, renaming, locking or reordering a layer, and grouping features, on a map the atlas no longer has, was accepted and thrown away. The existence question now sits in both funnels, INSIDE the transaction and before the fabrication, and the layer write entries resolve the map name without minting the in-memory bucket. Layer transfer refuses a missing destination before writing: the rollback that was said to guard it was false for an EMPTY layer, which came back as success with an orphan side store. The census now scans all of src/js, with the store barrel as a second import anchor. Two old false successes found on the way: the group eye and lock discarded the store's answer and painted the new state, and deleting the source layer of a transfer read a falsy value as success.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "a64d547",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a64d547e4b91e02d6ee449bab1993551f50c849d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T16:44:09.000Z",
+      "author": "Maj Diniz",
+      "message": "trilha: o mapa ativo volta a ter pastilha, branca como a da main\n\nPedido do dono (2026-09-21): o realce do recent-map-btn da linha main esta\nmelhor. La o botao inteiro ganha pastilha branca translucida (18% no ativo,\n10% no hover); aqui ela tinha saido porque a antiga era PRETA e escurecia a\ntrilha. A branca clareia, e o mapa ativo se le como bloco aceso. Anel, escala\ne veu do cracha continuam.\n\nCusto aceito e registrado no CSS: o rotulo branco cai de 5,02:1 para 4,17:1\nno hover e 3,62:1 no ativo, abaixo do AA para 9 px, o mesmo numero da main.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "37fda38",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/37fda388657dadb8cf93657802aa8c4d6cce467b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-21T16:44:07.000Z",
+      "author": "Maj Diniz",
+      "message": "admin: as listas de OM do formulario de usuario sao buscaveis\n\nPedido do dono (2026-09-21): no cadastro de usuario a lista de unidade tem\ndezenas de OM, e num <select> achar uma e cacar na rolagem.\n\n- users-tab.js: \"Organizacao Militar (lotacao)\" e \"OM produtora\" usam o\n  SearchableSelect do auto-cadastro (casa pelo nome e pela sigla). Texto\n  digitado que nao virou escolha e recusado com frase, em vez de gravar \"sem\n  OM\". A lista do combo vive no body, entao todo re-render a destroi.\n- searchable-select.js: setValue(id), silencioso, para a edicao vir com a OM\n  da pessoa ja escolhida.\n- org-options.js: buildOrgSearchItems, as mesmas linhas de buildDomainOptions\n  sem a linha \"(nenhum)\" e com a sigla.\n- admin-page.css importa o componente; admin.css da ao campo a largura da\n  linha e o recuo da seta, que a regra generica de input anulava.\n- spec de poda: escolhe a OM produtora pelo combo em vez de selectOption.\n\nCapturado no Playwright com app e backend reais: \"cgeo\" filtra 5 de 8, a\nescolha grava, texto fora da lista e recusado, a lista sai do body ao trocar\nde tela. O spec de poda (edicao com OM pre-selecionada) passa 3 de 3.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "77a6d58",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/77a6d58b0efe96529b3e6c197dc7f5b9980c515f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-21T16:07:29.000Z",
