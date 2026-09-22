@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-21T23:07:07.920Z",
+  "lastUpdate": "2026-09-22T14:31:22.848Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-21T20:37:21.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-22T12:57:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-21T22:33:01.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-22T11:35:12.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7245,
+    "totalCommits": 7262,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1720,
+      "1cgeo/ebgeo_web": 1735,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 813,
+      "1cgeo/chefe_dgeo": 815,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,159 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-22T12:57:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-22 (cont. 1): os mosaicos de Faxinal do Soturno saem montados, e o de 1:25.000 em duas faixas\n\n- Pedido 212: mosaico 1:25.000 de 6 folhas em 2 faixas para o rolo de 44 pol,\n  e 1:50.000 de 2 folhas em folha unica; pasta sem o _aguardando_img e adendo\n  na observacao_interna do SAP 3.0.\n- mosaicar-cartas: o insumo pela API do acervo, e o que a revisao\n  independente deixou aberto (faixa sem identificacao, edicao por folha,\n  linha do CRS em ingles) mais o que ela ensinou sobre o instrumento.\n- cadastrar-pedido-mapoteca: fechar a pasta de mosaico que espera montagem.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "204f49b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/204f49b747dfb0c97dfea92782dd4dc0c56fd99b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-22T12:54:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-22: o ebgeo_novo vai a 1c3c19c9, e o ciclo de atualizacao do ambiente de teste entra na skill\n\n- atualizar-dockers: secao do ambiente de teste /ebgeo_novo/ no corpo (patch do\n  ambiente, ciclo de pull, prova e volta) e o marcador .done que mente sucesso.\n- wiki servidor-ebgeo e ebgeo-web: o que o stack de teste divide com a producao,\n  a arvore suja que e patch, e os dois defeitos de publicacao sob prefixo.\n- retrospectiva: o \"antes\" do lint_escrita se mede na mesma pasta do original.\n\nCo-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>",
+      "sha": "03a4e5f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/03a4e5fc3dbecd42754d8b616eba48b52bbfa314",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T11:35:12.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the M lot, the self-repairing upgrade with a two-exit screen, and the round trip measured with the real main\n\nDecision entries for the resilient transition (what it supersedes from 2026-09-21, the two repairs and their budgets, the screen, the declared api_unavailable case, refused alternatives) and for the round-trip harness (what it measures, what it does not, the main-side edit loss); the wiki paragraph on the two-exit screen and the automatic conflict rescue; four ledger lines (the dormant seven-command screen, the capture that showed three buttons where the DOM had two, the wait that must know where a version writes, and the orphan harness runs the worktree removal exposed).\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1c3c19c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1c3c19c929e0a94a39d4a704638ce960f6c70f6f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T11:35:12.000Z",
+      "author": "Maj Diniz",
+      "message": "test(migration): the owner's round trip is measured with the real build of main at both ends\n\nmain-round-trip.mjs (script test:e2e:ida-e-volta) serves the dist/ of main and the dist/ of the integration alternately on the app port with /api proxied to the backend the Playwright global setup spawns, and drives one persistent Chromium profile through the four steps the owner named: create features in main, upgrade, go back to main and edit, upgrade again. Two variants in separate profiles: trivial (the integration only opens) and conflict (the integration edits the same map's notes, same_unit). Features are born from main's own toolbar, IndexedDB is read natively and never written, and the entry chunk of each index.html proves WHICH build the page executed. Measured on the main tree, three runs in series: 31/31 and 38/38 each, the step-4 capture read as image (integration map with the points and the toast naming the recovery atlas); main of 2026-09-11 boots against today's backend with zero page errors. Negative controls over planLateLegacyChanges fail in two distinct, opposite assertions. A fact about main that cost three red runs: the feature name does not reach the store on Enter, only the MapLibre source; saveFeatures fires from the Save button the panel only has after rendering, so a deselect before the button exists loses the edit silently, and a retry with the same value is not a retry because the commit compares with the previous value. The context closes in finally: earlier versions left five node processes and five browsers alive for an hour after the agent finished.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "7776fdd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7776fdd1fa55ec003a8a82b4650f0ce717059569",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T11:35:12.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(migration): the upgrade repairs itself, and the recovery screen keeps two exits\n\nOwner's decision of 2026-09-22: the transition must be as resilient as possible, and when it still fails the screen offers exactly two things, download the current .ebgeo (or the raw copy when an .ebgeo is not possible) and Continue, which wipes IndexedDB and opens. prepareLegacyTransitionResiliente (a leaf outside ui/, so its budget is measured in node) redoes the copy twice for source_changed and copy_failed, and takes recoverLateLegacyChanges ONCE for legacy_changes, because every run mints another local atlas and the registry holds ten; a repair that fails surfaces the ORIGINAL error. The conflict branch of the late-join rule therefore no longer stops the boot: what the old version wrote goes to a new local atlas on its own, a toast names it, and the map opens. planLateLegacyChanges is untouched and its tests pass unchanged. The screen keeps one sentence per code (thirteen causes) and two commands. \"Baixar meus dados\" builds the .ebgeo from the databases of one scope (ebgeo-de-recuperacao.js) because the normal exporter reads the store barrel the gate has not hydrated and would return an EMPTY atlas without failing; with more than one live acervo the raw copy is the exit, and the sentence says so. \"Continuar\" asks once with the count the inventory just read, then wipes everything this origin knows with the global database last (apagar-acervo-local.js); a delete that does not confirm stops the whole gesture. While the question is on screen the command hides, because two red buttons stacked read as two acts (seen in the capture). Declared: api_unavailable Continue reloads into the same outage, since the gate runs before GET /api/config; dropLegacySource and describeLegacySource lost their production caller. Pinned by three integration/unit files and the 2.2 browser spec (10 of 10 on the main tree, screen read as image); negative controls by file copy, 4/7, 16/20, 3/20, 1/8 and 1/22 failing.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "66a0f53",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/66a0f53fa4b768fad18168fc240e56d529355b4b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T09:46:30.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the Q lot, four agents over what was left of the screen suite, and two premises of the plan fell to measurement\n\nDecision entry for the four items (the comment was slowness not refusal, the splat cap is ours and carries no status, the seeder wait and its real cost, the guard census and the one reachable hole), the testing rule on network waits versus in-page queue reads and on the scenario configs, and three ledger lines, one of them on the plan that listed suspects by who calls the helper instead of who reads the collection.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "62e8b89",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/62e8b89a7ee395a0907ecc29d431ddd122fa83f1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T09:46:30.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): every Playwright config collects the skip guard, under a census, and the reachable hole was one\n\nThe four scenario configs replace the base testMatch with a *.scenario.js literal and never collected _backend-required.spec.js, the only spec that fails a run in which the backend did not come up. Measured before changing anything: three of the four scenarios already carry a hand-written beforeAll asserting readState().skip === false, and fail rather than skip (atlas-safety exits 1 with Postgres unreachable), so the false green was reachable only in release-production, whose protection is its own globalSetup throwing. The four configs now collect the guard (each +1 case, +1 file, nothing else moved), and a new census imports every config from git ls-files, RESOLVED after the spread, and demands both halves: testMatch matches the guard and testIgnore does not, because testIgnore wins. Negative controls name the config. Found and left: release-production-setup.js calls startBackend with the port 3912 written by hand, so EBGEO_UI_E2E_BACKEND_PORT does not isolate that run.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "893faf4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/893faf49081046adcb01ed81d72fbd335717bcaa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T09:46:30.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): catalogue seeders wait for the served payload, and the cost is paid only where a consumer exists\n\nThe wait for the served /api/config moves from the one spec that had it into seedTileset and seedBasemap, the only seeders writing tables the payload reads (tilesets is a list, basemaps an object keyed by id, neither exposes access_level, so presence in the anonymous payload means exactly \"public and active\": a public row waits to appear, a private one to disappear). Two premises of the plan fell: the five specs listed as exposed all passed with the memo warm, because none resolves the seeded id through the client's config; and the cost is not one request but the rest of the TTL, 28 343 ms with the memo warm against 214 ms expired, and two public seeds in a row cost 58 885 ms. The wait stays ON by default, because turning it off would reopen the gap for the next consumer; the nine Cesium sites and the 360 one turn it off with the measured reason on the line, and the museum spec turns off the seeder's wait because its own comes after the config UPDATE. The wait announces on stdout when it really waited. Pinned by a unit test that drives the module with fake fetch and Postgres and checks the ORDER of facts.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "86f385e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/86f385ee94ab3623257ffcc7cad600d3d7b043b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T09:46:30.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(3d): a worker that never loads no longer hangs the first-person scene forever\n\nThe pinned engine settles parseSplatData only on a worker MESSAGE: no onerror on that path, and the worker blob URL is memoised for the life of the page, so a worker whose script fails to load (403 under a junction-backed worktree, 404 elsewhere) leaves the promise pending for ever, the screen at \"19,1 MB de 19,1 MB\", and no error anywhere. Measured: 439 ms with the worker up, over 280 s without it. The cap lives on our side, in a zero-import leaf (splat-parse-timeout.js), at 30 s, about seventy times the measurement, and the error carries a code, not an HTTP status, because the server answered 200 with every byte and stamping 504 would print a code nobody observed. The sentence says the engine did not answer and asks for a reload, never \"try again\". Measured in the browser: 31 195 ms from click to toast; without the cap nothing appears in 90 s; a second open is not stuck behind the first. Unit test with a fake-clock sentinel so a hung negative control fails in 0.3 s instead of timing out.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "1aebb32",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1aebb329c05b28fa6477d1822ab6033fa7380b0e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T09:46:30.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): comment events trigger the flush, and the first-person spec waits for state instead of a clock\n\nThe spatial comment failed to reach Postgres within 10 s in 3 of 16 runs. Measured over 18 runs on the main tree: never a refusal (same map, same session, permission granted, compose card always closed, zero STORE_OPERATION_BLOCKED). The local write costs about 3 s and barely varies; what varies is the already-sendable op waiting for the flush, 0.2 to 11 s, because the first-person scene leaves the page at about two frames per second on the GPU-less harness, each IndexedDB hop waits a frame, and the flush loop walks the whole queue twice per 1.5 s tick. Not a product defect; a budget too tight for a page in that condition. COMMENT_CREATED, COMMENT_UPDATED and COMMENT_DELETED join FLUSH_TRIGGER_EVENTS (they have a local producer, and commenting is the gesture people most expect a peer to react to), with four cases pinning them. The spec waits in state steps (card closed separates refusal from slowness) and for the sync POST before the database verdict. Proof on the main tree: 8 of 8 in series. The first probe read the queue from inside the page every 500 ms, the same walk the flush does, and each sample took 5 to 11 s: the instrument was competing with the subject.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "b883dc0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b883dc0c51a11b6bb83e02b4ffae4bfe71f35963",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the F lot, six agents over the screen suite's reds, three of which were the test's\n\nDecision entry for the lot (tablet collection, panel preload by connection, seeded map without a name, migration spec against the revoked rule, dialogs out of the boot, weight ceilings on a fresh build, cursor gain, first-person instability named); the retraction of the false \"locked map loses features\" finding, with the second measurement that locked only the client; the wiki paragraph on the cursor gain; the testing rule on the three ignored files, the inherited skip guard and the safe order for junction-backed worktrees; the architecture line on the lock-by-controller case now executed. Ledger lines for each lesson, including the diary script whose end marker matched twice and duplicated 650 lines before the count caught it.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "639efdf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/639efdfb43dc0dee6116faaaec51b2df51f3480f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): the durable cursor's network gain is measured and pinned, and the first-person spec gets its instability named\n\n200 operations produced by a peer after the opening: the first reload asks since the opening cursor and receives 200 operations in 117 579 bytes, the cursor moves to 201, the second asks since 201 and receives 0 in 66 bytes, same generation, 200 features still on disk. The new spec asserts the wire (since and count), not just the cursor. Negative control: with _advanceDurableCursor neutralised, red on two assertions, after restarting the dev server, because vite.e2e.config.js runs without a watcher and served the cached module. first-person-collaboration: 16 isolated runs, 44 container waits all under 3.3 s, no renderer crash, and the \"container hidden\" failure of the full run had another cause, read in its trace: scene not found. The tileset is seeded by SQL, the harness memoises /api/config on purpose (invalidated only by API writes, 30 s backstop), and the page opened with the catalogue the previous spec had warmed, without the scene. Reproduced deterministically with a neighbour spec warming the cache: red without the fix, green with it. esperarCatalogoServido in the seed helper waits for the SERVED catalogue to carry the row before any page opens. What still fails 3 in 16 is the spatial comment not reaching Postgres in 10 s, not investigated. Product finding kept: a worker that fails to load leaves parseSplatData hanging forever in silence.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "287c6fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/287c6fc75060091df6829c2b0f76b25efd825aa8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(map): the three account-menu dialogs leave the map boot, loaded on the click\n\naccount.control.js is an IControl that map_sig.js instantiates, so login, new atlas and sharing travelled in the eager payload. They are fetched on the click through one launcher (modals/account-modals-launcher.js), in the shape of the signup launcher: memoised import(), failure said out loud with a reload sentence, never \"try again\", because a failed import() stays poisoned. Fresh builds both sides: index.html 78 files / 4 286 417 bytes to 77 / 4 218 590, 66 kB less (17 kB gzip); the keep threshold was 30 kB. atlas.html keeps the static imports on purpose. Page-weight test: per-folder budgets for modals and account, a case pinning the three as dynamic-only, index ceiling lowered to 4170. The admin and calibration ceilings were red on a fresh build all day (the dist/ was from 2026-09-20) and are re-centred at 830 and 2020 with the growth attributed by commit to the late-migration modules and the new searchable select, none of it from this lot.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "b0a199b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b0a199bcc808339ec58c615f75b91ac417f7e665",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): two red specs measured the wrong thing, and are rewritten against what the product does\n\natomic-import: the case read map.name from the raw map document, a field the product resolves by KEY when the key is not an id (rule of 2026-09-07), and the blank map seeded at boot never carried it; it passed while entering a map persisted the fallback basemap through saveMap, which stamps the name, and 543c9e37 (basemap as the person's view) removed that side effect. Bisected over 89 commits. The spec now reads through the product's own readers, and a repro test pins the seeded record's shape. browser-migracao-2.2: the \"main reopened after the update\" case demanded the recovery screen for a trivial late write, which the owner's decision of the same day absorbs on its own; probed in the browser, the record enters and the product says so. Rewritten for the new rule, plus a sibling that builds a real same_unit conflict on a map the boot does not open and demands the screen and the recover-elsewhere button. Negative controls by file copy on both.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "07923d5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/07923d5a767035c61817a6590ac92cef99d25e25",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): the tablet layer leaves the desktop run and gets its own script, and the lock-by-controller case finally runs\n\n*.tablet.spec.js also matched the default config's *.spec.js, so nine touch cases ran in Desktop Chrome every run and failed by construction (the first is the instrument control). The default config now excludes them unconditionally; the tablet config overrides the inherited testIgnore (otherwise it ignored its own specs: measured 0 tests) and also collects _backend-required.spec.js, because a spec taken out of the default run leaves the skip guard behind. Script test:e2e:tablet in both package.json files, with the root census entry. Collection measured: 489/188 with nine tablet lines before, 480/186 and zero after; the tablet run 10 of 10. browser-collab-lock.spec.js, declared never executed, runs and passes 9 of 9 with --repeat-each=3.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "fc8c131",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fc8c1315f7525c4efad165c9512aa256c0c4acde",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): the pendency panel is preloaded by connection, not by a side effect of the colour count\n\nSince c07d6dff the panel never preloaded on opening a server atlas: the only trigger was the light leaving \"all sent\", and what used to take it there was the colour count queueing a setting op, which that commit removed. The first pending work born offline then found the module still on the server, and the click opened nothing (spec red, bisected). The trigger is now deterministic: authenticated, remote store, connection ONLINE (_precarregarPorConexao), with the tone trigger kept as the second way. Local atlases and anonymous boots download nothing, pinned by two vacuum cases. Spec 12 of 12 in series; negative control red in unit and browser. The spec header described the accident as design and is corrected; its new assertion counts zero network requests for the panel after going offline, with the 250-entry resource timing buffer trap written next to it.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "2f3dcfb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2f3dcfbae9c9c399a63a01c49259eb92dbfa129c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-22T01:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): the refused layer move resolves both ways on the receipt, and the sentence stops promising which\n\nThe sentence shipped earlier today said \"levada\" and \"the empty layer stays\" for a source emptying refused mid-gesture, measured with a lock injected only in the CLIENT's memory, so the server, never locked, accepted the move and the source emptied on the receipt. A peer's real lock locks the server too, and the server REFUSES a move out of a locked map: its gate checks the source map right after prepareFeatureMutation (pushOperations), which a reading of lockedMapDenialReason alone missed, and which sync-feature-conflicts.test.js already pinned. Measured with the server really locked: the whole batch comes back refused within a second, the copy in the destination is undone, the layer stays full in the source, the server's reason is shown and the problems stay in the queue. Both outcomes resolve on their own, in opposite directions, and the sentence now says both. The spec gains the real-lock case and the local-lock case waits for the layer tree state instead of reading it once (it failed 1 in 5). The \"open finding\" that a locked map loses features to a move was false and is retracted where it was written.\n\nCo-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FdgbqDxUaNogiCGDzy43Pf",
+      "sha": "6a221d0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a221d0eb15a847d075dd4a8229427bfe557a3a5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-21T22:33:01.000Z",
