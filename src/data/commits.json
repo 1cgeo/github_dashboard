@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-23T18:57:53.891Z",
+  "lastUpdate": "2026-09-23T22:51:40.770Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -15,7 +15,7 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-09-19T14:15:20.000Z",
+    "dsgoficial/modelagens": "2026-09-23T19:35:31.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-23T10:31:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-19T14:39:53.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-23T18:08:09.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-23T22:05:32.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-23T16:57:22.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-23T21:10:03.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7303,
+    "totalCommits": 7320,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1750,
+      "1cgeo/ebgeo_web": 1756,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -133,7 +133,7 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 170,
+      "dsgoficial/modelagens": 171,
       "dsgoficial/configuracoes_producao": 207,
       "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 651,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 839,
+      "1cgeo/chefe_dgeo": 849,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,159 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T22:05:32.000Z",
+      "author": "Maj Diniz",
+      "message": "servidor-ebgeo 2026-09-23: roteiros para o engenheiro (nginx do srv-arquivos; PostgreSQL e Docker do servidor do EBGeo)\n\nCada passo com o texto exato do arquivo, validacao que distingue antes e depois, e volta.\nO relatorio de auditoria corrigido: ha dumps manuais, velhos e no mesmo SSD, e nao\n\"nenhum backup\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tti2B482mW8Vyvcyyem3qR",
+      "sha": "f7fa5f8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f7fa5f8c665d39f3f02c15e561a5105c77ae0660",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T21:49:05.000Z",
+      "author": "Maj Diniz",
+      "message": "servidor-ebgeo 2026-09-23: auditoria so de leitura do servidor, do PostgreSQL, dos dois nginx e do caminho TLS\n\nSem backup, rede aberta, PostgreSQL 14.2 a 50 dias do fim de suporte, relogio 28 s\nadiantado; os 502 do srv-arquivos atribuidos ao conflito de IP por teste (os pedidos que\nfalharam nunca chegaram ao servidor). Estado atualizado na wiki, e duas licoes de\ninstrumento: mascara de credencial em URL e LC_ALL=C no filtro de data do log.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tti2B482mW8Vyvcyyem3qR",
+      "sha": "596afd3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/596afd36638dc0c6f9072a693509ed6d30dcc768",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T21:39:59.000Z",
+      "author": "Maj Diniz",
+      "message": "vault 2026-09-23: os 34 itens \"sem lar\" da Decisions ganham lar na periferia\n\nMetodo e regra do chefe que so viviam em entradas da Decisions foram levados a wiki,\nsubwikis, skills e projetos, com data e atribuicao, sem sair da Decisions (texto integral\nde origem no commit 2946679). Amostra de 4 conferida no destino. De passagem, uma frase\nvelha de subwikis/sca/ponto-controle.md corrigida contra o codigo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tti2B482mW8Vyvcyyem3qR",
+      "sha": "108c581",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/108c5811fdedc9f99dea85c1349153d506391827",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T21:28:17.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo_novo 2026-09-23: sobe para a a3e9b27f, so com o frontend\n\nRelease 20260923_182717; o delta trazia um arquivo do cliente e testes, sem backend nem\nmigracao. Provado pelo index.html servido, pelo sourcemap com controle e pelo mapa aberto\npelo nome publico.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Tti2B482mW8Vyvcyyem3qR",
+      "sha": "b6832e0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b6832e04d5ba7a9d44c3f91b47e8e5c87051fe14",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T21:14:36.000Z",
+      "author": "Maj Diniz",
+      "message": "nucleo 2026-09-23: nome de sistema e fato de codigo, e o pior caso nasce da saida real com ancora que sobrevive a ele\n\nTres propostas paradas desde 2026-08-24, 2026-09-11 e 2026-09-17, gravadas com aval do chefe.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "3c9f528",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3c9f5281b69275c2ee722c21d75e20fe59e18af3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T21:11:50.000Z",
+      "author": "Maj Diniz",
+      "message": "vault 2026-09-23: nucleo enxuto, doutrina com lar unico, licao sai da maquina para o vault, e a Decisions guarda so decisao\n\nCom aval do chefe em cada passo:\n- CLAUDE.md de 12,2 para 9,3 KB. As frases que so viviam nele desceram por extenso para\n  conventions/contrato-de-pronto.md e fontes.md; entra a regra \"Licao mora no vault, nunca\n  so na maquina\", a regra nova da Decisions e a linha do eixo pedido.\n- doutrina.md fundido em .claude/skills/_DOUTRINA.md, e os ponteiros da wiki consertados.\n- As 62 licoes da auto-memoria do harness (fora do git) migradas para conventions,\n  learnings e wiki; na maquina fica um ponteiro, com backup integral ao lado.\n- Decisions: so entra decisao, em ate 1 KB, e indice de data, rotulo e titulo. O passado\n  foi condensado por agentes a partir de um piloto em junho: de 2,0 MB e 640 entradas para\n  395 KB e 460, com o \"(cont. N)\" como ancora e ancora oculta nas fundidas. O texto integral\n  anterior fica neste historico.\n- As pendencias que so viviam no texto integral foram para 01-Projects/ciclo-2026/PROJECT.md.\n- Registro do deploy do /ebgeo_novo/ e dos quatro pedidos do ebgeo_web (atualizar-dockers,\n  servidor-ebgeo, ebgeo-3-transicao).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "ca47456",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ca47456868654da80da059b1082689d3cde8eb5a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T21:10:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(test): the root gate no longer fails at random with every test green\n\nTwo instrument defects that failed the root `npm test` or the full matrix\nwithout any product regression.\n\n- Worker-teardown error (\"Closing rpc while onUserConsoleLog was pending\",\n  from retrato-reconcilia-mapa-corrente.test.js), about one in three root\n  runs with every test passing. A console probe found the source: switching\n  maps arms `performInitialColorAnalysis` 100 ms later\n  (`loadColorUsageFromDB`), the test file ends first, and the recount warned\n  on a `null` mock document while the worker was closing. It is an old\n  timer, not the other session's commits (the rebase only reshuffled files\n  across workers). `countMapColors` now counts a missing document as zero,\n  and the timer is not armed without a map name (an empty atlas used to\n  recount, and would write, under `undefined`). A new case waits for the\n  timer and requires zero warnings (7 without the fix); the probe saw no\n  console write after the file ends (5 before).\n- Leak-probe instrument control (vazamento-viewers §30.1) asserted the\n  page's whole anchored listener total, so any app listener registered in\n  the window failed it (61 against 60 under load, a canvas mouseleave of\n  unidentified origin, in both browsers). The deliberate leak now uses an\n  event type only the probe uses, and the control requires that type exactly\n  and the total only from below. Passes as is and with a stray listener\n  injected on purpose; with the probe broken to 19 per call it fails (57).\n\nVerified, targeted by the owner's request (no full suites): root lint; the\n50 test files touching colour usage (1022 tests); the retrato file with a\nnegative control; docs-integridade; §30.1 in Chromium (3 variants) and in\nFirefox. The full root npm test was NOT run for this commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FhcavmeZxPrGocLohX5MpH",
+      "sha": "a3e9b27",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a3e9b27f8b9c45e632cc596be335da5698c71b90",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T21:00:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23 (cont. 9): commit por indice temporario quando o indice compartilhado tem arquivo alheio staged\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "2946679",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/294667992a61a8c4733ba5d9a4222e34d0dd711d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T20:59:23.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23 (cont. 9): a 2026NC400777 entra no SAP 3.0 e vira a requisicao 30481 das tintas do T1700 pelo PE 36/2026\n\nA conta ativa do SPED vira o passo 0 da requisitar-sped (sped_conta.js), e o node --env-file entra no ponto de uso das skills de orcamento e SPED.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "3af5b8a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3af5b8a438ec03d87a42fa3cd6447ed47a7c4b94",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T20:13:47.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): zero the phantom-wait debt the full Firefox matrix tripped on\n\nThe census of `waitForFunction` waits with an async predicate (which do not\nwait in the installed Playwright: the promise is truthy on the first poll)\nwas born with four specs declared as debt. The full Firefox matrix on\nd4dd1475 failed exactly one case, and it was one of them:\n`exportar-le-todo-mapa.spec.js` read 0 maps after F5 where 11 were\nexpected, the same signature as the cadeia-completa failure (the read hit\nthe boot's bridge scope before the slot was mounted).\n\nThe four sites now poll with `expect.poll(() => page.evaluate(...))`, and\nthe census debt is empty, so any new site fails it.\n\nFull matrices on d4dd1475, --retries=0: Chromium 613/615 (a renderer crash\nand the leak-probe instrument control under load, both 3/3 green in\nisolation), Firefox 614/615 (this case). The four fixed specs: 42/42 in\neach browser, three repeats, no retries. Root lint and root npm test green.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FhcavmeZxPrGocLohX5MpH",
+      "sha": "ababb94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ababb94c2569d254bb0555ae378d3ef6bda867f1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T19:40:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva: commit de arquivo compartilhado com entrada alheia pelo indice\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e0ff941",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e0ff941ce7fb9850e0ad77e9418618f8aadb8b2c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T19:39:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23: bloco ARANDU 1:50.000 em EDGV e COMBATER, e ponte em ponto no conversor MASACODE\n\nA skill gerar-terreno-combater ganha o caminho B (base de produção pronta, rede de vias ligada,\nrecorte que o GEOS 3.9 não apaga), o learnings passa pelo split, a wiki e a subwiki do conversor\nregistram a extensão da ponte em ponto (modelagens 764c99c), e a decisão entra como cont. 8.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b97ece9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b97ece9ca8348215f3e06bd2b8ef2a2efb422d50",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-23T19:35:31.000Z",
+      "author": "Maj Diniz",
+      "message": "masacode: ponte em ponto vira Bridge em linha\n\nA EDGV 3.0 Pro grava ponte pequena em infra_elemento_viario_p, que a Topo 1.4 nao tem e o\nalgoritmo do EBGeo nao le: no bloco ARANDU 1:50.000 o Bridge saia com 4 feicoes contra 71\npontes em ponto. pontes_de_ponto() converte o ponto tipo 201-204 no trecho da via (modal_uso 4)\nou da ferrovia (modal_uso 5) que ele carrega, centrado no cruzamento com a drenagem ou com a\nmassa d'agua ate 50 m, com 30 m por convencao. Sem cruzamento, centra na projecao; ponte ja em\nlinha nao duplica. Flags --sem-ponte-ponto, --raio-ponte-ponto e --comprimento-ponte-ponto.\nTestes em masacode/tests (13, cada um reprova uma mutacao do eixo que cobre).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "764c99c",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/764c99cd36f33f828e6edfeb1f4e02ceea107c5c",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T18:56:45.000Z",
+      "author": "Maj Diniz",
+      "message": "recuperado: abre direto, e e um so enquanto ninguem trabalhar nele\n\nPedido do dono: quando o resgate guarda as alteracoes da versao antiga numa copia, abrir\ndireto essa copia e so criar esse atlas se ainda nao houver um. Ele escolheu reusar se\nintocado.\n\nMedido antes, no harness de transicao-resiliente: a versao antiga gravando de novo criava\num terceiro atlas com o mesmo nome, e o boot seguia no atlas atualizado.\n\nO resgate registra o Recuperado vigente com o inventario de nascimento e move o anterior\npara `recoverySuperseded`; a poda do portao apaga o substituido so se o inventario for o\nde nascimento e nenhuma aba o tiver montado (sem Web Locks, nada se apaga). Atlas em que a\npessoa desenhou fica. Abrir o atlas nao muda o inventario (boot da store sobre o\nRecuperado: zero registros mudaram). No portao, `apontarParaORecuperado` aponta o boot\npara ele; com o mapa aberto, o vigia troca ao vivo por `switchAtlas`.\n\nGuardas: tests/integration/recuperado-unico-e-aberto.test.js (quatro reguas reprovam o\ncodigo anterior) e o passo 7 de browser-migracao-2.2.spec.js, verde no Chromium e\nvermelho com o apontamento desligado. As tres guardas de texto do index.js aceitam agora\no argumento opcional do portao e do vigia, com as mesmas propriedades cobradas.\nInclui tambem as entradas de decisao deste item e do mapa base inicial.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e848a09",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e848a09e42c2ca982105aaed2bf91b2dd50ce435",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T18:56:43.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa base inicial: escolha do administrador na aba Sistema (map2d.defaultBasemap)\n\nPedido do dono: \"Ao abrir: o mapa nasce com DEFAULT_LAYER = 'carta-topografica' - torne\nisso configuravel na tela de administrador - Sistema\".\n\nA chave `map2d.defaultBasemap` mora em MAP2D_BASE com padrao `carta-topografica`, entao\numa implantacao sem override nao muda. Borda de tipo no Joi e de existencia no servico\n(`assertDefaultBasemapKnown`): o id tem de estar entre os mapas base publicos servidos,\nsenao 422 com o nome do campo. O cliente le a chave na hora (`defaultBasemap`), e\n`initialBaseLayer` da o estilo de nascimento, os ids que o controle assume e a crenca\ninicial dele; `getEmptyMapData` a grava no documento novo e `createAtlas` no primeiro\nmapa do atlas de servidor. Base que o visitante nao pode desenhar cai no primeiro mapa\nbase oferecido. Mapa que ja existe continua abrindo na base dele.\n\nSeletor \"Mapa base inicial\" na secao Mapa 2D, visto no Playwright: pre-seleciona o\nservido, grava, e o /api/config passa a servir a escolha.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "cd6498d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd6498d2f1e2d19d0d6016c37ecbf3c9bd6f7923",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T18:56:24.000Z",
+      "author": "Maj Diniz",
+      "message": "catalogo: o campo OM dona e buscavel, como as listas de OM da aba Usuarios\n\nPedido do dono: sao dezenas de unidades, e num select achar uma e cacar na rolagem.\nOs dois formularios (recurso e projeto 360) usam o SearchableSelect da aba Usuarios,\nque casa pelo nome e pela sigla. Texto digitado que nao virou escolha e recusado antes\nde gravar; no recurso o campo vazio e o institucional, no 360 a escolha e obrigatoria.\nOs combos sao destruidos a cada troca de conteudo e na desmontagem, porque a lista e um\nportal em `body`.\n\nVisto no Playwright contra app e backend reais: \"DSG\" acha a Diretoria, a escolha grava\na OM nova no banco, texto solto nao grava, vazio grava institucional (null), e reabrir o\nformulario deixa uma lista so no documento.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "02fc3b5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/02fc3b5fb3d6ad7f67954b2ae6f273b78c10fefd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T18:56:23.000Z",
+      "author": "Maj Diniz",
+      "message": "sombreamento: entra abaixo do analysis-separator mesmo antes de os separadores existirem\n\nO `switchMap` pinta a base (`switchLayer`, que liga o sombreamento no fim) ANTES de\n`setupMapFeatures` criar os separadores. Com o sombreamento ligado pelo administrador,\no primeiro paint depois do boot punha a camada no topo e o console dizia \"Separator\nanalysis-separator not found, adding hillshade without reference\". O controle cria os\nseparadores ali mesmo; `setupLayerSeparators` e idempotente, e a chamada seguinte nao\nduplica nem reordena.\n\nRegua: tests/unit/sombreamento-abaixo-do-separador.test.js, que reprova o codigo\nanterior no caso do primeiro paint (controle negativo reproduzido).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0e7de54",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e7de54a586bc6ee64a9363034a513d0648cf6ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-23T18:08:09.000Z",
