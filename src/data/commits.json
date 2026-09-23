@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-22T22:51:25.296Z",
+  "lastUpdate": "2026-09-23T14:49:58.785Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -16,7 +16,7 @@
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
     "dsgoficial/modelagens": "2026-09-19T14:15:20.000Z",
-    "dsgoficial/configuracoes_producao": "2026-09-10T16:08:32.000Z",
+    "dsgoficial/configuracoes_producao": "2026-09-23T10:31:39.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-19T14:39:53.000Z",
     "dsgoficial/sap": "2026-09-02T12:07:19.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-22T21:04:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-23T14:15:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-22T21:45:18.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-23T13:13:01.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7267,
+    "totalCommits": 7295,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 1736,
+      "1cgeo/ebgeo_web": 1747,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -134,7 +134,7 @@
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 170,
-      "dsgoficial/configuracoes_producao": 206,
+      "dsgoficial/configuracoes_producao": 207,
       "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 651,
       "dsgoficial/sap": 177,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 818,
+      "1cgeo/chefe_dgeo": 834,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,258 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T14:15:36.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: a SIGSC vira rotulo de treino com blocos guardados (D13), e o piloto de uma folha comeca\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "467498a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/467498ac26dbd25211f0da44f2df23cd0528280a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T13:54:15.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: o treino ainda nao convergiu em 240 epocas; T1c com 960 e a leitura parcial do T2 e do T4\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "96d0940",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/96d09404829e260181fe058de74746377717fd2e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T13:13:01.000Z",
+      "author": "Maj Diniz",
+      "message": "test: close the launch-audit test failures and version its scenarios\n\nThe launch audit left Playwright failures without cause and its long\nscenarios only in %TEMP%. Every failure investigated here was the\ninstrument, not the product; the product side was F1 (previous commit).\n\n- Scenarios into the repo, opt-in configs that collect the guard:\n  `test:e2e:sessao-longa` (90 real minutes, two clients, network drops,\n  token refresh, reloads) and `test:e2e:atlas-grande` (1000/10000 loose,\n  10000/30000 grouped). The long session clicked the map before the lazily\n  loaded tool was active; with the wait it passed in Firefox, 364/364 in\n  both IndexedDBs and in PostgreSQL (control: 0/3 without, 3/3 with).\n- `waitForFunction` with an async predicate does not wait in the installed\n  Playwright. It made cadeia-completa-atlas read the legacy bridge scope\n  after F5 (\"11 expected, 0 received\") and hid four waits in shared\n  helpers; a census now fails any new site. Fixing the helpers exposed\n  browser-group-ops failing 4/4 in Firefox (a vertex under the basemap\n  selector), fixed in the drawViaToolUI framing.\n- troca-viva: the reload stopwatch waited for connection refusal to the\n  seeded catalog placeholders (6.4 s in Firefox); refused on the spot.\n- Programmatic login on a `/` still booting is redirected to atlas.html by\n  phase -1 and kills the request in flight: seeding moved to atlas.html\n  (confirm-logout \"Failed to fetch\", 20/20 per browser afterwards).\n- briefing-controles-do-slide read the stage before the slide classes and\n  passed with every control leaking; it now waits BRIEFING_SLIDE_CHANGED.\n- desempenho-do-boot names the stalled step when sync never goes online.\n- Docs: testing rules and the e2e README (Firefox traps, ~50% of users on\n  Firefox), wiki (phase -1 login trap, briefing stage timing, the feature\n  list limit kept by owner decision), and the ledger lines of the batch.\n\nVerified: root lint and root npm test on the whole batch; each spec change\nmeasured in series with --retries=0 in Chromium and Firefox from frozen\nworktrees, with negative controls; details in the ledger lines.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FhcavmeZxPrGocLohX5MpH",
+      "sha": "5a74abb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5a74abbf65f93a599df32e6f5869084d19a42dd7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T13:12:46.000Z",
+      "author": "Maj Diniz",
+      "message": "perf(boot): fire the persistent-storage request and stop awaiting it\n\nThe map boot awaited `pedirPersistencia` with a 2000 ms deadline. In\nFirefox, `navigator.storage.persist()` opens a permission prompt, so every\nboot of a user who had not answered it paid the whole deadline, on every\nload and on every atlas switch by reload. Half of the users are on Firefox.\n\nAwaiting bought nothing: the grant covers the whole origin, including what\nthe store already wrote, so asking before the store opens its databases was\nnever a precondition. `index.js` now fires the request and moves on. The\noutcome becomes `pendente` at the moment of the request (so the boot line\nnever reads null, which means \"this page never asked\") and corrects itself\nwhen the browser answers.\n\nMeasured in real Firefox, five boots each, with the old await restored only\nfor the comparison: warm boots from 3741-4174 ms down to 1648-2138 ms (cold\n6887 to 5423 ms). Chromium unchanged at 1178-1296 ms warm.\n\nGuard: pedido-de-persistencia-no-boot.test.js fails if `index.js` awaits\nthe request again, and if the outcome is null while the prompt is open;\nboth negative-controlled. Owner decision recorded in decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FhcavmeZxPrGocLohX5MpH",
+      "sha": "ef5fc26",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ef5fc26f1a6111b1c660681c97d731676c3216e1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T13:12:34.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(telemetry): browser, OS and machine environment in Diagnostics and Usage\n\nOwner request (2026-09-23): the admin Usage and Diagnostics tabs show the\nuser's browser, operating system and whatever machine data helps debugging.\nHalf of the users are on Firefox, and the launch audit found defects that\nonly Firefox showed.\n\n- Diagnostics: every defect occurrence carries an `ambiente` block (browser\n  and OS family/version, device and touch, screen, window and scale,\n  language and timezone, cores, memory, WebGL renderer and max texture,\n  storage quota rounded to a power of two, and network/cookies/IndexedDB/\n  secure-context at the moment of the error). Each defect accumulates the\n  set of browser families that reported it (union), shown as the\n  \"Navegadores\" column, with the caveat that older reports did not carry it.\n- Usage: each session stores only browser family, major version and OS\n  family; the tab gains \"Navegadores e sistemas\" with sessions, share,\n  sessions with error, error rate and people.\n- One user-agent parser (`analisarUserAgent`), client-side only; the two\n  previous parsers disagreed on Opera and filed HeadlessChrome as Safari.\n- Mirrored vocabulary: a zero-import leaf per package, three CHECKs and a\n  field-list mirror test; migration 014_ambiente_do_navegador is additive\n  and idempotent, and closes `uso_sessoes.navegador`, which accepted free\n  text on an anonymous route.\n- Privacy: the machine block lives only in defect occurrences (at most 20\n  per defect, pruned with it, admin-only); no device model, fonts, canvas\n  hash, address or persistent identifier.\n\nConstitution: telemetry now has four mirrored vocabularies.\n\nVerified: root lint and root npm test on the whole batch (frontend 15557,\nbackend 5631 with coverage floor, contracts 261); independent review, with\nits findings applied and each new guard negative-controlled; Playwright\ncaptures of both tabs read in Chromium and Firefox. The dev database\nalready has migration 014.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FhcavmeZxPrGocLohX5MpH",
+      "sha": "8e5865d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8e5865d99f73b7c8764bd6b79a79bc3d31aedf2c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T12:45:47.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: FathomDEM e V7 na regua do ICESat-2 guardado; a folga se confirma no aberto e sob mata\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "d5f6cf4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d5f6cf4fd9f2f5956a7acdd0adb44d0874a89953",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T11:44:59.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: a semente 2 e inicializacao, e o encoder pre-treinado entra como T1b com previsao\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "04e4851",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/04e48512b1842b651d599c142fc7a6ecc8c8a600",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T11:21:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23 (cont. 2): pedido 217 do 19º RC Mec, mosaico 3 por 3 do Saica com as folhas de 1980 cortadas pela quadricula SAD69, e o painel lateral de campo entra no mosaicar-cartas\n\n- mosaicar_cartas.py ganha --painel-arquivo (faixas e pdf): FAIXA i DE n, aviso de datum,\n  articulacao com edicoes, diagrama de convergencia e declinacao, rodape; sem o argumento\n  a saida e identica a de antes, pixel a pixel\n- learnings da mosaicar-cartas dividido em quente (8 KB) e references/learnings-detalhado.md\n- cadastrar-pedido-mapoteca: documento so com nomes, e o bloco desempata o nome ambiguo\n- DECISIONS: a revisao independente e a correcao da margem; o deslocamento escrito por componentes\n- wiki/controle-acervo: o scan de edicao antiga vem em SIRGAS e o desenho dele e SAD69\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1b7a225",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1b7a22560776c34668822bf5b9b960fdbe870700",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T11:21:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23 (cont. 4): 46 UT para corrigir os limites e o litoral do Sul, e os residuos da drenagem apontados\n\nModo novo da criar-molduras: UT ao longo de feicao linear (limite, costa) na aux_moldura_a, com o\nmetodo, as regras do chefe e as armadilhas medidas (references/ut-por-feicao-linear.md). Learnings da\ncarregar-drenagem-base-continua com os apontamentos na aux_revisao e a diferenca de GEOS entre o\nservidor e o shapely local. DECISIONS (2026-09-23 cont. 4), wiki base-continua e uma linha no\nlivro-razao. Os trechos da outra sessao nos arquivos de DECISIONS ficam fora deste commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014TZBEhXXTPUq8WG85ppj4L",
+      "sha": "d33b854",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d33b854b3453d4a4a6ed2027e8b90d7811d61223",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T10:53:15.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: reflexao da manha (o treino longo era a alavanca maior, o rotulo sob dossel confirmado pelo ICESat-2 guardado, portao no codigo) e os proximos passos no plano\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "5a2b4e0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5a2b4e0dbac9cc14ae5d982d5c837e193e406342",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T10:46:31.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia: a campanha registra a hora em que as previsoes do T2 e do T4 foram reancoradas\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "60b8dab",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/60b8dabd8bb818571a6ac4c2428d68a66a64e7b4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T10:46:11.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia: o plano registra o T1 feito e reancora as previsoes do T2 e do T4 nele\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "d2b179f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d2b179f2a00d523c73e778491e122cce4a6c0612",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T10:45:38.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: o T1 fecha (3,079 m, ruido 0,150 m), o T2 ao T4 seguem por decisao do chefe, e a semente 2 vira investigacao\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "35c6bb0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/35c6bb0c9e52909a01a3bd7e8479c0b39d0ad800",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T10:37:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23 (cont. 3): as linhas de producao Topo 2.0 e Orto 3.0 sobem para 1.0.1, e o contrato de importacao do SAP vira regua\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "380bf3f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/380bf3fc571d54165bb7789300a2e3004d579710",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/configuracoes_producao",
+      "date": "2026-09-23T10:31:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Topo 2.0 e Orto 3.0: linhas de producao 1.0.1, alinhadas com a Topo 2.0 v0.17.0 e a Orto 3.0.1\n\n- cdgv e ct/co dos dois perfis: entra o par delimitador_limite_legal_l e\n  centroide_limite_legal_p (limite legal por delimitador e centroide, modelagens@519504b),\n  alocado como o par do limite especial (Extracao de Limites e as tres validacoes; Edicao na carta).\n- cdgv Topo: saem 6 entradas que sobraram da fusao de subfases desfeita em 70dce22\n  (elemento hidrografico e ilha em Extracao da Hidrografia e Altimetria, ausentes na 1.4).\n- cdgv Topo: curva batimetrica ganha Elemento Hidrografico e Edificacao (espelha a curva de\n  nivel), llp_delimitacao_fisica_l ganha Edificacao e llp_localidade_a ganha as tres\n  validacoes; o compara.py reprovava o original e aprova esta versao.\n- cdgv Topo: aux_elemento_viario_p (Intersecao de Hidrografia e Transporte) e\n  aux_pista_pouso_p (Planimetria), ate as tres validacoes, para a fila de absorcao das\n  conversoes ficar visivel na validacao.\n- ct Topo: llp_localidade_a em Edicao, como na carta ortoimagem.\n- co Orto: some a chave versão (com acento), que convivia com versao e divergia dela.\n- Versao 1.0.1 tambem no nome e no nome_abrev: o SAP descarta versao e exige nome e\n  nome_abrev unicos, entao so assim a nova LP nao colide com a 1.0.0.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "a5d7bca",
+      "htmlUrl": "https://github.com/dsgoficial/configuracoes_producao/commit/a5d7bcadb1306aa06c80c1b6adeebb740f3a65a7",
+      "repoUrl": "https://github.com/dsgoficial/configuracoes_producao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T10:22:35.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-23 (cont. 1): o SAG acha duas liquidacoes de 22 SET, e a regua do liquidado passa a falhar fechada\n\n- conferencia contra o SAG: a 2026NS000913 liquida R$ 1.068,36 da 2026NE000191 (liquidacao id 158)\n  e a 2026NS000909 recompoe R$ 40,00 da 2026NE000129 (liquidacao id 153 para R$ 1.924,69);\n  liquidado do exercicio fecha em R$ 534.119,18 dos dois lados, RPNP em R$ 184.987,10\n- consultar-orcamento: scripts/reconta_liquidado.py aborta em evento 401/406 nao classificado\n  e roda o controle negativo sozinho (terceira recorrencia da regua enumerada na mesma skill)\n- a listagem do SAG agrupa pelas colunas pedidas e soma o valor: censo so com ITEM\n- learnings de consultar-orcamento e lancar-orcamento divididos em quente e detalhe, sem perda\n- wiki/sag: recomposicao de empenho e agregacao da listagem; livro-razao com o evento\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "89e1655",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/89e1655471be560e049a9413a876850cd4c8b301",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T09:56:46.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: absorb the launch audit into the wiki and retire its report\n\nThe 2026-09-23 launch audit report was a phase working file: its durable\ncontent now lives where it is maintained, and its open items stay out of\nthe wiki by the schema's rule.\n\n- New page finalizacao-de-desenho: the creation context captured before\n  the first await, save-then-check-then-paint, the deleted-layer fallback\n  and the per-activation duplicate-finish guard.\n- idempotencia-e-convergence-guard: the guard is decided inside the map\n  document lock, which closes the late-ACK overwrite.\n- namespace-por-atlas: the shared native IndexedDB connection is itself a\n  holder, and closes on versionchange.\n- viewshed-3d: Firefox's pick pass can read the translucent preview.\n- desempenho-do-mapa-2d: the feature list cost, and the unvirtualized limit.\n- new-tool skill: create through captureFeatureCreation, never a bare\n  addFeature().\n- e2e-ui README: Firefox instrument traps and the boot/login race.\n\nVerified: root lint and root npm test on d32d61b3 plus these changes\n(frontend 15486, backend 5609 with coverage floor, contracts 261), and\ndocs-integridade with a negative control on the new page.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FhcavmeZxPrGocLohX5MpH",
+      "sha": "72c2550",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/72c2550758ff4f94f9f7813dad27fbc7201674c4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T09:33:56.000Z",
+      "author": "Maj Diniz",
+      "message": "criar-bancos: manutencao do base_continua_4674_edgv3topo20 sem paralelismo, porque o /dev/shm do conteiner e pequeno\n\nVACUUM e REINDEX DATABASE CONCURRENTLY em producao (2026-09-23): a manutencao paralela caia em\n\"No space left on device\" por falta de memoria compartilhada no conteiner, nao de disco; conserto\nna sessao (PARALLEL 0, max_parallel_maintenance_workers = 0) e o definitivo na infra (shm_size).\nE o n_dead_tup que nao zera pode ser o bypass de limpeza de indice do PG 14+.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014TZBEhXXTPUq8WG85ppj4L",
+      "sha": "9d911fc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9d911fc7f04645b5f3fac54c0525e5fc4882951d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T09:31:05.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(modals): never hide an overlay that still holds focus\n\nCancelling the military symbol modal made Chrome report \"Blocked\naria-hidden on an element because its descendant retained focus\". The\n\"Configurar Simbolo\" button is disabled while the symbol tables load,\nChrome drops focus from a disabled button, so show() saved\ndocument.body as the opener. On close, body.focus() did nothing, and\nModalBase.hide only blurred when no opener had been saved, so focus\nstayed on Cancelar while aria-hidden went on. hide() now blurs whenever\nfocus is still inside the overlay after the restore attempt; the fix is\nin the base, so every modal gets it.\n\nThe probe that measured it found a second defect in the same modal: a\nfresh SymbolSelectorModal per open, without destroyOnHide, left its\nhidden overlay and its document keydown listener behind (1, 2 and 3\noverlays after three opens). It is the only one of the three symbol\nselectors that lacked the option.\n\nMeasured with a temporary Playwright probe against the real app and\nbackend: before, focus stuck on Cancelar in 3 of 3 rounds; after, focus\noutside the modal in 6 of 6 and zero overlays left. The headless shell\ndoes not emit the aria-hidden warning itself, so focus position is the\nsignal. The node repro fails on the old hide() and passes on the new.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CLeX8C45tEuGfLUSSY4tUM",
+      "sha": "d32d61b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d32d61b3aa484e30c4ed1fb3f633ef9ff35b49a3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T09:30:55.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(boot): stop printing the atlas boot line to the console\n\nThe owner asked for the line out of the console: it showed on every\nboot, including the ones where no schema step ran. reportBootAtlasScope\nstill composes and returns it, because the step's tests read the\noutcome through that line, but it no longer calls console.info, and\ninitializeWithLastActiveMap no longer calls it at all.\n\nTwo cases now hold the decision: the structural guard asserts the boot\nno longer asks for the line, and the persistence case asserts the line\nnever reaches console.info (it failed when the print was removed, which\nis what proves it watches the console). The fileoverviews and the boot\nwiki page stopped calling it the only line support has.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01CLeX8C45tEuGfLUSSY4tUM",
+      "sha": "236065d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/236065d41517475da65b6a90daa318f98cc1411a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T09:28:28.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: revise the solar and lunar proposal against the full PITCIC and design its UI\n\nThe proposal was checked against the full text of EB70-MC-10.336, with its\nfigures and tables read as images, and against the code it names as anchors.\n\n- Three readings of the doctrine now carry numbers and wait for a decision:\n  first and last light at -18 degrees (Fig 4-10), moon phase as week-long\n  windows centred on each phase (Fig 4-11, which the Quadro 4-5 example\n  contradicts on 135 of 365 nights of 2026), and moonrise and moonset tied to\n  the night of D.\n- Library choice flipped to suncalc 2.0.2 after measuring it and\n  astronomy-engine against USNO: both within 0.53 min over 94 comparisons,\n  3.5 kB against 25.5 kB gzip.\n- Two day-boundary traps were measured: the moon's UTC day gives the wrong\n  moonrise on 61 of 365 days in Brasilia, and passing Brasilia midnight to\n  the sun calculation returns the previous day west of 45 W.\n- The geomagnetic module is kept as a model for shape only, since it loads\n  at map boot; loading follows the Turf single-point pattern.\n- New UI and UX section: context-menu entry, panel with pin, states, phone\n  bottom sheet, accessibility, copy as table, timeline band and PDF element\n  for both engines.\n\ndocs/MEMORY.md follows the proposed folder rename.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01MeMfRU47BawHh9c8w3Nvs4",
+      "sha": "df073bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/df073bd643670898e2b6f390b25bcdeab13f073d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T09:10:38.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: a rodada 1 fecha com o AlphaEarth passando por 5 mm, e a rodada 2 fica guardada pela D12\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "5fd945d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5fd945d95e996b6f4b04c28dbab36d274810f6b4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T08:58:33.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: prune the engineering symbols proposal and the C 5-36 analysis\n\nThe owner tested the Engineering Symbols tool and accepted it as built,\nso the review material that preceded it goes: the whole-manual analysis,\nthe proposal, the field inventory, and the prototype gallery with its 28\nmanual crops and 34 study SVGs (65 files). They already contradicted the\ncode in three places: the ramp band chosen by hand (the code derives it\nin rampChevronCount), a C536-prefixed identifier (pointCode is the bare\ntable number), and an integration described as still proposed.\n\nThree facts lived only there and move to the wiki page: the source\nedition and page range, the names of the five excluded items and why\nitem 12 left, and the ford reading that ignores the ferry-like drawing\non PDF page 50. The page's History section points at e753a0ae, where the\nremoved files remain recoverable.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0a69113",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0a6911385852bab17b24bad776e1101532c7a3a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T08:34:13.000Z",
+      "author": "Maj Diniz",
+      "message": "melhoria nos testes",
+      "sha": "b4ac607",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b4ac60761722c61af48d873bd1a8196db168d18f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T08:24:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix: stabilize symbol dialogs and standardize boolean controls\n\nKeep military, coordination and engineering dialogs at stable viewport-bounded\nsizes with green internal scrollbars and visible action buttons. Preserve the\nmilitary dialog dimensions when switching tabs, including short screens.\n\nPlace engineering background fill last and use the standard toggle control.\nUse the same toggle for task force and remote designation, and restore the\ncommand-element toggle through its supported state setter.\n\nChecked the real application with Playwright at four viewport sizes, including\ntab/type switching and toggle persistence after reload. Parallel-session edits\nare excluded, including the separate engineering selector save/undo change.\n\nRoot lint and production build pass in the isolated checkout. Root npm test\nreports 15,415 frontend passes and the existing admin.html bundle-budget\nfailure (850 kB versus 830 kB; the parent already exceeded this limit).\nThat failure stops the root command before backend and contract suites.",
+      "sha": "0e106bc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e106bc9dadf902f520dca13317a017b5cadf4b0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T08:22:12.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-23: a primeira campanha noturna, os dados do v8 no bloco, e o plano revisto com o cronograma por placa e os defeitos que o produtor relatou\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "a321540",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a321540b6c4441bcd398ac05668e4796ac4f3cbc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-23T07:49:20.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-22 (cont. 4): a drenagem da ASC entra na base continua, cortada so na divisa interna, e o banco ganha auditoria\n\nSkill nova carregar-drenagem-base-continua (metodo, reguas provadas contra o pior caso,\naprendizados da carga de 4.355.093 trechos do IAT, SIGSC e BCRS25). DECISIONS (cont. 3 e\ncont. 4) com o raio de explosao, wiki base-continua, chave DRENAGEM_ASC_DIR no env-guia,\ncodificacao UTF-8 da secao 1 do BCRS25, e duas linhas no livro-razao. Os trechos da outra\nsessao em DECISIONS e no env-guia ficam fora deste commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014TZBEhXXTPUq8WG85ppj4L",
+      "sha": "1187eb7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1187eb724449d8ae86d7cd467deb456fb08d5dc8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-23T00:34:16.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: add engineering symbols and refine magnetic declination\n\nAdd the 23 approved C 5-36 table 6-4 engineering symbols as point features,\nwith configurable fields, shared coordination-measure controls, optional white\nbackgrounds, persistence, synchronization and export support.\n\nHandle serialized MapLibre icon offsets. Add declination color editing and\ncrop transparent margins while preserving the map anchor and exact hit area.\nKeep pending color previews stable during remote regeneration.\n\nValidate the real UI with Playwright, including all symbol variants, white\nbackgrounds, color save/discard/peer rendering and declination hit boundaries.\nIsolated lint and production build pass. The isolated frontend suite retains\nthe pre-existing admin.html size-budget failure (847 kB versus 830 kB),\nreproduced unchanged on the parent revision.\n\nThe full workspace root suite passes: 15,429 frontend tests, 5,586 backend\ntests and 261 contract tests. Parallel-session changes are excluded here.",
+      "sha": "e753a0a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e753a0aedd04f1147211c725d79cbe054a2d7c24",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-22T21:45:18.000Z",
