@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-24T18:55:06.946Z",
+  "lastUpdate": "2026-09-24T23:08:22.590Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -60,7 +60,7 @@
     "1cgeo/chefe_dgeo": "2026-09-24T16:18:06.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-24T17:47:23.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-24T23:02:16.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7586,
+    "totalCommits": 7595,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2014,
+      "1cgeo/ebgeo_web": 2023,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -173,6 +173,87 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T23:02:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(terrain): MapLibre 6.11.2, so switching terrain on over a pitched map keeps the camera above ground\n\nOn 6.9.1 every easeTo with terrain set elevationFreeze and only released it\nwhen the animation asked for freezeElevation, which the terrain button does\nnot. The center elevation stayed at sea level until the next gesture, so with\nthe map already pitched the camera ended inside the relief (measured with a\nsynthetic 1500 m DEM: camera at 593 m over 2250 m of ground). MapLibre fixed it\nin 6.11.1 (#8471) and 6.11.2 (#8543).\n\nThe lockfile moves only maplibre-gl and its style-spec (26.4.3 -> 26.4.4).\nThe repro spec fails on 6.9.1 at -1657 m in all three cases and passes on\n6.11.2 (14/15 Chromium, the one miss a known renderer crash; 9/9 Firefox).\nThe three app workarounds that read MapLibre internals were re-read on 6.11.2.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "68fad8b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/68fad8bc902a24100606a2e673263918b9234dca",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T22:26:32.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): \"Limpar tudo\" rebuilds the map resolver, so the next drawing is saved\n\nclearAllDataStore cleared the name/id resolver in unmountCurrentAtlas and never\nrebuilt it, unlike resetAtlasView, adoptMountedLocalAtlas and the boot. With the\nindex empty, captureFeatureCreation's canSave saw the blank map as unknown and\nevery feature drawn after the wipe was discarded with the false warning \"O mapa\nde origem não está mais aberto\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e157d01",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e157d0108853606e34d3e78b06f986ff5e4b791f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T22:09:02.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(pending): the remaining Playwright layers, run one at a time\n\nTablet, atlas safety, long session and release checks passed whole. The\nfailures, rerun alone three times each: an outdated text assertion in the 2.2\nmigration spec, an outdated script-request ceiling in the map boot spec (638\nagainst 631), a known renderer crash on the 10000-point atlas (2 of 3), and a\nload failure. Production-over-HTTPS and migration need the external acervo;\nFirefox was cancelled by the owner at 19 of 912, all passing.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012Mpt2yebVsKuyvsCG3chH2",
+      "sha": "cf74ea7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf74ea770bce5e667b367185cca8997b5a9076c7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T20:34:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(test): the Playwright wait census skips a file that vanished mid-scan\n\nThree permission and resource censuses write an untracked\ntmp-nao-rastreado.js under tests/fixtures/ and delete it in their finally.\nThis census lists untracked files too, and Vitest runs files in parallel, so\nthe root npm test before the deploy failed on an ENOENT that had nothing to\ndo with waits. A file that no longer exists carries no predicate, so skipping\nit is safe; it is the same guard docs-integridade already has.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "637bb24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/637bb24a4c3f667d561ae9b1e081a4a5ec4433c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T20:34:35.000Z",
+      "author": "Maj Diniz",
+      "message": "revert(bottom-controls): remove \"Ir para minha localização\"\n\nThe intranet gives the browser no position, so the button could only ever\nend in a refusal there (owner's decision). The four bottom-controls files go\nback to their state before 8d8122ed, and the phrases module and its test go\naway. The layers-tab framing and the text rotation handle of that commit stay.\n\nThe map graph loses one file, so its ceiling goes back from 808 to 807.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1803b1a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1803b1a5287e42b0eae35698493b5cef1ff36bab",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T19:52:20.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(selection): the first click on a lazy tool's feature draws its selection box\n\nselectFeature, selectGroup and the move handler publish the selection before\nloading the feature's tool, and the highlight pass runs synchronously on that\npublication. For every tool loaded on demand (all but point, line, polygon,\ntext, image and brush), the first selection of that type in a session found\nno control: the box was missing until the next zoom, and the console blamed\nthe tool (\"Tool sector does not implement selection box interface\").\n\nThe highlight pass now asks for the lazy control once per type and redraws\nwhen it arrives, like its Turf re-entry. A failed load is not retried per\nframe, and a type with neither control nor descriptor still warns.\n\nMeasured on the real app (draw, reload, first map click): sector, rectangle\nand ellipse went from no box plus the warning to box and no warning.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "3c276dc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3c276dc5e83ed40400cc7c87abc8479899698d24",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T19:05:05.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(boot): a map booted in a hidden tab waits for the tab instead of mounting over an unloaded style\n\nMapLibre applies a new style on the next animation frame, even one embedded in\nthe bundle, and a hidden tab gets no animation frames. A page reloaded in the\nbackground (a Vite reload counts) had index.js give up on the map's `load`\nafter 15 s, and switchLayer then waited 10 s of wall clock for a style that\ncould not arrive. The boot went on anyway: setupMapFeatures and\nreapplyAtlasAppearance threw \"Style is not done loading.\", the loading screen\ndropped over an empty map, and the application's layers only came back on the\nnext map switch.\n\n`baselayers/style-ready.js` waits for MapLibre's own \"done loading\" flag with\na timeout that counts only visible time. switchLayer waits for the style on\nthe map before deciding whether to call setStyle, and again before returning.\n\nRepro: tests/e2e-ui/boot-em-aba-oculta.spec.js emulates a hidden tab (hidden\nvisibilityState, animation frames held until shown). It fails on the old code\nand passed 3 of 3 runs with the fix. tests/unit/style-ready.test.js covers the\nvisible-time rule and reads the MapLibre contract from the installed library.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "f89db45",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f89db451dc4a741af0e1599c495e33edefda1914",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T18:55:27.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(pending): what the full test run of the afternoon found\n\nThe root suite passed whole. Of the main Playwright suite, 678 of 911 cases ran\nbefore the machine ran out of memory; the failures, rerun alone three times\neach, split into a probable product defect (the local copy gains a \"Principal\"\nmap with 19 features, 3 of 3), a likely regression in local undo and redo\n(18 of 39 passes, 26 of 26 in the morning), a test that breaks because the\nrevoked peer's page now navigates (3 of 3), and one load failure.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012Mpt2yebVsKuyvsCG3chH2",
+      "sha": "c65162d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c65162df22fbaf98e2b8e8ec3d6e88a30cfbb05a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-24T18:42:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(ui): layers-tab framing, a text rotation handle that follows the text, and \"Ir para minha localização\"\n\n- The layers tab (feature, group, locked feature) and the search results frame\n  the selection with the same function as \"Zoom para Seleção\" (`frameFeatures`),\n  over each type's selection box, instead of centering points at zoom 15.\n- The text rotation handle obeys the rule of the selection box: fixed on the\n  ground at `createdAtZoom` for text with zoom correction, and refreshed every\n  frame at the current zoom for text without it.\n- A \"Ir para minha localização\" button in the bottom-right controls: it flies\n  to the browser's position (zoom 15 at least) and marks it. Without a secure\n  context or the API the button is still drawn and the click says why.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "8d8122e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8d8122edfbca2e38abe32431118535b7acbf3059",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-24T17:47:23.000Z",
