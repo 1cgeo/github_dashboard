@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-24T23:08:22.590Z",
+  "lastUpdate": "2026-09-25T15:06:39.774Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-09-18T15:28:00.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-07-27T10:31:20.000Z",
+    "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-09-22T15:39:18.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-09-10T11:40:06.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-24T16:18:06.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-25T12:41:58.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-24T23:02:16.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-25T03:11:25.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-18T23:52:20.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7595,
+    "totalCommits": 7614,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2023,
+      "1cgeo/ebgeo_web": 2037,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 113,
@@ -154,7 +154,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 396,
-      "1cgeo/geoswarm": 66,
+      "1cgeo/geoswarm": 67,
       "1cgeo/tileclass": 95,
       "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 64,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 856,
+      "1cgeo/chefe_dgeo": 860,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 33,
@@ -173,6 +173,177 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-25T12:41:58.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-25: o chefe aceita o plano de treino (D16 a D19)\n\n- receita honesta, regua dupla RS + SC, sem confirmacoes na receita antiga, dataset RS + SC com teste congelado\n- plano.md: a ordem nova das fases, o dataset balanceado por situacao, o teto da resolucao e o cronograma\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "c86ac8c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c86ac8c30fe821325f897b83373cdb400efde9a4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-25T12:34:48.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-25: SC contra o SIGSC mascarado, os diagnosticos e o plano de treino novo\n\n- a referencia do SIGSC trazia zeros do WCS contados como terreno; a mascara de zeros e o baixador corrigido\n- o registro dos diagnosticos (vazamento na escolha da epoca, atalho do contexto, teto da resolucao, dataset RS + SC)\n- o prompt de pesquisa aponta primeiro o vault (ANADEM e GEDTM30 ja medidos)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "fbc334f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fbc334f322d788e61843ed55fdd1d02c8c5616a4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-25T09:14:16.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-25: o L3 de peso 0,02 passa; o Landsat enxuto esbarra na regua de quem cava por 6 mm; o relatorio com graficos e mapas\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "a44af2e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a44af2e2e4f8c7760228a7821a13c876448e80fc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-25T08:53:30.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-25: na rodada 2 sobre a base com AlphaEarth so o Landsat anual de NDVI e NDMI da epoca do TanDEM-X passa (-0,108 m)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "122aea3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/122aea3bd6d9671a4cb9ed784dc68083ac239694",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T03:11:25.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(pending): the mass gestures leave the pending list, with two minor findings of their review\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "318d864",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/318d864f3e4de140bb1ea002e6f587eca41dcfe5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T03:10:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): the plural feature update follows what the singular one learned from photos and undo\n\nIntegration review of the mass gestures, after the rebase put updateFeatures\non top of the attached-photos work:\n- the previous side of each operation now goes through previousOfFeatureEdit,\n  as in updateFeature: with inline photo bytes on both sides, a feature with\n  old photos of 5 to 10 MB went over the 10 MB body limit, got a 413 and the\n  mass restyle became a lasting refusal in Pendências;\n- preserveUserData no longer runs under revertFrom, as in updateFeature since\n  4e742aef: undoing a mass entry that added a first attribute or photo did\n  nothing, silently (latent: no mass gesture touches user data today);\n- a photo change through the plural path throws before anything is written,\n  because this path neither converts inline photos nor registers their upload.\n\nThree repro cases in gesto-local-em-massa-um-documento.repro.test.js, all red\nwith the previous feature.operations.js.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "6130d95",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6130d952ec94f9a294ed280f750588d75a13d9a6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T03:03:08.000Z",
+      "author": "Maj Diniz",
+      "message": "test(weight): re-measure the source ceilings for the mass gestures with one write\n\nFresh build of the rebased branch: eager source 8035 kB (ceiling 8030 ->\n8060) and total source 12213 kB (12180 -> 12240). The growth is the plural\nstore operations, their undo and redo runs, the controls' single call and\nthe Pendências grouping, all in files already eager; the branch adds no\nmodule under src and no package.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "31e4ac6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/31e4ac64a9b864f39eb66d7648dc774c5f2ef71c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T02:34:55.000Z",
+      "author": "Maj Diniz",
+      "message": "test(copia): count only the server copies made during this test\n\n\"cancelar criou uma cópia\" failed in repeats 2 and 3 of --repeat-each=3: the\nquery counted every atlas named \"... (cópia)\" in the database, and the copy\nthe first repeat legitimately made (\"copiar mesmo assim cria\") was still\nthere. The count now cuts by the database clock at the test's start. 9/9.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "809131f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/809131f6d81d48a218d9a50552b4d0333b14adad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T02:24:14.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(clipboard): copy reads each feature from the store, so a photo attached after selecting goes along\n\nThe selection keeps the feature read from the map source WHEN it was\nselected, and a photo attached through the panel afterwards does not\nrefresh it. copy() copied that cached object, so \"Duplicar Seleção\" right\nafter attaching a photo created the copy WITHOUT it, on the author and on\nthe server, silently. Measured with a probe in foto-anexa-nas-copias.spec.js:\nin every failing run the selection's object had no photos while the store\nand the source had one (4 of 10). It predates this branch: 10 of 30 on\norigin/integracao_backend.\n\ncopy() now re-reads each feature by id from the store (getFeatureById) and\nfalls back to the object it got when the store does not have it. Repro in\ncolar-nao-anuncia-sucesso-recusado.repro.test.js (red before), with a\ncontrol; the browser spec went to 0 of 10 on this symptom. PENDENCIAS gains\nthe other intermittent step of that spec (copy a layer into a map created\none line earlier), measured at the same rate with and without the photos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b82a0a2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b82a0a22d7a566ff971529745195d34f3a1984f1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T01:03:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(atlas): the count of an atlas leaves out the derived analysis output\n\n\"Enviar ao servidor\" of a main acquis with lines of sight and viewsheds said\n\"Subiram só 793 feições de 805: parte deste atlas não chegou ao servidor\",\nand it was false: the 12 missing were the analyses' output, which since\n2026-09-23 does not travel (every client derives it; the send skips it on\npurpose and does not count it as lost). The denominator comes from\ncountAtlasContents, which summed every bucket, output included. The same\nnumber is on the atlas card and in the warning before an atlas is replaced.\n\ncountAtlasContents now skips the derived output buckets, read from the one\nlist in feature-type.registry.js (zero imports, so atlas.html still boots\nwithout the store). Repro contagem-do-atlas-sem-saida-derivada: 6 against 3\nbefore, with a control. In the browser, transicao-main-fotos.spec.js now\nrequires the lossless send to open the new atlas (the success branch)\ninstead of stopping on a notice: red with the previous count, 9/9 with the\nfix. calibracao.html gains one file (38 -> 39, same 2032 kB): the registry\nbecame a 3.9 kB shared chunk; its ceiling and the measurement sit together.\nFound by the main-to-integration transition spec of the attached photos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "eaa4dd1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eaa4dd14b1722ece3ba78cdcc04fd8d0959af1fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T01:01:12.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(photos): the attached photo by reference in the decision log, the wiki and the pending list\n\nThe decision entry records the design as integrated (the edit waits for the\nphoto's bytes, which replaced the first design after the first review\nmeasured the loss), the conversion and refusal rules and the lines outside\nthe transfer line. imagens-atlas.md gains the third consumer and loses a\nstatement that was false since 2026-09-23 (a refusal on the first attempt\ndoes mark the operation, at birth). PENDENCIAS drops item 1.1 and the branch\nrow, and gains two questions from the third review and two open findings of\nthe transition spec: the false \"Subiram só 793 de 805\" (derived analysis\noutput counted as missing) and the server-atlas viewer step left\nundiagnosed. One ledger line for the transition spec's instrument.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e25e5cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e25e5cc7ed291b74944fa41afb68c6be5f6615c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:55:42.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(photos): the notice of an unrecorded photo no longer names a cause the code does not know\n\nThird review of the attached photos, item 5. FALHA_AO_REGISTRAR_A_FOTO told\nthe person to free space, but the record fails on any storage error (quota,\na blocked database, the write fence of an atlas being closed). The notice\nnow says what happened and what to do, per the notice rule of CLAUDE.md.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "f144a54",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f144a54b53f63b12cbd990df8b7f87059a6f294b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:55:19.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(photos): a custom icon uploads outside the photo line, so its tile does not wait for them\n\nThird review of the attached photos, item 3. Every first attempt now goes\nthrough the single transfer line (emSerie), and addCustomIcon awaits its\nupload before writing the icon registry (which is what leaves the bytes on\nthe server when the registry write fails and the intention is re-projected).\nOn a slow link with photos queued, the new icon's tile appeared only after\nall of them. The copies were kept out of the line for this very reason.\n\nenviarBlobRegistrado and enfileirarBlob take foraDaFila, passed by\nuploadImageBlob; the icon uses it and competes for the link instead. Repro\nicone-nao-espera-a-fila-de-fotos (red before: the icon lost the race against\na photo held on the wire), with a control that a normal send still waits.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "625d73c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/625d73c2756072f685c7e1a42615c6f844647a51",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:52:44.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(photos): overlapping resumptions send a pending photo once, and never demote a confirmed one\n\nThird review of the attached photos, item 2. Every connect starts two\nresumptions (the atlas switch and the transition back to ONLINE), and the\n15 s timer can start a third. retomarBlobsPendentes put an id into the single\ntransfer line (emSerie) without marking it as queued, so with another\ntransfer on the wire the second resumption queued the same bytes again. And\nassentar wrote a late duplicate's verdict over the record read before its\nwait: a failure after the first attempt confirmed put PENDENTE back over\nCONFIRMADO, holding again every edit that cites the photo.\n\nThe resumption now marks the id as queued before its next await, re-reads\nthe record at its turn and sends only one still PENDENTE; assentar never\ndemotes a CONFIRMADO record. Repro retomadas-sobrepostas-sobem-uma-vez: 2/2,\nand 2/2 red with the previous blob-upload-queue.js.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "75297cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/75297cc7abadc2ae4e434d3591ab72d5bbae0fd7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:51:03.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(photos): a refused converted photo holds its edits in the photo's own atlas, and the ones born later\n\nThird review of the attached photos, item 1 (photo loss, low probability).\nWhen the server refuses for good the bytes of a photo an edit CONVERTED, the\nedit must not leave: the server still holds the photo inline. assentar knew\nthe record's scope, but marcarProblema and liberarOperacoes used the queue\nsingleton, which resolves the ACTIVE atlas: a refusal arriving after the\nperson opened another atlas (minutes at 40 kbps) marked nothing, and the\nheld edit left later from the right queue. They now use forScope(scope).\n\nTwo more doors, both checked only for an image feature's own id before:\nan operation born AFTER the refusal that cites the photo (a pasted copy),\nnow an issue at birth in the dispatcher (recusaDeFotoConvertidaCitada); and\nthe snapshot's re-projection after an F5 between the refusal and the\nmarking, now an issue read from disk (recusasDeFotoConvertida). An ATTACHED\nphoto's refusal still lets its operations leave with the reference.\n\nRepros, each red before its part of the fix: recusa-de-foto-convertida-no-\natlas-certo (other atlas open; born after the refusal; control with an\nattached photo) and a new case in retrato-nao-libera-op-sem-blob.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "4ad12ca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4ad12ca11aee6fefe1b8f6e56a1a24dbc08938a8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:46:17.000Z",
+      "author": "Maj Diniz",
+      "message": "test(weight): re-measure the map page ceilings for the attached photos\n\nFresh builds on both sides (origin/integracao_backend d753d1d7 and the photo\nbranch): the full graph of map_sig.js 807 -> 810 modules (the three files the\nbranch creates), source 12149 kB (ceiling 12100 -> 12180), index.html 4220 ->\n4240 kB (ceiling 4230 -> 4260), atlas.html 48 files (44 -> 50) and admin.html\n41 files (38 -> 44), both from small shared chunks, 10 and 9 kB in total, which\nrules out the store. What was measured and why sits next to each number.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "64593ef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/64593ef38b589907e815e23024a2f3492fe6ef44",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:11:01.000Z",
+      "author": "Maj Diniz",
+      "message": "test(desenho): undo and redo count only when the operation ran\n\n\"refazer: a copia nao saiu\" (7 of 13 on the local spec) was not a regression:\nthe spec already failed at the commit that created it (2 of 8). The helper\nclicked redo as soon as the pasted copy was back in the bucket, which happens\nbefore runUndoRedo finishes redrawing the base map; a request in that 3-5 ms\nwindow is dropped by the in-flight guard, by design and silently (measured\nwith timestamps in the runner: every failure showed the drop).\n\nThe helper now marks the toasts on screen, clicks, and waits for a NEW toast\nof the undo-redo channel; with none, the click was dropped and is repeated,\nwhich never undoes two steps. Local spec 39/39 (3 runs of 13 tools), server\nlifecycle spec 39/39. PENDENCIAS loses both 3.0 entries and the \"test race\"\nline; two ledger lines record how they were misread.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "d753d1d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d753d1d78e6ee4a0812d9a948b952270bb9b534e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-25T00:11:00.000Z",
+      "author": "Maj Diniz",
+      "message": "test(cadeia): the local copy carries the derived analysis output, and the server mirror is counted\n\nLeg 4 compared the local copy with the FILE and failed 3 of 3 since 5378da27\n(\"Principal\": 19 against 18). Bisect over 276 commits pointed there, and a\nprobe named the extra feature: processed_los <losId>-visible, the visible half\nof the line of sight that the server snapshot re-derives (decision of\n2026-09-23: the analysis output is derived per client and never travels). The\ncopy takes it along. Not a product defect.\n\nThe expectation of the legs that pass through the server now comes from\nrederiveAllAnalysisOutputs applied to the file, with a control that only\n\"Principal\" gains one feature, and the server mirror's per-map count is\nasserted too. 3/3 green; negative control: with the snapshot re-derivation\ncommented out in remote-operation-handler.js the spec fails at the mirror\n(18 against 19).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1872db6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1872db6b9a6dd98f4d4983c3fc2117f551c763db",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-09-24T23:47:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Dashboard: novo visual para a SEFA 2026 e dois bugs de exibicao corrigidos\n\nRestyle de todas as paginas (tokens, fonte Inter, icones SVG, formatacao pt-BR,\nbarras com valor e percentual). Nenhum numero novo: tudo continua vindo da API.\n\n- Visao geral: top 12 UF/regiao + \"Demais\", categorias em barras ordenadas,\n  painel \"Ultimas 24h\" some quando vazio, KPI de UFs conta 54 (o NULL fica fora).\n- Mapa de feicoes: basemap OSM escurecido, coropletico em rampa unica e, a partir\n  do zoom 11, pontos por categoria com popup de fontes e corroboracoes (camada\n  retirada em 326ab21, reaproveitada com o endpoint existente).\n- Coletas, mapa de coletas, geoportais, qualidade e relatorios reorganizados.\n- Bug: legenda do coropletico deslocada em uma classe.\n- Bug: \"Progresso por tipo\" descartava 4 tipos reais (industrias, 7.553 feicoes).\n- /feicoes/geojson: so SELECT; expoe confianca_score, corroboracoes, metodo_geo e\n  a lista compacta de fontes, e recorta a geometria ao bbox (ST_ClipByBox2D).\n\ndashboard/dist nao e versionado: rodar npm run build antes do npm start.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b6d13ea",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/b6d13eaaeaf78060d6cf389d09c4bcc043c924e4",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-24T23:02:16.000Z",
