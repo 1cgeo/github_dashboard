@@ -57,6 +57,7 @@ export const repositories = [
   { repository: '1cgeo/0Bug_Report', branch: 'qgis4' },
   { repository: '1cgeo/server-healthcheck', branch: '' },
   { repository: '1cgeo/github_dashboard', branch: '' },
+  { repository: '1cgeo/dsg_topology', branch: '' },
   { repository: '1cgeo/pit_ia_2025', branch: '' },
   { repository: '1cgeo/autolabeller', branch: '' },
   { repository: '1cgeo/chefe_dgeo', branch: '' },
