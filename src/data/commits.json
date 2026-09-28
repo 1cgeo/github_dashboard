@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-27T22:55:30.718Z",
+  "lastUpdate": "2026-09-28T18:03:28.451Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-09-15T14:06:20.000Z",
+    "1cgeo/controle_acervo": "2026-09-28T00:46:16.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-27T16:51:12.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-28T16:04:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-25T03:11:25.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-28T14:41:24.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
@@ -114,7 +114,7 @@
     "1cgeo/l2tools": true
   },
   "stats": {
-    "totalCommits": 7642,
+    "totalCommits": 7666,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +124,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2037,
+      "1cgeo/ebgeo_web": 2045,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 115,
@@ -143,7 +143,7 @@
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 356,
+      "1cgeo/controle_acervo": 357,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -165,7 +165,7 @@
       "1cgeo/github_dashboard": 58,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 878,
+      "1cgeo/chefe_dgeo": 893,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -173,6 +173,222 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T16:04:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: costa do Amapa (referencia da banda P abaixo do lidar orbital, D25), regra da agua por patamar (D26), casos-dificeis, ia.py com shlex.quote\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "9828baf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9828baf7861e550c343bd28c8d6a71a49e958307",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T15:21:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: pedido 221 da 11ª Bia AAAe AP, 9 das 15 folhas ARANDU pelo mosaico em 2 faixas (o papel empata)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "dd14879",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dd1487999485d5bb7c8c645aa449d34da54e9491",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T14:41:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): the witness of the applied history closes the two rewound-history cases the cursor missed\n\nOwner's decision of 2026-09-28, option (a) of section 3.1. The server only\nrecognised a history restored from a backup when the cursor was above the\natlas version, and two clients escaped, keeping edits the server lost and\nskipping new operations without error: one that comes back after the\nrestored server passed its old cursor, and one that reloads the page, whose\ndurable cursor only moves when the atlas opens.\n\nThe client now keeps the WITNESS, the highest version it applied and the id\nof the operation at it (appliedWitness, snapshot-frontier.js), in the same\ndurable record as the cursor (namespace-generation.js, localStorage only, no\nmirror), and sends it with every pull (witnessVersion/witnessOpId in the\nquery string) and every sync_request (witness), only when there is one. It\nmoves only with an id the server gave for that very version (an applied\noperation, the snapshot's new currentOpId, a receipt with the operation's own\nversion), and it is written before the entity. The server compares it with\nthe log row at that version (GET_OPERATION_ID_AT_VERSION) and answers the\nsnapshot marked historyRewound when the row is another operation or missing;\nbelow min_version it claims nothing.\n\nRepros: backend/tests/integration/testemunha-do-historico.repro.test.js\n(closed computer, F5, reused number, socket; controls: no witness keeps the\nold tail, a matching witness keeps the tail, below the prune floor claims\nnothing), 9 of 9; negative control with the comparison off: the 4 repros\nfail, the 5 controls pass. frontend/tests/integration/testemunha-do-historico\n.repro.test.js, 8 of 8; negative control with the witness never recorded: 3\nfail. Contract: frontend/tests/e2e/historico-recuado.e2e.test.js, 8 of 8.\n\nAlso: the snapshot/pull wiki page loses four stale statements (the snapshot\nruns in a REPEATABLE READ transaction since 2026-09-12, the incremental\ncursor is the atlas version read before the tail, which pulls start from a\ncursor, and which currentVersion the engine keeps). The page-weight ceilings\nrise with a note: eager source 8255 -> 8265 (8257 measured) and the built\nindex.html 4290 -> 4300 (4291 measured, fresh build). The pending list loses\nthe closed items (the two decisions and the Windows-only backend red, which\npassed here).\n\nVerified: npm run lint, fresh build, npm test at the root after the last\nwrite: frontend 17041/17041, backend 5842/5842, contract 308/308.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "04e2474",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/04e2474ad9194af751dfd8dcd130ce7544934943",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T14:41:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(maps): the public visit and the live switch to a local atlas enter the map's saved position\n\nOwner's decision of 2026-09-28. Opening an atlas through the account entered\nthe saved position since that morning (d1dc5e65); the public visit\n(openPublicAtlasFromUrl) and the live switch to a local atlas\n(switchToExistingLocalAtlas) still painted with switchMap(false), drawing\nthe map and leaving the camera where it was. Both now call switchMap(true).\nThe 2D view link keeps winning on the visit, applied later by the boot.\n\nRepro: frontend/tests/e2e-ui/posicao-salva-nas-outras-entradas.repro.spec.js.\nBefore: the visit landed 12.6 degrees from the saved position (the default\ncentre), and the live switch left the camera where the server atlas put it;\nthe link control passed. After: 3 of 3, Chromium, no retry. The census\nvisita-publica-pinta-o-mapa-ativo now requires the entering form on the\nvisit too; negative control: with the visit line reverted it fails 1 of 3.\n\nThe third entry of the same shape, \"Salvar no servidor\" in account.control.js\n(upload the local atlas and open it), was not in the decision and keeps\nswitchMap(false).\n\nVerified: npm run lint, npm test at the root (frontend 17041, backend 5842,\ncontract 308), together with the next commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "367310e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/367310e068789aa0496029428bf174adcea5e05c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T13:15:58.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "correcao caminhos",
+      "sha": "9ca3911",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9ca3911cda5b59935479d61d5930e402b310249c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T12:05:38.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-28: o TREx a 12 m anotado como F9 (futuro), o filtro com protecao de topos por proeminencia e as armadilhas de operar o servidor de IA\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "ccdde50",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ccdde5045965f8d1b87276f5d726966ba86f11d9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T11:35:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: resposta ao DIEx 2112-E3/DSG (software de levantamento), criar DIEx por API e o que o chefe corta no DIEx ao escalao superior\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01YaC1zRB5r6Drz9immRq5vV",
+      "sha": "573fabe",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/573fabe09933efce38a10251fdef10fc4dd0dc72",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T11:23:52.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: elogio de despedida, build_odt.py lê os papéis de estilo do próprio modelo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "249f7df",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/249f7dfaac2a3d51dc81d3967abc91b024273b0d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T10:55:48.000Z",
+      "author": "Maj Diniz",
+      "message": "lint-wiki 2026-09-28: as quatro contradições fecham pela fonte primária, o acento e o split do learnings do lancar-rpcmtec\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5047a98",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5047a985eee37604491237bca182aff9140d5ffd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T10:38:58.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: SAP 3.0 na 3.16.0 (documento técnico, 8.3 calculada) e carga dos documentos de 2026\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "581e1bd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/581e1bdc40f5184641f6cc64d725ae6f26c198f2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T10:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: pedido 220 do 7º BIB, a carta de SARP no lugar da especial 1:10.000 e o filtro de tipo do mapoteca resolver\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "08997b4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/08997b4f9fe33b50250a09c93fafc4a04ac046a4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T10:29:40.000Z",
+      "author": "Maj Diniz",
+      "message": "livro-razão: o ensaio do deploy.sh não partia das releases que existem no servidor\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d4be9fa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d4be9faea3752957a2c995fdf3c1a250fe5963fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T10:23:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: radar semanal e mensal, estado do radar guarda o catalogo inteiro, poses do museu ausentes\n\n- radar.py: o estado guardava so 600 chaves por fonte e o plugins-qgis (3.267 itens) redespejava o catalogo a cada rodada; agora guarda toda chave do feed atual mais 600 antigas (2 rodadas seguidas vieram com 0 novos)\n- learnings do radar dividido em quente (8,6 KB) e detalhe, com as licoes da rodada (licenca NC com isencao de governo, py -3)\n- wiki gaussian-splatting-navegavel: a pasta do visualizador do museu so tem o PLY treinado, sem pose nem imagem de treino\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01YaC1zRB5r6Drz9immRq5vV",
+      "sha": "c55dbad",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c55dbadd1b55d5ac977fbe1da1710483d3386c94",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T10:18:25.000Z",
+      "author": "Maj Diniz",
+      "message": "deploy: a release anterior à separação não devolve os source maps à pasta servida\n\nAs releases publicadas antes de 5fb1d4b3 guardam os .map ao lado dos chunks e\nos listam no inventário .release-assets (cerca de 400 por release no\n/ebgeo_novo/). carry_release_assets copiava esse inventário para a release\nnova DEPOIS da checagem de separate_sourcemaps, então o primeiro deploy com o\nscript novo voltaria a servir os mapas das três releases retidas, aqui e na\nvirada de /ebgeo/.\n\nO carregamento pula *.map nos dois ramos (com e sem inventário), e uma guarda\nantes da troca do symlink reprova qualquer .map na release que vai ao ar.\n\ntest-release.py ganha duas releases do formato antigo (uma com inventário que\nlista o mapa, outra sem inventário). Rodado num Linux: verde com o conserto,\nvermelho com o deploy.sh do HEAD na asserção nova, e a guarda sozinha (sem o\npulo) aborta a publicação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e80ba28",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e80ba28e9472f49e7cc93d025456c364c2190805",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T10:15:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: conferência contra o SAG e as liquidações da 2026NS000931\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b089c1b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b089c1ba552003b92e4e9bbebaf1d5122e3f4f8d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T09:50:53.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-28: o cronograma do dia (receita sem vies, bracos refeitos, definitivo v3) e o filtro no plano\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "3ee349c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3ee349c7e4018e8cc12150bb44c9e772ea7b4542",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T09:47:27.000Z",
+      "author": "Maj Diniz",
+      "message": "test(boot-weight): re-measure the dev boot bands, 653 script requests and 61.6 MB\n\nThe cold boot and every atlas transition failed deterministically: 653\nrequests in 15 of 15 windows against a ceiling of 631, and 61 646 831\nbytes against 60 430 000. Attributed by the static import graph of\nsrc/js/index.js walked in both trees (80539965, which set the old band,\nand HEAD): 578 files and 7962 kB of source became 611 and 8585 kB, and\nthe boot now imports 11 more modules after the map draws (the luminosity\nwarm-up with suncalc, the point panel, Brasilia time, the deep link).\n9.2% more source for 7.1% more bytes served; no new package in the static\ngraph. Bands re-centred at +-5% (620..686 requests, 58.56..64.73 MB),\n2 of 2 green after the change.\n\nThe pending list's step 1 now records the page-weight measure of the\nsame day (all green, index.html at 4290 of 4290 kB) and asks for it again\nafter the two decisions of 2026-09-28 land.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "9409ae8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9409ae8ce3982aa9f056b0227fdca051637a3bc4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T09:20:31.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(decisions): the owner's three answers of 2026-09-28, and the deleted branches leave the pending list\n\nThe rewound-history snapshot will compare the operation id at the cursor's\nversion (option a), the saved map position will apply to the public visit\nand to the live switch to a local atlas, and the gazetteer search keeps\nstarting off. The first two become pre-launch work in section 4.\n\nThe eight hunt/* branches (deleted 2026-09-27) and the cloud branch\nclaude/analise-pendencias-h5aug1 (deleted 2026-09-28, same commit as\nintegracao_backend) leave sections 0 and 5.1.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "93a08b9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93a08b99ca181e8b7b93b165c3ffecc77eb1be23",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T04:54:28.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-28: o definitivo vence o FathomDEM em RMSE nas 8 regioes do teste congelado; o vies por fonte explica o EM negativo\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "f87176f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f87176f9cede67e18efc79be08831ad16000363d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-09-28T00:46:16.000Z",
+      "author": "Maj Diniz",
+      "message": "o exemplo do responsavel deixa de ser nome real, e a ficha do ponto fecha o mapa no teste\n\nDois achados da revisao do merge da 3.16.0.\n\nO comentario de `er/rpcmtec.sql` e os tres arquivos de teste do documento\ntecnico usavam \"Cap Diniz\" e \"Maj Diniz\" como exemplo de responsavel, num\nrepositorio publico. Passam a \"Fulano\". O guard de vazamento nao pega nome de\npessoa, so caminho, IP e segredo.\n\n`ponto-dialog.test.js` deixava 2 erros depois do teardown em toda rodada: o\nmini-mapa carrega o maplibre por `import()` dinamico, e o do ultimo teste\nresolvia com o jsdom ja desmontado, trazendo o maplibre REAL em vez do duble\n(\"HTMLElement is not defined\"). O `afterEach` agora fecha a ficha pelo botao,\no `onClose` descarta o mapa e o `import()` pendente desiste. Tres rodadas sem\nerro, e a suite do cliente inteira limpa.\n\nBanco 1432, rapida 3780, cliente 2230.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "50e7eaa",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/50e7eaa934cd72433cd9dc74cb5b07f9387be073",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T00:36:52.000Z",
+      "author": "Maj Diniz",
+      "message": "harness 2026-09-27: regra de quando parar, marcar o nao confirmado, ask para comando destrutivo e formato do bloqueante na revisao\n\nPelo guia \"Getting the most out of Opus 5.5\" (claude.dev, 2026-09-22), com o\naval do chefe: duas linhas no CLAUDE.md, permissions.ask no settings do\nprojeto (push com delete, branch -D, clean, checkout --, restore e SQL\ndestrutivo via psql, no Bash e no PowerShell) e o formato do bloqueante na\nrevisao-codigo. Decisao 2026-09-27 (cont. 9).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "d34e2b3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d34e2b32c39acf78c351d0e11931e5c9297adff2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T00:34:24.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(claude): stopping rules, owner-blocked items first, task list in a file, subagent evidence\n\nFour adjustments from the Opus 5.5 guidance: keep going when a step does\nnot need the owner and stop only before the irreversible (one list, where\nit was spread over four places); after the outcome, say what waits on the\nowner; on a long run the task list lives in a file, never a new root\nmarkdown, which the docs-integrity test scans; check a subagent's\nevidence before accepting its conclusion.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "8fdc8fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8fdc8fcfaa7d43d0e3da2d011865dadfdfa35de7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T00:23:10.000Z",
+      "author": "Maj Diniz",
+      "message": "merge claude/web-editor-base-continua-bankvs: motor de topologia e versionamento proprio da base continua\n\nConflito so nas Decisions, as duas pontas acrescentando no fim: as seis\nentradas \"base continua\" de 2026-09-27 passam de cont. 1..6 a cont. 3..8,\ndepois da D24 e do documento tecnico, e ganham a linha em branco antes do\ntitulo. As referencias a cont. 5 e 6 nos PROJECT.md do topologia e do\nversionamento e na wiki versionamento-geoespacial seguem a renumeracao.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "68dafb6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/68dafb6a03f614715b074786e321e9e4bbbda76f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T00:12:40.000Z",
+      "author": "Maj Diniz",
+      "message": "merge claude/relatorios-tecnicos-acervo-lnh0vw: o documento tecnico passa a morar no SAP 3.0 e a 8.3 vira calculada\n\nConflito so nas Decisions, as duas pontas acrescentando no fim: a entrada\ndo branch entra depois da D24 e passa a 2026-09-27 (cont. 2).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b024bfb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b024bfb89ce70a590d492735fde19d1a56348db9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-27T16:51:12.000Z",
