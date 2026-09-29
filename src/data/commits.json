@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-28T18:03:28.451Z",
+  "lastUpdate": "2026-09-29T00:18:21.474Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -54,16 +54,17 @@
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
-    "1cgeo/github_dashboard": "2026-09-09T08:33:38.000Z",
+    "1cgeo/github_dashboard": "2026-09-28T22:08:00.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-28T16:04:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-28T19:32:59.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-28T14:41:24.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-28T23:35:43.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
-    "1cgeo/l2tools": "2026-09-09T09:31:17.000Z"
+    "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
+    "1cgeo/dsg_topology": "2026-09-28T23:24:25.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -111,10 +112,11 @@
     "1cgeo/ebgeo_backend": true,
     "1cgeo/fotos_aereas": false,
     "1cgeo/ia_vegetacao": true,
-    "1cgeo/l2tools": true
+    "1cgeo/l2tools": true,
+    "1cgeo/dsg_topology": true
   },
   "stats": {
-    "totalCommits": 7666,
+    "totalCommits": 7688,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -124,7 +126,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2045,
+      "1cgeo/ebgeo_web": 2060,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 115,
@@ -162,10 +164,11 @@
       "1cgeo/ferramentas_ebgeo": 29,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
-      "1cgeo/github_dashboard": 58,
+      "1cgeo/github_dashboard": 59,
+      "1cgeo/dsg_topology": 4,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 893,
+      "1cgeo/chefe_dgeo": 895,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -173,6 +176,195 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T23:35:43.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(plan): the geometry and symbols plans checked against today's code, with the owner's decisions\n\nBoth plans were re-read claim by claim on 2026-09-28 with the experiments\nre-run; nothing had been fixed since they were written. Geometry: G-D4 is\nworse than written (after \"Descartar\" the analysis halves are deleted from\nthe store, so a local atlas loses the output on F5), G-D3 is wider (the 111320\nm/degree class reaches the visibility radius and the rectangle move), and\nfour missing items (a filter census, a metric fast-check per shape, unique\nderived ids, re-deriving on open); the order puts G1 first with G-D4 ahead.\nSymbols: A1 executed on the server and confirmed; A2 (declination), A5 (blob\nreaders) and Phase 4.3 (KMZ consumers) corrected; the empty patch after the\nfilter, the double regeneration per remote op, the current-map-only stamp and\nthe 512-px Mercator box recorded. Phase G2 moves into the symbols plan's\nPhase 1 with table 1.3 copied, so the geometry plan can close alone. The\ndecision log records D-G1, D-G2, D-G4, D-G5 and D1 to D5.\n\nVerified: npm run lint, npm run test:tocados (test:frontend, 17452, with\ndocs-integridade); the load-only tab-lock-refutacao 3.5 red passed 3 of 3\nalone and the gate was rerun green.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "c2667cf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c2667cf55468bfa25c64c836ab7afedcf86cbb1d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T23:25:17.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the launch pending list keeps only what is open, and the rest moves to its home\n\nThe host steps of the first deployment (nginx, glyph URL, source maps,\nweather source) go to a section of docs/wiki/deploy-backend.md; the declared\nlimits, accepted minor defects and measured-but-unaddressed costs to a new\ndocs/wiki/limites-conhecidos.md; the screen coverage gaps and the load-only\nflakes to frontend/tests/TESTING-BACKLOG.md; the agent-campaign method, with\ntwo process lessons of 2026-09-28 (worktrees born on the main line, a shared\nscratchpad file overwritten), to a new docs/wiki/campanha-com-agentes.md. The\nhistory of 2026-09-24 to 28 stays in the decision log, the ledger and the\ncommits. PENDENCIAS-LANCAMENTO.md keeps the pre-deploy checks, the open reds\nof the day's runs, what has not run anywhere, the plans in progress and how\nto resume.\n\nVerified: npm run lint, npm run test:tocados (test:frontend, 17052, including\ndocs-integridade over the new pages).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "850de52",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/850de52f4ebcdb0777d0a0ee887e1fab87cd75f2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-28T23:24:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Add native QGIS and WebAssembly editors with real-data workflow validation",
+      "sha": "eaa56ea",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/eaa56ea8c30f28f71da70298be38394ceba5cb6c",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T22:55:54.000Z",
+      "author": "Maj Diniz",
+      "message": "simbologia: catálogo brasileiro revisado contra o MD33-C-01 nos nove conjuntos\n\nO dono revisou símbolo por símbolo (ícones e modificadores dos capítulos II a VI)\ncomparando o manual com o que o EBGeo desenha, e todos os marcados como diferentes\nforam corrigidos e verificados por ele.\n\n- Conjuntos novos no catálogo: 01, 05, 20, 27, 30, 35 e 40 (antes só 10 e 15):\n  siglas traduzidas, extensões que desenhavam moldura vazia ou ícone genérico,\n  desenhos refeitos e ícones civis vazados.\n- Unidades: a Classe VI hostil desenhava o símbolo de manutenção, e as Classes IV\n  e VII saíam das molduras hostil, neutra e desconhecida; o desenho amigo não muda.\n- replaceTextInSVG troca tamanho e altura só do elemento traduzido (antes um regex\n  global mudava todo texto de mesmo conteúdo); troca de desenho aceita pares\n  find/replace em lista.\n- simbologia-md33.test.js prende cada entrada ao SVG real do milsymbol, nas quatro\n  molduras, e as decisões que não são tradução.\n- Teto de peso do grafo completo: 12480 -> 12525 kB (12515 medido sobre a base atual).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01BYd5vcyo3garKpd33ZpGCC",
+      "sha": "46988f9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/46988f99ecc4e364e1e7c0cc7ca0a087548d3bc3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T22:08:34.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the weather proposal leaves the root\n\nPhase 1 lives in docs/wiki/meteorologia-pitcic.md since 2026-09-23. What only\nthe proposal still held was checked by the owner on 2026-09-28: the source's\nterms cover EBGeo's use, the network reaches the source from the workstations,\nthe per-address quota is not a problem, and the whole-matrix CSV and the\nprevailing-wind overlay will not be done. The decision log records it; the\nthree citations of the file (a decision entry, docs/MEMORY.md and the\ndocs-integridade declaration) are rewritten.\n\nVerified: npm run lint, npm run test:tocados (test:frontend, 17052); one\nknown load-only red (tab-lock-refutacao 3.5) passed 3 of 3 alone and the\ngate was rerun green.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "ed00d94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ed00d94c703ba5801a01726153623631d236513f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/github_dashboard",
+      "date": "2026-09-28T22:08:00.000Z",
+      "author": "Maj Diniz",
+      "message": "Adiciona dsg_topology ao monitoramento de repositorios",
+      "sha": "43aa5a2",
+      "htmlUrl": "https://github.com/1cgeo/github_dashboard/commit/43aa5a2abfff7f847dcfb4791570a340ea4ecc9a",
+      "repoUrl": "https://github.com/1cgeo/github_dashboard"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T21:55:04.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(plan): the text-tool plan checked against today's code, and the production glyph URL to the launch steps\n\nSection 1a records what still holds (layer without text-max-width,\ntext-font or rotation alignment; six whole-collection writes of texts plus\none of text-backgrounds; Noto Sans Regular in the local glyphs) and three\nfindings the first version lacked: the production glyph server is not\nguaranteed (MAPLIBRE_GLYPHS_URL defaults to a public server, now a launch\nstep), the text is hit by MapLibre's collision box and no exporter reads\nselectionBox, and backgroundColor is the letters' halo. T2 keeps the\nbackground icon on the text's alignments in both axes, T3 measures with the\nglyphs of the style's own URL, and the old Phase T5 leaves: the symbols\nplan's Phase 1 already carries it.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "d85e888",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d85e888ab38e62bb9ce46116e0a6ce5dbf32f623",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T21:46:50.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(decisions): the drag interrupted by the window and the colour of a legacy declination\n\nOwner's answers of 2026-09-28: Alt+Tab mid-drag keeps saving at the last\npointer position over the map (the behaviour already in move_handler.js),\nand a legacy magnetic declination whose colour sits in the old cor field is\nrecovered in the default blue; reading the old field was declined.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "62587f7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/62587f7159cd5a0832ba3ece2565b5b8a0d3fe80",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-28T21:30:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Detecta delimitadores sem separacao e instrumenta prova diferencial",
+      "sha": "969a098",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/969a0984a4baf5ad37e35f86a7fd75675d16d22d",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-28T21:19:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Adiciona sessao por UUID com hash de conteudo, undo e recuperacao",
+      "sha": "93b4149",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/93b41497231a3c136acb551b2f1b4fa5f42932ca",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T19:32:59.000Z",
+      "author": "Maj Diniz",
+      "message": "catalogar-cds-acervo 2026-09-28: ler_dgn pelo OGR do QGIS com teste de pior caso, ler_sis (cabeçalho e miniatura), marca do filme medida em 105 quadros (2095 = abril e maio de 1997), regra da tarja invertida revista e rótulo 2D/3D no dossiê\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2fa902c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2fa902c4e028b658f5f50405b46a8df798dab93f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T19:02:41.000Z",
+      "author": "Maj Diniz",
+      "message": "test(migration): the recovered declination is checked against the tool's own bitmap\n\nThe migration scenario expected the regenerated raster of the recovered legacy\ndeclination (01-completo.ebgeo) to decode to 400 x 500 px. That was the\nuncropped canvas of the generator when the expectation was written (99f6dcd7).\nSince e753a0ae the generator rasterizes at pixelRatio 2 and crops to the ink,\nand magnetic_declination joined the versioned bitmap sources, so no fixed pixel\nsize is right: the recovered diagram decodes to 525 x 755 and is stamped\n262.5 x 377.5 at pixelRatio 2 with iconOffset [-50.25, -55.75], exactly what\ngenerateDeclinationBitmap returns for the same properties.\n\nThe case now asserts the property that matters: the recovered declination is\nstamped (bitmapVersion 2) with the tool generator's width, height, pixelRatio,\niconOffset and anchor, and its stored blob decodes to width x pixelRatio.\nNegative control: skipping the stamp in regenerateIcon fails both 01-completo\ncases on the bitmapVersion assertion. The normalizer's JSDoc no longer claims\nits 400 x 500 defaults match the generator's output.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "53852cf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/53852cfd3c1e2367aafefd3e0d6d27fabf8ad1f8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-28T18:35:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-28: catálogo dos CDs fechado em 1.177 (rodada 2, 286 CDs em dez ondas de cinco agentes), ler_ttn com o terceiro formato de data, ler_intergraph com EPSG geográfico, GDAL_PAM e DGN pelo OGR na convenção de subagentes\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4f9353e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4f9353e3871ea1ad5ba049c14ae48967aa2da338",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T18:33:53.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the lessons of the day's five fixes, the rules they leave, and the pending list\n\nlivro-razao: the \"Usar aqui\" arbitration race, the trajectory spec undone by\nthe selection frame, the F5 current-map window under the boot curtain, and the\nfeature drag released off the canvas. Rules: a feature drag must not end only\non the map's mouseup (ferramentas-e-tipos-de-feicao), a pixel drag after\nselectFeatureUI brings its camera back and asserts the release lands on the\ncanvas (testes-playwright), and the open pipeline skips resetAtlasView when\nreopening the mounted atlas (sync-e-colaboracao). Section 3.3 of the pending\nlist records what each red of the full Playwright run turned out to be.\n\nVerified: npm run lint, fresh build, npm test at the root after the last write\n(frontend 17052, backend 5842, contract 308).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "c006668",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c006668556cbf813a378ceaa0839c75db73801f7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T18:16:20.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(move): a feature drag released off the canvas ends like one released on it\n\nMoveHandler ended a mouse drag only on the MAP mouseup, which MapLibre fires\nonly for a release whose target is inside the canvas container (the document\nmouseup reaches its handlers as mouseupWindow, which no map event mirrors).\nReleasing over a map control (a sibling of that container, e.g. the basemap\nthumb) or a side panel left ui.isDragging true and dragPan off, saved nothing,\nand the NEXT gesture on the map did not pan: its release saved the feature\nwhere the button went up.\n\nWhile a mouse drag is open the handler now also listens to window mouseup and\nblur (scoped, via event-cleanup) and ends the drag at the last pointer position\nover the map, which is where the selection boxes stopped following. A release\nover the map still ends it through the map mouseup, which removes the window\nlisteners first, so the drag ends once.\n\nRepro (Chromium 8/8 and Firefox 5/5 green in series; 3/3 red with the fix\nreverted): tests/e2e-ui/arrasto-solto-fora-do-canvas.repro.spec.js.\nNode guard (4 of 5 cases red on the base):\ntests/unit/arrasto-solto-fora-do-mapa.repro.test.js.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "49994fe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/49994fe04eaca8a8f9d0aaffd0f0df37219ec11c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T18:02:31.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(atlas): reopening the mounted server atlas on F5 no longer sends the current map to Principal\n\nOn F5 with ?atlas= the store boot hydrates the atlas's own namespace and\nputs currentMap on the person's map. openRemoteAtlasNow then called\nresetAtlasView, whose resetMemoryStore put currentMap back on the local\ndefault \"Principal\" (a map the atlas does not have) until\nactivateAtlasInitialMap ran after connect. Every store read in that\nwindow answered an empty phantom map, which is what made\ncobertura-desenho-menu fail with \"F5: A diverge do servidor\".\n\nThe reset is now skipped when the active scope is already this atlas's\nremote namespace from a completed transition (not a rescued slot): the\nsnapshot and the tail already update a live mount, and setCurrentMap\nreloads the map's mirrors. Switching to another atlas still resets.\n\nRepro (records every currentMap assignment with its stack):\ntests/e2e-ui/f5-mapa-corrente-nao-oscila.repro.spec.js. Node guard in\nnamespace-remoto-fiacao.test.js.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "23968b7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/23968b7e9d8360729c3daed653539e6f8661faa0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T17:47:34.000Z",
+      "author": "Maj Diniz",
+      "message": "test(trajectory): the symbol-drag repro brings its own camera back after the selection frame\n\nThe case \"arrastar o SÍMBOLO depois de o colega remover um ponto-chave\"\nfailed about three runs in four with \"o arrasto nao moveu\". The product\ndrag was never reached by the release: since 2026-09-24 a click in the\nlayers tree frames the selection (frameFeatures), and since 2026-09-26\nthe frame takes the route and the open panel into account, so the\njumpTo(zoom 13) of criarSimbolo did not survive selectFeatureUI. With the\nroute in the frame (zoom 13.43) the symbol sat at (573, 511) and the\n(-60, +60) drag released over the base-layer control\n(#base-layer-current-thumb), outside the canvas: MapLibre's mouseup never\nreached move_handler.js, the drag stayed open (dragPan still disabled\n1.5 s later) and nothing was written. When the frame came out with the\nsymbol box only (zoom 16.30), the release fell on the canvas and the case\npassed, which is what made it look flaky. Measured with a probe on the\ncamera calls: one fitBounds per run, from frameFeatures, with bounds that\neither include keypoint 3 (red) or not (green).\n\nFix, spec side: vistaDaCasa waits for the frame to stop and puts the\ncamera back where the spec measured its offsets (the pattern of\nvistaDoDesenho and of the ring spec in 3b353dbd), for the symbol case and\nthe rename case; arrastar now asserts the release point is on the map\ncanvas, so a future camera change fails by name instead of by timeout.\n\nProof (Chromium, isolated ports, retries 0, in series):\n- before: 22 of 31 runs that reached the drag failed at \"o arrasto nao\n  moveu\" (clean series: 4 of 6);\n- after: case 1 10/10, case 2 3/3, case 3 3/3, whole file 2/2 after the\n  last write;\n- negative control, vistaDaCasa removed from rotaComRemocaoDoColega:\n  5 of 6 fail at \"a soltura do arrasto cai fora do canvas do mapa\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "9e12592",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9e12592dc906b1a82420bd9843213e0f8a03fe74",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T17:46:35.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(livro-razao): the .ebgeo attached-photo spec that failed on its premise for four days\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "1b8e42c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b8e42c36a09f4293f68227276cf221eba4cd63f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T17:46:35.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(tab-lock): a tab in its own involuntary exit does not freeze on another tab's teardown notice\n\nOwner's decision E1 of 2026-09-28 (section 3.2 of the pending list). When\nthe map tab and atlas.html expire together and the map's exit is slow, the\nother tab's teardown notice reached the map mid-exit and froze it with \"Recarregar\nantes disso descarta esse trabalho\", while that exit was already saving the\nunsent work as a local atlas and its own notice said so.\n\nThe involuntary exit now sets a mark (`beginOwnInvoluntaryExit`, a zero-import\nleaf, store/sync/saida-involuntaria.js, so the account control does not pull\nthe whole brake into the map's eager graph: 18 kB of source measured), and\n`applyTeardownFreeze` answers false while it runs. False is the safe answer:\nthe tab keeps its mount lock, so the sweep finds the namespace mounted by a\nlive tab that did not stop, and spares it.\n\nRepro: resgate-com-abas-expirando-juntas.repro.spec.js now asserts the map tab\nis not frozen. Before: 3 of 3 red in the slow-logout regime (frozen, rescue and\nqueue intact). After: 6 of 6 in three runs, then 4 of 4 on the final code; the\nmap shows the rescue notice. Unit: a case in tab-lock-sync-brake.test.js;\nnegative control (the check removed) fails it, 33 others green.\n\nPage weight: the eager and complete graphs gain the leaf (579 -> 580, 824 ->\n825 files) and the total source ceiling goes 12470 -> 12480 (12471 measured),\neach with a note.\n\nAlso in the pending list: section 3.3, the classification of the 16 reds of the\nfull Playwright run of 2026-09-28 (each rerun alone 3 times in series), with\nthe post-F5 current-map flicker behind cobertura-desenho-menu's divergence.\n\nVerified: npm run lint, fresh build, npm test at the root after the last write\n(frontend 17042, backend 5842, contract 308).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "5f52393",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5f523931a96598f1e78953f741889c6a8e3dffbc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T17:39:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(tab-lock): \"Usar aqui\" clicked before the deferred open exists now finishes the open\n\nThe second tab of a `?atlas=` link is blocked by the INHERITED key the boot\nannounces (index.js), several awaits before its own open reaches\n`deferAtlasOpen`. A takeover in that window unblocked a tab with nothing to\nreplay, and `resumeDeferredAtlasOpen` returned before recording the win; the\nopen then arbitrated again (or was already inside `acquire`), met the witness,\nwhich sees the mount lock the yielding tab keeps by design, and gave up with\n\"already open in another tab\". Both tabs ended stopped, the URL lost `?atlas=`,\nand the badge stayed offline. Measured on Windows: 7/8 and 6/8 red in series.\n\nThe unblock is recorded even with nothing to replay, and a witness refusal\nthat follows an unblock won during the same acquire is the handoff, not an\nunheard peer. A counter keeps a stale earlier win from excusing a later\nrefusal.\n\nRepro: frontend/tests/unit/usar-aqui-antes-do-adiamento.repro.test.js\nBrowser: vista-compartilhada-no-boot.spec.js:117 15/15 green with the fix.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "25990b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/25990b3be72fad5f04873525f3b971605db4636c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-28T17:17:29.000Z",
+      "author": "Maj Diniz",
+      "message": "test(ebgeo): the attached-photo round trip measures the bytes in images/, not an inline payload\n\nThe case asserted the pre-45530f47 shape (photo bytes inline in the item,\nzip without images/) and failed at the premise, before exporting, so since\n2026-09-24 nothing measured whether an attached photo's bytes survive a\n.ebgeo round trip. It now asserts the by-reference contract (decision of\n2026-09-25): the item carries id and thumbnail but no data; the bytes sit\nin the local image store under the photo id; the zip carries exactly\nimages/<photoId>.png with the same bytes; the re-imported scope holds the\nsame bytes (read from the local store directly, so getImage's server\nfallback cannot hide a loss) and blobDaFoto decodes to a 4x4 red pixel.\n\nThe export-time confirm is now dispatched only when it is the catalog\nprune question: the same modal asks about images with no file, and\naccepting it blindly would turn the loss this case guards into a click.\n\nNegative controls: dropping idsDeFotosPorReferencia from\ncollectUsedImageIds fails on the missing-image dialog; skipping the blob\nwrite in prepareEbgeoScope fails on the re-imported bytes (the item still\nround-trips whole, which is the loss the old assertions could not see).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012X73dsBszb6gmUg6vMBnJT",
+      "sha": "e10475a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e10475abf40841cec1efcaa0dd91c6a90c02b4a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-09-28T16:04:36.000Z",
@@ -325,6 +517,15 @@
       "sha": "9409ae8",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9409ae8ce3982aa9f056b0227fdca051637a3bc4",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-28T09:41:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Implementa nucleo topologico, bancada PostGIS e estrutura QGIS",
+      "sha": "e3900a7",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/e3900a75016156cbe17f9f6ec7c8f175af4569f0",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
     },
     {
       "repo": "1cgeo/ebgeo_web",
