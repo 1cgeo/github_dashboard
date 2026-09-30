@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-29T23:35:39.834Z",
+  "lastUpdate": "2026-09-30T16:21:36.161Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -8,14 +8,14 @@
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
-    "1cgeo/doc_topografica": "2026-09-25T19:02:36.000Z",
+    "1cgeo/doc_topografica": "2026-09-30T00:33:46.000Z",
     "1cgeo/doc_dgeo": "2026-09-24T11:48:44.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-09-23T19:35:31.000Z",
+    "dsgoficial/modelagens": "2026-09-30T13:16:17.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-29T16:48:30.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-29T16:47:55.000Z",
@@ -57,14 +57,14 @@
     "1cgeo/github_dashboard": "2026-09-29T15:32:50.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-29T21:35:59.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-30T15:37:34.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-29T16:50:59.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T15:39:46.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
-    "1cgeo/dsg_topology": "2026-09-29T22:36:48.000Z"
+    "1cgeo/dsg_topology": "2026-09-30T10:24:46.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": false,
@@ -116,7 +116,7 @@
     "1cgeo/dsg_topology": true
   },
   "stats": {
-    "totalCommits": 7922,
+    "totalCommits": 7962,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,16 +126,16 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2153,
+      "1cgeo/ebgeo_web": 2173,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
-      "1cgeo/doc_topografica": 115,
+      "1cgeo/doc_topografica": 116,
       "1cgeo/doc_dgeo": 555,
       "1cgeo/ferramentas_mgcp": 18,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 171,
+      "dsgoficial/modelagens": 173,
       "dsgoficial/configuracoes_producao": 209,
       "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 652,
@@ -165,10 +165,10 @@
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 60,
-      "1cgeo/dsg_topology": 134,
+      "1cgeo/dsg_topology": 137,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 901,
+      "1cgeo/chefe_dgeo": 915,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -176,6 +176,366 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T15:39:46.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): the selection box spec waits for the box to settle, not 300 ms\n\n`caixa-acompanha-a-edicao` failed in Firefox (image and point cases, 2/2)\nwith the drawn box 3 to 4 px off the one rebuilt on zoom. With a 2 s wait\nboth passed: the box follows the edit, but against the dev server Firefox\nredraws the symbol and then the box later than the fixed 300 ms the spec\nwaited. The wait now asks for a box that LEFT its old place and then held\nstill for 250 ms; a box that never follows the edit (the defect the spec\nexists for) never leaves it and fails the wait by name, with no zoom to\nrescue it. Measured after the change: Chromium 9/9 and Firefox 9/9\n(`--repeat-each=3`, no retries).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "2553a97",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2553a974fb320d8e7482300d293a4da27f412a3d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T15:37:34.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia: a GPU1 volta ao outro usuário depois da D32; as filas seguem na GPU0 e na GPU2\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\n\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "513f066",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/513f0661aa852634a971e642207640c6f60c7b6f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T15:21:08.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-30: pedido 224 do 7º RC Mec (Op FURACÃO) cadastrado com a pasta 20 de SET; learnings da mapoteca (itens sem uuid no TSV, pasta sem marcador) e split do quente para 14,6 KB\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "805a97f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/805a97fd132d29b45dd303657e323fc2f7f4b46f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-30T13:16:17.000Z",
+      "author": "Maj Diniz",
+      "message": "edgv topo 2.0 v0.19.0 e orto 3.0.3: o histórico passa ao DSG Versioning\n\n- espelho da Topo 2.0 0.19.0: sem colunas e trigger de autoria e datas,\n  sem linhagem_feicao e status 4, confiabilidade e escala máxima\n  calculadas na leitura, idade contada da data_confirmacao\n- Orto 3.0.3 regerado sobre a Topo 0.19.0: sai preenche_metadado() e as\n  colunas de autoria e datas; preserva_geocodigo() continua nas tabelas\n  não-edição; changelog §7.3 com o caminho de migração da 3.0.2,\n  provado no PostgreSQL\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014LFLQ33jCkZxFREqLu687u",
+      "sha": "c2407dc",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/c2407dc71ab7258a91ba27900e61c9d6a5e67200",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T12:55:23.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia: a GPU1 liberada pelo chefe (2026-09-30), dividida com outro usuário\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\n\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "6895d09",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6895d09d299a809ed69d00bde0cad7785d0bfd62",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T12:41:35.000Z",
+      "author": "Maj Diniz",
+      "message": "env: GDRIVE_RCLONE_TOKEN (token de leitura do Google Drive para o rclone do servidor de IA) no catálogo\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\n\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "76b8535",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/76b85353af74f19a3f0761806b5804ab3c889d82",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T12:28:15.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-30: dispensa da workstation com os CONFERIR resolvidos na fonte\n\nAs minutas de ETP, MR e TR passam de 64 para 14 marcadores: a NVIDIA amarrada ao CUDA do\nDJI Terra e do Gaussian Splatting, 16 GB de VRAM e 64 GB de RAM justificados, ISV retirada,\nSSD de 2 TB no CATMAT 619122, Inmetro 304/2023, prazos da IN 77, OETI3 e meta do PDTIC,\nPCA pelo DFD 9/2025, somatório pelo SAG e ND 44.90.52.41. O histórico da compra passa a\nser a carona de 2025 que o fornecedor não honrou pela alta da memória. A régua de\ncoerência ganha o eixo do prazo de entrega, a negação local e o texto de catálogo como\nterceiro; learnings da skill separados em quente e detalhe; correções no livro-razão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01WmYarfcHXQoHDyu4t8zqDU",
+      "sha": "3069aca",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3069aca63bf8448044c36c90b6415d4985e58cc9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T10:55:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-30: deploy do ebgeo_novo em 0cbf0c89 (wiki e learnings, dump pelo DATABASE_URL, sonda de navegador em script), revisão de merge em andamento na revisao-codigo, e o item de norma que trava o guard no TR\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "51fce01",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/51fce01c2b8b1e20765dab3027b31acc0496e2fd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T10:53:44.000Z",
+      "author": "Maj Diniz",
+      "message": "conferência contra o SAG de 2026-09-30: o 406022 na reconta, dois recolhimentos, a anulação da NE000129 e três liquidações no SAP 3.0; a 2026NE000013 fica de fora\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0d95988",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0d9598821f82b80cc93c4672f31ffd69bd2d6955",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T10:43:52.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-30 (cont.): a D27 revista (D32): o lidar orbital como rótulo esparso com metade das trilhas, os braços com e sem a banda P sob mata densa e o do granulado de 2 células; a referência do ES acima do chão sob a mata (problema E)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "4177535",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/41775352518e7bbbcadc2d9e2e3982b1d3dabd78",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T10:38:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'integracao_backend' of https://github.com/1cgeo/ebgeo_web into integracao_backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0cbf0c8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0cbf0c89c3d0da4ce12339401d84c584e3ddd042",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T10:37:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'integracao_backend' of https://github.com/1cgeo/ebgeo_web into integracao_backend\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3dcb1e6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3dcb1e647309b26ff2e18ff229ffdfd434d97f3c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T10:31:29.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): what the app holds after opening a .ebgeo includes the derived visible half\n\nThe full Playwright round in Chromium (2026-09-30) failed five specs by one\nfeature: \"Principal\" held 19 where the fixture declares 18. The extra one is\nthe visible half of its line of sight (`<id>-visible`, `processed_los`),\nwhich the product derives from the input and never receives: on import\nsince the analysis outputs became derived on every client, and on mount of\nthe current map since `healAnalysisOutputs` (G-D4, 2026-09-28). The specs\nstill compared against the raw file. Measured with a temporary spec that\nlisted the feature the file does not declare.\n\n- `countFixtureAfterOpening` (tests/helpers/ebgeo-fixture.js) counts after\n  the product's own `rederiveAllAnalysisOutputs`; the external migration\n  scenario, which had it privately, now uses the helper.\n- atlas-local-ebgeo-e-teardown, browser-migracao-2.2 (three cases),\n  cadeia-completa-atlas (legs 1 and 2) and ebgeo-round-trip-arquivo compare\n  what the app holds with it; what the FILE declares is still asserted.\n- browser-migracao-2.2 also accepts, next to the declination render cache,\n  its local drawing record (`DESENHO_LOCAL_KEY_PREFIX`, symbols step 1a).\n\nEach spec run alone afterwards: 4/4, 10/10, 1/1, 1/1 passed.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "831b1da",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/831b1da4940708a8d412981a386b29b8b0f5cbb6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T10:29:09.000Z",
+      "author": "Maj Diniz",
+      "message": "dispensa de licitação (skill elaborar-dispensa, wiki e projeto da workstation do drone), learnings do atualizar-dockers, da mapoteca e do mosaico, e o servidor ebgeo na wiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8d51022",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8d510226022a6404c7528355dd39ef2ecaf25f5a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T10:25:56.000Z",
+      "author": "Maj Diniz",
+      "message": "base_continua: Cáspio como massa d'água e costa da América do Sul marcada\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "a8bec12",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a8bec1256493b7036e440eebb540878861a17c90",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-30T10:24:46.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(pendencias): South American coast marked in the continuous base\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "53792d4",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/53792d48c44d3732d643587464d60b135deae979",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T10:07:00.000Z",
+      "author": "Maj Diniz",
+      "message": "dsg_topology janela real e oceano; disputados e Cáspio no base_continua\n\nDecisions 2026-09-30 (janela com borda real recortada no núcleo, classe\noceano, área sem dados; territórios disputados gravados com raio de explosão\ne o Cáspio conferido); wiki dsg-topology e PROJECT.md de\ntopologia-base-continua.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "c7668e5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c7668e584b1a06a03641af057e24ab385dae79d1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-30T10:04:33.000Z",
+      "author": "Maj Diniz",
+      "message": "feat: processing window with a real border, ocean class and multi-class centroids\n\nProcessing window (decision of 2026-09-29): the visible area or a selected\nframe polygon clips the sources in the core (window::Window), and its border\nis a real frame, so every face it closes is judged. A line is cut at the\nhalf-open pixel of its exact crossing with the ring, the same rounding as the\ncore's hot pixels, so snap rounding always routes the ring through the cut:\nthe clipped line meets the border with no tolerance. Exposed as\nProcessingWindow in the Python and WebAssembly bindings; the QGIS adapter\ndrops its GEOS clip and gains \"Iniciar na moldura selecionada\"; the browser\nclips the opened package to the visible area or a frame from a GeoJSON file.\nExporter and demo packages use a real frame; the artificial frame stays for\npackages that declare it.\n\nOcean: one centroid may now feed several classes (Rules::centroid_classes, one\nequality key per class). The ocean centroid feeds the water body and a new\n`oceano` class, bounded only by the marked coast, which masks the\nmunicipality, so the sea is not a face without a municipality centroid.\n\nNo-data area: bounded only by its own delimiter and lines that already bound\nvegetation, so its mask adds no cut to vegetation (invariant tested).\n\nVerified: cargo test (incl. window chords on 300 slanted windows with a\nnegative control, ocean mask with a negative control, long random session\ncampaign), tests/test_window.py against GEOS (1305 cases) with a negative\ncontrol, tools/check.py (230 passed, 3 skipped), QGIS 4.2.1 36/36 driving\nthe frame button, web window/editor/coverage in Chrome and Edge, including\nparity of the browser clip with native cut points. Parity/ring-delta web\nfixtures stay unavailable (generators stale, see PENDENCIAS).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "bddd8bc",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/bddd8bc73aefd14998870ff639ad0bc3f04fb0f4",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T09:30:06.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki: página do dsg-versioning e estado do projeto versionamento-base-continua\n\nNova página wiki/dsg-versioning (1cgeo/dsg_versioning: a generalização de\n2026-09-29 para clone de clone em PostGIS ou GeoPackage, o que está\nconstruído e provado, os limites e as decisões de domínio que dependem do\nchefe), ligada do índice, de versionamento-geoespacial, base-continua,\nlinha-do-tempo e dsg-topology. O PROJECT.md passa ao estado de 2026-09-30:\nonde o clone mora, serviço em Python, fusão de geometria experimental e a\nsituação das provas P1 a P8.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_014LFLQ33jCkZxFREqLu687u",
+      "sha": "d75f884",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d75f884829742891c3c76ec9a80d2a7f8060b6f6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T09:14:11.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-30: o v4 de 15 modelos com o pós vira o definitivo (D31), a regra \"julgamento é multicritério\" no núcleo, a leitura parcial e a explosão de modelo isolado na skill de campanha, os casos difíceis 2 a 4, o HAND v3 igual ao nosso, e o estado do projeto reescrito\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "a347d5e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a347d5ee74442797a7051ac4b481202a880eb0c1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T09:04:59.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: PENDENCIAS-CODEX.md leaves the repository, with no finding left open\n\nAll sixteen findings were fixed and their evidence lives in the commits\n86c0b377..4c89da25 and in the regression tests they added.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "81ce240",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/81ce240f39cee1d40184efcd586da6a4a7ab8020",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T01:29:12.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mapas): map copy and combine are registered composites; CODEX lots closed\n\nThe five commits before this one are the fixes of CODEX-01/02, 03, 04, 10/11\nand 15/16, made in isolated worktrees and cherry-picked here. This commit:\n\n- registers the local map copy and \"Puxar outros mapas\" as composites of the\n  atlas they start in (`beginCompositeWrite`, the CODEX-14 protection), so\n  an atlas switch waits for them; a copy parked on an image read now lands\n  in A before the switch (new case in\n  tests/integration/copia-pendente-nao-muda-de-atlas.repro.test.js, negative\n  control run);\n- map page ceilings for everything integrated: eager 8500 -> 8530 (8523 kB),\n  total 12720 -> 12750 (12743 kB), measured by the failure;\n- PENDENCIAS-CODEX.md: the eight remaining findings move to \"Resolvidos\"\n  with their tests and limits; zero findings open, the real-client acceptance\n  still listed.\n\nRoot `npm test` (chosen by test:tocados): frontend 18140/18140, backend\n5862/5862 with no skips, contract e2e 308/308. Lint clean.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "4c89da2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4c89da2553dc07eb01974b1dea751c640690e03a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T01:09:43.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(migracao): the late absorption holds the destination instead of asking about it (CODEX-08)\n\n`absorbLateLegacyChanges` queried whether a client had the destination atlas\nmounted and then planned and applied without holding anything. A tab that\nswitched to the destination after the query read it and saved a new point;\nthe absorption wrote the planned map over it and its final check, which\ncompares against the plan and not against the base, approved the result.\nA plan interrupted at APPLYING was re-applied the same way over whatever\nthe destination had become.\n\n- The absorption takes the destination's mount lock EXCLUSIVELY\n  (`withExclusiveAtlasLock`) from plan to commit; refused, it defers as\n  before, and without Web Locks it defers.\n- The shared mount lock now records its grant, and the data stores of a\n  scope wait while this client's mount of it is not granted\n  (`pendingMountGrant`, `store/atlas-namespace.js`): a client that mounts\n  the destination during an absorption reads and writes only after it.\n- The absorption reaches the destination through the lock holder's stores\n  (`exclusiveHolderScope`), which never wait; otherwise a switch of the same\n  tab into the destination made the absorption wait for itself.\n- A plan at APPLYING is applied only when every key is still what the plan\n  saw or already wrote (`planBaseHolds`); otherwise it is dropped and planned\n  again against the destination as it is, with the origin untouched.\n\nTests: tests/integration/incorporacao-tardia-segura-o-destino.repro.test.js\n(mount during the absorption, already-mounted control, resume over an\nedited destination, resume over an untouched one); two negative controls\n(gate off, base check off) each fail exactly their case. The injection in\nalteracoes-tardias-legado.test.js now targets the holder's store, which is\nwhere the absorption writes. test:tocados (frontend): 18101/18101.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "b240745",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b240745c9d33bb9b921d225c60b161b9801c16ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:59:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(duplicar-mapa): the local map copy carries every section or none, and says so\n\nCODEX-15. MapManager.copyMap (local atlas) copied document, colours, notes,\nlayers, groups, 3D, 360 and temporal config, but comments and the grid style\nare separate side documents and no step copied them: the copy came out without\nthem and the command said \"duplicado\". The server duplicate carries both (and\nthe lock).\n\nCODEX-16. duplicateMapLayers filled the id mapping BEFORE persisting and its\ncatch returned it even when setLayersRepo failed, so copyMap pointed every\nfeature at a layer no record carried and announced success; duplicateMapGroups\nswallowed its failure the same way, and no section was ever checked.\n\nFix: one list of what a map copy carries (CONTEUDO_DA_COPIA_DE_MAPA, aligned\nwith the server duplicate: document with image bytes, colours, notes, layers,\ngroups, 3D, 360, comments with replies, grid, temporal, lock). _duplicateLocally\nreads the source first, copies each section with new ids (comments remap the\nreply's parent; 3D/360 go through the copy ports), makes every section throw\non failure or refusal, READS THE COPY BACK and checks its references before the\nlock closes it, and on any failure discards the partial copy (map, side\ndocuments under the new name, minted image blobs, 3D/360 memory mirrors)\nwithout touching the original. duplicateMapLayers hands the mapping over only\nafter the write and propagates; duplicateMapGroups propagates and returns what\nit wrote.\n\nTests: tests/integration/duplicar-mapa-local-leva-tudo-ou-nada.repro.test.js\n(real store, fake-indexeddb): full content check of every section after a\nreload and in buildExportDataObject; a locked source gives a locked copy; a\nquota failure injected at the IndexedDB put of EACH section of the copy (13\ncases) returns success:false, leaves the original identical and no key left in\nany store; a layer write that \"succeeds\" without writing is caught by the\nreadback. Red on HEAD (16/16); negative controls: no comments/grid step -> 4\nred; HEAD duplicateMapLayers + no readback -> 3 red; HEAD duplicateMapGroups +\nno readback -> 2 red; no discard -> 13 red. The temporal-copy test's store mock\ngained the new sections; the map page source ceiling raised with the measured\nvalue; one ledger line for the prototype spy that recorded zero calls.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "164e176",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/164e17615dae1f8aa7833cf680d0e4b1af48cdec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:58:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(combinar-mapas): pulling other maps adds 3D/360 as journaled copies and keeps the target's own\n\nCODEX-10. \"Puxar outros mapas\" (combineSelectedMapsIntoTarget) started the 3D\naccumulator EMPTY, added only the sources and wrote it with\nsetCesium3dDataForImport, which REPLACES the whole document: the target's own\ncameras, markers, measurements and viewsheds were erased while the command\nreported success. The 360 import port merged, but let the source orientation\noverwrite the target's for the same photo and kept the source ids.\n\nCODEX-11. Both import ports write the side document raw and journal nothing, so\nin a server atlas the copied items vanished at the next snapshot (which only\nre-projects pending intentions) and never reached a peer. The combined groups\nhad the same shape (raw setMapGroups) and died in the same snapshot.\n\nFix: copyCesium3dItemsIntoMap and copyStreetview360ItemsIntoMap add copies\nthrough the gesture funnels (editCesium3d / editStreetview360): one CREATE per\nitem, same entity types and shape as the viewer's buttons, journaled before\nthe write, every copy under a new id (the id is a primary key on the server).\nOne camera per model and one orientation per photo: the target's wins, kept\nones are reported. combineMapGroups now journals GROUP + GROUP_FEATURE creates\nlike createGroup, reads the target from disk inside the lock, and propagates\nfailures (the caller no longer swallows them). A refused 3D/360 copy fails the\ncombine with a sentence saying the features were already combined.\n\nTests: tests/integration/combinar-mapas-preserva-3d-360-do-destino.repro.test.js\n(real store, fake-indexeddb): local atlas keeps every target item by id and\ncontent and adds the sources with new ids; server atlas queues one create per\ncopied item on the target map id and none on target items; a server snapshot\nwithout the copy re-projects the pending intentions and the copy survives\n(control: a server-only comment proves the snapshot was applied). Red on HEAD\n(3/3); negative controls: old combine block -> 3/3 red; group journal removed\n-> 2/2 group cases red. Census counts of tilesetId/photoName updated (new\npersist sites) and the map page source ceiling raised with the measured value.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "710b4d3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/710b4d35080b96542e26ff79d72f5db75355811c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:54:37.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(renomear-mapa): slides that target a map by name follow its rename (CODEX-04)\n\nRoot cause: a slide names its map by DISPLAY NAME (the editor stores the option\nvalue, which is the name; the presenter compares it with the current map name), and\nnothing in the rename chain (map.manager -> store renameMap -> LocalRepository\n.renameMap) touched the briefings. The slide kept pointing at a name no map had:\nthe .ebgeo carried the dead name and buildServerImportPayload turned it into\nmap_id: null with the map in the same payload. The rename received from a peer\n(mergeRemoteMapUpdate -> transferNameKeyedSideStores) had the same hole, and there\nthe cost lands on the server: that peer's next edit of the slide sends the old\nname, resolveSlideMapId finds no map with it and stores null.\n\nFix: LocalRepository._retargetSlidesAfterRename, run by the REPOSITORY after the\nrecord is on disk under the new name, in both doors of a rename: renameMap (so no\ncaller can skip it; the reviewer's instrument calls the repository directly) and\ntransferNameKeyedSideStores (the inbound path). Each briefing is re-read and written\nunder its document lock (briefing:<id>, the key of writeBriefing and of the inbound\nslide apply), changing only the mapId of matching slides. The briefings that changed\ncome back to the caller; the store op and the handler emit BRIEFING_UPDATED so an\nopen editor re-reads. It never throws: a failed rewrite comes back as slideError\n(the store op emits STORE_PERSIST_ERROR; the inbound path relies on the next\nsnapshot), because throwing after the rename is committed would make the store\nreport failure and skip the memory re-key. While another map still answers to the\nold name the reference is left alone (namesake scan with no exclusion, since the\nrenamed record already carries the new name).\n\nDecision, documented at the method: NO sync operation is journaled. On the server\nthe slide target is stored by UUID (slides.map_id), a rename does not change it and\nthe snapshot already returns the new name; the rewrite only brings this client's\ncopy in line. A slide op would be redundant for the author and, on the receiving\nside, a burst of ops from every peer for one rename.\n\nWeight ceiling: the full-graph source ceiling of teto-de-peso-da-pagina-do-mapa goes\n12680 -> 12695 (12684 kB measured by its failure; about 6 kB for the three fixes,\ncomments condensed; no new module or package; the eager half still fits).\n\nTests: tests/integration/renomear-mapa-leva-alvo-dos-slides.repro.test.js, with the\nreal store op, handler, repository and fake IndexedDB: name-keyed and UUID maps in a\nlocal atlas through rename -> reload -> buildLocalAtlasExportData ->\nbuildServerImportPayload (the slide's map_id IS the id the payload gave map \"Novo\";\nother and empty targets untouched) -> prepareEbgeoScope (the imported slide names an\nimported map); a concurrent writer holding the briefing lock across the rename (its\ntitle edit and the retarget both survive); namesake guard; the repository door\ncalled directly; a failing briefing write (rename kept, slide untouched, error\nreturned); server atlas author (retargeted, no slide/briefing op queued) and a\npeer's rename through applyRemoteOperation. The reviewer's instruments\n(review.test.js, briefing.test.js) pass 6/6 against this tree.\nNegative controls on this code, each by hand-edit and restored: retarget writing the\nold name -> 6 of 8 red and both CODEX-04 instrument cases red; inbound door\nneutralized -> the peer case red; briefing lock removed -> the concurrency case red.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "fdc6ede",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fdc6ede6e9b134a2031c8b135490a2bae642de71",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:52:57.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(renomear-mapa): a failed write during a rename never deletes both copies (CODEX-03)\n\nRoot cause: _transferNameKeyedSideStores fired the write of the new key and the\nremoval of the old one (temporal_<name>, mapLocked_<name>) in the same Promise.all.\nTwo independent IndexedDB requests, no transaction binding them, no wait for the\ncopy before the delete: when the write of temporal_<new> was refused (quota), the\nremoval still ran and the temporal config (window, unit, relative mode, D-day) was\ngone from disk while the record already had its new name. The legacy branch had\nthe relative: it removed the record from its old key BEFORE carrying the side\ndocuments. store-transaction's rollback discards later effects; it undoes no write.\n\nFix: LocalRepository._carryDocuments. Every document that changes key is copied and\nread back (sameStorageValue); then the commit (UUID: the record under its new name;\nlegacy: the record copied under the new key, and removing it from the old key is the\ncommit); only then the sources are removed. A failure in the copy or the commit\nundoes the copies (restoring what the destination held) and rethrows, so the map is\nwhole under its old name and repeating the gesture resumes it. A failed source\nremoval is only logged: the documents already live at, and were confirmed under,\nthe new key, so the leftover is a duplicate, not a loss. The inbound path\n(mergeRemoteMapUpdate -> transferNameKeyedSideStores) uses the same routine; there\nthe record is written before the carry, and the next snapshot rewrites\ntemporal_<name> by the current name. Also: renaming a legacy map onto its own key\nreturns early (it would write the record and then remove it), and onto a key that\nholds another map's record refuses instead of replacing it.\n\nTests: tests/store/renomear-mapa-falha-de-escrita-preserva-copia.repro.test.js\ncounts the N mutations of a healthy rename, then for every k in 1..N makes the k-th\nsetItem/removeItem reject with QuotaExceededError, and asserts every seeded document\n(temporal, lock, 3D, comments, layers, groups, grid) is intact under the old or the\nnew key and that repeating the rename leaves all of it under the new name; same for\nthe UUID branch and for the remote-rename door; plus the finding's exact repro.\nNegative control: the commit-1 local.repository.js put back by hand, 4 of 4 red;\nrestored, 4 of 4 green.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "870eaaa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/870eaaa88d96f223f25cfe247dfc454f621cf67e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:52:43.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(pendencias-codex): CODEX-05, 06, 07 and 09 resolved; map page ceilings for both lots\n\nThe four fixes were made in an isolated worktree and cherry-picked on top of\nCODEX-12/13/14 (the five commits right before this one). Integrated, the\nfrontend suite is 18097/18097 and lint is clean; the map page source grew to\n8491 kB eager and 12711 kB total with both lots together, so the ceilings go\nto 8500 and 12720, measured by the failure.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "2cfe440",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2cfe4406b245ac68c74a6233a7eefeb691f6321a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:51:40.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(renomear-mapa): the legacy rename carries every key-keyed side document (CODEX-01, CODEX-02)\n\nRoot cause: in the legacy branch of LocalRepository.renameMap the storage key IS the\nmap name (maps adopted from the main browser), so every side document has to change\nkey with the map. That branch was a hand-written list, one document at a time, each\nwith its own \"worth moving\" filter, and it drifted from the list deleteMap removes:\n- cesium3d_ and streetview360_ moved only with a camera or a marker, so a map whose\n  3D was only measurements and viewsheds was renamed away from them (CODEX-01);\n- comments_ had no line at all, roots and replies stayed under the old key (CODEX-02).\nReaders, the .ebgeo export and the server send all look under the new key, so the\ncontent vanished from view and the next transfer lost it.\n\nFix: one list of key-keyed side stores (keyKeyedSideStores), read by deleteMap and\nby the legacy rename, and the rename carries every document that exists, with no\ncontent filter. The list is a function so StoreName is read on call: a module-level\nconstant broke the import of this module under a partial mock of atlas-namespace.js\n(tests/unit/preferencia-de-atlas-passa-pelo-guard.test.js).\n\nTests: tests/store/renomear-mapa-herdado-leva-laterais.repro.test.js checks ids and\ncontent (3D measurement/viewshed, comment + reply, layers, active layer, groups,\nnotes, grid, colour count, 360) through rename -> reload (fresh repository on the\nsame scope) -> buildLocalAtlasExportData -> buildServerImportPayload ->\nprepareEbgeoScope, for a name-keyed map and a UUID control, plus the in-memory 3D\nmirror (the 3D edit right after the rename no longer rewrites the 3D empty).\nNegative control: HEAD's local.repository.js put back by hand, 5 of 7 red; restored,\n7 of 7 green.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2f6ac2f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2f6ac2f647b28bd2df22d90e4945e4ef8348da95",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:49:00.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(transferir-camada): a composite stays in its atlas, and a copy needs the bytes (CODEX-12, CODEX-14)\n\nCODEX-14: `transferLayerToMap` is several transactions with blob reads\nbetween them, and every phase resolved names and repositories from the\nACTIVE scope. The atlas switch waited only for the transactions open at that\ninstant, so a copy parked on an image read resumed after the switch and\nwrote into the next atlas's map of the same name, in the four directions.\n`beginCompositeWrite` (store/write-coordinator.js) registers the composite as\nONE writer of the scope it starts in: `pauseStoreWrites(...).settled` waits\nfor it and its own later transactions are admitted during the pause; a\ncomposite cannot begin while the scope is paused. Every phase asks\n`assertScope` and stops with COMPOSITE_SCOPE_CHANGED instead of writing into\na scope that changed without a pause. Applied to `transferLayerToMap` (copy\nand move) and `moveFeaturesToMap`.\n\nCODEX-12: the blob duplications were `allSettled`, logged and ignored; a\nquota error on the new blob produced a destination image with no bytes,\nannounced as a complete copy. Each duplicated blob is read back; a failed\nwrite refuses the copy (`image_copy_failed`, with its sentence) before\nanything reaches the destination. The image phase now runs BEFORE the\ndestination layer record, whose journaled CREATE could not be undone by\nrestoring the local list. An image whose SOURCE has no bytes still travels\nand the result counts it (`missingImages`, said as a warning).\n\nCODEX-13 follow-up: after a move the features tab removes from the MapLibre\nsources only the moved ids (`movedIds`), so a feature kept in the source\nstays on the map.\n\nTests (red before, green after, negative controls run):\n- tests/integration/copia-pendente-nao-muda-de-atlas.repro.test.js: real\n  `switchAtlas` in the four directions with homonymous maps, without the\n  homonym, a move with per-atlas queues, and a raw scope activation;\n- tests/unit/composicao-registrada.test.js: the coordinator contract;\n- tests/store/copiar-camada-exige-bytes.repro.test.js: quota on the new\n  blob (local and remote), healthy copy compares bytes, source without bytes.\nMap page ceilings: eager 8465 -> 8475 (8472 kB), total 12690 -> 12700\n(12693 kB). test:tocados (frontend): 18075/18075. Lint clean.\nPENDENCIAS-CODEX.md: CODEX-12 and CODEX-14 moved to \"Resolvidos\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "babe830",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/babe830a44a3ac0d87ee72e02c5970326ff4d5ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:45:10.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(exportacao): handleExport calls the pruned builder itself inside the read window (CODEX-05)\n\nThe consistent-read window of CODEX-05 moved the call to buildPrunedExportData\ninto a helper declared before handleExport, and the structural guard of the\noutput pruning (tests/unit/poda-de-saida-fiacao.test.js) reads the body of\nhandleExport for that call: it went red in the full frontend run. handleExport\nnow calls buildPrunedExportData inside the window and the helper only adds the\nimage bytes (_withExportImages). Behaviour unchanged; the CODEX-05 and CODEX-06\nrepro files, the pruning guard and the orphan-image guard pass.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "308489a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/308489a0f8d4e561b531aa0b225a5904e226b9c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:42:48.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(icones): a pending icon upload keeps its bytes when the registry write fails (CODEX-09)\n\nRoot cause: addCustomIcon awaited its upload without requiring a confirmation,\nand its catch deleted the local blob unconditionally. In a server atlas with\nthe network down the attempt stayed PENDING in the durable blob queue, which\nrecords metadata only, and the journaled intention (a prepared op whose list\nnames the icon) was already on disk; when the custom_icons write then failed\n(quota) the rollback removed the only copy of the bytes, and the resumption\nclosed the upload as refused for a missing file.\n\nFix: the rollback deletes the bytes only when nothing recoverable needs them:\nthe server confirmed the upload (it holds them under the same id) or nothing\nwas registered (a local atlas, no queue and no intention). A pending, in-flight\nor refused attempt keeps them; the resumption delivers them and the intention\nthat names them stays in the pending panel for the person to resolve. The\nattempt is not cancelled: that would leave the journaled intention naming bytes\nnobody can send, and this fix discards no queue entry. The write-ahead wiki page\nrecords the rule and the serialized registry section of CODEX-07.\n\nTests: tests/integration/icone-pendente-conserva-bytes.repro.test.js (real\nproducer, operation queue, blob queue and resumption; bulk transport double):\nnetwork down then quota keeps one prepared op naming the id, a pending record,\nthe local bytes, and the resumption with the network back confirms the upload\nwith the same bytes on the server and locally; controls: registry written and\nresumed, and a confirmed upload still rolled back locally. Red on the parent\ncommit (local bytes null); negative control: forcing the unconditional delete\nmakes the resumption report { confirmadas: 0, recusadas: 1 }.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5eddb6f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5eddb6f4a102c655d0c5ed14acc60d9338b6cae0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:40:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(icones): overlapping icon additions no longer lose a registry entry (CODEX-07)\n\nRoot cause: addCustomIcon built previous/next from the module cache after its\nupload and wrote the WHOLE list; runTransaction orders journal, persistence and\neffects but does not order writers. Two additions in flight (the picker lets a\nsecond pick start while the first uploads) both read the same list and the\nsecond write replaced the first: both answered success, both blobs stayed, and\none entry left the palette and the export.\n\nFix: the read-modify-write of the registry is one withDocumentLock section per\natlas (key setting:custom_icons). Inside it the list is read FROM DISK, not from\nthe cache, so an addition that waited sees the one that finished; the uploads\nstay outside the section, so a slow link never holds a second icon. The cache\nmoves only after the key is on disk and abandons a load in flight. A registry\nthat cannot be read now fails the gesture before any byte is stored or sent.\nSibling: restoreCustomIconsFromImport (merge on additive import) takes the same\nsection and reads from disk strictly; it also no longer moves the cache before\nthe disk write. The remote handler that replaces the list wholesale is left as\nis (server-authoritative replacement, declared model).\n\nTests: tests/integration/icones-inclusoes-sobrepostas.repro.test.js (5 cases,\nuploads released by the test: call order, reverse order, second addition fully\nfinished before the first upload lands, server atlas with the two journaled ops\nchained through previousData, sequential control; each checks the ids and\nmetadata on disk, the export list, the picker list and the bytes of the old and\nboth new blobs). 3 red on the parent commit (2 of 3 entries on disk); negative\ncontrol: bypassing the lock turns the same 3 red.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3e9e40c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3e9e40cf22a6fea2d7ab9c9099c609993998be6a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:37:30.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(exportacao): an unreadable icon registry is a partial copy, and cited icons travel (CODEX-06)\n\nRoot cause: getCustomIconsForExport went through ensureLoaded, which swallows a\nread error and answers [] (right for the picker, which retries on the next\naccess). The exporter took [] as \"no icons\" and recorded no read failure, and\ncollectUsedImageIds / requiredImagesOf found icons only through the exported\nregistry, so a point with markerSymbol 'custom:<id>' went out without the icon\nbytes and without any question, while the bytes were still on disk.\n\nFix: getCustomIconsForExport reads the key from disk and throws on failure (the\npicker keeps its lenient reader). buildExportDataObject turns the throw into a\nreadFailures entry { section: 'customIcons' } shown by the partial-copy warning\nas \"lista de ícones personalizados\", or rethrows in a strict build (publishing\nto the server). New leaf idsDeIconesCitados (ebgeo-missing-images.js) derives\nthe icon ids from the features' custom:<id>; requiredImagesOf,\ncollectUsedImageIds and the recovery file (montarDocumentoEbgeo) use it, so the\nbytes travel and a missing one is asked about even when the registry failed or\nnever listed the icon.\n\nTests: tests/integration/icones-falha-de-leitura-na-exportacao.repro.test.js\n(7 cases: injected UnknownError on the registry read gives the readFailures\ncontent, no invented registry, used-image set and required-images list by id;\nstrict refusal; picker still lenient and uncached; healthy control; recovery\nfile of a closed atlas; downloaded zip asks first and carries images/<id>.png\nbytes; healthy download control). 3 red on the parent commit; negative\ncontrols: restoring the swallowing reader turns 3 red, disabling the\nreference-derived ids turns 3 red.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "df23cb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/df23cb56095b79e827088abcbf6eb6862d04f62b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:34:45.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(exportacao): the .ebgeo is read from one view of the atlas, or refused (CODEX-05)\n\nRoot cause: buildExportDataObject read map after map with awaits in between.\nA feature moved from B to A between the two reads (destination written first,\nsource cleared after) was read in neither map: the file carried zero copies,\nreadFailures stayed empty and the image-context guard stayed true, because an\nincremental write (a local op or a colleague's remote op) changes neither the\nscope nor the snapshot generation.\n\nFix: every per-atlas CONTENT store handed out by the single factory\n(getStoreFor) is wrapped by store/store-write-epoch.js, which counts each write\nat its start and at its settlement; the fenced native write of a server atlas\nreports by name. The outbound queue, the global database and the blob pendency\nrecords are not content and are not counted. readWithoutConcurrentWrites runs a\nmulti-read until one attempt sees the counter unchanged, throws the cut attempt\naway whole, and after 4 cut attempts refuses with UnstableReadError. The export\nbuilder reads under it (all callers: .ebgeo, save to server, save as local), and\nhandleExport puts the blob reads in the same window as the document, so a\ndeleted image feature no longer produces a false \"image without a file\" question.\nLimit: the counter is per tab; the tab-lock makes a second tab on the same\ndatabases impossible for a mounted atlas.\n\nTests: tests/integration/exportacao-versao-consistente.repro.test.js (7 cases:\nmove B->A between reads exported once in A with ids checked, control, bounded\nrefusal, fenced remote path, non-content writes ignored, document and image\nbytes from one view, refusal through handleExport). 4 red on the parent commit\n({A:[],B:[]}); negative controls: neutralizing the epoch comparison turns 5 red,\nremoving the fenced note turns the fenced case red. atlas-namespace.test reads\nthe raw double (the factory now hands out the counted proxy);\nexport-leitura-parcial mocks the new barrel member; graph and kB ceilings raised\nby the measured amount with the reason.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e50fcd0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e50fcd02fdcf7c6522cf545b7eede75fe1d8b9b3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-09-30T00:33:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Extração: modelagem EDGV Topo 2.0 revisão 0.18.0\n\nA linha que já existe no terreno marca o limite (limite_legal, limite_especial,\nem_litigio em drenagem, margem, via, ferrovia e delimitação física); os\ndelimitadores de limite sem tipo; codigo_uf no centróide e o nível do limite\npelo centróide; a costa marcada; delimitação física delimitando área\nedificada, vegetação e área sem dados; terreno sujeito a inundação construído\ndo centróide de vegetação; guia de progressão sem as classes extintas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "eba9d23",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/eba9d2356648843362399e4fe83389500798c15e",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T00:29:49.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(transferir-camada): moving a layer never deletes a feature it did not carry (CODEX-13)\n\nA layer move collected the source layer's features before its asynchronous\nsteps and then emptied the source by layer id, on the client\n(`deleteLayerFeatures`) and on the server (the section 2.2 cascade of the\nlayer delete). A feature a colleague created in the source layer after the\ncollection was never written to the destination, and both sweeps deleted it:\nthe batch was acked as applied and the work left both maps.\n\nClient: the source removal is narrowed to the collected ids (`onlyIds`); a\nfeature that arrived meanwhile stays in the source together with the layer\nrecord, no layer delete is emitted, and the result says so\n(`sourceKeptFeatures`, with its own sentence in `transferOutcomeNotice`).\n\nServer: the transfer's layer delete declares `layerIntent: 'emptied'`\n(schema, receipt digest and both op factories carry it), and\n`layerNotEmptiedConflict` refuses it when a live child remains. Inside the\nlogical batch that refuses the whole move, which the client already handles\nas a refused gesture. A delete without the declaration (the plain \"delete\nlayer and its features\" gesture, older clients) keeps the cascade.\n\nTests (red before, green after, negative control on both sides):\n- backend/tests/integration/mover-camada-preserva-feicao-de-colega.repro.test.js:\n  two accounts, real PostgreSQL; late child refuses the move and survives,\n  control without late child, late child in another layer, B reconnecting\n  after the move (create refused, never attached to a deleted layer), plain\n  delete still cascades.\n- frontend/tests/store/mover-camada-preserva-feicao-tardia.repro.test.js:\n  local and remote, real repository and queue.\nThe map page weight ceiling rises 12680 -> 12690 (12683 kB measured).\nFull `npm test` at the root: frontend 18060/18060, backend 5862/5862,\ncontract e2e 308/308. PENDENCIAS-CODEX.md enters the repo with CODEX-13\nmoved to \"Resolvidos\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "86c0b37",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/86c0b377d2ad529ea670125c131f35358e526b1e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T00:17:05.000Z",
+      "author": "Maj Diniz",
+      "message": "edgv topo 2.0 0.18.0: a linha que já existe marca o limite; base contínua migrada\n\nDecisions 2026-09-29 cont. 11 (modelo e regras do dsg_topology) e cont. 12\n(migração do base_continua_4674_edgv3topo20, com raio de explosão); wiki\nedgv-topo-20 e dsg-topology; PROJECT.md de topologia-base-continua.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "24b2225",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/24b22258175d86367e0921989b6f405eea7dbdfc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-09-30T00:15:38.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(rules): EDGV Topo 2.0 model 0.18.0 production profiles\n\nNatural lines (drainage, water margin, road, railway, physical boundary)\nbound the limits only when flagged limite_legal/limite_especial = 1\n(booleano); the limit delimiters carry no tipo. The municipality is bounded\nby every legal line; each of the 17 special-limit regimes is a class bounded\nby every special and every legal line, never the reverse. Physical\nboundaries bound built-up area and vegetation. UF, country and flood terrain\nreturn as unions (clause 5.2, in progress); the no-data area rule awaits a\ndomain decision.\n\n- rules: `grupo` directive, so a line or process applies to every member\n- 24 production classes, new process limites_especiais (plugin, web, tools)\n- synthetic generators and fixtures use the boolean flags\n- build_wasm accepts the release binary version string\n- CONSTITUICAO 5.1 vigente, 5.2 em obra; decision, wiki, pendências\n\nVerified: cargo test, tools/check.py (227 passed, 3 skipped), QGIS 4.2.1\n35/35, web editor and coverage in Chrome and Edge.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "b818fa0",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/b818fa0bba71fb47e84db8814ce4345cbbd359bd",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-09-30T00:15:25.000Z",
+      "author": "Maj Diniz",
+      "message": "edgv topo 2.0 v0.18.0 e orto 3.0.2: a linha que já existe marca o limite\n\nEspelho do dinizime/edgv_topo_20 (master, SQL, changelog, spec e a conversão\n1.4 -> 2.0) e a Orto 3.0.2 regenerada sobre a Topo 0.18.0: limite_legal,\nlimite_especial e em_litigio na drenagem, margem, via e ferrovia; tipo sai\ndos delimitadores de limite; codigo_uf no limite legal.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011pZzMhjZUVASyrmHYS7ozX",
+      "sha": "e5f9b3e",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/e5f9b3ea1087d6da3b1563994b9dc007efbc4ebe",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
     {
       "repo": "1cgeo/dsg_topology",
       "date": "2026-09-29T22:36:48.000Z",
