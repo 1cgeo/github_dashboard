@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-30T16:21:36.161Z",
+  "lastUpdate": "2026-09-30T23:36:24.687Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-09-29T16:48:30.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
     "dsgoficial/DsgTools@dev": "2026-09-29T16:47:55.000Z",
-    "dsgoficial/sap": "2026-09-02T12:07:19.000Z",
+    "dsgoficial/sap": "2026-09-30T21:37:16.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-09-25T18:43:16.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -42,8 +42,8 @@
     "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-09-25T18:40:13.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-09-10T11:40:06.000Z",
-    "dsgoficial/SAP_Gerente@qgis4": "2026-08-14T20:58:46.000Z",
-    "dsgoficial/SAP_Operador@qgis4": "2026-09-29T14:46:25.000Z",
+    "dsgoficial/SAP_Gerente@qgis4": "2026-09-30T21:35:32.000Z",
+    "dsgoficial/SAP_Operador@qgis4": "2026-09-30T21:35:55.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
@@ -57,10 +57,10 @@
     "1cgeo/github_dashboard": "2026-09-29T15:32:50.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-09-30T15:37:34.000Z",
+    "1cgeo/chefe_dgeo": "2026-09-30T20:57:23.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
-    "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T15:39:46.000Z",
+    "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
@@ -116,7 +116,7 @@
     "1cgeo/dsg_topology": true
   },
   "stats": {
-    "totalCommits": 7962,
+    "totalCommits": 7975,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -126,7 +126,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2173,
+      "1cgeo/ebgeo_web": 2180,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 116,
@@ -139,9 +139,9 @@
       "dsgoficial/configuracoes_producao": 209,
       "dsgoficial/ferramentas_edicao": 482,
       "dsgoficial/DsgTools": 652,
-      "dsgoficial/sap": 177,
-      "dsgoficial/SAP_Gerente": 120,
-      "dsgoficial/SAP_Operador": 73,
+      "dsgoficial/sap": 178,
+      "dsgoficial/SAP_Gerente": 121,
+      "dsgoficial/SAP_Operador": 74,
       "dsgoficial/EBGeo_Desktop": 82,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
@@ -168,7 +168,7 @@
       "1cgeo/dsg_topology": 137,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 915,
+      "1cgeo/chefe_dgeo": 918,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -176,6 +176,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T21:37:52.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(medidas): Escalão as a coordination measure type, the echelon mark alone\n\nOwner's request of 2026-09-30: a type where the user picks only the echelon,\nthe task force and the colour, drawn as the echelon mark that varies in the\nNucleo, without the ellipse.\n\n- familias-de-escalao.js (zero imports): the Nucleo and the Escalao as\n  families of screen codes and catalog prefixes, replacing the hand-written\n  `=== 'ECHELON'` comparison and the 'ECHELON_16' default in about forty sites\n  (control x4, modal, helpers, catalog).\n- Catalog: ESCALAO_<n> / ESCALAO_FT_<n> from the same ECHELON_SYMBOLS glyphs,\n  task force bracket as in the Nucleo, fixed screen scale for the thirteen,\n  mark centre anchored on the point; no text field, no status (`isEscalao`,\n  not `isEchelon`, which means Nucleo to the generator).\n- The generator resolves the screen code itself. Converting a point into a\n  coordination measure passed ECHELON raw and threw \"Point ECHELON not found\n  in catalog\" (measured before the change).\n- The combo thumbnail: the most recent choice wins; the initial value's\n  thumbnail arriving late used to overwrite it (seen in the capture: the\n  Escalao option drawn with the Nucleo ellipse).\n\nGuards: frontend/tests/unit/escalao-medida-coordenacao.test.js and\nfrontend/tests/unit/combo-miniatura-da-escolha-recente.repro.test.js, negative\ncontrols measured. Map-page weight ceiling 845 -> 846 files, 12750 -> 12770 kB.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LS7hKz3ZaVLBrMfhyQMiuS",
+      "sha": "1710e37",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1710e37f397835f1826d96dd2516180fe075f7d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-09-30T21:37:16.000Z",
+      "author": "1º Ten Marcel",
+      "message": "listar apenas lotes em execução na tela de microcontrole",
+      "sha": "485c6d7",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/485c6d704c42773c7f567cb3dcb5bbfac7907558",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/SAP_Operador",
+      "date": "2026-09-30T21:35:55.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix bug de criação de novas visualizações de mapa",
+      "sha": "288713b",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Operador/commit/288713b3b92d5fcc4028e00f3aa8aedbb654d827",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Operador"
+    },
+    {
+      "repo": "dsgoficial/SAP_Gerente",
+      "date": "2026-09-30T21:35:32.000Z",
+      "author": "1º Ten Marcel",
+      "message": "fix filtro de busca",
+      "sha": "714a603",
+      "htmlUrl": "https://github.com/dsgoficial/SAP_Gerente/commit/714a603d2e98e91342b6d05ef5939afea955ae4e",
+      "repoUrl": "https://github.com/dsgoficial/SAP_Gerente"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T21:09:57.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(comentarios): the click that drops a comment no longer selects the feature under it\n\nThe comment tool enters through the ToolManager and listens to the map click\nitself, while SelectionManager only stays quiet for a tool in its own controls\nwith `isActive`. Both listeners took the click: the compose card opened and the\nfeature underneath was selected in the same gesture.\n\nThe selection now asks the overlay (`isCapturingMapClicks`), next to the other\nnamed exemptions. The overlay claims the click while placing AND the click that\njust ended placement, by identity, because its own listener ends placement and\nwhich listener runs first is registration order in map_sig.js, not a contract.\n\nGuard: frontend/tests/unit/comentario-clique-nao-seleciona-feicao.repro.test.js\n(real SelectionManager and CommentOverlay on one fake map, both orders, positive\ncontrol). Negative controls: without the exemption 3 cases go red; answering by\nstate only reddens the comment-first order.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LS7hKz3ZaVLBrMfhyQMiuS",
+      "sha": "c9a4b4b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c9a4b4b89476d5faeb49d8497388b528ddaaac53",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T21:04:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'integracao_backend' of https://github.com/1cgeo/ebgeo_web into integracao_backend",
+      "sha": "4613da0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4613da0b8354ce34ad0604d342aab1cfb81aeca1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T21:04:30.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(glyphs): browser proof of the new glyph ranges, with its control\n\nprova_navegador.mjs draws six test lines with the repo's MapLibre 6.9.1 and a\ngiven glyph folder, and fails by its own report (glyph warning or 404). Measured\non 2026-09-30: the folder before 44a67665 gives 13 warnings, 5 ranges in 404\nand three lines reduced to \"Ag\"; the current one serves the 12 ranges with no\nwarning, and Arabic comes out joined and in order without the RTL plugin.\n\nThe README control extracts the folder from 44a67665~1, not HEAD~1, which\nstops meaning \"before\" at the next commit.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LS7hKz3ZaVLBrMfhyQMiuS",
+      "sha": "f7dc68d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f7dc68dff2565c2c5d6ed46554e655b158c4845c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T21:04:23.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(auth): refresh token reuse ends the device session, not the account\n\nOwner's decision of 2026-09-30: the account is the person, the session is the\ndevice. Reuse detection called REVOKE_ALL_USER_TOKENS, so an incident on one\ndevice (a rotation response lost on the network, retried after the grace\nwindow) also logged out the person's other device and cut their API keys.\n\n- 020_sessoes_de_login.sql: one row per login; refresh_tokens.sessao_id is\n  nullable and a pre-migration token is adopted into a session on its first\n  rotation (nobody is logged out by the deploy).\n- The access token carries the session as `sid`; getLiveAuthState reads it and\n  tokenSessionEnded refuses a dead session at the four sites that already\n  refused the account cut (strict auth, flexible auth, collab handshake and\n  sweep, 3D assets).\n- Reuse revokes the session (REVOKE_SESSAO); only a token spent before it ever\n  had a session still falls back to the account-wide cut. The claim refuses a\n  token left alive in an ended session by a race.\n- Logout is unchanged: ending the session there would drop the collab socket,\n  which is client-driven by frozen contract.\n- CONSTITUICAO 10.7: reuse leaves the list of events that cut API keys.\n\nGuards: backend/tests/integration/reuso-derruba-so-a-sessao.repro.test.js and\nbackend/tests/ws/collab-sessao-por-aparelho.test.js, negative controls measured.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01LS7hKz3ZaVLBrMfhyQMiuS",
+      "sha": "6db2735",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6db2735192419d3fa01faeabb853f831498588b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T20:57:23.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-30: mapoteca, o campo `operacao` padronizado em 79 pedidos (operações apoiadas 2026 de 32 para 20); a regra do nome canônico no learnings da cadastrar-pedido-mapoteca, a prova de lote pela auditoria no detalhe, e COUNT(DISTINCT) sobre texto livre no revisar-dashboard\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c94c7b8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c94c7b8247c6094215b68c0d73a3801bcffab0a8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T20:19:07.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): the Firefox round's last two reds were the specs reading Firefox as Chromium\n\n- viewshed-3d-pixel: the case fails on any page console error, and it\n  filtered the unreachable fixture tile host in Firefox only for\n  `localhost/tiles/` and three layers. In an isolated run the host is\n  `127.0.0.1:65531` and the grids are sources too, so Firefox's wording for\n  a NETWORK failure (\"Cross-Origin Request Blocked ... CORS request did not\n  succeed\") escaped and failed the case 2/2 in the full round. The filter is\n  now the Firefox twin of \"Failed to load resource\": any `/tiles/` path, any\n  host, only with that reason; any other CORS block still fails. After:\n  15/15 in Firefox in series, 3/3 in Chromium.\n- cobertura-colar-simbolos: the peer's pasted declination was compared to\n  the author's by SHA-256 of the pixels. Firefox anti-aliases the text and\n  thin strokes differently per process: the two rasters were visually\n  identical (images read), 525x755, differing in 2 711 of 396 375 pixels by\n  at most 23 per channel, so it was 3/3 red there and bit-exact in Chromium.\n  `mesmoRaster` accepts the same size with at most 2% of pixels different\n  and at most 0.1% moved by more than 32; the negative control (the real\n  raster against an empty one of the same size) differs strongly in 6.5% of\n  pixels and is rejected. After: 8/8 in Firefox and 8/8 in Chromium\n  (four symbols, twice each).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "3cd8290",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3cd82903fd0d9be5143bf4b2248b30581487e72a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T19:19:20.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-09-30: resposta ao DIEx 2165-E6/DSG (temas de PI de Fotogrametria e SR 2027) montada e à espera do aval; o molde anual dos temas de PI no ciclo-anual; no SPED, o token do trocar dá 401 e a conta ativa é compartilhada entre sessões\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "10b9b40",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/10b9b40651d32c18ee48d11d264944afe272b334",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-09-30T18:30:57.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e-ui): two image specs stop assuming Chromium (download listener, framing zoom)\n\nBoth failed 3/3 in Firefox and passed in Chromium; probes showed the\nproduct doing the same thing in both, and the specs reading it wrong.\n\n- imagem-nas-saidas-do-mapa (\"Exportar Imagem\"): the spec attached its\n  download listener AFTER clicking, and Firefox fired the download before\n  it existed. A probe hooking the anchor showed the app downloading the\n  same PNG in Firefox (521 kB). The listener is now born before the click.\n- imagem-sem-referencia-de-zoom: the bar \"zoom > 10\" came from the old\n  `minZoom: 12` of `zoomToFeature`, gone since the framing was unified on\n  2026-09-24. One frame of the fixed-size image taken at zoom 4 lands near\n  9.3 in both browsers (the same 0.69 degree box measured in each);\n  Chromium reached 14.4 only because the spec's loop re-clicked before the\n  panel opened, framing twice. Step 1 now asserts the click framed the\n  image (well above the start zoom, image inside the bounds), and the high\n  zoom steps 2 and 3 need (where the page used to freeze) is set\n  explicitly.\n\nMeasured after the change, `--repeat-each=3`, no retries: 9/9 and 3/3 in\nFirefox, 9/9 and 3/3 in Chromium.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013kXFvxVPaeFA9YCnUUvPYW",
+      "sha": "7aa8a6d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7aa8a6d9a9c75ef80518115b1c113fba7ab20a69",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-09-30T17:14:25.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia 2026-09-30 (cont.): D33, na Amazônia a régua oficial é o lidar guardado e o v5 aprende a Amazônia pelo lidar; o estado do projeto e o cronograma da rodada triM\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\n\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "34e4054",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/34e4054eeabae2599f06c65ced1337c268ebd93e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-09-30T15:39:46.000Z",
