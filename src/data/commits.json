@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-10-01T23:49:32.005Z",
+  "lastUpdate": "2026-10-02T16:11:41.537Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-09-15T15:21:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -18,7 +18,7 @@
     "dsgoficial/modelagens": "2026-10-01T08:48:19.000Z",
     "dsgoficial/configuracoes_producao": "2026-09-29T16:48:30.000Z",
     "dsgoficial/ferramentas_edicao": "2026-03-24T20:25:58.000Z",
-    "dsgoficial/DsgTools@dev": "2026-09-29T16:47:55.000Z",
+    "dsgoficial/DsgTools@dev": "2026-10-02T13:27:10.000Z",
     "dsgoficial/sap": "2026-10-01T13:42:41.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-09-25T18:43:16.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-09-29T15:32:50.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-01T20:17:19.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-02T11:53:30.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -116,7 +116,7 @@
     "1cgeo/dsg_topology": true
   },
   "stats": {
-    "totalCommits": 8003,
+    "totalCommits": 8008,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -138,7 +138,7 @@
       "dsgoficial/modelagens": 174,
       "dsgoficial/configuracoes_producao": 209,
       "dsgoficial/ferramentas_edicao": 482,
-      "dsgoficial/DsgTools": 652,
+      "dsgoficial/DsgTools": 655,
       "dsgoficial/sap": 180,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 75,
@@ -168,7 +168,7 @@
       "1cgeo/dsg_topology": 152,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 924,
+      "1cgeo/chefe_dgeo": 926,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -176,6 +176,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-10-02T13:27:10.000Z",
+      "author": "Maj Borba",
+      "message": "Merge branch 'dev' of https://github.com/dsgoficial/DsgTools into dev",
+      "sha": "6212ed8",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/6212ed875faef690ef30186970cfad313ff17872",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-10-02T13:27:08.000Z",
+      "author": "Maj Borba",
+      "message": "fix",
+      "sha": "d8cba83",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/d8cba83abda9d90fc95d66eea93dc8f8a48b8563",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-10-02T13:11:05.000Z",
+      "author": "Maj Borba",
+      "message": "version fix",
+      "sha": "9d5bb4a",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/9d5bb4af2eb313aabe9b6120ecf4237cefd321c1",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-02T11:53:30.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-02 (cont.): a LAI de Ibirubá nasce Concluída (pedido 226, 10 fotografias sobre um ponto, link 404, DIEx 30828); a consulta por ponto, o hash vazio que aprova e a variável do PowerShell no learnings da entregar-lai\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0acda51",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0acda51dc6f697087f86ba3b3060bb5971d74a4a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-02T08:35:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-02: gabdem-ia, o v6 supera o FathomDEM no painel de 12 linhas das 174 folhas (9 x 0; V7 12 x 0) e ganha em 26 dos 39 blocos pelo Brasil (D34 a D37); o produto fora da dobra, o pos peca a peca e o datum das reguas densas no learnings da rodar-campanha-experimentos; o problema F (o lidar orbital acima do chao sob a mata densa) e os MDT de 1 m do ORNL na wiki; chaves EARTHDATA no env-guia\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "a55280a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a55280aba1db336ac1f760fb3ffa366557864f36",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/tileclass",
       "date": "2026-10-01T21:08:07.000Z",
