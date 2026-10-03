@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-02T23:40:05.027Z",
+  "lastUpdate": "2026-10-03T14:39:08.338Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-02T21:09:06.000Z",
+    "1cgeo/ebgeo_web": "2026-10-03T14:06:55.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -47,7 +47,7 @@
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
     "dsgoficial/EBGeo_Desktop@qgis4": "2026-06-24T10:43:28.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
-    "1cgeo/tileclass": "2026-10-01T21:08:07.000Z",
+    "1cgeo/tileclass": "2026-10-03T10:42:42.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
     "1cgeo/ebgeo_360": "2026-09-21T20:29:29.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-08-26T20:11:11.000Z",
@@ -64,9 +64,9 @@
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
-    "1cgeo/dsg_topology": "2026-10-01T17:51:33.000Z",
-    "1cgeo/dsg_versioning": "2026-10-02T09:40:35.000Z",
-    "1cgeo/dsg-edit": "2026-10-02T23:37:33.000Z"
+    "1cgeo/dsg_topology": "2026-10-03T11:52:11.000Z",
+    "1cgeo/dsg_versioning": "2026-10-03T11:51:56.000Z",
+    "1cgeo/dsg-edit": "2026-10-03T02:43:21.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8190,
+    "totalCommits": 8247,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2222,
+      "1cgeo/ebgeo_web": 2227,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -161,7 +161,7 @@
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 396,
       "1cgeo/geoswarm": 67,
-      "1cgeo/tileclass": 96,
+      "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 64,
       "1cgeo/ebgeo_backend": 40,
@@ -169,9 +169,9 @@
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 61,
-      "1cgeo/dsg_topology": 152,
-      "1cgeo/dsg_versioning": 97,
-      "1cgeo/dsg-edit": 35,
+      "1cgeo/dsg_topology": 177,
+      "1cgeo/dsg_versioning": 116,
+      "1cgeo/dsg-edit": 38,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
       "1cgeo/chefe_dgeo": 933,
@@ -182,6 +182,519 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T14:06:55.000Z",
+      "author": "Maj Diniz",
+      "message": "boot: a abertura deixa de esperar os tiles do mapa base, e o custo do mapa base vetorial fica medido\n\nO manipulador de boot de `initializeApp` (map_sig.js), que desenha as feicoes\ne baixa a cortina, rodava no `load` do MapLibre. O `load` so dispara quando\ntodo tile de toda fonte terminou, mapa base incluido, entao com o servidor da\nbase lento a pessoa ficava diante da cortina ate o teto de 15 s do index.js.\nMedido com cada tile da base atrasado em 8 s: cortina aos 16,5 s contra 1,4 s.\nAgora ele roda quando o estilo esta pronto (`styleDoneLoading`, a condicao de\n`addSource`), e so a metrica de vitais continua no `load`, que e o que ela\nmede.\n\nGuarda: boot-nao-espera-tiles-do-mapa-base.repro.spec.js atrasa os tiles em\n20 s e exige cortina, feicao desenhada e selecao pelo clique antes de 10 s.\nVerde 5 de 5 no Chromium (cortina de 1,7 a 1,9 s) e no Firefox (2,5 s); com o\nmap_sig.js anterior reprova (\"a cortina esperou os tiles do mapa base\").\n\nInvestigacao do engasgo com mapa base vetorial, registrada em\ndocs/wiki/desempenho-do-mapa-2d.md: com um estilo vetorial de ensaio (111\ncamadas, 25 de rotulo) e CPU a 1/4, um zoom com arrasto passava ~2,9 s em\ntarefas longas contra 0 ms com base raster; sem arrasto nao engasga, nem no\nEBGeo nem num MapLibre puro, e no perfil do arrasto o JS do app somou menos de\n1%. O custo e o quadro da base redesenhado a cada quadro do gesto.\nfadeDuration 0, crossSourceCollisions false e 4 workers nao mudaram a faixa.\nLimite: GPU emulada em software no harness, entao vale a proporcao.\n\nGate: lint limpo; test:tocados 1084 de 1084; 42 specs de boot no Chromium sem\nretry, verdes.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "9e8b35b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9e8b35b802b8085efd53eaecaf0d9f60078a55e9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T13:15:49.000Z",
+      "author": "Maj Diniz",
+      "message": "ui: terminologia uniforme (\"Excluir\", \"Mapa base\", \"Imagens 360°\", \"Cena interna\") e jargao trocado por portugues\n\nDecisoes do dono de 2026-10-03, item a item do levantamento de termos:\n\n- T1: \"Deletar\" vira \"Excluir\" em todo lugar (menu do mapa, paineis 3D e 360,\n  atalhos, painel de feicao, secoes 3D/360, tutorial), que ja era o termo do\n  resto do app. \"feicoes selecionados\" ganhou a concordancia.\n- T3: \"Browser nao suportado\" vira \"Navegador nao suportado\" nas cinco paginas.\n- T4: o selo \"Cena indoor\" vira \"Cena interna\".\n- T5: \"Resetar norte\" vira \"Orientar para o norte\", como no menu de contexto.\n- T6: modal de atalhos sem \"(pitch)\", \"(bearing)\", \"Scroll\" e \"Zoom in / zoom\n  out\".\n- T7: descricoes da aba Importar em portugues.\n- T8: progresso sem \"tiles\", \"features\" e \"banco de dados\".\n- T9: aba Catalogo da Administracao com \"Modelos 3D\", \"Analise\", \"Mapas base\",\n  \"Imagens 360°\" e \"pacote\" no lugar de \"bundle\".\n- T10: o fundo do mapa e \"Mapa base\" em toda tela (eram sete grafias, e\n  \"Camada base privada emprestado\" ganhou a concordancia), o 360 e \"Imagens\n  360°\" e, quando e uma so, \"foto 360°\".\n\nOs testes que comparam esses textos foram atualizados junto\n(browser-collab-mapa-fantasma, admin-botao-de-criar, forma-3d-censo,\ncontroles-do-slide). Lint limpo; a suite nao rodou neste commit, por decisao\ndo dono.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "ab894cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ab894cc2baa924da1049889a30b5c749c4f78a67",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T12:44:24.000Z",
+      "author": "Maj Diniz",
+      "message": "ui: \"Tiles 3D\" vira \"Modelo 3D\", \"Snap\" vira \"Atracao\", e acentos que faltavam no texto de tela\n\nO selo da forma 3D dizia \"Tiles 3D\", jargao de engenharia, e o interruptor de\nencaixe dizia \"Snap\" (o tutorial ainda o chamava de \"Magnetismo\"). Os dois\npassam a \"Modelo 3D\" e \"Atracao\" na barra (titulo \"Atracao (G)\"), no modal de\natalhos, na dica da Administracao e no tutorial.\n\nAcentos corrigidos em texto que chega a tela: painel de marcador e bussola do\n360, progresso da exportacao Garmin, calibracao, rotulo de ponto de medida de\ncoordenacao e os erros de validacao de estilo que a Administracao mostra.\nMensagem de console ficou como estava.\n\nCaptura no Playwright lida: botao com titulo \"Atracao (G)\" e a linha \"G\nAtivar/desativar atracao\" no modal de atalhos. O censo das formas 3D\n(forma-3d-censo.test.js) acompanha o rotulo.\n\nGate: lint limpo; test:tocados 1084 de 1084.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "600b870",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/600b8703789dd9de6003f48bd8338f6adf35b689",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T12:44:17.000Z",
+      "author": "Maj Diniz",
+      "message": "camadas de catalogo: limpar e trocar de mapa desligam o que sobrou, e o zoom da camada de dados usa a extensao declarada\n\n\"Limpar tudo\" deixava camada de dados ou de analise desenhada sem entrada no\npainel de camadas. A camada de catalogo sobrevive a toda remontagem\n(`mergeApplicationStyle` leva as layers da aplicacao para o estilo novo, e os\ngerentes pulam a que ja existe, que fica com a visibilidade e a pintura\nantigas), e `restoreCatalogLayers` so LIGAVA o que o mapa pedia, voltando cedo\ncom a lista vazia, que e o mapa em branco do \"Limpar tudo\". O mesmo caminho\nvazava a cor escolhida num mapa para o mapa seguinte. Agora\n`layers/catalog-layer-reconcile.js` acerta os dois sentidos: desliga o que o\nmapa corrente nao pede (relevo inclusive) e devolve o estilo padrao a essas\ncamadas. Vale para limpar, importar e trocar de mapa.\n\nO zoom da camada de dados media as feicoes carregadas, e camada desligada nao\npede tile: o botao nao fazia nada (\"No features found ... to calculate\nbounds\" no console). `zoomToLayer` passa a usar primeiro o `bounds` declarado\nno catalogo, como a camada de analise ja fazia, e devolve se enquadrou; sem\nextensao nenhuma, o painel diz o que fazer em vez de calar.\n\nMedido no Playwright (Chromium) com app e backend reais: depois do \"Limpar\ntudo\" a camada Rodovias Federais passou de visible para none e a cor vazada\nvoltou ao padrao; com a retirada desligada, continuou visible. Guardas:\nfrontend/tests/unit/limpar-deixa-camada-de-catalogo.repro.test.js (4 de 5\ncasos reprovam sem o conserto) e tres casos novos em\ncamadas-de-dado-limites-e-estilo.test.js. O arquivo novo entra no censo de\nreferencias a recurso e sobe os tetos da pagina do mapa em 1 arquivo e 10 kB.\n\nGate: lint limpo; test:tocados 1084 de 1084.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "478c8a8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/478c8a8cc1dc38732fef154fbd8c72dfb4ab24ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T12:15:02.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: registra avaliacao de performance e plano de medicao",
+      "sha": "52c14ab",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/52c14ab85f30001215e3b6406cc8814264f5f424",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:52:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Close verified topology work and remove the completed pending list",
+      "sha": "aafae8c",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/aafae8c38cda34d956342872357c3574c38d047e",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T11:51:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Record topology transport and private cache integration requirements",
+      "sha": "7a02160",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/7a021607fb046f9d1276281324828ade044074d7",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:40:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Align product guarantees and documentation with validated transport and cache",
+      "sha": "d6d349f",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/d6d349f06aa25de16e1f5f2def3d6e1518dd0af6",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:36:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Record graph cache evidence and add isolated reopen benchmark",
+      "sha": "420df3f",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/420df3f6bad8a6f063be97b3557f13b132715cfd",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:34:18.000Z",
+      "author": "Maj Diniz",
+      "message": "Persist validated private graph checkpoints across native and WASM sessions",
+      "sha": "f5de3de",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/f5de3dece569aca7090c6ebcc300975bbb35ad20",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:33:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Measure load frames and tile settling with real process memory",
+      "sha": "949867e",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/949867e9f9c67495c744c54bf356cb4810612a05",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:30:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Add bounded binary initial previews for web and QGIS",
+      "sha": "6153082",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/61530829151be62ffc4deaf6105e88eebc93fccc",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:21:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin preservation of adjacent equal faces and their delimiter",
+      "sha": "e86941b",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/e86941bd6e6ea18e7f6fe7b9827398b35de05cdb",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:08:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Record measured mask and fragment optimizations",
+      "sha": "c33a205",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/c33a205ac85424038e2050ee3079a28258f2dfde",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:04:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Version incremental identity diagnostics across native and web clients",
+      "sha": "91b34d0",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/91b34d0cf8e445bba03518b6622fde91a93e0560",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T11:01:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Reuse cached containers when promoting unchanged masks",
+      "sha": "d288c45",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/d288c453d562bca187bbeefc286d68782e972acd",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:54:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Index delimiter fragments by affected face",
+      "sha": "86eb7ef",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/86eb7efd1b3b6268fb22324a57aafd0b49e4d3ab",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:48:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Close verified context and spatial cell evaluation items",
+      "sha": "3bc78f6",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/3bc78f62830e3f3473c4dae8d3875df26fe6a0de",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:47:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit required context and formalize exact equality without area dissolution",
+      "sha": "5ad01f3",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/5ad01f34c8d58bf51cb768fe7036f4017b9f4c6f",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:45:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Measure spatial cell tradeoffs and prove result independence",
+      "sha": "6b10ef1",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/6b10ef15d9f18e698ff6b88806eb475b8fa5e393",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:44:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Verify partial context against an independent GEOS oracle",
+      "sha": "f828fe8",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/f828fe8c1169de305f7125e6cd80d392d99e0d16",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T10:44:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Track topology context and independent legal process integration",
+      "sha": "4040c97",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/4040c974190b524f055ef78663759c2e6f6820d2",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/tileclass",
+      "date": "2026-10-03T10:42:42.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ui): redesigned admin panel (light/dark) + demo dataset\n\n- Shell: sidebar navigation with icons and live problem badge, top bar\n  with page title, project scope, theme toggle and \"Trabalhar\".\n- Dashboard: project hero with stacked status bar and attention pills,\n  KPI cards, 30-day SVG throughput chart, class distribution bars,\n  operator table with avatars; statuses link to filtered Tiles.\n- Tiles: filter toolbar, results bar, \"Ver\" + overflow menu per row,\n  floating bulk bar, imagery grid cards; two-column tile viewer with mask\n  toggle, class share and Portuguese history timeline.\n- Mapa: full-height map with floating panels; status colors from tokens,\n  basemap follows the theme.\n- Projetos/Problemas/Usuários/Manutenção: cards, KPIs, switches, empty states.\n- Fix: late tab renders (slow dashboard) could overwrite the active tab;\n  each tab now renders into its own container.\n- tests/e2e/seed_demo.py: realistic demo data with synthetic imagery;\n  screenshots.mjs --demo tours every screen in both themes.\n- admin-core.js + Vitest; README demo instructions; demo/ gitignored.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1f52d50",
+      "htmlUrl": "https://github.com/1cgeo/tileclass/commit/1f52d506ac032f888401dc625c9ac96e1a42cc2a",
+      "repoUrl": "https://github.com/1cgeo/tileclass"
+    },
+    {
+      "repo": "1cgeo/tileclass",
+      "date": "2026-10-03T10:28:13.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ui): redesigned operator editor (light/dark)\n\n- Header: brand, project switcher button (Ctrl+P), mode pill, tile id,\n  queue progress bar, daily count, admin shortcut, theme toggle, avatar.\n- Left panel: class list with keys, segmented brush/eraser/bucket tools,\n  styled size/opacity sliders, external references.\n- Stage: patterned background, dimmed read-only context, floating hover\n  readout, zoom cluster with fit-to-screen; canvas colors follow the theme.\n- Right panel: review callouts, mask progress card with jump-to-missing,\n  tile details, compact shortcuts + full shortcuts modal (\"?\").\n- Footer: icon undo/redo, report problem, request changes, pause, submit\n  with Ctrl+S hint; idle/paused/no-tiles share one card with preview.\n- Classification: class picker as selectable cards in the right panel;\n  fixes the squeezed map / panel overlapping the footer.\n- Fix: hover readout and other stage overlays no longer resize the stage\n  (map/canvas shifted on every mousemove); E2E asserts stable rects.\n- Fix: project switcher modal was invisible inside the hidden admin view.\n- editor-core: fitZoom, queueSummary, initials, rasterSubmitState,\n  readCanvasPalette, tileFacts (Vitest).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "61e39f2",
+      "htmlUrl": "https://github.com/1cgeo/tileclass/commit/61e39f2ce53768f50fb3ef754d380ef5ec4f4fb4",
+      "repoUrl": "https://github.com/1cgeo/tileclass"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:26:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Preserve PostGIS coordinate doubles and clip exports on the shared grid",
+      "sha": "66ca0dc",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/66ca0dc36edd56c29e2ea840b8043852f41e1d49",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:13:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Clean pending work and reconcile remaining implementation scope",
+      "sha": "c5a4038",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/c5a40382e351b42ec02878bff67da7e31d084bd2",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T10:07:35.000Z",
+      "author": "Maj Diniz",
+      "message": "Separate legal-level processes and migrate the verified demo coast",
+      "sha": "d5e15e7",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/d5e15e75002d3ba20efba9987bde7f072ceebdf5",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/tileclass",
+      "date": "2026-10-03T09:58:41.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(ui): design foundation — light/dark tokens, base components, new login\n\n- tokens.css: full light and dark palettes (indigo accent, status and chart\n  series), applied via <html data-theme>; OS preference as no-JS fallback.\n- theme-boot.js sets the theme before first paint; theme.js wires every\n  [data-theme-toggle] button and emits tc-themechange; pure rules in\n  theme-core.js (toggle returns to \"system\" when matching the OS).\n- base.css: Inter (vendored, OFL), buttons/segmented/chips/cards/tables/\n  fields/modals/toasts/empty states/skeletons, shared header and brand mark.\n- Lucide icon sprite (vendored subset, ISC) + icon()/iconHtml() helpers.\n- New split-screen login with brand hero and theme toggle.\n- style.css split into tokens/base/editor/admin stylesheets.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b29330e",
+      "htmlUrl": "https://github.com/1cgeo/tileclass/commit/b29330ec1872ea146d536558e4ea9f8d437363c8",
+      "repoUrl": "https://github.com/1cgeo/tileclass"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T09:35:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Render topology flags as distinct polygons, unused lines and edge points",
+      "sha": "8fab771",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/8fab771897bade8cdfcdda358411cd76d10c297c",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/tileclass",
+      "date": "2026-10-03T09:31:44.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(export): name ZIPs by effective remap; E2E for the remap select\n\n- Raster export ZIPs are named <project>_<status>_<edgv|raw>_<date>.zip with\n  the resolved remap (never \"auto\"), so same-day downloads with different\n  remaps can't be confused. Matches the manifest's remap column.\n- E2E: the admin panel's \"Remapeamento de classes\" select reaches the\n  export-jobs API and the downloaded filename reflects it (verified to fail\n  when the param is dropped).\n- Backend tests for the filename (auto/forced, custom palette, async job\n  download, classification without tag).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "da39c6a",
+      "htmlUrl": "https://github.com/1cgeo/tileclass/commit/da39c6a4cb475b3debddef9121c5fb90fa88ac40",
+      "repoUrl": "https://github.com/1cgeo/tileclass"
+    },
+    {
+      "repo": "1cgeo/tileclass",
+      "date": "2026-10-03T09:27:46.000Z",
+      "author": "Maj Diniz",
+      "message": "refactor+fix: drop vector/detection kinds, harden classification and raster\n\nDocs\n- Remove docs/ (stale duplicate of the code); concise README (setup and\n  config) and CLAUDE.md.\n\nKinds\n- Remove the vector and detection kinds (editors, validation, exporters,\n  overlay/thumbnail renderers, attribute schema). The schema keeps the legacy\n  columns/CHECK so existing DBs and merge_db keep working; creation is gated\n  by project_service.PROJECT_KINDS.\n\nClassification\n- Resume of a paused tile no longer fetches /image (was stuck on 415).\n- No /image preload; stale-enter guard against a late class fetch\n  pre-selecting the previous tile's class; submit sends X-Tile-Version.\n- Tile frame (bbox outline + dimmed surroundings), 1-9 class shortcuts.\n- Admin viewer shows the assigned class; TileOut now carries project_id.\n\nRaster\n- Preload peeks past the open tile (exclude_tile_id) and is reused only on\n  matching id+version; pause -> start no longer loads a stale mask.\n- Resume refreshes the heartbeat; auto-pause and owner resume keep the\n  version; submitting a paused tile logs the implicit resume; the editor\n  heartbeats on load/visibility and auto-resumes a server-paused tile.\n- Map is rebuilt on project switch; modifier-aware shortcuts (Ctrl+S\n  submits); grid follows tile_px/zoom; typed-array flood fill; Space/blur\n  and modal fixes; backups keyed by user+tile+version.\n- Reviewer pause requires a complete mask and recomputes class_counts.\n- Bulk ops dedupe ids; unblock/reset guards; class distribution counts only\n  classified/in_review/reviewed; read endpoints require project membership;\n  operator report_problem bumps version; assignment requires membership;\n  7-day window compares julianday.\n- Export: shared PROJ setup (proj_env), remap auto/edgv/raw (CLI, API, UI,\n  manifest), safe and unique filenames, per-project mosaics, async job\n  pruning/recovery, overlay cache generation guard, merge_db clears the\n  overlay cache, bounded satellite-thumbnail zoom.\n\nTests: backend 562, Vitest 117, E2E 20 passing.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3082f6e",
+      "htmlUrl": "https://github.com/1cgeo/tileclass/commit/3082f6e4791364821aab7b11dad5b94ae3b96008",
+      "repoUrl": "https://github.com/1cgeo/tileclass"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T09:19:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Fix stale preview context and validate processing frames across clients",
+      "sha": "3130485",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/31304853651bed104fb67b2e70ad213b32f8ec9a",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T08:39:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Record verified SIRGAS default distribution",
+      "sha": "8c486e2",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/8c486e2957e623ea6c8c69072f83fad6c773f76c",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T08:37:00.000Z",
+      "author": "Maj Diniz",
+      "message": "Default new spatial classes to SIRGAS 2000 and preserve explicit UTM",
+      "sha": "6310655",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/63106555c149c097a7412fdfeed4c20f2938af46",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T08:26:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Update dsg-edit pin to latest documented revision",
+      "sha": "bfafafc",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/bfafafc7db42714f3297888733e9d27970edef10",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T07:28:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Close transport campaign with verified distribution evidence",
+      "sha": "2fe7947",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/2fe79475ce27dff982423d51b26e2e94e3356339",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T07:24:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Preserve source precision when publishing imported classes",
+      "sha": "8b29453",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/8b294531a6cea12ca12214aab7768c56adb3826e",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T07:17:35.000Z",
+      "author": "Maj Diniz",
+      "message": "Preserve HTTP refusals and verify million-feature transport",
+      "sha": "f8eee90",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/f8eee909daf646a6b97fa4dd65966ba380ca38fe",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T04:01:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Batch native cache writes and harden transport parsing",
+      "sha": "0de8fa7",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/0de8fa7c1543ae1782aa0398f1da71a2945af0b8",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T03:42:08.000Z",
+      "author": "Maj Diniz",
+      "message": "Clarify the historical editor version in transport evidence",
+      "sha": "917937e",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/917937e8fea14133263814d5f92a15f60eabbf71",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T02:43:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Match transport ring closure to canonical XY semantics",
+      "sha": "3368c17",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/3368c174393867afaadcab0d0e6d5dd60545f995",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T02:43:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Distinguish historical and current validation counts",
+      "sha": "9e39502",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/9e3950225bfc656b73a25c520930146ca0411a33",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T02:39:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Avoid rebuilding geometries already on the precision grid",
+      "sha": "c298a0a",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/c298a0ae0c3b1fad3f4b0b32c21eb4ba4aa8726d",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T02:12:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Version class coordinate precision and refresh accepted edits",
+      "sha": "bd94b6e",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/bd94b6ee0bd71b3899791f0cab2e03a484d259ec",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T02:00:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Clarify host-owned coordinate precision and refresh",
+      "sha": "6880e2f",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/6880e2f05010dfa5757a72a2d52ffeb3b31219d8",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T02:00:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Document versioned coordinate policy boundaries",
+      "sha": "242d9e3",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/242d9e3f275124f9d6626348bbd239cd7575b3b7",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T01:27:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Verify browser zstd negotiation and JSON compatibility fallback",
+      "sha": "e84b0a1",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/e84b0a17714a366e0f03825b384f95ad59e008df",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T01:19:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Enable verified native QGIS cache and accelerate bounded WKB decoding",
+      "sha": "65e82a6",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/65e82a6f451114a848bddad2c28538820f689ef7",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T01:08:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Align current architecture docs with implemented format and clones",
+      "sha": "a2be489",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/a2be4899fd7e9bdac7f1659883d136a00083bf65",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T00:52:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Add reproducible service and client transport measurement campaign",
+      "sha": "e488711",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/e488711e690cd2e0e4f79e5af34d083097492113",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T00:36:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin certified editor revision and record consumer compatibility",
+      "sha": "97660ab",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/97660abb2abf1410b85aaffdefa3fe38e4b6e565",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T00:36:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Certify pinned editor update without splitting multipart identities",
+      "sha": "a4ce385",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/a4ce385141918792f75f0c689f821ae983df5a33",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T00:36:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Document certified GeometryEditor consumers and Project boundary",
+      "sha": "5a87e5a",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/5a87e5a6ea857439e2f1071b70b236969845d2fb",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T00:25:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Keep superseded map requests from replacing the active window",
+      "sha": "b8c3698",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/b8c3698dffee347d7595f4a1f907bc0b62962a70",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T00:17:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Delegate QGIS cache reads to native OGR with exact value recovery",
+      "sha": "19028d4",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/19028d4c774b6934e4a434d7a44520afd620dbb3",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-02T23:47:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Add bounded binary feature pages and atomic save finalization",
+      "sha": "536aee1",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/536aee1717e59934bf5017a977ef264956571c40",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-02T23:43:02.000Z",
+      "author": "Maj Diniz",
+      "message": "Restore packed preview parity fixtures and cover grid edge transactions",
+      "sha": "d111d79",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/d111d79d329d8add70c97da4ae6637be02aa83f1",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
     {
       "repo": "1cgeo/dsg-edit",
       "date": "2026-10-02T23:37:33.000Z",
