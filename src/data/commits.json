@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-03T14:39:08.338Z",
+  "lastUpdate": "2026-10-03T18:37:37.420Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-03T14:06:55.000Z",
+    "1cgeo/ebgeo_web": "2026-10-03T16:22:23.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -64,9 +64,9 @@
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
-    "1cgeo/dsg_topology": "2026-10-03T11:52:11.000Z",
-    "1cgeo/dsg_versioning": "2026-10-03T11:51:56.000Z",
-    "1cgeo/dsg-edit": "2026-10-03T02:43:21.000Z"
+    "1cgeo/dsg_topology": "2026-10-03T17:50:56.000Z",
+    "1cgeo/dsg_versioning": "2026-10-03T18:10:06.000Z",
+    "1cgeo/dsg-edit": "2026-10-03T18:27:58.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8247,
+    "totalCommits": 8280,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2227,
+      "1cgeo/ebgeo_web": 2229,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -169,9 +169,9 @@
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 61,
-      "1cgeo/dsg_topology": 177,
-      "1cgeo/dsg_versioning": 116,
-      "1cgeo/dsg-edit": 38,
+      "1cgeo/dsg_topology": 180,
+      "1cgeo/dsg_versioning": 121,
+      "1cgeo/dsg-edit": 61,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
       "1cgeo/chefe_dgeo": 933,
@@ -182,6 +182,303 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:27:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decision D22: frame choice for the Versioning topology adapter\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "5304e4a",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/5304e4a93ceda1982d977146cc0d1a3bd5914803",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:26:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Split holed polygons and multiparts, keeping untouched parts together\n\nCuts through, along or around holes are now pinned by tests, and a cut across\na Multi keeps the parts it does not touch in one Multi piece placed where the\nfirst of them was, as QGIS 4.0 does, instead of turning each of them into a\nnew identity. Results with at most one untouched part are unchanged. The old\nDSG Versioning split.js cases are ported, and property tests check validity,\narea, coverage and absence of overlap over random holed multipolygons and\nmulti-lines.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "5d0c1c9",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/5d0c1c9b38add4731a205e4e92c4a0ba405feb87",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:11:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decisions D19-D21: wasm CSP, no migration, final scope\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "7f97e89",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/7f97e89a4f6f6303ba69ccb36815d4ecd32da00f",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:11:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Add scale ranges, graduated styles, line labels, draw forms and local glyphs\n\nLayers and labels take zoom ranges shown as 1:n, with an out-of-scale mark\nin the layer tree; graduated styles classify a numeric field by equal\ninterval, quantiles or manual breaks with accessible ramps and legends;\nlabels follow lines, take offsets, priority, halo and overlap settings and a\nregular, bold or italic face. A drawn feature waits for its form and is\ninserted with its attributes in one undoable step, and per-layer form layouts\nadd tabs, groups, order and hidden fields, saved in the project file.\n\nGlyphs are served from the package by the new serveGlyphs() Vite plugin with\nliteral template tokens, so labels work offline. The toolbar keeps one row\nwith an overflow menu, saving across connectors reports partial results, and\na refusal without field violations now shows the service's message.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "41221bc",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/41221bcaff3513ed219a104e2e28c749b3481d39",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T18:10:06.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the PostGIS round of the dsg-edit web against the real service\n\npostgis.spec.js passed in Chrome and Edge (full suites with --postgis:\n23 passed, 1 skipped, the only failure the expected I07 one), the 14\nPostGIS transport conformance cases passed with DSG_REQUIRE_POSTGIS=1\n(40 passed), and test_dist.py ran the PostGIS pilot step (15 steps).\nThe round used a throwaway PostgreSQL 16 / PostGIS 3.4.1 instance on\nloopback, removed afterwards; no existing database was touched.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "fe6fab9",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/fe6fab9a35b689b901cdbbfd4ce9759cdf79aa06",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:01:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Ship the topology WASM script with --out and point to the real-service proof\n\nConsumers can now vendor the pinned DSG Topology WASM next to their own page\nfrom node_modules; the versioning doc points to the real-service run in\ndsg_versioning/web/tests.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "f24c2b4",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/f24c2b4573a43d2aa5858dd778f6df8d5532a1de",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T18:00:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the packaged distribution with the dsg-edit web\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "5e26e43",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/5e26e43fe2ee3f2182f69c215f006cc0469baeb1",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T17:58:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Adopt the MIT license (decision D035)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "31b15be",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/31b15bedcd281e7e834e2e30c4a31da95158911a",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T17:58:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decision D034: the web is a configuration of dsg-edit\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "9bca8d0",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/9bca8d0083147230782ed7ddef60ed5ffda32838",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T17:58:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Serve the dsg-edit application as the web workstation\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e92277c",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/e92277ceaf9e5a7a947e47d1a137c0b7511060e4",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T17:50:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Adopt the MIT license\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "a02bdaa",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/a02bdaa3c59f13cf2c64b459d37ce9e876680088",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T17:50:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Make the web client a configuration of the dsg-edit application\n\nThe browser client (Worker, engine client, receipt appliers, journal and\npanels) now lives in the dsg-edit topology plugin. web/ keeps the page, the\nVite config, the engine from tools/build_wasm.py with its manifest, and\nsmoke, verdict, build, parity and private cache specs. The dsg-edit package\nis pinned to 5f0238908f3685dfa9e47c99c659e31cdf678068.\n\nA new decision supersedes the 2026-09-28 one for the web editor: a receipt\nchange now touches the core, qgis delta.py, the dsg-edit applier and the\nengine identity pinned there. Constitution, wiki, rules, memory and READMEs\nfollow; deleted specs cited by dated records are declared in the docs test.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "ea6975d",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/ea6975d0ce62aa34fdaf7f488cf12b6bb1926329",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T17:50:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Write the engine manifest the dsg-edit topology plugin verifies\n\ntools/build_wasm.py records, next to web/public/pkg, the SHA-256 of each\nfile, the last commit that touched nucleo/ or bindings/ and whether those\nfolders had uncommitted changes, read before compiling.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "cc13be9",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/cc13be9ff8de160e56555224a3c7cb898d91b951",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T17:26:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decision D18: start F7 in both consumer repositories\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "5f02389",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/5f0238908f3685dfa9e47c99c659e31cdf678068",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T17:25:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Run the DSG Topology web experience inside the app\n\nThe activity package (dsg-topology-session/1) opens through its own\nconnector with an IndexedDB journal for resume, changeset and activity\ndownloads matching the previous web, and the plugin panel gains process,\nmapping, processing window, mode, metrics, coverage and the issue list. The\neditor keeps the previous web's shared vertices, tolerances and hit rules.\n26 browser specs of dsg_topology/web are ported or adapted and the benches\ncompare with the previous web; a host template shows the page\ndsg_topology/web will keep.\n\nThe app gains generic pieces both plugins use: disconnect, an async form\ndialog, tools with state, dashed lines, styled legend items, editor\ntolerances from plugins, and fixes found in Firefox for the table cache.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e52a376",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/e52a37619bf6152249edd6a0c59a0d559dc50212",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T17:25:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Run the whole DSG Versioning workstation inside the app\n\ncreateVersioningPlugin adds the repositories and clones tree, clone creation,\ncoverage, history with past geometry, integrations with three-way cards and\nresolution, lineage, jobs and the validation report through the app's\ngeneric registries, keeping the service invariants: no commit vocabulary,\nclean workspace before clone, prepare, apply, undo or switching, accepted\nstate re-read and honest validation. A stateful fake service drives the\nexample page and the browser specs ported from dsg_versioning/web; a host\ntemplate shows the page dsg_versioning/web will keep.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1805e74",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/1805e7462bc6c0cb132f4ec2999974d95fdf5f14",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T17:25:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Harden the workspace and keep table rows selected in the core editor\n\nrebase() now adopts the current generation for the whole pending batch of a\nconnector, inserts included, unless another of its edits is still stale.\nSaving across connectors stays refused by default and gains an opt-in\nperConnector mode that reports saved and pending layers honestly.\nGeometryEditor takes an exists(id) option whose default keeps the previous\nbehaviour, so rows without geometry survive settle(); drawnSelection() gives\nthe tools the selected features that have one. Type tests now cover every\npublic subpath.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "646087c",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/646087cb0fbbaed227defffaba512e60a37195bb",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T16:44:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Vendor Latin Noto Sans glyph ranges and record decisions D14-D17\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "72ed3b4",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/72ed3b41b51c9aae02e7687cfe40ebe922d6e86c",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T16:40:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Record that the plain GeoJSON connector keeps no lineage by design\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "45fe47a",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/45fe47ae55ba64add4411a2cd00ae4f5e68d1d70",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T16:38:39.000Z",
+      "author": "Maj Diniz",
+      "message": "License the package under MIT\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e31a65d",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/e31a65dc9aeed06f6b4f158d8ed063ef56655152",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T16:29:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Add the editing application over the workspace\n\ncreateApp builds the whole editing UI in vanilla JS: toolbar, layer tree with\nconnector and read-only plugin groups, feature form generated from the field\nschema, a virtual attribute table with sort, filters, inline edit and\nselection sync, identify, measure, history with jump-to-step, an issues panel\nthat keeps incomplete and not-evaluated verdicts distinct from zero problems,\nstyle editor, basemaps, project file and light/dark themes. A topic store\nflushes once per frame and every component patches only its own DOM, so two\napps can share a page.\n\nWorkspaceEditor and WorkspaceLayers wire the GeometryEditor and the packed\nmap transport to the asynchronous workspace; a shared-vertex drag across\nlayers is one transaction. GeoJSONLayer gains an opt-in list of properties to\ntransport for data-driven styles; the default output is unchanged.\n\nMeasured with 50k features: edit frame median 0.5 ms, no long tasks while\nediting; the 100k-row table sorts in 40-87 ms and scrolls at 60 fps.\n27 browser specs drive the example app in Chrome.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "f0f53be",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/f0f53bec3299b10345cb7e44193fc8eb992e89ad",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T16:22:23.000Z",
+      "author": "Maj Diniz",
+      "message": "telemetria: o lote de uso leva a classe da placa de video do mapa, e a nota de desempenho do mapa base vetorial e refeita com GPU real e dados de producao\n\nA lentidao com mapa base vetorial depende de QUEM desenha: o mesmo gesto de\nzoom com arrasto passou 2,7 s em tarefas longas no SwiftShader, 0,42 s no WARP e\n0,14 s na placa real. Ate hoje a placa so era conhecida de quem tinha defeito.\nDecisao do dono: o lote de uso ganha a CLASSE (real, software, desconhecida,\nnenhuma), nunca o nome da placa.\n\n- a classe e lida do contexto WebGL do proprio mapa na criacao dele\n  (`descreverContextoWebgl` + `classeDaPlaca`), sem criar o contexto de sonda\n  que o relato de erro cria e que o boot de toda pagina nao pode pagar; o boot\n  que falha por falta de WebGL 2 informa `nenhuma`;\n- vocabulario espelhado nos tres lugares da casa: as duas folhas\n  `ambiente-do-navegador.js` e o CHECK `uso_sessoes_placa_check`\n  (backend/src/database/migrations/021_uso_placa_de_video.sql, aditiva e\n  idempotente); UPSERT por primeiro nao nulo, como as outras dimensoes;\n- a aba Uso da Administracao ganha a tabela \"Placa de video\", que so aparece\n  quando o servidor manda o bloco.\n\nDocumentacao: docs/wiki/desempenho-do-mapa-2d.md deixa de dizer \"trava 2,9 s\"\n(isso so vale para desenho por software) e passa a ter o peso por camada (predios\n3D metade a dois terços da GPU), a producao (Topografica de 191 camadas em 90%\ndas cargas; placas reais na maioria), e globo e relevo medidos (so pesam no z9 em\nplaca fraca). CLAUDE.md, observabilidade.md e o diario de decisoes acompanham.\nOs predios 3D da Topografica ficam, por decisao do dono.\n\nVerificado: o lote saiu com `placa: software` no Chromium do harness e `real` no\nFirefox, servidor 204. Guardas: frontend/tests/unit/classe-da-placa.test.js e\nos dois espelhos do ambiente; o teto de fonte do grafo completo sobe de 12770 para\n12780 kB (12771 medido).\n\nGate: lint limpo; npm test da raiz verde (frontend 18195, backend 5874, e2e 308).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "64e7df9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/64e7df944b6e1721910b0fded0d00a6f097245cb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T16:22:10.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: a consulta de clique e de toque deixa de perguntar ao mapa base\n\n`queryFeaturesAtPoint` sem lista de camadas consultava o estilo inteiro, e tres\nchamadores faziam isso: a selecao, todo clique de botao com algo selecionado\n(pan incluido) e o toque do celular. Com base raster nao custava nada; com base\nvetorial cada consulta varria ruas, predios e rotulos sob o cursor para depois\ndescarta-los. Medido em 2026-10-03 com um estilo vetorial de 111 camadas e CPU a\n1/4: ~100 ms por clique sem filtro contra 2 ms com as camadas da aplicacao, as\nmesmas linhas da aplicacao nos dois casos. Producao abre numa base de 191.\n\nDefeito funcional junto: no celular a folha da feicao so fecha quando o toque nao\nacha nada, e sobre base vetorial sempre havia rua sob o dedo.\n\nO padrao agora e `applicationLayerIds`: as camadas de fonte GeoJSON, que incluem\ntoda feicao, alca de edicao e previa. `isClickOnEditHandle`, sem chamador mas\nmantida por teste, recebe o mesmo filtro.\n\nGuarda: frontend/tests/unit/consulta-de-clique-sem-mapa-base.repro.test.js (3 de\n7 casos reprovam sem o filtro). No app real, Chromium e Firefox, sobre base\nvetorial: clique seleciona, arrasto grava, clique no vazio desseleciona; 31\nconsultas, nenhuma sem filtro, nenhuma linha da base, a mais lenta em 4 ms.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "34c77a1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/34c77a134d0d2f3f5a3235a541f17cc691e4803b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T16:04:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Check the clone selection at edit time and support attribute-only classes\n\nConnectors may now validate their own changes synchronously before plugins\nvote; the Versioning connector uses it to refuse edits that leave the clone\nselection (classes, attribute and area filters, D017) and checks classes,\nattribute filters and null geometry again before saving. Datasets without a\ngeometry column become attribute-only layers read whole with loadLayer, Z\nclasses are read-only with a reason, deprecating several features is refused\nbefore reaching the service, and field metadata such as decimal and hex\nformats is kept for the form.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "ddd3c5e",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/ddd3c5eb36a3ecaa1ee18640e4f8a3042b928185",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:50:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Implement the DSG Topology plugin on the Workspace contract\n\ncreateTopologyPlugin mirrors every workspace transaction into the engine\nsession as the smallest changeset against the accepted parent, sending the\nengine's exact undo when an undo or redo inverts the last mirrored step.\nLayers in EPSG:4674 or 4326 are read as the same numbers, as the previous web\nclient did; any other CRS is refused at mapping. In topological mode the\ngrid quantizer is installed and off-grid new vertices are refused, and engine\nrefusals block the edit through prepare/abort; observer mode is the default.\n\nThe plugin checks the mapping against the rule schema, reports an honest\nverdict (unmapped layers, missing attributes, identity errors and hidden or\ntruncated reads make it incomplete; budget overruns are not evaluated),\npublishes the derived polygons, open faces and issue layers as keyed diffs,\nand registers its panel, processing-window tool, banner and project section.\nWorker traps respawn and resync from the workspace.\n\nRollback and revert now skip the plugin vote like save and lineage do, so no\nplugin can stop a user from discarding edits.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "97d4388",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/97d43888288156db403549ff8f68bb75103289c8",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:44:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Implement the Versioning and GeoJSON connectors on the Workspace contract\n\nThe Versioning connector maps datasets and the model into workspace layers\n(decimal and bytes kept as text with their format, unknown kinds read-only),\nreads by bbox over DSGP/1 or JSON with paging and generation, saves one\nmulti-class batch with the workspace request id and expected generation,\nre-reads the accepted state, maps 409 violations to layer fields, and runs\nsplit, fuse and deprecate as immediate lineage. Failures after sending are\ntreated as lost so the identical batch is resent.\n\nThe GeoJSON connector opens files, handles or dropped data, infers the field\nschema, keeps unknown members, id types, order and Multi geometries on\nround-trip, leaves GeometryCollection untouched and reported, and writes\nthrough a File System Access handle or a download.\n\nA conformance suite runs the same contract checks against both connectors\nand the memory connector.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "ebc6fd6",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/ebc6fd6acf3b518f91e355d68bd4c9651670a7d6",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:32:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decisions D10-D13: push policy, vendored WASM, topology placement and default mode\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1a0ef1f",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/1a0ef1fdef8edf5c40af01d9f46dec8130f08a96",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:24:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Add the Workspace model with the Connector and Plugin contracts\n\nThe workspace is the model of the editing application: layers described by a\nconnector schema, whole feature identities (a Multi stays one feature),\nan atomic edit queue shared across layers, one history whose entries survive\npartial saves when they commute, and a single save batch per connector with\na content-fingerprint request id, the generation seen at the first pending\nedit and adoption of the accepted state. Refused and stale saves keep the\nbuffer; lost saves lock edits until the identical batch is resent or\nabandoned. Lineage runs buffered for file connectors or immediately through\nthe connector for the versioning service.\n\nPlugins validate synchronously, then prepare in turn with abort in reverse\norder on refusal, commit and observe transactions carrying before/after per\nfeature and the original id of undo and redo. Windowed loading with a\nretention budget, dual geometry with exact vertex restoration, field policy\nfrom the schema and registries for derived layer groups, issues, panels,\ntools and banners complete the contract.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "58ecac7",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/58ecac7dfc3961aa6bf184fbe5c5517b120d0a8b",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:10:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Add the script that vendors the pinned DSG Topology WASM with its manifest\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "97dc326",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/97dc3266adb97a2544c7a52e6471174d7a61a3b6",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:10:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Port the DSG Topology engine client as the plugin base\n\nBring the DOM-free engine layer of the topology web client into\nsrc/plugins/topology: the worker split into a testable core and a thin\nself-bound shell, the serial EngineClient with trap/timeout respawn from the\nlast accepted copy, receipt application for delta /8 and /9, the binary\npreview, validation status, context audit, issues, processing window and the\ngrid quantize with its decimal tie rule. A pinned engine identity (engine\ncommit, rules SHA-256, receipt versions, preview envelope) is checked when\nthe WASM is loaded and probed in the worker; unknown receipt versions are\nfatal.\n\nTests run the real WASM from a vendored or sibling build when present and\nskip with a reason otherwise; grid parity uses 2,013 recorded Python Decimal\ncases. Storage and history stay behind: durability moves to connectors and\nundo to the workspace.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "85bea5b",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/85bea5b2ca63e9a65f1816b2cc76023abe763ed2",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T15:09:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Port the DSG Versioning HTTP client as a DOM-free connector base\n\nBring the service client into src/connectors/versioning: the DSGP/1\ncolumnar decoder, BigInt-safe JSON (with a portable path for Node 20), typed\nerrors that keep violations and tell stale generations, reused request ids\nand lost writes apart, and a client for every endpoint the web uses, from the\ncapability probe to jobs, integrations, lineage and clone administration.\nModel helpers map datasets and the model into a generic field schema, fill\nliteral defaults and round changed real fields to 4-byte floats.\n\nTests run in Node with a fake fetch, fixtures citing the documented shapes\nand an independent DSGP/1 encoder written from transport.rs.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "6bcd63c",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/6bcd63cf21a42373b5e18097a9a297e55678f128",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T14:52:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Drop the GitHub CI workflow; checks stay local\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "a78d940",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/a78d940f2d2cc761f3295985ce758db79f78f8bb",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T14:50:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Plan the editing application and lay out its module areas\n\nRecord the approved plan (docs/PLANO.md): dsg-edit becomes the full editing\nUI, with a GeoJSON and a DSG Versioning connector and the DSG Topology plugin\nliving in this repository; GPKG editing in the browser is out of scope.\n\nSince consumers install the package from git, which only installs the root\npackage, the new areas are subpath exports of the same package\n(src/workspace, src/app, src/connectors/*, src/plugins/*) instead of npm\nworkspaces. A boundary test keeps imports pointing downwards. The unit runner\nnow descends into test/ area folders, a minimal CI runs check, unit and type\ntests, and the README states that consumers pin 9e39502 after certifying\n86a6d23.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "d14bcec",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/d14bcec7220a847b184a748d8ecf61ff98b55640",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-03T14:06:55.000Z",
