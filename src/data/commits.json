@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-03T18:37:37.420Z",
+  "lastUpdate": "2026-10-03T22:48:11.178Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-03T16:22:23.000Z",
+    "1cgeo/ebgeo_web": "2026-10-03T22:29:39.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,16 +57,16 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-02T22:36:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-03T22:05:49.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
     "1cgeo/fotos_aereas": "2026-07-25T13:13:54.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
-    "1cgeo/dsg_topology": "2026-10-03T17:50:56.000Z",
-    "1cgeo/dsg_versioning": "2026-10-03T18:10:06.000Z",
-    "1cgeo/dsg-edit": "2026-10-03T18:27:58.000Z"
+    "1cgeo/dsg_topology": "2026-10-03T22:23:09.000Z",
+    "1cgeo/dsg_versioning": "2026-10-03T22:41:54.000Z",
+    "1cgeo/dsg-edit": "2026-10-03T21:50:24.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8280,
+    "totalCommits": 8319,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2229,
+      "1cgeo/ebgeo_web": 2234,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -169,12 +169,12 @@
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 61,
-      "1cgeo/dsg_topology": 180,
-      "1cgeo/dsg_versioning": 121,
-      "1cgeo/dsg-edit": 61,
+      "1cgeo/dsg_topology": 183,
+      "1cgeo/dsg_versioning": 142,
+      "1cgeo/dsg-edit": 69,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 933,
+      "1cgeo/chefe_dgeo": 935,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,357 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T22:41:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the dsg-edit 0.4.2 round: the large class in the browser (I05)\n\nEvidence of the large-class proof in Chrome and Edge against the real\nservice with PostGIS, I05 narrowed to what is still open, I09 for the\ndsg-edit lineage read race and E08 for the dsg-import edgv tests.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "5ec378b",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/5ec378bd393eaa22122a0cec72e024ac13fed98f",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T22:41:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin dsg-edit v0.4.2 and prove the large class in the browser (I05)\n\nThe web pins @1cgeo/dsg-edit v0.4.2 (f2f9f71): progressive loading and a\nper-view budget from /extent. tests/large.spec.js opens a copy of the real\nclass of 425,290 centroids (run_rust_suite.py --large-gpkg) and measures, in\nthe page's clock: \"aproxime para ver\" at the world without reading a page,\na region read page by page, a superseded view cancelled, a view stopped at\nthe budget, an unsaved edit kept past the retention budget and saved, and\nthe box-order pages with no duplicate and equal to the file's R*Tree.\n\nsplit.spec.js: show() waits for the whole view, and a deterministic\nregression (expected to fail) shows a read begun before a split bringing\nthe split original back into the workspace (dsg-edit, I09).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "5d66255",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/5d662559b711c85f6693b67d9a449ab5b8cfd11b",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T22:29:39.000Z",
+      "author": "Maj Diniz",
+      "message": "colar: Ctrl+C e Ctrl+V pela area de transferencia do sistema, em GeoJSON, e soltar .ebgeo em atlas.html abre um atlas local novo\n\nA copia de feicao passa a ir tambem para a area de transferencia do sistema\noperacional, como um FeatureCollection com o membro estrangeiro \"ebgeo\" (origem,\nnomes de camada, bytes de foto). O Ctrl+V e lido pelo evento nativo paste, porque\no Firefox 115 nao expoe readText: cola entre abas, entre navegadores e de qualquer\nprograma. De outro atlas as camadas se acham pelo nome e a foto chega pelos\nbytes; simbolo, medida e declinacao se redesenham. GeoJSON de fora vai pelo\nimportador e cria a camada \"Colado\". A copia em voo vence o texto antigo da area\ndo sistema, e uma reserva de 250 ms cobre o navegador que nao dispare paste.\n\"Duplicar Selecao\" nao toca a area do sistema.\n\nSoltar um .ebgeo em qualquer ponto de atlas.html chama o mesmo caminho do botao\n\"Abrir arquivo .ebgeo\"; arquivo de outro tipo e recusado em vez de o navegador\nabri-lo no lugar da pagina.\n\nVerificado: test:frontend 18235, test:e2e 308, captura do Playwright no Chromium\n(colar entre dois perfis isolados, GeoJSON de fora, soltar em atlas.html e no\nmapa) e no Firefox, cobertura-desenho-local 13 de 13, tres controles negativos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "d8572b6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d8572b660db9342d0f453cf4f26f0a8004d2a4bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T22:23:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin dsg-edit v0.4.2: progressive loading and a per-view budget for large layers\n\n- web/package.json: @1cgeo/dsg-edit github:1cgeo/dsg-edit#v0.4.2 (lock:\n  f2f9f71638ae07e761dfd6caa133b55b231e6033). The package still pins engine\n  f5de3de, the commit in web/public/pkg/manifest.json.\n- src/plugins/topology is unchanged between v0.4.1 and v0.4.2; the release\n  changes the workspace (pages enter as they arrive, optional per-view budget)\n  and the app tree. The Topology capture reads its window without a budget,\n  so the verdict does not depend on the map scale. editor-web records why.\n- No web spec changed result: 43 passed in Chrome, Edge and Firefox, the\n  build spec skipped outside Chrome by design.\n- desempenho-e-memoria: the 0.4.0 memory measurement was not repeated with\n  the progressive loading of 0.4.2.\n- Living docs link the v0.4.2 commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "da5da9f",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/da5da9f24e686d05118031c12159b3950d0a7856",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T22:15:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Page box reads in box order so a page costs the page, not the box (I05)\n\nA GET /features page with a bbox joined every R*Tree entry of the box to\nits row and sorted the whole result to find the next dsg_ids: about 1.6 s\nper page on the world box of a 425,290-point class, whatever the page\nsize or cursor. Box pages now follow the Z-order key of each feature's\nenvelope anchor on a 2^32 grid over the box, then dsg_id, read through a\nquadtree whose cells have exact bounds and at most 1,024 candidates; the\ncursor stays an opaque, growing string and a dsg_id cursor still pages in\ndsg_id order. Response and DSGP/1 are unchanged.\n\nTests: partition of the box at one generation and under writes between\npages over GeoPackage and PostGIS, exact cell windows, VM-step cost of a\npage against the earlier query, and a bench of page times before and\nafter on the real class and a synthetic one in both storages.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "f92fb3d",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/f92fb3d5d64b585f7ab9d32667da6e672f2210f0",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-03T22:05:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-03: radar semanal de 186 candidatos julgado sem muita utilidade; o rendimento por fonte entra no learnings para a poda, e o estado do radar fora do git diverge entre máquinas\n\n- learnings do radar-tecnologico: o radar-estado.json no .gitignore parou em 2026-09-20 nesta máquina enquanto a rodada de 2026-09-28 correu noutra; a conferência da segunda rodada recontou a falha do Zenodo; arXiv por curl pede https com -L; rendimento (A) por fonte medido para o passo 9\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "453e686",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/453e6863891360bb4ef0bb6ca7fdf3f127295f80",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T21:56:35.000Z",
+      "author": "Maj Diniz",
+      "message": "login: LOGIN_OCULTO no .env do backend esconde toda forma de entrar, com ?entrar como porta do administrador\n\nA implantacao em que ninguem entra passa a ser configurada no .env do backend\n(LOGIN_OCULTO=true, so o literal liga), publicada em features.login_oculto pelo\nGET /api/config. O mapa e atlas.html deixam de desenhar o \"Entrar\", o convite da\nmetade de servidor e o pedido de login do link ?atlas=; ?entrar no endereco de\nqualquer das duas paginas devolve o login. O valor e so do ambiente: o servico o\nrepoe depois da fusao com o override do painel. Esconde e nao tranca: a rota de\nlogin continua respondendo.\n\nVerificado: npm test da raiz (frontend 18209, backend 5882, e2e 308), controle\nnegativo do pino contra o override, e captura do Playwright com o backend real.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "aa1482a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa1482a4cfe184a7c2076a94b809e50a73a313a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T21:50:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Release 0.4.2: progressive loading and a per-view budget for large layers\n\nPages enter the workspace and the map as they arrive, tiles are read from\nthe centre of the view, newer views cancel older reads between pages and a\npartly read tile resumes from its cursor. With a connector extent the app\nholds back a layer whose features in view exceed its budget and tells the\nuser to zoom in, and fits to the connectors' extents. A 425,290-point class\nat world scale no longer leaves the map empty for half an hour: in the\nbench the first feature appears after 0.69 s instead of 17.9 s.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "f2f9f71",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/f2f9f71638ae07e761dfd6caa133b55b231e6033",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T21:26:26.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: sobe os tetos de peso construido de quatro paginas, medidos num build fresco do 29deede8\n\nindex.html 4330 -> 4360 (4338 kB medidos), atlas.html 740 -> 745 (741),\nadmin.html 874 -> 880 (875) e calibracao.html 2046 -> 2061 (2051), com nota em\ncada linha. O cliente que mudou desde o 64e7df94 e so o sync (envio-possivel.js\nnovo, sync-flush, gesture-batch, operation-queue, remote-operation-handler),\nalcancado por chunk compartilhado; parte do excesso ja existia em 2026-10-02.\nVerificado: npm run lint limpo; npm run test:tocados 18202 de 18202.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FRFrrviDVup33EqRkGAoER",
+      "sha": "b14448a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b14448a53ad5b5bf0b11a33ca84b776d70bc5c2f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T21:26:25.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: apaga a avaliacao de desempenho, absorvida pela wiki\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FRFrrviDVup33EqRkGAoER",
+      "sha": "7d8b667",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7d8b667b31aeb9a325d3308cbe7406a6f2058332",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-03T21:11:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-03 (EBGeo): produção em 64e7df94 com a migração 021; a Topográfica real medida no harness (o engasgo é rótulo, sobretudo a poi-todos no z17,5); a consolidação 191->128 com prova de equivalência entra como mapa base privado carta-topografica-v2; o ebgeonovo como produção e onde ler acesso na wiki do servidor; ferramentas de medição na skill medir-desempenho-web\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01FRFrrviDVup33EqRkGAoER",
+      "sha": "ca3ecb2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ca3ecb28aa71c0417a43cb37c113562500098941",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-03T21:10:09.000Z",
+      "author": "Maj Diniz",
+      "message": "sync: a edicao local sai assim que fica enviavel, sem esperar o tique de 1,5 s, e a rajada remota volta a ser descrita com os tres verbos\n\nA edicao local de feicao, camada e grupo nao tinha produtor em nenhum gatilho\ndo laco de envio (`FLUSH_TRIGGER_EVENTS`): a store grava e registra a intencao\nsem emitir evento, entao a op saia no tique de 1,5 s. Medido em 2026-10-03 com\ndois navegadores reais e o backend real, do gesto do autor ate a chegada no\ncolega: mediana de 830 a 960 ms no Chromium e 867 ms no Firefox. A parte do\ncolega, da chegada ao mapa parado, era de 4 a 22 ms (250 a 2000 feicoes), e o\nperfil de CPU dele mostrou menos de 25 ms de JavaScript na janela.\n\n- store/sync/envio-possivel.js: folha de zero imports com o sinal \"uma op pode\n  sair agora\", levantado pela fila (envelope pronto em `enqueue`, intencao\n  materializada em `markMaterialized`) e pelo fechamento de gesto\n  (`withGestureBatch`, cuja fila segura os membros enquanto aberto);\n- sync-flush.js: o laco assina o sinal e, quando ele chega com um envio em voo,\n  faz mais uma passada no fim em vez de cair no tique.\n\nDepois, com o codigo implementado: 16 a 60 ms no Chromium (mediana ~20, n=10)\ne 20 a 34 ms no Firefox (mediana ~24, n=10). A rajada de 250 continua saindo em\n10 partes, 1,5 a 2,0 s. Preco declarado: uma requisicao por gesto em vez de uma\na cada 1,5 s, limitada a uma por ida e volta pela guarda de envio em voo.\n\nGuarda: tests/integration/envio-imediato-da-edicao-local.repro.test.js, fila\nreal e laco a 60 s de intervalo; sem o sinal, 3 de 4 casos reprovam (o quarto,\nlaco parado, guarda o lado oposto). Tres casos novos em sync-flush.test.js.\nTetos de peso subidos com justificativa: um arquivo em cada grafo medido e\n8540 -> 8550 kB de fonte ansiosa.\n\nDocumentacao: o lote remoto cobre criacao, atualizacao e exclusao desde\n046838ff (2026-09-24), mas o JSDoc de `applyRemoteOperations`, o de\n`applyRemoteCreateRun`, a wiki e uma avaliacao de desempenho ainda diziam\n\"criacoes\", e a avaliacao montou hipoteses sobre isso. Medido no navegador: numa\nmudanca de estilo em 1000 pontos o par grava o documento 40 vezes contra 1000 e\ncada op espera 6 ms contra 321 ms. Retrospectiva: duas armadilhas de medicao de\ncolaboracao na wiki, a regra do controle negativo que sobrevive a serie\ninterrompida, e duas linhas no livro-razao.\n\nVerificado depois da ultima escrita: lint; npm test (frontend 18202/18202,\nbackend 5874/5874 com piso de cobertura, e2e 308/308); Playwright de\ncolaboracao no Chromium com --retries=0, 20 de 20 sem flaky.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_015rNwXKZQFMPHv7sEwCvhtU",
+      "sha": "29deede",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/29deede8c305dec4b54b784c8e2f3cca91f26d32",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T20:58:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the end of I08 and the internal network round\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "6a7b1ed",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/6a7b1ed222af72c5d157eb1973d37848dace0d4e",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T20:58:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Prove undo, model labels and the network mode against the real service\n\nsaves.spec.js undoes saves from the page on GeoPackage and PostGIS clones\n(service restores, page reads the accepted state back, refusal with\npending edits, not offered on roots and closed clones). model.spec.js\nchecks domain labels in the history and in the merge cards.\nconnection.spec.js proves, in network mode, that Origin, Host and\nSec-Fetch-Site outside the list are refused by the API and from a\nbrowser, and that the configured origin connects without a token; the\nrunner adds --allow-origin http://localhost with --network and keeps the\nPlaywright report and outputs in --out. The centroids step of\ndemo_web_check.mjs passed without reading anything; it now reads a\nregional window to the end.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "3c59754",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/3c59754b6b5d1f37d8ccdff8634143c4d3e424a4",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T20:54:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the mouse cut and the PostGIS topology round\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "c04757a",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/c04757a85111fa7eff9b02d0efb39f9d3e0d6a1f",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T20:54:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Prove the near-vertex cut by mouse and the topology flows on PostGIS\n\nsplit.spec.js draws the I01 cut with real pointer gestures at the map's\nmaximum zoom: it picks, from map.project and the layer's quantizer, the\npair of pixels whose rounded segment crosses the hole's border within\n5e-8 degree of a vertex, clicks it with the split tool (snapping off and\non) and checks the service's 200, one lineage event, the vertex kept\nexactly in both pieces and the pieces on the grid.\n\nThe fixture reads the storage of the roots and clones the specs create\nfrom the run's environment (DSG_WEB_ROOTS, DSG_WEB_CLONES) and checks\nthe catalogue backend; DSG_WEB_TOPOLOGY_ON=clone runs topology.spec.js on\na whole clone of each root, where a layer the root lacks is\nclass_outside_selection, as the service's contract states.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "4afee04",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/4afee045a130db0b1c3aa7dba1fcc605cafa8e82",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T20:12:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Correct what remains open in the plan state\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "b38adc3",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/b38adc3afa8f45094caa5c52d139672b8dedb735",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T20:12:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the state of the plan after the 0.4.1 adoption\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "143cfdf",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/143cfdfe315cda19335a2df10fe2a6f081822527",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T20:12:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the dsg-edit 0.4.1 round: close I01 and V07\n\nEvidence of the web against the real service with dsg-edit v0.4.1 in Chrome\nand Edge, with the topology build and a throwaway PostGIS (38 passed, 2\nskipped in each), the regressions shown against the 0.4.0 build, and the\nWindows package rebuilt from a clean tree and passing its 15 checks.\n\nI01 and V07 are closed. The evidence records that the window preview of\n0.4.0 already did not make an empty mapped layer incomplete (the V05 fixture\nworkaround was unnecessary), and the ledger records the lesson. Web README,\nthe web and topology wiki pages and the root README follow the new pin and\nthe grid applied while editing.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "70a1441",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/70a1441041fd01c719f79b82e6823817a3ecc931",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T20:08:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin dsg-edit v0.4.1: cut on the degrees7 grid and consulted-empty context\n\nThe web pins @1cgeo/dsg-edit at tag v0.4.1 (lock: 3737485). Its versioning\nconnector rounds new vertices on the degrees7-v1 grid while editing, so:\n\n- split.spec.js: the cut within half a grid step of the hole's vertices is\n  no longer an expected failure; it must be accepted (200, no\n  precision_collapse) with both pieces holding the hole's north and south\n  vertices exactly (I01).\n- editing.spec.js: the eight-decimal tie is rounded in the page as the\n  service rounds it, and the request carries the canonical coordinates; a\n  line collapsing on the grid is refused while editing with nothing sent,\n  and the service still refuses the same line sent by another client.\n- clones.spec.js: the all-or-nothing multiclass refusal now uses a GEOS\n  refusal (disconnected interior), since a collapse never leaves the page.\n- topology.spec.js: the V05 coast fixture drops the four features that gave\n  every mapped municipal layer a source; the preview and the service agree\n  with four consulted-empty layers (coverage() checked), an absent layer and\n  an absent attribute keep both incomplete, the attribute alone as well, and\n  the receipt shows layer_absent/attribute_absent in pt-BR (V07).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "231805a",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/231805a4cb70d06aacafc14c100eaf9755b144f7",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T19:55:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin dsg-edit v0.4.1: consulted-empty context and degrees7 grid while editing\n\n- web/package.json: @1cgeo/dsg-edit github:1cgeo/dsg-edit#v0.4.1 (lock:\n  37374856550acbac1cf7256610e29841261996e6). The package still pins engine\n  f5de3de, the commit in web/public/pkg/manifest.json.\n- No web spec asserted the changed behaviours. The activity package has no\n  catalog of empty layers, so a rule layer without sources in it stays\n  unmapped and the conservative warning remains; coverage.spec.js passes as is.\n- contexto-incompleto: a mapped layer read whole and empty is known context\n  (CONSTITUICAO 5.3, decision of 2026-10-03 \"Igualdade exata e suficiencia do\n  contexto\"); the \"Camadas sem fontes\" warning applies only when consultation\n  is unknown. CONSTITUICAO 5.3 cites the plugin suite as browser evidence.\n- edicao-no-mapa: in topological mode new vertices of the EPSG:4674 activity\n  layers go to the grid during the edit, not at save.\n- Living docs link the v0.4.1 commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "60c628b",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/60c628bd78f73aac10b2af1ef384e836a751c791",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T19:51:08.000Z",
+      "author": "Maj Diniz",
+      "message": "Release 0.4.1: degrees7 grid while editing and consulted-empty context\n\nNew vertices on degrees7-v1 classes go to the service's grid during the\nedit, with EPSG:4674 edited as the map numbers, so cuts near an existing\nvertex no longer reach the service as precision collapses. The topology\npreview treats a mapped layer read empty as known context, and the\nVersioning texts cover the new validation reasons.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "3737485",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/37374856550acbac1cf7256610e29841261996e6",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T19:37:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decision D23: session windows approximate whole-repository validation\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "22b01c3",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/22b01c31ddc8345d979c0ff2c2bc240c9611583a",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:35:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Record decision D037 and the V05 evidence\n\nD22 of the dsg-edit plan adopted as D037: real frame for a box on demand,\nno frame for the whole repository, artificial frame for the area of a\nclone, with the decisions of DSG Topology of 2026-10-03. V05 closes with\nthe PostGIS, browser and QGIS rounds; V03 narrows to versioned\ndependencies, V02 to the box that crosses a clone's area, and V07 asks\ndsg-edit for the texts of the new reasons.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "b3d7fcb",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/b3d7fcbeb6c84354734444f8d93592b719f4497d",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:35:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Prove V05 in the interfaces and the preview agreeing with the service\n\nThe web, the QGIS flow and the conformance suite give their fixtures the\nwhole context the rules read, and expect the real frame of a box. A new\nspec runs the cases of V05 (Guaratuba and Itapoá, exact equality of text,\na centroid on an edge and on the window border, undo, missing layer and\nattribute) on one window in the DSG Topology preview and in the service's\nvalidation and compares the problems; it fails against the previous\nservice. The QGIS flow runs the same cases by the visible extent, and the\nplugin words the new reasons and the box that judges every face.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "1a4999e",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/1a4999ea7e2dda93035044802089e3dcdfa6c53e",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:35:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Adopt DSG Topology core f5de3de and the frame of each validation kind\n\nVendor the core at f5de3de unchanged, with the six manifests and lockfiles\nits private cache hashes through include_bytes! copied at the same relative\npaths, the MIT license of a02bdaa, and every file pinned by SHA-256. The pin\ntest also checks that every included file is vendored; a cache test proves\nthe copy reopens its own cache and refuses another build's identity. The\nadapter never uses the cache, receipts 8/9 or the binary preview.\n\nThe frame is chosen per validation kind (D037, D22 of the dsg-edit plan):\na box on demand is a real frame, the whole repository has none, the area of\na clone is artificial, and a session's internal windows stay evaluation\nwindows. A centroid on an artificial frame or window is listed as\ninconclusive instead of dropped. Missing required layers and attributes are\naudited against the engine's schema (layer_absent, attribute_absent, also\nat the root; a registered class left out of a clone's selection is outside\nit), and the combined legal-limits process is never chosen. Proofs of V05\nin the four storage pairs in tests/context.rs.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "a852779",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/a85277947018a665e38c1236f4ee2c17bbfbbc3b",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:32:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the package built with the two-stage web\n\ntools/dist_rust.py from a clean worktree at 660afc7 and tools/test_dist.py\nwith a throwaway PostGIS: 15 steps passed, including the new checks of the\nconnection-screen entry, the application chunk and the served glyphs.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "1f87560",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/1f87560834a3ef931df8124d9cb9c06914f5b741",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:27:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the dsg-edit 0.4.0 round of the web\n\nEvidence of the Chrome and Edge rounds against the real service with a\nthrowaway PostGIS, the load before and after the two-stage entry, I07 closed,\nI01 narrowed to the degrees7-v1 grid of new vertices in dsg-edit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "660afc7",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/660afc717e31f97a746d6f6984997b67bb962fbc",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:27:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Check the two-stage web and its glyphs in the package\n\nThe package smoke test expected the Versioning plugin in the entry script;\nthe entry is now the connection screen that imports the application chunk.\nCheck both, the glyphs and their licence, and the Protocol Buffers type.\nList the Noto Sans fonts and their OFL among the third-party licences.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "3c7b54a",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/3c7b54aebfe7517ccc7646819eaa5f08cd97d475",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:27:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Prove drawn splits against the real service (I01)\n\nCuts drawn in a degrees7-v1 clone: through a hole, touching a hole at a\nvertex, four crossings, touching the shell at a point, a line at three\ncrossings and a MultiPolygon cut on one part (untouched parts kept as one\nMulti). Each is one lineage event with service identities, no coverage\nwarning at one grid step, undo of a split with a Multi successor, and the\nnet lineage in the parent after the merge. A cut within half a grid step of\na vertex is refused with precision_collapse because dsg-edit 0.4.0 does not\nround new vertices to the class grid: kept as an expected failure.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "311e4b3",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/311e4b33e837c5eefd749a16f9fd1b1f18f90672",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:27:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin dsg-edit v0.4.0: offline labels, form on draw, lazy application\n\n- Pin @1cgeo/dsg-edit to the v0.4.0 tag (lock at c95fc54); MapLibre 6.11.2\n  and Vite 8.3.1 unchanged.\n- serveGlyphs() copies the package's Noto Sans glyphs and OFL into the build;\n  labels no longer need glyphs: null.\n- featureForm {onDraw: 'dialog'}: a drawn feature asks for its attributes\n  with the model's defaults, required fields enforced before the insert.\n- The entry is now a small connection screen that reaches /api/info, asks\n  for the local token when needed, and only then imports the application\n  (MapLibre, dsg-edit, plugins): about 5 kB instead of 1.6 MB before paint.\n- Specs: lazy entry and glyphs in the served build, the token on the\n  connection screen, the GEOS refusal text reaching the user (I07, no longer\n  an expected failure), the form on draw, and an opt-in load measurement.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "538e812",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/538e81217af432739912777d5f433eeb7aebf955",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T19:27:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Serve label glyph ranges as Protocol Buffers\n\nThe web build now carries the label glyphs of dsg-edit (serveGlyphs, under\nglyphs/<font stack>/<range>.pbf). Static .pbf files were served as\napplication/octet-stream; serve them as application/x-protobuf, the type the\ndsg-edit dev server uses. The regression checks a font stack folder with\nspaces, the licence as text/plain and a missing range as 404.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "1996e8e",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/1996e8e5a84ba5b2e0831fa3af1eaecc27db7ef8",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T19:06:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Serve the package glyphs in the topology and versioning examples and hosts\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "adb69fb",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/adb69fb682467a62d583c870075ed1f4727f8d13",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_topology",
+      "date": "2026-10-03T19:04:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Pin dsg-edit v0.4.0: offline labels, drawing form in the dock, draft of unsaved edits\n\n- web/package.json: @1cgeo/dsg-edit github:1cgeo/dsg-edit#v0.4.0 (lock:\n  c95fc543d980f349905185ffc09010f77c7eab4f); maplibre-gl 6.11.2, vite 8.3.1.\n- vite.config.js: serveGlyphs() serves the package's Noto Sans glyphs in\n  development and copies them (with the OFL) to the build.\n- main.js: featureForm onDraw 'dock'. The previous client inserted a drawn\n  source with the attributes of its side form; an immediate insert would\n  enter the engine without them, and a delimiter without tipo splits no face.\n- The activity host's draft of unsaved edits is on by default; a new spec\n  edits, reloads without saving, reapplies the draft and checks the source\n  and the engine parent. Specs for the dock form and the served glyphs; the\n  build spec checks the glyphs in the output.\n- page.js rounds pointer targets to whole pixels: Firefox truncates pointer\n  coordinates, and the new layout put the drag target at 354.99999 px.\n- Living docs link the v0.4.0 commit; wiki records the draft, the form\n  choice, offline labels and dsg-edit's memory cut (131.5 -> 44.7 MB).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "caaab0f",
+      "htmlUrl": "https://github.com/1cgeo/dsg_topology/commit/caaab0fb095fa6a10ad30271abe1de8d6de3b5d7",
+      "repoUrl": "https://github.com/1cgeo/dsg_topology"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:49:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Release 0.4.0: the editing application with connectors and plugins\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "c95fc54",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/c95fc543d980f349905185ffc09010f77c7eab4f",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T18:48:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Record the WebAssembly policy and I08 round evidence\n\nClose V06 with the topology preview proven in Chrome and Edge, narrow\nI08 to undo, model labels and the demo check, and link the new evidence\nfrom the web wiki and the earlier round.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "f7147ad",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/f7147ada2a780db24f683818f7d5124e09a26f10",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T18:48:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Prove the topology preview and the I08 flows against the real service\n\nNew browser specs: the DSG Topology plugin under the service policy next\nto the service's validation; cancellation of a 150k-feature clone;\n105 conflicts and 103 integrations paged; closed clones with PostGIS\nschema removal; visible-area clone with the coverage counted in pixels;\na lost save answer resent with the same request_id; multiclass save in\none revision and refused whole. The runner lists the schemas the specs\nleft before its cleanup.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "25bfcef",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/25bfcef2970904f07ca7e584269957b16374bf85",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-03T18:48:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Allow WebAssembly compilation in the service policy (decision D036)\n\nAdd only 'wasm-unsafe-eval' to script-src, with worker-src 'self'\nexplicit, so the DSG Topology plugin compiles its engine under\n--web-root. JavaScript eval and other origins stay blocked. The route\ntest pins the whole header on the page, a .wasm file and a worker.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "6a3ecf1",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/6a3ecf19c8df0039af0975fd41254391716ee22d",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-03T18:39:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Cut Topology page memory threefold and keep a draft of unsaved edits\n\nActivity rows, the plugin's mirror and the engine client's accepted copy now\nhold each part's points in one Int32Array and expand only what a transaction,\na save or a recovery needs; derived polygons keep the engine's flat rings and\nbuild coordinates lazily; a closure no longer keeps the package text alive.\nOn the real cut the retained heap falls from 131.5 MB to 44.7 MB with load,\ndrag and hover unchanged.\n\nThe workspace can export its pending buffer as a draft and reapply it as one\nvoted edit against a base; the Topology host writes it to the journal after\ncommitted changes and offers it on resume, discarding drafts from another\nhead. Refusals without violations keep the service detail, and the\nVersioning connector attaches pt-BR descriptions of GEOS, precision and\nselection codes.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016M2ims8LZZKepcqYWG6zd7",
+      "sha": "36bccf8",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/36bccf883d0f031f89458dd6c0aab6f1b4d92588",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
     {
       "repo": "1cgeo/dsg-edit",
       "date": "2026-10-03T18:27:58.000Z",
