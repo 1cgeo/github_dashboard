@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-04T15:14:26.886Z",
+  "lastUpdate": "2026-10-04T22:56:04.480Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-04T09:49:09.000Z",
+    "1cgeo/ebgeo_web": "2026-10-04T20:49:50.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -45,7 +45,7 @@
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-10-01T13:36:20.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
-    "dsgoficial/EBGeo_Desktop@qgis4": "2026-10-04T13:13:48.000Z",
+    "dsgoficial/EBGeo_Desktop@qgis4": "2026-10-04T16:02:34.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-10-03T10:42:42.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-04T15:02:32.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-04T21:27:56.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8361,
+    "totalCommits": 8377,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2238,
+      "1cgeo/ebgeo_web": 2246,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -146,7 +146,7 @@
       "dsgoficial/sap": 180,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 75,
-      "dsgoficial/EBGeo_Desktop": 94,
+      "dsgoficial/EBGeo_Desktop": 99,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
       "1cgeo/controle_acervo": 360,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 943,
+      "1cgeo/chefe_dgeo": 946,
       "1cgeo/fotos_aereas": 29,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,150 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-04T21:27:56.000Z",
+      "author": "Maj Diniz",
+      "message": "gabdem-ia: a leva fecha no 10001 (D40, revê a D39): v6 + PALSAR + regiões só com GEDI, sem a banda P\n\nO quadro multicritério com o envelope das sementes do v6 mostrou o 10001 vencendo 7 x 0 nos blocos e 4 x 0 no\nlidar aéreo; a evidência da D39 (nível do Tapajós) estava dentro do ruído. Etapa final e ablação em curso.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_0159sVXrTzugjTvkotcb1Fy6",
+      "sha": "7effe0e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7effe0e56fbbf4e0d50e23c92f4ca35e46afdbaa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T20:49:50.000Z",
+      "author": "Maj Diniz",
+      "message": "area de coordenacao: o clique dentro da area com hachura com a carta seleciona, porque o preenchimento solido passa a cobrir toda area, com opacidade zero sob a hachura\n\nTerreno restritivo (151100) e Terreno impeditivo (151199-01) nascem com a hachura com a carta, que e geometria da fonte de decoracao, e a selecao so le a fonte coordination_areas. O preenchimento solido excluia toda area com hachura e o de padrao so pega a hachura fixa na tela e os pontos, entao nenhuma camada fill da fonte cobria aquele miolo e so a borda selecionava. O MapLibre responde a consulta de fill pela geometria e nao le a pintura, entao a camada com opacidade zero continua alvo do clique sem pintar nada.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "2973a45",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2973a458422610a85b35ea1df85a78008ed4828d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:52:10.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: manual do operador com a Linha de Contato nas dobras, o texto externo, o piso da hachura, a Correcao de Zoom unica da area e a edicao do Azimute\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "5d84787",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5d84787e65370627739aa46bf0d0b5017d0fdb49",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:52:10.000Z",
+      "author": "Maj Diniz",
+      "message": "azimute: virgula decimal no painel de criacao e na aba Azimutes, e sai a tabela dos tres nortes que nenhuma selecao alcancava\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "5a0cc97",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5a0cc9784374dec477a16ec6ddbc0f36939578e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:52:10.000Z",
+      "author": "Maj Diniz",
+      "message": "area de coordenacao: o texto externo sai pela normal da borda e fica inteiro fora da area, a hachura com a carta ganha piso em pixels, e desenho e texto escalam juntos pela Correcao de Zoom (sai symbol_scale_mode)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "23ffa36",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/23ffa36468d268254edd883aaac31793a3d9e94f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:52:09.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de coordenacao: trocar o simbolo registra a cor nova antes de refazer o seletor, e o realce de edicao e refeito com a geometria nova\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "d8f2573",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d8f25736e59d7fd6019f1a17eda2e01360f82199",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:52:09.000Z",
+      "author": "Maj Diniz",
+      "message": "linha de contato: os festoes correm pela paralela de cada lado, com contagem propria, juntas aparadas e sem laco na paralela de dentro, e as dobras deixam de sobrepor por dentro e abrir vao por fora\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "39923b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/39923b399b93aff1ae890051c2ac75bde9ea6246",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:01:28.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: manual do operador e registro de decisao do capitulo VII do MD33-C-01\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "7ff73c2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7ff73c207ed228e2edea151f4301d2d125230c72",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-04T19:01:28.000Z",
+      "author": "Maj Diniz",
+      "message": "simbologia: o capitulo VII do MD33-C-01 entra no desenho militar (Base de fogos, Setor de Tiro, campo minado por tipo de mina, quatro linhas de coordenacao com textos e cordao inimigo, a Area de Coordenacao com sete tipos e a migracao 024), e o Azimute e Distancia le NM, NQ e NV\n\nCorrecoes do manual junto: obstaculos e destruicoes nascem verdes, escaloes Equipe e Valor indeterminado no Limite, rotulos Mil/RbAM/Res, SISCOMIS e os genericos de desembarcados no seletor.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "b1e7665",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b1e7665d596a9e928f220b20768f4b75536d6b9b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-04T16:02:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Declinação: WMM2025 (o WMM-2020 venceu em 2025) e data de hoje a cada cálculo\n\nA ferramenta de declinação e convergência usava o WMM-2020 extrapolado:\ndiferença de até 0,232 grau (cerca de 4 milésimos) contra o modelo do EBGeo\nWeb em 8 cidades em 2026-10-04. Com o WMM2025 a maior diferença é 0,004 grau,\no arredondamento do Web. A data padrão era argumento padrão da função e\ncongelava no carregamento do QGIS; agora é a de hoje a cada chamada.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "0792270",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/07922706bcd18090b72f29571638c4761e18e302",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-04T15:38:36.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki ebgeo-desktop: Simplificar Interface removido, com a restauração de quem o deixou ligado\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "206a870",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/206a87056ecbe3b28260ef6e7e8fff00e70ef368",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-04T15:38:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Remove o Simplificar Interface\n\nO modo simplificado saiu do plugin (pedido do chefe). Quem o deixou ligado\nrecupera a interface na primeira carga do plugin: as barras e os painéis\nguardados por ele voltam, as barras simplificadas são apagadas e as chaves\nqgislight do QgsSettings somem (medido com o estado sobrando: barra original\nvisível, nenhuma simplificada, chaves limpas). Plugin inteiro carregado no\nQGIS 4.0.0 sem erro no log.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "eb760ab",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/eb760abb02b80814f2dadf92cab4a2a9f1fab930",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-04T15:31:48.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki ebgeo-desktop: módulo antigo de simbologia removido; dois gotchas do QGIS 4 (associatedWidgets e reset do QgsRubberBand)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "1f0ae7f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1f0ae7fc7c0baa8300221532165498ea8285a03a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-04T15:31:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Remove a simbologia militar antiga (MilitarySimbologyTools)\n\nSai o módulo de camadas MD33 com PNG externo, o algoritmo 'Carregar\nSimbologia Militar' e o ícone; a simbologia passa a ser só a do EBGeo Web\n(menu Simbologia Militar (EBGeo Web)). O histórico fica no git (pai deste\ncommit). Plugin inteiro carregado no QGIS 4.0.0 sem erro no log.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "7143951",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/7143951e32d9bf4dd8a3cc37ab9c19afb1d5f98f",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-04T15:31:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Simplificar Interface: Qt6 e volta ao jeito antigo no segundo acionamento\n\nQAction.associatedWidgets não existe no Qt6 (associatedObjects filtrado por\nQWidget). Ao desligar, remove todas as cópias das barras simplificadas (a do\nciclo anterior ainda esperava o deleteLater) e limpa a marca de ligado; a\nárea e os recursos dos painéis voltam como enum mesmo lidos do QgsSettings.\nSe ligar falhar no meio, a interface é restaurada e o erro vai à barra de\nmensagens. 3 ciclos liga e desliga voltam às barras de antes (teste novo).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "37efc51",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/37efc51649142baa6ddcaaac6df93c5608993980",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-04T15:31:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Calco: preview da linha enquanto se adquire\n\nO reset() do QgsRubberBand esconde a banda e o addPoint não a mostra de\nvolta: a banda tinha os pontos e 0 pixel na tela. Agora ela aparece a partir\ndo segundo ponto (50 pixels medidos) e some ao cancelar; teste novo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "d659bb6",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/d659bb63b6bd9e7ac4a5041234ec824c5e25515a",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-04T15:02:32.000Z",
