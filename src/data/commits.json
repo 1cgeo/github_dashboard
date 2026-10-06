@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-05T19:10:56.001Z",
+  "lastUpdate": "2026-10-06T01:15:16.519Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-05T17:31:27.000Z",
+    "1cgeo/ebgeo_web": "2026-10-05T23:17:55.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -45,7 +45,7 @@
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-10-01T13:36:20.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
-    "dsgoficial/EBGeo_Desktop@qgis4": "2026-10-05T18:56:39.000Z",
+    "dsgoficial/EBGeo_Desktop@qgis4": "2026-10-06T00:26:28.000Z",
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-10-03T10:42:42.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-05T17:51:32.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-06T00:26:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8425,
+    "totalCommits": 8459,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2260,
+      "1cgeo/ebgeo_web": 2268,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -146,7 +146,7 @@
       "dsgoficial/sap": 180,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 75,
-      "dsgoficial/EBGeo_Desktop": 120,
+      "dsgoficial/EBGeo_Desktop": 142,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
       "1cgeo/controle_acervo": 360,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 955,
+      "1cgeo/chefe_dgeo": 959,
       "1cgeo/fotos_aereas": 30,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,312 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-06T00:26:36.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki ebgeo-desktop: caixa sem pai dá 139 ao sair, pool OGR que só solta com laço de eventos, QgsTask apagada ao terminar e o rcc do PySide6 no QGIS 4\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "3377537",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3377537de1d92634acb14e974906cbd2588c671d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-06T00:26:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Defeitos conhecidos: ícones do BDGEx, caixa sem pai na Declinação, memória da auditoria na ida e volta e comentário velho dos 256 px\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "24d0c84",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/24d0c84023aafebc5311b27d20fd51110939d382",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-06T00:24:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Auditoria de chaves não morre mais rodando junto de outras suítes: era falta de memória. Cada troca do filtro (setSubsetString) de uma camada OGR seguida de leitura abre um dataset novo no pool de conexões do QGIS, que só o solta 60 s depois, por um QTimer, e sem laço de eventos nada é solto; a auditoria trocava o filtro duas vezes por variante (a extensão e o desenho) em 3.548 variantes, de 1,7 MB por troca no polígono a 5,2 MB na Área de Coordenação, e passava de 16 GB privados ainda na fase dos desenhos (a da frente E chegou a 9,6 GB de residente com outra igual ao lado, numa máquina de 32 GB com 0,3 GB livres). A extensão sai de uma consulta só, sem trocar o filtro, e o laço de eventos roda a cada desenho: a fase dos desenhos fica plana em 3 GB e a suíte tem pico de 5,4 GB, com o mesmo resultado; rodando ao mesmo tempo que test_importador e test_formulario_comuns, as três passaram (picos de 5,3, 1,6 e 4,2 GB). Régua nova test_auditoria_memoria.py: num GeoPackage sintético, a função da auditoria troca o filtro no máximo uma vez por variante e volta ao laço a cada desenho (a de antes: 301 trocas em 150 variantes, nenhuma volta, +149 MB; a de agora: 156, 150 e +44 MB), e, com EBGEO_TESTE_LENTO, o laço de eventos devolve a memória das trocas depois do prazo do pool. O que ainda cresce depois dos desenhos (de 3 para 5,4 GB) é a ida e volta pelo exportador\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "c67aa12",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/c67aa1285c54b988ce3b940ff5425abb1ae9d6eb",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-06T00:21:31.000Z",
+      "author": "Maj Diniz",
+      "message": "EBGeo Desktop: estado e pendências de 2026-10-05 (exportador, formulário, alças, auditoria de chaves, defeitos abertos) e a ida e volta com o Web na wiki\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "0388a59",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0388a59f66c477b1374ca99021ed8230cf809efe",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-06T00:10:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Defeitos conhecidos atualizados: saem os resolvidos (K1 a K4, K6 a K9, texto externo no U, fator de 512 px, dsg.png, fotos de calco antigo, alças), fica o K5 medido, e entram o Azimute num atlas e a hachura de tipo nenhuma\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "749b4d3",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/749b4d31cfc21288ea4b098ef3303a10c30cb6a1",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:59:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Fator de 512 px do zoom medido lado a lado com a tela do EBGeo Web, e confere: no app real (Playwright, backend com o banco do e2e), o unproject deu 17,60317, 4,40079, 1,55591 e 0,55010 m de terreno por pixel CSS nos zooms 12, 14, 15,5 e 17 a 22,9° S, iguais à fórmula do zoom.py (78271,517 x cos(lat) / 2^z, o mundo de 512 px do MapLibre); e o Símbolo Militar que a ferramenta do Web gravou, importado e desenhado pelo QGIS na mesma resolução de terreno, mediu 94 x 61 px contra 94 x 62 no Web no zoom 14 e 266 x 175 contra 264 x 174 no 15,5. A convenção de 256 px do KMZ do Web daria o dobro. Nada muda no desenho; test_zoom.py prende o caso analítico, os quatro zooms medidos, as cinco cópias do fator no desenho (e nenhum 156543) e o tamanho do símbolo, com o controle do instrumento na resolução de 256 px, e reprova o zoom.py com a convenção de 256 px. Os comentários \"a confirmar\" saem do zoom.py, do estilos_pontuais.py e da arquitetura\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "fe46a7b",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/fe46a7bfbdb540cf45e07f4422a22c3987c7cb02",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:48:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Chaves que só um lado desenhava (K9): de 34 só no Web e 3 só no Desktop a 1 e 0. Parte era o instrumento da auditoria de chaves: o Desktop desenhado na convenção de 256 px, o zoom 12 do MapLibre e o de criação das bases, em que a correção de zoom ligada e a desligada dão os mesmos pixels (militar, medida, engenharia, declinação, Limite, Área, Linha de Coordenação); o quadro fixo de 360 x 270 px, que cortava os textos da Linha de Coordenação e as altitudes do bloco externo da Área; e a opacidade sem referência dentro da faixa (a 2,5 o Web estoura a cor e o Desktop corta). Hoje a auditoria desenha no zoom do MapLibre, num quadro que cobre as variantes com 400 px de folga, e a opacidade ganha 0,5. Parte era o estilo: o rótulo do ponto e das formas passa a ter a correção de zoom do Web (labelSize x 2^(zoom - labelCreatedAtZoom), teto de 255 px, desligada só pelo falso gravado, âncora nula sem escala); a imagem sai no tamanho natural do bitmap, como o Web a registra no mapa, e não pela width (bitmap_largura_px, lida dos cabeçalhos PNG, JPEG, WebP e GIF na importação, e do bitmap guardado no calco antigo ao abrir); e as entradas da visada e da visibilidade não desenham nada, como no Web (opacidade zero). Auditoria inteira: 242 chaves lidas pelos dois, a ida e volta com as 847 ausentes ausentes, e a nova régua (os dois lados leem as mesmas chaves) só com a âncora da Medida pendente, que vai aos defeitos menores com o conserto; o dock passa a mostrar a Correção de Zoom do rótulo nula marcada, e o terceiro estado segue provado num rótulo que não a lê\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "f5c83c6",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/f5c83c6a0111886b1a12ebecc6635248abdec0bf",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:28:47.000Z",
+      "author": "Maj Diniz",
+      "message": "K5 medido e documentado: sem o plugin, trocar o tipo no formulário nativo não tem como aplicar os padrões. O valor padrão por expressão aplicado na atualização roda depois da gravação, na feição já trocada: pelo formulário nativo, \"symbol_code\" e get_feature_by_id(@layer, $id) dão os dois o código novo (TesteSemPluginSoValorNovo, a sonda na descrição de uma Linha de Coordenação trocada de 290199 para 140000 lê 140000|140000). A ordem de avaliação de vários padrões na atualização muda de processo para processo no QGIS 4.0.0 (seis campos em cadeia, cinco processos, cinco ordens), o que descarta uma coluna de memória do código anterior. As regras de troca dependem do valor anterior, e o escalão da Medida, que não depende, não seria redesenhado sem o plugin; nada foi aplicado, e o item fica nos defeitos conhecidos com a medida\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "c5352c1",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/c5352c10ffe8a9462d8f5b06ec7a6314947a8467",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:22:37.000Z",
+      "author": "Maj Diniz",
+      "message": "Motor de símbolos refeito do EBGeo Web 9d5314c7 (commit local, à espera da aprovação do chefe pela prancha antes do push): a âncora do Naval (modificador 1, código 46) passa a ser a do MD33-C-01, com meias setas no lugar das pontas cheias da milsymbol (largura de 1,21 para 0,97 do recorte do manual, altura 0,99), e os rótulos de uma ou duas letras do setor 1 das Unidades, traduzidos ou não, vão de 28 na linha y=71 para 30 na linha de base y=77, o tamanho e a linha do manual (largura de 0,92 a 0,97 para 0,99 a 1,03 do recorte; topo de 0,093 a 0,098 para 0,063 a 0,068 da moldura, manual 0,066 a 0,071). O bundle muda só nisso e no commit de origem, e o catalogos.json só na versão. test_motor.py ganha na paridade o 46 e os curtos 03, 04, 07, 48, 67, 69 e 80: 114 de 114 símbolos militares iguais byte a byte ao Web, e o bundle de antes contra o Web de agora diverge exatamente nos 12 casos novos do setor 1. Se o chefe recusar a prancha, este commit sai junto com o do Web\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "f984894",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/f98489464dd408421e9c865fadd033be40f5e844",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T23:17:55.000Z",
+      "author": "Maj Diniz",
+      "message": "simbologia: a ancora do Naval (modificador 1, codigo 46) e os rotulos de uma ou duas letras do setor 1 das Unidades como no MD33-C-01 (p. 59 a 65). A ancora da milsymbol tem pontas em seta cheia e saia 21 % mais larga que o recorte do manual; a adaptacao 46 a troca pela do manual (meias setas com a borda de fora vertical e a farpa para dentro, braco em crescente, argola sobre o cepo), no quadro local da milsymbol, que a posiciona: largura e altura a 0,97 e 0,99 do recorte. O rotulo curto saia em 28 na linha y=71, cerca de 6 % menor e 3 % da moldura mais baixo que o manual, traduzido ou nao (A, B, N, U); shortLabelLayout do conjunto 10 o redesenha em 30 na linha de base y=77 (y=69,2 com a linha media), o tamanho e a linha dos rotulos de duas letras do proprio catalogo: nos 13 do manual, largura de 0,92 a 0,97 para 0,99 a 1,03 e o topo de 0,093 a 0,098 para 0,063 a 0,068 da moldura (manual 0,066 a 0,071). Os testes do setor 1 censam todo rotulo curto do conjunto 10 (21 codigos) e a largura da ancora, e reprovam o codigo de antes (31 casos). Aprovado pelo dono pela prancha em 2026-10-05\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "80385bc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80385bcb254faa50128233d9a6afbb85b5ffe1e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:14:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Formas com hachura ligada e tipo vazio desenham diagonal como o Web (K8, decisão do chefe de 2026-10-05): o polígono, o círculo, a elipse, o retângulo e o setor com hatchEnabled verdadeiro e hatchType nulo, vazio ou ausente não desenhavam hachura nenhuma (o nulo pintava o preenchimento liso, o vazio deixava a forma vazia), e o Web desenha diagonal pelo orDefault de HATCH_IMAGE_EXPRESSION. estilos_formas lê o tipo por coalesce(nullif(\"hatch_type\", ''), 'diagonal-right') nas camadas de padrão e na condição do preenchimento; o importador grava o hatchType ausente das formas nulo (AUSENTE_COMO_NULA), porque o padrão 'none' da ferramenta não desenharia; o espaçamento e a espessura aparecem com a caixa marcada e o tipo vazio, no nativo e no dock (VALORES_QUE_DESENHAM), e a regra da hachura visível vale também para ele. Auditoria de chaves sem o caso em PENDENTES: só a âncora nula do Ponto diverge (pendente), o diagonal-right cai na classe da ausente e da nula nos dois lados, e a ida e volta devolve as 847 chaves ausentes ausentes; a condição de antes reprova a régua dos campos da hachura (4 divergências) e o estilo de antes, a auditoria\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "434610c",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/434610c375da0b85e2289e9a7b8ea56bc56bde89",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:08:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Desenho num atlas importado num tipo que a camada do EBGeo ainda não tem (K3): sem camada do tipo selecionada, a ferramenta pedia Calco.camada, que devolvia a camada do tipo de outro mapa (a primeira do calco no projeto) ou criava o grupo \"Calco: nome\" fora do atlas com as tabelas sem filtro, e a feição ia ao mapa e à camada errados no .ebgeo. arvore.camada_para_desenho acha o mapa e a camada do EBGeo do nó selecionado na árvore (camada, subgrupo ou grupo do mapa; sem nó no atlas, o mapa ligado e a primeira camada dele), carrega o mapa ainda \"(carregar)\" e cria a camada do tipo no subgrupo com o filtro, as propriedades ebgeo/mapa, camada_id e as duas ordens, o estilo, a regra de exibição, a opacidade e o somente-leitura das irmãs e a posição da pilha do Web (_criar_camada_tipo, a mesma do _materializar), e reordena. Régua TestDesenhoNoAtlas na fixture 06: a camada nova no subgrupo ativo, a segunda feição na mesma camada, o mapa ainda não carregado, e as feições relidas do .ebgeo exportado no mapa, no balde e no layerId certos; com o caminho de antes (camada_para_desenho desligada), a feição sai noutro mapa e a régua acusa\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "6648593",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/6648593734f1dbff4021b866584090458b712286",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T23:06:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Mapa de visibilidade e Análise de Visibilidade por setor em segundo plano (K6): o cálculo roda numa QgsTask (Visada/tarefa.py, TarefaVisada), com a barra de progresso e o cancelar do gerenciador de tarefas do QGIS, e a camada, o estilo, a ordem e os avisos entram no fim, na linha da interface. O motor (nucleo.py) ganha progresso e cancelamento: o callback de progresso do gdal.ViewshedGenerate reporta o andamento e devolve 0 para parar, e o cancelamento levanta Cancelado entre os setores e no meio do GDAL (102 avisos no viewshed inteiro, 5 até parar). Medido num MDE de 9 milhões de células (30 km, célula de 10 m): a maior pausa da linha da interface era o cálculo inteiro (0,159 s em 0,16 s no Mapa, alcance de 14 km; 1,099 s em 1,10 s na soma de seis setores de 12 a 13 km) e passou a 0,018 s e 0,039 s, com o progresso andando. TestSemTravar mede a pausa com um QTimer de 10 ms, exige o progresso intermediário e o cancelamento sem camada nos dois, e reprova o código de antes; a suíte inteira saiu com 0 em 15 de 15 execuções\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "e8f6b40",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/e8f6b40797933c0e536941052f7a1ac9ea1023c1",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T23:05:17.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: sai o INVESTIGACAO-GEOLIBRE.md, a pedido do dono\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "c7c0f89",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7c0f890142c89feebbc0eca3902361c2c52c5ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:59:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Sai o ícone antigo icons/dsg.png: fora do resources.qrc, apagado do disco (nada mais o citava) e resources_rc.py recompilado. O QGIS 4 não traz compilador de recursos (o PyQt6 não tem pyrcc, e a pasta Qt6 do instalador não tem o rcc); o novo saiu do rcc 6.11 do pacote PySide6 (rcc -g python --no-zstd), com o import trocado para qgis.PyQt, e carrega no PyQt6 6.10 do QGIS 4.0.0 (Qt 6.8.1). O compilado de antes era do pyrcc5 e levava também icons/militarySimbology.png, que não estava no .qrc nem no disco; o de agora tem os 18 arquivos do .qrc, byte a byte iguais aos do disco. Régua nova EBGeo/testes/test_recursos.py: compilado igual ao .qrc e ao disco, o dsg.png fora de tudo, todo caminho :/plugins/EBGeo citado no código presente, e o plugin carregado com o ícone de cada ação do menu e os cinco ícones do compilado desenhados nos painéis da Análise de Visibilidade e do Ir para coordenada; reprova o código de antes (o dsg.png e o militarySimbology.png)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "d318412",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/d3184127d7224e4d7af5cfb52a3551115ec9fd44",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:59:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Teste de visibilidade não cai mais ao encerrar (K7): o Mapa de visibilidade criava em Visibility/main.py um QMessageBox() sem pai que nada usava, e a janela de topo viva no fim do processo é destruída pelo sip em ordem que muda de uma execução para outra; o test_visada.py imprimia OK e saía com 139 em 20 de 30 execuções (o -X faulthandler aponta a violação de acesso na linha principal, sem quadro Python, depois do OK). A causa foi isolada por eliminação: com o plugin carregado e as duas ações acionadas, apagar só o QMessageBox antes de sair zera a queda (0 de 8 contra 4 a 7 de 8 apagando qualquer outra janela de topo), e sem ele a suíte saiu com 0 em 30 de 30. TestPlugin passa a exigir que as ações de visibilidade não deixem caixa de mensagem solta, e reprova o código de antes\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "79ce98f",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/79ce98f7ce5ce9a0107891be416b9b9793f3a5d6",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:56:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Alças de edição do Web no mapa (Calco/alcas.py, ação \"Alças de edição (Limite e Seta)\"): a instância do escalão e a distância do texto da Linha de Limite e a largura de cada ramo da Seta, com a posição e o cálculo do arraste do Web (o turf portado: along, length, nearestPointOnLine, pointToLineDistance; contra createHandles e updateFromHandle do Web em node, posição a 0 m e razão a 1e-8, cortes de 0,01/0,99 e 0,1/3 e largura negativa exercitados), o preview do Geometry Generator do próprio estilo numa banda e a gravação no buffer do dock, que o Descartar desfaz e o Salvar grava no calco. Na seta combinada o ramo arrastado muda na coluna ramos. O Web só tem a alça da distância do texto no Limite; as duas esquisitices do Web (a alça da largura a 1,25 x a largura, a do texto sem razão a 0,8 x o tamanho) ficam espelhadas e anotadas\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "9ba815d",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/9ba815d5fe4a27f8b4cba05e65a00a9006440030",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:55:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Texto externo da Área num polígono côncavo: a linha de chamada não cruza mais o braço do U. O Desktop portava o outerBlockPoint do Web, que afasta o bloco pela normal até o retângulo ficar livre e não testa o segmento (o D3 do Web, que segue com o defeito); _area_externa.exp mede a distância do ponto da borda ao primeiro ponto do polígono pela normal e, quando o bloco do Web fica além dele, gira a normal de 15 em 15 graus até 75 para cada lado, a cada distância, com o bloco a meia altura do polígono e a âncora da normal. A decisão fica num CASE do corpo, sem etapa nova no with_variable: parse das três expressões do texto de 45 ms para 61 ms, e 30 áreas de 0,37 s para 0,39 s. Num U de braços de 0,01 grau, com o texto em 199 razões, o código de antes cruzava em 62 (como o Web) e o de agora em nenhuma; onde o Web não cruza (137 razões) e nas 199 de um convexo, a chamada, o bloco e a âncora são os do Web (TestChamadaNoU, reprovada pelas expressões de antes). TestContraWeb deixa de comparar com o Web a chamada que o Web faz cruzar o polígono e exige que a do Desktop não cruze\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "46b5d6b",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/46b5d6b9e3fdadf20dd50c3a5a7a6e0de7533178",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:54:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Círculo, elipse, retângulo e setor editados no QGIS voltam ao .ebgeo com os parâmetros recalculados quando o polígono ainda é a forma (K4): exportador/formas.py porta os geradores das quatro formas do Web (iguais vértice a vértice aos do Web em node, 41 formas, 3e-9 m), parte da semelhança que leva o anel original ao editado, refina por Levenberg-Marquardt no plano local (o círculo, que no Web não gira, pelo ajuste algébrico) e aceita se a forma regenerada fica a até max(0,5 m; 0,1 % do tamanho) do anel editado; a geometria sai regenerada pelo gerador do Web. Medido nas 34 formas da fixture 06: como veio, até 0,035 %; escalada em graus como a ferramenta Escalar, até 0,045 %; um vértice puxado de 0,3 %, a partir de 0,15 %; girada em graus fora do equador, 0,6 a 10 %, e sai como desenhada, com o aviso e o desvio. As oito formas escaladas 1,5 vez na 06 saem com raio, semieixos e lados 1,5 vez maiores, e o Web, com os parâmetros exportados, desenha a geometria exportada a até 0,075 m\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "7bf23b8",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/7bf23b8aa0c78a3a00b69b17541c603612c3204f",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:52:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Calco importado antes da tabela ebgeo_imagem recupera no exportador os bytes que não guardou: o diálogo de exportar ganha o campo opcional do .ebgeo original, e o montador tira dele as imagens que o documento cita (fotos de 3D e 360, figuras de slide) só se o SHA-256 do arquivo inteiro for o que o importador gravou em ebgeo_documento; outro arquivo, ou nenhum, sai com aviso e sem os bytes. A fixture 06 importada e sem a tabela volta com as 1.305 imagens do original byte a byte (7 tiradas do original); sem o original, ou com a fixture 03, faltam e o aviso sai (TestCalcoSemImagens)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "51deb10",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/51deb1037e12b76fa6aeaceb7aead6a526f815a1",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:48:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Seta combinada desenha cada ramo com as propriedades dele (K1): a coluna JSON ramos (schema.ramos_seta, gravada pelo importador na seta com isMerged e mais de um ramo, e pelo calco antigo ao abrir, a partir do props) leva as seis propriedades de cada ramo e o valor das colunas da feição na importação; seta_ramo.exp resolve as do ramo @element como generateMergedGeometry do Web (largura e razão da cabeça falsas caem na da feição, ponta, ponta dupla e aeromóvel não), e a coluna da feição editada no Desktop vale para todos os ramos, como o updateFeaturesProperty do Web. O exportador leva a coluna ramos editada ao ramo (e o ramo 0 ao topo, o espelho do Web) e desenha cada ramo com a regra do Web. Contra o Web em node, quatro setas de três ramos: 0,50 a 0,58 m; o estilo de antes, 1.082 a 2.500 m. A Seta #8 da fixture 06: 0,65 m contra o gravado pelo Web (antes, 1.500 m); ida e volta da 06 sem divergência\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "1d81a25",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/1d81a254742bb71ff4c686936d5398ccaea6d485",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T22:27:37.000Z",
+      "author": "Maj Diniz",
+      "message": "pages: o site estatico leva a categoria Externa com as duas camadas do GOES-East (IR e GeoColor)\n\nSem servidor nao ha cadastro: as linhas vao no config.estatico.json no formato do GET /api/config,\nvalidadas contra o schema fechado de external-layers.schemas.js (controle: http recusado). Sem\nconfiguracao de atlas no estatico, a categoria fica ligada, que e o valor do deploy. Conferido no\npacote servido em /ebgeo/: cartoes no catalogo, camada desenhada e carimbo da imagem.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01SWCtDFNBeL2VMc5he7qum6",
+      "sha": "c6c3259",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c6c32595e638cb945ffc5e6a1e0db42ee3dca1a5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:21:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Limite de escalão só de círculos ('o', 'oo', 'ooo') desenha o eixo com os vãos no QGIS e vai ao .ebgeo com eles (K2): a instância sem traço dava collect_geometries de lista vazia, a geometria NULA, que o filtro IS NOT NULL deixava passar, e o collect do eixo com ela dava nulo, então o QGIS só desenhava os círculos e o exportador caía no eixo inteiro. _limite_escalao.exp filtra por is_empty_or_null. Os três Limites de círculo da fixture 06 refeitos como feições do Desktop saem com os trechos do Web (7, 6 e 5) e Hausdorff de 0,10 m contra a geometria que o Web gravou; antes, um trecho e 287 m. Réguas TestLimiteDeCirculo (test_exportador.py) e test_escalao_so_de_circulos (test_estilos_taticos.py), reprovadas pelo código de antes\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "af8b218",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/af8b21819be3179630a71b9a5e17d480823be7a1",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T22:06:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Sai a análise do MilitaryCartographyTools: as ideias escolhidas foram feitas (modificadores 1 do MD33, quadro de convenções, radar, visibilidade sem GRASS, consertos do MGRS) e as demais foram descartadas pelo chefe\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "a9f768d",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/a9f768d04a1972ae320ab435c1da2d3b621bcffb",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T21:39:40.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: investigacao do geolibre (MapLibre, Cesium, 3D Tiles, terreno) com G1, G2, C1, T1 a T5 e R1 a R4 aprovados para investigacao e V1 vetado; nada medido ainda, cada item so entra com antes e depois no EBGeo\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Y1Z8N3LYnCfmnqAnF6ipuV",
+      "sha": "c203e87",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c203e871a8c2686f04c28872ab25cd20b195e98e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T21:36:35.000Z",
+      "author": "Maj Diniz",
+      "message": "catalogo: a categoria Externa, camada de terceiro (raster com tempo opcional) cadastrada pelo administrador\n\nDecisao do dono de 2026-10-05, a partir do prototipo medido contra o NASA GIBS no mesmo dia.\n\n- servidor: tabela external_layers (025_camadas_externas.sql), sem nivel de acesso nem OM dona,\n  fora de CATALOG_TABLES; modulo proprio, todas as rotas atras de requireAdmin; config FECHADO\n  (raster, fonte https com {z}/{x}/{y} ou bbox, tempo opcional em dois modos: dominio WMTS e\n  serie regular); chave externalLayers no GET /api/config; features.external_layers por atlas;\n  alvo EXTERNAL_LAYER na trilha; clausula 2.8 do estatuto.\n- painel: sub-aba Externa na aba Catalogo, so do administrador, com o cadastro generico.\n- mapa: tipo, filtro, selo e secao Externa; gerente proprio alcancado pelo mapa, com margem de\n  dois passos contra o instante que o GIBS anuncia antes dos tiles, duas fontes com regra de\n  vazao no play, cursor sem imagem esconde e diz por que, carimbo do instante desenhado.\n- a chave por atlas nasce desligada; o atlas local fica com o valor do deploy.\n- bancada de desempenho: o play reescrevia layout e status a cada quadro (7202 escritas, 3636\n  quadros em 60 s com 17 trocas); agora 0 escritas e 537 quadros, guardado em teste.\n- a PROPOSTA-CAMADAS-DA-INTERNET.md sai: o porque e as medidas moram em docs/wiki/camadas-externas.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01SWCtDFNBeL2VMc5he7qum6",
+      "sha": "84e159a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/84e159a620f9852d05a983063b47fbd8eb843091",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T21:35:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Defeitos conhecidos: K8 (hachura de tipo vazio, decisão do chefe de desenhar como o Web), K9 (chaves que o Web desenha e o Desktop ignora) e dois menores\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "7ec2e87",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/7ec2e87fb28af7094b01c86c888e067742780d0e",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T21:35:22.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: D6, ponto com zoom de referencia vazio cresce ate o teto (decisao do dono: corrigir no Web)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "0e84f94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e84f94e08dfa9f1c23de5bad3e1f76a4f81e69d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T21:02:28.000Z",
+      "author": "Maj Diniz",
+      "message": "Chave ausente e chave nula do .ebgeo em todo tipo e toda propriedade: auditoria contra o Web em node (portão, normalização, as setup*Layers avaliadas pelo compilador de expressões do MapLibre, fontes de rótulo e derivadas, SVG da declinação, gerador de símbolo do motor) e o Desktop em pixels, sobre a fixture 06 com a chave ausente, nula e valores de referência; 444 chaves de 23 tipos, 210 lidas pelos dois lados. O Web desenha a ausente como a nula, e o nulo cai no padrão do MapLibre ou no coalesce da camada: o importador grava NULL para as chaves de schema.AUSENTE_COMO_NULA (o padrão do esquema é o da ferramenta de criação e desenhava outra coisa), e o estilo desenha o nulo como o Web (cor nula preta e espessura 1 nas formas, linha, pincel, seta, frente e visadas; base 10 do pincel; cores do marcador do Ponto; Correção de Zoom nula ligada; declinação nula recusa e fica o bitmap). No código de antes, 73 chaves divergiam (232 classes); depois, só as 6 pendentes de decisão do chefe (hatchType nulo das cinco formas, que o Web desenha diagonal, e a âncora nula do tamanho do Ponto, que o Web satura em 500 px). A ida e volta devolve as 847 chaves ausentes ausentes\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "5698f75",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/5698f754ac9d7c9ee240b6b6f9a8e85a3d82dc2d",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "dsgoficial/EBGeo_Desktop",
+      "date": "2026-10-05T20:48:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Defeitos conhecidos do EBGeo Desktop na raiz: sete defeitos com sintoma, onde e conserto sugerido, e os menores\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "120fa1b",
+      "htmlUrl": "https://github.com/dsgoficial/EBGeo_Desktop/commit/120fa1b4b86673a44583c8d190ba3c89c9450128",
+      "repoUrl": "https://github.com/dsgoficial/EBGeo_Desktop"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T20:48:01.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: defeitos conhecidos ganham os menores (ancora do Naval, rotulos curtos do setor 1, copia antiga de waypoints, knip quebrado), e o D1 tambem resolvido no Desktop\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01D8cTYjhjMAbemnyaFgAQNE",
+      "sha": "400b2fa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/400b2fa7dd315f921693c360f16063941b478d14",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-05T20:00:22.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "otimizacoes",
+      "sha": "8342ef5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8342ef5e3125ed0834291f86581900935215a0d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-05T19:57:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-05 (mapoteca, pedido 228): DIEx 3277 do 12º RC Mec cadastrado (14 itens, 140 cópias, pasta 03_12RCMec); o rótulo de bloco que engana e a prancha única de duas folhas no learnings da cadastrar-pedido-mapoteca, com o split da camada quente; uma decisão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "fb4eb79",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fb4eb790ed6638f1bce16eded1f94c41a0166893",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-05T19:13:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-05 (portal de fotos aéreas): o relatório em PDF volta a ter o fundo da OSM (Referer no tile, 5235a50, republicado); a wiki tiles ganha o segundo vetor (referrerPolicy no elemento) e o bloqueio que vem com 200; publicar do clone local no learnings da publicar-voo-portal; uma decisão e um evento no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d19b93d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d19b93dd2d083b65a15e6ed251e660833fce6e20",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "dsgoficial/EBGeo_Desktop",
       "date": "2026-10-05T18:56:39.000Z",
