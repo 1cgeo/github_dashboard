@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-08T00:06:34.228Z",
+  "lastUpdate": "2026-10-08T17:19:17.071Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-07T22:55:11.000Z",
+    "1cgeo/ebgeo_web": "2026-10-08T16:25:47.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-10-01T10:11:53.000Z",
-    "1cgeo/doc_dgeo": "2026-10-07T16:35:19.000Z",
+    "1cgeo/doc_dgeo": "2026-10-08T10:34:34.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-07T22:32:10.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-08T16:28:00.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8664,
+    "totalCommits": 8779,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,11 +130,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2425,
+      "1cgeo/ebgeo_web": 2526,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
-      "1cgeo/doc_dgeo": 559,
+      "1cgeo/doc_dgeo": 560,
       "1cgeo/ferramentas_mgcp": 19,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 991,
+      "1cgeo/chefe_dgeo": 1004,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,1041 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T16:28:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retomada do EBGeo: estado das duas branches de visibilidade; lição sobre mensagem a agente de workflow em curso",
+      "sha": "2cde3bf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2cde3bfe0ebf898cb39a62a29c22f669dfd60e11",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T16:27:38.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-central-de-ajuda: estado para a retomada depois do reinício (main sem testes rodados, duas branches em curso)",
+      "sha": "d482656",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d48265651246ac19f69da49b491762fb2f00a1d7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T16:26:08.000Z",
+      "author": "Maj Diniz",
+      "message": "gravar-video-ebgeo: quadros-relâmpago da captura (a piscada não era a costura), detector e conserto na montagem; livro-razão; ebgeo_web 4805d1f3\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b586f68",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b586f681258466bec72ba27cfa2b0c4454df9276",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T16:25:47.000Z",
+      "author": "Maj Diniz",
+      "message": "video: a montagem troca os quadros-relâmpago da captura pelo quadro anterior\n\nA captura de tela pegava quadros que o Chrome ainda não tinha redesenhado\n(canvas do mapa preto com xadrez ao redimensionar, painel antigo por um quadro).\nO detector acha o quadro que difere dos dois vizinhos enquanto os vizinhos\nquase não diferem entre si; achou 2 no vídeo de 1 min e nenhum depois.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4805d1f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4805d1f3996d7030dea2a49eb1ef76eab82336a8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T16:16:28.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-central-de-ajuda: Central completa na main do ebgeo_web (82 páginas, 107 mídias), busca medida e pendências\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "18eb5c6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/18eb5c645965eb8063fa256cca64997eec75d1b0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T16:10:26.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: safari-ctrl-clique (Ctrl+clique esquerdo no Mac não abre o menu do botão direito; Cmd inverte a atração)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "ca817bf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ca817bfb20a923ea25e82049425c056ce2a518f1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T16:09:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Ctrl+clique no Mac não abre o menu do botão direito (relato do chefe no Safari)\n\nNo macOS, Ctrl+clique é o clique secundário do sistema e o navegador dispara\ncontextmenu (Safari: button 0, ctrlKey). Todo ouvinte de contextmenu que age\npassa a perguntar ehCliqueSecundarioDeVerdade (utilities/clique-secundario.js,\nzero imports): o menu do mapa, o da coluna da tabela, o do Horizonte, e o\nbotão direito que fecha desenho, remove vértice, fecha medição, calcula o radar,\nremove ponto da rota e fecha a trena em primeira pessoa. O clique direito de\nverdade (button 2, com ou sem Ctrl), o toque longo e a tecla de menu continuam\nabrindo; no mapa o menu do navegador segue fechado (preventDefault).\n\nCmd (Meta) passa a inverter a atração, como já inclinava o mapa: no Mac o\nCtrl+clique não gera click e o vértice com atração invertida não se punha.\n\nTestes: clique-secundario.test.js (função, ContextMenuControl real por onAdd,\ntoque longo, Cmd na atração) e clique-secundario-censo.test.js (todo\ncontextmenu de src/js passa pela função ou é declarado em SEM_MENU, com\ncontrole negativo sintético e degradando os arquivos reais). NÃO RODADOS, por\nordem do chefe: a suíte roda na consolidação. Os tetos de teto-de-peso subiram\npor contagem de aresta e cota superior de bytes do diff, não por medida, e a\nconsolidação os mede.\n\nAjuda: nota para Mac em atalhos, conhecendo-a-tela e editar-vertices, e\ndetail nas linhas Ctrl+Arrastar, Ctrl (atração) e Botão direito da lista de atalhos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "ffe4257",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ffe4257d973d2889723815e4e7d3bfa0da4fa9a3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T16:00:43.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 cont. 6 (vídeo de 1 min, quarta rodada): gravação em partes independentes como passo 1 da skill gravar-video-ebgeo (pedido do chefe), SARP em vez de drone, troca de lugar por corte; learnings (visibilidade que mudava de forma era o terreno refinando, evaluate que devolve o mapa custa segundos, 360 só com arraste horizontal); livro-razão; ebgeo_web 06f645b5\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ec81362",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ec81362869b19994d1f36d9affafd9de718d2824",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T16:00:20.000Z",
+      "author": "Maj Diniz",
+      "message": "video: gravação em partes independentes e correções do vídeo de 1 min\n\nO roteiro se divide em partes (emPartes), cada uma num Chrome próprio com o\nestado de partida montado por script: refazer uma cena não reexecuta as outras\npartes, e --parte regrava uma só. Vídeo de 1 min em duas partes (cibsb e serra):\nSARP nas legendas, seta mais longa, troca de lugar por corte, prévia do 3D\ninteira, coordenadas do 3D vivas, órbita mais de perto, visibilidade calculada\nfora da tomada para não mudar de forma diante da câmera, 360 com arraste só\nhorizontal. evaluate sem devolver o mapa (6 a 10 s de serialização a menos).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "06f645b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/06f645b5a2d9abc3f8cce7e69287d392a98c272e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:59:56.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: horizonte-sobreposicao (teto de peso)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "09a8588",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/09a8588dc2db7ea023b1de6313593f6132976ab2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:59:40.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: 15 mídias refeitas (contagem na 2ª linha da camada, pasta de um elemento só, .zip, sem o falso sucesso); exemplo do KMZ com a pasta Apoio de dois elementos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "608106f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/608106fe6ea646c24d526c725613abd7687780d9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:59:16.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: teto de peso da página do mapa pela medida (vigia de contexto)\n\nFonte ansiosa 8888 kB e total 14133 kB medidos pela falha do caso, com a\nvigia de contexto em bottom-controls/modo-horizonte.js e as classes do\ncorpo no pedaço do visualizador. Peso construído conferido com dist/ da\nbuild: dentro dos tetos. Nenhum módulo nem pacote novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "d1c211d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d1c211d76aede2a2e7465dc25d66e078b1e387ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:44:31.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: kmz-zip-pasta-unica (testes que seguiam a pasta de um elemento e teto de peso)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "1e2781d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1e2781d74bfb25bdd139027bdd7a7e2bd28069fd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:43:48.000Z",
+      "author": "Maj Diniz",
+      "message": "importação KML/KMZ: testes que seguiam a pasta de um elemento, e o teto de peso medido\n\n- cobertura-importar-kml-geometrias.spec.js: Linhas e Áreas sobem como camadas\n  em Calco (Áreas oculta), e o mesmo KMZ solto como geometrias.kmz.zip dá a\n  mesma árvore (4 de 4 no Playwright, --workers=1, portas isoladas).\n- desfazer-processamento-leva-a-camada.repro.test.js: o KML do caso ganha uma\n  segunda subpasta em 5ª DE, que fica pasta oculta; um Ctrl+Z ainda leva as\n  duas pastas e as três camadas, e o refazer as devolve com os mesmos ids.\n- teto-de-peso-da-pagina-do-mapa.test.js: ansioso 8888 kB e total 14134 kB\n  medidos pela falha; tetos 8892 e 14138. Nenhum módulo ou pacote novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "ba7261a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ba7261aada902523aaa4f36a1b35987ece1a00b6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:43:06.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: azimute-ponto-inicial (medida do teste do ponto de referência endurecida)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "742461e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/742461ea6e91c1d3c9c3d53a93ad592655af4197",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:42:44.000Z",
+      "author": "Maj Diniz",
+      "message": "azimute e distância: repro do ponto de referência mede com centroide ponderado e sondas diagonais\n\nDuas rodadas do spec de 764d4e76, feitas antes da ordem de não rodar testes,\nderam com a correção aplicada erros de 0,04 a 1,1 px contra o limite de 1 px\n(uma falhou, a outra passou): o instrumento flutuava na casa do limite.\n\n- centroDosPixels vira centroPonderado: cada pixel pesa a fração em que é o\n  alvo (0 a 1), em vez de entrar ou sair inteiro, e o centro usa x + 0,5.\n- ciano e branco viram pesos contínuos; a sonda fill liga o antialias para a\n  borda entrar pela fração coberta.\n- As quatro sondas saem de N, S, L e O para as diagonais, fora da perna, que\n  deixa o ponto perto do leste e cobria um quadradinho.\n- O piso de pixels de peso cheio das sondas cai de 180 para 120, porque o\n  antialias tira pixels de peso cheio da borda.\n\nNão rodado depois desta mudança, por ordem do chefe: nem o spec, nem o\ncontrole negativo contra o marcador HTML antigo, nem o lint. O piso de 120 e\nos pesos não foram conferidos contra uma captura; a suíte consolidada roda\no spec uma vez.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "208b5bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/208b5bd7cbfbccfd848bc01c240c54bfe7149408",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:40:58.000Z",
+      "author": "Maj Diniz",
+      "message": "kmz: o arquivo exportado pelo próprio EBGeo também perde as pastas de um elemento só (decisão do dono); alt da linha da pasta com a contagem embaixo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "709de82",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/709de82551113cba7fdceefd2b624bdad9bb5226",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:39:36.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: azimute-ponto-inicial\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "dcd8cbc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dcd8cbc04ec78ff0e5cf9286a38cd03c76f0671b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:39:36.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: horizonte-sobreposicao\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "0313963",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0313963a2b44fc482c7c1d291ea9ab136bfa621d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:39:32.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: kmz-zip-pasta-unica\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "6260e54",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6260e5472f172e090aaae035ac43ad4e312db4aa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:39:09.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: camada-contagem-segunda-linha\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "8aa0b39",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8aa0b39f9d80d6e5c5207b99a69edda6f59baa45",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:38:32.000Z",
+      "author": "Maj Diniz",
+      "message": "azimute e distância: ponto de referência vira camada do mapa e para de escorregar no zoom\n\nO ícone do ponto de referência era um maplibregl.Marker (HTML), posto pela\nprojeção da CPU (map.project), enquanto as pernas e o mapa base são desenhados\npela GPU. Na projeção globo as duas discordam na faixa em que o globo vira\nMercator (zoom 9 a 12): medido por pixel contra um círculo e um polígono de\nreferência desenhados pelo mapa, 1 px no zoom 9, 5 a 8 px no zoom 11 e zero no\nzoom 12, com o marcador HTML concordando com map.project em menos de 1 px. O\nícone escorregava do começo das pernas ao dar zoom e voltava sozinho.\n\nAgora o ponto é uma camada circle (sombra, disco com aro branco, anel interno)\nnuma fonte própria, com guarda de styledata, removida ao desativar. O CSS do\nmarcador HTML sai.\n\nRepro: tests/e2e-ui/azimute-ponto-de-referencia-no-zoom.repro.spec.js (não\nrodado depois da reescrita do instrumento, por ordem de não rodar testes; a\nsuíte consolidada o roda).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "764d4e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/764d4e766acdbcc2abcd37e541535b95bd41e1fc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:38:08.000Z",
+      "author": "Maj Diniz",
+      "message": "aba Camadas: refaz a quebra do comentário da pasta no features-tab.css\n\nSó comentário: a linha que nomeia a contagem na segunda linha da pasta\npassava de cem colunas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "f3eed3f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f3eed3f6f2f9a69d2856b4fc5f8a0fcae917e1f1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:36:57.000Z",
+      "author": "Maj Diniz",
+      "message": "importação KML/KMZ: o botão aceita .zip validado, e a pasta de um elemento só não vem\n\n- KML / KMZ oferece .zip no seletor e no texto; o .zip lê com o teto do KMZ\n  (500 MB), abre o doc.kml (regra do KMZ) ou o .kmz embrulhado, e recusa em\n  frase de leigo o .zip sem KML/KMZ/Shapefile e o arquivo que não abre (sem o\n  inglês do JSZip, também no .kmz); o shapefile dentro do .zip segue em 50 MB.\n- handleFileSelect/processFileDirectly respondem se importaram, e a aba\n  Importar deixa de dizer \"Arquivo importado com sucesso\" depois da recusa.\n- semPastaDeFilhoUnico: a pasta que ficaria com um filho só some, o filho sobe\n  com o próprio nome e oculto se ela estava oculta, em cadeia; refeito depois\n  da preparação. O arquivo do próprio EBGeo (camada marcada) não colapsa.\n  Calco real: 194 pastas antes, 64 depois, 168 camadas, 23 ligadas nos dois.\n- Ajuda: importar-kmz e importacao-falhou; decisão de 2026-10-08.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "9c321cf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c321cf6b972009637ca78abd4941cd7ba16dca6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:36:41.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a barra lateral e os modais abrem por cima, e a vista fecha quando o contexto do mapa muda\n\nCausa: a vista (z 200) não punha classe no corpo, ao contrário do 3D, do 360\ne do primeiro-pessoa, então a barra lateral (30) e os modais (60) abriam por\nbaixo dela. Agora body.horizonte-aberto sobe a barra a 300 e os modais a 400,\ncom a trilha em repouso durante a carga (horizonte-carregando sai depois do\nesmaecer). Com modal aberto, o Esc é do modal.\n\nA vista fecha, pelo mesmo fechar do X, quando a seleção de feições muda para\numa não vazia, quando o mapa corrente deixa de ser o da abertura (comparado,\nporque MAP_LOCK_CHANGED também é o do cadeado) e nos eventos de\nEVENTOS_QUE_FECHAM_O_HORIZONTE (atlas trocado ou limpo, 3D, 360, cena,\nbriefing apresentado ou editado). Fechada depois do 3D ou do 360, deixa o\nmapa 2D escondido.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "a203983",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a203983126f9e76e3efd56d624213e10a32907e5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T15:36:26.000Z",
+      "author": "Maj Diniz",
+      "message": "aba Camadas: a contagem vai para o fim da segunda linha e o nome ganha a largura toda\n\nNa camada e na pasta, o selo \"(N)\" sai da primeira linha e fecha a segunda,\ndepois dos botões, alinhado à borda direita; o nome ocupa as colunas 4 e 5.\nQuando os botões não cabem ao lado da contagem (painel de 340 px, toque,\ncamada funda em pastas), eles crescem para a esquerda, sob alça, rádio e\nseta, sem aperto e sem a contagem por cima (a primeira versão deixava a\ncontagem sobre a lixeira no toque, e a régua do spec pegou).\n\nLargura útil do nome, antes e depois: 202 -> 239 px (painel 400),\n118 -> 155 (340), 178 -> 215 (janela 600), 102 -> 139 (toque 1024).\n\nSpec novo em camadas-cabecalho-e-lote: régua por eixo, com o leiaute de\n2026-10-07 restaurado na página como antes e controle negativo.\nDecisão registrada em docs/decisions.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "11d00c2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/11d00c2e806bc95d704f0d8974b015ea68862fd9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:53:07.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: tema só Claro e Escuro, padrão Claro (sai o Auto que seguia o sistema)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "8326cb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8326cb056485b473f8d10d2edc71d04b71f2669a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T14:32:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 cont. 5 (vídeo de 1 min fechado, 79,5 s): 360 depois dos desenhos, Correção de Zoom como padrão fora da tomada, Regimento e limite III no tamanho padrão, visibilidade com perfil; o vídeo de 2 min sai e o do briefing ganha o plano segundo a segundo (ebgeo_web faa15f3d); preferências na skill gravar-video-ebgeo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "eec45a6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/eec45a6c2ae70b669267e26e1c8c0e773a410969",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:32:23.000Z",
+      "author": "Maj Diniz",
+      "message": "video: vídeo de 1 min revisado e plano do briefing\n\n360 depois dos desenhos, com brasão e símbolo militar sem Correção de Zoom\ndefinida como padrão fora da tomada; RC Mec como Regimento e limite III no\ntamanho padrão; ponte completa; orto de drone no zoom 19 sobre a casa de\nforça; visibilidade com o perfil ligado. O roteiro de 2 min sai, e o do\nbriefing ganha o plano segundo a segundo (73 s).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "faa15f3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/faa15f3d1105f4502bc39a6c2c078360ff2fcc55",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:29:35.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: Central de Ajuda completa (82 páginas, 107 mídias por roteiro, busca tolerante, lint de conteúdo)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5dc7394",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5dc73944404fd1096d8c1e1a4670bf1a95249be6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:29:18.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a descrição da página de pastas volta a ser a premissa do teste do lint (\"…\" de rótulo da tela)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4b905e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4b905e2ba6d7944c6a0a4b6347a5b71894e307eb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:21:00.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: ajuda-midia-m1 (mídias da Central de Ajuda)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tajuda/roteiros/lib/cenas.mjs\n#\tajuda/src/content/docs/como-fazer/desfazer.mdx",
+      "sha": "559c704",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/559c704bdd1694e27c08ad664a42f88721bf2ec5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:19:39.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: ajuda-midia-m2 (mídias da Central de Ajuda)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "575fb08",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/575fb08b5a4525d3b637569c513597035fb193fb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T14:18:47.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (mídia m2): as 59 tomadas dos lotes l4 a l7 aprovadas pelo motor, com figuras e clipes em ajuda/public/midia\n\nMotor estendido: ajustes de administrador de produção semeados em config_settings (quadrícula,\nservidor de tiles da grade, serviço 360, imagem e terreno do globo 3D, endereço dos modelos 3D),\n?atlasId= fora do pedido e da chave do cache, tile acima do maxzoom da fonte contado à parte\n(foraDaFaixa) e não como buraco, workers do motor de primeira pessoa servidos pela rota do motor\nnum worktree com node_modules em junção, linha e polígono semeados com baseCoordinates (as alças\nde edição), e realcarRetangulo contado como realce feito no clipe.\n\nAjudantes novos em lib/cenas.mjs: projetarNaTela, enquadrar, caixaDe, realcarJuntos,\nrecortarPainelAte, esperarCaixaParada, legendaAcima, realcarNaBorda, abrirPinoDoCatalogo3d,\ndescerMapa.\n\nPáginas: alt de l4-pdf-01, l7-horiz-02, l7-visada-02, l7-360-02 e l7-mod3d-02 pelo que a figura\nmostra; description de desfazer numa frase só (lint de conteúdo).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "06d23e5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/06d23e57b59ba7ebc00b7a550213794865e4b911",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T13:46:21.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (mídia m1): as 48 mídias dos lotes l1, l2 e l3 geradas e aprovadas pelo motor\n\nProblemas (l1, 12 figuras), primeiros passos e mapas (l2, 18 figuras e 2 clipes), atlas e camadas\n(l3, 14 figuras e 2 clipes), todas sobre o app real com o catálogo de produção e a Topográfica de\nfundo; as exceções sem mapa (EBGeo indisponível e as três da página Meus Atlas) estão anotadas no\ncampo \"fundo\" da lista.\n\nCenas novas em lib/cenas.mjs, só acrescentadas: abrirAbaParada e esperarParado (o painel desliza\ne número e recorte saíam deslocados), realcarTexto, realcarJuntos e realcarDentroDaTela (anel que\nnão cobre a linha vizinha nem encavala), recortarComFolgas, abrirPrincipalContaNova (Meus Atlas\nmostrava um atlas por tomada anterior) e legendaNoAlto.\n\nTomadas consertadas: conexão por setOffline (a rota de WebSocket deixava o app em online), aviso\nde envio esperado em Imagens, recusa em grupo com duas operações (a culpada saía do painel),\ntextos em caixa alta lidos por textContent, a etiqueta Servidor separada da de nível, o menu\nTodas as camadas por hasText, o celular carregado já estreito, recortes e câmeras ajustados.\n\nPáginas: o aviso \"Vista atualizada para…\" (o app diz atualizada já na primeira vez), alt de\ncinco figuras ajustados ao que a tela mostra, e o lint de conteúdo, que reprovava o build da\nbase, satisfeito em mapa-bloqueado, sem-permissao, organizar-camadas-em-pastas e desfazer (esta\ndo lote l4).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3fd9c73",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3fd9c73db3f25d1e71ca061229392d0d5c802e48",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T13:30:40.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: as cópias de projeto dos testes ficam no drive do repositório (o rename do Astro falha entre drives, EXDEV)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "b4a4840",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b4a484036d3bafd6fd9f3a85faaef1e9c62453b5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T13:29:23.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (vídeos de demonstração do EBGeo): esteira na pasta video/ do ebgeo_web (d0f6dd16 na main), vídeo de 1 min gravado e montado (60,50 s, 13,1 MB, revisado por folha de contato); skill nova gravar-video-ebgeo com as preferências do chefe (ritmo, zoom 10 no CIBSB e 13 na usina, combos em vez de SIDC, ponte completa, calco coerente revisado por visão); livro-razão (5 correções); wiki servidor-ebgeo (client local contra a produção) e ebgeo-web; decisão 2026-10-08 cont. 4; projeto ebgeo-video-demo; junto, o trabalho pendente de outras sessões do dia (projetos ebgeo-catalogo-escala, ebgeo-central-de-ajuda e ebgeo-pastas-de-camadas, learnings da cadastrar-pedido-mapoteca, decisões)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "513f092",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/513f092a5369ed5239591b218590df465239e3b3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T13:28:45.000Z",
+      "author": "Maj Diniz",
+      "message": "video: esteira dos vídeos de demonstração com os dados de produção\n\nServidor local (vite do frontend com proxy para a produção, telemetria e aviso\nde servidor secundário cortados), captura roteirizada (Playwright e gdigrab,\nmapa vazio a cada abertura, ações de operador sobre a interface), montagem que\nnunca corta uma ação, e os roteiros de 1 min (encenado), 2 min e briefing.\nO calco do CIBSB e os lugares saem de medida (FathomDEM, nomes geográficos).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d0f6dd1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d0f6dd16a87ba73ebbd9f94edceca431dba3668b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T13:25:32.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: fase 0 da Central de Ajuda (lint de conteúdo, avaliação da busca, lista de tomadas por lote, minimapa sem cobrir o zoom)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "f410ab5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f410ab5c698f94fc0011f8eb0ba06e4f18bf7581",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T13:23:54.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (integração): lint a zero, ferramenta em lista, censos verdes, busca tolerante, palavras pelo ajuste e ARQUITETURA como feita\n\n- Lint de conteúdo: a description de desfazer vira uma frase; o \"…\" de rótulo da tela\n  (\"Nova pasta…) e arraste\") deixa de partir a frase quando o texto segue em minúscula;\n  o título de mapa-bloqueado e de sem-permissao é achado porque a busca no código monta a\n  frase como o app monta (string partida em linhas com +, e ${CONSTANTE} do mesmo arquivo),\n  com controle negativo (dois pedaços reais que o código não junta reprovam; variável que\n  não é constante não se adivinha).\n- ferramenta em lista nas páginas de ponto/linha/polígono, retângulo/círculo/elipse/setor,\n  texto/imagem/pincel e medir; o teste dos atalhos confere o link de toda linha com tool\n  contra o frontmatter (controle: a tabela que lê só o 1º id reprova), e a busca dos\n  atalhos por desfazer, copiar e excluir passa a exigir os cinco primeiros, porque a tarefa\n  tem página própria (já falhava no HEAD, escondida pela mídia pendente).\n- Censos do frontend: shortcuts.data.js entra no censo da permissão por atlas (homônimo,\n  icon: 'comment') e no do registro de tipos (SUBSET, ids de ferramenta); um gate plantado\n  no arquivo reprova.\n- Busca tolerante (public/busca/tolerante.js): a pergunta inteira, depois sem palavras\n  vazias, depois palavra a palavra por contagem e escore. A lupa do cabeçalho carrega\n  busca/pagefind.js pela subclasse da PagefindUI ligada no alias de @pagefind/default-ui; a\n  caixa da página inicial abre o mesmo diálogo. Teste com Pagefind de mentira e no build real,\n  com controle negativo (tolerante: false volta a não achar nada).\n- Avaliação: AJUSTE (1ª pergunta), RETIDO (2ª) e CONTROLE separados, e --sem-tolerancia.\n  palavras ajustadas só pelo AJUSTE: 1º lugar 62% -> 91%, top-3 77% -> 99%; RETIDO 67% -> 66%.\n- sidebar.order do piloto em posição x 10 (conhecendo-a-tela 10, importar-kmz 210);\n  ARQUITETURA com os títulos feitos, excluído com acento, os níveis Leitura/Comentário/\n  Edição/Gestão, a exceção da Topográfica em Informações da Carta, os ids dos botões de\n  baixo e os motivos do servidor de hoje.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "8646781",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/864678195f36c9ff74c9f509aa0607461291f76b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:45:20.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: fase 0 da Central de Ajuda (lint de conteúdo, avaliação da busca, lista por lote, minimapa)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4b99b24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4b99b242ffa74c24d20b5b22bfb819659720da68",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:44:31.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (fase 0): lista de tomadas por lote, lint de conteúdo no build, avaliação da busca e o minimapa fora da barra de coordenadas\n\n- roteiros/lib/lista.mjs: o motor lê midias.json e todo midias/<lote>.json, e recusa o mesmo id\n  em dois lugares antes de subir o navegador (testes/lista-de-tomadas.test.mjs);\n- integracoes/lint-conteudo.mjs: as regras do guia que a máquina confere (título, descrição de\n  uma frase, 5 palavras, mídia, teto de 320/450 palavras, sidebar.order, ferramenta que existe no\n  app) reprovam o build e só avisam no dev; cada regra provada por página real do piloto\n  degradada (testes/lint-conteudo.test.mjs). O piloto só violava uma: a página-índice das\n  Pendências ganha indice: true. O schema aceita ferramenta em lista e o campo indice;\n- testes/buscas-avaliacao.json (164 perguntas para as 82 páginas planejadas, mais 5 de controle)\n  e npm run ajuda:avaliar-busca, que mede top-1 e top-3 com o Pagefind real;\n- palavras de 5 páginas do piloto: ajuste de 10 para 16 em 16; controle parado em 1 de 5 (a busca\n  exige todas as palavras da pergunta na página);\n- base-layer-selector.css: com a barra lateral aberta o seletor também sobe 32 px, e o rótulo\n  deixa de cobrir o zoom da barra de coordenadas (de 768 a 1920 px, medido no Playwright);\n- README, guia, roteiros/README e a decisão de 2026-10-08.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c6014ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c6014ce212bbcb804bb7fac6e684aec0253a0a43",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:38.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l7 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "0f284a1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0f284a1017994fae55909ff70ddef1411d68e4ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:36.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l6 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3ee713d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3ee713d60a738d97cc5e2643db0f277b2ff1b7f9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:35.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l5 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3a7ed78",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a7ed787c187d0c62e2daf95dec3cda95de46a1a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:34.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l4 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "24774fa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/24774faf5787f551d60af9eca27d352019e77196",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:33.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l3 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "9e7a170",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9e7a17071157cbc2c5dabbf72322ac4f30c13edb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:33.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l2 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "6f74baa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6f74baa5839936b4fde47b383c5377f717f31126",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:41:32.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote l1 da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "0e1b174",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e1b174315a26022ff310d754fc76650572beb64",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:39:27.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (lote l7): dez páginas de ferramentas de análise, 3D e 360, com 17 roteiros de tomada\n\nLinha de Visada, Análise de Visibilidade (com o Perfil), Cobertura de Radar, Medir (com a aba\nAnálise da barra lateral), Informações da Carta, Horizonte, Modelos 3D, Primeira Pessoa e Cena\ninterna, Imagens 360° e Luminosidade e Meteorologia, em ajuda/src/content/docs/ferramentas/,\ncom rótulos, mensagens e limites conferidos no código da main. As 17 mídias (15 figuras e 2\nclipes) estão descritas em ajuda/roteiros/midias/l7.json e têm módulo em\najuda/roteiros/tomadas/l7-*.js; nenhuma foi gravada ainda (o motor não rodou neste lote).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3e29ae3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3e29ae381b6f867db40744043d2c0ad5aa3ca481",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:37:11.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (lote l1): doze páginas de problemas com as frases atuais do código, mídias l1 e ordem ×10 nas três do piloto\n\nrecusada-junto, o-item-foi-excluido-no-servidor, alteracao-descartada, sem-conexao,\nsem-permissao, sessao-expirou, atlas-aberto-em-outra-aba, mapa-bloqueado,\nseu-nivel-nao-permite-editar, ebgeo-indisponivel, figura-ou-foto-nao-enviada e\nimportacao-falhou, cada uma com uma figura (roteiros/midias/l1.json e tomadas/l1-*.js,\ncom meta exportado porque o motor só lê midias.json). As três páginas do piloto em\nproblemas/ passam a sidebar.order 10, 20 e 30; as mensagens citadas nelas seguem iguais\nao código da main.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "7785881",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7785881c27e6ba63f344de19847d0c8c87e080cc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:36:27.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda(l6): ferramentas de desenho e militares, 14 páginas e 15 tomadas\n\nPáginas de referência em ferramentas/ (ponto, linha e polígono; retângulo,\ncírculo, elipse e setor; texto, imagem e pincel; azimute e distância; símbolo\nmilitar; medida de coordenação; símbolos de engenharia; símbolo de OM; seta;\nlinha de limite; linha de coordenação; área de coordenação; frente ocupada;\ndiagrama de nortes), com rótulos, mensagens e limites conferidos no código da\nmain em 79acbcb4. Roteiros das 15 mídias em roteiros/midias/l6.json e os\nmódulos de tomada em roteiros/tomadas/l6-*.js, ainda não rodados no motor.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "f4fa05d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f4fa05d999bff7b4cd6b2178c4f89d63f0d50dd8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:34:32.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: lote 2 (primeiros passos e mapas), 12 páginas e 20 tomadas\n\nPrimeiros passos: entrar-na-conta, o-que-e-um-atlas, atlas-local-ou-do-servidor,\naviso-de-envio, procurar-um-lugar, primeiro-desenho, no-celular-e-no-tablet.\nComo fazer: criar-e-trocar-de-mapa, salvar-posicao-do-mapa, bloquear-o-mapa,\nduplicar-ou-juntar-mapas, notas-do-mapa.\n\nRótulos, mensagens e limites conferidos no código da main em 79acbcb4.\nAs 20 mídias (18 figuras, 2 clipes) estão em roteiros/midias/l2.json, com um\nmódulo de tomada cada em roteiros/tomadas/l2-*.js; nenhuma foi rodada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "0f7d4c8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0f7d4c8455507b855fd02d1e3f82540d60029053",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:33:46.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: lote l3 (atlas e camadas), dez páginas de como-fazer e 16 tomadas\n\nCompartilhar o atlas, compartilhar esta vista, enviar atlas local ao servidor,\nsalvar e abrir .ebgeo, excluir e restaurar atlas, pastas de camadas, olho e\ncadeado, camada ativa e mover de camada, tabela de atributos, selecionar e\nagrupar. Rótulos, mensagens e limites conferidos no código da main 79acbcb4.\nMídias em roteiros/midias/l3.json, módulos em roteiros/tomadas/l3-*.js (ainda\nnão rodados pelo motor).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c377b00",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c377b00c2396a6e8b7185adb4a7975f7532833d0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:32:34.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (lote 5): exportar, comentar, briefing, linha do tempo, trajetória, catálogo e grade\n\nOito páginas de como-fazer/ (exportar-para-outros-programas, comentar-no-mapa,\nmontar-um-briefing, apresentar-um-briefing, usar-a-linha-do-tempo,\ntrajetoria-de-um-ponto, adicionar-do-catalogo, grade-e-coordenadas), com rótulos e\nmensagens conferidos no código da main em 79acbcb4, de 228 a 285 palavras no corpo.\nDezoito tomadas (doze figuras e seis clipes) em roteiros/midias/l5.json e\nroteiros/tomadas/l5-*.js, ainda não rodadas pelo motor.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4b77951",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4b77951651947e78902b46eefe06a9b9c92fa8bb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T12:30:29.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda(l4): edição e arquivos, oito páginas de como-fazer com as tomadas\n\neditar-vertices, copiar-e-colar, desfazer, estilo-e-definir-como-padrao,\nfotos-e-descricao, importar-planilha-csv, importar-outros-arquivos e exportar-pdf,\ncada rótulo, mensagem e limite conferido no código da main em 79acbcb4. Nove\nmídias (sete figuras, dois clipes) em roteiros/midias/l4.json, com os módulos de\ntomada em roteiros/tomadas/l4-*.js; o motor ainda não rodou.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4a458d1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a458d18f97a69b50b46bb77069b43ea88935f58",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:19:54.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: Central de Ajuda (piloto, Atalhos, botão Ajuda) e miniaturas sob prefixo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "79acbcb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/79acbcb48b3922b3a13b70c882c8a42066b45ebb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:19:34.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: a recusa do mapa base padrão fala para leigo desde a revisão dos textos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "98fe3e0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/98fe3e0bbe16cdc6714049062fec300bc9beeff1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:19:26.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: miniaturas do catálogo sob prefixo (CATALOG_THUMBNAIL_BASE_URL, banco canônico)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3e99428",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3e99428ca0d5de6b39f27e3d155916ffcb396ced",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:18:50.000Z",
+      "author": "Maj Diniz",
+      "message": "miniatura do catálogo sob prefixo: o banco guarda o endereço canônico e a saída leva CATALOG_THUMBNAIL_BASE_URL\n\nNo 1º CGEO o app mora em /ebgeo/ e /api/... na raiz do host é 404, então toda miniatura\ngravada pela 032 sumia lá. Base por variável (optionalBase, default /api/v1/catalog-thumbnails),\ncomo o vídeo e o 3D, mas com o banco na forma canônica: a base entra só na saída\n(miniaturasParaOCliente no /api/config, rotas de catálogo e de camada externa, payload aditivo\nde privados e snapshot do atlas), a escrita devolve à forma canônica o endereço que o painel\necoa, e a rota casa a linha com qualquer das duas formas. A 032 não muda.\n\nGuarda: tests/integration/miniatura-sob-prefixo.test.js (6 de 7 vermelhos sem o conserto);\ncontrole sem a variável em miniaturas-do-catalogo.test.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "a9646ca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a9646cae60729eaed897326ee763b0354a3225aa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:07:35.000Z",
+      "author": "Maj Diniz",
+      "message": "teto de peso pela medida depois da integração da Ajuda (lista de atalhos em módulo próprio)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "be3e0eb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/be3e0ebea8c5e8b11d58be4564aad2dbd1d5497b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:06:22.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: o rastreador do teste de build não cobra as páginas do próprio app (manual anterior)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "1ec4419",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ec4419723dbf5afefaadfae00f9c6b6b66347a4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T11:04:03.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: as 15 mídias refeitas com o botão Ajuda, e o realce de bloco de texto com folga (não cobre a primeira letra)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c20bd6f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c20bd6fac6e0cee2e8d6ce2362575cd9ca56fb98",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:57:18.000Z",
+      "author": "Maj Diniz",
+      "message": "o botão Tutorial vira Ajuda e abre a Central (./ajuda/); a home da Ajuda liga o manual anterior; o deploy instala a ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "1f266e8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1f266e8666a4dbcd513ec2d07c77f9b329213b2b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:55:59.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: página de Atalhos gerada da fonte única do modal\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tajuda/README.md",
+      "sha": "5296459",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5296459f5d1e4013f42ba5e52a6e9d366a5bf6d3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:54:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: página de atalhos gerada da mesma lista do modal (fonte única)\n\nA lista de atalhos sai de shortcuts.modal.js para frontend/src/js/modals/shortcuts.data.js,\nfolha sem imports, que o modal importa e o build da ajuda lê pelo alias @atalhos-do-app.\nTabelaDeAtalhos.astro gera atalhos.mdx no build: tecla em <Tecla>, o que faz, toque e frase\nsimples quando houver, e link para a página com `ferramenta:` igual ao `tool` da linha.\n\nConferida contra os handlers, a lista ganhou o que o app aceitava e não dizia: Backspace\nexclui (2D e 3D), Shift+E, Shift+clique, Ctrl segurado inverte a atração, botão direito\ntermina o desenho, Esc do 3D, o comentário na cascata do Esc da primeira pessoa, e as seções\nImagens 360°, Apresentação de briefing, Linha do tempo e Horizonte (79 linhas).\n\nTestes: ajuda/testes/atalhos.test.mjs prova no HTML construído que toda linha da lista está\nna página e nenhuma sobra, com controle negativo numa cópia (linha tirada da lista some da\npágina; linha escrita à mão reprova sozinha) e a busca por atalho, tecla, teclado e ações;\nfrontend/tests/unit/shortcuts-data.test.js prende a folha sem imports, ícones, ids de\nferramenta e o modal desenhando toda linha.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5fa32a4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5fa32a4374a72630ab25ed546cd146495f97f2ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:54:30.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: Central de Ajuda (piloto: Starlight, 5 páginas, mídia por roteiro, visual do EBGeo)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "06152e9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/06152e9b6e9cb189c2f9f109824cb60d05d7112f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:53:40.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a Central com a cara do EBGeo (barra verde, tokens e densidade do app), sem glossário\n\nRevisão visual do chefe no piloto (2026-10-08):\n- barra superior = barra do app: #15803d chapado, título branco, símbolo do EBGeo direto sobre o\n  verde como na barra lateral do app (sem disco branco, pedido do chefe), busca branca; 56 px;\n- tokens de design-tokens.css: fonte base, raios 8/12 px, sombras, escala --primary e os cinzas\n  do app nos dois temas (escuro = superfícies escuras do app, com a mesma barra verde);\n- home compacta: faixa verde com símbolo, uma frase e UMA busca (a do cabeçalho some nesta\n  página; a da faixa abre o diálogo do Pagefind), quatro cartões com ícones do próprio app;\n- densidade do app: corpo 17 -> 16 px, h1 42 -> 28, h2 35 -> 22, título de cartão 18 -> 15,\n  itens e grupos da barra lateral 14 px, cabeçalho 64 -> 56 px;\n- figura e clipe: o quadro abraça a imagem e centraliza quando ela é menor que a coluna;\n- glossário fora do plano: página, barra lateral, ARQUITETURA.md e teste.\nContraste medido nas páginas renderizadas: todos os pares novos >= 4,83 (AA).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "cd2a718",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd2a718eb469c07323402cd6bfbd1f7dbf0dcc16",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T10:42:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (RT 14/2026): Metodologia para Redução de MDS para MDT publicado no doc_dgeo (cd7fc55, site no ar, md5 conferido no PDF servido) e cadastrado no SAP 3.0 (documento 39, relido com o arquivo); regra do chefe: RPCMTec não é documento técnico no SAP, e a carga do controle_acervo ainda o mapearia, então documento novo entra pela carga recortada (wiki rpcmtec, SKILL e learnings da lancar-rpcmtec); decisão cont. 3\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e06a384",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e06a3842a3412667246ce5a527d1ab6f976e9b41",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:35:34.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: as 15 tomadas do piloto, geradas sobre o catálogo real de produção\n\nAs tomadas de ajuda/roteiros/midias.json viraram módulos do motor e foram geradas de verdade:\nfiguras e clipes sobre o app real, com o mapa base Topográfica e o catálogo de produção\n(retrato só leitura do GET da configuração, guardado fora do git em .cache/retrato e\nsemeado no banco descartável, endereços trocados pela origem do app, Host público sempre).\nO conflito entre duas contas e a recusa por tamanho reaproveitam o que os specs citados\nfazem; o KMZ de exercício é fabricado em lib/cenas.mjs.\n\nCorreções no conteúdo frente ao app real: alt do kmz-02 (o mapa se aproxima, não enquadra),\no botão de três pontos é vertical (⋮), alt do pend-01 (o aviso fica entre os colegas e o nome\ndo atlas), e em midias.json a janela de 1280x800, o Salvar do painel no renomear e o\nreconectarAgora do socket no conflito.\n\nInfra: apagadas as páginas de exemplo (abrir-o-ebgeo, importar-arquivo, mapa-nao-abre) e a\nmídia demo-*; os testes de ajuda/ apontam para as páginas reais, com as premissas das buscas\nconferidas. Motor: GPU real no navegador, metas de 250 KB na tela cheia (piso de qualidade\n52) e clipe em duas passadas quando passa de 1,5 MB.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "20f0505",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/20f0505824f23dc4ba2171d5c8b491e17932ac4a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T10:34:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (conferência SAP 3.0 contra o SAG): a 2026NE000014 (UG 167382, 07 OUT, R$ 14.975,30) empenha a 2026NC400777 inteira nas tintas do T1700 e entra como NE 107, relida campo a campo, com o saldo do painel indo a R$ 0,0006 e a NE fora de \"falta cadastrar\"; reconta do liquidado (51 empenhos) e dos RPNP (15) com delta zero; rodada de 07 OUT e de 08 OUT no learnings detalhado; script painel_execucao.js na skill consultar-orcamento, que substitui a chamada à mão da rota enquanto o orcamento saldo responde vazio; learnings da lancar-orcamento (a UG da NE não se relê pela API); decisão 2026-10-08 cont. 2\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ee0b308",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ee0b308e4eab746400bb631a0323f0708accc9de",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-10-08T10:34:34.000Z",
+      "author": "Maj Diniz",
+      "message": "relatorios: RT 14/2026, Metodologia para Redução de MDS para MDT\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cd7fc55",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/cd7fc551597df96c4c7dcf46b855465b4420a616",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:31:17.000Z",
+      "author": "Maj Diniz",
+      "message": "teto de fonte total depois do pull de 2026-10-08, pela medida (14117 kB)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5592899",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5592899ea25ce69e480a3c5ce224c97f7c52b726",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:30:55.000Z",
+      "author": "Maj Diniz",
+      "message": "testes depois do pull de 2026-10-08: frase nova do 404 do catch-all no guarda de montagem e teto de arquivos com o motivo-legado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "e044d5d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e044d5d210167beb4df6cb51f76aa47b98c0d4ed",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:28:25.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: origin/main (Horizonte sem prévia, botão recusado diz o motivo, aviso de contexto WebGL, sondas do backend) na main local\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "62b2ff6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/62b2ff6b52b8286edf41d30168b6df8718b399e9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:08:04.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: sonda das miniaturas do catálogo no guarda de montagem, e prefixo montado duas vezes conta uma\n\nO /api/v1/catalog-thumbnails entrou sem sonda e o /api/v1/basemaps passou a ser montado duas\nvezes (estilo sob demanda antes do catálogo); o guarda reprovava na main desde a integração.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "48f1d48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/48f1d48933993a99a85280623685f661ac8e8ced",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:07:18.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: textos de tela para leigo (inglês, jargão e frases longas reescritos, censo sem jargão)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "1ceadd4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ceadd4de5724b1bf460c61ec3b7bd6f2d0363db",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T10:06:40.000Z",
+      "author": "Maj Diniz",
+      "message": "textos de tela na voz de quem não é da área: sem inglês nem jargão interno\n\nPedido do chefe da DGEO: corrigir texto longo, técnico e em inglês. 114\nliterais reescritos (65 inglês, 37 jargão, 9 longos, 3 sem ação), mais 9\nfrases novas na tabela de NotFoundError.\n\nServidor: motivos de recusa do sync sem patch, recibo, entidade,\nversão-base, comando composto nem co-Gestor (\"Gestor\"), com a ação quando\nhá uma; recusas de imagem e do envio de projeto 360 em português; os três\nmapas de SQLSTATE juntos; substantivos do 360 com frase própria (o\ncongelado é o envelope, não a frase).\n\nCliente: calibração (conexão, prévia), oito avisos longos encurtados,\n\"alterações\" no desfazer, validação das medidas de coordenação.\n\nLegado: toda frase antiga de motivo guardável entra em motivo-legado.js\napontando direto para a de hoje (também as recusas de imagem em inglês); a\nrepro de pendências prova grupo e exibição com as três redações.\n\nGuardas: censo textos-de-tela-sem-jargao (dois pacotes, controle negativo\nsintético e na árvore real, 17 exceções justificadas), espelho\nmotivo-legado com quatro fontes, not-found-tem-frase. Inventário em\ndocs/wiki/textos-de-tela-inventario.md e decisão de 2026-10-08.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "6f48833",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6f488337fbf20b33b8d629b79903b4d81c5ee908",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T09:43:39.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (ebgeo_web, revisão dos achados colaterais e menus da camada e da pasta): botão recusado entrega o clique com o motivo, zoom do DEM pela largura real do tile, aviso com Reabrir na perda do contexto WebGL, mostrar/ocultar/bloquear/desbloquear todas no menu da camada e da pasta, rolagem até a primeira selecionada na reabertura, na main em eef6d94e; testes do backend da integração do dia consertados em b9c4976f; learnings da planejar-mudanca-sistema (achado colateral se mede, npm test com && não roda o e2e, vermelho que passa sozinho é banco compartilhado, callback em lista fechada) com gotchas descidos ao detalhe; livro-razão (e2e relatado sem ter rodado); wiki ebgeo-web; decisão 2026-10-08 cont.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7a24973",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7a249739df596ca9e52c2061e5c616df2ed80bfe",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:41:36.000Z",
+      "author": "Maj Diniz",
+      "message": "testes do backend depois da integracao de 2026-10-08: sondas da miniatura e do estilo de mapa base, censo da rota de miniatura, 413 acima do teto novo de 16 MiB, e o teste das miniaturas limpa o que semeia\n\n- app-mount-order: uma sonda por montagem (a miniatura e a segunda montagem de /api/v1/basemaps)\n- saidas-de-conteudo-censo: GET /api/v1/catalog-thumbnails/:file e os dois emissores dele (304 e bytes)\n- sync-corpo-grande-413: 17 MiB, acima do SYNC_BODY_LIMIT_MB de e0191238\n- miniaturas-do-catalogo: mede o acrescimo sobre uma base e apaga as linhas mc-*-RID no after (elas entravam na listagem crua de resource-access-listagem-crua)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b9c4976",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b9c4976fae9a387b0e52b26ebfe9d114f2ab0e52",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:22:02.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: textos de tela com acento (motivos de recusa do sync, censo e tradução do motivo legado)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "2ff69d7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2ff69d75557ef2a8659cfe61182bd8e08cd50d2c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:21:07.000Z",
+      "author": "Maj Diniz",
+      "message": "textos de tela com acento: motivos de recusa do sync e três rótulos\n\nOito motivos de recusa do servidor saíam sem acento (\"O item foi excluido no\nservidor.\") e chegavam assim ao toast e às pendências. Agora com acento, nos\ndois arquivos do sync (entity-conflicts, feature-conflicts). Três rótulos do\ncliente também: \"Remover Conexão\" (calibração), \"Força-Tarefa/Posto de\nComando\" (símbolo militar) e o aviso de aba sem camadas.\n\nO cliente decidia pelo texto num lugar: o grupo \"da mesma ação, pelo mesmo\nmotivo\" das pendências. A recusa guardada antes da troca é reconhecida por\nmotivo-legado.js (igualdade exata, antiga para nova), na tela e no grupo.\n\nGuardas: censo textos-de-tela-com-acento (os dois pacotes, controle negativo\nsintético; exceções justificadas), espelho motivo-legado (valor existe no\nservidor, chave não existe mais) e a repro de pendências com as duas grafias.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "167546f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/167546f12eb144c992ed9b87ac3e55d68c97aabc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:15:31.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: ajuda-midia no piloto da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tpackage.json",
+      "sha": "ba17194",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ba1719453d27f2bca04e66a61687bfa38a4b15f4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:15:20.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: ajuda-conteudo no piloto da Central de Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tajuda/src/content/docs/index.mdx\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "826ed28",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/826ed28fdb77ad3d6024c58cbac14d808fb39f44",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:13:54.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: infraestrutura da Central de Ajuda (Astro 7 + Starlight 0.42 + Pagefind) no pacote ajuda/\n\nUma build só, com caminhos relativos, servida sob /ajuda/ (DSG) e /ebgeo/ajuda/ (1o CGEO):\no HTML e o CSS saem relativos à página e o código de navegador lê a raiz em tempo de execução,\no que leva o Pagefind ao índice sob qualquer prefixo. Sai em frontend/dist/ajuda pelo build do\nfrontend e pelo build:pages, na mesma release do deploy.sh (sem mudar o script).\n\nGuardas que reprovam o build: link interno quebrado (com base ou relativo), mídia ausente\nlistando os ids (AJUDA_PERMITIR_MIDIA_PENDENTE=1 só no piloto), endereço fora da rede e caminho\nabsoluto que sobre. Componentes Figura, Clipe e Tecla; frontmatter palavras/novo/ferramenta;\nbusca com peso no título e nos sinônimos; selo Novo por 60 dias; tema verde do EBGeo.\n\nTestes próprios (npm run ajuda:test, 24 casos, cada guarda contra a falha plantada numa cópia),\nencadeados no npm test da raiz e roteados pelo test:tocados. Placeholders mínimos em três seções\ncom mídia sintética de demonstração; o tutorial antigo não muda.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "6193711",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/61937115217bbec56f1969bd16f81f54c16b3305",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:09:40.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: tempos medidos do motor de mídia no README\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "8310c46",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8310c46da8658be288cecc4157493e8a8105867f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T09:09:26.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: motor de mídia da Central de Ajuda (figuras WebP e clipes WebM por roteiro Playwright)\n\n`npm run ajuda:midia` roda as tomadas de ajuda/roteiros/tomadas/ sobre o app real, subido pelas\npeças da camada de tela (vite.e2e.config.js, startBackend, banco descartável, helpers de conta e\nsessão), em portas e banco próprios. Mapa base (carta topográfica raster da DSG) e terreno\n(FathomDEM) vêm do Martin de produção por modelo de tile, com o Host público e cache em disco;\no TileJSON público é conferido antes e depois de cada rodada. Glifos pelo padrão do backend.\n\nCada tomada sai com prova de trabalho (mapa ocioso antes e depois da captura, tiles reais sem\nfalha, anel do realce desenhado e envolvendo o alvo, metas de 150 KB, 1,5 MB e 5 a 15 s) ou\nREPROVADA sem gravar arquivo. Quatro controles degradados em controles/ reprovam (captura no meio\ndo voo, destaque inexistente, clipe curto, realce que perde o alvo). --determinismo roda duas\nvezes e compara pixels: as figuras dão 0,000% de diferença.\n\nWebP por sharp (já no backend); corte e recompressão em VP8 pelo ffmpeg do próprio Playwright.\nNenhuma dependência nova. Três tomadas de demonstração e a mídia delas em ajuda/public/midia/.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "9ff34b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9ff34b3a7f21c7cec9b12090c2c7aca044573ecf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:56:58.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (conteúdo): contagem do inventário sem o parêntese repetido\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "04420ac",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/04420ac502bcf4a7cbc9b773f4e60438523189b0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:56:51.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (conteúdo): guia de escrita, mapa de 83 páginas, sete páginas piloto e a lista de tomadas\n\nFrente CONTEÚDO do piloto da Central de Ajuda (decisão do chefe da DGEO de 2026-10-08):\n- ajuda/GUIA-DE-ESCRITA.md: voz para leigo, uma página uma pergunta, formato por seção\n  (Diátaxis), figura x clipe, como preencher `palavras`, com as referências de fora;\n- ajuda/ARQUITETURA.md: 83 páginas planejadas (8 primeiros passos, 32 como fazer,\n  24 ferramentas, 15 problemas, 4 avulsas), cada uma com a fonte no código, o que o\n  tutorial antigo não tinha ou dizia diferente, e o inventário das mensagens de envio\n  e de pendência (crachá, avisos, motivos do servidor, painel, figuras, saída);\n- páginas piloto: primeiros-passos/conhecendo-a-tela, como-fazer/importar-kmz,\n  problemas/pendencias-de-sincronismo (dividida em três: o índice, \"Os mesmos campos\n  foram alterados no servidor.\" e a recusa pelo tamanho com Enviar de novo), index e\n  novidades;\n- ajuda/roteiros/midias.json: 15 tomadas (10 figuras, 5 clipes) com seletores e\n  rótulos conferidos no código.\n\nSem build: o pacote ajuda/ (Astro/Starlight) é da frente INFRA.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "694ca8e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/694ca8e7ab732c4954b402b663cbad43190b3e59",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:41:25.000Z",
+      "author": "Maj Diniz",
+      "message": "barra de baixo: :not na forma composta (stylelint)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "eef6d94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eef6d94e73a8fa5a40ca18c5225c12dd91a66b08",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:40:07.000Z",
+      "author": "Maj Diniz",
+      "message": "decisoes de 2026-10-08: botao recusado, zoom do DEM, menus da camada e da pasta, contexto WebGL, Luminosidade\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e6c6cb8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e6c6cb8dcbd4854357117a002b506f1f642e3d29",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:38:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge commit '2f075e95' into HEAD\n\n# Conflicts:\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "0adacbb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0adacbb9fc9e2109224ff36183b08ce3688528b9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:38:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into HEAD",
+      "sha": "2cea573",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2cea573544d7df4dabcf5fab6fb0473c0a0c53b0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:38:12.000Z",
+      "author": "Maj Diniz",
+      "message": "correcoes da revisao do chefe: botao recusado diz o motivo, zoom do DEM pela largura real, comentarios dos eventos de uso, rolagem ate a primeira selecionada e mostrar/ocultar/bloquear/desbloquear todas no menu da camada e da pasta\n\n- ToolButton e FeatureToggle recusam por aria-disabled e o clique carrega o motivo (antes `disabled` engolia o clique)\n- o leitor de DEM mede a largura real do primeiro tile e escolhe o zoom por ela (tile de 512 declarado como 256)\n- os comentarios que diziam \"treze eventos\" deixam de contar o catalogo, e o teto de 50 linhas por lote tem a justificativa medida\n- a aba de camadas pede a rolagem na reabertura da barra lateral e a mantem por 1,5 s contra o redesenho\n- o menu da camada age nas feicoes dela numa escrita so (updateFeatures, um desfazer); o da pasta, na pasta, subpastas e camadas (setLayerFolderSubtreeFlag)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d0910db",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d0910db23ec82aa69f7f125ffd1aa1f16cdf372d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:38:04.000Z",
+      "author": "Maj Diniz",
+      "message": "visualizadores: aviso com Reabrir quando o navegador descarta o contexto WebGL do 360, do 3D e do primeiro-pessoa\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2f075e9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2f075e95e9d1c0da28d9b391f31638987fa79e13",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T08:35:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (Horizonte do ebgeo_web): sem prévia z8 por decisão do chefe, tela de carga do EBGeo em tela cheia e botão direito que copia a coordenada, na main em c87feaa7 (merge com a integração do dia, teto de fonte remedido); learnings da planejar-mudanca-sistema (régua que exercita a transição, contagem de tiles zerada ao abrir, portão no handler da rota, teto em conflito de merge) com quatro itens descidos ao detalhe sem perda; livro-razão (régua-cega, produção); wiki ebgeo-web; decisão 2026-10-08\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d4179d6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d4179d62cc574ad79cb3babe9c7bc6e2cab3d287",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:18:35.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: origin/main (integração de 2026-10-08) no Horizonte sem prévia\n\nConflito só no teto de fonte (a) do grafo completo: os dois lotes subiram da\nmesma base 13993 (integração 14063, Horizonte +9). Remedido na árvore\nintegrada: 14065 kB, teto 14069.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c87feaa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c87feaa7623b157f706c1d04bb1f5e696d919766",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:16:27.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: sem prévia z8, tela de carga do EBGeo e botão direito para copiar coordenada\n\nTrês pedidos do dono em 2026-10-08:\n\n- A vista abria com uma prévia em z8 (relevo facetado, pico ~3° fora, linha\n  do chão errada pela cota suavizada) e saltava para o relevo real. A prévia\n  saiu: carga em uma passada só, e a fase `previa` some de carga, anéis,\n  worker e testes.\n- Enquanto o relevo carrega, a tela de carga do EBGeo (moldura loading-3d-*)\n  cobre a tela inteira, trilha inclusive, com a barra medida pelos tiles e o\n  fechar por cima.\n- Botão direito sobre o relevo: \"Copiar coordenadas\" do ponto do chão sob o\n  cursor, no formato do painel de coordenadas; sobre o céu o item vem\n  desligado e o primeiro Esc fecha só o menu.\n\nProva: horizonte.spec.js verde, com três controles negativos que reprovam\n(anel z8, Esc fechando a vista com o menu aberto, carga sem cobrir a trilha).\nTeto de fonte (a) 13993 -> 14002 pela medida (13998 kB).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c103d3d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c103d3dfe051a549fdcd755500ceb08d64006317",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:13:11.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: origin/main (meteorologia, seis correções do dono, DEMANDAS-PITCIC) na integração de 2026-10-08\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "39baa53",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/39baa53d71d6e2c22e1fbaca2073e05bd4297f08",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:11:03.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: catalogo-grade-por-partes\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "1e17d14",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1e17d142421faa2bd2975a8ed18d83655fdeb769",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:10:33.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: mapa-base-estilo-sob-demanda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md\n#\tfrontend/src/js/baselayers/base-layer.control.js\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "3a5174c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a5174c9a6604c408c5bddc2c9619c5e7d1718f6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:10:09.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: catalogo-miniaturas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "dd6d773",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dd6d77346876a85520fd1be625020cca4424bc7e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T08:07:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (ebgeo_web, visibilidade reduzida no painel de meteorologia): nevoeiro, nevoa e precipitacao por hora pelas faixas do MCA 105-10, provado contra o codigo 45 da fonte em 4.392 horas, na main em 2745791c; DEMANDAS-PITCIC so com as tres demandas abertas; learnings da planejar-mudanca-sistema (rotulo da propria fonte como caminho independente, limiar conferido na norma, worktree destacado sobre a origin/main) com secao de 2026-10-07 movida sem perda ao detalhe; wiki servidor-ebgeo (FathomDEM e MDT de 30 m), ebgeo-web e pitcic; decisao 2026-10-08\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f30dd31",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f30dd313c6cf88e82d912985af94ec706381279b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:07:10.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: recusa ao religar camada de catálogo, marcador 3D e 360 (base atrasada no retrato)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "b2bdde5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b2bdde526fe8e6c352f1382c2eba9113edc7c963",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T08:06:47.000Z",
+      "author": "Maj Diniz",
+      "message": "3D e 360: editar um marcador depois de abrir o atlas não é mais recusado contra ninguém\n\nO mesmo defeito da camada de catálogo (c97fb688), medido no servidor real: o marcador 3D e o\n360 vivem inteiros em cesium3d_data.data e streetview360_data.data, o payload levava dentro o\nconfirmedVersion do autor (uma revisão atrás da linha), o retrato serve a entrada como\n{id, tilesetId|photoName, ...data, sync} e stampBucketedRevisions lia version, que a entrada\nnão tem (retrato com confirmedVersion 1 e sync.version 2 nas duas famílias).\n\n- retrato: stampBucketedRevisions carimba por stampConfirmedVersionFromSync, nos baldes em\n  lista e nos chaveados (câmera, orientação);\n- saída: os funis de cesium3d.operations e streetview360.operations gravam o payload sem\n  confirmedVersion (withoutConfirmedVersion, cópia rasa: o payload é o objeto do documento);\n- par: inboundSideEntity já valia para 3D e 360; o caso do pull prova que ele segura;\n- servidor: sem mudança. Os ids são UUID, o recibo já casa com revisionKeyOf (o encadeamento\n  passa no caso de edição rápida) e UUID não se repete entre mapas.\n\nProva: terceira-dimensao-e-360-reabrir-declara-base.e2e, 4 casos por família (8). Código de\nantes: 6 vermelhos. Carimbo do retrato revertido: 6; caminho do par neutralizado: os 2 do pull;\nsaída revertida: os 2 de reabrir, pela asserção do payload. O controle negativo (duas pessoas\nda mesma base) continua recusado com documento.\n\nTambém: a fixture do retrato em recovery-remote-operation-handler passa à forma real nos dois\nbaldes; dois testes de write-ahead usavam o objeto da fila como linha do retrato (agora cópia);\na combinação de mapas compara sem o carimbo que o retrato põe; o censo de referências sobe 7\npara 8 em catalogLayers do handler, linha que c97fb688 acrescentou sem atualizá-lo; tetos de\nfonte do mapa 8786 para 8792 e 13981 para 13987, pela medida (8788 e 13983).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "e0da998",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e0da998f51e343f27193512712b6e98f01001323",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T07:56:25.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (ebgeo_web, seis correcoes do chefe): texto de rotacao 0 de pe na tela e o girado deitado no chao, cores frequentes so do atlas, KMZ ate 500 MB, Comentar aqui no menu, rolagem ate a selecionada e link do Catalogo, na main em 109fd3a2 com a suite da raiz verde; learnings da planejar-mudanca-sistema (reproduzir com numero, consertar a causa para toda a populacao, simbolo deitado medido no chao, banco local atras de migracao, teto de peso com dist velho, heredoc com apostrofo) com split sem perda; livro-razao (contorno-em-vez-de-raiz); wiki ebgeo-web (historico); decisao 2026-10-08\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "81fd46a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/81fd46ad803c6e98fbb493fd9372e6d979ee941b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T07:52:30.000Z",
+      "author": "Maj Diniz",
+      "message": "pendências: \"Enviar de novo\" para a recusa pelo tamanho do envio, e a decisão registrada\n\nDecisão do chefe de 2026-10-08. A pendência de 413 que o código anterior deixou (o caso da DSG) só\noferecia \"Aceitar o servidor\" (perder) ou \"Exportar\". Agora a linha de recusa ou recusada junto com\nstatus 413 ganha \"Enviar de novo\": tira o registro de problema do grupo (o mesmo de \"Aceitar o\nservidor\") e manda pelo envio de hoje, que corta por bytes, na ordem e no lote em que o gesto\nnasceu. Antes, pergunta dizendo quantas alterações, de que mapa e o risco de duplicar quem já\nreimportou. Posto some o comando; conexão e trava o desenham e recusam o clique. Sucesso tira a\npendência; um envio que lança devolve o registro de antes às que ficaram. A op que nenhum corte\nfaz caber vem marcada naoCabe pelo envio e não ganha o botão.\n\nProva contra o backend real: 200 ops de 13 MB com o registro na forma exata do código antigo; o\nflush comum não envia nada, o reenvio põe as 200 no servidor em pedaços de até 4 MiB e a fila fica\nsem pendência. No Playwright, o botão de verdade reenvia 60 ops e o Postgres as recebe. Controle\nnegativo: sem tirar o registro de problema, o reenvio devolve 0 enviadas e 200 restantes.\n\nEntrada no diário de decisões e no índice: gesto acima de 10 MiB em partes encadeadas como o B6.1,\nrota de push com 16 MiB, op acima disso recusada no cliente como pendência, e o botão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "f96658c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f96658caa75eaac1ae9487cfe4ab6fab4b9de958",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T07:44:38.000Z",
+      "author": "Maj Diniz",
+      "message": "camada de catálogo: desligar e ligar depois de abrir o atlas não é mais recusado contra ninguém\n\nRecusa vista na DSG em 2026-10-07 (8a6755a1): \"Os mesmos campos foram alterados no servidor.\",\nalvo catalog_layer, duas por usuário ao desligar e ligar a Moldura 1:50.000. Reproduzida com a\nstore, o motor de sync e o backend real: o blob catalog_layers.data guardava o confirmedVersion\ndo autor (a base que ele declarou, uma revisão atrás da linha), o retrato serve a entrada como\n{id, ...data, sync} sem version no topo, e o carimbo do retrato lia version, então todo cliente\nque abria o atlas herdava a base atrasada (linha 4, base 3, recusa com documento).\n\n- retrato: a revisão da camada de catálogo vem de sync.version e o número de dentro do blob é\n  descartado (stampConfirmedVersionFromSync), o que cura também as linhas já envenenadas;\n- op ao vivo e pull: applyRemoteCatalogLayerOp segue a regra do 3D/360 (inboundSideEntity),\n  o par fica sem base e o reparo do autor mantém o carimbo do recibo;\n- saída: o payload da camada de catálogo não leva mais o confirmedVersion para o blob;\n- servidor: o recibo de catalog_layer nomeava o atlas (entity_id do log), e o segundo clique\n  antes do recibo do primeiro caía em \"A alteração da qual esta edição depende não foi\n  confirmada.\"; recibo e revisionKeyOf passam a nomear a camada por (mapa, id).\n\nProva: camada-de-catalogo-religar-declara-base.e2e (4 casos, 3 vermelhos no código de antes com\nas duas frases; cada parte do conserto revertida sozinha derruba o seu caso; o controle negativo\nde dois usuários da mesma base continua recusado). A fixture do retrato em\nrecovery-remote-operation-handler tinha a forma {id, version} que o servidor nunca manda.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c97fb68",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c97fb6888070e1365fdf4fa6b874be3192dcf456",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T07:40:58.000Z",
+      "author": "Maj Diniz",
+      "message": "DEMANDAS-PITCIC: sai o parágrafo do que já está atendido; ficam só as demandas abertas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2745791",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2745791c5c96f9e573e643a50fc4dfe00b28d421",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T07:39:34.000Z",
+      "author": "Maj Diniz",
+      "message": "seis correcoes do dono: catalogo, Comentar aqui, KMZ, cores, rolagem e textos\n\n- o link \"Manter o acervo\" do Catalogo abre o painel na aba Catalogo (?aba=catalog)\n- \"Comentar aqui\" no menu de contexto, so em atlas do servidor com sessao e papel de Comentarista\n- KMZ importa ate 500 MB; KML, GeoJSON e shapefile seguem em 50 MB; prazo de leitura cresce com o tamanho\n- cores frequentes sao as do atlas montado, sem o contador vitalicio do navegador; a troca de atlas remonta a contagem\n- abrir o painel de camadas com uma feicao selecionada rola a lista ate ela\n- texto de rotacao 0 fica de pe na tela; o girado deita no chao (rotacao e inclinacao no mapa); clique e moldura seguem as duas formas\n- o plano da vista do horizonte sai da raiz depois de implementado\n\nDecisoes em docs/decisions/decisions-2026.md. Teto de peso da fonte pela medida.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "109fd3a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/109fd3a23b2ec848e31277ba1ad72f41ab61ebc4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T00:55:46.000Z",
+      "author": "Maj Diniz",
+      "message": "sync: o envio se corta por bytes, e o push tem teto de corpo próprio de 16 MiB\n\nO 413 da DSG (8a6755a1, 2026-10-07 17:41, 13.665.303 bytes contra o limite de 10 MiB) era o\ndesfecho de todo gesto acima do corpo: o recorte do envio era só por contagem, o lote lógico não\nse parte no peek, a metade do recorte devolvia o mesmo pedaço e as ops viravam pendência que\nnenhuma ação reenviava. Reproduzido contra o backend real: um envio de 200 ops e 13.124.178\nbytes, 413, nenhuma nova tentativa, 200 pendências e zero feições no servidor.\n\nCliente (cortarEnvioPorBytes, em operation-factory.js): o gesto vai inteiro e atômico até 10 MiB,\no limite que todo envio teve até hoje; acima disso sai na ordem em pedaços de 4 MiB, com o preço\ndas partes do B6.1, e o resto de um gesto recusado fica preso atrás dele. A op que sozinha passa\ndo teto da rota é recusada no cliente, sem viagem, com o gesto inteiro, e vira pendência com\naviso. O 413 que ainda chegar (um proxy com limite menor) divide o teto em bytes pela metade.\nDepois do conserto o mesmo lote sai em 63, 63, 63 e 11 ops de até 4,14 MB, as 200 no servidor.\n\nServidor: parser próprio para POST /atlas/:id/sync, 16 MiB, com caminho ancorado e principal\nverificado, para a op que não se corta. Medido: 13 MB levam 4,5 a 4,9 s pela rota (o lock de\nescrita do atlas espera 5 s), e um corpo de 16 MB subiu o heap cerca de 200 MB no pico.\n\nControles negativos: sem o ramo do parser, o REPRO do backend recebe 413; sem o corte do cliente,\no lote de 13 MB passa num envio só e o e2e reprova pelo tamanho do envio.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "e019123",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e01912387918c7aa4d39976d2513868a0fd2e5b3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T00:18:51.000Z",
+      "author": "Maj Diniz",
+      "message": "meteorologia: visibilidade reduzida por causa e por hora (PITCIC 4.3.4.1.2)\n\nLinha nova no painel: as horas com visibilidade até 5 km, separadas em\nnevoeiro (abaixo de 1 km) e névoa (1 a 5 km) pelas faixas do MCA 105-10\ndo DECEA nas horas sem precipitação, e precipitação nas horas com chuva\nou garoa, cada uma com horas, mínima e horários no texto da célula.\n\nCaminho independente: o código 45 da fonte é exatamente \"abaixo de 1 km\ne sem precipitação\" (4.392 horas de 21 pontos); o teste cobra a\nconcordância hora a hora numa segunda gravação do GFS (St. John's), e o\ncontrole negativo (só pela distância) diverge da fonte.\n\nDEMANDAS-PITCIC.md perde o item 3 (decisão do chefe) e o item das\ncobertas registra o MDT de 30 m servido. Teto da fonte total da página\ndo mapa 13981 -> 13986 pela medida (13982 kB).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6749d7b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6749d7b9c85ffa9734af2b62bfba42dec097b0bf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T00:14:20.000Z",
+      "author": "Maj Diniz",
+      "message": "estilo de mapa base sob demanda: o /api/config leva só a versão de cada estilo, e o cliente baixa o estilo quando o usa (o do padrão já na abertura)\n\nMedido na DSG em 2026-10-07: 369 dos 558 KB do /api/config eram os sete estilos de basemapStyles, e o mapa aplica um por vez.\n\nServidor: basemapStyleVersions (hash do conteúdo, por id) e basemapStyles vazio no documento; GET /api/v1/basemaps/:id/style, pública, serve a MESMA tabela pública de antes (estáticos mais o config.style das linhas públicas), com ETag, imutável quando o ?v= é a versão corrente e no-cache quando não é, sempre private; privado e desconhecido são o mesmo 404. Memo da tabela ao lado do memo do documento, com a mesma invalidação, e limitador próprio com o teto do config.\n\nCliente: baselayers/basemap-style-loader.js guarda o estilo em memória por versão, divide o pedido simultâneo e não lembra a falha; o embutido (site estático, privado do /visible) nunca é buscado. O seletor trata o pendente como aplicável, busca antes de trocar, mostra o anel de carregamento sem travar o mapa, enfileira a escolha feita durante a espera, e na falha mantém o mapa base anterior com aviso. A abertura pede o estilo do padrão logo depois do config, em paralelo com a sessão, e o espera só antes de criar o mapa (prepareInitialBaseStyle): embutido, ele deixaria 220 dos 369 KB no pedido de prazo fixo de 8 s. Mini-mapas do 360 e do Horizonte nascem com o estilo em mãos e trocam quando o escolhido chega; o mapa de projeto da calibração espera o seu.\n\nTestes: integração do servidor nova (rota, ETag/304, imutável por versão, par público/privado, memo invalidado), unitário do cliente novo (busca e aplica, falha mantém, cache, embutido não busca, fila, abertura), caso de contrato no e2e do config, spec Playwright com captura; censos de superfície e de saída nos dois pacotes, tetos de contagem e de fonte remedidos (611/936 módulos, 8801/13997 kB), e os leitores antigos de basemapStyles (testes do servidor e guarda do mapa base local do Playwright) passam a ler pela rota.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4eed53e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4eed53e645f568d2c74d38877b2a1c7f9d94c0ae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T23:51:33.000Z",
+      "author": "Maj Diniz",
+      "message": "miniaturas do catálogo saem do /api/config: bytes por conteúdo no Postgres, servidos por endereço com o acesso do item\n\nA miniatura de cada item cadastrado pelo painel viajava como data URL WebP dentro do config, e o\nconfig sai inteiro no GET /api/config, o documento de boot do mapa. Medido no teste: 60 itens de\n~30 KB davam 1.795.765 bytes; depois da conversão, 26.000.\n\n- migração 032_miniaturas_do_catalogo.sql: tabela catalog_thumbnails (SHA-256, tipo farejado pelo\n  número mágico) e conversão idempotente dos data URL das cinco tabelas de catálogo e da de camadas\n  externas; o que não é PNG, JPEG ou WebP fica como estava\n- rota GET /api/v1/catalog-thumbnails/<hash>.<ext>: gate pelo item que carrega o endereço (o\n  predicado da listagem, com empréstimo por ?atlasId=), ETag, 304, cache imutável public ou private\n- escrita de catálogo e de camada externa extrai o data URL do painel (guardarMiniaturas), poda a\n  miniatura que ninguém mais nomeia e recusa com 422 o que não é imagem aceita; o schema da camada\n  externa aceita o endereço\n- marcar privado re-cunha o endereço com ?k=, como o vídeo de prévia\n- cliente: o seletor de mapa base (compacto, lista e celular) passa por enderecoDaMiniatura\n- censos: superfícies de recurso e imagens órfãs classificados; wiki, regra de recurso privado e\n  decisão registradas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5863588",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5863588370b8a121f617a12afeca935fee90b120",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T23:44:49.000Z",
+      "author": "Maj Diniz",
+      "message": "catálogo: a grade desenha por partes e a janela fechada não redesenha\n\nA janela do Catálogo punha todos os cartões no DOM a cada abertura, filtro e tecla da busca, dobrava o texto de cada item de novo a cada busca e reordenava reparseando as datas; com a janela fechada, cada ATLAS_SETTINGS_CHANGED refazia a grade inteira (a guarda era _gridContainer, que existe desde o boot); e o chip montava e ordenava a lista inteira só para saber se havia algum item.\n\nGrade (catalog-grid.js): com batchSize ela desenha um lote (CATALOG_GRID_BATCH = 48, múltiplo de 2, 3 e 4 colunas, cerca de duas telas da janela maior) e um botão \"Mostrar mais (N restantes)\"; um IntersectionObserver no botão, com raiz no contêiner de rolagem e margem de 600 px, desenha o lote seguinte antes de a pessoa chegar ao fim e se re-observa para encher tela alta. Lote só acrescenta, nunca remove: virtualização foi descartada porque o grid é auto-fill com cartões de altura variável e tirar cartão da árvore quebraria Tab, busca da página, leitor de tela e os localizadores por nome. O botão é âncora fixa (o foco do teclado sobrevive ao lote do observador) e o clique leva o foco ao primeiro cartão novo. Sem batchSize nada muda (aba Catálogo da configuração do atlas). releaseCatalogGrid desliga o observador ao trocar a grade e ao fechar, porque o overlay esconde por visibility, que o observador não vê.\n\nBusca (catalog.service.js): buildCatalogIndex dobra nome, descrição, local e palavras-chave e parseia a data uma vez por carga, já na ordem do catálogo; searchIndex dobra só a consulta, com o mesmo predicado de searchItems (_matchesFields), e sortByDateDesc e o índice usam o mesmo comparador. O modal filtra numa passada sobre o índice e o resultado já sai em ordem, sem reordenar. Duas cargas sobrepostas: a mais velha não pinta por cima da nova.\n\nJanela fechada: ATLAS_SETTINGS_CHANGED só recarrega com a janela aberta; fechada, a grade fica velha e show() a refaz, porque toda abertura já recarrega (sessão, trava do mapa e acervo privado podem mudar sem avisar a janela). hasItems para na primeira fonte com item, sem getAllItems, e pergunta o 360 (a única que pode custar pedido) por último.\n\nMedido na spec nova catalogo-grade-por-partes.spec.js, com 2.000 ortoimagens sintéticas injetadas na resposta do /api/config pela página (2.004 itens), uma rodada, Chromium sem GPU. O antes é o pipeline de origin/main recomposto na mesma página (getAllItems, classificação, sortByDateDesc, createCatalogGrid sem lote), com controle de que o módulo importado é o do app. Abrir: 393 ms, 2.004 cartões e duas tarefas longas (320 ms a maior) antes; 47 ms, 48 cartões e nenhuma tarefa longa depois. Busca ampla (\"voo de teste\", 2.000 achados): 292 ms e tarefa longa de 346 ms antes; 11 ms, 48 cartões e nenhuma tarefa longa depois; voltar à lista vazia, 285 ms contra 10 ms; busca estreita, 21 ms contra 7 ms. Rolar desenhou o segundo lote (96), o clique no botão mais um e o foco foi ao cartão novo; contagem total igual à soma dos filtros, estado vazio na busca sem achado. Capturas lidas.\n\nTestes: catalogo-grade-por-partes.test.js (23 casos: lote inicial, carregar mais pelo botão e pelo observador, foco, liberação, modo sem lote, índice igual ao searchItems e à ordem, busca que dobra só a consulta, janela fechada que não carrega e abre redesenhando, carga velha descartada, hasItems sem a lista). Controles negativos, cada um revertendo um conserto: a guarda antiga do evento (1 caso reprova), a busca que redobra os itens (2), a janela sem lote (3), hasItems pela lista inteira (2). ortoimagem-no-catalogo.test.js ganha o índice no this falso de _applyFilters. Quatro specs que acham o cartão pelo nome (compartilhar e exportação) passam a buscar o nome antes, porque item fora do primeiro lote só existe no DOM depois de rolar; não foram rodadas.\n\nTeto de peso: fonte ansiosa 8786 -> 8800 (8796 medido) e completa 13981 -> 13995 (13990), quase tudo o porquê; nenhum módulo novo. Rodado com EBGEO_SEM_PESO_CONSTRUIDO=1, sem build. npm run lint limpo; Playwright --workers=1 nas portas 4431/4031, 1 de 1.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "1050a86",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1050a86c9f9fd2177c58acb26fd09e982e848169",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-07T22:55:11.000Z",
