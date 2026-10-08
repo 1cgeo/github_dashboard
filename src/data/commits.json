@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-07T17:23:04.360Z",
+  "lastUpdate": "2026-10-08T00:06:34.228Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-07T16:03:02.000Z",
+    "1cgeo/ebgeo_web": "2026-10-07T22:55:11.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-06T20:58:37.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-07T20:44:08.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
@@ -57,11 +57,11 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-07T14:56:19.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-07T22:32:10.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
-    "1cgeo/fotos_aereas": "2026-10-05T18:50:19.000Z",
+    "1cgeo/fotos_aereas": "2026-10-07T22:30:16.000Z",
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8619,
+    "totalCommits": 8664,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2393,
+      "1cgeo/ebgeo_web": 2425,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -159,7 +159,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 398,
+      "dsgoficial/pytorch_segmentation_models_trainer": 403,
       "1cgeo/geoswarm": 67,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
@@ -174,14 +174,392 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 985,
-      "1cgeo/fotos_aereas": 30,
+      "1cgeo/chefe_dgeo": 991,
+      "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:55:11.000Z",
+      "author": "Maj Diniz",
+      "message": "testes da exportação .ebgeo: a seção de pastas de camadas (a décima)\n\nA fase 2 das pastas acrescentou a seção layerFolders e a leitura getLayerFoldersRepo; quatro\narquivos simulavam o @store sem ela e um fixava nove seções. As simulações ganham a leitura, a\ntabela passa a dez seções e o caso de todas as seções juntas leva uma pasta.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5bc9dc0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5bc9dc0c008e221239e9dbd9ff4703d4f4d3c437",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:34:05.000Z",
+      "author": "Maj Diniz",
+      "message": "integração das pastas de camadas: tetos de peso pela medida da árvore integrada, decisão e prosa atualizada\n\nTetos medidos pela falha do próprio caso depois de juntar as fases 0 a 4, o clique ao desenhar e o\ndesfazer em lote: 610 módulos e 8782 kB no grafo ansioso, 935 módulos e 13977 kB no completo (os\nnúmeros de cada branch eram somas). Registro da decisão em docs/decisions e as contagens de alvos\n(oito, com a pasta) no backend/CLAUDE.md, na regra de sync e na wiki do modelo de conflito.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "25fa2f1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/25fa2f18192f7adcbbf3beeb4b7201cff9bdce81",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-07T22:32:10.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-07 (ITC-PR, fotos sem articulação): 684 das 885 do acervo publicadas pela sobreposição com a vizinha (SIFT conferido por visão, Haiku às cegas mais Opus nas divergências), interpoladas ou encadeadas com calibração robusta, até 4 saltos; scripts sobreposicao_sift e posicionar_por_sobreposicao na skill; learnings com a régua de inliers, o falso negativo do Haiku e o flightLine que muda nos buracos; wiki com 39.435 fotografias e as duas fotos do IAT com número trocado; decisão cont. 9\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01AbdDVK7W2kPyU3FPG3uzSw",
+      "sha": "d63fc67",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d63fc6742a484150b21fded19641257c9ae08fba",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:31:12.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: desfazer em lote (frente 6) na integração das pastas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "37437f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/37437f58881ca9ae1e1890ff729a27c988a79f6a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:30:46.000Z",
+      "author": "Maj Diniz",
+      "message": "desfazer: a conferência de trava lê o documento do mapa uma vez só\n\nrefuseUndoRedoAcrossLock (store.js) perguntava getFeatureById por feição da entrada, e cada chamada lê o documento inteiro do mapa: no desfazer do KMZ real (960 feições) isso eram 6,3 a 6,6 s antes de o motor começar, quase todo o desfazer que sobrou do commit anterior. Agora currentFeatureLookup lê o documento uma vez (o mesmo getMapDataCompat tolerante, o mesmo mapa corrente), só quando há o que perguntar, e indexa por tipo e id, preguiçoso por tipo. A decisão é a mesma: a primeira feição daquele tipo com aquele id, e null onde a leitura única respondia null pelo .catch (documento ilegível, tipo sem lista, ou o find lançando numa feição sem properties antes de chegar nela); a feição que existe é perguntada como está agora, a que saiu responde pela cópia da entrada, com as mesmas recusas e frases.\n\nMedido com o KMZ real (fora do repositório) numa spec Playwright temporária, já apagada, em rodadas alternadas contra ac16b600. Desfazer: 6,4, 6,5, 6,5 e 6,7 s para 148, 148, 149 e 151 ms; a fase antes do motor de 6,3 a 6,6 s para 14 a 15 ms, e a store pronta em 52 a 57 ms em vez de 6,35 a 6,42 s. Refazer: a store pronta de 439 a 495 ms para 99 a 132 ms (antes do motor, de 353 a 382 ms para 3 a 5 ms). O tempo de parede do refazer pela espera da contagem na página é bimodal nos dois lados (antes 519 e 2025 ms, depois 1547 e 154 ms), conforme a sondagem cai antes ou depois das tarefas longas de repintura do mapa (0,85 a 1,5 s, página ociosa em 2,5 a 3,4 s nos dois lados): é o instrumento, não o código, e o 1,95 s do commit anterior é o mesmo efeito. A spec e2e desfazer-nao-atravessa-trava.repro.spec.js passa.\n\nTeste: três casos novos em desfazer-importacao-em-lote.repro.test.js contam as leituras do documento do mapa entre a chamada e o início do motor. Sem trava, 1 leitura para as 36 feições e o desfazer segue; a feição travada agora, a última da entrada, recusa com a frase de feição, a entrada fica na pilha e nada muda, em 1 leitura; no refazer, a feição que já saiu responde pela cópia da entrada e a camada travada recusa com a frase de camada, e sem a trava refaz, 1 leitura em cada. Controle negativo feito à mão: com store.js de volta ao getFeatureById por feição, recusas, frases, pilha e estado passam iguais e os três casos reprovam só pela contagem (36, 36 e 3 leituras contra 1).\n\nTeto de peso: passa sem mudança (dentro da folga). npm run lint limpo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "25f2193",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/25f21939b738b14713111fcb607414420ebad8b0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-10-07T22:30:16.000Z",
+      "author": "Maj Diniz",
+      "message": "ITC-PR 1980: photoCount 28167 -> 28851 (684 fotografias do acervo sem articulacao)\n\nFotografias do acervo do 1o CGEO que nao constam da articulacao do GeoPR,\nposicionadas pela sobreposicao com a vizinha publicada (confirmada por SIFT e\npor visao) ou interpoladas entre duas publicadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01AbdDVK7W2kPyU3FPG3uzSw",
+      "sha": "9f74ca2",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/9f74ca21d2c37f0b49a0fceca3e3d5eabf892687",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:24:54.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: clique ao desenhar (frente 5) na integração das pastas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "d3e45f0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d3e45f02ca29507028d598b5ec46c147b967c486",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:24:43.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: KML/KMZ com pastas (fase 4) sobre a árvore (fase 3)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "57c5f9a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/57c5f9aee19aabce830ec92d23d0e3f0bd16d3fe",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:23:19.000Z",
+      "author": "Maj Diniz",
+      "message": "pastas de camadas, fase 3 (aba Camadas): a lista vira árvore de pastas\n\nDecisões do chefe de 2026-10-07. A lista sai de montarArvore (linhasDaArvore, em features_tab/layer-tree.model.js): pastas e camadas misturadas por order dentro do mesmo pai, recuo até 4 níveis. A pasta tem o cabeçalho de duas linhas da camada (alça, ícone, seta, nome com reticências e title inteiro, contagem de camadas da subárvore; olho, cadeado e \"⋯\" embaixo). Olho e cadeado da pasta mudam só o estado próprio; camada e pasta ocultas ou travadas por uma pasta ACIMA ficam esmaecidas e com o botão em âmbar, e o title diz qual pasta.\n\nRecolher pasta em sidebar.collapsedFolders (StateManager, como camada e grupo). Pasta criada à mão nasce aberta; as que a importação lista no LAYERS_CHANGED (importacao: { pastas, camadas }, frente de KML) e as que o organizador cria nascem recolhidas.\n\nArrasto: um Sortable por lista da árvore com group comum; o onEnd vira UMA moveInLayerTree pelo planoDeSoltura (inteiro livre entre os vizinhos, renumera o destino só sem vaga, recusa pasta dentro de si mesma). O Sortable de feições segue com o grupo dele.\n\nMenus: o \"⋯\" da seção ganha \"Nova pasta\" e \"Organizar em pastas pelo nome\" (P6: árvore pelos segmentos de \" › \", reaproveita pasta de mesmo nome no mesmo pai, uma confirmação que conta, uma moveInLayerTree depois de criar as pastas, renameLayer para o último segmento). O da pasta: Renomear, Nova subpasta, Mover para pasta (seletor com a árvore, carregado no clique) e Excluir pasta (confirmação que conta subpastas, camadas e feições, P5). O da camada ganha \"Mover para pasta\". Posto esconde, estado desenha e recusa nomeando, como layer-menu-actions.js. Renomear pasta por duplo-clique.\n\nCom o mapa TRAVADO o \"⋯\" da seção agora SOME, como o \"+\" (decisão nova do chefe, mesma data, exceção dos painéis laterais de 2026-09-25): layersBulkMenuShown, com o teste e o spec do cabeçalho ajustados.\n\nAs pré-checagens da aba que decidem (ativar, excluir, o menu da camada) perguntam pela trava efetiva e nomeiam a pasta; o rádio de camada travada agora recusa em voz alta. A recusa de transferência layer_locked nomeia a pasta (lockedSourceLayerNotice). Censo da trava: layer-list 7 -> 2, features_tab 2 -> 1. SEPARADOR_DE_PASTA em layers/folder-tree.js, idêntico ao da frente de KML.\n\nTetos re-medidos pela falha: grafo ansioso 606 -> 608, completo 927 -> 933, fonte ansiosa 8667 -> 8746 kB, total 13849 -> 13934 kB (a frente de KML subiu a mesma base em 7: somar na integração).\n\nTestes: arvore-de-camadas-na-aba.test.js (38), unitários tocados 787 verdes; Playwright arvore-de-pastas-na-aba 5 verdes seguidos e camadas-cabecalho-e-lote 2/2 em portas isoladas; três controles negativos no src reprovam (rádio pela trava própria, soltura sempre na raiz, \"⋯\" desenhado com o mapa travado).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "9cc8601",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9cc8601f84ead33d9913f0c703923513bc32d9da",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T22:19:47.000Z",
+      "author": "Maj Diniz",
+      "message": "desfazer e refazer de importação grande em lote: camadas e pastas numa escrita só\n\nO motor de desfazer já agrupava as feições numa operação plural (2026-09-24), mas as entradas createLayer e createLayerFolder de uma importação iam uma a uma: cada uma uma transação que regravava o documento inteiro de camadas ou de pastas, e cada camada ainda lia o documento do mapa duas vezes para saber se estava vazia. Agora _executeActionsInOrder junta a corrida dessas entradas (as duas espécies misturadas, porque a regra de uma lê a outra) e chama removeLayersAndFoldersIfEmpty no desfazer e restoreLayersAndFolders no refazer. No LayerManager, removeEmptyLayersAndFolders e restoreLayersAndFolders gravam pastas e camadas no mesmo fechamento de _writeLayers, uma transação.\n\nA regra é a mesma, lida sobre o conjunto: camada só sai sem feição nenhuma (de qualquer origem), pasta só sai quando nada fica dentro dela, então as aninhadas que ficam vazias pela saída das filhas saem na mesma escrita. A conferência das feições e a escrita ficam na mesma seção do documento do mapa (mapa primeiro, camadas depois, a ordem que o produto já usa). Portões como os singulares: papel de cada espécie, trava do mapa, trava de camada e de pasta (fica o que a trava segura, com um aviso só). As ops de sync continuam uma por entidade: no desfazer, as camadas e depois cada pasta depois de todas as filhas; no refazer, pastas pai antes de filho e depois as camadas; acima de 200 ops o gesto já viaja em partes encadeadas (gesture-batch).\n\nMedido com o KMZ real (194 pastas, 168 camadas, 960 feições, fora do repositório) numa spec Playwright temporária, já apagada, em rodadas alternadas antes e depois: desfazer de 18,0, 18,2 e 18,9 s para 6,5, 6,6, 6,9 e 7,4 s; refazer de 7,6, 8,3 e 11,2 s para 0,48, 0,49, 0,53 e 1,95 s. As 362 escritas viraram 1, e o motor de desfazer passou de 11,7 s para cerca de 30 ms (refazer, de 7,3 a 9,1 s para cerca de 90 ms). Uma primeira rodada de linha de base deu 46,7 s com todas as fases cerca de 2,5 vezes mais lentas, máquina carregada; não entra na comparação. O que sobra no desfazer (6,2 a 6,9 s) acontece ANTES do motor: refuseUndoRedoAcrossLock (store.js) lê o documento do mapa uma vez por feição da entrada, e uma sonda de 960 getFeatureById mediu 5,8 a 6,2 s. Fica como pendência, fora deste conserto.\n\nTeste novo tests/integration/desfazer-importacao-em-lote.repro.test.js (store real sobre fake-indexeddb): 21 pastas em três níveis e 18 camadas num lote; desfazer grava camadas e pastas UMA vez cada e deixa o estado de antes, com as ops na ordem certa; refazer devolve tudo com os mesmos ids, pais, olhos e nomes, também numa escrita; a pasta com trabalho alheio fica com as ancestrais e a camada com feição de outra origem fica com a cadeia dela. Controles negativos feitos à mão: com o motor de volta ao um a um, os dois casos reprovam só pela contagem (39 escritas de camadas e 21 de pastas contra 1 e 1), com o estado igual; sem a propagação para a pasta mãe, reprovam pelo estado.\n\nTeto de peso medido pela falha: fonte ansiosa 8683 kB (teto 8667 para 8687) e total 13870 kB (13856 para 13874), sem módulo nem pacote novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "ac16b60",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ac16b6001c7571cc8c2d22e00cb887fc7a512634",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:56:31.000Z",
+      "author": "Maj Diniz",
+      "message": "pastas de camadas, fase 4: KML/KMZ com pastas de verdade\n\nDecisões do chefe de 2026-10-07. Na importação, as pastas do documento viram pastas do EBGeo, a árvore inteira (a envoltória é só uma pasta, a pasta sem conteúdo direto mas com subpasta que tem conteúdo também vem, a vazia de tudo não vem). Cada pasta com conteúdo direto ganha UMA camada com o nome dela; o nível do documento vai para uma camada na raiz com o nome do arquivo. A pasta leva a própria visibilidade e a camada nasce visível. Pastas e camadas na ordem do documento entre irmãos; criação depois do preparo, pai antes do filho, e createdFolders e createdLayer no mesmo addFeatures, então um desfazer leva tudo. Os ids criados vão no LAYERS_CHANGED (importacao: { pastas, camadas }) para a aba recolher as pastas. O nome da camada deixa de carregar o caminho; SEPARADOR_DE_PASTA mudou para layers/folder-tree.js.\n\nNa exportação KMZ, Folder aninhada pela árvore de pastas, com a visibilidade de cada uma, e cada camada é uma Folder marcada com ExtendedData ebgeo_camada, que a importação lê como camada e não como pasta com camada dentro: a ida e volta recria a mesma árvore e o mesmo número de camadas (teste com controle da forma sem marca).\n\nMedido com o KMZ real (196 pastas no arquivo, fora do repositório): 194 pastas (2 vazias ficaram de fora), 166 ocultas, 168 camadas dentro de pastas, 960 feições, 23 camadas visíveis de fato, importação em 12,5 e 12,9 s; o desfazer leva tudo em 47 a 49 s.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "6fa353d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6fa353d841eb05082a86768f592a5417c6862bd5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:50:53.000Z",
+      "author": "Maj Diniz",
+      "message": "desenho: o clique que escorrega até 8 px é vértice enquanto uma ferramenta de desenho está ativa\n\nDecisão do dono de 2026-10-07. Adquirindo uma linha de muitos vértices, a mão que andava mais de\n3 px entre apertar e soltar virava panorâmica (clickTolerance padrão do MapLibre) e o click do mapa\nera suprimido: o mapa arrastava e o vértice não entrava.\n\ntool_manager/clique-ao-desenhar.js liga pelos eventos do próprio ToolManager, num ponto só\n(map_sig.js), quando o tipo da ferramenta ativa desenha por clique (desenhaPorClique, no\ntool-registry: toda ferramenta que cria feição, mais as três medições, menos o pincel; ficam de fora\na leitura de tile vetorial e a seleção por caixa). Por pressão do botão principal do mouse no canvas:\ndesliga o dragPan só durante a pressão (desligar na ativação inteira desligaria também a panorâmica\nde toque), passa de 8 px e o mapa anda por panBy acompanhando o ponteiro, e solta entre 3 e 8 px\ndispara um MapMouseEvent click no lugar do que o MapLibre descartou. Abaixo de 3 px o MapLibre já\ndisparou e nada se acrescenta. Depois de uma panorâmica própria o click DOM é engolido, porque o\npanBy zera o registro de mousedown do MapLibre e ele dispararia a qualquer distância. A decisão de\ndistância é pura (clique-ao-desenhar.model.js, zero imports), e o gerente de seleção deixa passar o\nclick marcado em vez de rejulgá-lo a 3 px.\n\nMedido no Chromium real com a Linha pela barra (clique-ao-desenhar.spec.js): antes, quatro gestos\nde 5 px e um de 2 px deram 1 vértice, 1 click e o centro andou; depois, 5 vértices, 5 clicks e o\ncentro parado, 24 de 24 em série. Arrasto de 30 px move o mapa sem vértice; sem ferramenta o\narrasto de 5 px segue nativo. Teto do mapa pela medida: 926 módulos, 13764 kB (teto 13768).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5afd015",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5afd0155f24a5bda34dea573e6c42149b21705af",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:29:07.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: aba Camadas (cabeçalho e lote) sobre as pastas, fases 1 e 2\n\nConflitos: layer.manager.js (os dois auxiliares ficam) e o teto de peso (soma dos dois lotes;\nansioso medido em 8663 kB). O censo da trava declara as duas leituras da trava PRÓPRIA do lote.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "60689f1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/60689f1a06fd3af41438ea6b1f97cb632410fb53",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:27:00.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'pastas-dados' into pastas-base",
+      "sha": "bcc4161",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bcc416169ecde75e09653cb3ff99386a9071f872",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:26:05.000Z",
+      "author": "Maj Diniz",
+      "message": "pastas de camadas, fase 2 (cliente): dado, sync e regras, sem a árvore\n\nDecisão do dono de 2026-10-07, contrato das pastas. A pasta vira entidade local por mapa\n(EntityType.LAYER_FOLDER = 'layerFolder', documento lateral layerFolders_<chave> no mesmo banco das\ncamadas, memoryStore.layerFolders) e a camada ganha folderId opcional (a criação comum continua sem\na chave). As regras de leitura moram em layers/folder-tree.js, de zero imports: visível efetiva é a\nprópria E as ancestrais, travada é a própria OU alguma ancestral, pai ausente ou ciclo vale raiz.\n\nEscrita pelo mesmo funil da camada (_writeLayers grava pastas e camadas na mesma transação, intenções\nem ordem topológica): criar, renomear, mostrar, travar, moveInLayerTree (uma escrita, recusa ciclo,\npasta sumida e entrada ou saída de pasta travada) e deleteLayerFolder (uma op DELETE, cascata local\nde subpastas, camadas e feições, camada padrão no atlas local). Mover para a raiz grava folderId: null\nexplícito; a transferência para outro mapa tira o folderId. Toda decisão de trava de camada passa por\nisLayerEffectivelyLocked, e as recusas nomeiam a pasta quando é ela que trava.\n\nSync de entrada: CONVERGENCE_GUARDED, case no roteador, cascata do DELETE no par com replacementLayers,\nretrato com layerFolders, revisão confirmada; unidades de disputa da pasta e a unidade pasta na camada.\nFormatos: .ebgeo (exportação, portão, importação normal e aditiva remapeando folderId/parentId), envio\nde atlas local com layer_folders e contagem, recuperação e plano legado, duplicar mapa copia pastas,\ncelular com o caminho da pasta antes do nome (e o olho lendo visible, não visivel). Combinar mapas\ndeixa as camadas na raiz. Desfazer da importação: createdFolders no addFeatures, pastas antes das\ncamadas no lote, removeLayerFolderIfEmpty/restoreLayerFolder.\n\nTeto de peso re-medido pela falha dos casos: ansioso 8638 kB (teto 8645), completo 925 módulos e\n13819 kB (tetos 925 e 13825). O espelho de unidades de disputa só fecha com a branch pastas-servidor\n(conferido com a tabela dela: 9 de 9).\n\nTestes: 6 arquivos novos (folder-tree, escrita, store, par, formatos, censo da trava) e 7 censos ou\ndublês atualizados, 270 casos verdes nos 17 arquivos; controle negativo em 8 sabotagens, todas\nvermelhas e restauradas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c132d13",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c132d131f860cb9d8a5b8c52a93ed45f656ea6ce",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-07T21:14:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-07 (ITC-PR no portal): 98 fotografias das 1.163 faltantes publicadas (83 que o IAT voltou a entregar, 15 do acervo com nome conferido pela tarja), 885 sem articulação guardadas compactadas; script reconstruir_footprints.py na skill (o código de julho se perdera; reimplementação validada a 215 m na mediana), learnings dividido em quente e detalhe com a leitura de tarja pelo Haiku às cegas, a sonda da origem, o proxy com credencial e a compactação da cópia de trabalho; wiki portal-fotos-aereas com 38.751 fotografias e as faltantes medidas; decisão cont. 8; livro-razão (cópia bruta corrigida pelo chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01AbdDVK7W2kPyU3FPG3uzSw",
+      "sha": "bb074a3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bb074a3f6bbd802dd62e7f474a90b58d17c9656b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:13:15.000Z",
+      "author": "Maj Diniz",
+      "message": "aba Camadas: cabeçalho em duas linhas, nome inteiro no title e ações para todas as camadas\nDecisões do chefe de 2026-10-07, depois de um KMZ que deixou 168 camadas de nome longo num mapa.\nO cabeçalho da camada vira grade de duas linhas: alça, rádio, seta, nome e contagem em cima, os\ncinco botões embaixo começando sob o nome, ainda dentro de .layer-header e com as mesmas classes.\nO title do nome passa a ser o nome inteiro, com \"Duplo-clique para renomear\" na segunda linha para\nquem edita, e acompanha o renomear inline.\n\nO \"⋯\" do cabeçalho \"Camadas\" mostra, oculta, bloqueia e desbloqueia todas as camadas do mapa, cada\numa numa escrita só (setAllLayersVisibility e setAllLayersLocked no LayerManager, no molde de\nreorderLayers: uma intenção por camada que muda, um documento, um LAYERS_CHANGED), com os mesmos\nguardas das singulares na fachada. Sem desfazer, como as singulares. O posto esconde o botão; o\nmapa travado e o \"nada a fazer\" ficam desenhados e o clique diz o motivo.\n\nTetos da página do mapa pela medida: 926 módulos e 13769 kB de fonte (teto 13773).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4f887d4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f887d453b8f602bf0dd73dcda9ef01b12addd5a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T21:06:23.000Z",
+      "author": "Maj Diniz",
+      "message": "pastas de camadas, fase 1 (servidor): entidade layerFolder no sync e folder_id na camada\n\nDecisão do dono de 2026-10-07. A migração 031_pastas_de_camadas.sql cria layer_folders (por mapa,\nparent_id sem FK) e layers.folder_id (sem FK), só adições. No sync, layerFolder vira o alvo\nlayer_folder com trava de mapa, guarda de túmulo (o create ressuscita, como a camada), unidades\nnome/visivel/travado/ordem/pai e a unidade pasta na camada. Pai ou pasta de outro mapa e ciclo são\nrecusados por operação; id que não existe é aceito (vale raiz). Apagar a pasta leva subpastas,\nas camadas delas e as feições, só quando a pasta estava viva, e depois vale a camada padrão.\nO snapshot traz layerFolders e folderId no mesmo pacote de statements; fusão move, clone e\nduplicação copiam com ids remapeados, e a importação aceita layer_folders e folder_id resolvidos\nno mesmo mapa do arquivo. Tetos medidos: clone 33 para 35 statements, importação 19 para 20.\n\nTestes: pastas-de-camadas (17 casos novos) e os censos que declaram a entidade, 95 casos em 8\narquivos; controle negativo em quatro (trava, cascata, ciclo, remapeamento do clone).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "27e7954",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/27e79545117e3a9c3280bfa403677846f3530172",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/fotos_aereas",
+      "date": "2026-10-07T21:03:03.000Z",
+      "author": "Maj Diniz",
+      "message": "ITC-PR 1980: photoCount 28069 -> 28167 (98 fotografias que faltavam)\n\n83 fotografias que o IAT voltou a entregar e 15 do acervo do 1o CGEO,\ndas 1.163 da articulacao do GeoPR que estavam fora do portal.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e6434bd",
+      "htmlUrl": "https://github.com/1cgeo/fotos_aereas/commit/e6434bd2948b64fb74b4325b2449c51eedc8e107",
+      "repoUrl": "https://github.com/1cgeo/fotos_aereas"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-07T20:44:08.000Z",
+      "author": "Maj Borba",
+      "message": "feat: evidential HiSplit (pair head + evidential base) and uncertainty evaluation\n\n- HiSplit q=\"edl\": Dirichlet pair head over the children of each mother,\n  trained with EDL MSE + annealed KL.\n- Evidential base models (EvidentialWrapper): unwrapped by\n  FrozenLinearHeadSegmenter, base_output=\"evidential\" for methods; HiSplit\n  splits evidence and base rate by q (alpha_child = alpha_mother * q).\n- Uncertainty maps (split_entropy, split_vacuity, base_vacuity, dissonance)\n  and GFSSUncertaintyMetrics (binned AURC of split decisions, per-tile\n  Spearman with tile error), logged by GFSSModel as test/unc/...\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "b28e8f9",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b28e8f9a2e307f37a6b5591edead7324b4bce003",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-07T20:38:06.000Z",
+      "author": "Maj Borba",
+      "message": "fix: GFSS config interpolations and NaN metrics in runner summary\n\n- build-fewshot-episodes and GFSSModel.base_checkpoint: resolve the node\n  against the root config before merging into its dataclass, so\n  ${paths.*} interpolations work (InterpolationKeyError before).\n- ExperimentsRunner summary.csv: skip NaN metric values (absent classes) in\n  mean/std rows; statistics.stdev crashed on Python 3.13.\n\nFound by an end-to-end smoke run (synthetic data) of the GFSS pipeline.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "38d0c41",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/38d0c41524ad2863cbff8b9faf6f5f916d3d7d5c",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-07T20:22:51.000Z",
+      "author": "Maj Borba",
+      "message": "feat: HiSplit GFSS method (hierarchical split of a base class)\n\np(child) = p_base(mother) * q(child|x) over the frozen base model; classes\noutside the hierarchy keep the base probabilities. q variants: proto,\nproto_prob (diagonal Gaussian), linear (trained on the support) and trans\n(per-tile entropy/prior restricted to the superclass). S-novel free negatives,\nseveral mothers, hierarchical (locality-preserving) or flat decoding.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "5b06f53",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5b06f5326798002c264e143e0006612dffc7f9fd",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-07T20:05:51.000Z",
+      "author": "Maj Diniz",
+      "message": "deploy 2026-10-07: EBGeo da DSG em 8a6755a1 (release 20261007_170500), decisão cont. 7 e estado no learnings da atualizar-ebgeo-dsg\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "fccd010",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fccd010e58a0ace72b5e6370518952dddf8ef58f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-07T19:53:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-07 (importação de KML/KMZ no ebgeo_web): pasta vira camada, visibilidade do Google Earth, GroundOverlay e ícone PNG como imagem, num desfazer só; provado com o calco real no navegador e suíte da raiz verde sobre o merge d7eaef00 com o teto de fonte pela medida (8a6755a1); wiki ebgeo-web (capacidade e histórico corrigido: a suíte rodou); learnings da planejar-mudanca-sistema (prova com o arquivo do chefe, page.evaluate que devolve o Map, dublê de DOM validado); decisão cont. 6\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "fe4a661",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fe4a66100a4f477be35ccf38ee4b8d4ba34f0425",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T19:51:30.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: o teto de fonte da página do mapa pela medida do merge (13745 kB, teto 13749)\n\nO merge d7eaef00 somou os dois lotes do dia (KML +28 kB, Horizonte +164 kB) sobre a mesma base e\ndeu 13738, que era soma e não medida; o caso mediu 13745. O teto de módulos somado (924) foi medido\ne confere. Suíte da raiz verde sobre d7eaef00 com este ajuste: frontend 19409, backend 6047, e2e 310.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8a6755a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8a6755a12ca403ab7edd722b00f63f46a168a2ab",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-07T19:45:43.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-07 (ebgeo_web: cota sem terreno, Perfil da Visibilidade e Horizonte): capacidades novas e histórico na wiki ebgeo-web; na servidor-ebgeo, o terreno do 1º CGEO para client local por modelo de tile (sem TileJSON) e variável de ambiente, e o banco local novo; learnings da planejar-mudanca-sistema (frentes com contrato e integração própria, interface compacta, tela local antes da suíte, duas sessões no mesmo checkout) e da medir-desempenho-web (GPU real sem janela, integrada pelo LUID, recarga do Vite no meio da série, rede estrangulada mede o código), as duas camadas quentes divididas sem perda; quatro eventos no livro-razão (vermelho atribuído, hash de memória, interface grande, ritmo recorrente); decisão cont. 5\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cb5f952",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cb5f9528e3f2ac93b9069e6748173af963c03514",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T19:25:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main'\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md\n#\tfrontend/tests/unit/teto-de-peso-da-pagina-do-mapa.test.js",
+      "sha": "d7eaef0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d7eaef0086ae9a774be84d8c780d4f3b31a69ebb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T19:24:38.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: botão de fechar verde (cor primária) e mini-mapa maior (280 x 210)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1aa661d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1aa661d291daaf32e7cc535827e56010a2bb19cd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T19:22:51.000Z",
+      "author": "Maj Diniz",
+      "message": "importação de KML/KMZ: uma camada por pasta, visibilidade do Google Earth e imagens\n\nDecisão do dono de 2026-10-07. A pasta com conteúdo vira camada (nome pelo caminho, sem a\nenvoltória única), a pasta ou o placemark oculto chega oculto, o GroundOverlay vira imagem esticada\nna caixa com a rotação, e o ponto com ícone PNG do próprio KMZ vira imagem de tamanho fixo na tela.\nO arquivo inteiro é uma escrita e um desfazer (addFeatures aceita a lista de camadas criadas), e um\n.zip com KML e sem .shp é lido como KMZ. Os dois módulos novos carregam sob demanda.\n\nMedido no navegador com o calco real (fora do repositório): 168 camadas, 960 feições, 505 imagens\nno mapa, erro máximo da pegada de 15 m (0,2% do lado) em 103 caixas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f70c849",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f70c849f81f8c16517bafd4cf7c33f60f07922c0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-07T18:56:19.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GFSS methods DIaM, ClassTrans and prototype imprinting\n\n- few_shot/losses.py: projected support CE (DIaM pi_S), entropy/marginal KL,\n  hierarchical KD, prototypes, LDAM one-hot targets.\n- DIaM: port of the official classifier (transductive, one classifier per\n  query tile), novel classes summed into their mother.\n- ClassTrans: port of the official TransitionClassifier, faithful to the code\n  (OT init, transition on base logits, layer_scale=0, 4-term loss with KD,\n  LDAM from iteration 101); no OEM post-processing.\n- PrototypeImprinting: training-free baseline.\n- Parity tests against tensors produced by the official DIaM/ClassTrans code.\n- Examples gfss_{prototype,diam,classtrans}.yaml, docs, CHANGELOG.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "622de71",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/622de71f33bfeb0ce120eb1ab6b1e7d3bd8c42c2",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-07T18:47:45.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GFSS infrastructure (hierarchy, GFSSModel, episodes, runner axis)\n\nGeneralized few-shot segmentation over a frozen base model:\n- few_shot/: ClassHierarchy (multi-mother splitting), FrozenLinearHeadSegmenter,\n  BaseGFSSMethod API, GFSSMetrics (oem_score, locality, split_ceiling), BaseOnly.\n- GFSSModel (pl_model): base checkpoint by path or from_runner + seed,\n  adaptation in fit, transductive adaptation per test batch.\n- mode build-fewshot-episodes: nested support draws per (K, draw, class).\n- ExperimentsRunner: episodes axis (seed x episode) and summary_group_by.\n- utils/checkpoint_loading: shared loader (DomainAdaptationModel delegates)\n  and best-checkpoint resolution from runner_state.json.\n- Docs, conf/examples, CHANGELOG.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "8c3eb49",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8c3eb49a86659af499e2d76e2a1cf7f42cb23d86",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T18:19:26.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: barra única compacta, exagero vertical e ponto do cursor no mini-mapa\n\nPedido do chefe depois de testar (\"achei tudo muito grande os painéis, e tudo\nseparado, quero menor e mais discreto\"; \"tem que ter um controle de exagero\"):\n\n- uma barra translúcida embaixo (altura do olho, exagero 1x a 5x, data com o\n  calendário pelo texto, régua de hora curta, nascer e pôr reais e o botão de\n  olhar para o Sol); fechar vira um ícone; saem o cartão do título, a bússola\n  (o rumo vai no marcador da régua do topo), o painel do Sol, o fuso e a\n  altitude visíveis (vão na dica); carga é um traço no topo e uma pílula;\n  mini-mapa de 160x120 que recolhe para um botão redondo;\n- exagero: ângulo de tela = elevação x E no shader (uExagero) e na projeção\n  JS (Sol, arco, céu, máscara); Sol escondido e nascer/pôr seguem no ângulo\n  verdadeiro; prova na bancada: máscara da GPU contra o horizonte da CPU em\n  até 1 px com E = 1 e E = 3 (olho a 2 m), controle com o E errado em 299 a\n  422 px;\n- ponto do cursor: azimute e ângulo verdadeiro do cursor, primeira distância\n  da grade em que o terreno alcança o raio, marcador no mini-mapa, distância\n  na dica; o mini-mapa acompanha o ponto em degraus de meio zoom.\n\nTestes novos com controle negativo (9 degradações, todas vermelhas); spec do\nPlaywright com o exagero e o botão novo do mini-mapa; tetos do grafo 920 ->\n922 módulos e 13690 -> 13710 kB de fonte, medidos pela falha.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1c2e25c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1c2e25c4cf7ef3bccbe0d33ddddc55fb32c30c61",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:52:03.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: a entrega do .ebgeo de recuperação com prazo de 10 s (montar o arquivo passa de 1 s sob carga; reprovou em 2 rodadas completas)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4792ff7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4792ff7622112c2cb02fbb27eb5af06a4e5a3f97",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:41:03.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a dica some quando o modo desarma, spec de tela, tutorial, página da wiki e registro da decisão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "dc8f029",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dc8f029fd1c13b658027e1e16c55c2c823982bf8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:34:51.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: censo de construtores do MapLibre (o mini-mapa é o décimo) e tetos do grafo completo (920 módulos, 13690 kB)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "acd9c02",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/acd9c02ec318752dcf6893377828b0aae750506e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:32:06.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'horizonte-ic' into horizonte-int",
+      "sha": "7f00a3f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7f00a3fc778dda3a1fcbc010619814b9f5e07fc9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:32:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'horizonte-ib' into horizonte-int",
+      "sha": "3900814",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3900814984136c420a36bba1989fc2537c9e53a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:31:32.000Z",
+      "author": "Maj Diniz",
+      "message": "terrain/horizonte: núcleo de dados do Horizonte no app (anéis, grade polar adensada perto do olho, worker tile a tile com credencial, carga pela fonte do mapa)\n\nPorta o protótipo de bench/horizonte para frontend/src/js/terrain/horizonte/ (aneis.js,\ngrade-polar.js, grade.worker.js, carga.js), com imports por alias e worker de módulo do Vite.\n\n- Grade a partir de 2 m, passo de 1% limitado a meio pixel do DEM do anel até 3 km\n  (nDist 1197 em Brasília, 1206 nas Agulhas; protótipo 857). Normal com base mínima de 1 m e\n  corda no estêncil tangencial.\n- Worker amostra e descarta tile a tile (mais fino primeiro, igual bit a bit ao amostrador\n  ponto a ponto), downloads com janela de 12: pico medido em node de 139-145 MiB para 69 MiB;\n  no Chromium real 124-152 MiB para 79-86 MiB.\n- carregarGrade lê a fonte por lerFonteDem(map), resolve credencialDeTile no fio principal e\n  passa url+headers ao worker; AbortSignal termina o worker.\n- Testes: horizonte-dados.test.js com 39 casos (cobertura do bench mantida, mais adensamento,\n  descarte, credencial, carga), controle negativo por grupo; o censo do k passa a conhecer o\n  worker do horizonte.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d34152e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d34152e3d64140ea409ea9d93e20aeea23a928da",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:26:12.000Z",
+      "author": "Maj Diniz",
+      "message": "horizon_tool: visualizador do Horizonte no app (agente B)\n\nabrirHorizonte({ map, lngLat, aoFechar }) -> { fechar(), pronto }: tela cheia sobre o mapa no\npadrão do 360 (contêiner próprio, map-sig--behind-viewer, Esc e botão Fechar), render cilíndrico,\nSol e interface portados da bancada com as sete observações do chefe: arco só acima do relevo\n(trechos visíveis com cruzamento na crista e recorte pelo contorno do céu), disco cheio com raio\nmínimo de 9 px, régua de hora arrastável de 0h a 23:59 (toque, teclado, faixa do dia real),\ntokens do EBGeo, altura do olho relativa ao terreno (1,5 m a 5000 m, padrão 2 m, cota absoluta em\ntexto menor), mini-mapa do 360 com ponto e cone recolhível, aviso sem GPU e \"Recarregar a vista\"\npara contexto WebGL perdido. Dados do agente A por terrain/horizonte/carga.js e grade-polar.js.\n\nTestes: horizonte-visualizador.test.js, 30 casos, 13 controles negativos. Bancada:\nbench/horizonte/visualizador.html (grade sintética, mapa dublê).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b86b4fe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b86b4fe5a7c788fef9ac71d2f2c2a1321d588bab",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-07T17:23:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-07 (mapa base Arandu no EBGeo do 1° CGEO e da DSG): as 20 folhas 1:50.000 da 1ª DSG de 2023 viram arandu.mbtiles (WebP q90, z5 a z16, 744 MB) servido pelo Martin nos dois servidores via entrada/ e mv, com a linha arandu em basemaps (fundo natural_earth_raster, miniatura embutida) e prova por hash, md5 de tiles, releitura no banco e tela pelo deep link; receita \"Publicar um raster novo como mapa base\" na wiki martin-ebgeo (UPPER para o z16, gdaladdo não desce abaixo de um tile, PUT substitui o config inteiro) e o prefixo /martin/ da DSG na servidor-ebgeo-dsg; learnings do atualizar-dockers (sonda em mktemp, urllib sem proxy) e do atualizar-ebgeo-dsg (404 em cache da sonda de antes, túnel da prova de tela); decisão cont. 4\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e8c9448",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e8c94484d330c2e03480e6ba48e236768502a39b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T17:21:12.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte (agente C): botão de Terreno dividido (Terreno | Horizonte) e o modo de um clique\n\nA metade Horizonte, com o mesmo gate do terreno, arma um modo (type 'horizon') como ferramenta\nativa: cursor em cruz, aviso \"Clique no mapa para ver o horizonte.\", Esc, exclusão e contagem de\nuso. O clique no mapa desarma e abre o visualizador por carregarSobDemanda(() =>\nimport('@js/horizon_tool/horizon-viewer.js')), chamando abrirHorizonte({ map, lngLat, aoFechar });\nao fechar, a metade volta ao repouso. regateFeatures com o atlas proibindo o terreno desarma o modo\ne fecha o visualizador aberto ou em carga. Isenção do clique na seleção, rótulo no chip e na aba\nUso, porta no censo e regra da apresentação de briefing.\n\nO caso \"a porta do visualizador\" de botao-terreno-horizonte.test.js precisa do módulo do agente B\n(horizon_tool/horizon-viewer.js) e fica vermelho até o merge.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3a83563",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a83563262e71994683b9765bc84a4e1676838bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T16:54:23.000Z",
+      "author": "Maj Diniz",
+      "message": "bench: horizonte, as duas metades ligadas (horizonte do agente A no Sol e na prova, prévia e completa com tempos)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "39bc00e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/39bc00edda500141aeb7edb91b0b7bda8b1c7498",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/doc_dgeo",
       "date": "2026-10-07T16:35:19.000Z",
@@ -190,6 +568,33 @@
       "sha": "b870ea1",
       "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/b870ea163e8c2d5058220c5e2532125bd2bb7da3",
       "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T16:31:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'horizonte-b' into horizonte-int",
+      "sha": "e8c12b2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e8c12b2752fa7f515d80d3c5af031c5ee8a3ba82",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T16:30:33.000Z",
+      "author": "Maj Diniz",
+      "message": "bancada do Horizonte (agente B): desenho cilíndrico, Sol e interface sobre a grade sintética\n\nRender cilíndrico em setores de 10° (Three 0.164, ShaderMaterial), profundidade linear,\nhillshade de NO a 45°, névoa ao branco e cristas pelo laplaciano relativo da profundidade\ninversa; máscara do terreno lida da GPU. Sol pelo suncalc 2.0.2 (arco de 5 min, disco\nescondido pela borda de cima, nascer e pôr reais sobre H(az)). Interface com arrasto de 360°\ne inércia, altura do olho, data e hora de Brasília, régua de rumo e bússola. Grade sintética\ncom horizonte de referência e régua da máscara. 20 testes em horizonte-desenho.test.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "122bb22",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/122bb2252538a44f9cc153987903a74898d58f11",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-07T16:22:41.000Z",
+      "author": "Maj Diniz",
+      "message": "bench: horizonte, a metade de dados (anéis de zoom, grade polar, worker, carga)\n\naneis.js pede só os tiles que tocam a coroa de cada anel (z12 até 15 km,\nz11 até 40, z10 até 100; prévia z8), sem repetir; grade-polar.js amostra\n3600 azimutes por 857 distâncias, guarda a cota aparente (bruta menos a\nqueda com k = 1/7) e a normal da superfície bruta, e tira o H(az);\ngrade.worker.js baixa, decodifica e monta a grade com os arrays\ntransferidos; carga.js é a porta da página.\n\nTestes em tests/unit/horizonte-dados.test.js (19 casos), cada grupo com\ncontrole negativo. Medido contra o Martin do 1º CGEO num Chromium headless:\nAgulhas Negras 78 tiles, 18,7 MiB, 1,2 s do pedido à grade; Brasília 73\ntiles, 12,4 MiB, 1,05 s; grade de 47 MiB.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "28d04b1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/28d04b1f88c84dfae900c7e327e1e7a5b10fa5fc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_web",
