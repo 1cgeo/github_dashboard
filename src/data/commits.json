@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-09T16:55:02.460Z",
+  "lastUpdate": "2026-10-09T23:55:54.329Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-09T16:49:38.000Z",
+    "1cgeo/ebgeo_web": "2026-10-09T20:54:36.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-09T10:23:38.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-09T19:15:39.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-09T16:49:03.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-09T19:24:50.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8880,
+    "totalCommits": 8891,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2592,
+      "1cgeo/ebgeo_web": 2596,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -159,7 +159,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 415,
+      "dsgoficial/pytorch_segmentation_models_trainer": 419,
       "1cgeo/geoswarm": 67,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1026,
+      "1cgeo/chefe_dgeo": 1029,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T20:54:36.000Z",
+      "author": "Maj Diniz",
+      "message": "imagem: a foto deita no chão e o símbolo de OM gira com o mapa de pé\n\nA camada de imagem não declarava alinhamento, e o padrão do MapLibre para\nponto é a tela: com o mapa girado ou inclinado, a foto girada apontava para\noutro lugar e ficava de pé diante da câmera.\n\n- D1: `image-layer` com rotação e inclinação no mapa, girada ou não (croqui,\n  recorte de carta, foto aérea, GroundOverlay do KMZ retratam o terreno).\n- D2: `om-symbols-layer`, mesma fonte `images`, separada pelo filtro da\n  variante (`IS_OM_SYMBOL`, preso a `variantFilterExpression`): gira com o\n  mapa e fica de pé na inclinação, como o símbolo militar.\n- Clique e moldura de seleção da foto reconstroem o trapézio no plano do chão\n  (`onGround`), com a construção do texto girado extraída para `groundQuad`.\n- `rotation` passa a ser lida a partir do norte; no rumo 0 o desenho é o de\n  antes, sem migração. Decisão registrada em decisions-2026.\n\nGuardas: imagem-presa-ao-chao.test.js (4 de 8 casos reprovam com a foto\ndevolvida à tela) e captura do Playwright a 45° de rumo e 60° de inclinação\n(Chromium). Os testes de retângulo que usavam a camada de imagem como figura\nalinhada à tela passaram para a de OM, que lê as mesmas propriedades.\nTetos de peso: 9005 -> 9011 kB (ansioso), 14389 -> 14395 kB (completo).\n\nFora: kmz-imagens-na-caixa.test.js segue vermelho desde 6a08674d.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b356c40",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b356c403f7ebcbb5bbfda40bca9b0ed4b962e047",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T20:24:27.000Z",
+      "author": "Maj Diniz",
+      "message": "símbolo de OM separado da foto na tela: seleção por tipo, painel, aba e tabela\n\nO símbolo de OM é uma feição `image` marcada por `simboloOm`, e toda superfície\nque agrupava ou nomeava por `source` o tratava como foto: \"Selecionar todos com\nmesmo tipo\" selecionava símbolos e fotos juntos, e o painel, a aba de camadas e\na tabela de atributos o chamavam \"Imagem\".\n\n- store/feature-variant.registry.js: o tipo de EXIBIÇÃO (variante sobre um tipo\n  do store), sem tocar em dado, sync nem banco.\n- tool_manager/helpers/same-kind-selection.model.js: as três seleções do menu\n  (tipo, estilo, tipo da camada) num modelo puro que compara o tipo de exibição.\n- cabeçalho do painel, aba de camadas e tabela de atributos (chips, filtro,\n  ordenação, célula e CSV) perguntam ao registro de variantes; ícone próprio.\n- os sete testes crus de `simboloOm` passam por `isFeatureVariant`.\n\nGuardas: selecao-por-tipo-separa-simbolo-de-om.repro.test.js e o censo\nvariante-de-feicao-censo.test.js, os dois com controle negativo. Verificado por\ncaptura do Playwright com app e backend reais (Chromium).\n\nFora: a árvore do celular (ícone já cai no padrão para todo tipo, defeito\nanterior) e kmz-imagens-na-caixa.test.js, vermelho desde 6a08674d.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "ae447dd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ae447dda0f9fa9a19515b47db2f155d28497b8ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T19:42:26.000Z",
+      "author": "Maj Diniz",
+      "message": "agent instructions: backend CLAUDE.md under the scoped-rule ceiling\n\nbackend/CLAUDE.md had grown to 49k chars, above the 40k floor where\nClaude Code warns about large memory files, and no test noticed: the\nceiling test covered the always-loaded core and .claude/rules/, but not\nnested CLAUDE.md files.\n\n- Move the push/conflict mechanism and SyncLedger to\n  .claude/rules/sync-no-servidor.md, the tile gate to\n  .claude/rules/gate-do-tile.md, and the sv360 server note to\n  common-tasks.md; each leaves a one-line pointer behind.\n- Point backend/CLAUDE.md's \"before finishing\" line at the root gate\n  (lint + test:tocados) instead of a per-commit npm test.\n- New case in instrucoes-do-agente-teto.test.js: every nested CLAUDE.md\n  stays under TETO_POR_REGRA (HEAD's 49,412 would fail; now 38,442).\n- Ledger entry for the uncovered subset.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0ee898a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0ee898a8c3b932b35fe8fce9854ed8083cabbada",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T19:24:50.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-09 (cont. 2): lint_escrita sem o import inútil do torch, e o git stash do pull no livro-razão\n\nO hook verificador de escrita passava de 2 s em 70 de 166 edições de .md: o\nthinc importava o torch (3 a 10 s) sem usá-lo. A carga do spaCy agora barra o\ntorch, com saída idêntica nas cinco amostras e no --json --detalhe, e o hook\ncaiu para ~2,2 s.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b528202",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b5282025b8acfbb92bc4cecdf8b3fc409d6b3ebc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-09T19:15:39.000Z",
+      "author": "Maj Borba",
+      "message": "feat: separability probe of frozen base features (mode separability-probe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "c94515d",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/c94515d9c86b56d144caf48b0fd175f65af5a592",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-09T19:10:38.000Z",
+      "author": "Maj Borba",
+      "message": "feat: refinement-aware base training (Canny edges + superclass sub-prototypes)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "29d7647",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/29d76476c92b6cbe5d215835bf268791c0f7d853",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-09T19:01:06.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GFSS boundary-band (trimap) IoU metrics\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "15a7738",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/15a7738df32928b88c4479d5e9eee149088ebfe8",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-09T18:35:06.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GFSS comparison options with BCM and H2EDL\n\n- BCM shot-wise ensemble (paper setting with Tukey beta), parity-tested\n  against the official code.\n- HiSplit: q logreg (BCM's classifier on HiSplit targets), feature_power\n  (Tukey), negatives superclass|all, edl_base_rate inverse_frequency.\n  Defaults unchanged.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "21d0bd5",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/21d0bd53bce5a9bbfa8e2c9c9af23f810693ca16",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T17:55:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-09 (cont.): cobertura por print do Google Maps e mosaico de 28 folhas 1:50.000\n\nconsultar-produtos: método para medir área em print sem barra de escala\n(georreferência pelas sedes), a grade da rota que perde folha 25k sem\naviso e o produto fictício 3963-3 na cobertura; learnings dividido em\nquente e detalhe.\n\nmosaicar-cartas: baixar_folhas_1dsg.py (download pela API com sha256 e\nfolhas.json), --buraco-branco no mosaico_digital.py e o conferir trocado\nde pixel isolado por pico de correlação de retalho, com controle.\n\nDecisão: o mosaico Rosário do Sul-São Gabriel sai com 28 folhas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "855cfc1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/855cfc1b41a1a17a1f30ef41a69446ce2419949a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T17:25:20.000Z",
+      "author": "Maj Diniz",
+      "message": "gravar-video-ebgeo: início da tomada e relâmpago parcial\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a511179",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a511179cdf17ef7ffda1da030527a1d5b78a2fc6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T17:25:15.000Z",
+      "author": "Maj Diniz",
+      "message": "video: início da tomada no quadro certo e relâmpago parcial\n\nO gravador tomava como primeiro quadro a primeira linha de progresso do\nffmpeg, ~0,5 s depois de a captura começar: toda cena saía atrasada, e o\nesmaecer do cartão de abertura caía fora dela. Agora o início é a abertura\nda entrada (gdigrab). O detector de relâmpago mede o pior bloco de 8x6, e\npega o xadrez que cobre só um trecho do mapa. Briefing de Tuiuti regravado\n(64,5 s), com os cortes medidos na tomada nova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5429ea0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5429ea0ffa93e1dc6aac6d6682298203e7a71971",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-09T16:49:38.000Z",
