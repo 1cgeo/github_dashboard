@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-08T17:19:17.071Z",
+  "lastUpdate": "2026-10-09T00:14:55.757Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-08T16:25:47.000Z",
+    "1cgeo/ebgeo_web": "2026-10-09T00:00:27.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-10-04T14:58:58.000Z",
+    "1cgeo/controle_acervo": "2026-10-08T19:08:31.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-07T20:44:08.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-08T20:37:18.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-08T16:28:00.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-08T21:34:57.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8779,
+    "totalCommits": 8854,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2526,
+      "1cgeo/ebgeo_web": 2579,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -149,7 +149,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 360,
+      "1cgeo/controle_acervo": 361,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -159,7 +159,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 403,
+      "dsgoficial/pytorch_segmentation_models_trainer": 414,
       "1cgeo/geoswarm": 67,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1004,
+      "1cgeo/chefe_dgeo": 1014,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,672 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T00:00:27.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: o laço dos nomes importados assere o tamanho antes (regra no-unasserted-loop-assert)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "7463c4e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7463c4e03d4b0a5730c884f7de04b4541870023a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:57:26.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: chaves no else do percurso de coordenadas (regra curly do eslint)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "00df5d4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/00df5d4acb08163052f0c76ae720c170a4a76a04",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:57:02.000Z",
+      "author": "Maj Diniz",
+      "message": "tela: o import aditivo pela tela conta o mapa que a aditiva abre\n\nO caso \"o botão Importar SOMA o arquivo ao atlas aberto\" esperava 18 feições em Principal_1 e\nachava 19. Desde 714b8ec4 (decisão do chefe) a aditiva abre o primeiro mapa importado com feição,\naqui o Principal_1, e abrir um mapa rederiva as saídas de análise das entradas\n(store/analysis-output.js). Medido com `countFixtureAfterOpening` sobre o 01-completo: o Principal\ndeclara 18 e tem 19 depois de aberto, e é o ÚNICO dos onze mapas que muda (os outros dez não abrem).\nO defeito era do teste, que contava o arquivo declarado para um mapa que agora abre.\n\nO Principal_1 passa a ser contado depois de aberto, o total vira 264 (263 declarados mais a saída\nderivada), a premissa \"só o mapa colidido muda ao abrir\" fica asserida, e a espera do toast exige\n`aberto \"Principal_1\".`, que é o que liga a contagem ao mapa aberto. Duas rodadas isoladas verdes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "a25fd63",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a25fd63c039154050e068dd33aeb66ec9d7c9fd3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:55:30.000Z",
+      "author": "Maj Diniz",
+      "message": "tela: a vigia de toasts ignora o aviso que já estava na tela, com controle\n\nO caso \"Repetição: a aditiva do mesmo arquivo pergunta antes; Cancelar mantém os mapas\" reprovava\ncom \"2 mapas adicionados; aberto \"Principal_1\".\" depois do Cancelar. Medido numa rodada com\ndiagnóstico: o aviso já estava na tela (`toast--visible`) no instante em que `vigiarToasts` foi\ninstalada, e foi lido antes do clique no Cancelar; depois do Cancelar não havia toast na tela, e a\nlista de mapas ficou igual. O texto também é o da aditiva ANTERIOR: uma segunda aditiva de verdade\nabriria \"Principal_2\". O defeito era do instrumento, que lia todo `.toast` a cada mutação,\ncontra o próprio contrato (\"todo toast que aparecer a partir de agora\").\n\nA vigia guarda os elementos `.toast` presentes ao começar e os ignora (cada aviso é um elemento\nnovo em toast_service.js). Controle no mesmo caso: depois do \"Adicionar de novo\", a vigia vê\n\"2 mapas adicionados; aberto \"Principal_2\".\", então ela não ficou cega. Os outros cinco casos que\nusam a vigia passaram isolados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "b32c922",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b32c922410b0dd7d365eefd8ab6c019a9f87c59b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:50:54.000Z",
+      "author": "Maj Diniz",
+      "message": "teto da página do mapa: os quatro tetos da consolidação, medidos\n\nMedido pela falha do caso na árvore consolidada (460ed6c8 mais os consertos de teste), com o build\nda raiz feito antes:\n- grafo ansioso, módulos: 617 -> 618 (`store/novo-mapa-guarda.js`, 4fba8a24, zero imports);\n- grafo completo, módulos: 955 -> 957 (o mesmo, mais `briefing/briefings-do-mapa.js`, preguiçoso,\n  7abf2f95; os dois vieram de ramos paralelos à contagem de 955);\n- fonte ansiosa: 8962 -> 8975 kB (8962 era limite superior, não medida);\n- fonte total: 14299 -> 14327 kB (14299 era limite superior, não medida).\nFolga zero, como as medidas anteriores do arquivo. Nenhum pacote novo; os módulos novos foram\nachados cruzando o grafo despejado com os arquivos criados depois de ece7bd55.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c9b6e87",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c9b6e8717033882519313b6b022acfb067d9adbe",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:41:22.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: o slide repetido pela porta do servidor usa briefings que não são cópia um do outro\n\nO caso \"cada ocorrência sobe com id próprio\" montava dois briefings com um slide cada, de MESMO id.\nPela regra de briefings-sem-copia.js (decisão do chefe de 2026-10-08, noite), a mesma sequência de\nids de slide marca cópia, então a normalização juntava os dois e subia um só: o payload trazia 1 id,\nnão 2, e o caso nunca chegava ao conserto do id repetido. O defeito era a fixture, escrita sem rodar.\n\nO segundo briefing ganha um slide a mais (sequência diferente), e o caso confere que os dois\nbriefings sobem, que os três ids são distintos e que o id repetido fica só na primeira ocorrência.\nProva de que reprova: com `idDoSlide` de local-atlas-to-server.js degradado para preservar todo id\nv4, o caso cai em \"expected 2 to be 3\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "391d296",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/391d296106c89f968581f805be9e3482acd139e1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:40:28.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: o par de controle do removedor de comentários segue a chamada nova da exportação\n\nOs dois CONTROLES (aviso-de-perda-de-recursos e saida-de-dados-visitante-deslogado) procuravam o\ncódigo `buildPrunedExportData(mapsToExport)` em export-import.service.js. Desde 10b97347 (pergunta\ndos briefings órfãos, decisão do chefe) a chamada é\n`buildPrunedExportData(mapsToExport, { filtrarBriefings })`, e a forma antiga sumiu do arquivo,\nentão \"o removedor comeu CÓDIGO\" acusava o instrumento, não o removedor. A agulha passa a ser a\nchamada atual; a prosa de controle e o resto do par não mudam.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "6c05f63",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6c05f63337bf4fe902e2bb86094feb2cb2f5a542",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:39:54.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: as portas de envio do atlas local classificam o documento normalizado\n\nO caso \"pergunta com a origem certa, ANTES de publicar\" procurava a pergunta com\n`classifyMissingImages(missing, exportData)` e `{ from: 'disco', exportData }`. Desde 3ad88448 as\nduas portas de envio (save-local-atlas.service.js e send-local-to-server.service.js) classificam e\nperguntam sobre o documento NORMALIZADO (`documento`), o mesmo de onde saem o payload e `missing`.\nA ordem pergunta, recusa, publica continua (linhas 78, 79, 82 e 447, 448, 452): o defeito era a\nagulha do teste. A coluna agora traz os argumentos exatos de cada porta, e o teste passa a reprovar\nquem voltar a classificar o documento cru nas portas de envio.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "f026571",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f02657117d7aec0c54f3a34e920df8246e0eddc5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:11:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ebgeo-repeticao-ebgeo' into ebgeo-consolida-integridade\n\n# Conflicts:\n#\tbackend/src/database/migrations/README.md",
+      "sha": "460ed6c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/460ed6c81df4eed34ad32588737d5072baab87ff",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:11:10.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo repetido: a aditiva e o \"Importar .ebgeo\" perguntam antes de importar de novo o mesmo arquivo (decisão do chefe)\n\nAditiva local: o atlas guarda a marca de cada arquivo adicionado (SHA-256 do data.json cru,\ndata, mapas pela chave e pelo nome final) nos settings, gravada na mesma publicação atômica\nda aditiva. O mesmo arquivo com algum mapa daquela vez ainda no atlas pergunta antes de\npreparar (\"Cancelar\" padrão, \"Adicionar de novo\"); com todos excluídos, não.\n\nAtlas do servidor: a preparação leva a impressão do arquivo, a publicação grava\natlas_arquivo_de_origem (migração nova 036_arquivo_de_origem_do_atlas.sql), e a segunda\npreparação da mesma pessoa sobre atlas dela fora da lixeira dá 409 FILE_ALREADY_IMPORTED\ncom o atlas e a data, a menos que traga importarDeNovo. A tela pergunta \"Abrir o atlas\",\n\"Importar de novo\" ou \"Cancelar\". O servidor não recalcula a impressão (recebe o payload,\nnão o arquivo) e confere só a forma.\n\nTestes escritos e não rodados (ordem do chefe); tetos de peso da página do mapa subidos\ncomo limite superior por bytes, a medir na consolidação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3adb1ad",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3adb1ad993122c7fb2f068c45fc75ebac744ae93",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T23:00:22.000Z",
+      "author": "Maj Diniz",
+      "message": "importar de outro atlas: nome UUID, posição nula, cópia de briefing e repetição não passam\n\nDecisão do dono de 2026-10-08. O \"Importar de outro atlas\" é cópia do\nservidor e não passava pela normalização que as portas do .ebgeo fazem no\ncliente (normalizar-documento-importado.js). Agora, em importMapsFromAtlas:\n\n1. Mapa com nome em forma de UUID (com ou sem _n ou \" (n)\") chega com nome\n   legível: um só recebe o nome do atlas de origem, vários viram \"Mapa 1\",\n   \"Mapa 2\" na ordem, sem colidir com o lote; depois vale a regra de sufixo\n   contra o destino (nomesLegiveis, nome-de-mapa.js).\n2. Mapa sem posição salva chega com o enquadramento das feições como\n   posição (enquadramento-do-mapa.js, a régua do cliente portada; giro e\n   inclinação salvos ficam). Mapa sem feição continua sem posição.\n3. Briefings de mesmo conteúdo entre os importados viram um, e o idêntico a\n   um que o destino já tem não entra (briefing-sem-copia.js, o critério\n   estrito do cliente na forma do banco; o mapa do slide entra pela origem\n   da cópia viva). summary.briefingsRepetidos diz quantos, e o aviso da tela\n   também. A poda de um briefing descartado é desfeita no relatório.\n4. A origem do mapa importado fica em maps.importado_de\n   (035_mapa_importado_de.sql, sem FK, índice parcial nos vivos). Reimportar\n   um mapa com cópia viva no destino recusa com 409 MAPS_ALREADY_IMPORTED,\n   nomeando as cópias e quando, a menos que o pedido traga importAgain. O\n   diálogo transforma a recusa na pergunta \"Importar de novo?\" (padrão\n   Cancelar) e só reenvia com a confirmação. Cópia na lixeira não conta.\n\nTestes escritos e NÃO rodados, por ordem do dono (a bateria roda uma vez no\nfim): integração importar-de-outro-atlas-normaliza.test.js, com controle\nnegativo em cada item; unitários enquadramento-espelha-o-cliente,\nnomes-legiveis-espelha-o-cliente e briefing-sem-copia no backend; e a\npergunta da repetição e o resumo em importar-de-atlas.test.js no cliente.\nSó node --check nos arquivos JS tocados. Ajuda: uma frase sobre a pergunta.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "738a5cd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/738a5cdf5ad6aaeee3eec70b650953d8130bba8a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:43:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ebgeo-integridade-cliente' into ebgeo-consolida-integridade",
+      "sha": "2c69f71",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2c69f7123f94b6160b2e2f282f4a949ee58b2aa6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:43:21.000Z",
+      "author": "Maj Diniz",
+      "message": "mapas: excluir mapa usado em briefing nomeia os briefings na confirmação\n\nA confirmação era só `Excluir o mapa \"X\"?`, na barra lateral e no celular.\nDecisão do dono de 2026-10-08: quando algum slide de algum briefing usa o\nmapa (comparado pelo nome e pelo id do mapa), a pergunta diz quais, curta e\npara leigo, e a pessoa decide: `Excluir o mapa \"X\"? Os briefings \"A\" e \"B\"\nusam este mapa: os slides dele ficarão marcados \"mapa ausente\".` Sem\nbriefing que use, a frase de antes. O módulo vem sob demanda nas duas\nportas, e uma falha de leitura devolve a frase de antes.\n\nO teste do celular cobre também os dois nomes distintos do \"criar mapa\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "7abf2f9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7abf2f95be607cb595e6250f565dd4e707ac08d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:43:13.000Z",
+      "author": "Maj Diniz",
+      "message": "store: addMap recusa nome ocupado e o teto de 200; celular cria com nome único\n\nA guarda de nome repetido e do teto morava só no MapManager, e o botão\n\"criar mapa\" do celular chama addMap('Novo Mapa') direto. Num atlas local o\ndocumento do mapa é guardado com o nome como chave, e o segundo \"Novo Mapa\"\nregravava o primeiro: medido na main 97d64500, duas feições antes, zero\ndepois. A recusa agora mora também no addMap (store/novo-mapa-guarda.js,\nlida pelas duas portas), dentro da trava do documento, e o celular gera o\nnome como a barra lateral (IDUtils.generateUniqueMapName).\n\nChamadores conferidos: MapManager.createMap e copyMap já conferem o nome\nantes; a criação do \"Mapa 1\" do atlas de servidor vazio só acontece sem mapa\nnenhum; a importação não passa por addMap.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "4fba8a2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4fba8a242dd6284cdddeeed93eff212d8de8c1d8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:43:00.000Z",
+      "author": "Maj Diniz",
+      "message": "import: na aditiva, slide de mapa que não veio não se liga ao homônimo do destino\n\nO slide cujo mapa não veio no arquivo se ligava ao mapa de mesmo nome (ou\nid) que já existia no destino, sem marca: o \"Briefing misto\" do\n01-briefing-orfao.ebgeo aditivado sobre o atlas do 00-controle.ebgeo\napontava o \"10 Camadas\" antigo, e o resumo contava 4 slides sem mapa.\nDecisão do dono de 2026-10-08: o slide entra marcado \"mapa ausente\" (alvo\ncom o sufixo da regra de nomes, ou id novo) e conta no resumo, 5. O slide\ncujo mapa veio segue o mapa importado, renomeado por sufixo, como antes.\n\nO caso do slide no mapa do destino em ebgeo-resumo-slides-sem-mapa passa a\ncontar, pela mesma decisão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "de36fed",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/de36fed73c510b7d62b2296e9bcb628b6564b011",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:42:59.000Z",
+      "author": "Maj Diniz",
+      "message": "sync: mapa homônimo na janela do recibo não captura a feição do autor\n\nNum atlas do servidor, quando a criação de um mapa \"Op\" por um colega chega\nantes do recibo da criação do autor (também \"Op\"), o resolvedor de nome\npassava a apontar o mapa do colega, e a feição desenhada pelo autor nessa\njanela saía com o mapId do colega e regravava o documento dele. Medido na\nmain 97d64500: {\"mapIdDaOp\":\"a0\",\"documento\":\"a0\"}.\n\nA criação remota não toma o nome que um mapa local ainda usa (o servidor não\naceita dois mapas com o mesmo nome, então o mapa local é o do autor esperando\no recibo), e o recibo que dá \"Op (2)\" ao autor devolve o nome ao colega.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "e6f9af4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e6f9af4d74696104affefd36cb60a0639363985c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:42:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ebgeo-integridade-servidor' into ebgeo-consolida-integridade",
+      "sha": "eb74782",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb747822d44d49e1d45e7662c39d5c6a5ed3b8e2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:42:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ebgeo-aditiva-envio' into ebgeo-consolida-integridade",
+      "sha": "117ccc5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/117ccc5045c650b3bbd24d21cd132a3e18e7bcc6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:41:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Integridade no servidor: slide de mapa excluído guarda e marca, e teto de 200 mapas no total (decisões do chefe de 2026-10-08)\n\nSlide de mapa excluído no atlas do servidor (\"Guardar e marcar\"):\n- O slide continua com map_id no mapa da lixeira (é o vínculo que religa quando o mapa\n  renasce pelo mesmo id), e a leitura devolve o NOME do mapa como mapId e a marca\n  mapaAusente, igual ao slide cujo mapa não veio no import. Uma regra só para o retrato e\n  para o documento canônico da recusa: mapaDoSlideParaOCliente (mapa-ausente-do-slide.js).\n  O retrato pega o nome por LEFT JOIN em GET_ATLAS_SLIDES, sem ida a mais ao banco.\n- resolveSlideMapId: a edição que reenvia o nome do mapa da lixeira que o slide já aponta\n  mantém o vínculo (antes gravava map_id nulo e o renascimento não religava mais).\n- Importar de outro atlas e clone: o slide do mapa da lixeira da origem chega com o nome,\n  marcado (nomesDosMapasCitados passa a ler a lixeira; o clone passa a consultá-lo).\n- is_broken coerente (034_slide_mapa_excluido.sql): nenhum cliente o lê; a regra adotada é\n  broken_reason 'map_deleted' se e somente se o map_id é mapa da lixeira. O mapa renascido\n  desmarca, o slide gravado apontando para a lixeira nasce marcado e o que sai dela é\n  desmarcado (trg_slide_marca_mapa_excluido); linhas já gravadas acertadas sem mexer em version.\n  slides-broken-trigger.test.js: o caso pinado \"restaurar não desfaz\" vira a decisão.\n- Editor de briefing: _populateMapSelect não troca mais o mapa nulo pelo primeiro da lista\n  nem chama o autosave; mostra \"Sem mapa\" e só muda pela escolha da pessoa.\n\nTeto de 200 mapas no total:\n- Importar de outro atlas recusa com 400, dizendo quantos cabem, quando vivos do destino +\n  importados passariam de IMPORT_MAX_MAPS; conferido antes da cópia dos blobs e de novo sob\n  a trava de log do destino (assertImportFromAtlasTotal, vagasDeMapa).\n- Portas conferidas: .ebgeo como atlas novo e envio do atlas local já cabiam (o total é o\n  próprio pedido, assertImportMapCeiling). Criação/renascimento de mapa por sync e duplicação\n  NÃO conferiam nada no servidor: consertadas (mapCeilingDenialReason, recusa por operação;\n  assertCabeMaisUmMapa, 400), ambas sob a trava que já tomam.\n\nTestes novos (escritos, NÃO rodados por ordem do chefe): slide-de-mapa-excluido.test.js,\nteto-de-mapas-por-atlas.test.js, briefing-editor-nao-troca-o-mapa.test.js (vitest), e os\ndois casos novos de slides-broken-trigger.test.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "19c2a48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/19c2a482e0f020ce16e822d1e1f809dfc158b9a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:30:10.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo: posição do desenho e pergunta dos briefings órfãos na exportação (decisão do chefe)\n\nPosição: na exportação que a pessoa escolhe na tela (buildPrunedExportData), o mapa sem\nposição salva sai com o enquadramento das feições, pela régua da importação\n(enquadrarSemPosicao, extraída de normalizar-documento-importado.js e usada nas duas pontas).\nSó o arquivo muda: o atlas de origem não é gravado, a posição salva nunca é sobrescrita e o\nmapa sem feição continua sem posição. Envio ao servidor e cópia de segurança\n(buildExportDataObject) levam a posição como está.\n\nBriefings: a exportação do atlas inteiro passa a aplicar a mesma régua da parcial contra os\nmapas que o atlas tem. O briefing sem slide em mapa existente fica fora, o que tem algum vai\naparado, os dois marcados orfao, e a pergunta (showChoice) nomeia-os com três saídas:\nCancelar, \"Levar tudo (cópia de segurança)\", que remonta o documento sem filtro, e o padrão\n\"Exportar assim\". Slide sem mapId não é órfão. A pergunta vem antes das outras, para que\nleitura parcial, catálogo e imagens falem do arquivo que sai.\n\nTestes: ebgeo-exportacao-posicao (novo), ebgeo-briefings-da-exportacao (o caso que fixava\n\"o atlas inteiro não filtra\" reescrito), poda-de-saida-fiacao (regex aceita o segundo\nargumento) e quatro casos novos em ebgeo-briefings-e-mapas.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "10b9734",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/10b97347e843d52b96f81e3faf6ff47d661b8e33",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:27:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Aditiva abre o mapa importado e o nomeia (decisão do chefe)\n\n- prepare-ebgeo-scope.js: com append, o mapa atual passa a ser o PRIMEIRO mapa importado, na ordem do\n  arquivo (mapOrder), que tem feição; sem nenhum com feição, o primeiro importado. lastActiveMap e\n  lastActiveMapId apontam para ele, e replaceAtlasFromImport já abre o mapa pedido na posição salva\n  (que a normalização grava pelo enquadramento quando falta). Devolve importedMapNames, os nomes\n  FINAIS (sufixo de colisão incluído).\n- O aviso nomeia o que entrou e o que abriu (fraseDaAditiva, resumo-do-import-phrases.js):\n  'Mapa \"X\" adicionado e aberto.' ou 'N mapas adicionados; aberto \"X\".'. As frases de briefings\n  copiados e de slides sem mapa ficam como estavam.\n- Testes: aditiva-abre-o-mapa-importado.test.js (7, todos reprovam na main) e dois casos novos em\n  ebgeo-briefings-e-mapas.spec.js (04 sobre 00 com o mapa atual em \"10 Camadas\": mapa atual,\n  câmera no desenho e aviso; controle com o 04 sem feição), os dois reprovando na main (\"10 Camadas\"\n  continua atual). Atualizados os que esperavam o texto antigo ou o mapa anterior:\n  prepare-additive-scope.test.js, atomic-import.spec.js, import-aditivo-pela-tela.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "714b8ec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/714b8ec44df282fb05086d11d9e5d5de23b08fe2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T22:19:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Envio do atlas local ao servidor passa pela normalização da importação (decisão do chefe)\n\n- As duas portas de envio (send-local-to-server.service.js pela página de atlas, save-local-atlas.service.js\n  pelo menu da conta) aplicam normalizarDocumentoImportado ao documento ANTES de montar o payload: mapa\n  sem posição sobe com o enquadramento do desenho, nome em forma de UUID sobe como nome legível, cópias\n  de briefing sobem como uma. O atlas local de origem não muda (documento novo; o slot só é lido).\n- A identidade da retomada (source, sourceKey de atomic-server-import.js) continua sendo o documento\n  CRU: o payload é função determinística dele e do nome, e uma tentativa começada antes do conserto\n  continua sendo reencontrada.\n- O resumo diz quantas cópias não subiram (fraseDasCopiasQueNaoSubiram): no aviso de atlas.html\n  (sendToServerNotice, o único ramo que fica na tela) e no desfecho do menu da conta, sem trocar o tom.\n- Teste envio-passa-pela-normalizacao.test.js, nas duas portas, sobre as fixtures 04, 05, 06, 07 e 00:\n  12 de 14 reprovam na main; controle de 00 sai byte a byte igual ao payload de antes (UUID por contador),\n  e o 04 prova que a comparação reprova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3ad8844",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3ad88448f8d935a14dee29590224eac01591c1c4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T21:34:57.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão: as três instâncias do EBGeo em 97d64500",
+      "sha": "bb4d4c5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bb4d4c5d0032edd4a0c5af5d0b4a1d645f7223ac",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:59:56.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: importar-atlas-01 sai do motor (tomada nova, figura aprovada, fim da provisória)\n\nA figura de \"Importar de outro atlas\" era a captura do teste de tela. Agora sai de\ntomadas/importar-atlas-01.js: o atlas \"Exercício Arandu\" do Operador, com três mapas\nde uma camada e um ponto cada, é semeado pela API; o passo 2 mostra \"Setor Sul\"\ndesmarcado, \"2 de 3 marcados\" e o botão \"Importar 2 mapas\" realçado (margem 3).\nO campo \"provisoria\" sai da lista.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "97d6450",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/97d64500d344480e1a613734bb141b333fc5aae1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:55:58.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: contagem de slides sem mapa no Importar de outro atlas e no Enviar ao servidor\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "f4ed6de",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f4ed6de42db825f2e1fb3c13a4ee3d3fbda38739",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:43:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Slides sem mapa: \"Importar de outro atlas\" e o envio do atlas local também dizem quantos (decisão do chefe)\n\n- Importar de outro atlas: o servidor já devolvia summary.slidesSemMapa e o diálogo calava. O desfecho\n  (desfechoDoImport, importar-de-atlas-phrases.js) junta resultado, poda e a frase do .ebgeo\n  (avisoDoResumoDoImport), e qualquer das duas perdas vira aviso.\n- Enviar ao servidor: o envio passa pela mesma importAtlas do .ebgeo, que já conta; nenhuma mudança no\n  backend (slide-mapa-ausente.test.js passa, 11/11). As duas portas (menu da conta por avisosDoServidor,\n  atlas.html por sendToServerNotice) dizem a mesma frase por fraseDosSlidesSemMapa, em tom de aviso.\n- Testes que reprovam a main: importar-de-atlas.test.js (4) e avisos-do-servidor-duas-portas.test.js (2),\n  com controle de zero. Specs de tela escritos e não rodados.\n- Teto de peso remedido pela falha: 617 módulos ansiosos, import_export 21, fonte ansiosa 8957 kB,\n  fonte total 14283 kB (resumo-do-import-phrases.js ficou ansioso pelo account.control).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "ece7bd5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ece7bd55ac9cb18eb573abaaee7712e4ee6471d3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:40:18.000Z",
+      "author": "Maj Diniz",
+      "message": "censo do despachante: a source dos rótulos da quadrícula nova é do módulo da grade (escrita crua de propósito)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "e4a4b16",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e4a4b1659ea45cd1b2bc11a7161560a0bec17ace",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T20:37:18.000Z",
+      "author": "Maj Borba",
+      "message": "feat: BCM GFSS baseline (port of the official IBM/BCM classifier)\n\n- BCM: base->novel mapping mined by co-occurrence (official) or from the\n  hierarchy; cross-validated logistic regression per mapped base class on the\n  frozen features with class balancing; base prediction overwritten only where\n  it is the mapped class, decided at output resolution as in the official code.\n- Parity test against tensors produced by the official code.\n- BaseGFSSMethod.decode_to hook, used by GFSSModel.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "e9d3708",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e9d370860bfb6081506f9d893a619f48c8eecb31",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T20:29:48.000Z",
+      "author": "Maj Borba",
+      "message": "feat: test-time augmentation in GFSSModel\n\nMethod logits, decoding variants and the reference base model are averaged\nover the TTA views (tta_mode / use_tta, framework's apply_tta) at test time,\nso GFSS results are comparable with base models evaluated with TTA.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "8bb4a23",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/8bb4a23381da3850c6a252c1ff272c98c7e9c000",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T20:28:51.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: critério estrito mantido e contagem de slides sem mapa estendida (chefe)",
+      "sha": "cfed7ac",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cfed7ac762cab9f984e9f26f08f5ed0dbaf9e7c9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:26:11.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo, decisões do chefe: o resumo da importação conta os slides sem mapa, cópia de briefing pela sequência de ids no arquivo, e o limite da dedupe documentado\n\n- Slide de mapa ausente: continua entrando marcado, e o resumo diz quantos. Servidor: summary.slidesSemMapa\n  no import (atlas.service.js), contado como no \"importar de outro atlas\". Local: prepareEbgeoScope devolve\n  a contagem contra os mapas do atlas que resulta (substituir e aditivo). Uma frase só\n  (resumo-do-import-phrases.js), junto com a das cópias. No import direto como atlas do servidor o resumo\n  vai num diálogo antes de abrir o atlas, porque a navegação levava o toast sem ninguém ler.\n- Briefing igual: dentro do arquivo, a mesma sequência de ids de slide (documento cru, antes da\n  recunhagem) também é cópia, além do conteúdo; contra o destino continua o conteúdo.\n- Mapa 1, Mapa 2 para vários nomes UUID já estava na main (nomesLegiveis).\n- Limite aceito (slide 360/3D não público rebaixado a 2D não casa na dedupe): Ajuda e wiki.\n- Teto de peso remedido pela falha: fonte ansiosa 8954 kB, grafo completo 954 módulos, fonte total 14280 kB.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "6dd52be",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6dd52be2fb4c196e033b3291b566da7ab74718ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T20:19:09.000Z",
+      "author": "Maj Borba",
+      "message": "feat: diversity- and uncertainty-driven few-shot support selection\n\nbuild-fewshot-episodes selection block: label-free tile descriptors from a\nfrozen base model (decoder embedding pooled over the predicted superclass;\nbase entropy, or vacuity/dissonance with an evidential base) and k-center\nselection (random first window per draw, nested across K, optionally\nweighted by uncertainty^gamma); random selection can just measure. New\ncolumns selection, diversity (Vendi) and uncertainty.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "21e1ba5",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/21e1ba52f0383c19deaad259da989c920b2d4292",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T20:12:12.000Z",
+      "author": "Maj Borba",
+      "message": "fix: handle @hydra.main's internal SystemExit in _seed_subprocess_worker\n\ntrain() is decorated with @hydra.main, which calls sys.exit(0) after\nthe decorated function returns -- a normal exit, but an uncaught\nSystemExit all the same. _seed_subprocess_worker didn't catch it, so\nevery seed's subprocess took the uncaught-exception path instead of\nreturning its result, and trainer was left unset for the\nmetric-extraction code below.\n\ncode == 0 is now treated as success; anything else is re-raised as a\nRuntimeError so real errors still fail the run. trainer starts as\nNone and every trainer.* access below is now guarded, so a worker\nthat exits before producing a Trainer reports epochs=0 and empty\nmetrics instead of raising AttributeError on None.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013fipMhds365ues51cEByaj",
+      "sha": "cbcea3e",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/cbcea3e0fd6388e4c67d36d2f9b1429f374585e2",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T20:10:27.000Z",
+      "author": "Maj Borba",
+      "message": "fix: LoRA fine-tuning unusable for vision segmentation models\n\nFound and fixed while setting up a real LoRA run (Swin-T encoder +\nUPerNet decoder) for an external project:\n\n- modules_to_save was never passed to LoraConfig, so get_peft_model()\n  froze the decoder/head along with everything else (they have no\n  nn.Linear layers for LoRA to target anyway). Now defaults to\n  fine_tuning.trainable_modules, overridable via lora_config.modules_to_save.\n- task_type=TaskType.FEATURE_EXTRACTION routed to a PeftModel subclass\n  with a hardcoded HuggingFace forward(input_ids=...) signature, which\n  crashed any plain nn.Module vision model (forward(x)). Removed —\n  unset task_type gives the generic PeftModel passthrough forward.\n- conf/examples/lora_segmentation.yaml: documents Swin V2's cpb_mlp\n  auto-detection gotcha (set target_modules: [qkv, proj] explicitly\n  instead of relying on auto-detection).\n\nTests: 4 new cases in tests/test_fine_tuning.py::TestLoraStrategy.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013fipMhds365ues51cEByaj",
+      "sha": "e79bee6",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e79bee68ffb2b1407dffd695c2130c60a543b965",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T20:10:27.000Z",
+      "author": "Maj Borba",
+      "message": "fix: ClassTrans reads base_class_counts JSON lazily\n\nThe JSON written by count-class-pixels may be produced by an earlier pipeline\nstep; reading it in __init__ broke composition/instantiation before that step.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "b9c921e",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b9c921e5019137f2ce765704cfbcdf8844b56a0f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:05:23.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e de tela: despublicar-com-visitante liga e desliga o link por Aplicar\n\nRodado sozinho (portas 4611 e 3611, banco ebgeo_ui_e2e_vermelhos), reprovou\nporque o campo sharing-public-link não aparece: desde e60cea57 (2026-10-06)\no modal de compartilhar só grava em Aplicar. O spec chama\naplicarCompartilhamento depois de ligar o link e depois de desligá-lo, e no\ndesligamento confere antes a nota de pendente (sharing-public-pending). O\nDELETE 204, o corte dos quadros do visitante e o pull recusado continuam\niguais. Depois: 2 de 2 verdes em série; npm run lint ok.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "fd137c3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fd137c34c95b6aaf79b9fab4c0221db71be2ad81",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T20:02:17.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e de tela: três specs presos ao app antigo, e o azimute com limite medido nos dois lados\n\nRodados sozinhos, em série, com portas e banco próprios (4611, 3611,\nebgeo_ui_e2e_vermelhos), sobre 82cf9b91.\n\n- browser-layer-transfer-permissions: 4 de 4 vermelhos em série, menu com 7\n  linhas contra 2 esperadas. O \"⋯\" da camada ganhou \"Mover para pasta…\"\n  (pastas, fase 3) e as quatro ações sobre as feições (d0910db2); não é\n  defeito. A contagem passa a ser sobre o par de transferência\n  (comandosDeTransferencia). Depois: 4 de 4 verdes, duas vezes.\n- link-publico-nomeia-o-emprestado: vermelho 2 de 2, o campo do link não\n  aparece porque desde e60cea57 (2026-10-06) o modal só grava em Aplicar. O\n  spec chama aplicarCompartilhamento depois de ligar o link. Depois: 2 de 2.\n- azimute-ponto-de-referencia-no-zoom: com a camada, erro de 0,14 a 1,09 px\n  em 3 rodadas de 19 passos, e o limite de 1 px reprovava o conserto pelo\n  piso do instrumento. Controle negativo (os dois arquivos de antes de\n  764d4e76, marcador HTML): 2,1 a 4,2 px nos zooms 10 a 11,5, quase todo em\n  dy, em 2 rodadas. Limite vira 2 px, e o caso registra dx e dy. Com 2 px:\n  conserto 2 de 2 verdes, controle negativo reprova com 7 passos acima.\n- menu-da-conta-nao-cobre-a-barra: 4 de 4 verdes duas vezes seguidas;\n  vermelho da bateria era disputa, sem mudança.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "84a6f7e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/84a6f7e782d5707b1d22a0ba6c25634da6661794",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T19:58:37.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: quatro pendências decididas pelo chefe",
+      "sha": "56e17f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/56e17f63fa8732346af2316a17b99051968a8687",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T19:55:55.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: comentários fora do import como atlas do servidor e do envio do atlas local são propositais (chefe)",
+      "sha": "d8b0ebf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d8b0ebfe72bd54697c4fb4eb102cfd92a2b2e310",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T19:53:53.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: plano, decisões e estado do conserto do .ebgeo (briefing órfão, cópias, slide repetido, posição e nome de mapa), com três sessões; ebgeo_web aab037af e 82cf9b91\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4ca7f8c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4ca7f8c15c42c7ccb117e4323686ace1544a5a86",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T19:53:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (cont. 9): .ebgeo recusado na DSG pelo log, Frente A, imagem com sessão vencida, Importar de outro atlas e slide órfão no servidor; riscos da DSG na wiki; fan-out por contrato e commit por script conferido\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2e7a29a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2e7a29a553c5119be1b0ab066436545fc4f675c5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:50:07.000Z",
+      "author": "Maj Diniz",
+      "message": "teto de peso: fonte total 14275 kB, medida pela falha na integração da segunda rodada do .ebgeo sobre 3db9b10b\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "82cf9b9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82cf9b91035405fffcf7d2c1e19ef6776849cf95",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:48:36.000Z",
+      "author": "Maj Diniz",
+      "message": "integração sobre c4929f53: a grade de ações tem 9 botões, e os tetos de peso remedidos (o novo grid e o Importar de outro atlas, cada parcela medida)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3db9b10",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3db9b10bb4b2da8d80f7dafdc845fa81b61c1d65",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:44:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into HEAD",
+      "sha": "2bf8f40",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2bf8f40f30df83bb5dbdf8e239745d6b87480472",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:44:30.000Z",
+      "author": "Maj Diniz",
+      "message": "importar de outro atlas (rota no servidor, a quinta exceção REST) e o slide cujo mapa não veio guarda o nome\n\nIMPORTAR DE OUTRO ATLAS (decisões do dono de 2026-10-08):\n- POST /atlas/:atlasId/import-from-atlas (importMapsFromAtlas): copia os mapas ESCOLHIDOS de outro\n  atlas do servidor para o aberto numa transação só, reaproveitando cloneMapSubEntities e a cópia de\n  imagens do clone. Destino com Editor ou acima e conta de verdade; origem com leitura, resolvida por\n  resolveAtlasAccess (miolo extraído do middleware), 404 sem relação. Vêm os briefings com slide em\n  mapa escolhido; comentários não vêm. Poda pelo dono do destino. Só as imagens citadas, com id novo.\n  Travas de log dos dois atlas em ordem fixa. Marcador novo maps_imported, espelhado no cliente, e\n  broadcast atlas_updated. Auditoria isenta, como a duplicação.\n- Tela: botão \"Importar de outro atlas\" (maps-import-atlas) ao lado de Compartilhar, Editor ou acima,\n  recusando o clique sem conexão; diálogo sob demanda em dois passos (atlas de origem, mapas pelo\n  map_order, todos marcados); toast com contagem, renomeados e o que foi podado.\n- A recusa da aditiva de .ebgeo no atlas do servidor continua valendo para arquivo.\n- Docs: cinco exceções REST nos CLAUDE.md e na wiki, decisão no diário, página da wiki e página na\n  Central de Ajuda (figura provisória, tomada registrada em ajuda/roteiros/midias/importar-atlas.json).\n\nSLIDE CUJO MAPA NÃO VEIO (\"Guardar e marcar\", decisão do dono de 2026-10-08):\n- Migração 033: slides.mapa_ausente, com CHECK (map_id IS NULL OR mapa_ausente IS NULL).\n- O snapshot e o recibo canônico devolvem mapId = nome guardado e mapaAusente; a escrita por sync, o\n  envio de .ebgeo, esta importação e o clone gravam o nome em vez de perdê-lo (regra única\n  mapaAusenteDoSlide). O envio do cliente (local-atlas-to-server.js) manda mapa_ausente.\n\nTestes: importar-de-outro-atlas (integração 13/13; 0/11 com a rota desligada), slide-mapa-ausente\n(9/9; 6 reprovam sem o conserto), unidade do backend 1752/1752, integração vizinha por glob\n826+ verdes, Playwright importar-de-outro-atlas 2/2 (cópia real pela tela relida no banco),\nunidade do frontend tocada, sync-engine 123/123, ajuda 87/87.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7b1e19e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7b1e19e01a2cc7525ee64865d8adb09d780a6827",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:43:20.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "novo grid",
+      "sha": "c4929f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c4929f537617e21773a5d612239f6a08d9d07833",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:42:22.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e .ebgeo: o aviso de cópias é lido por um vigia de toasts posto antes do import, e não depois de esperar os mapas (perdia o toast com a máquina carregada)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b0a8b51",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b0a8b516b148ee22d162b421f11b8a8828dea9a6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T19:34:35.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GFSS fine-tuning baselines (FineTune + trainable backbone)\n\n- FineTune: head with base rows from the checkpoint and novel rows from the\n  mother (or the scaled prototype); trains the superclass children (B1a),\n  the novel rows or the whole head with the DIaM-projected support CE and\n  optional hierarchical KD to the frozen base model.\n- gfss.backbone.trainable (none | decoder | all | lora): unfreezing via the\n  framework's freeze_modules_by_name, LoRA injected in place into the encoder\n  (peft.inject_adapter_in_model); BatchNorm and the 1x1 head stay frozen.\n  GFSSModel keeps a frozen copy of the base model as reference (KD snapshot,\n  locality) and optimises method + unfrozen backbone parameters.\n- Docs explain how this differs from the framework's fine_tuning strategies;\n  example gfss_finetune.yaml.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "6c58db7",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/6c58db78a64b7505032bfcb024470f5c858c3cb4",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:32:59.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo, segunda rodada: id do 3D/360 no servidor, mapa com nome de UUID, ícones repetidos no aditivo, teto de 200 mapas e o mapa ausente no editor\n\nDecisões do dono de 2026-10-08 sobre o que a revisão achou fora do escopo:\n\n- Servidor: na montagem do snapshot, a coluna vence o data no 3D e no 360.\n  O import de .ebgeo e o clone gravavam o item inteiro em data, com o id do\n  arquivo dentro, e o id velho vencia: editar ou apagar o item não fazia nada.\n  Ler assim cura também as linhas já gravadas.\n- Sync: um UPDATE parcial de mapa que chega antes de o mapa existir aqui não\n  cria mais um mapa com o nome igual ao UUID (causa provável do mapa\n  7aad84c5-..._1 do arquivo de campo); o mapa chega pelo CREATE ou pelo retrato.\n- Aditivo: o ícone personalizado igual a um que o atlas já tem (nome e imagem)\n  não entra de novo, e os pontos passam a usar o do atlas.\n- Teto de 200 mapas em toda porta (criação, aditivo e, novo, o import que\n  substitui), como o import do servidor.\n- Editor de briefing: o slide de mapa ausente mostra o mapa dele como\n  \"(mapa ausente)\" no seletor, em vez de exibir o primeiro mapa.\n\nCada conserto tem teste que reprova no código anterior (controle negativo\nrodado) e passa aqui.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "271195e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/271195e1c22decdd1200d69940c472509aa3f30f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T19:26:37.000Z",
+      "author": "Maj Borba",
+      "message": "feat: count-class-pixels tool, ClassTrans base_class_counts, prototype scale/bias options\n\n- mode count-class-pixels: per-class pixel counts over a window index (after\n  an optional remapping), JSON output.\n- ClassTrans base_class_counts (list or JSON): LDAM margins from training-set\n  base counts + support novel counts, as in the paper.\n- PrototypeImprinting: scale mother_norm, bias zero | base_mean | mother.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "2595941",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/2595941dc7c108d6b3b68ef7b548c5bc0ebb9e23",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T19:24:13.000Z",
+      "author": "Maj Borba",
+      "message": "feat: GFSS abstention operating points, ECE and HiSplit abstention map\n\n- GFSSUncertaintyMetrics: coverage@t / risk@t per uncertainty map and ECE of\n  1 - u on the split decisions; options via gfss.uncertainty_eval.\n- HiSplit.abstention(features, measure, threshold): pixels of a mother whose\n  split uncertainty exceeds the threshold go back to the mother class.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "a84b12a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a84b12aa2e0c3b7143a9b37fd4c9d00e41dceab9",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:21:35.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "Merge branch 'main' of https://github.com/1cgeo/ebgeo_web",
+      "sha": "3be34f0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3be34f0eba8f319f00a8f80f73ae844feccc8412",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T19:21:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (cont. 8): correção do livro de material no SAP 3.0 (só o gerente, só o último lançamento), 4e52db7 publicado no server7\n\n- decisão cont. 8 e linha no índice (as entradas cont. 5 a 7 de outra sessão ficam no disco)\n- livro-razão: premissa \"consumo no insumo 6\" aceita sem medir; estava no 7\n- planejar-mudanca-sistema: ler o registro vivo antes de desenhar, receita da prova de tela do SAP 3.0 sobre banco descartável, gotchas do jest e do node_modules; camada quente de volta a 8,7 KB\n- atualizar-dockers: 19º deploy, e split da camada quente de 33,8 KB para 10 KB, sem perda\n- wiki controle-acervo: o livro de movimentos e a regra de correção, e os dois cartuchos T730\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4f4aa24",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4f4aa242ba1c99191d4c2fb23278c4bfde397d5b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T19:16:58.000Z",
+      "author": "Maj Borba",
+      "message": "fix: HiSplit leak must not swap classes outside the superclass\n\nWith leak, each neighbour class kept p_c(1 - T_c); uneven leak fractions could\nreorder two nearly tied neighbours (e.g. forest -> bare soil). Classes outside\nthe superclass now share a per-pixel shift log(1 - T_top), so their order is\nthe base model's and a pixel outside the superclass either keeps the base\nclass or becomes a child; the superclass vs base-class comparison stays exact.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "e4b70ae",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e4b70ae07661f92921da649990af6d1e3fb22c2d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-08T19:08:31.000Z",
+      "author": "Maj Diniz",
+      "message": "o livro de material se corrige pela ponta: so o gerente edita ou remove, e so o ultimo lancamento de cada material\n\nPUT e DELETE de /mapoteca/movimento_material passam de operador a gerente,\ne exigirUltimoLancamento recusa com 409 a linha que nao e o maior id do\nmaterial, nomeando o ultimo. O lote apaga a ponta de tras para frente e\nrecusa inteiro o que pula linha; o material nao se troca na edicao (400).\nA ficha do insumo ganha a faixa \"Ultimo lancamento\", fora do filtro do\nlivro, com Editar (os tres dialogos em modo edicao) e Remover so para o\ngerente. GET /tipo_material/:id passa a trazer movimentos.ultimo.\n\nDecisao do chefe em 2026-10-08, registrada em docs/decisoes.md. Os testes\nnovos reprovam o codigo anterior em 8 de 12 (servidor) e 6 de 8 (client).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4e52db7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4e52db70d9ca4a4027c44b54311b7dcfd5f748e7",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:02:00.000Z",
+      "author": "Maj Diniz",
+      "message": "teto de peso: imagem com sessão vencida sobre aab037af (fonte ansiosa 8931, total 14209, medidos pela falha)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "37d7f29",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/37d7f29a83d4e836b1e2503fe548eb4cb724ca0e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:01:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into HEAD",
+      "sha": "3077152",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3077152afab367417a9b8d57ff8232a52e8b154e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:01:07.000Z",
+      "author": "Maj Diniz",
+      "message": "imagem com sessão vencida: renova uma vez e repete, e a recusa para a onda de leituras\n\nMedido no log do EBGeo da DSG em 2026-10-08: uma estação com o Bearer vencido fez 2.206 GET de\nimagem com 401 em 2 minutos (cerca de 1.103 imagens, cada uma pedida 2 vezes, a cada 51 ms), e as\nfeições ficaram sem imagem. O fetchImageBlob não renovava o token no 401, ao contrário do\n_performRequest, e os laços seguiam pedindo depois da recusa.\n\n- api-client.js, fetchImageBlob: renovação proativa antes do pedido; no 401, um refresh (o mesmo\n  deduplicado do resto do cliente) e uma repetição; a resposta atrasada de um token já trocado\n  repete sem girar o token de novo. Os pedidos em voo da credencial que recebeu o 401 são\n  cancelados e repetem depois da renovação.\n- Recusa 401/403 que sobrevive à renovação fica gravada por (atlas, credencial): os pedidos seguintes\n  não vão à rede, e uma credencial nova é chave nova.\n- 404 de imagem não é repedido sob a mesma credencial.\n- fotos-para-copia.js: o laço para no primeiro 401/403 e o resto entra em `faltaram`.\n\nTestes: imagem-com-sessao-vencida.repro.test.js (5) e +2 em fotos-descem-antes-da-copia; 6 de 19\nreprovam sem o conserto. Vizinhos por grep (api-client, image-sync, fotos-para-copia, fetchImageBlob,\ncarga-sob-demanda): 88 arquivos, 1.480 casos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6f35dda",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6f35ddad7f0a40dafd37cb2c9116897877bee084",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T19:00:24.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "nao construir linhas nos indoor",
+      "sha": "5452d64",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5452d64b242d35636fdd0787b40d438ca2ec0383",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T18:55:33.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "alteracoes sprites",
+      "sha": "c5be639",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c5be6398211b6780785deca3ed93074edffe411d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T18:38:33.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo, revisão: briefing aparado na exportação parcial, cópia comparada pelo briefing inteiro, enquadramento e nome mais robustos, e a Ajuda\n\nCinco revisões de código (exportação, importação local, local x remoto,\n3D/360 e muitos mapas) acharam, entre outros:\n\n- Exportação parcial: o briefing misto viajava inteiro e não abria do outro\n  lado. Agora vai APARADO (só os slides de mapa que entrou no arquivo) e a\n  pergunta o nomeia; o filtro usa os mapas que ENTRARAM no arquivo (não os\n  pedidos, que podem ter falhado na leitura); o slide com id de mapa sai com\n  o nome; o filtro só roda na exportação da tela, nunca no envio ao servidor.\n- Cópia de briefing: a assinatura juntava briefings diferentes (outra foto\n  360, outro modelo 3D, outra direção, outro instante, outra descrição) e\n  deixava passar cópias reais (figura recunhada, chaves do JSONB em outra\n  ordem). Agora compara o briefing inteiro em JSON canônico, sem ids, sync,\n  datas e id de figura; briefing vazio nunca é cópia.\n- Normalização: coordenada que não é grau fica fora do enquadramento; giro e\n  inclinação que já vêm ficam; o nome novo não funde com chave órfã de seção;\n  o sufixo do servidor \" (2)\" também conta como UUID; nome do arquivo cortado\n  nos 50 caracteres do nome de mapa; a porta do servidor usa o nome do atlas\n  e diz quantas cópias não entraram.\n- A marca \"mapa ausente\" segue a mesma régua do apresentador (id cru).\n- Ajuda: o .ebgeo aponta a página nova \"O que acontece com os briefings no\n  arquivo .ebgeo?\".\n- Fixtures: as cópias de uma família guardam a mesma descrição, como no campo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "aab037a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aab037afeaf14f337ec1170a77b390695ed53cf3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-08T18:33:59.000Z",
+      "author": "Maj Borba",
+      "message": "feat: HiSplit superclass boundary (leak, widening, prior, sweep) and ClassTrans hierarchical mask\n\n- HiSplit leak: learned t[n, c] moves mass from other base classes into the\n  novel child (trained with the NLL of the final distribution on the support);\n  hierarchical decoding lets the superclass absorb it.\n- HiSplit widen (prob | dissonance threshold) where the mother is the base's\n  second choice and q prefers the novel child; novel_prior_weight; sweep of\n  thresholds as decoding variants.\n- BaseGFSSMethod.variant_names/decode_variants; GFSSModel evaluates each\n  variant (test/var/<name>/...).\n- ClassTrans hierarchical_mask ablation.\n- test_gfss_model: module-scoped base checkpoint fixture (was ~1.3 GB of\n  temp files per run).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01PQUhrigyfJyxhEzB82saFJ",
+      "sha": "997361f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/997361f448613d20a5c3008e9e62a232dba03cd3",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T18:14:32.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo: a cópia de briefing não entra de novo, nas três portas e contra o atlas de destino no aditivo; tetos de peso remedidos\n\nDecisão do dono de 2026-10-08 (consertar as portas). Cada import aditivo somava\nde novo todo briefing do arquivo, e no exercício de 2026-09-30 um briefing de\nmaio entrou seis vezes no mesmo atlas.\n\n- import_export/briefings-sem-copia.js: assinatura de conteúdo (nome sem o\n  sufixo de cópia, mais título, conteúdo, modo, mapa e posição de cada slide).\n- Dentro do arquivo, cópias viram uma nas três portas (normalização).\n- No aditivo, sobre o documento CRU e antes do collect/rewrite, o briefing que\n  não depende de mapa do arquivo também se compara com os do destino; o de um\n  mapa do arquivo é o briefing do mapa novo e entra.\n- Um toast diz quantas cópias não entraram.\n- Os três módulos novos desta frente e o de B ficam atrás de import(); tetos do\n  grafo completo (946), da fonte ansiosa (8918 kB) e da total (14190 kB)\n  remedidos pela falha do caso.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5db3c99",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5db3c99803af7affa38715deb7d9675f213cd773",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:58:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into HEAD",
+      "sha": "261af8b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/261af8b86fe6c00f8dcbdd59ff10896b9d1a8c7b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:58:36.000Z",
+      "author": "Maj Diniz",
+      "message": "slide com id repetido entre briefings: o cliente conserta na entrada e no envio, e a recusa do servidor chega à tela\n\nO caso de campo (2026-10-08, EBGeo da DSG): um atlas do exercício Arandu não subia, o commit da\nimportação voltava 400 \"O arquivo repete o id de um slide\". O arquivo tinha 43 briefings e 72\nslides com 24 ids distintos: o importBriefings de antes de 2026-09-12 copiava o briefing com id novo\ne os slides com o id antigo, e a aditiva levou a repetição adiante por gerações de cópias.\n\n- local-atlas-to-server.js: o id de slide v4 se preserva uma vez só por envio; a segunda ocorrência\n  ganha id novo, como já ganhava o id que não é v4. Conserta o atlas que já está poluído no navegador.\n- prepare-ebgeo-scope.js: a importação local (normal e o fim da aditiva) grava cada slide repetido\n  com id novo e sem o sync da original, em vez de levar a repetição para o store.\n- account.control.js + server-send-phrases.js: o envio pelo menu da conta mostra o motivo da recusa\n  4xx (fraseDeEnvioRecusado) em vez de \"Tente de novo\" para tudo.\n- O 400 do idsDoPayload continua como guarda no servidor.\n\nMedido no navegador (Playwright, banco próprio), com ids v4 como os de campo, 02 (9 slides, 4 ids)\ne 07 (72 slides, 24 ids): antes, 400 e banco vazio nas quatro portas (importar direto como atlas do\nservidor, importar no local e enviar, aditiva e enviar, atlas local já poluído e enviar); depois,\n201 e todos os briefings e slides relidos no banco. Teste de unidade:\nslide-repetido-entre-briefings.repro.test.js (8 de 10 reprovam sem o conserto).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "24640d7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/24640d76fc8143b491102ca92ce755773ec5801e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T17:58:30.000Z",
+      "author": "Maj Diniz",
+      "message": "pedido 232 da mapoteca (DIEx 5198-E3 da 6ª Bda Inf Bld, SPED 31049): 11 itens e o DIEx anexado, relidos no SAP 3.0, e pasta 05_6BdaInfBld com o DIEX.pdf; decisão cont. 7 (operacao nulo, 2968-2 e 2968-4 mantidas); learnings (nome pela OM só para adestramento nomeado) e livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "82f11b6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/82f11b603e57f6868b8c7185d04533a2d6cbd955",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:57:23.000Z",
+      "author": "1º Ten Pedro Martins",
+      "message": "Correcao problema 07out (falha relacionada aos tilejson)",
+      "sha": "d1bc806",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d1bc8064edbf1331706b4240ce40e6d58ac92ced",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T17:56:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 (DIEx 5198-E3 da 6ª Bda Inf Bld, SPED 31049): cadastro preparado com dry-run ok e não aplicado; learnings da cadastrar-pedido-mapoteca (quando o DIEx chega a pasta é o plano, sha256 contra o checksum, e a razão de cada folha escrita ao montar pasta sem DIEx), quatro itens descidos ao detalhe\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ba0e420",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ba0e420dddeb498ff554f35fe82d4b4000fda4ab",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-08T17:54:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-08 cont. 6: pedido 231 da mapoteca (3º RC Mec, Op Furacão)\n\nLinha 1 pelo INOM por decisão do chefe; baixar_modelos_sped.py passa a baixar\no anexo externo do SPED; learnings (MI contra INOM, anexo externo, sha256sum\nque mente sobre caminho com barra invertida).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e2c9597",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e2c959726e04d249db1017e4c74e9b9847a6bd34",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:51:09.000Z",
+      "author": "Maj Diniz",
+      "message": ".ebgeo: briefing só com o mapa dele, mapa importado abre no desenho e com nome legível, e a lista marca o briefing de mapa ausente\n\nDecisão do dono de 2026-10-08, sobre os quatro .ebgeo do exercício de 2026-09-30.\n\n- Exportação parcial leva só o briefing com slide num mapa escolhido (ou\n  sem mapa nenhum), e uma pergunta nomeia os que ficam. A do atlas inteiro\n  não filtra: é a cópia de segurança e a entrada do envio ao servidor.\n  (import_export/briefings-da-exportacao.js)\n- Nas três portas de entrada (substituir, aditiva, atlas do servidor), mapa\n  sem posição salva ganha o enquadramento do próprio desenho como posição,\n  e nome em forma de UUID vira o nome do arquivo (ou \"Mapa N\"), em toda\n  seção que usa o nome como chave e nos slides.\n  (import_export/normalizar-documento-importado.js)\n- A lista de briefings marca \"mapa ausente\" no briefing com slide em mapa\n  que o atlas não tem; nada é apagado sozinho. (briefing/mapa-ausente.js)\n\nFixtures novas em tests/fixtures/ebgeo-briefings (oito .ebgeo derivados do\n03-completo-2.4, com gerador e régua). O e2e ebgeo-briefings-e-mapas reprova\nna origin/main 4805d1f3 em B, D, E, na marca e no arquivo de campo, e passa\naqui com o controle verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7bf16bb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7bf16bb960513dcabae1943c79c2b5d5d377e378",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:49:19.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: expectativas de motivo de recusa com o texto para leigo de 2026-10-08 (outro atlas, limpeza em formato antigo, mapa de destino excluído, teto de 200)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "3ffc4a0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3ffc4a019929fb2c5d80e6377250ea0b234185c1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:28:35.000Z",
+      "author": "Maj Diniz",
+      "message": "testes da consolidação de 2026-10-08: ida e volta do KMZ sem as pastas de um elemento só (decisão do dono) e teto de peso pela medida\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "0a126bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0a126bd4734f63ffa7452a7ded14b21f0eb53ca0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:15:58.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: visibilidade-2d-horizonte\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "497dcd5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/497dcd578cc6fa81189406443a0ce1b77dad9aef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T17:15:16.000Z",
+      "author": "Maj Diniz",
+      "message": "visibilidade 2D: a saída se recompõe sozinha e o fechar do Horizonte a reescreve\n\nCaso da DSG (2026-10-08): a visibilidade de quase 360 graus sumiu depois do\nHorizonte e só voltou ao arrastar as alças. A sonda única (app local,\nChromium/SwiftShader, atlas local, DEM sintético; 60 e 350 graus, com e sem\nseleção, antes/armado/durante/depois) NÃO reproduziu: fonte, layout, filtro,\nqueryRenderedFeatures e pixels iguais nas 24 amostras, e nenhuma escrita em\nvisibility ou processed-visibility com o Horizonte armado, aberto ou fechando.\nArmar desseleciona antes do clique (a alça do observador já não existe). A\ncausa do caso real fica sem prova.\n\n- layers/saida-da-visibilidade-recomposta.js: deriva a saída da fonte de\n  ENTRADA (deriveAnalysisOutput) e escreve as metades que faltam, 400 ms depois\n  de cada escrita de conteúdo nas duas fontes; com forcar reescreve todas (a\n  escrita do arrasto). Limite de 2 tentativas por id, sem laço.\n- layer_setup.js: instala nos modos cheio e preservado.\n- horizon-viewer.js: o fechar chama a reescrita forçada.\n- render-cilindrico.js: forceContextLoss depois do dispose (three r164 mantém o\n  contexto vivo; Chrome descarta o mais antigo, o do mapa 2D, além do teto).\n- Unitários e o spec de repro escritos e NÃO rodados (ordem do chefe).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "cf6a411",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf6a411956d7a32bea33201287cdecddc22f68d4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-08T16:28:00.000Z",
@@ -199,6 +865,15 @@
       "sha": "d482656",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d48265651246ac19f69da49b491762fb2f00a1d7",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-08T16:27:22.000Z",
+      "author": "Maj Diniz",
+      "message": "visibilidade 2D some ao abrir o Horizonte: investigação interrompida (sem código, sem causa medida)\n\nCommit vazio de marco, pedido pelo coordenador antes do reinício da máquina.\nNenhuma sonda chegou a rodar; nada foi alterado no src/.\n\nLido até aqui (sem medida):\n- horizon-viewer.js só põe map-sig--behind-viewer (visibility: hidden) e\n  as classes horizonte-aberto/horizonte-carregando no body, e cria um\n  segundo mapa MapLibre (mini-mapa) que remove ao fechar. Não toca nas\n  fontes visibility/processed-visibility nem no visibility-output-layer.\n- carga.js só lê a fonte DEM (lerFonteDem); a saída da visibilidade é\n  vetorial (processed-visibility derivada de cellData), não raster do DEM,\n  o que enfraquece a suspeita (b).\n- Suspeitas ainda abertas a medir: o clique que abre o Horizonte cai no\n  observador, onde está a alça verde da visibilidade selecionada\n  (_onEditPointerDown no canvas container) e pode iniciar uma edição de\n  alça concorrente ao desarme e à troca de seleção; o empty-source-\n  visibility (esconde camada de fonte vazia); a remoção do mini-mapa e o\n  pool de workers do MapLibre; o processedDispatcher.remove nos caminhos de\n  recálculo (linhas ~1021 e ~1202 de add_visibility_control.js).\n\nFalta: a sonda (fonte processed-visibility, visibilidade e filtro da\ncamada, queryRenderedFeatures, pixels verdes, stack das escritas na fonte)\ncom abertura de 60 e de 350 graus, selecionada e não selecionada; o\nconserto; o spec de reprodução e os unitários.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "c5205d9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c5205d9e4e45d93620bcaea49c28654bdc92659a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
