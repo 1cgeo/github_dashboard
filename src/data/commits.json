@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-09T00:14:55.757Z",
+  "lastUpdate": "2026-10-09T16:55:02.460Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-09T00:00:27.000Z",
+    "1cgeo/ebgeo_web": "2026-10-09T16:49:38.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-08T20:37:18.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-09T10:23:38.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-08T21:34:57.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-09T16:49:03.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8854,
+    "totalCommits": 8880,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2579,
+      "1cgeo/ebgeo_web": 2592,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -159,7 +159,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 414,
+      "dsgoficial/pytorch_segmentation_models_trainer": 415,
       "1cgeo/geoswarm": 67,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1014,
+      "1cgeo/chefe_dgeo": 1026,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,240 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T16:49:38.000Z",
+      "author": "Maj Diniz",
+      "message": "instruções do agente: núcleo mais enxuto, e o markdown do backend vai para a suíte do frontend\n\nO núcleo que carrega em toda sessão (e em todo subagente) cai de 59,2k para 55,9k caracteres,\nabaixo do teto de 60k de instrucoes-do-agente-teto, cortando só o que o código já diz:\n\n- CLAUDE.md: o bloco do diag recontava o `npm run diag -- --help` subcomando por subcomando;\n  ficam só a diretiva de abrir a sessão de backend pelo resumo, onde o log mora e as regras da\n  sessão remota, com o ponteiro para o --help.\n- architecture.md: saem \"Application Modes\" (o enum diz o mesmo) e o item do UI_LAYOUT_CHANGED;\n  \"Boot\" muda, palavra por palavra, para visitante-e-metade-local.md, que passa a carregar\n  também ao ler frontend/src/js/index.js e frontend/src/js/deep-link/**.\n- backend/CLAUDE.md: saem a lista do stack, o mapa de pastas, os scripts que o package.json já\n  lista e o layout de módulo que qualquer src/modules/ mostra (1.173 caracteres).\n\nO test:tocados contava todo arquivo não-.js de backend/ como infraestrutura, e um corte de prosa\nno backend/CLAUDE.md pedia os 16 minutos da suíte inteira do backend, que não lê markdown\nnenhum; a constituição já dizia que documentação vai para o test:frontend, onde mora o\ndocs-integridade. Agora o planejador concorda, preso por dois casos novos em\nfrontend/tests/unit/testes-tocados.test.js (os dois reprovam contra o planejador anterior).\n\nVerificação: lint verde; test:tocados (test:frontend) com 2 arquivos vermelhos que já estavam\nvermelhos no HEAD e não leem nada daqui: kmz-imagens-na-caixa (6a08674d mudou kmz-imagens.js\nsem o teste) e teto-de-peso-da-pagina-do-mapa (fonte 1 kB acima do teto).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "a27d290",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a27d290c86d199740e0412b47835681a929ef64e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T16:49:03.000Z",
+      "author": "Maj Diniz",
+      "message": "gravar-video-ebgeo: o slide como mapa vivo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a3e785a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a3e785a2dfc1758051a78a59a5e2c0848351520f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T16:48:56.000Z",
+      "author": "Maj Diniz",
+      "message": "video: briefing de Tuiuti com o mapa vivo (65 s)\n\nCada slide é usado como mapa: o mapa arrastado, a Coluna de Díaz clicada\n(Detalhes da Feição com foto e descrição), a régua medindo 1,14 km do\nMallet à linha paraguaia, a barra do tempo arrastada. Todas as feições do\ncalco ganham descrição e três ganham retrato (Wikimedia Commons, domínio\npúblico). Slides mais curtos. A gravação grava os `cortes` da cena além da\nduração do roteiro.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cc0f1f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cc0f1f53a29923e87f0611b96032cf3d9bb27fcb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T16:20:23.000Z",
+      "author": "Maj Diniz",
+      "message": "gravar-video-ebgeo: lições do briefing de Tuiuti\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "52ee794",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/52ee794dcb2824348f2644d26da828ce2654753a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T16:20:18.000Z",
+      "author": "Maj Diniz",
+      "message": "video: briefing de Tuiuti gravado (82,5 s, só a apresentação)\n\nroteiros/briefing-tuiuti.mjs: duas partes (mapa: slides 2D com a barra do\ntempo arrastada; memoria: 3D e 360 do Parque Marechal Osório nas vistas\nescolhidas pelo chefe). Cada slide 2D com o seu zoom. A montagem ganha\n`cortes` por cena (tira o ~1,1 s de mapa branco do voo de 900 km) e o\nservidor do vídeo encurta o voo entre slides para 2,5 s (o produto não muda).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d165652",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d16565223dffe17c9720a8627adab027dd0f0d43",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T15:11:20.000Z",
+      "author": "Maj Diniz",
+      "message": "video: briefing de Tuiuti pronto no .ebgeo (9 slides com texto, figura e vista)\n\nbriefing-tuiuti.mjs guarda os slides como dado: HTML do editor (títulos, listas,\ncitações, nomes na cor da seta), figura do Wikimedia Commons (domínio público,\nem dados/imagens), vista 2D com instante da linha do tempo e barra do tempo nos\nslides do combate, e um slide 3D e um 360. montar-briefing.mjs monta tudo sobre\no calco ajustado pelo chefe (dados/tuiuti-calco.ebgeo) e exporta dados/tuiuti.ebgeo.\nA exportação corta referência a 360; restaurarSlides360 refaz o slide depois\nda importação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b561881",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b561881b69fb370050f2bb9393faa819e2b579c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T14:52:54.000Z",
+      "author": "Maj Diniz",
+      "message": "video: calco de Tuiuti (24/05/1866) pronto em .ebgeo para o vídeo do briefing\n\ndados/tuiuti.ebgeo é o calco ajustado à mão pelo chefe sobre a montagem por\nscript: planta de Rebouças georreferenciada, 14 símbolos (10 aliados fixos, 4\ncolunas paraguaias com janela de tempo e trajetória), 6 setas com janela de\ntempo, fosso, campo de tiro de Mallet e limite. O vídeo só importa o arquivo.\nmontar-calco.mjs monta o calco de calco-tuiuti.mjs e o exporta (fora da tomada);\nações novas: importarEbgeo, símbolo por SIDC, linha de coordenação, gravar\npropriedades no store, recarregar (aceitando o beforeunload).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f1a3931",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f1a3931c766d873fc5ef28e188818b1c464c6517",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T14:08:51.000Z",
+      "author": "Maj Diniz",
+      "message": "kmz: imagem de GroundOverlay grande e girada deixava de ser desenhada\n\nO MapLibre guarda cada canto do ícone como deslocamento do centro num Int16\ncom fator 32 (symbol_bucket.ts): canto além de ~1024 px dá a volta e o ícone\nsome. Como o ícone gira no layout (icon-rotate), vale o canto mais distante em\nqualquer ângulo, a meia diagonal. A sobreposição importada agora cabe também\nnuma diagonal de 2000 px (DIAGONAL_MAXIMA_DA_IMAGEM em dimensoesNaRazao).\nMedido com a planta de Tuiuti (1866) de 1600x1926: desenhada sem rotação, nada\ndesenhado a 4,6 graus, com o canto girado a 1024,1 px. Testes não rodados\n(pedido do chefe).\n\nvideo: planta de Rebouças (1866) georreferenciada para o vídeo do briefing de\nTuiuti (planta.mjs com a calibração e o conversor de pixel para coordenada,\ngerador do KMZ de 800 px) e a ação importarArquivo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6a08674",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a08674de9f5d60bb95fd486aa1c8924adcbbace",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T13:05:38.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão: DSG em 9c373e22\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "aa0a900",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/aa0a9004b9154e1e090ca767e47d8034d6957611",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T12:46:57.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão: 1º CGEO e estática em 9c373e22, DSG preparada\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "41ffd89",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/41ffd89d5fc29bc0c45135769e7b6b35cb31b402",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T12:44:25.000Z",
+      "author": "Maj Diniz",
+      "message": "telemetria de skills conta o Read do SKILL.md; corrige a medida dos hooks\n\n- telemetria_skills.py grava as duas portas de uso, Skill e Read do\n  .claude/skills/<pasta>/SKILL.md deste vault (origem \"Read\"); autoteste\n  24/24 e cinco mutacoes que reprovam. Hook novo em .claude/settings.json com\n  matcher Read e \"if\": \"Read(**/.claude/skills/*/SKILL.md)\", conferido ao vivo:\n  disparou no SKILL.md e nao no learnings.md. Aval do chefe em 2026-10-09.\n- Corrige o commit 8ce9df1: a falha dos tres hooks foi de 100% NESTA estacao\n  (106 de 106 chamadas da Skill), mas o uso-skills.tsv recebeu 16 registros de\n  outras sessoes. Execucao bem-sucedida e calada nao deixa rastro no\n  transcript; a taxa se mede contra as chamadas da ferramenta.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "7c71389",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7c713892333ee4ba156827e9613b8aa89b428c63",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T12:37:35.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-09 (cont.): /doctor, hooks Python religados pelo PATH, YAML de 15 skills\n\n- 15 SKILL.md com description sem aspas e \": \" no meio: o YAML nao parseava e o\n  Claude Code descartava o frontmatter inteiro. Description entre aspas.\n- lint_skills.py reprova frontmatter que nao parseia como YAML (provado contra o\n  HEAD anterior: 14 erros); gerar_indice_skills.py e lint_skills.py tiram as\n  aspas da description (INDEX.md regerado identico ao HEAD).\n- wiki/ti-infraestrutura: o python da estacao caia no atalho da Store e os tres\n  hooks do settings.json falharam em 4.455 de 4.455 execucoes; PATH do usuario\n  consertado na raiz. Ecos em cinco skills atualizados.\n- retrospectiva/learnings: contorno em varias skills e raiz aberta; dormencia\n  conta Skill e Read do SKILL.md. Livro-razao: contorno-em-vez-de-raiz.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "8ce9df1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8ce9df16e0f33e67a9709b8e9076629dea3cf0d2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T12:29:28.000Z",
+      "author": "Maj Diniz",
+      "message": "adicionar .ebgeo ao atlas do servidor leva também o briefing de slides sem mapa no arquivo\n\nMedido com os quatro .ebgeo de campo de 2026-10-09: os slides do único briefing de cada arquivo\napontam um mapa que não veio nele. A cópia do Importar de outro atlas leva só briefing com slide\nnum mapa escolhido, e ao adicionar ao atlas do servidor o briefing caía calado; abrir o mesmo\narquivo como atlas novo o guarda. importMapsFromAtlas ganha todosOsBriefings (só o appendImport\nusa), e o slide já marcado \"mapa ausente\" entra na contagem do aviso.\n\nO e2e novo degrada o 03-completo real (tira os mapas do Briefing de Inteligência) e reprova sem o\nconserto.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "9c373e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c373e22fd158025f1f87621b3ccea879c9a3aa1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T12:03:48.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão: correções pós-deploy no 1º CGEO e na estática em 9f48f420\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "deef44a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/deef44abb2578077aaf47b3683e6d47421397acb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T11:49:38.000Z",
+      "author": "Maj Diniz",
+      "message": "correções pós-deploy (pedido do chefe de 2026-10-09): configurações sem corte, aplicar a todas redesenha, correção em lote, adicionar .ebgeo ao atlas do servidor, arrastar soma, Importar remoto\n\n1. Configurações do atlas: o rodapé sticky não cobre mais o fim da Aparência (sem padding embaixo do\n   corpo), o hidden vence o display das linhas, barra de rolagem verde fina.\n2. Aplicar o zoom padrão a todas: o mapa aberto redesenha da store (MAP_MODIFIED) depois de gravar;\n   o e2e lê a âncora no mapa desenhado e reprova sem o conserto (14 em vez de 11).\n3. Ligar ou desligar a correção de zoom em todas as feições, com pergunta e contagem.\n4. Importar num atlas do servidor soma ao atlas aberto: a preparação em etapas publica um atlas\n   temporário, copiado pelo serviço do Importar de outro atlas e apagado em seguida; repetição por\n   arquivo e atlas (migração 037). Testado com o .ebgeo complexo (14 mapas, pastas, briefings).\n5. Arquivo solto num atlas do servidor soma, sem a opção de substituir.\n6. \"Importar de outro atlas\" vira \"Importar remoto\" na aba Mapas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "9f48f42",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9f48f4207d015545e731446a4c566e26195ab06c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T10:47:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-09: roteiros do deploy do EBGeo nas skills, agentes de código e testes, integridade do .ebgeo e zoom padrão na wiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "368fa1f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/368fa1f945f966dfb471d3c6b21698fd62bb967b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T10:41:12.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão: as três instâncias do EBGeo em 80a6cddd\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "e399a93",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e399a93590d2e8d16b4740515c682e6023209481",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-09T10:23:38.000Z",
+      "author": "Maj Borba",
+      "message": "fix: EDL models never computed test-time metrics (test_step vs _shared_step asymmetry)\n\nEvidentialWrapper returns a dict (logits/evidence/alpha/probs/uncertainty)\ninstead of a tensor. _shared_step already unwrapped it to probs for\ntrain/val metrics, but test_step and _test_step_sliding_window called\n_prepare_preds_for_metrics directly on the raw dict, which only accepts\ntensors — so MulticlassJaccardIndex/test and friends were silently\nskipped for every EDL run (with or without TTA, since apply_tta also\nreturns a dict for dict-valued models), leaving only loss/test.\n\n_prepare_preds_for_metrics now unwraps a dict's \"probs\" key first,\nfixing both callers from one place.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013fipMhds365ues51cEByaj",
+      "sha": "c3e8252",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/c3e82525200c03f19f8d382f7a51b020abeb71b9",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T10:02:12.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: zoom de referência padrão do atlas na main 80a6cddd\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "5ae8f54",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5ae8f549127dc92764858a46bf30ad5fb84222d5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T10:01:49.000Z",
+      "author": "Maj Diniz",
+      "message": "merge: lote do dono de 2026-10-09 (b8b51b2e) com o zoom de referência padrão\n\nO painel do ponto fica com a correção de zoom única do lote, e o \"Usar o padrão\" vai nela (marcador e\nrótulo juntos). Tetos de peso remedidos na árvore junta (8994 e 14368 kB). O lote em massa entra no\ncenso do registro de tipos como SUBSET.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "80a6cdd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80a6cdddce12bc9cbbf4d459128bc2490582b49f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T09:57:26.000Z",
+      "author": "Maj Diniz",
+      "message": "zoom de referência padrão do atlas: configuração na Aparência, feições novas no padrão, botão no painel e aplicar a todas (pedido do chefe)\n\nConfigurações do atlas, Aparência, \"Zoom das feições novas\": o zoom de referência em que toda\nfeição nova nasce (1 a 21, ou o do momento) e se ela nasce com a correção de zoom ligada. As duas\nchaves viajam pela op de sync (whitelist conferida no servidor), vão no .ebgeo (featureDefaults) e\nsobem no envio e na importação do atlas. Os 22 pontos de criação passam pela regra (censo). O\npainel de cada feição mostra a distância ao padrão e \"Usar o padrão\"; \"Aplicar a todas as feições\ndo atlas\" pergunta com a contagem e deixa as imagens (fora OM), as bloqueadas e a correção\ndesligada como estão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "0deb4f2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0deb4f25aed84c21208c9a90fd512582f2ce52ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T09:39:12.000Z",
+      "author": "Maj Diniz",
+      "message": "lote do dono de 2026-10-09: grupo, rotulos presos ao chao, aba Azimutes, galeria, zoom do ponto e OM generica\n\n- Ponto: uma so correcao de zoom (e um zoom de referencia) abaixo das abas, gravando o par do\n  marcador e o da etiqueta juntos.\n- Aba Azimutes: le os vertices (baseCoordinates), nao a geometria; a perna do Azimute e\n  Distancia densificada a cada 1 km (D-G4) aparecia como dezenas de pernas.\n- text-offset da linha de coordenacao aceita o texto JSON que a consulta de tile entrega\n  (numericPairExpression, a mesma do iconOffset).\n- Grupo: desmarcar no bloqueio do grupo nao passa mais feicao nula ao controle; o olho e o\n  cadeado da selecao e do clique direito agem no grupo quando a selecao cobre grupos inteiros;\n  o cadeado da linha do grupo parou de remendar bloqueado nos membros.\n- Galeria de imagens: uma renderizacao so vence (excluir uma de 4 mostrava 6).\n- Rotulos do limite, da linha e da area de coordenacao com inclinacao no mapa, como o texto\n  girado da ferramenta de texto.\n- OM generica no padrao do catalogo: escudo, faixa do nome com \"OM\", corpo branco.\n- Teste do backend: importar-de-outro-atlas apaga os dois tilesets privados que deixava no\n  banco da suite e que reprovavam resource-access-listagem-crua quando ele rodava depois\n  (controle negativo reproduz os 2 vermelhos).\n- Tetos de peso da pagina do mapa: 8975 -> 8981 kB (ansioso) e 14327 -> 14335 kB (completo),\n  medidos pela falha.\n\nVerificacao: lint verde nos dois pacotes. npm test da raiz: frontend 20007/20007; backend com\n2 vermelhos (o vazamento acima, corrigido e conferido em par); a terceira rodada foi CANCELADA\na pedido do dono com o frontend verde e o backend em ~3900 casos sem falha, sem chegar ao e2e.\nUI sem captura do Playwright.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b8b51b2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b8b51b2e28433592a5b8af61cbfe34d14b5986b7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T08:43:37.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: pastas, KMZ e o .ebgeo complexo na main 295591e6\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "a9de843",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a9de84382e2aa1617ff06478e6ff48a7f369a5d7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T08:38:44.000Z",
+      "author": "Maj Diniz",
+      "message": "tela: um .ebgeo complexo (pastas, subpastas, camadas, briefings) de ida e volta por todas as portas, com controle negativo do instrumento (pedido do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "295591e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/295591e6502e107b9c389deb810bda52a946b425",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-09T08:05:36.000Z",
+      "author": "Maj Diniz",
+      "message": "importação KML/KMZ: pasta de feições todas ocultas vem oculta, com as feições visíveis (pedido do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "2288a30",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2288a304e5b6e6cc1e09bc9f16b5431649e5f540",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-09T00:43:13.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-arquivo-ebgeo: análise na raiz, integridade e as três instâncias em 7463c4e0\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019JyCtAHtxDkUydLGEJYzQ9",
+      "sha": "cbdc252",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cbdc2525b16e42bbe9b746cc8b870eb7df7eb7fa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-09T00:00:27.000Z",
