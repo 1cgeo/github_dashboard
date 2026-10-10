@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-09T23:55:54.329Z",
+  "lastUpdate": "2026-10-10T15:49:26.450Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-09T20:54:36.000Z",
+    "1cgeo/ebgeo_web": "2026-10-10T15:43:15.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8891,
+    "totalCommits": 8896,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2596,
+      "1cgeo/ebgeo_web": 2601,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -182,6 +182,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T15:43:15.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o \"Mover\" voa num arco direto e a vista mira o destino\n\nPedidos do dono de 2026-10-10, em dois passos: \"subir e descer no ponto\" (a\nprimeira versão, a 8% da distância, parecia andar rente ao chão) e \"uma\ntrajetória mais direta\" (um arco de 35% subia quase na vertical, cruzava e\ndescia).\n\n- planoDoVoo: a altura é uma parábola sobre o caminho, 4 H u (1 - u), com\n  ápice de 15% da distância (no mínimo a própria distância até 40 m, no máximo\n  4 km); a fração do caminho anda em seno no tempo. Sai e pousa inclinado,\n  cerca de 31 graus, e a altura perto das pontas (0,6 do chão andado) segue\n  muito acima das 3 células que o buraco sob o olho exige.\n- A vista inclina para mirar o destino durante o arco (elevacaoDaMira, com a\n  queda da distância; peso pesoDaMira, zero na decolagem e no pouso) e devolve\n  a inclinação da pessoa ao pousar. A mira é limitada antes da mistura.\n- Duração de 1,6 s a 5 s.\n\nVerificação: horizonte-voo.test.js 25/25; testes do Horizonte e\ndocs-integridade 241/241; horizonte.spec.js 12/12 em duas rodadas seguidas\n(uma rodada anterior teve um Target crashed com a máquina carregada). O\ntest:tocados não rodou: o diretório tem trabalho não commitado de outra\nsessão, fora deste commit.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "b197b73",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b197b7321646eebfebabc003bfb7ab4ee2e6d0b5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T15:27:08.000Z",
+      "author": "Maj Diniz",
+      "message": "interface: teto de peso total medido numa worktree limpa (14469 kB)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "714575d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/714575d6969243a53b0396c13e23c196ef5ea48e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T15:26:12.000Z",
+      "author": "Maj Diniz",
+      "message": "interface: submenu Converter, abas planas, QAN em CSV e criar OM e engenharia pela busca\n\nBateria de melhorias de interface pedida pelo dono em 2026-10-10:\n\n- \"Puxar outros mapas\" aparece recusado quando o atlas tem um mapa só, e o clique diz por quê.\n- O QAN sai em CSV (vírgula, BOM, escapeCsvCell), com latitude e longitude em colunas numéricas.\n- \"Criar feição nesta coordenada\" ganha Símbolo de OM e Símbolo de Engenharia, com os ícones e\n  nomes da barra de ferramentas.\n- O combo do símbolo da Linha de Coordenação quebra para a segunda linha e não estoura mais a\n  largura do painel (vale para todo createModernSelect).\n- Círculo, elipse e setor ficam com uma linha só de abas (Símbolo | Etiqueta | Atributos), e o\n  texto com Texto | Fundo | Atributos; a seleção múltipla mantém as abas internas. Salvar e\n  Descartar acompanham a aba de edição ativa (também a Textos da Área de Coordenação).\n- O menu da feição tem uma linha \"Converter\" que abre os destinos ao lado (hover ou clique), para\n  ponto e para os tipos lineares; o ponto converte também em Símbolo de OM e de Engenharia, e um\n  ponto com trajetória recusa os destinos que não a guardam.\n- Os números de coordenada da busca, do Azimute e Distância e das tabelas de coordenadas usam a\n  fonte da interface com algarismos tabulares, como a barra de coordenadas.\n- \"Copiar Coordenadas\" é o segundo item do menu do botão direito, logo abaixo de \"Orientar para\n  Norte\".\n- Os botões de correção de zoom em lote das Configurações do atlas viram uma linha do cartão,\n  com rótulo e dica, no padrão das outras.\n\nOs tetos de peso da página sobem 18 kB (ansioso) e 20 kB (total), e a central de ajuda acompanha\nos textos novos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "efa3a44",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/efa3a446fb3554b1fadda56ab91ee1f36fc6b668",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T14:03:08.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: imagem raster sobre o relevo até 15 km, com fonte no painel e botão na vista\n\nPedido do dono de 2026-10-10: liga e desliga para pintar o relevo do\nHorizonte com uma imagem, a URL configurável no painel do administrador, o\nrelevo carregado primeiro e a imagem depois.\n\n- Servidor: `services.horizonteImagemUrl` (env HORIZONTE_IMAGEM_URL, vazia por\n  padrão), servida no /api/config e editável na aba Sistema. A regra do modelo\n  (`modeloDeImagemValido`) aceita {z}/{x}/{y} ({-y} para TMS), WMS com\n  {bbox-epsg-3857} e WMS com {bbox-epsg-4326}: as imagens do BDGEx (rapideye,\n  landsat7, ortoimagem_scn25) só existem na grade geográfica do mapcache.\n  Modelo inválido morre em 422; vazio esconde o botão.\n- Cliente: botão na barra da vista, desligado ao abrir. Ligado, baixa depois\n  da grade dois anéis, z13 até 15 km e depois z16 até 3 km do mais perto para\n  o mais longe (~160 tiles no Rio), cada anel um canvas que vira textura e se\n  pinta tile a tile. O shader não vê latitude: uma quadrática leva a posição\n  do fragmento no plano do observador à coordenada da textura, com erro abaixo\n  de um décimo de pixel. Desligar interrompe o download. No \"Mover\", a imagem\n  do ponto novo espera o relevo dele.\n- A textura sobe sem a virada vertical padrão do Three.js (`flipY`), que\n  trocava norte e sul: medido nas capturas do OSM como nomes de rua invertidos.\n\nVerificação: npm test por pernas (frontend 20112/20113, só o vermelho anterior\nde kmz-imagens-na-caixa; backend 6220 sem falha, cobertura 98,42%; e2e de\ncontrato 328/328; a perna da Ajuda não roda neste checkout por falta de\ndependências do pacote ajuda/, sem arquivo dele no diff). horizonte.spec.js\n6/6 sem retry; o caso da imagem pinta o norte de vermelho e o sul de azul e\nreprova com a textura virada. Capturas com OSM e RapidEye do BDGEx lidas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "b1247ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b1247ce2b38f3ef452628c485f4528b7464e2a22",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T14:02:41.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: \"Mover\" voa até o ponto do relevo e troca pela grade do novo ponto\n\nPrimeiro item do botão direito do Horizonte (dono, 2026-10-10). A vista voa\naté o ponto do chão sobre a grade que já está em memória, sem rede, e a grade\ndo novo ponto carrega por baixo e substitui a outra quando chega.\n\n- voo.js (puro): o plano azimutal do observador, exato nos vértices da grade;\n  a cota bruta lida na grade; a grade reamostrada em volta do destino, montada\n  em fatias durante o voo; o trajeto com subida; o gêmeo JS do shader.\n- render-cilindrico.js: ramo de voo (`uVoo`) que recalcula distância, azimute\n  e queda de cada vértice a partir de um olho que anda, e descarta no fragmento\n  a emenda de trás e o leque sob um olho distante. Com `uVoo` 0 nada muda.\n- O voo sobe (8% da distância, até 2500 m) para o buraco sob o olho ficar fora\n  do quadro e, na metade, troca a malha pela grade reamostrada, cujos anéis\n  finos ficam sob o olho na descida. Sem cancelamento. Pousa no rumo da viagem.\n- Exceção à regra \"sem prévia\", só durante o movimento: até a grade nova\n  chegar, o chão perto do destino é mais grosseiro e falta o relevo além de\n  100 km do ponto antigo. Decisão registrada.\n- horizonte.spec.js fixava a hora da máquina: de manhã a vista abria para\n  leste, sobre chão liso, e a prova de desenho reprovava (no HEAD também).\n  Agora a página roda ao meio-dia de Brasília.\n\nVerificação: horizonte-voo.test.js (a grade reamostrada bate com a montada\ndireto no destino); o caso \"Mover\" do horizonte.spec.js, 5 de 5 em série; o\narquivo inteiro 5 de 5 sem retry. Teto de peso: +1 arquivo e +26 kB, só atrás\ndo import() da vista.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "60e3e72",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/60e3e7201d3e599801e134be417f582c72a2efc5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-09T20:54:36.000Z",
