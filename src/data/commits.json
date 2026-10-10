@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-10T15:49:26.450Z",
+  "lastUpdate": "2026-10-10T23:23:02.895Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-10T15:43:15.000Z",
+    "1cgeo/ebgeo_web": "2026-10-10T21:50:18.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-09T19:24:50.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-10T22:36:18.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8896,
+    "totalCommits": 8907,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2601,
+      "1cgeo/ebgeo_web": 2610,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 74,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1029,
+      "1cgeo/chefe_dgeo": 1031,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-10T22:36:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-10 (cont.): Pontos Dominantes no EBGeo Web, botão direito no desenho de área e a suíte do backend sem o .env\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "abc4842",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/abc484225fe1afed4bae64afac28558480502ac5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-10T22:35:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-10: deploy estático por worktree limpo, suíte da raiz por etapas e sessões paralelas no ebgeo_web\n\n- atualizar-ebgeo-dsg/learnings: a página estática construída num worktree destacado com\n  node_modules em junção (desfeita por rmdir antes do remove), MSYS_NO_PATHCONV=1 para o --base,\n  a queda nativa esporádica do rolldown, e a conferência do dist antes do --sem-build.\n- subwiki ebgeo-web/desenvolvimento: o npm test da raiz corta a cadeia no primeiro vermelho (rodar\n  as etapas em separado), e o protocolo de várias sessões no mesmo checkout.\n- Decisions: feição só muda de camada (opção c); estática em 1ce98314 sem a tabela nova.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "a9fed37",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a9fed372bb04726ba9ca5d2c90376548dfe31718",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T21:50:18.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: Pontos Dominantes e o impacto dos commits de 2026-10-10 na documentação\n\nAuditoria dos 11 commits do dia contra as quatro camadas de documentação, conferida por amostragem\ncontra o código.\n\n- Central de Ajuda: o painel da feição sem a aba Atributos (ícone no cabeçalho, em\n  ponto-linha-poligono e tabela-de-atributos), \"Aplicar a todas\" na linha \"Feições que já existem\",\n  a primeira aba do polígono (Símbolo), \"Mover\" e \"Imagem sobre o relevo\" no Horizonte, a edição por\n  azimute, o botão direito da Área de Recorte e os Pontos Dominantes na aba Análise, e a seção de\n  2026-10-10 das Novidades.\n- Wiki: página pontos-dominantes (proeminência, a margem contra a borda, custo no fio principal e o\n  botão direito em captura); cobertura-de-radar com o reparo que compara o estado de desenho da\n  saída; coordenacao-entre-abas com a aba que fica muda depois do pagehide.\n- Decisões: Pontos Dominantes, um nível só de abas com atributos por ícone, e a feição sem ordem\n  dentro da camada; o índice ganha as linhas de 2026-10-09 e 2026-10-10 que faltavam.\n- Regra de algoritmo de processamento: algoritmo sem camada de origem, `preparar`, o desenho de\n  área compartilhado e os tetos de peso.\n- Tutorial antigo (tutorial.html): as quatro linhas que os commits do dia tornaram falsas.\n- backend/.env.example ganha HORIZONTE_IMAGEM_URL, vazia.\n\nFica de fora, porque a captura exige o servidor de produção, que esta estação não alcança: a\npágina \"Como encontro os pontos mais altos de uma área?\" (o lint pede figura), a figura\nl2-busca-02 com os cinco botões da busca, e as figuras de painel com a fileira velha de abas.\n\nVerificação: lint verde; docs-integridade verde; build da ajuda com o lint de conteúdo verde;\nsuítes antes da main sobre 03b25f69: backend 6220/6220, frontend 20191/20192 (o vermelho é\nkmz-imagens-na-caixa, que já falhava no HEAD), e2e de contrato 328/328, ajuda 87/87.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1ce9831",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ce98314ca00d2497b678042bfd36288f14002ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T21:27:59.000Z",
+      "author": "Maj Diniz",
+      "message": "kmz: a diagonal é o único teto da imagem importada, e o teste volta a medir\n\nO 6a08674d pôs o teto de 2000 px na diagonal (um canto a mais de 1024 px do centro, em\nqualquer rotação, apaga a imagem no MapLibre) e deixou vermelho o caso de\nkmz-imagens-na-caixa que esperava o lado de 2048 px. O lado nunca mais decidia: lado acima de\n2048 implica diagonal acima de 2000. Sai `LADO_MAXIMO_DA_IMAGEM` e o parâmetro `ladoMaximo`,\nque nenhum chamador passava; o tamanho importado não muda.\n\nO teste confere a diagonal, a meia diagonal abaixo de 1024 px e a razão, e ganha a planta\nmedida (1600x1926 -> 1278x1538). Os dois casos reprovam com o teto antigo só por lado.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "270a945",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/270a945711b5bd4e44d2a6d822bdc77ae3b505a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T21:05:39.000Z",
+      "author": "Maj Diniz",
+      "message": "pontos dominantes: os cumes que se destacam numa área desenhada, e o desenho de área fecha pelo botão direito\n\nFerramenta nova na aba Análise (decisão do dono de 2026-10-10, opção B de três): o usuário desenha um\npolígono, e a análise lê o MDE da área com 25% de margem e devolve os cumes de dentro dele que sobem\npelo menos o destaque mínimo acima do colo que os liga a terreno mais alto (proeminência topográfica,\ninundação do topo para baixo com união e busca), do mais alto ao mais baixo. Saída: camada de pontos\n\"PD n (cota)\" com cota, destaque, cota do colo e resolução do MDE nos atributos.\n\n- O executor do processamento aceita algoritmo sem camada de origem (`semCamadaDeEntrada`) e com\n  leitura assíncrona antes do `execute` puro (`preparar`); o painel base, nome e validação sem camada.\n- `carregarTilesDaCaixa` e `zoomDaCaixa` aceitam um teto de tiles menor (16 aqui): 170 ms por milhão\n  de células em node, 615 ms no teto de 4 milhões, no fio principal.\n- O desenho de área do painel (polígono aqui, retângulo nas Zonas de Proximidade) fecha pelo botão\n  direito, como as ferramentas de polígono e retângulo (pedido do dono). O ouvinte é de CAPTURA com\n  stopImmediatePropagation, porque o menu do mapa escuta o mesmo canvas e foi registrado antes.\n- A trava de clique do desenho (`ProcessingClipDraw`) passa para `desenho-de-recorte.js`, dividida.\n- Tetos da página do mapa recentrados com os três módulos novos nomeados (972 módulos, 14553 kB no total e 9046 kB no ansioso, sobre `03b25f69`).\n\nProvado em navegador sobre o terreno de demonstração (Innsbruck): 8 pontos, cada um conferido pelo\nleitor de MDE da visada (cota igual e mais alto que o anel de 60 e 150 m), controle negativo com os\npontos deslocados 80 m reprovando os 8. Modelo com 14 casos, inclusive a encosta cortada pelo\npolígono, que sem a margem passaria por cume.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "95710dd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/95710dd6d13417060ae43e0f091292eac6763a27",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T20:56:30.000Z",
+      "author": "Maj Diniz",
+      "message": "análise: o desenho segue a camada, o olho e o grupo da feição\n\nO mapa desenha a SAÍDA derivada da linha de visada, da mancha de visibilidade e da cobertura de\nradar, e ela leva uma cópia da camada, do olho, do cadeado e da janela da entrada. Mover para\noutra camada e o olho da feição gravavam só a entrada: a cobertura arrastada para a camada nova\nseguia obedecendo ao olho da antiga, também depois do F5.\n\n- store: `moveFeaturesToLayer`, `updateFeatureProperty` e `updateFeature` re-derivam a saída\n  na mesma escrita.\n- mapa: `layers/saida-derivada-no-mapa.js` repinta a saída a partir da store, no painel de\n  camadas e no menu da seleção, no lugar do remendo por nome que só cobria olho e cadeado de\n  visada e mancha.\n- entrada no mapa: `analysisOutputsOutOfDate` compara também camada, olho, cadeado e janela, e\n  conserta o atlas local já gravado com a cópia velha.\n- grupo oculto: leva as classes da cobertura de radar.\n\nMedido no navegador antes e depois. Teste: saida-de-analise-segue-a-entrada.repro.test.js\n(5 de 7 reprovam o código antigo). Tetos de peso +1 arquivo e +3 kB.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "03b25f6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/03b25f691d0d0a25640f4fae9170cac2642a11ff",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T20:56:30.000Z",
+      "author": "Maj Diniz",
+      "message": "camadas: feição só muda de camada, nunca de posição dentro dela\n\nArrastar uma feição dentro da própria camada mexia a linha na tela, não gravava nada e\nvoltava à ordem alfabética no redesenho seguinte. Não há ordem a gravar: a lista é por tipo e\nnome, e o mapa empilha por tipo de feição. A lista de feições da camada passa a `sort: false`;\no arrasto entre camadas continua. O comentário de `reorderLayers` deixa de prometer ordem de\ndesenho: a ordem das camadas vale só para a lista.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "7315e1f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7315e1fb1e8fec0e98de22cba16321b3b2c6e836",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T20:28:09.000Z",
+      "author": "Maj Diniz",
+      "message": "azimute: editar linha e polígono pela ferramenta Azimute e Distância\n\nPedido do dono (2026-10-10): a aba Azimutes de linhas e polígonos ganha\n\"Editar azimutes e distâncias\", que abre a ferramenta presa à feição, com\nas pernas dela, e \"Salvar alterações\" reescreve a MESMA feição (id, nome,\nestilo e atributos mantidos).\n\n- azimuth-edit.model.js (puro): a construção guardada só é usada se ainda\n  cai nos vértices (5 cm); vértice arrastado depois a torna velha, e então\n  as pernas saem dos vértices, em NV, graus e metros. Polígono abre com\n  N - 1 pernas (fechamento implícito), mantém furos e a observação do\n  fechamento.\n- O estado guarda a perna exata; só o campo arredonda o que mostra\n  (azimute com 1 casa, metros inteiros): os campos cortavam \"54,249\" e\n  \"1895,\". Salvar sem mexer não move vértice (0,000 cm medido).\n- No modo de edição, trocar norte ou unidade converte sem arredondar, e a\n  figura não gira. O editor abre no topo.\n- Gravação no modelo da continuação pela ponta: grava, relê e só então\n  pinta; a recusa por posto ou trava é perguntada ao abrir e ao salvar.\n  Cancelar devolve a feição à seleção; Ctrl+Z desfaz a edição.\n- Teto de peso do mapa: 9042 kB ansioso (+1,8 kB da porta na aba), 968\n  arquivos e 14510 kB no completo, anotados no teste.\n\nVerificação: lint verde; test:tocados 20170 de 20171 (o vermelho é\nkmz-imagens-na-caixa, que já falhava no HEAD); unitário novo com controle\nnegativo; Playwright dos specs de azimute 13 de 13 sem retry, com capturas\ndo app real lidas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "eb8fa83",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb8fa839c89447b7465fb889ba429bbc0ef070a8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T18:43:06.000Z",
+      "author": "Maj Diniz",
+      "message": "interface: atributos pelo ícone do cabeçalho e um nível só de abas\n\nPedido do dono (2026-10-10): atributos são raramente editados e custavam\numa aba em todo painel de feição.\n\n- Atributos saem da fileira de abas e abrem por um ícone ao lado do olho\n  e do cadeado, com contador; o clique troca o corpo do painel por uma\n  vista com \"voltar\" (feature-attributes-view.js). A vista é lembrada na\n  reconstrução do painel só para a MESMA feição: levada a outra, ela\n  escondia o cabeçalho da feição recém-selecionada.\n- Polígono e retângulo deixam de aninhar Símbolo/Etiqueta dentro de\n  Estilo: Símbolo | Etiqueta | Azimutes e Símbolo | Etiqueta | Coordenadas.\n- A fileira de uma aba só não é desenhada (símbolo militar, imagem e os\n  demais tipos que ficaram só com Estilo).\n- Specs de tela trocam a aba pelo ícone; cobertura-simbolo-de-om passa a\n  esperar o store depois do Salvar (lia na linha seguinte a uma gravação\n  assíncrona; registrado no livro-razão).\n- Teto de peso do mapa: 623 arquivos e 9041 kB no grafo ansioso, 967 e\n  14482 kB no completo, anotados no teste.\n\nVerificação: lint verde; test:tocados 20149 de 20150 (o vermelho é\nkmz-imagens-na-caixa, que já falhava no HEAD, cadeia de import idêntica);\nPlaywright dos specs de atributos, abas, cabeçalho e trava sem retry,\ncom capturas do app real lidas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "3f88540",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3f8854089e3fb059e2241bd155bce3dacc75ce1c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T17:57:13.000Z",
+      "author": "Maj Diniz",
+      "message": "trava de aba: a aba que fecha não responde depois de avisar que saiu\n\nMedido no Chromium: ao fechar a aba dona do atlas, ela posta RELEASE e, nos turnos em que ainda\ndescarrega, responde ao HELLO da aba que retoma a chave cedida. Esse STATE leva o claimedAt antigo,\na outra aba volta a registrá-la e fica bloqueada por uma aba fechada até o TTL (cerca de 8 s), e o\n\"Usar aqui\" dela pede a vez a ninguém. Depois de um pagehide de verdade a aba não posta nem recebe\nmais nada; o beforeunload não silencia, porque um \"sair do site?\" cancelado deixa a aba viva.\n\nLiberação depois de fechar a dona: de cerca de 8 s para 1 a 2 ms (3 rodadas). Repro em\ntests/unit/aba-fechada-nao-responde-depois-de-sair.repro.test.js, com controle do beforeunload.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "4b41063",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4b41063b2732fc0f18cfdbe3dff509bedbb3ee0e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T15:56:44.000Z",
+      "author": "Maj Diniz",
+      "message": "interface: Ponto com Estilo | Etiqueta | Atributos, sub-abas na largura do painel e zoom por último\n\nPedidos do dono de 2026-10-10:\n\n- O Ponto deixa de ter dois níveis de abas: Estilo | Etiqueta | Atributos numa fileira só, com a\n  Correção de Zoom no fim do Estilo (ela vale para o marcador e para a etiqueta). Na seleção\n  múltipla as abas internas continuam.\n- As sub-abas Símbolo | Etiqueta do polígono e do retângulo (e de toda forma na seleção múltipla)\n  ocupam a largura do painel, como a fileira de cima: medidas 358 px contra 358 px.\n- \"Correção de Zoom\" e \"Zoom de Referência\" são sempre os últimos controles do estilo, em toda\n  ferramenta: o slider é marcado por `anexarZoomPadrao` e o painel leva o par para o fim da aba,\n  antes de Salvar e Descartar.\n\nOs tetos de peso sobem para 9033 kB (ansioso) e 14475 kB (total), medidos numa worktree limpa;\n2 kB do total são do arco do Horizonte (b197b732), que entrou sem subir o teto.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01HN7pJQ5KP4NqqKxEZfNkSV",
+      "sha": "0029731",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/00297314ba18929999165f388fe4aa4c49197ab9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-10T15:43:15.000Z",
