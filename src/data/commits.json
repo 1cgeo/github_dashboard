@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-10T23:23:02.895Z",
+  "lastUpdate": "2026-10-11T16:14:06.636Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-10T21:50:18.000Z",
+    "1cgeo/ebgeo_web": "2026-10-11T14:12:33.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-10-08T19:08:31.000Z",
+    "1cgeo/controle_acervo": "2026-10-11T15:13:24.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8907,
+    "totalCommits": 8920,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2610,
+      "1cgeo/ebgeo_web": 2622,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -149,7 +149,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 361,
+      "1cgeo/controle_acervo": 362,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -182,6 +182,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:13:24.000Z",
+      "author": "Maj Diniz",
+      "message": "a revisao de telas de 2026-10-11 entra no repositorio: 320 achados de UI, UX e completude, fora o modulo producao\n\nRevisao de todas as telas em producao (acervo, mapoteca, orcamento,\nequipamento e as secoes de plataforma) sobre o commit 4e52db7, por leitura\ndo codigo das telas, rotas, schema Joi, controladores, DDL, CLIs e plugins,\ncom toda ausencia provada por grep. 13 P0 (12 distintos), 63 P1, 141 P2 e\n103 P3, oito padroes de causa, plano em ondas e 23 achados que esbarram em\ndecisao registrada, para o chefe. Uma calibracao cega no commit anterior ao\nconserto do insumo achou a falta conhecida como P0.\n\nE o backlog das correcoes que entram a seguir, onda por onda.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7828143",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7828143ed3bf1ce170dafc176d2c198f0bab71a2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T14:12:33.000Z",
+      "author": "Maj Diniz",
+      "message": "perfil: a ligação só atualiza na troca de amostra, e a Visibilidade ganha o sentido mapa → perfil\n\nPerformance of the chart <-> line link, measured in Chromium (200 pointer moves every 8 ms, CDP\nTaskDuration, rAF frame times, setData counted on the map source): the first version repainted the\nchart and called setData on EVERY event, 201 times for a 26-sample Line of Sight, with the main\nthread busy 7.5 s of 8 and the map at 30 fps. Now the chart and the marker update only when the\nsample changes: 24-25 setData, 1.3-1.5 s of task time, 60 fps at p50; away from the line the\nbackground cost is ~0.5 ms per move. The marker also comes back after a base-layer switch\n(style.load), as the Visibility panorama's already did.\n\nVisibility, map -> profile (owner, 2026-10-11): the panorama already marked on the map the point\nunder its cursor; now the map cursor over the sector puts a mira and the sample's tooltip on the\npanorama. amostraDoPontoNoMapa is the pure inverse of amostraSobOCursor (column by azimuth with half\na column of tolerance, across north too; nearest slice by distance; the analysis' own verdict).\nBehind a hill the mira is hollow and the tooltip says \"Situação: Oculto\"; \"Visível\" stays out of the\ntooltip, which dropped the verdict words on 2026-10-07. Same change-of-sample rule: 137 setData in\n200 moves, 60 fps, no long frame.\n\nTests: amostraDoPontoNoMapa cases in visibility-panorama-render; the map -> profile section of\nperfil-da-visibilidade (6 visible and 12 hidden points agree between mira and tooltip, off-sector\nclears; 6 of 7 in series, the failure was the harness renderer crash). Captures read. Total map-page\nceiling 14673 -> 14682 kB measured by failure. test:frontend green: 20351 + 1 expected fail.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "c4883a3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c4883a34a8b7ce5dbc3025d9a2b4155dda92d47e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T13:18:11.000Z",
+      "author": "Maj Diniz",
+      "message": "perfil: o gráfico e a linha no mapa se acompanham, na Linha de Visada e na Linha\n\nThe profile panel (shared by the Line of Sight and the Line's elevation profile) was a picture with\nno tie to the map. Owner's decision, 2026-10-11:\n\n- I1: the cursor on the chart puts a marker on the map at the matching point of the line, and the\n  marker leaves with the cursor;\n- I2: the cursor over the line on the map (10 px) puts the chart's active point, tooltip and a\n  vertical guide (a small Chart.js plugin) at the nearest sample, and the same marker.\n\nNothing is stored: every sample is turf.along of its distance over the feature's own geometry, the\ncall that created it. The Line of Sight is stored as a MultiLineString (visible and obstructed\nparts) while its profile was sampled over the whole segment; profilePathOf joins the parts without\nrepeating the junction. Passing the raw geometry made Turf throw \"coord must be GeoJSON Point\" on\nevery cursor move, found only in the browser. The marker is a transient source of its own, removed\nwith the panel; map.on/off are paired.\n\nTests: perfil-ligado-ao-mapa (unit: nearest sample with fast-check, cursor tolerance, path) and the\nPlaywright spec of the same name (6/6 in series; negative control with the raw geometry fails the\nLine of Sight case). Captures read. Map-page ceilings measured by failure: 982 files, 14673 kB, CRLF.\ntest:frontend green: 20345 + 1 expected fail.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "6096bf8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6096bf8f3c122856c12f953cc3aabc8765356a6d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T12:55:31.000Z",
+      "author": "Maj Diniz",
+      "message": "diagrama de nortes: a coordenada é a origem das setas\n\nThe diagram describes the norths AT its point, and the crop kept the centre of the uncropped canvas\non the coordinate, halfway up the NV arrow (owner's decision, 2026-10-11). anchorAtOrigin shifts\nthe crop's iconOffset by the distance from that centre to the arrows' origin. The layer, the\nhit-test, the PDF (drawn by the map layers) and the KMZ hot spot already read iconOffset; it is a\nlocal drawing key stamped on generation, so existing diagrams move once, on their first redraw\nafter the deploy (the build is part of the drawing signature).\n\nCaptures read at Brasília, northern Norway and Anchorage, at zoom 12 and 9: the coordinate sits on\nthe origin, the selection box covers the drawing and a click on the arrow still selects it. Unit\ncases in declination-svg-generator. Total map-page ceiling 14660 -> 14661 kB measured by failure.\ntest:frontend green: 20335 + 1 expected fail.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "2a7d80a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2a7d80ae332f132f97100e196d51a3c769c9a1c4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T12:38:28.000Z",
+      "author": "Maj Diniz",
+      "message": "diagrama de nortes: ângulo QM e variação anual da declinação, e os três rótulos das pontas sem sobreposição\n\nThe DSG charts print, next to the north diagram, the grid-magnetic angle (NQ-NM, the correction\napplied in the field) and the annual change of the declination. The panel showed only the first,\nthe diagram neither (owner's decision, after reading the QGIS Meridian plugin).\n\n- annualDeclinationChange: the rate from two UNROUNDED declinations a month apart, inside the model\n  the geomagnetism library picks for both dates (it switches on release dates, WMM2025 from\n  2024-11-13, not on the epoch year), scaled by the library's 365-day year. describeAnnualChange says\n  \"cresce\"/\"decresce\" by the magnitude, as the charts do.\n- The rate is DERIVED from the position and calculationDate the diagram already stores\n  (annualChangeOf): no new synced field, and diagrams drawn before it get it on their next redraw.\n- The SVG gains a lower legend under the base line (QM and \"Var. anual\"); the panel gains the line.\n- Captures read at eight places (Brasília, Porto Alegre, Manaus, Cape Town, Sydney, Anchorage,\n  northern Norway at a zone edge, Tokyo) showed \"NQNM\" and \"NMNQ NV\": only NV and NQ were pushed\n  apart. tipLabelOffsets now spreads the three labels pairwise and re-centers the group; the arrow\n  origin moved down 12 px so the tip labels clear the upper legend.\n\nTests: variacao-anual-da-declinacao (model-boundary rule, negative control done) and\ndeclination-svg-generator (label spread with fast-check, negative control done; lower legend).\nHTML census classifies the legend text as image. Map-page ceilings measured by failure (9061 eager,\n14660 total, CRLF). test:frontend green: 20333 + 1 expected fail.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "5e1a908",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5e1a9088ce95dd08732c5009607da280d23623b6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T12:11:21.000Z",
+      "author": "Maj Diniz",
+      "message": "tabela de atributos: a célula de uma coluna que o colega renomeou ou removeu não ressuscita a chave\n\nThe table holds its redraw while a cell is open, so the cell outlived its column: when a colleague\nrenamed or removed the column in that window, Enter wrote the old key over the feature as stored,\nand the server (attributes are contested per key) accepted it. A renamed column showed up twice and\na removed one came back with one value, in both browsers and on the server, with no notice.\n\n_handleCellEdit now refuses, saying why, when no feature of the layer holds the key anymore (an\nempty column the person just added, _extraColumns, is still written). Writing under the new name\nwas rejected: from the writer's side a rename and a removal followed by another column with the same\nvalues cannot be told apart with certainty.\n\nRepro: tabela-de-atributos-coluna-some-com-a-celula-aberta.repro.spec.js, both gestures failed\nbefore (server {\"cota\":\"77\",\"altura\":\"10\"} and {\"cota\":\"77\"}) and pass after; the seven table specs\npass, 28/28. Total map-page ceiling 14653 -> 14654 kB measured by failure (CRLF).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "9bebdad",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9bebdad059e3f7776b6da350330a48ec0de8d82c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T11:25:03.000Z",
+      "author": "Maj Diniz",
+      "message": "tabela de atributos entre usuários: os nove achados da revisão, e o aviso de atropelo em toda edição por transação\n\nA review of the attribute table with two live users found nine defects, each with a failing repro.\nThe owner asked for all nine, and for the overwrite notice (not table-only) in the same batch.\n\n- Locks: feature, layer and group locks are client conventions the store does not enforce, so the\n  table now asks again at write time. \"Remover coluna\" writes only the free features and says how\n  many locked ones were left out; \"Renomear coluna\" refuses outright when a holder is locked (a\n  partial rename would split the column). A cell re-reads its feature before saving and refuses,\n  saying why, when it was locked or deleted while open.\n- Bulk notices count what the store accepted, not what the table asked for.\n- The notice's \"Desfazer\" undoes its own gesture or nothing: with another entry on top it refuses\n  and points to Ctrl+Z (peekUndoAction on the store).\n- createBatchOperations now stamps noteLocalEdit like createOperation: every op declared through a\n  transaction (nearly every store write since write-ahead) was invisible to the overwrite notice.\n- A full table redraw keeps the scroll; rebuilding the filter bar keeps the typed search and focus.\n- Personal table preferences are keyed by map id (the name-keyed entry is adopted once), and a\n  column a colleague renamed carries the person's preferences, inferred by renamedColumns.\n\nRepros: browser-collab-tabela-de-atributos, tabela-de-atributos-rolagem-no-redesenho and\ntabela-de-atributos-desfazer-do-aviso (Playwright, 13/13 against the fix), the overwrite-notice\nintegration repro and the preferences unit repro (negative controls done). Map page weight ceilings\nmeasured by failure (9058 eager, 14653 total, CRLF). Root npm test green: 20317 + 1 expected fail,\n6221/6222 (1 skipped), 328/328, 87/87.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "851c959",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/851c95906f00226a9ea8e5cdea83ef4a78a1e85a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T10:47:00.000Z",
+      "author": "Maj Diniz",
+      "message": "painel e tabela: respiro dos atributos na feição bloqueada, e a tabela acompanha o mover para outro mapa\n\nThe read-only attributes section had only side padding and sat flush against the identification\nblock; it gets the photo gallery's top gap, and none when empty.\n\nMoving features to another map removes them from the source through removeFeatureFromMap, which\nannounces nothing, so the open table of the source layer kept the rows of the features that had\nleft (measured with the table expanded: 5 rows against 4 in the store). moveFeaturesToMap now\nannounces the source map once at the end; the destination was already announced by addFeature.\nRepro case in conjunto-de-feicoes-anunciado.repro.test.js, negative control done. The stale JSDoc\nof _expandPanel (local draws emit nothing) is corrected.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "57fadde",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/57fadde10da3d48e79535934d8d5143d62820f52",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T02:19:40.000Z",
+      "author": "Maj Diniz",
+      "message": "limites conhecidos: a rodada de política, quatro aceitos e seis consertados\n\nThe owner decided the nine open limits that needed a policy, one by one. Accepted as they are,\nrecorded in the diary and tagged [aceito]: the output layer a colleague used stays on undo, the\nslide figure uploads before autosave, the exit question holds the idle expiry, and the SQL of\n\"Sem a equipe\".\n\nFixed, each with a repro that failed before and a negative control:\n- the refusal record of an attached photo stays while an undo or redo entry cites it (in-memory\n  citers registered with the census, the undo stacks among them);\n- a refused slide figure counts at the account exit, with the census reading briefings and map\n  notes so a still-cited figure's record is never removed;\n- a deactivated account is told why: the 401 carries ACCOUNT_DISABLED, and the client passes the\n  reason to every page's auth-lost handler (sessao-perdida.js);\n- leaving an atlas tells the truth before the act: the listing carries the level left without the\n  direct invite (fn_user_atlas_group_permission, migration 038), never naming the way (clause 5.7);\n- the sharing modal refuses a click made while it saves, naming the state;\n- the \"Sem a equipe\" note says exactly which numbers still count the team.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "fed45f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fed45f57e3b3c15dafab3e997d0645cc86590ecd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T01:05:32.000Z",
+      "author": "Maj Diniz",
+      "message": "limites conhecidos: nove consertados com repro, a página ganha classe por item e uma guarda\n\nThe known-limits page was checked item by item against the code; the owner chose to fix the cheap\nopen ones, record the weakly accepted ones and pin the page with a guard.\n\nFixed, each with a repro that failed before and a negative control:\n- the ownership transfer says the same word as the permission selector (\"Gestão\");\n- the interrupted-migration report carries the error name and code;\n- the coordination line texts select the line (DERIVED_SOURCE_OWNERS), and the area decoration and\n  the line extras light the drag cursor;\n- redo after undoing an import brings back the name the person gave the layer and folder since;\n- renewing a grant onto the day it already ends no longer shows a red 409;\n- switching the public link off asks before Aplicar (irreversible for whoever holds the link);\n- Descartar on the 3D and 360 marker panels undoes only what the panel wrote\n  (descarteQuePreservaOColega), keeping a colleague's later edit;\n- local create/remove announces FEATURE_SET_CHANGED, and the open attribute table follows it and\n  the remote pair.\n\nThe page: items grouped by area, each tagged [aceito], [custo], [aberto] or [infra]; every [aberto]\ncites an it.fails repro or says why there is none (tests/unit/limites-conhecidos-classes.test.js,\nwith fixture controls); the first such repro is the residual of the 3D Descartar. Six acceptances\nthat only lived outside the diary are recorded there.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "c122bad",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c122badd4a5c7899e6266bc67be1fd472ad67a6c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T00:38:25.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: limites conhecidos conferidos contra o código, seis itens vencidos saem\n\nEach bullet was checked against HEAD on 2026-10-10. Removed as no longer true: the Desktop D3\n(fixed in the Desktop on 2026-10-05), the tablet panel push resizing the desktop map (fixed on\n2026-10-06, with its repro), the terrain button using `disabled` (fixed on 2026-10-08), the\nshapefile reader in the static graph (on demand since 2026-10-03) and the attribute table\nvirtualization listed as an unattacked cost. Rewritten to what the code does today: the area\ndecoration cursor and the line texts (the stated one-line fix is not all that is missing), the\nsymbol PNG encoding (synchronous since 2026-10-04), the 409 on a same-day renewal (only after\n12h UTC) and switching the public link off (a draft applied without a confirmation).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "878b969",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/878b96968945be182e68d1a262c68921c6fda92e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T23:35:47.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a tabela aberta não acompanha o desenho feito ao lado dela\n\nA local draw emits nothing the attribute table listens to (FEATURE_CREATED only comes from a\nremote op), so the new feature shows up when the table is expanded again or reopened. Declared in\nthe known limits; the full fix is the store announcing local creation.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "faa7eda",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/faa7edad0a4a172f660367523f04e8dd3bfe3015",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-10T23:14:51.000Z",
+      "author": "Maj Diniz",
+      "message": "tabela de atributos: a linha é a feição, colunas pessoais e escrita em massa com desfazer\n\nRedesign of the attribute table (owner's request, 2026-10-10), decided over a reviewed mock:\n\n- a click on a row selects the feature without opening the feature panel (Ctrl and Shift add\n  and extend); \"Detalhes\" opens it and the magnifier zooms. A second click on the marked cell,\n  Enter or F2 edits; the arrows move across cells. The sidebar folds when the table opens.\n- sorting, hiding and column order are the person's own; rename, remove and \"Preencher\" write\n  to every feature, with a count and a \"Desfazer\" on the notice. Renaming to a name already in\n  use is refused, never merged.\n- numbers sort as numbers with blanks last; more than three feature types become one menu;\n  above 500 rows only the visible ones are drawn; \"Só na área do mapa\" counts what is seen.\n- UNDO_REDO_APPLIED: the store announces every applied undo/redo, and the table reloads on it\n  (an undone rename stayed under its new name before).\n\nGuards: tests/unit/tabela-de-atributos-modelo.test.js and\ntests/e2e-ui/tabela-de-atributos-redesenho.spec.js, with negative controls.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "cd5b9b2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cd5b9b2e99c674d7a848cf5ca6f9ff0a399411b9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-10T22:36:18.000Z",
