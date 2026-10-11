@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-11T16:14:06.636Z",
+  "lastUpdate": "2026-10-11T23:33:14.092Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-11T14:12:33.000Z",
+    "1cgeo/ebgeo_web": "2026-10-11T21:22:09.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-10-11T15:13:24.000Z",
+    "1cgeo/controle_acervo": "2026-10-11T22:06:46.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 8920,
+    "totalCommits": 9035,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2622,
+      "1cgeo/ebgeo_web": 2628,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -149,7 +149,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 362,
+      "1cgeo/controle_acervo": 471,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -182,6 +182,1041 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T22:06:46.000Z",
+      "author": "Maj Diniz",
+      "message": "mover a versao avisa o insumo e o nome fisico que a auditoria passa a acusar, e a situacao bdgex se marca em lote na versao\n\nDa revisao independente:\n- mover a versao para outra folha ou escala avisa, antes de gravar, que o\n  relacionamento de Insumo (par Carta e CDGV) passa a cair em 5f/5d e o nome\n  fisico em 7a, como o mover arquivo ja avisava;\n- \"Situacao BDGEx\" na versao marca de uma vez a situacao de carregamento dos\n  arquivos escolhidos (um PUT inteiro por arquivo, sem rota nova; o que falha\n  aparece no dialogo);\n- arquivo sem volume nao abre a edicao (mandava `Number(null)`, o volume 0);\n  a descricao nula intocada volta nula (o `arquivoAtualizacao` passa a aceitar\n  null, como a coluna);\n- para o operador, mover a versao unica aparece desabilitado com o motivo, em\n  vez de um aviso depois do clique; o input da imagem nao fica no DOM.\n\nAchados: ACV-B-03, ACV-B-04, ACV-B-20 (revisao: itens 4, 5 e 6)\nTeste: casos novos em ficha-acoes, produto-dialog e o schema de descricao\nnula; reprovam no codigo anterior (sem aviso, sem a acao, `descricao: ''`,\nvolume 0, botao habilitado, input no body).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c4903e6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c4903e68b1d3e22e4fb0468a6a2bfbce89df6c7b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T22:06:45.000Z",
+      "author": "Maj Diniz",
+      "message": "o zip do lote abre um arquivo por vez, sobrevive ao arquivo que some e ao cancelamento, manda o cabecalho logo e so registra como baixado o que desceu\n\nA revisao independente reprovou o ZIP em stream: todos os `createReadStream`\nabriam de uma vez (295 descritores em 300 ms; 2.000 passariam do ulimit), um\nENOENT/EMFILE/EIO sem tratador derrubava o processo, o cancelamento deixava\nos streams abertos e marcava todo o lote como `failed`. Agora o laco abre o\nproximo so depois do `entry` do anterior, cada fonte tem tratador que derruba\nSO o pacote, o cancelamento destroi a fonte em curso, e o registro separa o\nque desceu (`completed`) do que estava em curso (`failed`). O cabecalho sai\nantes de conferir o volume, e o LEIA-ME fecha o pacote. No client, o seletor\nde destino abre no clique, antes do pedido (`escolherDestinoDoDownload`), e o\nSecurityError do Chrome vira frase em portugues.\n\nAchados: ACV-B-05 (revisao: itens 1, 2 e 3)\nTeste: acervo_download_lote_stream.test.js (novo, sem banco): arquivo\nremovido entre o stat e o open (o processo segue, a resposta cai e o\ndesfecho fica registrado), um aberto por vez e nada aberto depois do\ncancelamento, cabecalho antes do primeiro stat; no codigo anterior os tres\nreprovam (excecao sem dono, dezenas de streams abertos, cabecalho so depois\nda conferencia). api-client e acervo-service ganham os casos do destino\nescolhido antes e da frase traduzida.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "bac3731",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bac3731d99cec65c1437a7f29c5a932851bc6d4c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T22:06:20.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.20.0 carimba o \"com quem esta\" do equipamento e a baixa que a descarga da, e sobe o piso do banco\n\nA migracao 2026-10-11_com_quem_esta_o_equipamento cria\nequipamento.equipamento.detentor_uuid e baixa_transferencia_id, e o SELECT de\ntodo bem passa a le-las: num banco 3.19.0 a lista de bens cairia inteira.\nVERSION, MIN_DATABASE_VERSION, banco/er/versao.sql e o carimbo vao a 3.20.0.\n\nOnda 3 da revisao de telas, grupo equipamento (EQP-01, EQP-02 e EQP-17 por\ndecisao do chefe de 2026-10-11, EQP-03, EQP-05, EQP-08), reprovado uma vez\npelo revisor independente na regra de reversao da baixa e aprovado na\nreconferencia.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "f3385fe",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f3385fec4c7307049ed1eed0650dc5e109b2fd89",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:51:12.000Z",
+      "author": "Maj Diniz",
+      "message": "o cli exclui pedido com --motivo e filtra a lista por cliente e busca, e a recusa da exclusao manda cancelar antes de falar do anexo\n\nO DELETE /pedido passou a aceitar `motivo` (exigido no pedido que ja entra em\nrelatorio ou tem anexo) e a lista ganhou `cliente_id` e `busca`; o\nmapoteca_cli le o contrato do Joi vivo, e os testes dele amarravam o\ncontrato antigo. O crud ganha `--motivo` para os recursos que o declaram\n(`extrasDoDelete`), e o teste de filtros passa a esperar os dois novos.\n\nA recusa da exclusao confere primeiro o relatorio (a frase que manda cancelar)\ne depois o anexo; o teste de cascata da auditoria manda o motivo, porque o\npedido dele tem anexo.\n\nAchados: MAP-P-04, MAP-P-07, MAP-P-15\nOs dois testes do CLI reprovavam no commit anterior a este (registry sem o\nmotivo e filtros sem cliente_id e busca).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "67d7b68",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/67d7b687c1f44cd0154bdf8529c871f37cfd08c6",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:49:13.000Z",
+      "author": "Maj Diniz",
+      "message": "a varredura das rotas de escrita auditadas conhece o lote de impedimento do efetivo\n\nO POST /efetivo/impedimentos/lote (EFT-18) entrou na main sem constar na lista\nde usuario_cadastro.test.js, que conta as rotas de escrita cobertas: o teste\nesperava 69 e achava 70. A rota grava um evento por militar no agregado da\npessoa, como o impedimento avulso.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c8de6bc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c8de6bc2ca026ae1628487acf00f216db65b0f5e",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:34:53.000Z",
+      "author": "Maj Diniz",
+      "message": "o lote diz o que pulou, a juncao avisa militar com civil, mover de concluido pede motivo, e a lista colada aceita a linha com o nome\n\nAcabamento do client do o3-map-p apontado pela revisao independente:\n- o dialogo de situacao em lote mostra os pedidos pulados (ja Concluidos com\n  outra data);\n- a previa da juncao de clientes avisa quando uma ficha e militar e a outra\n  civil;\n- mover itens de ou para pedido Concluido pede o motivo;\n- a busca em todos os anos avisa quando bateu no teto de 500;\n- \"2962-4-NE Porto Alegre\" colado fica com o MI;\n- sem em-dash no titulo do historico, rotulos do comprovante com `for`, e o\n  icone inexistente do anexo trocado.\n\nAchados: MAP-P-06, MAP-P-09, MAP-P-13, MAP-P-15, MAP-P-28\nOs testes novos reprovam o codigo anterior (sem aviso, sem motivo, a linha com\nnome virava uma entrada ilegivel).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "6dc4005",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6dc40056c3f38cb3023d111e60e3ddc2267b1c38",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:34:21.000Z",
+      "author": "Maj Diniz",
+      "message": "o operador nao grava data nem motivo fora do concluido, o editar tambem limpa ao voltar, e o cli resolve folhas pela mesma regra do servidor\n\nRevisao independente do o3-map-p (furo de permissao e acabamento):\n- aplicarSituacao confere os CAMPOS do operador, e nao so a transicao: o\n  motivo do cancelamento e recusado sempre, e a data de atendimento fora do\n  Concluido. A sonda do revisor (Remetido com data, motivo num pedido vivo,\n  Remetido para Remetido apagando a data do gerente) virou teste.\n- \"voltar limpa\" num helper so (limparAoVoltar), aplicado tambem no\n  PUT /pedido do Editar, do CLI e do plugin.\n- o lote pula e lista o pedido ja Concluido com outra data.\n- o resolver compara o MI normalizado, aceita subtipo_produto_id e devolve\n  arquivos e total_versoes; o mapoteca resolver do CLI chama a rota e perde\n  escolherVersao, produtoImprimivel e resolverUmMi (os casos foram para o\n  teste do servidor).\n- o despacho nao tira o rastreio de um Remetido pelos Correios; a exclusao de\n  pedido com anexo pede motivo e o evento lista os anexos; mover de ou para\n  pedido Concluido pede motivo.\n\nAchados: MAP-P-02, MAP-P-04, MAP-P-05, MAP-P-09, MAP-P-13, MAP-P-28\nNo codigo anterior os casos novos davam 200 e gravavam (sonda A, B, B2, C, E),\no PUT /pedido mantinha a data ao sair de Concluido, o MI com zero a esquerda\nsaia ausente e o mover de concluido passava sem motivo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "3378e1a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3378e1a53e9e8856050609d22e49eadfc54e314f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:31:50.000Z",
+      "author": "Maj Diniz",
+      "message": "a coluna da baixa nasce no create do bem e so a chave vem por alter, e a varredura do mapa de auditoria a enxerga\n\nA varredura de `auditoria/mapa.test.js` le as colunas do bloco CREATE TABLE\ndos banco/er/, e `baixa_transferencia_id` nascia por ALTER ADD COLUMN: o\ncampo declarado no mapa saia como inexistente. A coluna passa ao CREATE do\nbem e so a FOREIGN KEY vem por ALTER (a transferencia e criada depois), com o\nnome que o REFERENCES da migracao gera; o ensaio continua dando migrado =\nnovo, com 49 restricoes conferidas.\n\nAchados: EQP-02\n\nTeste: o caso \"todo campo declarado EXISTE na tabela dele\" reprovava com o\nDDL anterior e passa com este.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "585de04",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/585de0424489096ea121538b6a74c19076650c46",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T21:22:09.000Z",
+      "author": "Maj Diniz",
+      "message": "símbolos: o OM fica de pé na tela, e a Base de fogos e o Setor de Tiro deitam no chão\n\nO símbolo de OM girava com o mapa e inclinava com a tela, pela decisão de\n2026-10-09 escrita com a premissa de que o símbolo militar fazia o mesmo;\no militar nunca fez, fica de pé na tela. Com o mapa girado e inclinado o\nbrasão girava e entortava com a câmera. Agora fica de pé, como o militar.\n\nA Base de fogos e o Setor de Tiro tinham a mesma combinação. A rotação\ndeles é azimute, então deitam no chão nos dois eixos, como a foto. O\nclique e a caixa de seleção acompanham, e o ramo do alinhamento misto,\nsem camada nenhuma, saiu. Um censo reprova a combinação de volta.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "b83f80a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b83f80a1b46310cd62fcb802bccd95605d0dcd07",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:15:35.000Z",
+      "author": "Maj Diniz",
+      "message": "a descarga so desfaz a baixa que ela mesma deu, a data de hoje so entra na conclusao, e a lista e o painel contam o mesmo\n\nCorrecoes da revisao independente do EQP-02 (reprovado) e menores:\n\n- a baixa da regra grava equipamento.baixa_transferencia_id (coluna nova na\n  migracao do detentor, ON DELETE SET NULL, criada por ALTER no DDL), e a\n  volta a carga exige que seja ESSA a saida que deixou de valer; o bem\n  baixado a mao nao volta quando a descarga e excluida ou cancelada, e a\n  baixa ou reativacao a mao na edicao anula a marca;\n- a regra so age quando a saida vigente muda (antes.id !== depois.id): sem\n  baixa de carona no bem com baixa pendente;\n- a data de hoje so entra na criacao ou na passagem a Concluida, nos tres\n  tipos (o Recebimento sem data ja nao perde para a Cessao sem data);\n- o bem e travado com FOR NO KEY UPDATE antes de ler a saida; a unificacao\n  trava a origem e traduz o 23503;\n- mover lancamento para bem com periodo cruzado diz \"o bem de destino\";\n- EQP-17: a confirmacao de exclusao nao promete apagar o historico;\n- o cartao \"Descargas solicitadas\" leva a aba recortada no mesmo conjunto;\n- o filtro \"Com quem esta\" inclui o militar desativado que ainda tem bem;\n- docs/decisoes.md: quatro portas do cadastro de militar, e a regra nova.\n\nAchados: EQP-02, EQP-17, EQP-01, EQP-03\n\nTeste: equipamento_correcao.test.js ganha os casos S1 a S5 da sonda do\nrevisor e as variancias (10 casos); a sonda reprovava 5 contra o commit\nanterior. Client: recorte da aba, filtro com desativado e frase da exclusao.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "9dd18df",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9dd18dfc5d7d00a6a645433bcc59df3111b0a20b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:14:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o lote de impedimento aceita o uuid em maiusculas, a data de fim vazia vale como sem previsao, e o recorte do painel do efetivo se diz de tela\n\nRessalvas menores da revisao independente do o3-eft: o Joi normaliza o uuid\ndo lote para minusculas (o Map compara com o texto do PostgreSQL), o '' em\ndata_fim vira nulo no INSERT, e docs/decisoes.md diz que o recorte do EFT-07\ne de tela, com as leituras do /efetivo ainda abertas ao operador.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "5819cf1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5819cf1be8a1f8cf9003fe4f3551e397335d6431",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:03:35.000Z",
+      "author": "Maj Diniz",
+      "message": "as decisoes do acervo registram o mover da versao, o zip do lote, quem baixou e a lista de folhas\n\nQuatro escolhas desta onda que a proxima pessoa precisa ler antes de mexer:\na unica versao so sai com a origem e pelo gerente; o lote da web e ZIP em\nstream, e nao o prepare-download do plugin (o preco e a retomada); o nome de\nquem baixou e do gerente; e a lista de folhas so vira filtro com duas ou mais\nfolhas, todas com forma de MI ou INOM.\n\nAchados: ACV-B-03, ACV-B-05, ACV-B-06, ACV-B-07\nTeste: documentacao; nenhum codigo muda.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "b995cf9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b995cf9ea4d3a714a591fe486d66843dbfa09f48",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:02:29.000Z",
+      "author": "Maj Diniz",
+      "message": "o catalogo de portas sem tela perde as cinco lacunas da ficha do acervo que a web passou a fechar\n\nSaem as linhas `pendente` de ACV-B-03 (mover-arquivos), ACV-B-04 (PUT do\narquivo), ACV-B-20 (miniatura) e ACV-B-21 (renumerar e corrigir UUID), que\nganharam chamador na ficha. Os dois `prepare-download` (ACV-B-05) viram\nporta `plugin`: a web baixa em lote pelo `GET /acervo/download-lote`, porque\no par do plugin devolve o caminho do share, que o navegador nao monta.\n\nAchados: ACV-B-03, ACV-B-04, ACV-B-05, ACV-B-20, ACV-B-21\nTeste: paridade_tela.test.js passa (reprovaria com as linhas exatas cuja\nrota ganhou tela).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "a1eb35b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a1eb35bd9d91e68bf37a025108b7919aacd4384f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T21:02:26.000Z",
+      "author": "Maj Diniz",
+      "message": "mover a versao confere a versao que a ficha leu, e recusa com 409 quando outra pessoa a editou depois\n\nA concorrencia otimista (TRV-08) chegou na main durante a onda: o PUT da\nversao ja confere o `X-Versao-Registro`. Mover para outro produto agia sobre\na versao sem conferir, e podia mover o que outra pessoa acabara de editar.\nA rota chama `conferirVersao` antes de tudo, e a ficha manda o\n`versao_registro` que leu. Sem o cabecalho (CLI), segue como antes.\n\nAchados: ACV-B-03\nTeste: produto_mover_versao ganha o caso do cabecalho velho (409, a versao\nfica onde estava), que reprova sem a conferencia; o caso do motivo passa a\nler a frase nova da validacao em portugues.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "dede50f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/dede50f253de74c12eb71db996e0222eaced166e",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:51:48.000Z",
+      "author": "Maj Diniz",
+      "message": "a tela despacha, desfaz a propria impressao, junta clientes, cola a lista de folhas, move itens e muda situacao em lote\n\nClient da revisao de telas (secao 3), sobre as rotas do commit anterior:\n- fila de atendimento: despacho (rastreio), comprovante, Remetido e Concluido\n  pelo operador e situacao pelo gerente na secao de fechamento; historico de\n  impressao do item no painel, com o desfazer do proprio ultimo lancamento\n  (o modal saiu do detalhe para pedidos/historico-impressao.js e serve os dois);\n- dialogo da situacao: modo operador, rastreio no Remetido, aviso de que voltar\n  limpa a data e o motivo, e lote para o gerente (selecao na lista);\n- exclusao de pedido com a previa do que cai junto e o motivo exigido;\n- lista de pedidos com ?cliente_id= e busca em todos os anos; a ficha do\n  cliente leva a todos os pedidos e junta a duplicada com previa;\n- dialogo de item: colar a lista de MI/INOM e resolver no servidor, e a busca\n  com 20 por pagina e seletor; detalhe move itens para outro pedido.\n\nAchados: MAP-P-02, MAP-P-03, MAP-P-04, MAP-P-05, MAP-P-06, MAP-P-07,\nMAP-P-09, MAP-P-13, MAP-P-15, MAP-P-28\nOs testes novos reprovam o codigo anterior (as acoes, os campos e as funcoes\ndo service nao existiam; a busca pedia 5 por pagina).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "e51f19d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e51f19d9aad437fab52923a9555c4f6dda98b11e",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:51:35.000Z",
+      "author": "Maj Diniz",
+      "message": "o operador despacha e marca remetido e concluido, voltar a situacao limpa, e pedido, cliente e item ganham as portas que so o cli tinha\n\nServidor da revisao de telas (secao 3), com as decisoes do chefe de\n2026-10-11 registradas em docs/decisoes.md no lugar do trecho de 2026-08-24\nque elas revogam:\n- PUT /pedido/:id/situacao com piso operador: o operador marca Remetido (com\n  forma e rastreio) e Concluido (com data e comprovante anexado); cancelar e\n  voltar ficam com o gerente. Voltar de Concluido limpa a data de atendimento\n  e sair de Cancelado limpa o motivo, auditado. PUT /pedido/situacao/lote.\n- PUT /pedido/:id/despacho (rastreio sem mudar a situacao) e o anexo tipo 3\n  pelo operador; DELETE /impressao/:id/propria (so a ponta, com motivo).\n- GET /pedido/:id/exclusao e DELETE /pedido exigindo motivo do pedido que ja\n  entra em relatorio.\n- POST /cliente/:id/juntar; GET /pedido?cliente_id= e ?busca= em todos os anos.\n- POST /catalogo/resolver (regra do resolver do CLI numa consulta) e\n  POST /produto_pedido/mover numa transacao, auditado nos dois pedidos.\n\nAchados: MAP-P-02, MAP-P-03, MAP-P-04, MAP-P-05, MAP-P-06, MAP-P-07,\nMAP-P-09, MAP-P-13, MAP-P-15, MAP-P-28\nOs testes reprovam o codigo anterior: as rotas novas davam 404, o operador\nlevava 403 no anexo e na situacao, a volta de Concluido preservava a data e o\nDELETE apagava pedido concluido sem motivo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "b7ce480",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b7ce48089f952a74370a6ed7aa3d54c9ab4615cc",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:47:15.000Z",
+      "author": "Maj Diniz",
+      "message": "a ficha e a busca do acervo alcancam as correcoes e o atendimento que so o cli fazia: mover, editar arquivo, renumerar, uuid, imagem, lote e quem baixou\n\nNa ficha (`pages/busca/ficha-acoes.js`, cada acao com a explicacao antes de\ngravar e a recusa do servidor dentro do dialogo):\n- mover o arquivo para outra versao, deste ou de outro produto, com os dois\n  opt-in do servidor ditos em frase, e mover a versao para o produto certo\n  (seletor em modo produto; a unica versao pede o gerente e o motivo);\n- editar rotulo, tipo (sem cruzar o Tileserver), situacao de carregamento no\n  BDGEx, descricao e CRS, com o PUT de objeto inteiro relido da ficha;\n- enviar ou trocar a imagem da versao (Modelo 3D e Panoramica 360);\n- renumerar a serie com previa calculada pela regra do servidor (a data\n  decide a posicao) e abrir a Nova versao em seguida; corrigir o UUID para o\n  do BDGEx (gerente, motivo obrigatorio);\n- \"Baixar todos\" da versao e \"Quem baixou desta folha\" (gerente).\nNa busca: \"Baixar arquivos\" na barra de selecao (resumo, tipos, ZIP), a\nlista de MIs ou INOMs colada (a quebra de linha vira virgula no colar) com o\nquadro \"encontradas N de M; faltam\", e o historico de downloads do dashboard\ncom produto, versao, arquivo, transferencia, filtro de periodo e, para o\ngerente, a coluna e o filtro de quem baixou.\n\nAchados: ACV-B-03, ACV-B-04, ACV-B-05, ACV-B-06, ACV-B-07, ACV-B-20, ACV-B-21\nTeste: ficha-acoes.test.js (novo) e os casos novos de produto-dialog, index,\nactivity-tab e seletor-versao; os 15 casos novos dos quatro arquivos antigos\nreprovam na main (botoes, quadro, coluna e modo produto inexistentes).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "af15d02",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/af15d02113c46fbef561f86d061e0aabe77de8ee",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:46:56.000Z",
+      "author": "Maj Diniz",
+      "message": "o historico de downloads diz o que saiu e, para o gerente, quem levou, com filtro de periodo, pessoa e produto\n\n`GET /dashboard/download` devolvia `arquivo_id` e `usuario_uuid` crus, e \"quem\nlevou a carta X\" (a pergunta da LAI) nao tinha resposta em tela nenhuma. A\nlinha passa a trazer produto (nome, MI, INOM), versao, arquivo e o desfecho\nda transferencia, inclusive do arquivo ja excluido (pela lapide). O nome de\nquem baixou e o filtro por pessoa so valem para o gerente do acervo, pela\nregua (consulta le, gerente responde); o filtro `quem` de quem nao e gerente\nvolta 403 em vez de ser ignorado. Periodo em dia de calendario.\n\nAchados: ACV-B-07\nTeste: dashboard_download_quem, os 4 casos reprovam na main (sem produto,\nsem nome, filtros ignorados).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "5eab9e6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5eab9e6c9c8a59e907ea84753151dff95aef7fd0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:46:46.000Z",
+      "author": "Maj Diniz",
+      "message": "a busca aceita uma lista de folhas e diz qual faltou, e a selecao baixa num zip com o que ficou de fora explicado\n\nLista de folhas (ACV-B-06): o termo era UM ILIKE, e `2965-2,2965-4` devolvia\nzero. O filtro `folhas` casa cada MI ou INOM por igualdade, normalizado como\nno `cobertura` do CLI (zero a esquerda, caixa, separador), vale na lista, no\nmapa, nas facetas e no CSV, e a busca devolve o quadro \"encontradas N de M;\nfaltam ...\". No CSV, a folha que falta entra no fim com o motivo.\n\nDownload em lote (ACV-B-05): `GET /acervo/download-lote/resumo` prepara (o\nque entra, quanto pesa, o que fica de fora e por que, sem caminho de volume)\ne `GET /acervo/download-lote` entrega o ZIP em stream (modo store, sem pasta\ntemporaria), com LEIA-ME, e grava cada arquivo em acervo.download com o\ndesfecho real. A versao de cada produto e a da escada da busca (a ultima\nRegular), e as recusas sao as do download avulso. Nao usa o\nprepare-download do plugin porque ele devolve o caminho do share.\n\nAchados: ACV-B-05, ACV-B-06\nTeste: acervo_download_lote e busca_lista_de_folhas, os 11 casos reprovam\nna main (rotas inexistentes; `folhas` descartado e a busca voltava tudo).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "9433e61",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9433e61b9b1d00bffaf2cf57749cca36d37f1013",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:46:32.000Z",
+      "author": "Maj Diniz",
+      "message": "a versao cadastrada no produto errado se move para o produto certo, com os arquivos, o uuid intacto e o rastro nas duas fichas\n\nNao havia caminho nenhum: `versaoAtualizacao` nao aceita `produto_id`, e a\nsaida era o gerente excluir e o operador recadastrar, perdendo o uuid que o\npedido da mapoteca aponta e, acima de 2 GB, sem volta pela web.\n`POST /produtos/mover-versao` (operador) confere o tipo do produto contra o\nsubtipo da versao (3h), o rotulo no destino (409), a serie N-SIGLA nos dois\nlados e traduz a recusa do gatilho de subtipo; a unica versao so sai com a\nexclusao do produto de origem na mesma transacao, com motivo, e so o gerente\npode. Dois eventos de auditoria, um em cada ficha.\n\nAchados: ACV-B-03\nTeste: produto_mover_versao.test.js, os 10 casos reprovam na main (a rota\nnao existia: 404); acervo_auditoria passa a cobrar o rastro da rota nova.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "38596e9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/38596e9a96fe6367cbb5d94e8136ffe103202693",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:32:59.000Z",
+      "author": "Maj Diniz",
+      "message": "dar a baixa pendente pela ficha leva a versao lida, e a edicao simultanea nao e sobrescrita\n\nO botao \"Dar baixa\" da tarja de baixa pendente (EQP-02) passou a mandar o\nX-Versao-Registro que a main trouxe na integracao (TRV-08), como o dialogo\ndo bem ja faz: se outra pessoa alterou o bem depois que a ficha abriu, o\nservidor recusa com 409 em vez de gravar por cima.\n\nAchados: EQP-02\n\nTeste: o caso da tarja em details.test.js continua cobrando o corpo; a\nregra do 409 e a de concorrencia_edicao.test.js, que roda contra o bem.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "e4c4e62",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/e4c4e627bd6c8a66b0685995c09312ef33a45462",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:24:23.000Z",
+      "author": "Maj Diniz",
+      "message": "o gerente do efetivo ve o historico das passagens e impedimentos, e o operador deixa de ver o dashboard que o levava a 403\n\nDecisoes do chefe (2026-10-11). EFT-06 por inteiro: a ficha da pessoa\n(/auditoria/plataforma/usuario/:uuid) e a rastreabilidade abrem ao\nGERENTE do Efetivo, revogando nesse ponto a restricao de 2026-09-05. O\nrecorte e por TABELA (dgeo.efetivo_periodo e dgeo.impedimento, em\nauditoria/recorte_efetivo.js), porque as duas sao auditadas sob\n'plataforma' junto do cadastro, dos perfis e da senha, que continuam do\nadministrador. A ficha do mapa mostra o painel ao gerente, o menu e a\nguarda da rastreabilidade o deixam entrar, e o gerente so do PIT segue\ncom o 403 que explica. EFT-07: o dashboard do Efetivo (#/acessos) passa\na lista nao hierarquica do aproveitamento (consulta e gerente), e o\noperador entra na secao e na raiz pela capacitacao recebida; nenhum\nlink do dashboard leva mais a 403. docs/decisoes.md registra as\ndecisoes (EFT-06, EFT-07, EFT-18), a autoria na ficha, o ano editavel\nda capacitacao, e reescreve o trecho da secao Efetivo (TRV-33).\n\nAchados: EFT-06, EFT-07, EFT-18 (decisao), TRV-33, EFT-04 (registro)\n\nTeste: efetivo_historico_gerente_banco.test.js reprova contra a main\n(403 do verifyAdmin para o gerente, 403 na rastreabilidade);\nrecorte_da_rastreabilidade e recorte_efetivo provam o recorte e o SQL\nsem IN () vazio; no client, sidebar, router e nova-passagem cobrem o\nmenu, a raiz, a home da secao e o painel do historico.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "347aba0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/347aba0ae7452fffb16393b1208f18f7ba098d2e",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:24:07.000Z",
+      "author": "Maj Diniz",
+      "message": "o gerente do efetivo lanca o mesmo impedimento para varios militares de uma vez, com recusa por militar e resumo\n\nDecisao do chefe (2026-10-11, EFT-18). A missao de oito militares eram\noito fichas e oito formularios iguais. POST /efetivo/impedimentos/lote\n(gerente do Efetivo) grava numa transacao, um evento de auditoria por\nmilitar com o mesmo lote_id, e recusa SO o militar que ja tem\nimpedimento cruzando o periodo (com a frase de qual), ou que nao esta\nno cadastro; os outros entram. A resposta e o resumo { inseridos,\nrecusados }. Na tela, \"Impedimento para varios\" abre um formulario com\no seletor multiplo do efetivo inteiro, e o fim e um modal de resumo.\n\nAchados: EFT-18\n\nTeste: efetivo_impedimento_lote_banco.test.js (5 casos, relendo o\nbanco e a auditoria) reprova contra a main (rota inexistente, 404);\nefetivo_lote_schema.test.js prova o motivo de cada recusa;\nimpedimento-lote.test.js (3 casos) cobre o botao, o payload e o resumo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7f7905c",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7f7905c7e1808d31f437563ab7a07e3760386719",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:19:06.000Z",
+      "author": "Maj Diniz",
+      "message": "a tela em aberto lista descargas, afastamentos, manutencoes e paradas de todos os bens, e o painel exporta as manutencoes do ano\n\nEQP-03: #/equipamento/em-aberto (consulta, item \"Em aberto\" no menu) pede\n?aberta=true aos quatro historicos, que o servidor sempre serviu e nenhuma\ntela pedia, mais a aba da baixa pendente (bens ativos com baixa_pendente).\nUm resumo conta as cinco e as previsoes vencidas; cada linha leva a ficha\ndo bem; a aba vai para a URL; a falha de uma carga fica na aba dela. O\ncartao \"Descargas solicitadas\" do painel leva a aba de transferencias.\n\nEQP-08 (resto): secao \"Manutencoes por ano\" no painel, de todos os bens,\ncom o ano na URL, o total pago e o \"Exportar CSV\" do recorte. Carga propria,\ncom o proprio catch.\n\nAchados: EQP-03, EQP-08\n\nTeste: em-aberto/index.test.js (6) e dashboard/index.test.js (4), com o\nrelogio do arquivo congelado em 2026-10-11, reprovam contra o HEAD anterior\n(a tela nao existia, o cartao nao era link, a secao nao existia), e o\nindex.test.js do manifesto passa a cobrar a rota e o item novos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "a0ff42b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a0ff42bcdbff659f2b1ef9bd7d2c073fcc59531d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T20:18:35.000Z",
+      "author": "Maj Diniz",
+      "message": "o bem diz com quem esta, a descarga concluida da baixa, e o lancamento no bem errado ou o bem duplicado se corrigem pela tela\n\nTres achados do equipamento, dois deles por decisao do chefe de 2026-10-11\n(registrada em docs/decisoes.md, secao Equipamento):\n\n- EQP-01: coluna opcional equipamento.detentor_uuid (\"Com quem esta\",\n  militar de dgeo.usuario, sem termo de cautela), na lista, na ficha, no\n  filtro (?com= na URL) e no dialogo do bem; historico pela auditoria.\n  GET /equipamento/militares le o cadastro sob consulta no modulo. Migracao\n  aditiva com __VERSAO__, ensaiada (migrado = novo, idempotente).\n- EQP-02: concluir a descarga ou a cessao da baixa na mesma transacao, com\n  a data (hoje, se vazia) e o documento da transferencia; reverter a\n  conclusao volta o bem a carga. baixa_pendente marca a conclusao gravada\n  antes da regra (chip na lista, tarja com \"Dar baixa\" na ficha).\n- EQP-05: os quatro dialogos de edicao tem o campo \"Bem\", e o rastro do\n  movimento sai nas duas fichas; o vinculo manutencao-parada nao atravessa\n  bens. POST /equipamento/:id/unificar (gerente) move tudo do duplicado e o\n  apaga numa transacao, ou recusa nomeando o periodo que cruza.\n\nAchados: EQP-01, EQP-02, EQP-05\n\nTeste: equipamento_correcao.test.js (22 casos) reprova 12 contra o\ncontrolador anterior no recorte inicial e todos os de baixa e detentor (sem\ncoluna nem regra); details.test.js e list.com-quem-esta.test.js reprovam 13\ncontra as telas anteriores (rodados com os fontes do HEAD no lugar).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "da41d87",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/da41d8769941fb4ee5ca1762d845a22441c718c5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T19:56:05.000Z",
+      "author": "Maj Diniz",
+      "message": "qan: o arquivo sai no formato de coordenadas escolhido na aba Azimutes\n\nO CSV saía sempre em graus decimais. Agora o botão lê, no clique, o\nformato do seletor da aba, e cada formato tem suas colunas: decimal como\nantes, GMS em texto, UTM em zona, E e N, e MGRS numa coluna por ponto.\nOs valores vêm das mesmas partes que a barra de coordenadas mostra.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "7d15805",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7d158055c28130809a8bf63e84f309ffef15f2b7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:54:03.000Z",
+      "author": "Maj Diniz",
+      "message": "trocar o ano da capacitacao e voltar religa a meta, e a linha do mapa diz sem login em vez de desativado\n\nRessalvas da revisao do grupo o3-eft. Ir a outro ano por engano e voltar\ndesligava sem volta a meta valida, e o aviso continuava falando do ano\nda primeira troca. A meta desligada fica guardada e volta com o ano\ndela; o aviso e recalculado a cada pintura; a escolha da pessoa no ano\nnovo vale mais que a volta. O title da linha do mapa usava \"(desativado\nno cadastro)\" para quem so nao tem login, e passa a usar a mesma marca\n\"(sem login)\" dos seletores.\n\nAchados: EFT-04, EFT-03 (ressalvas)\n\nTeste: \"ir a outro ano e voltar religa a meta\" reprova contra o commit\nanterior (a meta nao voltava); o caso do title em nova-passagem.test.js\nreprova contra a marca antiga.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "ddaddcf",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ddaddcffe689ac079549aa8c35481fca5e87eaab",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:50:14.000Z",
+      "author": "Maj Diniz",
+      "message": "a recusa diz o dia e nao \"now\", o cli mostra o campo cru, o erro de banco do arquivo chega ao tradutor, e o formulario marca o campo recusado\n\nRessalvas menores do revisor sobre a TRV-09:\n- `.max('now')` saia \"posterior a now\" e o limite fixo saia em ISO com hora;\n  passam a \"hoje\" e dd/mm/aaaa.\n- Os sete CLIs do SAP imprimiam so a `message`, que agora traz o nome legivel; o\n  erro passa a levar `[campos: data_fim]`, lido de `dados.campos`.\n- Os `catch` do arquivo_ctrl embrulhavam o erro do PostgreSQL num AppError 500\n  antes do tradutor do error_handler; o erro de banco traduzivel sobe cru e vira\n  frase util.\n- utils/erro-nos-campos.js marca no formulario o campo que a recusa nomeia, com\n  o aria-invalid do form-fields; ligado nos dialogos da NC e do documento tecnico.\n\nAchados: TRV-09 (ressalvas do revisor)\n\nProva por degradacao: com o arquivo_ctrl anterior, erro_de_banco_passa reprova\n(500); com o documento-dialog anterior, o caso do campo marcado reprova; o caso\nde data reprova com \"posterior a now\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "9906f9e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9906f9e80ad4149cbff1f9c24602a5f423d404ab",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:45:40.000Z",
+      "author": "Maj Diniz",
+      "message": "a carga do doc_dgeo e os clis mandam a confirmacao de mes fechado, e a decisao registra as lacunas do padrao 5\n\nA carga scripts/carregar_documentos_doc_dgeo.py fazia POST sem confirmacao e\npassava a parar com 409 em toda linha de mes de RPCMTec fechado: ganha\n--confirmar-mes-fechado, que manda a confirmacao com o motivo fixo da carga\n(trocavel por --motivo-mes-fechado), e a falha sem a chave diz qual usar. O\nmapoteca_cli aceita --confirmar-mes-fechado --motivo-mes-fechado no DELETE do\nlivro (o schema dos ids ganhou os dois campos e o teste de registry passa a\nconhecer os extras); o pit_cli ganha o corpo opcional no DELETE da execucao. As\nregras.js dos dois CLIs explicam o 409 mes_fechado. Nao ha CLI de documento\ntecnico.\n\nO comentario de mes_fechado.js e a decisao afirmavam que so tres escritas\nalimentam subsecao por data; o gerador le tambem NC, NE, liquidacao, campo,\ncapacitacao e indisponibilidade por data. Corrigido, e registradas as lacunas:\nessas escritas, a edicao seguinte que nao lista as correcoes e a grade do PIT que\nnao marca o mes fechado.\n\nAchados: MAP-I-03, PIT-10, RPC-14 (ressalvas do revisor)\n\nProva: scripts/__tests__/carga_documentos_mes_fechado.test.js e\ncli/mapoteca_cli/__tests__/movimento_mes_fechado.test.js reprovam sem a chave nova\n(o corpo nao levava a confirmacao); o teste de registry do mapoteca_cli reprovava\ndesde o padrao 5 e volta a passar.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "b4bd1f3",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b4bd1f3359029958107d2a3b5a673814fd5a4c00",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:40:50.000Z",
+      "author": "Maj Diniz",
+      "message": "a regua de paridade le a interpolacao sem engolir o arquivo, so conta funcao de servico que alguma tela usa, e o pdf e o ods entram como relatorio\n\nTres furos da regua, achados pelo revisor:\n- `primeiroArgumento` somava profundidade no `${` e nunca descontava, e a\n  primeira chamada com interpolacao engolia o resto do arquivo: rotas sem tela\n  passavam por cobertas. A interpolacao entra na pilha e o `}` volta ao template.\n  Corrigido, DELETE /metas/execucao/:id (cli) e POST /pedido/:id/download_impressao\n  (plugin) entram no catalogo.\n- Funcao exportada de services/ contava como chamador mesmo sem tela nenhuma que\n  a usasse. Agora conta so a citada fora dela (sem comentario), com heranca\n  transitiva dos moldes internos. Aparecem como pendentes MAP-I-18\n  (deleteTiposMaterial), RPC-12 (excluirArquivoDocumentoTecnico), PIT-17\n  (atualizarTrackCampo) e PIT-01 (PUT /metas/:id); PUT /metas/:id/transcricao fica\n  como cli.\n- O relatorio passa a incluir o que termina em /pdf, /ods e -csv.\nPUT /api/usuarios vira pendente EFT-10.\n\nAchados: padrao 1 (ressalvas do revisor)\n\nProva por degradacao: com a leitura antiga da interpolacao, com \"toda funcao de\nservico conta\" e com a regex antiga de relatorio, cada um dos tres casos novos da\nregua reprova.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7d6b9e4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7d6b9e479e97505d7113924dbef0e7246b597053",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:36:04.000Z",
+      "author": "Maj Diniz",
+      "message": "o ano da capacitacao vira campo, e a troca de ano desliga com aviso a meta que nao e do pit novo\n\nO ano so aparecia no titulo do modal e o payload o reenviava sempre\nigual: a capacitacao lancada no ano errado so se corrigia excluindo, e\na exclusao apaga as fotos e os videos por CASCADE. Agora \"Ano\" e campo\n(2000 a 2100, a faixa do Joi), editavel na edicao; na criacao ele\nacompanha o inicio enquanto a pessoa nao mexe nele. Trocar o ano\nrecarrega as metas do PIT do ano novo e, como o servidor recusa meta de\noutro ano (PIT-08), a meta escolhida so fica se for do PIT novo: senao\ne desligada, com aviso debaixo do campo. O ano que nao toca nenhuma das\ndatas gera aviso, sem recusa. O titulo perde o ano, que nao acompanharia\na troca, e o toast diz para onde a linha foi.\n\nAchados: EFT-04\n\nTeste: os 6 casos novos de capacitacao-dialog.test.js reprovam contra a\nmain (rodados numa worktree destacada), onde o formulario nao tem o\ncampo Ano.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "4250072",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/42500726ffd49220769b53a83b5da5fef723e8fc",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:34:09.000Z",
+      "author": "Maj Diniz",
+      "message": "o conflito de edicao mostra campo a campo o que a outra pessoa gravou, e gravar por cima vira escolha explicita\n\nNo 409 a primeira versao adotava a versao atual em silencio: a segunda gravacao\nsobrescrevia sem mostrar o que mudou, e a frase dizia \"recarregue\" ao lado de\n\"salve de novo\". O dialogo do conflito (components/modal/conflito-versao.js) mostra\nos campos que a outra pessoa mudou e que divergem do formulario (o valor de quem\ndigita ao lado do gravado por fulano, lido de `dados.atual`), e oferece tres\nsaidas: \"Gravar por cima\" (reenvia com a versao atual), \"Recarregar\" (descarta o\ndigitado, fecha e reabre o registro) e \"Voltar ao formulario\". Os onze dialogos\npassam o corpo e o recarregar, e calam o cancelamento.\n\nO troca-ano.test.js le o corpo pelo segundo argumento: a NC e a NE recebem as\nopcoes da chamada como terceiro (rebase sobre o o1-orcamento).\n\nAchados: TRV-08 (ressalva do revisor)\n\nProva por degradacao: com o versao-registro.js anterior, 6 casos reprovam\n(Voltar, Recarregar, o dialogo com as divergencias e o fluxo do dialogo da NC).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "1b7396f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1b7396f95b443cb76d07ec5054c6999207029fb0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:33:16.000Z",
+      "author": "Maj Diniz",
+      "message": "nova passagem, campo e capacitacao oferecem o efetivo inteiro, com e sem login, e a ficha diz quem lancou e quem alterou\n\nOs quatro seletores de militares filtravam `u.ativo`, que e flag de\nLOGIN: a maioria do efetivo nao usa o SAP e sumia de \"Nova passagem\",\ndo campo e das duas capacitacoes, e quem saiu e voltou so recebia\npassagem nova se o administrador reabrisse o login. A regra unica mora\nem utils/cadastro-militares.js: todo o cadastro, com login primeiro e\n\"(sem login)\" marcado. Ao escolher o militar, \"Nova passagem\" diz se e\na primeira passagem, o retorno (com as antigas) ou se ha passagem\naberta, e recusa antes do servidor a nova que cruza outra.\n\nA ficha do militar passa a mostrar quem lancou e quem alterou cada\npassagem e impedimento, e quando, com as quatro colunas de autoria que\nGET /efetivo/periodos e /impedimentos ja devolviam; o nome sai do\ncadastro que a tela ja le. O historico completo continua do\nadministrador (decisao de 2026-09-05).\n\nAchados: EFT-03, EFT-06 (parte compativel)\n\nTeste: nova-passagem.test.js (5 casos), o caso novo de\ncapacitacao/list.test.js e o caso ajustado de\ncampo/militares-sem-admin.test.js reprovam os 7 contra a main (rodados\nnuma worktree destacada): o seletor so trazia quem tem login, nao havia\nsituacao do militar nem recusa da sobreposicao, e a ficha nao tinha\nautoria.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "cbe4d53",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cbe4d53f4a1c97709a2d17ef0f2e2998fbd14aca",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T19:32:04.000Z",
+      "author": "Maj Diniz",
+      "message": "edição: o ícone de mover preso à feição, verde, e o cursor que não pisca\n\nO ícone passa a ser ancorado no chão, no meio da borda de baixo da\nseleção, com deslocamento fixo na tela, como a alça de continuar: não\nfica um quadro atrás do mapa e não colide com a alça, que sobe da ponta\nda linha. Cores da alça de continuar (verde, anel e setas brancos).\n\nSobre o ícone o cursor é o de quatro setas, e as ferramentas de vértice\ncedem o cursor ali: o polígono, a área, o limite e a linha de coordenação\ndecidem o cursor num quadro adiado e o esvaziavam, e ele piscava entre\nmover e grab.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "6e08426",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6e08426adb42478c2f50d3d02a7b276a6b688b14",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:26:24.000Z",
+      "author": "Maj Diniz",
+      "message": "a trava da versao nao fecha mais ciclo com o rateio da ne, e o conflito leva a linha gravada\n\n`conferirVersao` travava a linha com FOR UPDATE, que conflita com o FOR KEY SHARE\nque a chave estrangeira toma no pai: o PUT da NC (versao na NC, depois as NEs na\ntroca de ano) e o PUT da NE (versao na NE, depois o INSERT do rateio, que pede a\nNC) se esperavam, e um morria com 40P01. Passa a FOR NO KEY UPDATE, que ainda\nserializa duas gravacoes do mesmo registro. O 409 passa a levar `dados.atual` (a\nlinha como esta gravada, sem geometria) e `dados.autor`, para a tela mostrar o que\nmudou.\n\nAchados: TRV-08 (ressalva do revisor)\n\nProva: integration/concorrencia_trava.test.js forca a intercalacao com a\nconferirVersao real nas tabelas do orcamento; com FOR UPDATE de volta reprova com\n\"40P01: impasse detectado\"; o segundo caso prova que a trava ainda serializa.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c23423b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c23423bb23acb82f762ea12bdeee2e05e0c3dc7f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:22:23.000Z",
+      "author": "Maj Diniz",
+      "message": "a aba que falha ao montar mostra o estado de erro com \"Tentar de novo\", e as abas quebram no ponto padrao\n\nO render de aba que rejeitava deixava o painel em branco: a excecao subia\npela ready/setActive e morria no console. Agora o painel recebe o estadoErro\ncomum, com a mensagem e o \"Tentar de novo\" que remonta a mesma aba (se ela\nainda for a ativa); a resposta atrasada de outra aba continua descartada. O\n@media de 768 px de tabs.css passa ao 900 de design-tokens.css, e sai da\nlista de excecoes do teste de pontos de quebra.\n\nAchados: TRV-27 (completa: era a parte do tabs), TRV-34\n\nO caso novo reprova o codigo anterior: a ready rejeitava e nao havia\n.dashboard-erro; o teste de pontos de quebra reprova sem a troca do 768.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "3f95019",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3f950193de153bad3326fde508c994a22fda6455",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:21:21.000Z",
+      "author": "Maj Diniz",
+      "message": "o sino das pendencias se atualiza sozinho com a aba visivel, nao zera durante a recarga e passa a cobrar a execucao do PIT do mes\n\nO numero envelhecia: a caixa so recarregava ao abrir o painel. Agora recarrega\na cada 5 minutos com a aba visivel, e na volta a aba quando a carga passou da\nvalidade. Durante a recarga a fonte que ja tinha resposta mantem os itens, e\no contador nao some nem diz \"nada pendente\" enquanto espera.\n\nEntra a fonte da execucao do PIT: para quem LANCA (operador do PIT), as metas\nde realizada digitada, planejadas no mes que acabou e sem o realizado dele,\nnum ano que aceita lancamento, com link para a grade.\n\nAchados: TRV-06 (ressalvas do revisor)\n\nContra a versao anterior quatro casos reprovam: a fonte do PIT nao existia,\na recarga zerava o contador, e nem o intervalo nem o visibilitychange\nrecarregavam.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "94423a8",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/94423a8c99f5f86c1e578a3d132f9a3c7884de57",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:19:59.000Z",
+      "author": "Maj Diniz",
+      "message": "quem ja usava o SAP volta a ter o tema seguindo o sistema, ate clicar no botao de tema\n\nO boot antigo gravava sca-theme-mode em todo navegador, entao a chave sozinha\nfazia todo usuario atual contar como \"escolheu\". A escolha explicita ganha a\nmarca sca-theme-escolhido, gravada so pelo clique (e apagada pelo \"seguir o\nsistema\"); o valor antigo sem a marca sai uma vez no boot. O script do\nindex.html le a mesma marca, para nao piscar o tema velho antes do modulo.\n\nAchados: TRV-32 (ressalva do revisor)\n\nO caso novo reprova a versao anterior: com sca-theme-mode=light gravado e o\nsistema escuro, o tema ficava claro e contava como escolha.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "da876f4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/da876f4e9f1d3912bcea2e74895ec76d1dbf92bb",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:19:20.000Z",
+      "author": "Maj Diniz",
+      "message": "a extensao da folha no editor de geometria sai com virgula, e a guarda da rastreabilidade compara pelo nivel nomeado\n\nO editor de geometria escrevia a extensao com toFixed(4) (\"0.1250°\") e passa\na usar formatDecimal (\"0,1250°\"). A guarda da rastreabilidade comparava o\nperfil com o numero 3, e passa a usar NIVEL.gerente, agora exportado pelo\nauth-store (a mesma tabela que temPerfil le).\n\nAchados: TRV-26, EFT-08 (ressalvas do revisor)\n\nO caso novo do editor reprova o codigo anterior (texto com ponto decimal); a\ntroca do 3 pelo nivel nomeado e coberta pelos casos da guarda que ja existem.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "aee52f7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/aee52f74c8ffc0a2d23f51868ea4841c3dc154c9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:19:19.000Z",
+      "author": "Maj Diniz",
+      "message": "a busca global abre a consulta publica do pedido em outra aba e acha a NE que mudou de ano\n\nQuem nao le a lista de pedidos ia para #/consultar-pedido na mesma aba, uma\ntela solta que desmontava o cabecalho e o menu; agora o achado e um link com\ntarget=\"_blank\" (e nao navega sozinho, porque abrir aba depois da espera de\nrede seria bloqueado). A NC/NE e procurada primeiro no ano do numero e, sem\nachado, na lista de todos os anos, que a rota ja aceita sem filtro. A frase\nde falha concorda (\"Uma das buscas nao respondeu\", \"2 das buscas nao\nresponderam\").\n\nAchados: TRV-07 (ressalvas do revisor)\n\nOs casos novos reprovam a versao anterior: ela navegava para a consulta na\nmesma aba, pedia so o ano do numero e escrevia \"2 das buscas nao respondeu\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "f671772",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f671772fefb344aa1e31f015d2de8cdc056b5dd4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:16:42.000Z",
+      "author": "Maj Diniz",
+      "message": "o teste do recorte da lista de clientes acha a volta pelo rotulo padrao da ficha\n\nO o2-listas escreveu o caso procurando o botao \"Clientes\", que o TRV-35\nrenomeou para \"Voltar para clientes\"; o comportamento (volta para a lista\ncomo ela estava) continua o mesmo.\n\nAchados: TRV-35, TRV-03\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "af25e89",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/af25e89e654eb652bc8fbdb9c3e99f88c12e34d8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:01:00.000Z",
+      "author": "Maj Diniz",
+      "message": "a exportacao de todas as paginas confirma o tamanho, mostra o progresso e cancela, e a linha dentro de aba volta a abrir\n\nRessalvas da revisao independente do o2-listas:\n- utils/todas-as-paginas.js: o total se le na primeira pagina, acima de 10 mil\n  linhas a pessoa confirma (antes cortava calado em 500 paginas), o botao vira\n  \"Cancelar (N de M)\" e cancela, e a tela que sai cancela pelo _cleanup. A\n  rastreabilidade congela os filtros no clique. Vale tambem para as tres\n  listas de diagnostico do acervo.\n- A guarda do clique na linha procurava controle em qualquer ancestral, e o\n  painel da aba (tabindex=0) a bloqueava: linha de tabela dentro de aba nao\n  abria. Agora o controle tem de estar dentro da linha.\n- CSV: -R$ 1.234,56 e -0,5% deixam de ganhar apostrofo; o patrimonio sai como\n  =\"...\" (exportarComoTexto) para o Excel nao usar notacao cientifica.\n- Atendimento: o link do cliente diz \"Abrir o pedido #id\" (rotuloLink).\n- Campo: a linha abre a ficha sem remontar lista e mapa (aoAbrirLinha), a URL\n  vira a da ficha por replaceState e volta a da lista ao fechar.\n- #/revisoes_pit vira #/metas com a query, e o ano passa a ir para a URL.\n- notas-credito/list.recorte.test.js congela o relogio no arquivo.\n\nAchados: TRV-04, TRV-16, ACV-A-16, PIT-07 (ressalvas).\nOs testes novos reprovam o codigo anterior: 601 paginas sem teto, a recusa que\npara na primeira pagina, o cancelamento pelo botao e pelo _cleanup, a linha\ndentro de painel focavel, o negativo formatado, o =\"...\" e a URL da ficha do\ncampo e da rota antiga do PIT.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "20ec3e4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/20ec3e4f307a21d99b2ab8b66749b6b08f917b81",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T19:00:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o relatorio dmt volta a ser o parque inteiro, baixados inclusive, e o rotulo diz isso\n\nO botao passou a mandar os filtros da tela, e a tela abre em \"Somente ativos\":\no clique de sempre gerava o documento oficial sem os baixados. O botao volta a\nnao mandar filtro nenhum, com o rotulo \"Relatorio DMT (todos os bens, baixados\ninclusive, situacao de hoje)\"; o recorte filtrado sai pelo Exportar CSV da\ntabela. Os filtros opcionais da rota ficam, para quem os pedir a mao.\ndocs/decisoes.md registra o desenho sem o \"a confirmar\".\n\nAchados: EQP-08 (ressalva da revisao independente).\nlist.recorte.test.js reprova o commit anterior: com secao e carga na URL, o\nbotao chamava baixarRelatorioDmt com os filtros, e agora a chamada vai vazia.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "2a1db0a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2a1db0a8262e5adc75f63cefec30f5687bf6a79a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:56:58.000Z",
+      "author": "Maj Diniz",
+      "message": "rota de escrita sem tela passa a reprovar o build, e a rota de apoio de outro modulo prova que aceita quem abre a tela\n\nO SAP cresceu \"agent-first\": a rota e o CLI nasciam primeiro, a tela ficava para\ndepois, e quem descobria a falta era o usuario (o caso do insumo, ACV-B-01, ORC-01,\nPIT-01). routes/paridade_tela.test.js monta o router de verdade e exige, para toda\nrota de escrita e de relatorio, um chamador no client ou uma linha em\ndocs/portas_sem_tela.json com a porta (cli, plugin, carga, integracao) e o porque,\nou `pendente` com o ID do achado; linha orfa e linha vencida (a tela ganhou o\nchamador) tambem reprovam. O catalogo nasce com o estado de hoje: o core de\nproducao inteiro como plugin, e as lacunas da revisao como pendentes (ACV-B-03,\nACV-B-04, ACV-B-05, ACV-B-20, ACV-B-21, ACV-A-17, PIT-06, MAP-I-07).\n\nE a chamada auxiliar com guarda errada esvaziava seletor sem erro visivel (PIT-03,\nEFT-01, MAP-P-01). routes/rotas_compartilhadas_guarda.test.js cobra o segundo\nargumento do verifyPerfil em pit, efetivo, rpcmtec e limites, e prova no router\nmontado que a rota de outro dono que cada area do client chama (literal ou por\nservico compartilhado, que a varredura do MAP-P-01 nao via) aceita o modulo da\narea. No client, getUsuarios so se chama da tela de usuarios e do RPCMTec, e ali\nso para o administrador (o gerente levava um 403 por abertura).\n\nAchados: padrao 1 e padrao 3 da revisao (PIT-03, EFT-01, MAP-P-01)\n\nProva contra o codigo anterior: o catalogo vazio deixa 225 rotas descobertas; o\ncontrole negativo do PIT-03 reprova na regua da guarda; usuarios-fora-da-tela\nreprova os dois arquivos do RPCMTec na main.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "13401cb",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/13401cb38e00fe11d4af414f4150b5e7fc84d8e8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:56:36.000Z",
+      "author": "Maj Diniz",
+      "message": "a edicao simultanea vira 409 com quem e quando gravou, e a correcao em mes de rpcmtec fechado pede confirmacao e motivo\n\nDois operadores com a mesma NE abertos gravavam, e o segundo apagava o primeiro sem\naviso. A leitura das entidades de edicao mais concorrida (pedido e item da\nmapoteca, NC, NE, bem, edicao, subsecao, documento tecnico, produto, versao, campo,\ncapacitacao) devolve `versao_registro`; o dialogo a manda em X-Versao-Registro; o\nservidor rele a linha dentro da transacao com FOR UPDATE e responde 409\n(\"Outra pessoa (...) alterou este registro em <data> as <hora>: recarregue e\nrefaca\"). Sem o cabecalho (CLI, plugin) grava como sempre. A versao e a coluna de\nescrituracao que a tabela ja tem, em microssegundos: sem migracao. No 409 o\ndialogo fica aberto com o que foi digitado e adota a versao atual.\n\nE o consumo e a entrada de insumo, o lancamento da execucao do PIT e o documento\ntecnico datados num mes cuja edicao do RPCMTec ja fechou passavam sem trava nem\naviso. Uma funcao so (rpcmtec/mes_fechado.js) responde, e as tres escritas exigem\nconfirmar_mes_fechado e motivo, que vai para o evento de auditoria; as tres telas\navisam (\"O RPCMTec de setembro/2026 ja foi fechado: esta mudanca nao altera o\ndocumento assinado\"), pedem o motivo e reenviam.\n\nAchados: TRV-08, MAP-I-03, PIT-10, RPC-14 (padrao 5)\n\nProva contra o codigo anterior: na main, routes/concorrencia_edicao.test.js e\nroutes/mes_fechado.test.js reprovam 16 casos (gravava 200/201 por cima; passam so\nos de retrocompatibilidade e de mes aberto); os testes de dialogo do client\n(nota-credito-dialog.versao, documento-dialog.mes-fechado, api-client.versao)\nreprovam 9.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "0ef39a0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0ef39a0b35729cf590f5e187330cf3cdb8d75e24",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:56:01.000Z",
+      "author": "Maj Diniz",
+      "message": "a recusa de validacao sai em portugues com o nome legivel do campo, e o erro de banco vira frase sem sql\n\nA pessoa lia no toast '\"data_fim\" must be greater than or equal to \"ref:data_inicio\"'\ne nao sabia qual campo corrigir; a violacao de unique, FK, not null ou check que o\ncontrolador nao traduzia virava \"Erro no servidor\". As mensagens do Joi passam a\nmorar num ponto so (utils/mensagens_validacao.js), entram nos dois validadores, e a\nmensagem que o proprio schema escreveu vence e sai como o autor a escreveu. O nome\ncru do campo vai no `error` do envelope e em `dados.campos`. O error_handler traduz\no erro do PostgreSQL pela forma do detail, que vem no idioma do servidor de banco.\n\nOs testes que conferiam o nome cru na `message` passam a conferir no `error`.\n\nAchados: TRV-09\n\nProva contra o codigo anterior: integration/erro_de_banco.test.js provoca as cinco\nviolacoes no PostgreSQL de verdade e reprova os cinco casos na main (500 \"Erro no\nservidor\"); unit/utils/mensagens_validacao.test.js prova o motivo de cada recusa\ncom recusaPor e reprova a frase em ingles.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "b0dc5a4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b0dc5a4cae2fd7d3e132d75c6778a83740d7ff03",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:53:00.000Z",
+      "author": "Maj Diniz",
+      "message": "a caixa de pendencias do RPCMTec entrega o id da edicao como numero, e o SQL dela passa a ter prova contra o banco\n\nO id de rpcmtec.edicao e BIGSERIAL, que o pg entrega como texto; a rota da\ncaixa passa a devolve-lo como numero, que e o que o link do client monta.\nO teste de banco novo exercita as tres consultas contra o DDL: o gerente do\nPIT recebe as digitadas do PIT so da edicao aberta, a subsecao marcada \"sem\nocorrencia\" sai da lista do administrador, e quem nao e gerente leva 403\nlido do banco.\n\nAchados: TRV-06\n\nContra o codigo anterior a rota nao existia (404), e contra o primeiro\ncommit dela o caso do PIT reprova pelo id em texto.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "2cbfa1d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2cbfa1d030fc94363804c5a2d505b36f6dc09def",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:37:15.000Z",
+      "author": "Maj Diniz",
+      "message": "sair pergunta antes de limpar a sessao, a reautenticacao e da conta da aba, e recusar sair devolve a url inteira\n\nRessalvas da revisao independente do grupo:\n\n- \"Sair\" limpava o token antes de o router perguntar: quem respondia\n  \"Continuar editando\" ficava na tela sem sessao. `logout()` agora pergunta\n  antes (`podeDescartarTudo`), e o descarte aceito vale para a navegacao\n  seguinte, sem repetir a pergunta.\n- A reautenticacao lia a conta do `localStorage`, que as abas dividem: com\n  outra aba entrando como Y, esta reautenticava como Y e gravava o formulario\n  de X em nome de Y. Agora usa `contaDaAba()`, nao abre com a sessao trocada em\n  outra aba, e o aviso de validade nao oferece \"Continuar conectado\" nesse caso.\n- Recusar sair devolvia a URL sem a query que as listas gravam por\n  `replaceState`: o router usa o `oldURL` do `hashchange`. A entrada do\n  historico continua reescrita pelo `replaceState` (dito no comentario: separar\n  Voltar de clique exigiria carimbar `history.state`, que as listas zeram).\n- O erro persistente atravessava a troca de tela: o router fecha os erros\n  persistentes ao navegar; os avisos persistentes ficam.\n\nAchados: TRV-01, TRV-22\n\nReprovam o codigo anterior do grupo: os dois casos de logout, a URL com a\nquery, o erro na troca de tela e os dois da sessao de outra aba.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c6651fc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c6651fc64aca673a3f6cff547d00f70fca0c7a26",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:37:02.000Z",
+      "author": "Maj Diniz",
+      "message": "o enter no editor do item, na busca da folha e no mi do produto age no trecho, e a troca de aba nao acusa alteracao\n\nRessalvas da revisao independente do grupo:\n\n- Enter no MI ou no INOM do editor de geometria confirmava a geometria\n  ANTIGA (\"Usar esta geometria\" e o primario); agora calcula a folha. O mesmo\n  no MI e no INOM do formulario do produto, que gravava o MI novo com a\n  geometria velha: agora busca a folha.\n- Enter num campo do editor de item do DFD gravava o DFD inteiro. O modal-base\n  ganhou o trecho `data-subformulario`: Enter dentro dele aciona o botao\n  `data-subformulario-enviar` do trecho (o \"Adicionar\" do item), e nunca o do\n  rodape. Varredura dos diálogos com editor interno: o RPCMTec ja trata o Enter\n  da grade, a busca do catalogo e os chips tambem; os demais sao o proprio\n  formulario.\n- O campo em abas acusava alteracao ao trocar de aba (o formulario sai da\n  arvore): `raizDoFormulario` compara so os campos do formulario.\n- O item do pedido com lote acusava alteracao ao buscar: os resultados ficam\n  fora da comparacao e os marcados contam pelo `sujo`.\n\nAchados: TRV-13, TRV-01\n\nReprovam o codigo anterior do grupo: Enter no MI do editor e do produto, Enter\nno item do DFD, trocar de aba no campo e buscar com lote (5 casos).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7a745e4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7a745e4012721e10e9845a94f29bda41fbf7a5c0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T18:24:40.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: o censo de listas de tipo enxerga o arquivo novo antes do commit\n\nO inventário vinha só de `git ls-files`, e a lista de tipos do ícone de\nmover passou no `test:tocados` e reprovou a suíte da raiz logo depois do\ncommit. O censo passa a ler também os arquivos não versionados, e registra\na lista do ícone com o motivo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "1352445",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/135244514a756f8b69971648e78c6da65de11214",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:19:31.000Z",
+      "author": "Maj Diniz",
+      "message": "o painel do filtro de marcacao multipla fecha quando o foco sai dele pelo teclado\n\nSo o clique fora e o Escape fechavam o painel, e quem atravessava a barra de\nfiltros pelo Tab o deixava aberto por cima da tabela. O ouvinte de focusout e\ndo proprio elemento e ignora o foco que anda dentro do painel.\n\nAchados: TRV-23 (o filtro-multiplo, ultima lacuna do achado)\n\nO teste novo reprova o codigo anterior: o focusout para um botao de fora\ndeixava aria-expanded em true.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "6df2b05",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6df2b05bc758a895019ad00c0e2ea14341637783",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:19:12.000Z",
+      "author": "Maj Diniz",
+      "message": "o PUT da NE trava a linha e confere o ano, e nao devolve ao ano antigo a NE que a troca da NC acabou de mover\n\nA troca de ano da NC move as NEs dela travando-as (FOR UPDATE OF ne), mas o PUT\nda propria NE lia o `antes` sem trava e gravava por `WHERE id`: o PUT que leu\n2025 antes de a NC gravar ficava parado no UPDATE e, solto, regravava a NE em\n2025 com a NC ja em 2026. Agora o PUT trava a NE antes de le-la (espera a NC\nterminar e le o ano que ela deixou, e a troca para 2025 cai na recusa da NC de\noutro ano) e o UPDATE exige `AND ano = <ano lido>`, com 409 quando nada casa.\n\nO caso novo de orcamento_troca_ano.test.js segura a trava numa transacao que\nfaz o que a troca da NC faz e manda o PUT da NE no meio: contra o codigo\nanterior a NE volta a 2025 e o teste reprova; agora o PUT recebe 409 e a NE\nfica em 2026.\n\nAchados: ORC-01\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "ea079f8",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ea079f85fc48edc30d6972c2754710df8cb07efd",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:18:30.000Z",
+      "author": "Maj Diniz",
+      "message": "o botao de volta de toda ficha diz para onde leva: \"Voltar para clientes\", \"Voltar para empenhos\"\n\nAs fichas de cliente, pedido, insumo, NC, NE e bem escreviam a volta de tres\njeitos (\"Clientes\", \"Voltar para clientes\", \"Voltar\"), as vezes dois na\nmesma ficha. O padrao passa a ser \"Voltar para <lista>\", e a trilha do\ncabecalho da o mesmo caminho pelo degrau da secao.\n\nAchados: TRV-35 (parcial: a ficha da NC e da NE continuar so leitura e\ndecisao registrada em notas-credito/details.js, e oferecer \"Editar\" nela fica\npara o chefe)\n\nO teste novo le o rotulo de cada botao de volta e reprova o codigo anterior\nem cinco das seis fichas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c367450",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c36745004f6f393d92e57256cedfe44878e1efca",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:18:29.000Z",
+      "author": "Maj Diniz",
+      "message": "a falha de carga da rastreabilidade e das atividades de campo vira o mesmo estado de erro com \"Tentar de novo\" das outras listas\n\nO aviso de carga da mapoteca sobe para components/aviso-carga.js (o caminho\nantigo reexporta, e as seis telas da mapoteca nao mudam). A rastreabilidade\npintava a falha como texto cinza com a classe do vazio, sem tentar de novo, e\no campo tinha uma faixa propria acima das abas com a tabela dizendo a frase\ndo vazio embaixo; as duas passam ao estadoErro comum.\n\nAchados: TRV-27 (parcial: o render que rejeita em components/tabs e do\ngrupo o2-listas)\n\nOs dois testes novos reprovam o codigo anterior: nao havia .dashboard-erro\nnem botao \"Tentar de novo\", e o vazio continuava na pagina.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "87a1d39",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/87a1d39cce3288e74f35c35dca2145b1ec00c9c2",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:18:13.000Z",
+      "author": "Maj Diniz",
+      "message": "a ficha e a lista saem legiveis no papel, e o layout muda nos mesmos quatro pontos de quebra em toda tela\n\nNasce css/print.css: no papel some a navegacao, os botoes, a busca e a\npaginacao das listas, a coluna de acoes e os avisos; o tema e sempre o\nclaro; a tabela se expande e repete o cabecalho; e o topo leva a\ninstituicao, a tela e a data, que o main-layout escreve no beforeprint\n(abrindo o \"Ver dados\" dos graficos durante a impressao).\n\nOs @media (max-width) de 640, 700, 720 e 768 px passam aos pontos de\ndesign-tokens.css (600, 900, 1200, 1536), menos o 1800 da consulta publica,\nque e medida do conteudo, e o 768 de components/tabs, do grupo o2-listas.\nEm tela de toque os botoes da linha e da paginacao ganham 40 px.\n\nAchados: TRV-14, TRV-34\n\nO teste novo varre toda folha do client e reprova o codigo anterior em nove\npontos de quebra fora da regua, sem a regra de toque e sem a folha de\nimpressao; o do layout prova o topo da impressao e o \"Ver dados\" aberto.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "d37a165",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d37a1658b69e135ce837bcafd7c14b48668cfc64",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:16:21.000Z",
+      "author": "Maj Diniz",
+      "message": "as abas da producao reabrem na mesma aba, a tabela compacta do pedido usa o tamanho 10, e as decisoes da lista ficam registradas\n\nA aba de #/producao/atividades vai para a URL (TRV-15). As duas tabelas do\ndetalhe do pedido pediam pageSize 5, que saiu da lista de tamanhos e passaria a\navisar no console e abrir em 25: ficam em 10 (TRV-25). docs/decisoes.md, em\n\"Busca e filtros\", registra o recorte na URL generalizado, a exportacao do\ndata-table, os tamanhos uniformes e o DMT que segue os filtros (este a\nconfirmar com o chefe).\n\nAchados: TRV-15, TRV-25.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "a29e694",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a29e694090481668a3707e75ca78f0a26d16f9b9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:14:31.000Z",
+      "author": "Maj Diniz",
+      "message": "o pit, o efetivo, o rpcmtec e a rastreabilidade guardam o recorte na url e exportam, inclusive a grade e o mapa anual\n\nPIT: o consolidado de #/metas exporta (meta, previsto, origem, revisao,\ncreditos) e guarda o ano na URL; a grade de #/execucao_pit sai nas duas abas da\nplanilha da Divisao (PLANEJ_PIT e EXEC_PIT, doze meses e total) e guarda o ano;\nExtra-PIT, campo (ano, situacao, finalidade, termo e aba do mapa) e capacitacao\nministrada guardam os filtros e exportam, e o campo abre por link com o recorte\njunto. Efetivo: #/aproveitamento exporta o ano, uma linha por militar com\npassagens, dias na DGEO, aproveitamento anual e impedimentos (antes eram doze\nCSVs mensais somados a mao), e guarda o ano; usuarios, capacitacao recebida e\ndocumentos tecnicos guardam o filtro e exportam; #/acessos guarda a aba e\nexporta movimento, divergencias e acessos. A lista do RPCMTec guarda ordem e\npagina, abre a edicao por link e a edicao volta para ela como estava. A\nrastreabilidade exporta TODAS as paginas do filtro, de 100 em 100.\n\nAchados: PIT-07, EFT-15, TRV-03, TRV-04, TRV-15, TRV-16, TRV-20.\nexport.test.js da execucao e do aproveitamento reprovam o codigo anterior (nao\nhavia botao, e a tela abria no ano atual ignorando ?ano=).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "f4f5d55",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f4f5d556fb676d1ffe3767ea1b3d24071a7eee0b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:11:13.000Z",
+      "author": "Maj Diniz",
+      "message": "o grafico ganha resumo para o leitor de tela e a tabela \"Ver dados\", e todo numero decimal e tamanho de arquivo sai com virgula\n\nOs tres graficos (barras, linhas, setores) marcam o canvas com role=\"img\" e\num aria-label que resume o maior, o menor e o total de cada serie (ou as\nfatias com percentual), e poem abaixo um <details> \"Ver dados\" com a tabela\nmontada dos mesmos data/series, que fica aberto ao repintar pelo tema.\n\nutils/format.js ganha formatDecimal e formatBytes, e as tres copias de\ntamanho de arquivo e os toFixed de exibicao (dashboard e manutencao do\nacervo, envio, ficha do pedido, galeria de midia, anexo da revisao, painel da\nproducao, tooltip da pizza) passam a usa-los. Os testes que fixavam o ponto\ndecimal (\"40.7 MB\", \"30.0%\", \"1024.46\") foram corrigidos para a virgula, e os\nque contavam tabelas passaram a ignorar a do \"Ver dados\".\n\nAchados: TRV-17, TRV-26\n\nO teste novo dos graficos reprova o codigo anterior (canvas sem role nem\naria-label, sem tabela); o de formato importa funcoes que nao existiam.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "640b3fc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/640b3fc00d1960952f695433029f4998e2599b8b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:09:57.000Z",
+      "author": "Maj Diniz",
+      "message": "o dialogo do documento tecnico pergunta antes de descartar o formulario e o arquivo escolhido\n\nO dialogo abria sem guarda e o \"Cancelar\" chamava close() direto: um Escape\ndepois de digitar titulo e identificacao e escolher o PDF de 30 MB perdia\ntudo. Com a guarda generica do modal (TRV-01) o dialogo nao precisou de\nmudanca: os campos e o `<input type=file>` entram na comparacao, o \"Cancelar\"\npassa pela guarda, e o setOcupado ja existia na gravacao. Este commit prova\nos tres caminhos.\n\nAchados: RPC-13\n\nOs dois casos de pergunta reprovam o modal anterior: o dialogo fechava.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "9007b42",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9007b4298582209dd7413fd9ae4aadc8099bba69",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:09:40.000Z",
+      "author": "Maj Diniz",
+      "message": "o produto e a versao digitados nao se perdem, e o assistente de envio volta aos dados da versao\n\n\"Salvar e criar versao\" manda o produto PENDENTE ao dialogo da versao, e a\nRegular segue ao assistente de envio: os dois so sao gravados junto com os\narquivos. Fechar o dialogo da versao, ou o assistente sem arquivo na lista,\nlevava o que foi digitado nas duas telas sem perguntar, e do assistente nao\nhavia volta: corrigir uma data obrigava a redigitar produto e versao.\n\n- produto: a geometria (em memoria) entra na comparacao do formulario alterado.\n- versao: com produto pendente ou rascunho, fechar pergunta mesmo sem tocar\n  nos campos; o novo `rascunho` reabre o formulario preenchido.\n- assistente: \"Voltar aos dados da versao\" reabre o formulario com o corpo que\n  ele ja tem (e o produto pendente); fechar sem arquivo, mas com a versao\n  digitada, pergunta. O caso antigo \"sem arquivo, o Escape fecha direto\" ficou\n  restrito ao modo 'arquivos', em que a versao ja esta gravada.\n\nAchados: ACV-B-13\n\nContra o codigo anterior (com o modal novo) reprovam 6 casos: a geometria\nnova, o produto pendente, a volta que reabre o formulario preenchido, as duas\nperguntas do assistente sem arquivo e o botao de volta.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "cc018bd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cc018bda5278925c0430e9dd8e2d60855f75ccfb",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:09:38.000Z",
+      "author": "Maj Diniz",
+      "message": "os itens do dfd e o anexo pendente contam como alteracao, e o esc pergunta antes de leva-los\n\nCom a guarda generica do modal (TRV-01), todos os dialogos de escrita do\norcamento passam a perguntar antes de descartar campo alterado, inclusive a NE\ncom rateio (as linhas sao campos). O que ela nao via: os itens do DFD moram em\nmemoria e a tabela e texto, entao editar a descricao de um item nao mudava\ncampo nenhum; e o anexo escolhido para um registro que ainda nao existe so\nsobe no salvar. A tabela de itens e a raiz do anexo agora publicam o proprio\nvalor em data-valor-formulario, e o seletor de arquivo (envio imediato com\nregistro gravado) fica fora da comparacao.\n\nAchados: ORC-18\n\nO caso \"editar so a descricao de um item e apertar Escape pergunta\" reprova o\ndfd-dialog anterior: o dialogo fechava.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "1baddc2",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1baddc2d78f272528b0738c8a51ae80d46f71662",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:09:10.000Z",
+      "author": "Maj Diniz",
+      "message": "o wizard do pedido pergunta antes de sair da tela, e os dialogos do pedido nao fecham gravando\n\nO wizard guarda o pedido inteiro em memoria ate o \"Confirmar pedido\", e o\nbotao \"Pedidos\", o menu, o Voltar ou o F5 jogavam fora 60 itens montados sem\nperguntar. Agora a tela se inscreve na guarda de descarte da aba: o router\npergunta antes de trocar de tela (dizendo quantos itens se perdem), o F5 ganha\na pergunta do navegador, e a gravacao dos itens em curso tambem conta. Depois\nde criado o pedido, sair nao pergunta nada. Rascunho em sessionStorage nao\nentrou: com a guarda, a perda acidental pede confirmacao em todas as saidas.\n\nNos seis dialogos do recorte, a guarda generica do modal cobre o Escape e o\nclique fora; aqui entrou o que ela nao cobria: setOcupado durante a gravacao\n(editar pedido, item, cliente, anexo, situacao e etiqueta), a etiqueta que\ngrava e continua aberta (alterado e o que difere do SALVO, e Enter grava) e os\nfiltros da busca no catalogo, que nao sao o item.\n\nAchados: MAP-P-10, MAP-P-19\n\nContra o codigo anterior (com o modal novo) reprovam 8 dos 12 casos de\nwizard.saida.test.js e formularios-descarte.test.js: o wizard nao se\ninscrevia, o Escape fechava gravando, a etiqueta salva perguntava e o filtro\ndo catalogo contava como alteracao.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "17702fd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/17702fd323568092a64b187e7e252be990c7c2bd",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:08:56.000Z",
+      "author": "Maj Diniz",
+      "message": "a sessao avisa antes de vencer, e o 401 com formulario aberto pede a senha por cima em vez de levar ao login\n\nO token vive 8 h (JWT_EXPIRACAO) sem aviso, e o servidor nao tem rota de\nrenovacao: quem abria o sistema as 8 h e salvava um empenho as 16 h via a\ntela de login e perdia o que digitou. A recarga por mudanca de perfil levava\no formulario do mesmo jeito.\n\n- 10 minutos antes do prazo (lido do claim exp), um aviso persistente diz a\n  hora e oferece \"Continuar conectado\".\n- Sem rota de renovacao, continuar e entrar de novo com a senha num dialogo\n  POR CIMA da tela (components/sessao/reautenticar.js), com o mesmo login; outra\n  conta e recusada, para o formulario nao gravar em nome de outra pessoa.\n- 401 com formulario alterado: o api-client nao troca o hash, dispara\n  EVENTO_SESSAO_VENCEU_COM_TRABALHO e o index.js abre a reautenticacao; o\n  formulario continua embaixo e a pessoa salva de novo. Vencida pelo relogio\n  com formulario alterado, a reautenticacao abre sozinha.\n- Sem formulario alterado, vai ao login com motivo=sessao, e a tela diz \"Sua\n  sessao expirou\". A recarga por perfil espera o formulario sair.\n\nAchados: TRV-01 (sessao, aviso de validade, recarga por perfil, login)\n\nReprovam o codigo anterior: os dois casos de api-client.sessao.test.js (o 401\nia ao login sem evento), o motivo=sessao do sessaoLoader e o aviso na tela de\nlogin. Os componentes de sessao sao novos (sessao.test.js, 14 casos, relogio\ncongelado no arquivo).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "2a6da23",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2a6da2310e14954e07d40cb91d43a5be94a95be9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:08:29.000Z",
+      "author": "Maj Diniz",
+      "message": "o toast de erro fica na tela ate ser fechado, e o aviso pode trazer uma acao\n\nO erro sumia em 6 s, e nas telas sem erro inline o toast e o unico lugar do\nmotivo da recusa: quem desviou o olho perdia a explicacao e tentava de novo as\ncegas. Agora showError nao some sozinho (o botao de fechar ja tinha nome\nacessivel), o mesmo erro repetido nao empilha caixas iguais e e anunciado de\nnovo, e sucesso e aviso continuam saindo sozinhos. showToast aceita\ndurationMs null (persistente) e uma acao ({ rotulo, onClick }), que o aviso de\nsessao perto de vencer usa, e devolve { fechar, elemento }.\n\nAchados: TRV-22\n\nO caso \"o erro nao some sozinho\" reprova o codigo anterior: aos 6,25 s o toast\nja tinha saido.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "1b1ee53",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1b1ee53afe2f59a39ac44230b354074b04bf210d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:08:17.000Z",
+      "author": "Maj Diniz",
+      "message": "o formulario do modal pergunta antes de ser descartado, enter envia, e o campo fala com o leitor de tela\n\nA guarda de descarte era opt-in (podeFechar) e 2 de 44 dialogos a usavam: o\nresto perdia o que estava digitado num Escape, num clique no fundo, num X, num\n\"Cancelar\" ou no Voltar do navegador, porque o router fechava os modais sem\nconsultar ninguem.\n\n- modal-base: a guarda vem LIGADA. Todo modal compara os campos do corpo com o\n  instantaneo do primeiro toque e pergunta antes de fechar quando algo mudou;\n  \"Cancelar\" e \"Fechar\" passam por ela; guardaDescarte: false desliga (12\n  dialogos de leitura ou de gravacao imediata), sujo(generico) soma o estado\n  fora de campo, data-descarte=\"ignorar\" tira trechos da comparacao.\n- utils/guarda-descarte: o registro do trabalho nao salvo da aba. O router\n  pergunta ANTES de desmontar a tela (recusado, a URL volta por replaceState),\n  e o beforeunload pede a pergunta do navegador.\n- Enter num campo de uma linha aciona o botao primario, Ctrl+Enter de qualquer\n  campo; nao age no textarea, no combo aberto, na busca nem no chip-input.\n- form-fields: aria-describedby (ajuda e erro), aria-invalid, aria-required,\n  asterisco aria-hidden; combo com aria-controls e aria-activedescendant.\n\nAchados: TRV-01 (parte modal, router e beforeunload), TRV-11, TRV-13\n\nOs testes novos reprovam o codigo anterior: 19 dos 35 de\nmodal-base.formulario.test.js, 8 dos 9 de aria.test.js e 6 dos 6 de pergunta em\nrouter.descarte.test.js falham contra o HEAD (o modal fechava sem perguntar, o\nrouter trocava de tela, o Enter nao fazia nada, os atributos ARIA nao existiam).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "48bc96a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/48bc96a9dbccc8724050e9aacd8c41506cb71333",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:06:19.000Z",
+      "author": "Maj Diniz",
+      "message": "cada tela diz na aba e no cabecalho onde a pessoa esta, e o 403 diz qual perfil falta, em que modulo e quem concede\n\nO casco ganha a trilha Modulo > Secao > Registro no cabecalho e o titulo da\naba por tela (\"Configuração · Orçamento · SAP\"), saidos da rota e do mesmo\nmenu da sidebar; o registro aberto toma o nome do h1 e o foco sai do link do\nmenu. O nome SAP leva ao inicio. Entram o link \"Pular para o conteudo\", a\nfaixa de conexao perdida, a sidebar recolhida que persiste, a gaveta que\nfecha no Escape e devolve o foco, aria-expanded/aria-controls no hamburguer,\naria-current e title nos itens, icones distintos, o Dashboard da raiz do\nmodulo marcado, a versao do servico no menu do usuario e o tema que segue o\nsistema ate o clique (com \"seguir o sistema\" para voltar).\n\nA guarda passa o motivo ao 403 (admin, gerente, rastreabilidade, modulo,\nnivel, lista) com o endereco tentado, e a pagina escreve a frase certa. A\nRastreabilidade ganha guarda e item de menu pelo mesmo criterio do servidor\n(gerente de modulo auditado), com teste de paridade contra MODULOS_VALIDOS.\n\nAchados: TRV-05, TRV-23, TRV-24, TRV-28, TRV-30 (versao), TRV-31, TRV-32,\nTRV-34 (alvos de toque do casco), TRV-35 (trilha como volta), EFT-08, EFT-23\n\nCopiados para uma worktree na main, os testes alterados e novos reprovam 41\ncasos (guardas sem motivo, item da raiz sem marca, gerente so do Efetivo vendo\na Rastreabilidade, boot que gravava o tema, sem trilha nem versao).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "02099fc",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/02099fc86c93326736d3729a7b7a450088e055c9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T18:06:01.000Z",
+      "author": "Maj Diniz",
+      "message": "os filtros da lista de bens vao para a url, a lista e os historicos exportam, e o dmt sai do recorte da tela\n\nQuem filtrou \"Cia Lev, Indisponivel\", abriu uma ficha e voltou refazia os\nfiltros a cada bem: situacao, secao, tipo e carga vao para a URL (ativos e o\npadrao e nao entra), junto com busca, ordem e pagina, e o Voltar da ficha volta\npara a lista como ela estava. A lista filtrada exporta em CSV (patrimonio cru e\na marca de por conferir), e cada historico da ficha (indisponibilidades,\nmanutencoes, afastamentos, transferencias) tambem.\n\nO GET /relatorio/dmt_ods passa a aceitar os filtros da lista (listarQuery),\ntodos opcionais: sem nenhum sai o parque inteiro, como sempre. A tela manda os\nfiltros que mostra, e o botao diz isso no title. O comentario que prometia \"o\nmesmo conjunto que esta tela mostra\" deixa de mentir.\n\nAchados: EQP-07, EQP-08, TRV-03, TRV-04, TRV-16.\nO teste de banco do DMT reprova o codigo anterior (o recorte devolvia os tres\nbens, e o filtro invalido passava com 200); list.recorte.test.js reprova (a URL\nnao recebia filtro e a remontagem abria em \"Somente ativos\" sem secao).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "82fd7d4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/82fd7d47500f49b72313e00bbba182c791f07bd9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T18:01:47.000Z",
+      "author": "Maj Diniz",
+      "message": "edição: o ícone de mover a seleção\n\nUma linha com vértices a poucos pixels uns dos outros na tela não tinha\nponto livre para arrastar. O ícone fica acima da caixa tracejada (ou preso\nà área livre do mapa quando a seleção não cabe), nas seis ferramentas com\nvértices, um para a seleção inteira, e usa o mesmo arrasto do corpo da\nfeição. O toque nele é engolido em captura antes das alças, do pan e do\nclique de seleção.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "e9a90b8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e9a90b83f67a434c9aa30fbc2bbe28afcac438c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:59:42.000Z",
+      "author": "Maj Diniz",
+      "message": "o cabecalho ganha a caixa de pendencias de cada um e a busca que leva da NE, do localizador ou do patrimonio direto a ficha\n\nA caixa junta o que cada tela ja mostrava como problema (pendencias do painel\ndo orcamento, pedido com prazo vencido, insumo abaixo do minimo, descarga\nsolicitada, afastamento vencido, subsecao do RPCMTec por preencher), cada\nfonte carregada sozinha com o proprio catch e so para quem tem perfil nela.\nA unica rota nova, GET /api/rpcmtec/pendencias (verifyGerente), conta as\ndigitadas das edicoes abertas que a pessoa pode preencher, pela mesma regra\ndo fechamento (foiPreenchida exportada), sem montar o relatorio inteiro.\n\nA busca reconhece o formato (localizador, 2026NC/NE000123, MI/INOM,\npatrimonio, nome de militar) e usa as rotas de leitura que as telas ja usam,\ncada leitor so com o perfil da guarda dele: com um achado exato navega, com\nmais de um mostra a lista.\n\nAchados: TRV-06, TRV-07\n\nOs testes sao novos (a rota respondia 404, os componentes nao existiam):\nperfil que nao alcanca a fonte nao a chama, a falha de uma fonte nao apaga as\noutras, e o gerente so ve as subsecoes do modulo dele.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "4e4a196",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4e4a196f5924e55dc9e6b487553930b0e998d3a3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-11T17:59:23.000Z",
+      "author": "Maj Diniz",
+      "message": "edição: a alça de ponto médio só aparece quando cabe na tela\n\nDe longe, as alças de vértice e de ponto médio cobriam a linha inteira e a\nfeição selecionada não se deixava arrastar. O ponto médio passa a ser\ndesenhado só a 40 px de qualquer outra alça (52 px no toque), nas seis\nferramentas que o têm, e as alças se redesenham no fim do zoom.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TZA4v2ByooDQgJSpTXubnP",
+      "sha": "088d2d5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/088d2d5dd915eb322f0211de198629744803d813",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:58:28.000Z",
+      "author": "Maj Diniz",
+      "message": "os textos do orcamento saldo dizem o que o comando mostra: fluxos de uma faixa e o saldo a empenhar das duas\n\nA ajuda, o README e as regras do CLI ainda diziam \"total do PDR\" e \"trabalha\nnuma faixa por vez\", e o rotulo do A EMPENHAR dizia \"hoje\": desde o ORC-12 o\ncomando mostra os fluxos de UMA faixa e o saldo a empenhar do servidor, que\nsoma PDR e Extra-PDR e conta as NCs emitidas ate o fim do mes pedido ou sem\ndata. So texto; os testes do CLI seguem 726 de 726.\n\nAchados: ORC-12\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c83ddd7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c83ddd72ff52bf460214b9d118246b1a2e5087b0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:58:27.000Z",
+      "author": "Maj Diniz",
+      "message": "a NE em rateio sai do ano errado com a ultima NC dela, e a troca de ano que deixaria a data no ano antigo e recusada\n\nRessalvas da revisao independente do ORC-01:\n- a NE dividida entre duas NCs do ano errado nao saia por caminho nenhum (a\n  NC recusava pelo rateio, a NE pela NC no ano antigo). Agora ela fica com a\n  primeira NC (\"vai junto quando a ultima NC dela mudar\") e vai junto com a\n  ultima;\n- o painel e a Secao 4 cortam pelo ano E pela data: NC, NE ou liquidacao\n  movida com a data do ano antigo sumia dos dois. A analise (previa e PUT)\n  recusa com frase a data de emissao, de empenho ou de liquidacao fora do ano\n  novo; a data da NC e a da NE se corrigem no mesmo envio, e o dialogo olha o\n  campo do formulario com a frase do servidor;\n- a previa lista as edicoes FECHADAS do RPCMTec do ano antigo que nao mudam, e\n  a da NC diz que os recebimentos sem ano de referencia vao junto com a NE;\n- as NEs da analise ficam travadas (FOR UPDATE) e o UPDATE delas exige o ano\n  antigo; a previa so aceita ano de 2000 a 2100, como a tela;\n- a opcao da propria NC no combo do empenho mostra o mesmo saldo da linha.\n\norcamento_troca_ano.test.js: 24 casos, os 7 novos reprovam o codigo anterior\n(rateio completo A depois B, quatro de data, edicao fechada, faixa do ano);\nno client, 3 novos reprovam os dialogos anteriores.\n\nAchados: ORC-01, ORC-02\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "70ec3b0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/70ec3b079dd75c523b41dfdb5b97a7f25047ef92",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:58:19.000Z",
+      "author": "Maj Diniz",
+      "message": "as listas do orcamento guardam ano, filtro e busca na url, exportam, e o vazio diz o ano\n\nAs seis listas (DFD, PDR, NC, NE, licitacoes, RPNP) liam o `?ano=` e nao\nescreviam nada: trocar o ano, filtrar e abrir um registro perdia tudo na volta.\nAgora o ano, a classificacao (NC), a NC (NE), o tipo (licitacoes) e a busca, a\nordem e a pagina da tabela vao para a URL; a ficha da NC e da NE volta para a\nlista como ela estava quando e do mesmo ano do registro. Toda lista exporta o\nrecorte em CSV, inclusive a execucao por ND do painel, que tambem guarda aba,\nano e o mes escolhido pela pessoa. O vazio diz \"Nenhum DFD em 2026. Troque o\nano ou cadastre o primeiro.\" (o botao so para quem pode), e com filtro diz que\ne o filtro e oferece limpar. NC e NE abrem por link.\n\nAchados: ORC-04, ORC-16 (a parte da URL; os filtros novos ficam), TRV-03,\nTRV-04, TRV-16, TRV-20.\nlist.recorte.test.js da NC reprova o codigo anterior: a URL nao recebia ano,\nclassificacao nem busca, a remontagem abria no ano atual, e o vazio dizia\n\"Nenhuma nota de credito cadastrada\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "1dd402b",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/1dd402bcaf0737acd4cd696fde169cbd1772bcbf",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:54:07.000Z",
+      "author": "Maj Diniz",
+      "message": "a administracao e o dashboard do acervo reabrem na mesma aba, e as listas de diagnostico exportam sem o plugin\n\nA aba e a sub-aba da administracao vao para a URL (?aba=, ?subaba=), e trocar\nde grupo esquece a sub-aba do grupo de antes; cada tabela de cadastro guarda a\npropria busca com prefixo e exporta. As tres listas de diagnostico, paginadas\nno servidor, exportam TODAS as paginas de 100 em 100: antes so o plugin do QGIS\nexportava. A auditoria guarda severidade e recorte na URL e exporta, e o\ndashboard do acervo reabre na aba e na sub-aba de antes, com as tabelas de\natividade e a de folhas a produzir exportando.\n\nAchados: ACV-A-16, TRV-03, TRV-04, TRV-15.\nindex.url.test.js reprova o codigo anterior (a aba da URL era ignorada e a\nprimeira abria sempre); lista-paginada.test.js prova as 4 paginas de 100 de\numa lista de 349.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "91191c7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/91191c786773d3b62d37008cb1cce51eef0391ad",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:53:56.000Z",
+      "author": "Maj Diniz",
+      "message": "a lista guarda o recorte na url, exporta csv, abre o registro por link e diz quando o vazio e do filtro\n\nO data-table ganha o que 23 das 27 telas nao tinham. `estadoNaUrl` liga a\ntabela a utils/estado-na-url.js, o sincronizarUrl da lista de pedidos tirado da\ntela: busca, ordem, pagina e itens por pagina vao para a URL por replaceState,\nsem o valor padrao, e a ficha volta pela \"ultima lista\" da rota. `exportavel`\nbaixa o recorte filtrado e ordenado inteiro (nao so a pagina), com o texto que\na tela mostra, ';' e BOM, no formato do csv do servidor; `buscarLinhas` serve a\nlista paginada no servidor. `hrefLinha` faz da celula principal um <a href> e\nda linha um alvo clicavel. O vazio com filtro diz \"Nenhum resultado para este\nfiltro\" e oferece limpar. O rodape de paginacao, um so para as duas paginacoes,\nganha primeira, ultima e salto para a pagina, com os mesmos tamanhos 10/25/50/100\ndos dois lados e aviso no console para tamanho invalido. createTabs grava ?aba=.\n\nLigado na mapoteca (pedidos migrado para o utilitario, clientes, insumos, ficha\ndo insumo com ano e mes na URL, atendimento, dashboard com aba e ano na URL e\nexportacao da fila parada, do top 10 e do consumo por insumo) e no esqueleto das\nlistas de diagnostico do acervo.\n\nAchados: TRV-03, TRV-04, TRV-15, TRV-16, TRV-20, TRV-21, TRV-25, MAP-I-08,\nMAP-I-20, MAP-I-26.\nOs testes novos de data-table, tabs e paginacao rodaram contra a main numa\nworktree destacada: 24 de 29 reprovam la (os 5 que passam sao guardas\nnegativas), e passam aqui.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "2d82051",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/2d82051497879eccf367960a5f4fbbbad89be75d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:39:14.000Z",
+      "author": "Maj Diniz",
+      "message": "o texto de ajuda, o vazio e os chips de situacao passam a ler a 4,5:1 nos dois temas\n\nA ajuda do campo e o vazio da tabela usavam --text-disabled (2,68:1 no claro,\n2,90:1 no escuro) e os chips pintavam a cor cheia sobre o proprio tom a 12%\n(2,72 a 4,36). Nasce --text-hint para o texto que ajuda, tokens proprios de\ntinta de chip por tema e o fundo do selo de alerta, como o toast ja tinha.\n\nAchados: TRV-10\n\nO teste novo le as folhas como texto, compoe o rgba do chip sobre cada fundo\ndo tema (papel, pagina, faixa; papel, pagina, modal) e reprova abaixo de 4,5.\nContra o codigo anterior reprova 16 de 28 casos, e mede os pares de antes\n(9e9e9e/fff, 666/1e1e1e, chip warning) como abaixo do minimo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "12c48bf",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/12c48bf7f7280d5d3103af7924c9d592f0a064df",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:37:49.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.19.0 carimba o gatilho do saldo que atribui o desfazer a quem corrigiu\n\nA migracao 2026-10-11_o_desfazer_do_saldo_e_de_quem_corrigiu troca a funcao\ndo gatilho do livro de material. O piso do banco fica em 3.18.0: num banco\nsem a migracao o gatilho velho ignora a variavel da transacao e o servico\nfunciona igual, so com o autor antigo no efeito do saldo.\n\nOnda 1 da revisao de telas, grupo mapoteca (MAP-P-01, MAP-I-01, MAP-I-15,\nMAP-I-19, MAP-P-21, CAL-17), revisado por agente independente antes da\nintegracao.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7735ddf",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7735ddf2bb36899b22307d1ee3fda3f2fef5fb0c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:29:31.000Z",
+      "author": "Maj Diniz",
+      "message": "a lista de modulos do verifyPerfil so monta em consulta, e o teste da variavel do autor le a mesma conexao\n\nRessalvas da revisao do grupo o1-mapoteca:\n- verifyPerfil com lista e nivel de escrita (operador, gerente) estoura na\n  montagem da rota: com o maior perfil dos listados, quem tem operador num\n  modulo escreveria no outro. O aviso do CLAUDE.md sobre o default 'acervo'\n  ganha a frase da lista.\n- o caso \"a variavel do autor nao vaza\" lia current_setting de outra conexao\n  do pool e passava ate com is_local=false; agora o controlador roda numa\n  task (uma conexao) e a leitura acontece nela.\n- docs/decisoes.md registra a regra do material inativo (409 no lancamento\n  novo; corrigir ou remover o ultimo continua valendo).\n- a varredura de modulo_em_toda_rota diz que nao cobre chamada por service\n  compartilhado (getMetasPit).\n\nAchados: MAP-P-01, MAP-I-01, CAL-17\n\nTeste que reprova o anterior: verify_perfil \"lista com nivel de escrita\"\nreprova sem a trava; o caso da variavel reprova com set_config(..., false).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "243179e",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/243179e17c31f791485e8a32bd7754a29356f5ac",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:20:57.000Z",
+      "author": "Maj Diniz",
+      "message": "quem volta a aba ve a verificacao que falhou, e a trava presa diz que so o reinicio a libera\n\nRessalvas do revisor ao ACV-A-01:\n- a aba Verificar volume, ao abrir, mostra \"A ultima tentativa, em ...,\n  falhou: ...\" quando a falha e mais nova que a ultima concluida (a falha nao\n  deixa evento, e a linha da ultima concluida se leria como tudo conferido).\n- trava presa: nao ha rota para solta-la a mao, de proposito (soltar nao para\n  a execucao pendurada, que voltaria a rodar ao lado da nova). Depois de uma\n  hora a frase do 409 diz que so o reinicio do servico libera; o estado da\n  verificacao traz decorrido_s; docs/decisoes.md registra o reinicio.\n\nCasos novos: a falha recente aparece e a antiga nao (a aba anterior nao\nmostrava nenhuma), a frase depois de uma hora, e decorrido_s no estado.\n\nAchados: ACV-A-01\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "b1eaed5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b1eaed58b78c79b76b105fd32c967aa8c4ad739d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:11:23.000Z",
+      "author": "Maj Diniz",
+      "message": "o escape so respeita lista aberta que declara popup, e a pilha de modais tem caso proprio\n\nRessalva do revisor ao TRV-02: o teste de lista aberta casava qualquer\naria-expanded=\"true\", e um acordeao aberto prenderia o Escape do modal para\nsempre. Agora so conta [aria-haspopup] ou role=combobox (o combo, o filtro\nmultiplo, a palavra-chave e o seletor de versao declaram). Casos novos: o\nacordeao aberto nao prende (reprova o seletor anterior) e, numa pilha, o\nEscape do combo do topo fecha a lista e depois so o modal do topo.\n\nAchados: TRV-02\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "4a88f7f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4a88f7fa6bd8dd7187323384a88d34756fff139d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T17:11:22.000Z",
+      "author": "Maj Diniz",
+      "message": "a aba que volta do login adota a conta, a mesma pessoa reentrando desbarra, e as fotos passam pela guarda\n\nRessalvas do revisor ao TRV-18:\n- a guarda passa a comparar, a cada pedido, o uuid do localStorage com o da\n  aba, em vez de uma marca que so o recarregar desligava: a aba que estava no\n  #/login quando a outra entrou ADOTA a conta no primeiro pedido (antes ficava\n  sem vigia), a MESMA pessoa saindo e entrando na outra aba desbarra esta, e a\n  troca e pega mesmo sem o evento storage. Sem conta no localStorage nao barra:\n  o pedido sai sem token e o 401 leva ao login.\n- urlDaImagemCampo e a url da midia de capacitacao, que fazem fetch proprio,\n  passam pela mesma guarda (exigirSessaoDestaAba e a frase moram no\n  auth-store, e o api-client as reexporta).\n\nOs casos novos (adocao, reentrada, troca sem evento, fotos) reprovam o codigo\nanterior: a marca nao desligava, a aba sem conta nunca adotava, e as fotos\nsaiam com o token alheio.\n\nAchados: TRV-18\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7711fc3",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7711fc3373f7ea1ad8b96488e38179aab6c141cc",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:57:13.000Z",
+      "author": "Maj Diniz",
+      "message": "o saldo desfeito por uma correcao registra o gerente que corrigiu, e nao quem lancou\n\nO gatilho mapoteca.trg_movimento_material desfazia o efeito da linha antiga\ncom OLD.usuario_criacao_id, e a linha de estoque dizia que o saldo foi mexido\npor quem lancou o erro. No UPDATE o desfazer passa a usar\nNEW.usuario_atualizacao_id; no DELETE, que nao tem NEW, o servidor declara o\nautor com set_config('sap.usuario_id', id, true), local a transacao, e o\ngatilho o le (sem a variavel, vale OLD.usuario_atualizacao_id). Migracao\naditiva com CREATE OR REPLACE da funcao e DDL junto; ensaiada: banco migrado\ne banco novo com o mesmo schema, idempotente. Nao sobe o piso.\n\nAchados: CAL-17\n\nTeste que reprova o anterior: movimento_correcao, bloco \"o saldo registra\nquem corrigiu\", rodado contra o banco/er/mapoteca.sql do HEAD anterior: 2\nreprovacoes (a linha da Secao ficava com o id do administrador que lancou).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "9060bb4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9060bb4d20e5d2a373eb6320e2c86f0421b8a3e3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:56:26.000Z",
+      "author": "Maj Diniz",
+      "message": "trocar so a origem da meta nao cria alteracao no rascunho, e a tela diz que a origem vale ao salvar\n\nRessalvas da revisao independente do grupo PIT. O servidor deixa de gravar\nem pit.meta_item_revisao a declaracao que so repete a que vigia antes da\nrevisao (troca so de classificacao numa meta que a revisao ainda nao\ndeclara), e responde declaracao_gravada: false; a tela diz entao que a\nclassificacao gravou e a revisao continua sem alterar a meta. O aviso do\nformulario e o ensaio passam a dizer a verdade: numero, item, unidade e\norigem valem ao salvar, mesmo no rascunho, para os meses cuja edicao do\nRPCMTec nao foi fechada. Na capacitacao, a meta ligada com a lista em falha\ndiz que as metas nao carregaram. Mais: regras do pit_cli atualizadas (origem\nda demanda na atualizacao, meta de outro ano recusada), decisoes.md registra\no cadastro minimo de militar sob consulta no PIT, e a rota da ministrada sai\ndo meio do comentario do molde, acentuada.\n\nAchados: PIT-01, PIT-02, PIT-03, PIT-08 (ressalvas da revisao)\n\nTeste: pit_revisao.test.js ganhou dois casos; o de \"trocar so a origem\"\nreprova contra o controlador anterior (1 de 16). declaracao-dialog.test.js e\ncapacitacao-dialog.test.js cobram os textos novos e a mensagem.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "4d7debd",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4d7debd904336f22273d23ceca9133d63906da32",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:55:42.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.18.0 carimba a senha provisoria e sobe o piso do banco\n\nA migracao 2026-10-11_a_senha_do_reset_obriga_a_troca cria\ndgeo.usuario.senha_provisoria, e o login passa a le-la: num banco 3.17.0\nninguem entraria. VERSION, MIN_DATABASE_VERSION, banco/er/versao.sql e o\ncarimbo da migracao vao juntos a 3.18.0.\n\nOnda 1 da revisao de telas, grupo RPCMTec, efetivo e equipamento (RPC-01,\nRPC-02, EFT-02, EFT-05, EQP-04), revisado por agente independente antes da\nintegracao.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "a2ad8f0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a2ad8f0281633cd732c8bbd31385301d1ef192b9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:45:59.000Z",
+      "author": "Maj Diniz",
+      "message": "a regular sem arquivo ganha marca no cartao, e a correcao do ponto nao manda lote zero quando os lotes nao carregam\n\nRessalvas da revisao independente do grupo o1-acervo:\n- o cartao da busca marcava Planejada e historica, mas nao a Regular que\n  perdeu o arquivo; ganha o chip \"Regular, sem arquivo\";\n- se getLotes falhava, o select do lote ficava vazio e a correcao mandava\n  lote_id: 0; agora o lote vazio nao vai no corpo, o campo fica desabilitado\n  e diz que os lotes nao carregaram;\n- o caso \"ponto que nao existe e 404\" passava tambem sem a rota (404 do\n  roteador); agora exige a frase do controller.\n\nAchados: ACV-B-02, ACV-A-02\n\nOs tres casos reprovam contra o codigo anterior (os dois do client contra o\ncommit de antes desta correcao; o do 404 contra a main sem as rotas).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "f16dfdf",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/f16dfdf167b1432107a5c3164ce4b5588d38db02",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:45:24.000Z",
+      "author": "Maj Diniz",
+      "message": "a troca obrigatoria recusa a mesma senha, e a decisao nomeia o risco que sobra\n\nCom a senha provisoria, \"trocar\" pela mesma senha limpava a marca e deixava\na senha do reset. Enquanto a marca vale, atualizaSenhaPropria recusa senha\nnova igual a atual (exige diferenca, nao forca; fora da troca obrigatoria\nvale a paridade). A justificativa da recusa no plugin foi reescrita em\nlogin_ctrl.js e em docs/decisoes.md: ela empurra o dono a trocar e nao fecha\na conta, e o risco que sobra fica nomeado (conta resetada e nunca usada segue\naberta pela API e pelo CLI, porque o servidor nao barra o token com a marca).\n\nAchados: EFT-02 (ressalvas da revisao independente)\n\nContra o codigo anterior o caso da mesma senha reprova (200, e a marca caia);\no controle da paridade (sem a marca, repetir a propria senha passa) vale nos\ndois.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "d4fa77a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d4fa77a656b7ec40118d4c531f5f3d7356564c48",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:28:08.000Z",
+      "author": "Maj Diniz",
+      "message": "quem so consulta abre a etiqueta em modo leitura e imprime a ja salva\n\nGravar a etiqueta e do operador, e o botao Salvar aparecia para todos: a\nconsulta editava, levava 403 e ficava com Imprimir travado sem saber por que.\nSem perfil de operador na mapoteca o dialogo nasce com os campos\ndesabilitados e sem Salvar, e Imprimir libera so a etiqueta ja salva, com a\nfrase dizendo que quem salva e o operador.\n\nAchados: MAP-P-21\n\nTeste que reprova o anterior: etiqueta-envio.test, bloco \"quem so consulta\"\n(o Salvar existia e os campos eram editaveis: 2 reprovacoes). A sessao padrao\ndo arquivo passou a ser operador, que e o perfil que os casos antigos supoem.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "4e9f500",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/4e9f500375e63a4c99234f4cd298374c9d9930b9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:28:07.000Z",
+      "author": "Maj Diniz",
+      "message": "o resumo anual mostra erro quando o ano novo nao carrega, e nao os numeros do ano anterior\n\nNa falha de getResumoAnual so havia o toast: os quatro cartoes seguiam com o\nvalor da carga anterior sob a linha de escopo do ano novo. Agora a troca de\nano volta os cartoes a '-' antes da carga e a falha os marca 'Erro', como a\naba Pedidos; o refresh de 60 s do mesmo ano nao zera, para nao piscar.\n\nAchados: MAP-I-15\n\nTeste que reprova o anterior: resumo-anual-tab.test (o cartao continuava com\n6.535 depois da falha do ano novo, e nao voltava a '-': 2 reprovacoes).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "bd81f32",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bd81f3293bdb3ab62dd58223dac5427a67a66d64",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:27:54.000Z",
+      "author": "Maj Diniz",
+      "message": "insumo inativo nao recebe lancamento novo, e a ficha recarrega depois de um 409\n\nO livro aceitava consumo, entrada e transferencia em material inativo, e a 7.2\ndo RPCMTec so lista material ativo: o consumo baixava o saldo e sumia do\nrelatorio. O servidor passa a recusar com 409 e frase (corrigir o ultimo\nlancamento continua valendo); a lista esconde os tres lancamentos da linha\ninativa e a ficha os desabilita com o motivo. Depois de um 409 (o ultimo\nmudou, ou o insumo ficou inativo) o dialogo fecha e a ficha recarrega.\n\nAchados: MAP-I-01, MAP-I-19\n\nTeste que reprova o anterior: material_inativo (o POST respondia 201, 2\nreprovacoes); list.test e ficha.ultimo.test (linha inativa com cinco acoes,\nbotoes habilitados, e getTipoMaterial chamado uma vez so depois do 409: 4\nreprovacoes).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "6c4fbb4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6c4fbb47b4726da55a5514cc141fc904321ed861",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:17:23.000Z",
+      "author": "Maj Diniz",
+      "message": "os clis avisam no stderr quando o login traz a senha provisoria\n\nOs CLIs entram como cliente web e nao sabem trocar senha, entao ignoravam a\nmarca senha_provisoria que o login passou a devolver: quem usa so o terminal\nseguia com a senha do reset sem saber. O login de cada CLI (acervo, efetivo,\nequipamento, mapoteca, orcamento, pit, producao e o cliente minimo do SCA no\nsag_cli) agora escreve um aviso no stderr, sem tocar o stdout de quem faz\npipe, e segue.\n\nAchados: EFT-02 (ressalva da revisao independente)\n\nContra o codigo anterior os oito casos novos reprovam (nada era escrito); o\nlado sem a marca prova que o aviso nao aparece a toa.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "97712ba",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/97712ba7bc023d37d72de6a1950ce4be82d6f4a4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T16:15:30.000Z",
+      "author": "Maj Diniz",
+      "message": "so o 409 da troca de periodo pede confirmacao, e a edicao duplicada mostra o erro\n\nO PUT da edicao tem dois 409: a troca de periodo com digitada, que se\nconfirma, e a edicao duplicada no mesmo ano e mes, que e erro. O dialogo\ntratava todo 409 como troca e oferecia \"Trocar o periodo\" diante da\nduplicada. O AppError ganha um `codigo` opcional, que o errorHandler poe no\nenvelope so quando existe; o 409 da troca leva TROCA_DE_PERIODO_COM_DIGITADA,\no api-client o carrega no erro, e o dialogo so pergunta diante dele.\n\nAchados: RPC-02 (ressalva da revisao independente)\n\nContra o codigo anterior reprovam o caso da duplicada no dialogo (abria a\npergunta), o do api-client (sem codigo no erro) e os do AppError e do\ncontrolador (sem codigo no 409 da troca).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "5f511c3",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/5f511c344c7942623d4552d5b17834b54f6d9967",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:55:57.000Z",
+      "author": "Maj Diniz",
+      "message": "os sete dialogos de escrita do orcamento deixam corrigir o ano, com aviso do que vai junto e do que impede\n\nTodo dialogo gravava `ano: isEdit ? registro.ano : ano`, sem campo: o\nlancamento no ano errado so saia pelo CLI ou apagando e relancando. NC, NE,\nrecolhimento, DFD, licitacao, item do PDR e RPNP ganham o campo \"Ano\" na\nedicao (components/campo-ano-edicao.js). O aviso abaixo dele le a previa do\nservidor (GET /:id/troca_ano, a mesma analise do PUT) para NC, NE e item do\nPDR, e soma as regras que dependem do formulario com o mesmo texto da recusa\ndo servidor (a NC do rateio da NE, a NE do RPNP). A troca impedida nao chega\nao servidor; a permitida pede confirmacao nomeando o ano de origem e o de\ndestino. Ao mudar o ano, as listas que sao de um ano (itens do PDR na NC,\nmetas no item do PDR, NCs na NE, NEs no RPNP) passam a ser as do ano novo.\n\ndocs/decisoes.md registra a regra da troca, pendente do aval do chefe.\n\ntroca-ano.test.js: 12 casos, 10 reprovam contra os dialogos anteriores (o\ncampo nao existia e o corpo ia com o ano gravado); campo-ano-edicao.test.js\ncobre aviso, impedimento, confirmacao e falha da previa. Os dois testes da NE\nque contavam inputs numericos passaram a pular o campo de ano.\n\nAchados: ORC-01\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "7340c56",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7340c5606661c3c6833f346354228881356263e7",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:54:00.000Z",
+      "author": "Maj Diniz",
+      "message": "o gerente corrige ou exclui pela ficha o ponto de controle importado, com auditoria e motivo\n\nNao havia PUT nem DELETE: o ponto com medidor ou altura da antena errados, ou\nreprovado depois da importacao, so saia por SQL no banco de producao. Agora\nPUT /api/ponto_controle/:cod_ponto corrige o que o medidor anota e o lote\n(sem coordenada, processamento, cod_ponto nem situacao, que se resolvem\nreimportando ou excluindo), e DELETE exige motivo, audita o ponto e cada\nlinha de arquivo na mesma transacao e desliga o registro da sessao de\nimportacao. Os bytes ficam no volume e voltam como arquivos_orfaos (caminho\nrelativo), a mesma regra da substituicao na importacao. As duas rotas sao de\ngerente, o piso da importacao. A ficha ganha \"Corrigir\" e \"Excluir\" para o\ngerente, e a tela refaz a lista e o mapa depois.\n\nAchados: ACV-A-02\n\nroutes/ponto_controle_correcao.test.js: 9 dos 10 casos reprovam contra o\ncodigo anterior (rota inexistente); o de 404 passa nos dois por construcao.\nOs 4 casos novos de ponto-dialog.test.js reprovam sem os botoes.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "a2358e1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a2358e1caf8112f05c170212e93bf614fd8c77b7",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:50:58.000Z",
+      "author": "Maj Diniz",
+      "message": "o administrador escolhe pela tela de onde vem o numero da meta, e ve o ensaio antes de virar a meta automatica\n\nA origem da meta (Manual, Capacitacao, Producao, Impressao) so se escolhia\npelo pit_cli, e o ensaio que antecede a virada so existia no CLI: toda meta\ncadastrada pela tela nascia Manual. O formulario da meta (dentro da revisao)\nganhou \"De onde vem o numero\"; a meta nova manda a origem escolhida; a troca\nnuma meta existente mostra o ensaio (GET /metas/execucao/ensaio, digitado e\ncalculado mes a mes, com os meses que divergem marcados) e so grava com\n\"Conferi o ensaio\" marcado. A coerencia de unidade que o servidor cobra e\navisada antes, e sem troca a origem nem vai no corpo (omitir e \"nao mexer\").\nA tabela de #/metas ganhou a coluna \"Conta\" (automatica ou a mao).\n\nAchados: PIT-01\n\nTeste: declaracao-dialog.test.js reprova 5 de 6 casos contra o dialogo\nanterior (o sexto e o controle de que sem troca a origem nao vai); o caso\nnovo de metas/index.test.js reprova sem a coluna e sem a origem no\nformulario. So client: as rotas ja existiam.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "66a2030",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/66a20301ce50d2d9ca5d83a06ecdc32c00b8efa9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:50:28.000Z",
+      "author": "Maj Diniz",
+      "message": "a verificacao contra o volume roda em segundo plano e a tela acompanha ate o fim, uma por vez\n\nO client cortava todo pedido aos 30 s: a verificacao (\"pode levar horas\")\naparecia como \"Falhou\" com o servidor ainda lendo, o botao voltava e o segundo\nclique disparava outra leitura completa em paralelo, sem trava nenhuma. O mesmo\ncorte pegava visoes materializadas, miniaturas, checksum, renome e auditoria.\n\n- api-client: o teto de 30 s vira padrao, com { prazoMs } por chamada (null =\n  sem teto); as seis acoes longas passam null; o download tem prazo so ate a\n  resposta comecar (AbortSignal.timeout cortava o corpo do arquivo).\n- servidor: utils/execucao_unica.js (trava em memoria do processo unico, 409\n  com frase) na verificacao, nas visoes materializadas, no checksum e no\n  renome aplicado; gerencia/verificacao_volume.js com POST .../iniciar (202,\n  segundo plano) e GET .../estado (em curso, por quem, arquivos lidos, ultima\n  execucao, ultima concluida lida do evento de auditoria). O POST sincrono\n  continua para o acervo_cli e o plugin, sob a mesma trava.\n- aba Verificar volume: inicia, consulta a cada 5 s, mede o tempo pelo relogio\n  do servidor, mostra a ultima verificacao concluida e acompanha a que ja esta\n  em curso ao abrir ou depois do 409.\n\nContra o codigo anterior reprovam 9 dos 10 casos de rota (o decimo e o\ncontrole da porta sincrona) e 22 casos do client (prazo, servico real contra\nfetch dublado, aba). docs/decisoes.md ganha a entrada, sem mexer na anterior.\n\nAchados: ACV-A-01 (e a trava de ACV-A-11)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "0cc587a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/0cc587afceb30076a038548195c2cc72923455b5",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:48:47.000Z",
+      "author": "Maj Diniz",
+      "message": "o ano de NC, NE, item do PDR e RPNP muda pelo servidor com os vinculos junto, e a troca que quebraria vinculo e recusada com frase\n\nA troca de ano era aceita sem olhar vinculo: a NC ia para o ano novo e a NE\ndela ficava no velho, e o painel mostrava o credito num ano e o empenho no\noutro. Agora, so quando o ano muda:\n- a NC leva junto as NEs dela que estavam no ano antigo (liquidacoes e\n  recebimentos acompanham), cada NE com o proprio evento de auditoria; recusa\n  com 409 a NE em rateio com outra NC, a NE em RPNP do ano novo e a colisao de\n  numero; recusa com 400 o item do PDR de outro ano; os recolhimentos ficam\n  (o ano e o do documento);\n- a NE muda sozinha so para o ano das NCs dela, e nao para o ano do RPNP;\n- o item do PDR nao muda debaixo de NC de outro ano, e a meta tem de ser do\n  PIT do ano novo;\n- o RPNP nao vai para o ano da propria NE nem antes.\nA mesma analise serve a previa nova GET /:id/troca_ano?ano=N (NC, NE e PDR),\nque a tela mostra antes de salvar. Sem troca de ano nada e cobrado, entao a\nlinha antiga que ja divergia continua editavel.\n\nintegration/orcamento_troca_ano.test.js: 18 casos; contra o codigo anterior\n14 reprovam (a NE ficava no ano velho, nada recusava, a rota de previa nao\nexistia). O mock de nota_empenho_ctrl.test.js passou a trazer o ano, como a\nlinha real.\n\nAchados: ORC-01\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "ac4580a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ac4580ad3cdec391d19645caed61f0662e6993a8",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:48:39.000Z",
+      "author": "Maj Diniz",
+      "message": "a senha que o administrador definiu obriga a troca antes de qualquer tela\n\nO reset grava a senha igual ao login e o comentario dizia que isso obriga a\ntroca, mas nada obrigava: quem sabia o login entrava na conta resetada por\ntempo indeterminado. Nasce dgeo.usuario.senha_provisoria (migracao + DDL),\nmarcada no reset e na criacao da conta e limpa na troca da propria senha. O\nlogin e a sessao a devolvem; o client leva a pessoa a #/perfil, que mostra so\na troca, e toda guarda (authLoader) manda de volta para la ate a troca. Os\nplugins do QGIS (sap_fp, sap_fg, sca_qgis), que nao sabem trocar senha, sao\nrecusados com 400 e a frase que manda trocar pela interface web; a recusa vem\ndepois da senha. Decisao registrada em docs/decisoes.md (Autenticacao).\n\nAchados: EFT-02\n\nContra o codigo anterior reprovam 7 dos 8 casos novos de\nusuario_cadastro.test.js (sem senha_provisoria na resposta; plugin entrava com\n201) e os 9 do client (auth-store, router, login, perfil). Ensaio da migracao:\nmigrado e novo com o mesmo schema, aplicada duas vezes; sem a coluna no DDL o\nensaio acusa a divergencia.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "3bd5851",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3bd5851f867cf78be4296ab4ecbf4cfe00f595c9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:46:53.000Z",
+      "author": "Maj Diniz",
+      "message": "o gerente da mapoteca sem perfil no acervo adiciona item ao pedido\n\nO dialogo de item lia tipo de produto, escala e o catalogo por rotas com\nverifyPerfil('consulta') sem modulo, que cobra o acervo, e as tres chamadas\nestavam num Promise.all: o 403 fechava o dialogo, inclusive para o avulso.\nDominio passa a verifyAcesso; busca e ficha do produto aceitam consulta no\nacervo OU na mapoteca (verifyPerfil aceita lista de modulos, so para leitura).\nNo client cada dominio carrega sozinho, e so a midia e obrigatoria. O link\ndo produto para o acervo some para quem nao tem perfil la.\n\nAchados: MAP-P-01\n\nTeste que reprova o anterior: a varredura de modulo_em_toda_rota le do client\nda mapoteca toda chamada a rota de outro modulo e exige guarda que aceite a\nmapoteca (4 reprovacoes no codigo velho); perfil_modulo prova contra o banco\n(2 reprovacoes); verify_perfil cobre a lista; dialog-produto prova o avulso\nsem os dominios do acervo (2 reprovacoes).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "da1fa6a",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/da1fa6a1cbbbec53a60252e46dce1dd682719933",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:46:09.000Z",
+      "author": "Maj Diniz",
+      "message": "a capacitacao oferece as metas do pit do ano dela, com o ano no rotulo, e o servidor recusa meta de outro ano\n\nO formulario recebia as metas da lista, carregadas pelo ano do filtro:\neditar uma capacitacao de 2025 com o filtro em 2026 oferecia as metas de\n2026, e \"Todos os anos\" misturava metas de anos diferentes com o mesmo\nrotulo. Agora o dialogo carrega sozinho as metas do ano da capacitacao, poe\n\"(PIT <ano>)\" no rotulo e mostra a meta ja ligada mesmo fora da lista\n(marcada \"cancelada\" ou \"de outro ano\"), em vez de \"Nao cumpre meta do PIT\".\nO servidor confere o ano da meta contra o da capacitacao ao criar, ao\nmandar meta_pit_id e ao mudar o ano, e a leitura devolve meta_pit_ano.\n\nAchados: PIT-08\n\nTeste: capacitacao_meta_do_ano.test.js (banco) reprova os 4 casos contra o\ncontrolador anterior; capacitacao-dialog.test.js reprova os 5 contra o\ndialogo anterior.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "903cf56",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/903cf56e1ca62415d1542473692b38212fc8ab29",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:41:02.000Z",
+      "author": "Maj Diniz",
+      "message": "o seletor de militares do campo e da capacitacao le o cadastro do modulo, e nao a lista de usuarios do admin\n\nAs tres telas (#/campo, #/capacitacao_ministrada, #/capacitacao_recebida)\nenchiam o seletor com GET /usuarios, que e verifyAdmin: o operador tomava\n403, o catch engolia e o seletor dizia \"Nenhum militar encontrado\". A\nrecebida passa a ler GET /efetivo/militares (consulta no efetivo, a mesma\nde #/aproveitamento). Para o PIT nasceram GET /campo/militares e\nGET /rpcmtec/capacitacao/ministrada/militares, sob consulta no pit, com as\nmesmas seis colunas (efetivoCtrl.listarMilitares, sem login, flag de\nadministrador nem perfis). Se a carga falhar, o seletor diz que o cadastro\nnao veio, em vez de \"nenhum militar\".\n\nAchados: PIT-03, EFT-01\n\nTeste: o mock de getUsuarios em capacitacao/list.test.js passou a responder\n403, como o servidor faz para o nao administrador, e os casos novos (operador\ndo PIT na ministrada, operador do Efetivo na recebida, falha de carga),\nmilitares-sem-admin.test.js (campo) e seletor-militares.test.js reprovam os 7\ncontra o codigo anterior. No servidor, pit_efetivo_permissao.test.js cobra a\nguarda das duas rotas novas e o recorte de colunas; 2 casos reprovam sem\nelas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "a2e9d2d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a2e9d2db8691bc55b230e5afd2566da0e7fbda2a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:39:34.000Z",
+      "author": "Maj Diniz",
+      "message": "fechar o assistente de carregamento pergunta antes de descartar a lista ou abortar o envio\n\nO onClose abortava o XHR, e o modal fechava por clique no fundo, Escape e X:\num clique fora da janela no meio de um envio de 2 GB jogava fora o envio\ninteiro, que e tudo ou nada. Agora a lista com arquivo passa pela guarda de\ndescarte (podeFechar), e durante o envio o modal fica ocupado (setOcupado):\nfundo, Escape e X nao fecham, e desistir e o botao \"Cancelar envio\" do\nrodape, que confirma e so entao fecha (e o onClose aborta, como o comentario\nde la decide).\n\nAchados: ACV-B-09\n\nOs dois casos novos de upload-wizard.test.js reprovam contra o codigo\nanterior: o clique no fundo fechava sem perguntar, e o Escape durante o envio\nfechava e abortava.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c2ac0ae",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c2ac0ae8646e0602a45e0021c689d0e251474657",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:37:59.000Z",
+      "author": "Maj Diniz",
+      "message": "o dialogo de produto troca o subtipo junto com as versoes, e buscar folha respeita a escala escolhida\n\nTrocar o subtipo-identidade de um produto com versoes de outro subtipo era\nimpasse circular na tela: a flag migrar_subtipo_das_versoes so existia na API\ne no CLI, e a recusa do servidor mandava enviar uma chave JSON. O dialogo de\nedicao passa a mostrar a caixa \"Trocar tambem o subtipo das N versoes\" (com os\nrotulos e o subtipo atual) so quando ha versao a migrar, recusa salvar sem ela\ncom a frase da tela, pede confirmacao e so entao manda a flag.\n\n\"Buscar folha\" mandava so o MI, e o MI nu de 1:250.000 resolvia na folha de\n1:100.000, com a escala trocada em silencio e mensagem de sucesso. O servico\ngetFolha manda tipo_escala_id junto do MI quando a escala e 3 ou 4 (a rota so\naceita essas, e nunca com o INOM), o editor de geometria tambem, e a folha de\noutra escala troca a escala com aviso em vez de sucesso.\n\nAchados: ACV-B-01, ACV-B-08\n\nproduto-dialog-form.test.js (novo), acervo-service.test.js e\neditor-geometria.test.js: 8 casos reprovam contra o codigo anterior (sem\ntipo_escala_id na chamada, sem aviso, sem caixa e sem a flag).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "586eb70",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/586eb70e7c5cb854bc2ee5c41272ab2c35f22e6d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:35:06.000Z",
+      "author": "Maj Diniz",
+      "message": "a busca do acervo mostra a ultima edicao regular, e marca a folha que so tem versao planejada ou historica\n\nA \"ultima versao\" do cartao e do CSV era a de maior data_edicao, sem olhar o\ntipo, e a Planejada (data da promessa, futura) vencia: a folha nao produzida\naparecia como carta existente, no cartao, no CSV e no mapa. Agora a escada e\nRegular, senao Planejada, senao registro historico, a mesma no cartao, no\nCSV, na cor do mapa e no novo filtro \"Situacao da folha\" (facetado, com\nquantitativo). O cartao sem Regular ganha o chip \"Planejada\" ou \"So registro\nhistorico\", o CSV ganha Tipo_Versao e Tem_Arquivo no fim, e o mapa pinta de\ncinza o produto sem edicao Regular.\n\nAchados: ACV-B-02\n\nroutes/busca_situacao_folha.test.js monta a Regular de 2020 e a Planejada de\n2099 no mesmo produto; os 7 casos reprovam contra o codigo anterior (o cartao\ndizia 2-DSG/2099). Os casos novos de busca/index.test.js e mapa.test.js\nreprovam sem o chip, o filtro e a propriedade sem_regular.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "d67f661",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/d67f661e8dde004d21869600ac4f16d9dddc2f99",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:34:51.000Z",
+      "author": "Maj Diniz",
+      "message": "um invariante com sql quebrado nao esconde mais as contagens dos que vem depois na auditoria\n\nTodos os invariantes rodavam na mesma transacao READ ONLY, e o primeiro que\nfalhava deixava a transacao abortada: os seguintes saiam com \"transacao atual\nfoi interrompida\" em vez da contagem real, ao contrario do que o catch por\ninvariante prometia. Cada invariante roda agora num savepoint (t.tx aninhado\ndo pg-promise), e o erro fica so na linha dele.\n\nAchados: ACV-A-10\n\nO teste novo de routes/auditoria.test.js insere um invariante sabotado entre\n1a e 1b e exige 1b e 2c sem erro; contra o codigo anterior ele reprova com\n1b = \"transacao atual foi interrompida, comandos ignorados ate o fim do bloco\nde transacao\".\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "530808f",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/530808f5569a9efe270385dad7c460f1c9602a0f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:31:52.000Z",
+      "author": "Maj Diniz",
+      "message": "editar uma demanda extra-pit pela tela preserva a origem producao, e o dialogo mostra a origem\n\nA tela nao mandava origem_id no PUT, e paraBanco gravava Manual quando o\ncampo faltava: a demanda de Producao virava Manual na primeira correcao de\ntexto e deixava de exigir versao ligada para fechar. Agora ausente na\natualizacao e \"nao mexe\" (o controlador guarda a origem gravada), ausente na\ncriacao continua Manual, e o dialogo tem o campo Origem (Manual, Producao),\nnasce com o valor gravado e o manda sempre. A lista ganhou a coluna Origem.\n\nAchados: PIT-02\n\nTeste: pit_extra.test.js ganhou tres casos; contra o controlador anterior,\n\"editar sem origem preserva\" e \"continua cobrando a versao ligada\" reprovam\n(2 de 13). extra-dialog.test.js reprova os tres casos contra o dialogo\nanterior, que nao tinha o campo nem mandava origem_id.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "925d5c7",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/925d5c7d47ec5814804bf6b6d87e046855dd7ed4",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:31:37.000Z",
+      "author": "Maj Diniz",
+      "message": "a ajuda dos niveis no dialogo de perfis diz a verdade de cada modulo\n\nO texto dizia que a regua vale igual em todos os modulos, e nao vale: no\nEfetivo a Consulta le dado nominal de pessoal (licenca de saude inclusive), o\noperador nao abre o aproveitamento da Divisao e quem lanca o dos outros e o\ngerente; na Producao a regua e invertida; na Mapoteca o operador atende pedido\ne nao ve as listas de clientes e pedidos. A ajuda passa a sair de um mapa\nmodulo -> nivel, com a regua geral onde ela vale, e o Efetivo ganha o aviso de\ndado nominal em qualquer nivel.\n\nAchados: EFT-05\n\nContra o codigo anterior os cinco casos de perfis-dialog.test.js reprovam (a\najuda era a generica em todo modulo, e o aviso nao existia).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "14d3847",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/14d3847744f923d40a8e7748043f09d1ade22c2c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:30:32.000Z",
+      "author": "Maj Diniz",
+      "message": "trocar de conta numa aba para de deixar as outras gravarem em nome da conta nova\n\nO token mora no localStorage, que as abas dividem, e e lido a cada pedido: a\naba que ficou aberta com a conta do sargento gravava com o token do tenente que\nentrou na outra, e a rastreabilidade registrava o autor errado.\n\nvigiarSessaoEntreAbas (auth-store) ouve o evento storage e, quando o uuid da\nsessao deixa de ser o desta aba (outra conta ou saida), marca a aba e avisa;\no api-client recusa a partir dai todo pedido dela (menos o /login) com frase\npropria, e o index.js mostra um aviso que nao some por Escape nem pelo fundo e\noferece recarregar. A mesma pessoa entrando de novo nao conta como troca.\n\nOs casos simulam a outra aba escrevendo no localStorage e disparando o\nStorageEvent; contra o codigo anterior os dez reprovam (sem ouvinte, o pedido\nsaia com o token novo).\n\nAchados: TRV-18\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "bf06d45",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bf06d4585fb0c48b79921d2621260eb33fa52971",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:30:31.000Z",
+      "author": "Maj Diniz",
+      "message": "o escape no combo buscavel dentro de um dialogo fecha so a lista, e nao o dialogo\n\nO modal ouvia o Escape so na captura do document e chamava stopPropagation:\ncaptura roda antes do alvo, entao o input do combo nunca recebia a tecla e o\nEscape que devia fechar a lista fechava o formulario inteiro. Valia tambem\npara o seletor de versao, a palavra-chave e a descricao da galeria.\n\nAgora a tecla que nasce DENTRO do dialogo segue ate o controle e o modal\ndecide na bolha: se o controle consumiu (defaultPrevented), o modal fica; se\nha controle de lista aberto (aria-expanded=\"true\", o filtro multiplo que\nescuta no document), deixa subir; senao fecha pela guarda. Tecla de fora do\ndialogo e o estado ocupado continuam decididos na captura, como antes.\n\nOs casos disparam o Escape no input do combo dentro de openModal, como o\nnavegador faz; contra o codigo anterior reprovam o combo e o filtro multiplo.\n\nAchados: TRV-02\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "49c26d6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/49c26d6a55e4d65b78370f50e68804893824d150",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:30:29.000Z",
+      "author": "Maj Diniz",
+      "message": "a busca das tabelas acha a data e o valor no formato que aparece na tela\n\ncasaColuna comparava so row[key], o valor cru do banco: a lista mostra\n'12/05/2026' e 'R$ 1.234,56', e quem digitava isso recebia \"Nenhum resultado\"\npara a linha que estava ali; coluna de dominio cujo render traduz o id nao era\nachada pelo nome. A busca passa a casar pelo cru E pelo texto que o render\npintou (string ou Node), cacheado por objeto de linha num WeakMap, e a coluna\nganha searchValue(row) para quando o pintado nao e dado (um botao).\n\nOs casos usam formatDate e formatCurrency de verdade; contra o codigo anterior\nreprovam a data, o valor e o dominio.\n\nAchados: TRV-12\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "2069509",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/20695098a9d025e1bab4ca9f525dd011f45b2860",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:30:29.000Z",
+      "author": "Maj Diniz",
+      "message": "excluir indisponibilidade ligada a manutencao diz qual manutencao segura e como soltar\n\nmanutencao.indisponibilidade_id aponta a indisponibilidade sem ON DELETE, e o\n23503 do DELETE caia no mapa de erros do INSERT: a resposta era \"Equipamento\ninexistente\", com a ficha do bem aberta. A fabrica dos historicos ganha\nerrosDeExclusao (o mesmo codigo quer dizer outra coisa no DELETE) e\nantesDeExcluir; a indisponibilidade consulta as manutencoes ligadas na mesma\ntransacao e recusa com 409 nomeando data e descricao, e a traducao do 23503\nfica como rede para a corrida.\n\nAchados: EQP-04\n\nContra o codigo anterior o caso novo reprova na frase (o status ja era 409);\no caso que solta a manutencao pela rota e exclui de novo prova que o caminho\nque a frase ensina funciona.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "3a78c42",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/3a78c428e002d19496215df118e59e361735fd6d",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:30:28.000Z",
+      "author": "Maj Diniz",
+      "message": "a rastreabilidade leva a nota de credito a ficha dela, e nao a lista do ano corrente\n\nO mapa de destinos mandava 'orcamento:nota_credito' para #/orcamento/notas_credito,\nsem ?ano=, embora a rota /orcamento/notas_credito/:id exista desde 2026-08-08: quem\nauditava uma NC de 2025 caia na lista de 2026, onde ela nao aparece. As demais\nentradas foram conferidas e apontam rota registrada.\n\nO teste novo le as rotas do fonte (router.add do index.js e path: dos manifestos)\ne reprova destino que leva a rota inexistente e entrada 'lista' de agregado que\ntem rota /:id. Contra o mapa anterior (so com o export) ele reprova exatamente\n'orcamento:nota_credito'.\n\nAchados: TRV-19\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "b00b442",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/b00b44260f18408379038c557fe37c802c8c6d41",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:28:14.000Z",
+      "author": "Maj Diniz",
+      "message": "o dialogo de empenho mostra o saldo que o servidor aceita, e a NC aparece com a UG no combo e no filtro\n\nO saldo da linha do rateio partia do valor da NC e esquecia o recolhido: numa\nNC devolvida em parte a tela prometia um saldo e o servidor recusava o empenho\ncom 400. Agora o saldo e o `saldo` da listagem de NCs (a mesma regua de\nvalidarTetoDasNcs), com o que a propria NE ja consome devolvido na edicao, e o\naviso acende nas mesmas duas condicoes do servidor (passa do saldo e cresce),\ncom o valor liquido da anulacao.\n\nO rotulo da NC no combo do empenho e no filtro da lista de NEs nao levava a UG,\ne as duas 2026NC400412 (UGs 160035 e 167035) saiam identicas. O rotulo sai de\nrotuloNc, agora num modulo proprio (modules/orcamento/rotulo-nc.js), o mesmo do\ndialogo da NC; o combo leva tambem o saldo da NC na opcao.\n\nOs testes novos reprovam o codigo anterior: os 5 de\nnota-empenho-dialog.saldo.test.js (saldo sem o recolhido, aviso que nao\nacendia, rotulo sem UG) e o do filtro em list.test.js.\n\nAchados: ORC-02, ORC-03\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "9b6a6d5",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9b6a6d5043c87be04b72a5633a0c9a14e95ce90b",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:24:58.000Z",
+      "author": "Maj Diniz",
+      "message": "o comando orcamento saldo le a execucao do ano, e o a empenhar vem do saldo do servidor\n\nA rota /orcamento/dashboard/execucao_nd devolve { linhas, pendencias }, e o\ncomando lia r.dados como lista: a tabela saia sempre vazia e a resposta era\n\"Sem execucao registrada\" em qualquer ano. O comando passa a ler as linhas do\nobjeto (com a lista crua aceita para o servidor antigo), e o A EMPENHAR deixa de\nser recebido - empenhado - recolhido sobre fluxos recortados por data: e o\nsaldo_positivo do servidor, a mesma regua do painel e do teto do empenho, com o\nsaldo negativo impresso a parte.\n\nO teste novo (cli/orcamento_cli/__tests__/relatorio.test.js) troca a requisicao\npelo payload no formato real da rota; contra o codigo anterior 4 dos 6 casos\nreprovam (o comando dizia \"sem execucao\" e imprimia 1.500,00 em vez de 1.800,00).\n\nAchados: ORC-12\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "011ddc9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/011ddc9776e6c88abb1b1bb60a4c0254c1144632",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:23:23.000Z",
+      "author": "Maj Diniz",
+      "message": "trocar o mes da edicao aberta com subsecao digitada pede confirmacao e grava no sim\n\nCom subsecao digitada, o PUT da edicao responde 409 e so aceita com\nconfirmar_troca_de_periodo; o dialogo de metadados mostrava a frase num toast\ne nunca mandava a chave, e quem criou julho no lugar de agosto nao tinha saida\npela tela. Agora o 409 vira confirmDialog com a mensagem do servidor (a\nconsequencia), e o sim reenvia com a chave, como a importacao da 5.1 ja faz.\n\nAchados: RPC-02\n\nContra o codigo anterior, os dois casos novos reprovam (confirmDialog nunca\nchamado, segundo PUT nunca enviado); o controle do erro que nao e 409 passa\nnos dois.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "c0290e0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c0290e050bf04a78906feb1b38672bb85d3d2c1c",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-11T15:23:22.000Z",
+      "author": "Maj Diniz",
+      "message": "a barra da edicao do rpcmtec baixa as tres abas do rtm, e nao so a meta4\n\nO servidor serve a META1_DETALHADA e a EXTRA_PIT desde 2026-09-11, e o envio a\nDSG leva as tres, mas a barra oferecia so a META4: as outras duas saiam apenas\npelo pit_cli, e quem nao usa terminal redigitava as linhas. Entram dois botoes\nao lado do RTM, chamando downloadRtmMeta1Ods e downloadRtmExtraPitOds no molde\nde downloadRtmOds.\n\nAchados: RPC-01\n\nO caso novo de edicao.test.js nao acha os dois botoes no codigo anterior; os do\nservico provam a rota e a queda do nome de cada aba.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01L6d5xof5iaR6oCojzSkw3q",
+      "sha": "094e5f6",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/094e5f6fc6dc4dde135df6957b4f194649fdea09",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
     {
       "repo": "1cgeo/controle_acervo",
       "date": "2026-10-11T15:13:24.000Z",
