@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-12T19:44:04.053Z",
+  "lastUpdate": "2026-10-13T01:56:25.435Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-12T18:29:52.000Z",
+    "1cgeo/ebgeo_web": "2026-10-12T21:59:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-12T19:01:11.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-12T22:29:33.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -65,8 +65,8 @@
     "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
-    "1cgeo/dsg_versioning": "2026-10-04T10:29:06.000Z",
-    "1cgeo/dsg-edit": "2026-10-04T10:29:47.000Z"
+    "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
+    "1cgeo/dsg-edit": "2026-10-12T20:36:09.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 9193,
+    "totalCommits": 9209,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2655,
+      "1cgeo/ebgeo_web": 2662,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -170,11 +170,11 @@
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 61,
       "1cgeo/dsg_topology": 186,
-      "1cgeo/dsg_versioning": 150,
-      "1cgeo/dsg-edit": 74,
+      "1cgeo/dsg_versioning": 151,
+      "1cgeo/dsg-edit": 76,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1046,
+      "1cgeo/chefe_dgeo": 1052,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,150 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-12T22:29:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-12 (noite, cont.): prova da estática por frase de tela e build em worktree limpo, EBGEO_RELEASE de 9 caracteres na DSG\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X5HvbPzrtZjSCJFzkLfk2P",
+      "sha": "77fe7b4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/77fe7b4d8e79b0bdfb20bad799ffc8ee1dd28b77",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-12T22:25:05.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão: estática, 1º CGEO e DSG do EBGeo em 62a83409\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X5HvbPzrtZjSCJFzkLfk2P",
+      "sha": "97b57e2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/97b57e21f7b7d16f38aa988eb4c55f31638617bd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-12T22:05:31.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-12 (noite): três instâncias do EBGeo em df9a5614, uso do dia e defeitos da DSG, consertos na main do ebgeo_web\n\n- atualizar-dockers: o construir.sh com npm ci do frontend opcional e o proxy do daemon.json como build-arg; o build de 12 min fora do timeout de ssh.\n- atualizar-ebgeo-dsg: uso ao vivo no pré-voo, depois de a publicação das 07:34 cair num exercício.\n- revisar-dashboard: scripts/uso_ebgeo_dia.py (uso, erros e diagnóstico de um dia), erro HTTP no log é \"request error\", leitura de defeito por navegador e sessão.\n- planejar-mudanca-sistema: worktree com junção e build da Ajuda, npm ci com Vite rodando.\n- env-guia: AJUDA_TILES_* derivadas na linha de comando.\n- Decisions: deploys de c7f9e068 e df9a5614, imagem do Horizonte, consertos fb4aa939.\n- livro-razão: cinco correções.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X5HvbPzrtZjSCJFzkLfk2P",
+      "sha": "48a6eb4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/48a6eb4f6776f9d699166c7edb23686c2c795aad",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T21:59:35.000Z",
+      "author": "Maj Diniz",
+      "message": "360: as três abas da Ajuda cabem no painel (\"Mouse\" saía cortada à esquerda)\n\nAs abas Mouse, Teclado e Toque tinham `flex: 1` com 16 px de respiro de cada lado num painel de\n280 px, e sem `min-width: 0` vazavam para a esquerda. O painel passa a 320 px (com teto na largura\nda tela), as abas encolhem e o respiro cai para 8 px. Figura l8-360-01 regerada e lida.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPEteZy5aJThbGyVMTMjLN",
+      "sha": "62a8340",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/62a834095a4141c746741d1da54dd87e608f2465",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T21:58:27.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: o pincel mágico, com página própria e os clipes do círculo e da seta (lote l10)\n\ncomo-fazer/forma-perfeita-com-o-pincel.mdx (\"Como transformo um traço à mão numa forma perfeita?\"),\nem como-fazer porque o lint não deixa o id `brush` em duas páginas e toda página de ferramentas exige\num. Lote l10: o clipe do círculo e o da seta em V, e a figura do retângulo com o painel; cada tomada\nREPROVA se `window.__pincelMagico` não disser a forma ou se a coleção do mapa não ganhar o desenho.\nLink na seção Pincel, uma linha nas páginas de Seta, das formas e do Polígono, novidades, duas\nperguntas na avaliação da busca (1º e 2º) e a frase no tutorial antigo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPEteZy5aJThbGyVMTMjLN",
+      "sha": "79e250e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/79e250ed1b254b8e634a6c859da013bbb82c9312",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T21:57:22.000Z",
+      "author": "Maj Diniz",
+      "message": "defeitos da DSG de 2026-10-12: a montagem espera o estilo, a ponta da linha e a placa de vídeo perdida, a fila da trava e o MGRS polar\n\n- setupMapFeatures espera o estilo do mapa base quando a MapLibre diz que ele está carregando\n  (style._loaded === false): a remontagem depois de op de colega e a do ALL_DATA_CLEARED caíam no\n  meio de uma troca de base, o primeiro addSource lançava \"Style is not done loading.\" e o catch\n  engolia a remontagem inteira (2 ocorrências na DSG).\n- A alça de continuar a linha não escreve estado de feição com map.style nulo (perda de contexto\n  WebGL), e o mapa 2D avisa, uma vez, que a placa de vídeo parou, com o botão Recarregar.\n- O aviso de espera longa do document-lock sai uma vez por episódio de fila, conta a fila e diz que\n  a espera não distingue fila de reentrância: na DSG era fila, e a máquina seguiu sincronizando.\n- MGRS fora de 80°S a 84°N cai em latitude/longitude sem registrar erro.\n\nCada conserto tem teste que reprova sem ele (controle negativo feito).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01X5HvbPzrtZjSCJFzkLfk2P",
+      "sha": "fb4aa93",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fb4aa93947998567e2ac2bd51a3c7bd71781106d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-12T21:12:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-12 (cont. 6): DSG Versioning auditado contra princípios de edição com clones, escopo do chefe na wiki e na Decisions, armadilhas do worktree com junção e do fluxo QGIS sem sintaxe",
+      "sha": "3d11497",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3d11497240f3c5334a8366eeb6859090c11b1b6f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T21:08:05.000Z",
+      "author": "Maj Diniz",
+      "message": "duplicar mapa leva o olho da pessoa; \"Regime do modelo (ITM)\" no enlace; as teclas da Ajuda do 360 com estilo\n\nDuplicar mapa (dono, 2026-10-12): a cópia nascia com tudo visível, porque o olho é da pessoa e não\nestá nas linhas que o servidor copia. O cliente manda em `idsDoOlho` só os ids com escolha, a rota\ndevolve `mapeamentoDoOlho` (`traduzirIdsDoOlho`, a partir dos mapeamentos que `cloneMapSubEntities`\njá montava), e `copiarVisibilidadeParaMapa` grava a escolha traduzida no mapa novo. No atlas local,\n`duplicateMapLayers` e `duplicateMapGroups` passam a entregar os mapeamentos de pasta e de grupo, e a\nescolha só é gravada depois de a cópia ser conferida. Guardas: duplicar-mapa-leva-o-olho.test.js\n(2 de 3 reprovam sem a tradução) e a seção 7 de visibilidade-da-pessoa.test.js.\n\nEnlace de Rádio: \"Modo de propagação\" virou \"Regime do modelo (ITM)\". O regime vem da distância contra\nos horizontes de Terra lisa, e \"visada\" ao lado de \"Visada direta: não\" é a resposta certa do NTIA;\no rótulo diz de quem é a palavra. Página, lote l9 e figura l9-enlace-01 acompanham.\n\nAjuda do 360, aba Teclado: as <kbd> saíam sem estilo e coladas (\"WS\", \"Page UpPage Down\"). Ganharam o\nestilo de tecla do modal de Atalhos, numa coluna de 76 px (figura l8-360-01 regerada e lida).\n\nTeto do grafo do mapa medido pela falha: 9203 -> 9208 kB (ansioso) e 15085 -> 15090 kB (completo).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPEteZy5aJThbGyVMTMjLN",
+      "sha": "af0abd4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/af0abd4746e7d670cba8c24f88c3cdae49c6ebf4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/dsg_versioning",
+      "date": "2026-10-12T21:03:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Audit of principles: UUID identities, guards, codes, timeouts, receipts, releases\n\nScope fixed by the user on 2026-10-12 (D039 to D044): nothing in\nproduction, no GitHub CI, UUID identities everywhere, border features and\nclones with live children as they are, lock wait 5 s and save 30 s, a\nrelease is only a record, the save receipt in the same transaction, limits\nin /api/info.\n\n- D040: every persistent identity is a canonical UUID. The service refuses\n  another form with the violation identity_form; the work tables of\n  GeoPackage and PostGIS carry a CHECK; importer, format 3 converter,\n  lineage and plugin refuse too. Tests name features with labels turned\n  into deterministic fixture UUIDs (dsg_codec::identity::fixture,\n  tests/qgis/fixture_ids.py, web/tests/fixture-ids.js).\n- D044: a closed field GeoPackage refuses every write by trigger; the\n  protocol keys of dsg_meta are written once; declare_selection refuses\n  another filter in both storages. PostGIS tests fail without a DSN unless\n  DSG_SKIP_POSTGIS=1.\n- D042: error answers and failed jobs carry a stable code, announced in\n  /api/info; the plugin decides by it.\n- D041: lock_timeout 5 s on every application transaction in PostgreSQL,\n  statement_timeout 30 s on save, undo and lineage.\n- D044: the receipt of a save or lineage operation is written in\n  dsg_receipts in the same transaction; a retry without the copy in the\n  workspace SQLite answers the recorded revision instead of stale.\n- D043: releases, an immutable name for a revision with the digest of the\n  whole state (set digest moved to dsg-codec), created and listed through\n  the API, the web (dsg-edit 0.4.7) and the QGIS panel.\n- QGIS plugin: pull, merge, undo and release refuse pending edits in the\n  provider layers and in OGR layers opened on the field GeoPackage\n  (recognised by dsg_meta.repo_id); a failed reload after a save is said;\n  the batch limit is checked before sending.\n- The QGIS numeric step declares coordinate_policy source: degrees7-v1, the\n  default in 4326, drops the sign of zero on input, as documented; a\n  service test proves the exact bits through insert, clone, edit and merge.\n\nRust 606 passed, 0 failed, 27 ignored with PostGIS; Python conformance\n187; web in Chrome with PostGIS 89 passed, plus model, topology and the\ninternal network; every QGIS flow and the provider runner pass. The new\nguard, receipt and lock tests fail on 30b4e84\n(docs/evidencias/2026-10-12-auditoria-principios.md).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f0cb070",
+      "htmlUrl": "https://github.com/1cgeo/dsg_versioning/commit/f0cb07026a0511ccbd4eedb824c8fb9e36e0a125",
+      "repoUrl": "https://github.com/1cgeo/dsg_versioning"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-12T20:36:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Release 0.4.7: releases in the Versioning connector\n\nA release of DSG Versioning (D043) names the saved revision of a\nrepository with the digest of its whole state, as an immutable record.\nThe client and the session list and create releases under the optional\n`releases` capability; a lost answer is settled by the list (the same\nname, once), `release_exists` and `repository_moved` are refusals, and\nunsaved edits keep a release from being made. The repository panel gets\na \"Releases\" button with the list and the form. The fake service answers\nGET and POST /releases as the service does.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "69102fe",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/69102fe11c1311d87c4b8a4f633cd018e3ef6d9e",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-12T20:33:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-12 (cont. 4): pincel mágico do EBGeo Web na wiki e na Decisions, o Vite sozinho não sobe o app\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8aab37b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8aab37b0d9e242701ac2fa62ce7df3c99f49db5a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T20:26:45.000Z",
+      "author": "Maj Diniz",
+      "message": "pincel mágico: segurar parado no fim do traço vira círculo, elipse, retângulo, setor, polígono ou seta da ferramenta própria\n\nQuem desenha com o pincel e segura o ponteiro parado meio segundo vê o traço trocar pela forma que\nele lembra; ao soltar, a forma é gravada como feição da ferramenta própria (alças, painel, coleção),\ncom a cor do pincel. Nada reconhecido, o traço segue pincel; mexer depois do encaixe desfaz o encaixe.\n\n- brush_tool/shape_recognizer.js: reconhecedor puro no plano do terreno, no método do PaleoSketch\n  (ajusta cada forma, mede o erro, vence o menor que passa do limiar). Elipse e círculo pelos\n  momentos de área, polígono de até 8 vértices com nitidez de canto, retângulo de ângulos quase\n  retos, setor com centro em qualquer ponto (perto de 180° ele não é canto), e seta de um traço\n  só (V refeito, triângulo, Z, ponta primeiro, ponta dupla, haste curva). Retângulo e elipse a\n  até 8° dos eixos da tela encaixam neles, depois de decidir pela forma ajustada.\n- brush_tool/magic_shape.js: a ponte para as ferramentas, gerando parâmetros e geometria pela\n  classe de geometria de cada uma (elipse em km, retângulo com width ao longo do rumo, setor\n  pelo rumo do eixo, seta com a haste até a base da ponta). Preguiçoso: entra por import() na\n  primeira vez que a mão segura, e a seta por import() também, porque o chunk militar já importa\n  o de desenho. Guarda os últimos 20 traços em window.__pincelMagico para calibrar com traço real.\n- Testes: bancada sintética com piso por classe e negativos (tests/helpers/tracos-a-mao.js), ida e\n  volta pelo mapa que reprova as quatro trocas de convenção, e o gesto no controle.\n- Tetos de peso e censos (tipos, despachante dinâmico, âncora do zoom) atualizados com o motivo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3b8ef9f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3b8ef9f96b169327f65c7f95026cf36fd786d27d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-12T20:16:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-12 (tarde): o motor de mídia da Ajuda (mapa branco aprovado sem AJUDA_TILES_*, Vite que trava no fim, menu da árvore), o dist velho no test:tocados e o estado da Central\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPEteZy5aJThbGyVMTMjLN",
+      "sha": "e60991b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e60991b81bba884a10ca506c3ccee2e2e062c1e8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/dsg-edit",
+      "date": "2026-10-12T20:14:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Release 0.4.6: decide errors by the service's stable code\n\nThe connector classified a stale generation and a reused request by\ncomparing the service's Portuguese text; any rewording broke it silently.\nIt now reads the stable `code` of the answer (D042 of DSG Versioning) and\nkeeps it in VersioningError.code, and connect() requires the\n`uuid_identity` and `error_codes` capabilities (D040, D042). The fake\nservices answer with codes, and a new test proves the kind follows the code\nwith the text reworded (it fails with 0.4.5).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "07779b7",
+      "htmlUrl": "https://github.com/1cgeo/dsg-edit/commit/07779b7507205646f02a3e7e2ebef6c33a43441f",
+      "repoUrl": "https://github.com/1cgeo/dsg-edit"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T19:27:57.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: páginas do Enlace de Rádio e da Cobertura de Rádio, com as figuras l9\n\nferramentas/enlace-de-radio.mdx (radioLink) e ferramentas/cobertura-de-radio.mdx (radioCoverage),\nlogo depois da Cobertura de Radar (172 e 174), com os rótulos copiados de radio_link_tool,\nradio_coverage_tool e radio_comum, o padrão VHF genérico de radio.model.js e os dois avisos da wiki\ncobertura-de-radio (relevo sem vegetação; o ITM não é sombra geométrica). Lote l9: l9-enlace-01 (o\nenlace de 8,7 km sobre o Morro Santana, Forte com a reta obstruída, e o perfil com a 1ª zona) e\nl9-cobradio-01 (duas estações, as três classes na legenda), geradas pelo motor e lidas.\n\nBusca: quatro perguntas novas, todas em 1º. O título da cobertura não diz \"alcança\": com ele,\n\"alcance do radar\" caía para 2º atrás do rádio. Medido contra a base sem as páginas: a única\nregressão é \"zona de engajamento\", do conjunto retido, de 3º para 4º.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPEteZy5aJThbGyVMTMjLN",
+      "sha": "cdc3194",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cdc319473dc2bb7cb9e3fd30747dd63850e9ce53",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-12T19:03:20.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: figuras com as setas novas de Importar e Exportar, e as figuras do botão direito na aba Camadas, do olho pessoal e do teclado do 360\n\n71 mídias regeradas pelo motor depois de cd01cc5a (barra lateral, abas Importar e Exportar, modal\nExportar Atlas), com AJUDA_TILES_HOST/ORIGEM no ambiente, e lidas uma a uma. Lote l8 novo:\nl8-colar-01 (Colar nesta camada), l8-mover-01 (Mover para camada… pela linha), l8-olho-01 (o olho\nde quem só lê) e l8-360-01 (aba Teclado da Ajuda do 360). kmz-02 com pausa menor (o clipe passava\nde 15 s) e l2-busca-02 rolando o painel (Símbolo de OM e de Engenharia saíam do quadro). O tutorial\nantigo ganha importar.png e painel_exportar.png recapturados.\n\nTexto: \"Ocultar e mostrar valem para todos\" virou \"mudam só a sua tela\" (o olho é pessoal desde\n53c075f3), o aviso depois de salvar na camada oculta, o ícone do KML do Google Earth na web\n(4b87b7b2), a convergência por perna no tutorial (4183abec) e as novidades da tarde de 2026-10-12.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NPEteZy5aJThbGyVMTMjLN",
+      "sha": "b3d1834",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b3d1834e92e37440ad51b13d353a33d585155e05",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-12T19:01:11.000Z",
