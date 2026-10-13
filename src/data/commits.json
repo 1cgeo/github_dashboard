@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-10-13T01:56:25.435Z",
+  "lastUpdate": "2026-10-13T17:28:39.066Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-10-12T21:59:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-10-12T18:50:56.000Z",
+    "1cgeo/controle_acervo": "2026-10-13T15:53:28.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-12T22:29:33.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-13T17:08:19.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 9209,
+    "totalCommits": 9214,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -149,7 +149,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 587,
+      "1cgeo/controle_acervo": 588,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 76,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1052,
+      "1cgeo/chefe_dgeo": 1056,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-13T17:08:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-13 (cont. 2): perito de São Borja, folhas SGE de 1937 por nome antigo resolvidas pelo enquadramento das pranchas vizinhas, pedido 234 Concluído\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "20fc97f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/20fc97fe6474da2d2d4837526c82dc953b36237a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-13T15:57:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-13 (cont. 1b): o merge-file da telemetria com CRLF duplica o arquivo, conserto pelo prefixo da base\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017htLGU6Pv2LNbydN5C4mfb",
+      "sha": "6dc57cf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6dc57cf3e84c044f62cd2754d1459d34364bce27",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-13T15:55:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-13 (cont. 1): módulo de produção do SAP 3.0 na 3.30.0 (controle_acervo ccc0b24f) e plugins na branch sap3, casa sap3-producao, Decisions D1 a D5 com o raio do push, falha alheia provada no HEAD\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017htLGU6Pv2LNbydN5C4mfb",
+      "sha": "5e4025b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5e4025bb485a1729e311aa5c0c6eddcd888b2574",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-13T15:53:28.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.30.0 poe o modulo de producao em uso: a planejada concluida vira Regular, os lotes mistos se separam, e o gerente volta a abrir a atividade alheia\n\nDecisoes do chefe em 2026-10-13 (docs/decisoes.md, \"O modulo de producao\nentra em uso\"). O core do SAP 2.3.5 atravessou na 3.0.0 e estava parado.\n\n- POST /api/produtos/versao/concluir: Planejada a Regular, so com arquivo\n  carregado e data_edicao que ja aconteceu; informa as UTs e nao barra.\n- GET /api/acompanhamento/pit/aguardando_entrega: a fila que a rota acima\n  esvazia, com secao no PIT da producao e acao \"Concluir\" na ficha.\n- POST /api/produtos/versao/mover_lote (gerente, com simular): separa os\n  lotes mistos; recusa versao que ja tem UT ligada.\n- GET /api/gerencia_producao/atividade/:id e /atividade/usuario/:uuid\n  voltam para o SAP Gerente; o papel do banco de edicao sai no nome de quem\n  recebe, e nao troca a senha do operador.\n- A planejada exige lote; o demanda_extra_id nao se perde na criacao.\n- Migracao 3.30.0: o Registro Historico sai do cache relacionamento_versao.\n  Sobe o piso.\n- O realizado do painel conta so versao com meta do ano; a telemetria\n  nominal fica com o gerente; o invariante 3j julga pela data_prevista; o\n  pacote volta a mandar denominador_escala, derivado das folhas da UT.\n- CLIs: concluir-versoes, mover-versoes-de-lote, aguardando_entrega.\n\nProva: os testes novos de banco (fila, elo producao-acervo, concluir e\nmover de lote) reprovam com os filtros desfeitos; o ensaio da migracao\nconverge com o banco novo e e idempotente. Banco 2210/2211 na suite completa (o 403 de acervo.test.js passa isolado, 17/17); rapido 4242/4242;\nclient 3566 (o caso de relogio RPC-22 de documentos-tecnicos ja falhava no\nHEAD anterior); CLIs 99 + 112 + 75.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_017htLGU6Pv2LNbydN5C4mfb",
+      "sha": "ccc0b24",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ccc0b24f7bdd982e7cfa4a9d4d5f47f0263927d9",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-13T15:51:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-13: LAI de Farroupilha (pedido 233, link 407, DIEx 31149), Solicitação sem assinatura num envio só\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "91655f1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/91655f1000dcf9f340d5e0b12a749e4efd283574",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-12T22:29:33.000Z",
