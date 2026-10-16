@@ -53,6 +53,8 @@ export const repositories = [
   { repository: '1cgeo/ebgeo_360', branch: '' },
   { repository: '1cgeo/ebgeo_backend', branch: '' },
   { repository: '1cgeo/ferramentas_ebgeo', branch: '' },
+  { repository: '1cgeo/ebgeo_produtor', branch: '' },
+  { repository: '1cgeo/sap_master', branch: '' },
   { repository: '1cgeo/0Bug_Report', branch: '' },
   { repository: '1cgeo/0Bug_Report', branch: 'qgis4' },
   { repository: '1cgeo/server-healthcheck', branch: '' },
