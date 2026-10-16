@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-15T22:59:35.863Z",
+  "lastUpdate": "2026-10-16T14:41:54.596Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-15T22:54:11.000Z",
+    "1cgeo/ebgeo_web": "2026-10-16T13:44:03.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-10-15T19:47:45.000Z",
+    "1cgeo/controle_acervo": "2026-10-16T12:19:24.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-02T18:28:34.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-15T21:29:24.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-16T14:13:20.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -120,7 +120,7 @@
     "1cgeo/dsg-edit": true
   },
   "stats": {
-    "totalCommits": 9289,
+    "totalCommits": 9302,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -130,7 +130,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2688,
+      "1cgeo/ebgeo_web": 2690,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -149,7 +149,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 602,
+      "1cgeo/controle_acervo": 603,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -174,7 +174,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1075,
+      "1cgeo/chefe_dgeo": 1085,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -182,6 +182,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T14:13:20.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-produtor: F2 em andamento (app Electron, .3tz/.zip sem extrair, node:sqlite); lições do Electron e do código pelo shell\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "35a9bc0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/35a9bc0a56954590862cbf42e43c3ab0f7604f93",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T13:49:02.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: base confirmada do sincronismo do ebgeo_web (comentário, grupo, pasta, camada revivida; recibo do create com revisão; FORMATO_DA_GERACAO 2) na subwiki e nos Decisions; prova da cura contra o estado envelhecido; faxina de worktrees que esvaziou o node_modules (livro-razão, regra pelo remover_worktree.py); publicação seguinte na DSG no PROJECT do ebgeo-3-transicao\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Mxx6pJPafrLUFhHMicmA3e",
+      "sha": "041b44c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/041b44ce4ec002cd7c3ba75dda8c453d661d199b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-16T13:44:03.000Z",
+      "author": "Maj Diniz",
+      "message": "símbolos no Horizonte, linha de limite com escalão por símbolo, Mover conciso e a base confirmada de comentário, grupo, pasta e camada revivida\n\n- Horizonte: os símbolos militares do mapa como placas na vista, com situação (visto, encoberto)\n  pela máscara e altura do alvo; voo parabólico; imagem em quatro anéis (z10, z11, z13, z16).\n  Ajuda: \"Do Horizonte, eu vejo aquela posição?\" com a figura l7-horiz-03.\n- Linha de limite: cada símbolo com escalão próprio (seletor visual), textos de cima e de baixo\n  com cor, tamanho e contorno próprios ou herdados de \"Textos da linha\", que fica depois de\n  Opacidade; até 6 símbolos. Escrita coalescida no painel.\n- Comentário: a barra do Mover numa linha só, abaixo da busca e dos chips; inicial e selo do pino\n  acompanham o tamanho P/M/G.\n- Sincronismo, a base confirmada (recusa falsa \"Os mesmos campos foram alterados no servidor.\"\n  do próprio autor, numa aba só, medida no navegador do dono):\n  - a base viaja só no envelope: o payload de comentário e de grupo não leva mais confirmedVersion,\n    e a borda do servidor a tira de toda entidade menos a feição;\n  - o eco do próprio autor mantém o carimbo do recibo e a op de colega não deixa base, para\n    comentário, grupo, pasta e o CREATE de camada e pasta (regra do 3D/360);\n  - o retrato carimba comentário e grupo por sync.version; o recibo do grupo chega ao espelho;\n  - a pasta ecoa a linha canônica, como a camada; a camada e a pasta revividas pelo desfazer\n    saem sem a base de antes da exclusão;\n  - o recibo do create leva a revisão (camada, pasta, grupo e comentário);\n  - FORMATO_DA_GERACAO 2: a geração encenada antes pede o retrato do zero uma vez, que é o que\n    cura a cópia já gravada.\n  Provas: 5 testes da varredura (frontend e backend), comentario-base-velha-eco-e-retrato,\n  comentario-base-confirmada; os e2e de catálogo e 3D/360 plantam o blob envenenado no banco.\n- Tetos de peso remedidos (ansioso 9371 kB, completo 15481 kB).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Mxx6pJPafrLUFhHMicmA3e",
+      "sha": "8e9d369",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8e9d3696a9eaea12517930975c12f7fb1d1d405b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T13:37:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: EBGeo Produtor F0, F0b e F1 provadas no acervo (4cgeo e 1cgeo reconvertidos idênticos ao publicado, 36 piores casos no .ebgeo3d real e 15 no .ebgeo360 do 5o_rcc); heightOffset à mão pelo produtor; 360 só com calibração manual pela tela do ebgeo_web e revisão de todas as fotos no manifesto; lições do conversor na importar-modelo-3d\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "25f17d4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/25f17d4b1f336280edc1a28ab15597edc0d14464",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T12:26:03.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: portão da base contínua (SAP 3.40.0, controle_acervo c85913d): validação que bloqueia no merge do lote na base raiz, regra entra como aviso, máscara não bloqueia, validação desligada na sede; projeto portao-base-continua; Docker atrás do proxy e do Kaspersky na wiki dsg-versioning; split do learnings quente da planejar-mudanca-sistema\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "458bd89",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/458bd89d81c9ef28d21bd4b1238a625b6e05dd70",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-10-16T12:19:24.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.40.0: o portão da base contínua no merge do lote na base raiz\n\nDecisão do chefe de 2026-10-16: a base contínua é o deploy, e a validação\nque bloqueia mora no merge do lote na base raiz. Barra só o problema que o\nlote introduz; cada regra entra como aviso e passa a bloquear pelo\nadministrador, com motivo; mask_context_window não bloqueia.\n\nVersionamento (D052):\n- Gate::RefuseIntroduced(regras) no lugar de RefuseFailed/RequireApproved;\n  recibo dsg-validation-receipt/2 com contagem por regra e grupos (o /1\n  continua lido); validação de sessão por grupos de mudança, sem a caixa\n  única entre mudanças distantes.\n- Serviço: blocking_rules no apply, recusa validation_refused com regras,\n  motivos e problemas no resultado da tarefa, validation_rules no /api/info,\n  rota GET /api/repos/{id}/diff (mudança líquida entre revisões).\n\nSAP:\n- versionamento.regra_portao e versionamento.integracao_base (migração\n  2026-10-16, piso 3.40.0); a integração do lote na base vira sequência de\n  tarefas avançada pelo finaliza (409 integracao_em_andamento, conflito_versionamento,\n  portao_validacao), sem teto de 25 s e sem mudar o plugin.\n- Rotas do portão (regras e integrações), tela Versionamento e producao_cli;\n  com o validador desligado nenhuma regra passa a bloquear; diff liberado ao\n  gerente no repasse.\n\nProvas: suíte Rust no Linux com PostGIS, 637 aprovados, 0 falhas, 28\nignorados; server test:rapido 4326 e test:banco 2341 aprovados; client\nvitest 3632 aprovados; producao_cli 109; migração ensaiada de 3.39.0 a 3.40.0.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c85913d",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/c85913d056910db61de4a6a21d5c54c04242c93a",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T12:04:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: alinhamento pós-push usa o sha do remoto anterior ao push (entrada duplicada nos Decisions)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "15c36c2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/15c36c2f0d5fee3fd5243c4755569a805447503c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T12:03:20.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: quadro de PCA previsto x executado com PRIME e imagens; SAG por exercício (/sag<ano>, 2023 pela interface antiga); previsto pelo PCA publicado no PNCP (pca_pncp.py), executado pelo liquidado no ano com restos a pagar; contratos de imagens SIB e HEX360 na wiki; split do learnings da consultar-orcamento\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b5c20bf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b5c20bf15d2efae7dbd82e5f9fb15bc8cfc70775",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T10:59:39.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-produtor: plano ganha o conserto do \"Enviar pacote 360\" do painel (campo imagesDb que a rota recusa desde o só-tiles) e a passagem do botão para o .ebgeo360 (Enviar, Conferir, Importar, Reler)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018uCvu6cYZw8LcgP2nC6CjN",
+      "sha": "ec86389",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ec86389d26674bc559fe630f4b2bfc80959ca859",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T10:49:15.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: plano do EBGeo Produtor (pacotes .ebgeo3d e .ebgeo360, conferência de consistência no produtor e no recebimento, combinar modelos, heightOffset sobre o terreno, 360 com calibração manual no mesmo app Electron); wiki ebgeo-3d corrigida contra a main do ebgeo_web; importar-modelo-3d avisa que o serviço do ebgeo_3d saiu\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018uCvu6cYZw8LcgP2nC6CjN",
+      "sha": "5281e44",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5281e44022db09787b8a9729333dc67457135561",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T10:17:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-16: livro-razão do lote de requisições (contagem anunciada antes de medir; minutas de julho refeitas pelo Almox), estatísticas da wiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012pK5QwS2WDWmLENVtRgc12",
+      "sha": "344250c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/344250cff93380dfae44ad3d70005a8248bda181",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-16T10:17:54.000Z",
+      "author": "Maj Diniz",
+      "message": "requisicoes da Migracao 1º CTA de outubro: projeto preparado antes da NC, 11 minutas em dry-run pela conta da Fiscalizacao; requisitar-sped ganha o sped_lote.js (formato seccionado da 28320, NC em [PREENCHER], releitura campo a campo) e a conta fisc; carrinho e palete pela Fiscalizacao na wiki natureza-despesa; PE 86 por fator SINAPI e descricao CATMAT x TR em consultar-licitacao\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_012pK5QwS2WDWmLENVtRgc12",
+      "sha": "cb23d81",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cb23d818a57cd44baa7ca5435a75536669374b6d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-15T23:04:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(ajuda): postcss-selector-parser 7.1.6 pelo override do postcss-nested (GHSA-rj75-hqrm-r3gf)\n\nO postcss-nested 6.2.0, que o @expressive-code/core puxa no build da Ajuda, fixa o\npostcss-selector-parser em ^6, e a complexidade quadrática do aviso só foi corrigida na 7.1.6. O\noverride escopado sob postcss-nested leva a 7.1.6. Prova: o build da Ajuda antes e depois sai\nidêntico byte a byte (370 arquivos, inclusive o CSS do expressive-code), npm audit da Ajuda em 0 e\nnpm run ajuda:test 91/91.\n\nFica aberto o GHSA-vfj7-8cjw-p6xm (braces <= 3.0.3, sem versão corrigida publicada): só entra pelo\nstylelint e pelo knip, dependências de desenvolvimento do frontend que leem padrões nossos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Mxx6pJPafrLUFhHMicmA3e",
+      "sha": "958ad47",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/958ad47ce46e640bcaf8aba3ed0d684cbbb9d598",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-15T22:54:11.000Z",
