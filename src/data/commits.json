@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-17T17:50:45.729Z",
+  "lastUpdate": "2026-10-17T22:04:36.569Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-17T13:44:36.000Z",
+    "1cgeo/ebgeo_web": "2026-10-17T21:51:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-16T16:45:18.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-17T15:35:14.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-17T22:01:25.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9388,
+    "totalCommits": 9408,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2707,
+      "1cgeo/ebgeo_web": 2716,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -180,7 +180,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1107,
+      "1cgeo/chefe_dgeo": 1118,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -188,6 +188,186 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T22:01:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Alcance do ebgeo_web: desenho decidido do \"Quem alcança este ponto\" (menu de contexto pelo painel de ponto, linhas peça-alvo, milésimos do NQ, todo símbolo militar com alcance definido, visível no tempo), na Decisions e no projeto do Alcance; sem código\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e18e9b4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e18e9b4192cfede7d15b0140528f18c357b1afeb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T21:56:31.000Z",
+      "author": "Maj Diniz",
+      "message": "prospecção militar, rodada lccav98: Fogos segue A como especificação (alcances batem com o CE 5.80 do Alcance, ideias anotadas no projeto do Alcance), PPCOT vira B e o processo vira página de wiki (wiki/ppcot: produtos espaciais do exame de situação contra o EBGeo, do EB70-MC-10.211), operacao-acolhida e iNFRA descartados sem geometria; passo 7b e lições no learnings da skill; a correção do PPCOT no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "131c61e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/131c61ea0154667c196782bef2019f3950ed6559",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T21:51:08.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(simbolo): busca por sigla nos Exemplos, catálogo do portal fechado e Ajuda da aba\n\nBusca da aba Exemplos entende as siglas do MD33-M-02 nos dois sentidos (brigada acha\nBda Inf Mtz, bda acha Brigada Anfíbia), sem acento, gênero, número nem \"de\". A tabela\ndo capítulo III do manual (5434 entradas) é extraída do PDF e resolvida no gerador, que\ngrava `termos` em cada exemplo; o dicionário não vai ao bundle. Gerador e extrator\npassam para frontend/scripts/exemplos-de-simbolo/.\n\n- SIDC pela TELA do portal: o `code` cru do bundle está velho em RCC, CiaCC e Cia Sau\n  Cmp; varredura das 12 dimensões (626 linhas) confere os 623 do EBGeo.\n- Catálogo: modificador 2 Hospital de Campanha (ext 13, \"H Cmp\"), Quantidade na aba\n  Texto de Equipamentos e a extensão espúria 5 do \"Leve\" (03) dos marítimos; 623\n  exemplos (eram 620).\n- Defeito: exemplo de SIDC de 30 dígitos deixava o campo SIDC com o código anterior.\n- feature-patch deixa de importar o contrato do evento por uma string: atlas e\n  calibração voltam de 776/2075 para 770/2069 kB (o 1 kB que sobra são tokens de cor).\n- test:tocados pula arquivo apagado sem git rm e avisa dele; barreira de logout com\n  prova estrutural (um temporizador) e teto de relógio no piso do defeito.\n- Ajuda: página como-fazer/usar-um-simbolo-pronto, roteiro exemplos-01 (pendente de\n  mídia, ver PENDENCIAS_AJUDA.md: falta a chave dos tiles nesta estação).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "334b885",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/334b885b86ce9a39345cc311064318d5d79bb2a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T20:51:04.000Z",
+      "author": "Maj Diniz",
+      "message": "skill prospectar-ferramentas-militares: busca no GitHub por ferramenta militar aberta (C2, simbologia, fogos, planejamento, terreno, doutrina do EB) para o EBGeo, com catálogo como estado, régua de licença do EBGeo e piloto em planejamento, fogos e doutrina-br (3 A: lccav98/Fogos, lccav98/PPCOT, MilitarySym-V; 11 B)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6425dea",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6425deac514316ba1415c4788b9cd0cbed21ee32",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T20:35:13.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(simbolo): aba Exemplos no Configurar Símbolo, com os símbolos prontos do portal\n\nA aba Exemplos traz 620 símbolos prontos do Portal de Simbologia Militar\n(simbologia.eb.mil.br, MD33-M-02), com designação e textos preenchidos. A grade\nabre nos 63 principais, a busca (sem acento, por palavras, nome, sigla, designação\nou SIDC) alcança todos e o filtro limita a uma dimensão. O clique carrega SIDC e\ntextos no modal, e nada chega à feição antes do Aplicar.\n\n- dev/gerar-exemplos-simbolo.mjs gera data/exemplos.js dos bundles do portal, com\n  a lista dos principais, os 3 que o EBGeo não desenha igual (fora, com motivo) e o\n  conserto do portal na extensão Carros de Combate do modificador 2 (RCC, CiaCC).\n- Lista, seção e folha da aba carregam sob demanda: zero byte a mais nas páginas.\n- A prévia do modal descarta geração antiga que chega depois da escolhida.\n- Tetos do grafo completo: 1086 -> 1089 arquivos e 16126 -> 16194 kB, com registro.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6d53ca6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6d53ca60a4cc27415ccc55587932cf2f3909f51a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T20:28:42.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-17 (cont. 2): pincel mágico do EBGeo Web calibrado em traço real do chefe (ebgeo_web 0f6b214e0, de 59% para 71% fora da amostra, sem falso positivo); projeto com o corpus de 126 traços, a régua e as variantes não aplicadas; decisão do retângulo; worktree de variante com junção no subagentes; campanha de heurística no learnings\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "22ca4fe",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/22ca4fe9821fe5dd67a9548ba9c4140049ccddd8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T20:16:49.000Z",
+      "author": "Maj Diniz",
+      "message": "pincel mágico: calibrado em traço real de mouse, de 59% para 71% fora da amostra sem falso positivo\n\nO reconhecedor tinha sido calibrado só na bancada sintética. Com 126 traços reais\nrotulados do chefe da DGEO (duas rodadas no mouse), a base acertava 43 de 73 formas\nfora da amostra; esta calibração acerta 52, e os 13 rabiscos continuam pincel.\n\n- O pico de erro é o percentil 95 das distâncias, não o pior ponto: um ponto só\n  (tremor, ponta de canto, costura do fechamento) reprovava triângulo e setor.\n- circleRatio 0,82 -> 0,69: círculo de mouse sai ovo (0,73 a 0,96), e o erro do\n  círculo aceito é o menor entre o do círculo e o da elipse.\n- O raio do setor vai até 0,72 do alcance (era 0,85 fixo), e o centro do setor\n  tem de ser um canto nítido: a elipse em ponta deixa de virar setor.\n- maxMeanError 0,06 -> 0,065, no meio do patamar sem troca de classe.\n\nAinda falham: retângulo inclinado que sai polígono, setor (3 de 8) e a seta de\nponta dupla.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0f6b214",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0f6b214e0c7ffe509942bbb912351cca66b8100f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T20:15:00.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo_web: árvore viva alinhada ao origin/main (61f1e7032) com as sessões coordenadas; pendência fechada no projeto do Evento e o método do alinhamento na subwiki de desenvolvimento\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "c623ce0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c623ce0701d00cb56a8da5438bb22db78a596643",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T20:14:49.000Z",
+      "author": "Maj Diniz",
+      "message": "livro-razão: o calibre do alcance que não seguia o material depois do míssil (ebgeo_web fe35ce2a9)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "8bfc215",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8bfc2151f98305d0366f9c604f2d787ca2209252",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T19:06:58.000Z",
+      "author": "Maj Diniz",
+      "message": "alcance de artilharia: correção do calibre (ebgeo_web fe35ce2a9) e a árvore viva do ebgeo_web alinhada; a pendência sai do PROJECT\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "12e9bb6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/12e9bb660155618108ef89e7860da6a24cefd663",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T19:04:39.000Z",
+      "author": "Maj Diniz",
+      "message": "deps(backend): ajv 8.17.1 -> 8.18.0 (GHSA-2g4f-4pwh-qvx6, alerta 87 do Dependabot)\n\nReDoS com a opção `$data`. O backend não usa `$data` (o único uso é a validação do manifesto em\n`src/vendor/ebgeo-pacote/esquema.js`), mas a versão corrigida fecha o alerta sem custo. O lockfile\nmuda só no bloco do ajv. Suíte unitária do backend: 1848 de 1848.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "61f1e70",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/61f1e70328192c3cafb2679faa70034a18644f75",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T19:01:20.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-17 (cont. 4): cabeçalho da feição do ebgeo_web em grade, medidas ao vivo e abertura do setor em milésimos (24a8c2a43); na subwiki de desenvolvimento, as duas réguas que ajuste pequeno de painel acende (teto por pasta e :has() acima do piso), o StateManager que não notifica mutação em lugar, teste na tela em Vite de porta própria quando outra sessão usa o atlas, cópia viva mais velha que o HEAD, sed -i que tira o CRLF e Vite que sobrevive ao TaskStop\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "8e77860",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8e778602dc4f65465c035f7c49dac7711dc1ce1f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T19:00:21.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(alcance): Informações Adicionais acompanha toda troca de material\n\nO calibre só era reescrito quando o campo guardava o calibre do material ANTERIOR, então depois\nde um material sem calibre (o míssil) o campo ficava \"120mm\" sob todo material seguinte, e\n\"Sem armamento\" não o limpava. Agora o campo segue o material enquanto está vazio ou guarda um\ncalibre do catálogo: recebe o calibre do novo material, ou é limpo quando ele não tem calibre ou\nquando não há material. O texto que a pessoa digitou continua intocado. Medido no app real com\na sequência M101, M114, L1RT-61, míssil, M102, Sem armamento.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "fe35ce2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fe35ce2a91f61451f5da614d6e69d1ab04db42fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T18:45:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-17 (cont. 3): feição Evento publicada no ebgeo_web (fb08fcf94 com o Alcance, 3a05d28b6, a0fff485b) e projeto novo com as pendências; método do gate numa base integrada sobre origin/main, migração renumerada, censos de tipo de feição novo e teto de peso medido por sonda de grafo na subwiki de desenvolvimento; feição nova nasce como as da casa no learnings do planejamento; alinhamento barrado pelo classificador no learnings da retrospectiva; dois eventos no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "44ef0bb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/44ef0bbdb73815803778260cb77cd2bb0a713bd7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T18:40:17.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(evento): o plano sai da raiz; o durável vai para a wiki\n\nPLANO-EVENTOS.md apagado com a obra publicada. A wiki do evento ganha o que só morava nele:\nos princípios da interface, o desenho dos três estados, a lista (ordem, filtros, hover, foco\nsem mudar o zoom, aviso de novos, escolhas locais), o ícone da lista só em atlas com eventos,\nteclado e celular conferidos no código, os riscos declarados e o peso medido no gate. As 58\ncitações ao plano no código e nos testes passam a apontar para docs/wiki/evento.md. As figuras\npendentes da Ajuda continuam listadas em PENDENCIAS_AJUDA.md.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "a0fff48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a0fff485b5ed282e8da8984f90bc3fa7e3e85af7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T18:39:15.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(painel): cabeçalho da feição em grade, medidas ao vivo e abertura do setor em milésimos\n\nO cabeçalho da feição deixava 148 px dos 358 do painel para o texto, porque o olho, o cadeado,\no ícone de atributos e a engrenagem ocupavam uma coluna da altura toda, e a elipse quebrava\n\"Semi-eixo maior: 101,74 km\" em duas linhas. Agora o cabeçalho com os ícones assenta em grade\n(classe `feature-identification--com-controles`, posta pelo painel; `:has()` fica acima do piso):\nos ícones só na linha do nome, o resto até a borda (266 px), e a medida não quebra entre rótulo e\nvalor.\n\nAs medidas do cabeçalho acompanham a geometria: slider, alça no mapa ou desfazer. Dois gatilhos,\nporque o slider muta em lugar a feição da seleção e o `set` do estado não notifica: a assinatura\nde `selection.features` e o `data` da fonte no mapa.\n\nA abertura do setor aparece em graus e milésimos (6400 por volta): \"Abertura: 60° (1067₥)\" no\ncabeçalho e o rótulo do slider \"Ângulo de Abertura · 1067₥\", que acompanha o valor. A conversão\nmora em `measurement-geometry.js`, sem módulo novo no grafo ansioso; os tetos de kB sobem 4 e 2\ncom a medida da falha.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "24a8c2a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/24a8c2a43fcb2a03090a338c6ab7db8f450ba19f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T18:25:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-17 (cont. 2): radar da Esri 2025 e 2026; KHR_gaussian_splatting ratificado e a leitura de splat do ArcGIS na wiki gaussian-splatting-navegavel, com backlink no ebgeo-3d; ESRI LULC 2017 a 2025 com dado CC BY 4.0 conferido no item; método de varredura de fornecedor proprietário no learnings do radar\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "cd44c1b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cd44c1bf67dd4cc6241cd3cbe48cc1589ac7dd5a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-17T18:25:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-17 (cont.): obra do alcance de artilharia publicada no ebgeo_web (fb08fcf94, com o Evento); a aba em todo símbolo militar e o SIDC fora do alcance (decisão do chefe); dois eventos no livro-razão (prova visual sem o gesto do usuário; mecanismos de tela cortados no teste); décima leva do learnings de planejar-mudanca-sistema, com split sem perda; guardas do repo na wiki ebgeo-web\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "e35c825",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e35c825217ff5c8de4cfbecf2f600886614d34d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T18:10:45.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(evento): painel mais enxuto e Ajuda pronta à espera das imagens\n\nPainel do evento (E20 a E24 de 2026-10-17): Quando sem o botão Agora; o tamanho com o rótulo\n\"Tamanho\" do ponto, sem título de seção repetido; sem \"Últimas anotações\" na aba Evento; na aba\nAnotações a caixa de escrever vem em cima e o fio vai da mais nova para a mais antiga; o estado\nescolhido no verde da aplicação. No Alcance, a opção vazia do material passa a \"Sem armamento\".\n\nAjuda: a página da ferramenta Evento enxugada ao teto do guia de escrita e a página nova\n\"Como acompanho e anoto os eventos?\"; as figuras evento-01 e evento-02 com tomada escrita\n(cena comum em ajuda/roteiros/lib/eventos.mjs) e pendentes de captura, listadas em\nPENDENCIAS_AJUDA.md com l6-simbolo-02. O build da Ajuda passa no lint de conteúdo e nos links\ne só para nas três mídias pendentes.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "3a05d28",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a05d28b6774fcbc4bf6240db6c2714f189a1b73",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T17:54:15.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(militar): feição Evento e alcance de artilharia no símbolo militar\n\nEvento (PLANO-EVENTOS.md, decisões E1 a E19 de 2026-10-17): tipo de feição próprio no grupo\nMilitar, criado por um clique como o ponto e configurado na sidebar (tipo entre os sete do\nELITE C2, estado, quando, o que aconteceu, tamanho com zoom de referência e correção de zoom).\nAnotações são propriedade da feição, chaveadas por anotação, com disputa por chave no servidor\ne as regras C1 a C10 (autoria carimbada, só o autor edita, linha automática imutável, lápide no\nlugar da nota apagada, teto de 300 notas). Lista de eventos por um botão no canto superior\ndireito, só em atlas com eventos, com o selo dos abertos, filtros, CSV com ponto e vírgula e as\nescolhas \"Mostrar resolvidos\" e \"Avisar novos\" no IndexedDB do atlas, sem sincronizar. Desenho\ncom imagem por título, KMZ, legenda do PDF, marcas na barra do tempo e Histórico. Migração 043.\n\nAlcance de artilharia: catálogo de 19 materiais com a fonte de cada número (CE 5.80 DAMEPLAN\n2025), aba Alcance em todo símbolo militar, anéis útil e máximo como camada de desenho (fixado e\nseleção), leitura para Leitor e várias peças. Decisões A1 a A6 de 2026-10-17.\n\nGate na base integrada sobre origin/main: lint, frontend (1355 arquivos) e backend (6377 testes)\nverdes; o peso construído e a Ajuda (duas figuras pendentes) não foram medidos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "fb08fcf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fb08fcf94ad938f8a09d19f25eb826f0745375ec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-17T15:35:14.000Z",
