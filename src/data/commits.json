@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-18T17:56:21.105Z",
+  "lastUpdate": "2026-10-18T22:20:44.976Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-18T16:02:03.000Z",
+    "1cgeo/ebgeo_web": "2026-10-18T17:58:23.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9431,
+    "totalCommits": 9433,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2733,
+      "1cgeo/ebgeo_web": 2735,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -188,6 +188,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T17:58:23.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: o redesenho inteiro também repõe a edição pendente do painel, e importar de outro atlas avisa os mapas que eram restritos\n\nRedesenho inteiro (setupMapFeatures): a op de colega no nível do mapa, o retrato de uma reconexão,\na mudança na composição de submapas e a op dos 9 tipos sem caminho por diff (Evento, área de\ncoordenação, coberturas, enlace) reescreviam as sources a partir da store e apagavam do mapa a\nprévia que o painel ainda mostrava. A reposição, que o redesenho por diff já fazia, vai para a folha\npura pending-edit.helpers.js (copiasDoPainel, comEdicaoPendenteDoPainel,\ndocumentoComEdicaoPendente) e serve aos dois. A spec edicao-pendente-sobrevive-a-op-remota passa a\nafirmar que a prévia fica, e reprova sem a reposição.\n\nImportar de outro atlas: o servidor contava summary.mapasRestritosNaOrigem (decisão E de\n2026-10-18) e a tela não dizia nada. O desfecho diz \"1 mapa era restrito no atlas de origem e aqui\nfica aberto a todos deste atlas.\", em tom de aviso; acionado de ponta a ponta em\nimportar-de-outro-atlas.spec.js, com o mapa restrito pela rota. Uma linha na página da Ajuda.\n\nTeto de peso da página do mapa: 10087 e 16926 kB, medidos pela falha.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "53976cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/53976cc91c4f8a354940fc1450add73569b1ead4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T17:58:22.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: o controle do painel pelo rótulo olha só a aba aberta\n\nA aba Etiqueta ganhou a Caixa de Fundo com \"Espessura da Borda\" (fefa2cc51), e o seletor pelo rótulo\nachava dois controles no painel: estilo-pendente-sobrevive-ao-arrasto (retângulo) e\ncaixa-acompanha-a-edicao (ponto) reprovavam por modo estrito. Os dois olham agora\n.feature-tab-content.active; 6 de 6.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "349e994",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/349e994138e5381805e07636de28caa8790e2627",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-18T16:02:03.000Z",
