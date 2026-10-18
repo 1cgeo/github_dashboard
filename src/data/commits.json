@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-17T22:04:36.569Z",
+  "lastUpdate": "2026-10-18T13:52:32.910Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-17T21:51:08.000Z",
+    "1cgeo/ebgeo_web": "2026-10-18T11:46:52.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-16T16:45:18.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-17T22:01:25.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-18T10:34:55.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9408,
+    "totalCommits": 9428,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2716,
+      "1cgeo/ebgeo_web": 2730,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -180,7 +180,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1118,
+      "1cgeo/chefe_dgeo": 1124,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -188,6 +188,186 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T11:46:52.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: as 15 mídias pendentes saem pelo motor, sete páginas saem do rascunho e o PENDENCIAS_AJUDA.md é apagado\n\nFiguras novas: submapas-01, submapas-02, camadas-tipo-01, camadas-tipo-02,\nsem-acesso-01, passar-desenho-01, quem-alcanca-01, l6-texto-02, l6-etiqueta-01\ne pontos-dominantes-01, com a cena de submapas em roteiros/lib/submapas.mjs.\nRefeitas por tela velha: l2-mapas-01, l2-mapas-02, l6-simbolo-02, l7-lum-01 e\nl6-desenho-02. Todas lidas como imagem contra a descrição da lista, as de\nsubmapas já sobre a ordem nova da aba Camadas (bf1912dc9).\n\nPublicadas com novo: submapas-e-permissoes-do-mapa, quem-ve-cada-camada,\nmapa-sem-acesso, passar-desenho-entre-mapas, quem-alcanca-este-ponto\n(2026-10-17), mover-e-girar-a-etiqueta e pontos-dominantes (2026-10-18), com o\nVeja de cada linha das novidades.\n\nA busca: a página da etiqueta trocou \"giro\" no título e no corpo por \"ângulo\"\ne \"roda\", e quem-ve-cada-camada perdeu a palavra \"copiar para este mapa\" (a\npassar-desenho-entre-mapas responde essa consulta em 1º), porque tiravam\nAtalhos do topo de \"girar o mapa\" e \"copiar\". Com cinco páginas de tarefa de\ncópia, medidas, \"copiar\" pede Atalhos entre os seis primeiros\n(atalhos.test.mjs); \"desfazer\" e \"excluir\" seguem em cinco.\n\ndocs-integridade: PENDENCIAS_AJUDA.md classificado como histórico, citado na\nDecisions datada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "1137bbe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1137bbe1217337e9cd641fff39515cb177dd90da",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T11:26:00.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: revisão das páginas de submapas (fidelidade ao código, consequências de restringir e de difundir, o exemplo da DIREX), página nova sobre passar desenho entre mapas, e a folga do botão Configurações\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "c3e73f4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c3e73f49482e142049ac9a8a7df3891638c724d3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T11:22:57.000Z",
+      "author": "Maj Diniz",
+      "message": "submapas: na aba Camadas as camadas do próprio mapa vêm primeiro e as pastas de sistema depois, em ordem fixa\n\nDecisão do dono de 2026-10-18. A raiz do painel e a gaveta do celular desenham as camadas e\npastas do mapa aberto na ordem delas e, abaixo, as pastas de sistema: as dos submapas na ordem\nda árvore e depois as \"Do mapa «X»\" do pai ao mais distante (comporMapa passou a entregar os\nancestrais do mais próximo ao mais distante, então KMZ e PDF seguem a mesma ordem).\n\nA pasta de sistema perdeu a alça de arrasto, e nada se solta ao lado dela (onMove do Sortable);\na soltura na raiz se planeja só entre as próprias (irmaosSemPastasDeSistema). A posição gravada\n(maps.posicao_pastas_sistema) fica reservada: saem setPosicaoPastasSistema,\nlerPosicaoPastasSistema, posicaoDasPastasDeSistema e planoDeSolturaNaRaiz; servidor, migração e\nunidade de disputa não mudam.\n\nTestes de modelo puro com controle negativo (ordem antiga dos ancestrais: 2 vermelhos; função\nde raiz antiga: 6 vermelhos), e captura do Playwright do painel da Bda A lida.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "bf1912d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bf1912dc9b2bde42b25df3931ee2144dfe7627fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-18T10:34:55.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-central-de-ajuda: o mapa da Ajuda com as 101 páginas e a busca remedida (85/97 no ajuste, 60/74 no retido)",
+      "sha": "e0a6f09",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e0a6f0965954df8cf01910b86e9d14b6ab079c53",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T10:34:43.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: as nove páginas que estavam fora do ARQUITETURA.md entram no mapa e na avaliação da busca\n\nAcompanhar eventos, briefing no .ebgeo, pontos por coordenadas, histórico do atlas, Mapa do QAN, mover e\ngirar a etiqueta, quem alcança este ponto, símbolo pronto e a ferramenta Evento: uma linha cada no mapa\n(fonte no código) e duas perguntas cada. Contagens do mapa pelo disco: 101 páginas, seis em rascunho.\nQuatro páginas ganharam palavras pela 1ª pergunta (a de ajuste). Medida de 2026-10-18 sobre 95\nperguntas: AJUSTE 85% e 97%, portão cumprido; RETIDO 60% e 74%.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "2899408",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2899408ec9464ec23a0bce7c25bec5892f39a2e7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-18T10:28:32.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-central-de-ajuda: busca remedida em 2026-10-18 (90/98 no ajuste, 59/75 no retido), Pontos Dominantes na main como rascunho e o Mapa do QAN publicado; telemetria",
+      "sha": "5b7c700",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5b7c700deb40a6dd44fb02a1aa63a5bcdf90842f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T10:27:38.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: Pontos Dominantes entra como rascunho à espera da figura, e as duas perguntas de Símbolos no Horizonte que faltavam na avaliação da busca\n\nA página guardada desde 2026-10-10 numa branch local (ajuda-pontos-dominantes) entra com draft: true, a\nFigura pontos-dominantes-01 especificada em roteiros/midias e a linha no PENDENCIAS_AJUDA.md. A avaliação\nda busca não rodava: o ARQUITETURA.md planejava simbolos-no-horizonte sem as duas perguntas. Medida de\n2026-10-18: AJUSTE 90% e 98%, RETIDO 59% e 75% (88 medidas, 4 páginas em rascunho).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b448437",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b4484379469db78c0ce32f5e27c4237339d64cfa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-18T10:13:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-18 (cont. 3): ebgeo_web, azimute do setor em milésimos, formato do fundo do texto e etiqueta que se move, gira e ganha fundo e chamada (Decisions, wiki); na subwiki de desenvolvimento o teto de 320 palavras da Ajuda com página em draft, a especificidade do interruptor e medir quem serve a porta de teste; quatro correções no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b7ecf32",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b7ecf328cf21db7226a9811ea5f29c14d5375946",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T10:12:18.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(etiqueta): o título da Caixa de Fundo e da Linha de Chamada volta a aparecer\n\nO interruptor do cabeçalho da seção herdava `width: 100%` de `.attr-modern-toggle`\n(attributes-panel.css), que vencia o `width: auto` de uma classe só, e com `flex-shrink: 0` espremia\no botão do título até zero. O seletor passa a ter duas classes e o título cresce (`flex: 1 1 auto`).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "5e47e97",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5e47e97639e1464010a862d8d638603a63c17c7e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T10:11:12.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(etiqueta): a etiqueta se move, gira e ganha fundo e linha de chamada, e a linha tem etiqueta\n\nNas sete ferramentas com etiqueta (ponto, linha, polígono, retângulo, círculo, elipse, setor):\n\n- Posição: com o desenho selecionado, o ponto roxo sobre a etiqueta a move e o azul, à esquerda\n  dela, a gira. O deslocamento é UMA propriedade, `labelOffset: [leste, norte]` em metros a partir\n  da âncora (`label-placement.model.js`, plano tangente local com a própria inversa), então a\n  etiqueta acompanha a geometria movida ou editada e fica no mesmo lugar do terreno em todo zoom.\n  `labelRotation` segue a regra da ferramenta Texto: 0 de pé na tela, outro ângulo deitado no mapa.\n  As alças andam presas às alças de vértice de cada ferramenta (o ponto, sem vértice, pela seleção)\n  e herdam as razões delas para não aparecer: mapa travado, nível sem edição, feição bloqueada.\n- Caixa de Fundo: a da ferramenta Texto, com os quatro formatos, pela mesma regra\n  (`text-background.expressions.js`, extraída de `content.layers.js`); o quadrado, o círculo e a\n  elipse da etiqueta medem o texto na fonte negrita (`@bold` no id da imagem).\n- Linha de Chamada opcional, da âncora até a etiqueta afastada.\n- A Linha ganha a aba Etiqueta, ancorada no meio do comprimento.\n\nCada tipo desenha a etiqueta por uma pilha de cinco camadas (`label.layers.js`: chamada, fundo e\nletras de pé, fundo e letras deitados), com o filtro de cada uma em `LAYER_ADDITIONAL_FILTERS`. O\nponto passa a ler uma fonte derivada, `point-labels`, como as formas; a do ponto e a da linha são\nmantidas pelo evento de conteúdo da fonte principal (`label-source-keeper.js`), e o diff do colega\nas declara. O clique na etiqueta afastada seleciona a feição (`DERIVED_SOURCE_OWNERS`). A aba\nEtiqueta virou seções colapsáveis, no molde dos anéis do Alcance, e \"Voltar à posição original\"\nsó aparece com a etiqueta fora do lugar.\n\nAjuda: frase nas páginas das ferramentas, linha das novidades e a página nova\n`como-fazer/mover-e-girar-a-etiqueta.mdx` em rascunho até a figura l6-etiqueta-01 sair do motor\n(sem as chaves de tiles nesta estação), anotada no PENDENCIAS_AJUDA.md com a l6-desenho-02, que\nficou velha. Tetos do grafo: +5 módulos ansiosos (687 -> 692, 1124 -> 1129) e os kB medidos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "fefa2cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fefa2cc514b1357c90732cbee726cc0a5a9d4f43",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-18T09:39:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-18: ebgeo_web \"Quem alcança este ponto\" e segundo teste do Alcance publicados (d3440a17c): mínimo configurável com anel, útil para todo material, campo em branco desliga o anel, rótulos em lados distintos, sem marcas de procedência; projeto do Alcance reescrito, decisão do dia, duas linhas no livro-razão (centro do anel, marcas na tela) e a regra \"procedência mora na dica\" no learnings de planejar-mudanca-sistema\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8bcf964",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8bcf964f9730751425002bf9eaec867be5d29b74",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T09:12:23.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(texto): formato da caixa de fundo, retângulo, quadrado, círculo ou elipse\n\nA aba Fundo do texto ganha o campo Formato. O retângulo segue a imagem esticável de sempre, e é o\npadrão de todo texto sem `backgroundShape`. Quadrado, círculo e elipse não esticam sem engrossar a\nborda no eixo longo, então cada um é UMA imagem por texto, com o campo de distância exato da forma,\ndesenhada no tamanho base e nomeada por forma, tamanho e texto (o esquema dos marcadores de evento):\no resolvedor de imagens geradas a faz do id, medindo com os glifos do mapa, e o `icon-text-fit`\ncontinua a deitá-la sobre as letras pelo `content`, sem zona de esticar, então ela escala inteira.\nA medida feita antes da faixa de glifo chegar é provisória e a imagem é redesenhada quando ela chega.\n\nA forma é a menor do seu tipo em volta da caixa das letras com folga: o quadrado no lado maior, o\ncírculo na diagonal, a elipse nas proporções da caixa, com a borda passando pelos cantos. A borda\ntem a largura pedida em pixels de tela, como a do retângulo: a imagem escala com o ícone, então o\nhalo lê o campo a borda / razão. Clique, moldura e caixa no chão respondem pelo retângulo que contém\na forma; copiar estilo leva o formato.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "6ccb1f8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6ccb1f8684460a98f582cce95cb82e8f402d4afc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T09:12:23.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(setor): azimute do setor também em milésimos\n\nO azimute do eixo do setor aparece em graus e milésimos (6400 por volta), como a abertura já\naparecia: o rótulo do slider \"Azimute · 800₥\", que acompanha o valor, e a linha \"Azimute: 45° (800₥)\"\nno cabeçalho da feição, antes da Abertura. Diferente da abertura, que é largura, o azimute é direção\ne reduz módulo a volta: 359,99° lê 0₥, nunca 6400₥. A conversão mora em `measurement-geometry.js`,\nao lado da da abertura, sem módulo novo no grafo ansioso.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "6582acf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6582acfb8c534bcb1fc571557bc12e3d07a5cc60",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T09:01:11.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(alcance): \"Quem alcança este ponto\" no menu de contexto e segundo teste da aba Alcance\n\n- Botão direito: \"Quem alcança este ponto\" no lugar de \"Inserir evento aqui\" (cartão da família do\n  painel de ponto, sem dia D; grupos útil, só no máximo e fora com o motivo; direção em milésimos\n  do NQ; linha tracejada efêmera de cada peça até o ponto). Item recusado, com o porquê no clique,\n  quando nenhum símbolo do mapa tem alcance.\n- Aba Alcance (decisões do chefe, 2026-10-18): anel e campo do alcance mínimo, usado também pelo\n  Quem alcança; campo em branco desliga o anel; útil para todo material (Mrt 120 L1RT-61 pela\n  regra dos 90%); sem \"(estimado)\", \"(personalizado)\" no mapa, \"(a confirmar)\" e \"(tabela de\n  atualização)\"; rótulos do máximo, útil e mínimo em lados distintos do anel; anéis nascem vazios.\n- Arrasto com edição pendente grava as chaves de desenho da cópia mostrada (rebaseOnStored): o\n  bitmap novo saía com o iconOffset velho e a moldura escorregava do anel.\n- Ajuda: página \"Quem alcança este ponto?\" em rascunho até a figura sair; novidades e\n  simbolo-militar atualizadas; PENDENCIAS_AJUDA.md com quem-alcanca-01 e as figuras velhas\n  l6-simbolo-02 e l7-lum-01 (sem as variáveis de tiles nesta estação).\n- Wiki, decisões, livro-razão, censo de permissão por mapa (a guarda do item que saiu) e tetos\n  de peso remedidos depois do rebase sobre os submapas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d3440a1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d3440a17cf77d563a5bc8230913b55ffdf9f4401",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-18T08:53:04.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki/ebgeo-web: a aba Exemplos do símbolo militar (623 do portal, grade de 63, siglas do MD33-M-02, SIDC da tela) que a sessão de 2026-10-17 deixou sem commit; telemetria",
+      "sha": "eb3cd1e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/eb3cd1edcb1bde66ea5ef244d13538b4dea642c3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-18T08:47:05.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-18: submapas e permissão por mapa publicados no ebgeo_web (2e5fcc29c, migrações 044 a 046); casa do projeto ebgeo-submapas; seis lições de obra estrutural com muitos agentes em conventions/subagentes",
+      "sha": "2e5bc79",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2e5bc79db9d88ed4b8a0ae1e0e4c9be7a34b8ab4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T07:04:05.000Z",
+      "author": "Maj Diniz",
+      "message": "test(peso): tetos remedidos depois do rebase sobre a aba Exemplos e o viewshed 3D\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "2e5fcc2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2e5fcc29c4818c7b9bb142b03e44793da049136b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T07:00:42.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(submapas): revisão do plano, auditoria de testes e correções finais\n\nO plano sai da raiz (a tabela D1 a D23, a regra de leitura, os riscos e o teste com usuários\npendente vão para docs/wiki/permissao-por-mapa.md e difusao-por-camada.md). Testes novos da\nauditoria por mutação (sigilo no relay e na presença, banco migrado de antes da 044, .ebgeo real,\no disco de três e de seis navegadores). Correções: slide de mapa ausente e a imagem dele sem\nvazar, uma definição só da regra do slide e da visão total, prévias de mover, restringir e\nconceder com as camadas, sair do atlas leva as concessões de mapa, importação sem tipo entra como\nsó este mapa, histórico com a cópia e o mapa real do comentário, envio de figura pelo nível no\nmapa, visão guardada por versão (migração 046) no lugar de recalcular a cada envio, marcador de\nvisão sempre sob a trava do log e também nas rotas de compartilhamento do atlas, e o atlas comum\nsem os campos por pessoa no retrato, como antes da obra.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "6183f58",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6183f5881a7180a220fe1cb40a217d3f2bca8d2f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T23:46:49.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(viewshed-3d): redesenhos completos sobrepostos não deixam cones órfãos na cena\n\nUma rajada de LAYERS_CHANGED punha dois redesenhos completos em voo: os dois limpavam, liam o\nstore e desenhavam, e o segundo gravava por cima do primeiro sem destruí-lo. Os cones do primeiro\nficavam na cena sem dono, pintando até o F5, e apagar a visibilidade não os tirava (medido em\n2026-10-08: 3 -> 6 estágios; com três redesenhos, 9).\n\n- Só o redesenho completo mais novo desenha (fullRedrawEpoch), em renderViewshedsForTileset e em\n  refreshViewshedsForCurrentTileset; o render superado ainda instala o handler de seleção.\n- drawViewshedList destrói a entrada anterior antes de gravar a nova e não desenha cones sem a\n  entidade de origem, a regra que o syncViewshedsFromStore já seguia.\n- O repro de 2026-10-08 nunca tinha rodado e passava no código com defeito: a rajada pelo\n  barramento não chegava ao defeito. Agora ele provoca a sobreposição direto, reprova o código de\n  antes (9 contra 3) e passa com o conserto.\n- Teto da fonte total do mapa 16218 -> 16219 kB, com o motivo no teste.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "ddc50bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ddc50bd7adc6dc704c9b13db14b9c63cbf24f83a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-17T22:40:51.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ajuda): as quatro figuras pendentes e a busca sem o corpo das Novidades\n\n- l6-simbolo-02, evento-01, evento-02 e exemplos-01 saem pelo motor de mídia, lidas como imagem;\n  as listas perdem o campo pendente e o PENDENCIAS_AJUDA.md fica com a tabela vazia e o\n  procedimento.\n- evento-01 espera o número da lista chegar a 3: o selo atualiza depois de 250 ms de coalescência\n  (COALESCE_MS), e a leitura logo após o painel abrir pegava 2.\n- O corpo da página Novidades sai do índice da busca (decisão do chefe): ela casava \"o mapa não\n  guardou minha linha\" sozinha e a tolerância não agia. Segue achável pelo título e pelas palavras;\n  teste novo, com o controle negativo (pagefind: false) reprovando.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "64f02ea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/64f02ea26e2496969daa0f3795ff3b6d59bdd18d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-17T22:01:25.000Z",
