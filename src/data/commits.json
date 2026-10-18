@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-18T13:52:32.910Z",
+  "lastUpdate": "2026-10-18T17:56:21.105Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-18T11:46:52.000Z",
+    "1cgeo/ebgeo_web": "2026-10-18T16:02:03.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9428,
+    "totalCommits": 9431,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2730,
+      "1cgeo/ebgeo_web": 2733,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -188,6 +188,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T16:02:03.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: o que os casos de borda dos submapas (0f0ef91a5) mudaram na tela\n\nO selo do nível mostra o do mapa aberto, com os dois na dica (a página \"Seu nível neste atlas não\npermite editar.\" dizia que quem tem acesso só a alguns mapas via Leitura no selo); excluir com\nsubmapas diz antes quem passa a ver e quem deixa de ver se eles subirem; Puxar outros mapas pergunta\nantes quando alguém passa a ver o que vem (\"Puxar para «X»?\"); a cópia de um mapa com submapas fica\nno mesmo lugar, com a restrição e as permissões; o cadeado diz que o que vem de outros mapas segue a\ntrava da origem; publicar o link pergunta antes (\"Publicar o link?\") quando camadas de mapa restrito\naparecem em mapas abertos; o .ebgeo leva os submapas e a restrição, sem as permissões. Uma linha em\nnovidades. As páginas de duplicar, do link e do .ebgeo foram enxugadas para caber no teto de 320\npalavras.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "83b4f3b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/83b4f3be766658e3260bb1334b9d4a2eec3632be",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T15:44:41.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: o conteúdo do texto não volta a \"Texto\" com o recibo da criação, e a barra de coordenadas segue a câmera\n\nTexto (e toda prévia de painel): o servidor devolve a criação à própria aba, aplicada como recibo\ncanônico (localRepair), e o redesenho por diff (layers/remote-feature-diff.js) escrevia a fonte a\npartir da store, apagando do mapa o Conteúdo já digitado enquanto o painel o mostrava. O redesenho\nagora repõe a edição pendente do painel aberto sobre a cópia guardada (withPendingPanelEdit), pela\nmesma regra estreita do arrasto, extraída para edicaoPendenteSobre. Medido no motor da Ajuda, três\ntextos de três; repro em tests/e2e-ui/conteudo-do-texto-sobrevive-ao-recibo.repro.spec.js, que\nreprova sem o conserto. A tomada l6-texto-02 deixa de esperar 1,5 s antes de escrever.\n\nBarra de coordenadas: só o mousemove a atualizava. Abria em \"Lat 0 Lon 0\" com o zoom de quando o\ncontrole entrou, e depois de um salto de câmera com o mouse parado mostrava o ponto e a cota de um\nlugar a cerca de 64 km do cursor. Agora, até o cursor chegar ao mapa, mostra só o zoom; no move da\ncâmera relê o ponto sob o último pixel do cursor, pelo mesmo throttle. §25.5 em\ntests/e2e-ui/coordinate-display.spec.js reprova o código antigo nos dois eixos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01TtEKg6Xi8pu739VvrwXgvn",
+      "sha": "ed7866b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ed7866b96ac98f3d004d5c3ffae18e0acf79bfed",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-18T15:24:23.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(submapas): casos de borda (reviver, combinar, subir filhos, cópias com árvore, link público, selo do nível)\n\nAchados por investigação de 30 casos contra o backend real, com as decisões do chefe de 2026-10-18:\nreviver mapa da lixeira só por quem o administra, com o pai e a restrição de antes (fechava um\nvazamento: o mapa restrito voltava aberto, e o id de mapa de outro atlas também revivia); a feição\nque cruza para mapa restrito grava o marcador sempre que há visão parcial; duplicar pela regra de\ncriar mapa, com a autoconcessão copiada marcada e na trilha; combinar mapas preserva o tipo da\ncamada e casa por nome só no mesmo tipo; transferir camada com ramos fica com os ramos válidos no\ndestino; prévias com números ao excluir subindo os filhos, ao combinar e ao publicar o link\npúblico; .ebgeo e clone do dono levam a árvore e a restrição, sem concessões; o cadeado explica a\ntrava do que vem de outros mapas; o selo mostra o nível no mapa aberto.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0f0ef91",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0f0ef91a53e28c4d44a84238f30781beb07ec642",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-18T11:46:52.000Z",
