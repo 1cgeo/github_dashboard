@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-20T14:51:39.937Z",
+  "lastUpdate": "2026-10-20T19:04:58.414Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-20T14:19:06.000Z",
+    "1cgeo/ebgeo_web": "2026-10-20T18:12:29.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-16T16:45:18.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-20T14:26:13.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-20T18:19:40.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9635,
+    "totalCommits": 9652,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2875,
+      "1cgeo/ebgeo_web": 2884,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -180,7 +180,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1161,
+      "1cgeo/chefe_dgeo": 1169,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -190,12 +190,165 @@
   "commits": [
     {
       "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T18:19:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 11): gráfico do Enlace de Rádio no referencial do Radio Mobile (ebgeo_web 0f77e86b9), conferência da conta contra as fórmulas de livro; decisão, wiki do EBGeo Web e receitas de gate e de bancada de painel na subwiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d7ae90a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d7ae90a187ba0fc09f2d77958465e356a7edf1e0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:12:29.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(enlace): o gráfico do Enlace de Rádio no referencial do Radio Mobile\n\nA linha de visada sai reta entre as antenas e o bojo da Terra efetiva do ITM,\nd1 d2 / (2 ae), vai para o terreno e para a zona de Fresnel, com a curva da\nTerra sob a cota mais baixa fechando o preenchimento. A conta não muda: o\nbojo se lê de volta do perfil gravado, então o enlace salvo antes também se\ndesenha assim. A dica diz a altitude real do terreno e quanto a visada passa\nacima ou abaixo dele. Num enlace de 412 km a visada descia a 1,5 km abaixo do\nnível do mar (decisão do chefe, 2026-10-20).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0f77e86",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0f77e86b929f6c7cc6debf0a56ae94803e15e8b4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T17:43:43.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-hachura: visibilidade-nas-saidas consertado no spec (ebgeo_web 310106069)",
+      "sha": "4ba9cf0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4ba9cf0ef40ebe86328f05413743bb49ed8f7782",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T17:43:33.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): visibilidade-nas-saidas lê o olho da pessoa\n\nDesde 2ea94a381 (o olho da pessoa) o servidor não grava o olho de feição, grupo e camada, e o spec esperava visivel=false no banco antes de chegar à legenda e ao KMZ. Agora espera cada olho por visivelParaMim, a regra que o filtro, a legenda e o KMZ leem, e confere à parte que o banco segue gravando visível (a semente).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3101060",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3101060695e37c6695330a1dc7e7e1169b29d472",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T16:16:15.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-hachura: os quatro specs vermelhos consertados (ebgeo_web 863d9827c, 0995b2e42); visibilidade-nas-saidas segue vermelho pela mesma causa do olho\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5cf39ed",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5cf39ed5a7f46bcb385ddd315cd853198da61866",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T16:15:53.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): zoom de referência e fotos esperam o estado antes de clicar\n\n- zoom-de-referencia-padrao: criarPonto espera o ponto selecionado e o painel da feição aberto; antes o painel chegava depois do clique na aba Camadas e a recolhia.\n- transicao-main-fotos: esperarAtlasAberto (mapa pronto, mapa corrente Principal, feição na store) antes de selecionar pela árvore, e o erro de selecionarPelaArvore diz o estado da árvore. Era 2 de 3 vermelho; agora 3 rodadas de 3 casos verdes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0995b2e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0995b2e42984c7441447a465e32047a562580f7b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T16:15:53.000Z",
+      "author": "Maj Diniz",
+      "message": "test(e2e): KML e enlace de rádio seguem o app de hoje\n\n- cobertura-importar-kml-geometrias: desde 2ea94a381 (o olho da pessoa) a camada importada é gravada visível e o olho fecha só para quem importou. O spec lê o olho por visivelParaMim, espera a pasta Áreas fechada para quem importou e aberta para o colega, e exige tudo gravado visível; caso vitest com a mesma árvore em kml-pasta-de-filho-unico.\n- enlace-e-cobertura-de-radio: \"1ª zona de Fresnel\" é legenda do Chart.js pintada no canvas, nunca texto no DOM. O spec grava o fillText do painel de perfil e exige as quatro legendas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "863d982",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/863d9827cef64c671d2b1101ebd199c3ebc09108",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T15:50:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 10): LAI 60143.004887/2026-50 (Viamão) e 60143.004961/2026-38 (Guaíba) como pedidos 235 e 236 do SAP 3.0, carta em arquivo anexada ao DIEx quando cabe em 10 MB e pelo repositório da DSG quando não, sem LEIA-ME na entrega de carta; decisão, learnings e SKILL do entregar-lai, histórico na wiki da LAI, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8b23f07",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8b23f07a96a4257cc70748c92628157b752092cc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T15:49:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 9): flip de 5.730 trechos de drenagem de sentido invertido na base contínua e delete dos 5.731 flags da curva (transação 6516969), por sete critérios com o juiz E1 antes e depois do flip conjunto; scripts em curva-hidro-mde/scripts/flip, learnings da skill carregar-drenagem-base-continua, estado na wiki e no projeto, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f545172",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f54517260edbe5e5dc0168b9337a0ed307d9e553",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T15:44:41.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 7): EBGeo Web na main (ebgeo_web 5ea7afbb8..9903480ea), prévia do arrasto, distância no Horizonte, Desagrupar e Quem alcança com material; decisão, livro-razão (peça tem material), test:tocados em worktree na subwiki, receita da figura no atualizar-doc-publica\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4229594",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4229594e50de1069ef3e18c7c7ac40dd29410d4c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T15:18:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 2): hachura que não estica no zoom e espera do mapa num helper só no EBGeo Web (ebgeo_web b84938937), lições do Stipple e do MapGrab na wiki, receitas de worktree e de Playwright na subwiki, projeto e decisão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1223954",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/122395453316a6613f757227ad4beab8a9550ec5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T14:59:04.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-cartas: o PNG da carta sai com o DPI gravado (ebgeo_web 5208279f1)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "52ec5e5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/52ec5e510b89aacabf68a61f7cd22e4dd257c98e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T14:58:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(ajuda): o motor de figuras não imprime a credencial do proxy\n\nQuando o túnel do proxy falha, a mensagem do Node traz a URL do proxy com usuário e senha, e o motor a escrevia crua no log e no veredito. semCredencial troca usuário:senha@ por ***@ em toda mensagem de erro; o teste também cobra que nenhum erro.message ou erro.stack saia do motor ou da carga de tiles sem o filtro.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5ea7afb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5ea7afbb8b3d401cbf322ddd00b5ef1852ae9221",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T14:58:46.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cartas): o PNG da carta sai com o DPI gravado (pHYs)\n\ncanvas.toBlob não grava densidade, e quem imprimia lia a página a 72 ou 96 DPI. pngComDpi insere o pHYs logo depois do IHDR, em pixels por metro, trocando um que já houvesse. O PDF segue com o PNG puro, porque a página dele já leva a escala.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5208279",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5208279f10f83d2eb16258492a23175efe46f8a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T14:58:45.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(coordenadas): GMS com vírgula entre latitude e longitude e com sinal no lugar da letra (requisito E3)\n\nLeitura tolerante depois dos três padrões de hoje, como dms_to_decimal e conv_gms_dec do EBGeo Desktop: separador vírgula ou ponto e vírgula, sinal quando falta a letra, segundos com ponto ou vírgula. Letra no eixo errado e minuto ou segundo acima de 59 são recusados. A autodetecção da busca reconhece a forma nova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7f93c32",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7f93c322bd5a9695caf3c91adcd1ae3ce00fae17",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T14:58:45.000Z",
+      "author": "Maj Diniz",
+      "message": "test(vista-da-base): o mapa do teste usa um mapa base próprio e público\n\nNa suíte inteira algum arquivo anterior deixa o carta-topografica privado, e a op baseLayer voltava \"você não tem acesso a esta camada de base\". Provado num banco com o carta-topografica privado: a versão anterior reprova 4 casos com essa mensagem, esta passa 8/8.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ee845d2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ee845d2f7f82fd3f8609c84a7af80671d5bfb700",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-20T14:26:13.000Z",
       "author": "Maj Diniz",
       "message": "retrospectiva 2026-10-20 (cont. 7): segunda leva das Cartas no ebgeo_web (8df40decd..1e6562f1d: ordem em três vias, Reaplicar que substitui a tentativa antiga, logo, estimativa pela régua do exportador, UTM E3, segredo do deploy, Ajuda das Cartas); glob de vários arquivos no run-tests, atribuição de vermelho na mesma forma e o motor de figuras como bancada na subwiki; dois eventos no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
       "sha": "4fafd90",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4fafd90f9bea577b7e5ebfa1f6d7a1edcd8929bd",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T14:22:34.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ajuda): figura l7-horiz-03 refeita com a distância sobre os símbolos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9903480",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9903480ea6b054c751c932e1b8b28b274fe3e18d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
