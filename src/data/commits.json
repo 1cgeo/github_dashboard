@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-20T19:04:58.414Z",
+  "lastUpdate": "2026-10-20T23:03:58.281Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-20T18:12:29.000Z",
+    "1cgeo/ebgeo_web": "2026-10-20T20:26:47.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-20T14:19:10.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-20T19:04:47.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-16T16:45:18.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-20T18:19:40.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-20T20:29:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9652,
+    "totalCommits": 9675,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2884,
+      "1cgeo/ebgeo_web": 2904,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -163,7 +163,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 434,
+      "dsgoficial/pytorch_segmentation_models_trainer": 435,
       "1cgeo/geoswarm": 67,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
@@ -180,7 +180,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1169,
+      "1cgeo/chefe_dgeo": 1171,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -190,12 +190,219 @@
   "commits": [
     {
       "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T20:29:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 13): Cartas v2 no EBGeo Web (ebgeo_web 0f77e86b9..994ded5c2), WYSIWYG, zoom só do mapa base, carta no sistema do quadro e as ferramentas da auditoria; decisão, projeto das Cartas, censos e cache do vitest na subwiki, custo medido do teste no fim em subagentes, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "91f44bd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/91f44bd1362f3e2ff8d24a08559f7a9424f8d9f3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T20:26:47.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a decisão do sistema da carta sem citar símbolo que o código não tem\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "994ded5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/994ded5c293f63f571ebdd9a24224d694ed21293",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T20:26:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into carta/v2\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "e212d23",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e212d23cc0b04982887325452dca0ed5114e966f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T20:23:42.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: a dica do norte diz o que a carta desenha no sistema do quadro\n\nO alto do quadro é o norte da quadrícula e a seta aponta o norte verdadeiro, girada pela convergência; a dica antiga dizia o norte geográfico para cima, contra a Ajuda nova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "ec6c2c9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ec6c2c9a6a29b63229b01539f639f1033646f82e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T20:23:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta/ajuda' into carta/v2",
+      "sha": "3133e41",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3133e41fa297483d15c36a425c18628b1408621b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T20:22:59.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas v2: bateria final, censos, lint e os vermelhos da integração\n\n- O mapa escondido (prévia do quadro, carta e PDF simples) nasce inert e sem controle de atribuição: as prévias nascem depois que o editor torna a página inerte, e o botão e o link da atribuição levavam o Tab para fora do editor.\n- \"Gerar das camadas\" lê as feições do mapa do quadro com as compostas (comAsCompostas), como o quadro as desenha.\n- Censos de arquitetura com o código novo classificado (superfícies de recurso, escrita crua, registro de tipos, HTML interpolado, edição por mapa, leitura do mapa aberto) e lint.\n- Testes recalibrados: o controle da grade num quadro longe do meridiano central, a escala do pt numa caixa larga o bastante para os quatro segmentos, as tolerâncias da série UTM do app e da extensão aproximada; o spec do zoom redesenha o mapa e usa as propriedades que o estilo lê; o do campo sem valor usa {autor}; o da fonte pendurada espera \"Desenhando o mapa\", a fase que ficou.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "d5f86f9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d5f86f97b58d2bd0b999ef146008050fe22cf21f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T20:22:04.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: Cartas v2 nas páginas, nas novidades e nas figuras\n\nDuas páginas novas, \"Como ponho legenda, escala, norte e declinação na carta?\" e \"Em que sistema a carta sai, e como mudo o fuso e a grade?\", ligadas às vizinhas e às novidades. As seis páginas das Cartas passam a dizer o que mudou na tela (Exportar, Organizar, laço, alça de girar, item fora do papel, tabela que quebra, Alta qualidade, georreferência no sistema da carta), todas abaixo de 320 palavras.\n\nNovidades de 2026-10-20 consolidadas em uma linha por coisa nova; a linha do EPSG:3857 sai, substituída no mesmo dia pelo sistema da carta.\n\nFiguras cartas-02 a cartas-05 refeitas e cartas-07 a cartas-09 novas, pelo motor, com mapa base. A cena esperarPrevia passa a ler o canvas da folha WYSIWYG (o img da prévia não existe mais), e a cartas-03 rola o painel até o quadro, que a seção Organizar empurrou para fora da tela.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8bf7a5d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8bf7a5d4ae549859aa2448500811a8556287f7f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-20T20:00:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-20 (cont. 12): dispensa das baterias e carregadores do Mavic 3 Enterprise (16 e 2), minutas de ETP, MR e TR com a especificação da DJI no lugar dos CATMAT do Mavic Air 2 e do Mini 3/4 Pro da ARP 06/2026; régua de coerência para vários itens, gerador com --bem; decisão, learnings da elaborar-dispensa e da consultar-licitacao, wiki, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01GvmpqAryEzBeEwr6ufqSxQ",
+      "sha": "22094c2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/22094c2d1c00d8f69039eeb2e6d4fbb50ed79582",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:42:37.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta/ux' into carta/v2\n\n# Conflicts:\n#\tdocs/cartas-contrato.md\n#\tfrontend/src/js/cartas/exportar/pagina-da-carta.js",
+      "sha": "f507f61",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f507f61b1ac1d4665a487934e8179032fb00db68",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:38:43.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: editor com laço, organizar, alça de girar, legenda gerada das camadas, declinação e teclado\n\n- Folha: laço de seleção (Shift soma), seleção e alças giram com o item, alça de girar (Shift de 15\n  em 15 graus), redimensionar item girado, item fora do papel em contorno laranja, itens focáveis\n  pelo Tab, reajuste do zoom quando o papel muda, faixa da grade medida pela tinta dos rótulos.\n- Painel de propriedades: Organizar (alinhar à seleção ou ao papel, distribuir, igualar tamanho),\n  X/Y/L/A do conjunto e do grupo, aviso de item fora do papel com \"Trazer para dentro do papel\".\n- Legenda: \"Gerar das camadas\" do quadro ligado, fundo, moldura, entradas recolhíveis e arrastáveis.\n- Tabela: grade de células com todas as colunas, rótulos por coluna, colar cresce a caixa.\n- Texto: aviso de campo sem valor. Escala: aviso de segmentos reduzidos quando o desenhista reduz.\n- Declinação: painel com quadro, data, fonte e os valores calculados.\n- Papel: o painel atualiza com o foco num campo e avisa o item que passa da borda.\n- Teclado: o foco fica preso no editor (inert no resto da página) e Esc num campo volta ao item.\n- Botão \"Exportar\" no lugar de \"Exportar PDF\"; botões de travar e ocultar com nome acessível.\n- Spec e2e cartas-ux.spec.js das ferramentas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "614a14e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/614a14e73260a8caeba87fbc3d464b3978e501c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:38:43.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: modelo e desenho das ferramentas do compositor (tabela que quebra, legenda das camadas, declinação, organizar)\n\n- Tabela: o texto que não cabe na célula quebra em linhas e a linha cresce, igual na folha e no\n  papel (linhasDaTabela, alturaDaLinhaDaTabela); a tabela nova nasce na altura de uma linha.\n- Legenda: quadro ligado, \"só o que aparece no quadro\", fundo e moldura; entradasDasCamadas monta\n  as entradas pelo estilo real das feições.\n- Item novo \"declinacao\": diagrama de declinação magnética (WMM2025) e convergência meridiana do\n  sistema da carta no centro do quadro ligado, com os nortes separados fora de escala e os valores\n  no texto.\n- Documento: alinhar, distribuir, igualar tamanho e caixa do conjunto para seleção e grupo.\n- Geometria da folha: item fora do papel, laço, alça de girar e redimensionar girado.\n- Campo sem valor sai em branco nos dois desenhos, com camposSemValor para o aviso.\n- Enquadrar pela vista arredonda para a série 1-2-2,5-5 (escalaDaSerie).\n- Esquema JSON e contrato da carta com os campos novos; testes unitários das peças puras.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "f8a712f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f8a712f4bfc0af9b555075a897051420fde6ef60",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:25:04.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: a página carrega a família da grade do quadro (regular), a que a grade da carta desenha\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "55f8fca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/55f8fca691d6dba48b97a7a347cb026ac6d4a5e8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:23:46.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: sistema de referência da carta, plano do warp, renderizador no sistema, georreferência exata, grade da carta e escala sem sobreposição\n\nNovos: plano-do-warp, cartas-grade-da-carta (inclui o P1 11 da auditoria),\ncarta-sistema-de-referencia (Playwright, linhas UTM retas no PNG). Reescritos\npara o sistema do quadro: quadro-de-mapa-direto-no-destino, a parte do\nrenderizador de quadro-de-mapa-zoom-fixo, a grade de cartas-wysiwyg-mesmo-desenho,\ncartas-exportar-gdal-3857 renomeado para cartas-exportar-gdal-sistema. Sai\npdf-blocos-globo.spec.js, do caminho Mercator em blocos do PDF simples que deixou\nde existir. Esquema: fuso e opções da grade no backend.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "c676c9f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c676c9f298415274264ccdec1f2260e56d870c5e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:23:38.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: grade no sistema do quadro com opções, norte girado pela convergência, escala sem rótulos sobrepostos, fuso à mão e Alta qualidade\n\nGrade da carta (desenharGradeDaCarta): UTM do fuso da carta, reta numa folha UTM;\nrótulos por lado, UTM completo ou abreviado, GMS ou graus decimais, linhas ou\ncruzetas, borda de marcas ou zebra, família e corpo, e os rótulos UTM e\ngeográficos em anéis separados (auditoria P1 10). O norte gira pela convergência\nno centro do quadro. A escala gráfica reduz os segmentos até os rótulos caberem\n(auditoria P0 5). Painel do quadro: o sistema escolhido, o fuso à mão e o aviso\nde quadro além dos 30' do fuso. Exportação: Alta qualidade (2x). Esquema da\ncarta e contrato com fuso e as opções da grade.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "2188a4a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2188a4a8aae8325642a21d448ad20c34ab2299ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T19:23:30.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: o quadro e o PDF de uma folha desenhados e georreferenciados no sistema do quadro (UTM até 1:250.000, Lambert acima, Policônica no país inteiro)\n\nO mapa escondido desenha Web Mercator girado pela convergência no centro, e cada\nbloco vai ao plano da folha pelo warp do WebGL (warp-webgl.js, plano em\nplano-do-warp.js), inclusive nos dois mapas do zoom fixo do mapa base e na prévia\ndo editor. A georreferência da página passa a ser exata, em metros do sistema,\ncom -a_srs EPSG:319xx, EPSG:5880 ou WKT de SIRGAS 2000 (georreferenciaDaPagina).\nO PDF simples de uma folha segue a mesma regra, com a prévia no retângulo do\nsistema; o mosaico segue em Web Mercator. Saem folhaInteira, renderizarEmBlocos e\nlimitesDaPagina, que ficaram sem uso. Modo Alta qualidade (2x) no renderizador.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "ea6ad0c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ea6ad0c6ce7793080bd07da5ab7c31d2743b7326",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-20T19:04:47.000Z",
+      "author": "Maj Borba",
+      "message": "test: make MC Dropout stochasticity test deterministic\n\ntest_samples_differ_with_dropout compared two Dropout2d samples over 8\nchannels without a seed: identical masks happen with probability 1/256 and\nthe global RNG state depends on test order on the xdist worker, so CI failed\nintermittently (runs 39403641333, 39438175559). Seed locally and compare T\nsamples.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d5ea84d",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/d5ea84db46ac0cfe4e7feb2149c6de17d357c8d0",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:42:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta/crs' into carta/v2",
+      "sha": "ddc3371",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ddc3371b1532596975135950dcf9ab97af28f088",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:42:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta/zoom-base' into carta/v2\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx\n#\tfrontend/src/js/cartas/exportar/pagina-da-carta.js",
+      "sha": "b025ddc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b025ddc6e93e96b291f6757e06c10c3b49ac26f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:40:28.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: legenda que segue o conteúdo, pt da escala, texto recortado na caixa e as regras da auditoria\n\nRespostas do chefe sobre o WYSIWYG e os itens (F1) da auditoria visual:\n\n- escala: o pt vale nos dois lados (desenharEscalaGrafica recebe o corpo\n  e devolve o retângulo que ocupa); a escala nova nasce com 16,5 mm de\n  altura, e a que passa da caixa ganha o aviso e \"Ajustar a caixa à\n  escala\", sem migrar documento;\n- legenda: ajustarAoConteudo (o \"Resize to fit contents\" do QGIS), ligado\n  na legenda nova e desligável no painel; ligado, a caixa não tem alças e\n  o editor grava w e h no tamanho do conteúdo na mesma edição\n  (comLegendasAjustadas); rótulo que não cabe quebra em linhas em vez de\n  reticências, colunas de cima para baixo, margem interna de 1 mm, e o\n  aviso de que não cabe no painel;\n- texto que não cabe é recortado na caixa nos dois lados, com folga de\n  0,2 do corpo para acento e descendente;\n- moldura da imagem em Conter contorna a imagem;\n- símbolo de OM da exportação pela mesma fonte da folha\n  (generateOmSymbolBitmap), em sessao-da-exportacao.js (frente 2, Edit\n  mínimo).\n\nCampo novo opcional no contrato e no esquema publicado; documento antigo\nfica como estava. Testes escritos e não rodados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "7132b75",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7132b757333d291c48eee6f83a4802e91a2bc192",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:35:21.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(cartas): o zoom fixo do quadro muda só o mapa base; rótulo \"Zoom do mapa\"\n\nDecisão do chefe (2026-10-20): o zoom fixo vale só para o mapa base, e as camadas do atlas seguem\nno zoom automático da escala. Com zoom fixo o quadro passa a ser desenhado por DOIS mapas ocultos,\num de cada vez, no mesmo retângulo, como o QGIS compõe as camadas: o mapa base sozinho no zoom fixo\n(mesmo terreno nos mesmos pixels) e, por cima, as camadas do atlas sozinhas com o zoom, o pixel\nratio, o container e o estilo do automático. A georreferência é a do automático. A separação do\nestilo é `separarEstiloDaBase` (as camadas da base pelo registro do controle do mapa base, o fundo\ncom a base, cada metade só com as fontes que lê); sem mapa base ou sem o controle, o quadro sai no\nautomático. O automático continua sendo um mapa só, o caminho de antes.\n\nO painel chama o campo \"Zoom do mapa\" e diz que ele muda só o mapa base; sem mapa base, só\nAutomático. Ajuda (319 palavras, teto 320), novidades e contrato acompanham.\n\nTestes reescritos, não rodados: quadro-de-mapa-zoom-fixo.test.js prova um mapa no automático e\ndois no fixo (base no zoom pedido, atlas igual ao automático); o spec carta-zoom-do-mapa-base lê os\ntiles da base no nível fixo e compara os pixels das camadas do atlas com os do automático sobre um\nmapa base de um tom só.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4348364",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4348364ad7670b411396c4482d891df9f22294fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:24:35.000Z",
+      "author": "Maj Diniz",
+      "message": "protótipo: sistema de referência da carta (UTM até 1:250.000, Lambert acima), malha do warp e georreferência exata em metros do sistema\n\nMódulo puro, sem ligação na interface (frente 3 do lote Cartas v2): escolha do\nSIRGAS 2000 / UTM ou da Cônica Conforme de Lambert pela escala, EPSG pela base\ndo PROJ, convergência na convenção do IBGE, fator de escala, plano da folha,\ncompensação do Mercator do mapa escondido (bearing e zoom), malha do warp e a\ngeorreferência da página. Teste contra o proj4 e contra números medidos no pyproj.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f31feb1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f31feb170253a01f245a3ab9ffa2d76f6f6a8123",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:20:59.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: a folha do editor pinta cada item com o desenhador da exportação (WYSIWYG)\n\nA folha desenhava cada item em DOM e SVG e a exportação num canvas 2D, e as\nduas divergiam (legenda menor que a caixa, outra quebra, outra escala, outro\nnorte, grade ausente). Agora cada item da folha é um canvas pintado por\ndesenharItem (exportar/desenho-dos-itens.js), à escala da folha vezes o\ndevicePixelRatio, recortado à caixa mais a tinta medida antes\n(ContextoDeMedida); o DOM fica só com a caixa, a seleção, as alças e os\navisos do editor. O que difere entre a página e a folha é parâmetro (escala\ndo alvo, imagem, mapa), e o quadro recebe o mesmo acabamento (grade e\nmoldura) nos dois.\n\nConserta na página a grade do quadro, que era projetada com os pixels do\nquadro contra o retângulo da página e saía deslocada pela posição do quadro\nno papel: a geometria da grade passa a ser a do renderizador, sem renderizar\n(exportar/geometria-do-quadro.js).\n\nA folha espera as fontes da carta antes da primeira pintura, repinta só o\nitem que mudou, move o canvas pronto no arrasto, repinta ao vivo no\nredimensionar e repinta no zoom depois de uma espera. Os nomes do norte no\npainel passam a ser os dos desenhos que saem no papel.\n\nTestes escritos e não rodados (a bateria roda no fim): a unidade\ncartas-wysiwyg-mesmo-desenho compara os comandos dos dois caminhos item a\nitem e prende a grade no lugar; o spec cartas-wysiwyg compara a caixa de\ntinta de cada item na folha a 100 % e no PNG a 96 DPI.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8f6bebd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f6bebd182c560c45fad49edb6c425a3000da26f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-20T18:19:40.000Z",
       "author": "Maj Diniz",
       "message": "retrospectiva 2026-10-20 (cont. 11): gráfico do Enlace de Rádio no referencial do Radio Mobile (ebgeo_web 0f77e86b9), conferência da conta contra as fórmulas de livro; decisão, wiki do EBGeo Web e receitas de gate e de bancada de painel na subwiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
       "sha": "d7ae90a",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d7ae90a187ba0fc09f2d77958465e356a7edf1e0",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-20T18:12:56.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(cartas): zoom do mapa base no quadro de mapa, automático ou fixo na mesma escala\n\nO quadro ganha o campo `zoom` (null ou ausente = automático, o de hoje; inteiro = esse zoom).\nO zoom fixo mantém a escala e os pixels do quadro e muda só o pixel ratio do mapa oculto\n(`geometriaDoQuadro`): um nível abaixo dobra nomes e símbolos, um acima dá mais detalhe. O\ncontainer arredondado para cima é recortado no meio, e os limites e o projetor são os do recorte.\nFora da faixa que o quadro aceita (a do mapa base e três níveis em volta do automático), sai no\nnível aceito mais próximo (`resolverZoomDoQuadro`). Vale para o quadro inteiro, camadas do atlas\ninclusive. A prévia e a exportação passam o mesmo campo ao renderizador.\n\nO painel do quadro mostra \"Zoom do mapa base\" com o automático nomeado e os níveis aceitos. O\nesquema publicado da carta aceita `zoom` inteiro de 0 a 22 ou null. Os blocos do quadro grande\narredondam cada aresta por conta própria (sem costura com pixel ratio qualquer; idêntico no PDF,\ncujo bloco já é um número inteiro de pixels), e a borda do bloco encolhe quando o pixel ratio alto\nnão a comporta (`margemQueCabe`).\n\nTestes escritos, não rodados (a bateria roda no fim): quadro-de-mapa-zoom-fixo.test.js,\ncasos novos em cartas-previa-de-outro-mapa, cartas-exportar-instante, cartas-arquivo-lista-e-modelos\ne backend carta-documento, e o spec carta-zoom-do-mapa-base.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "35579fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/35579fc42b318c600d423e268248811665380e05",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_web",
