@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-20T23:03:58.281Z",
+  "lastUpdate": "2026-10-21T14:59:14.602Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-20T20:26:47.000Z",
+    "1cgeo/ebgeo_web": "2026-10-21T12:50:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -39,7 +39,7 @@
     "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-20T19:04:47.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
-    "1cgeo/geoswarm": "2026-09-24T23:47:36.000Z",
+    "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-10-14T17:58:02.000Z",
     "dsgoficial/ferramentas_edicao@qgis4": "2026-10-16T15:44:01.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-16T16:45:18.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-20T20:29:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-21T14:48:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9675,
+    "totalCommits": 9716,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2904,
+      "1cgeo/ebgeo_web": 2932,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -164,7 +164,7 @@
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
       "dsgoficial/pytorch_segmentation_models_trainer": 435,
-      "1cgeo/geoswarm": 67,
+      "1cgeo/geoswarm": 68,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 65,
@@ -180,7 +180,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1171,
+      "1cgeo/chefe_dgeo": 1183,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -188,6 +188,375 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T14:48:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisions em ordem cronologica (20 e 21/10), ajustes em wiki/ebgeo-desktop e wiki/ebgeo-web, telemetria das skills\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0dedac4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0dedac4a2ad43ade888ca716527ce844d2dae027",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T14:46:47.000Z",
+      "author": "Maj Diniz",
+      "message": "medir-desempenho-web: latencia percebida do GeoAssistant (porta 5000 retida, localhost IPv6, streaming), hover por feature-state e filhos orfaos no Windows\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b5ba7b2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b5ba7b2aa35920a8ab279ad68bddc9671a839b11",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T14:17:05.000Z",
+      "author": "Maj Diniz",
+      "message": "GeoAssistant no gemma4:31b para a demo: OSM local, teste de paralelismo na V100 (wiki servidor-ia, Decisions 2026-10-21 cont. 5)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "3ead390",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3ead390fc94244e68ae4c9c47afdf67d7355747a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T13:58:01.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão 2026-10-21 (cont. 4): heightOffset medido em 7 modelos 3D do 5º CGEO no catálogo do 1º CGEO\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "e66b4ed",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e66b4ed3843f341e3c124235720dfb0202d86091",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T13:24:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21 (cont. 3): escala pequena da carta volta a 3857, Negrito no texto, EBGeo 5cbbcde59 nos três destinos, Mapa das OM com rótulos, hierarquia e blocos em negrito; projetos das Cartas e do Mapa das OM, decisão, pegadinhas de teste na subwiki, controle negativo fora do worktree compartilhado, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "17b19b7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/17b19b783567429f035be1a6771385db0507f3d4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T12:50:10.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a palavra de busca 3857 entre aspas, que o esquema da página pede texto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "5cbbcde",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5cbbcde5922dbbe2d2129908e3e368602c39cebd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T12:32:26.000Z",
+      "author": "Maj Diniz",
+      "message": "demo de IA ao general: Ollama avulso no servidor de IA (wiki servidor-ia, Decisions 2026-10-21 cont. 3)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "9c3b5ce",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9c3b5ce2e1b6a76288196c9695ab2550bfa24579",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T12:31:15.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: acima de 1:250.000 a carta e o PDF de uma folha voltam ao Web Mercator (EPSG:3857), sem warp nem giro\n\nDecisão do chefe em 2026-10-21, depois do Mapa das OM a 1:2.400.000 em Lambert\ncom brasões e rótulos girados nas bordas: \"para pequenas escalas vamos deixar\n3857 mesmo\". Até 1:250.000 nada muda (UTM do fuso do centro, fuso escolhível,\naviso além dos 30', warp WebGL).\n\nescolherSistema devolve Web Mercator acima de 1:250.000, o país inteiro\nincluído; saem a Lambert, a Policônica, a Mercator conforme e o ehPaisInteiro.\nO plano da folha em 3857 tem a escala nominal no paralelo do centro\n(metrosPorMm = escala x sec(lat) / 1000, o mesmo zoom de zoomDoQuadro), e a\ngeorreferência da carta e do PDF simples lê esse metrosPorMm. O renderizador\nnão cria warp no 3857: cada bloco é cortado direto do canvas do mapa oculto\n(recorteDoBloco), com o centro empurrado para o canto cair num pixel inteiro e o\ncontainer com canvas de pixels inteiros (containerSemReamostragem). Convergência\n0, norte sem giro, painel com \"Web Mercator (EPSG:3857)\" e sem fuso.\n\nTestes: a escolha por escala espera 3857 acima de 1:250.000; o corte direto, a\ngeorreferência em 3857 com o controle sem o sec(lat), o diagrama de declinação\ncom convergência 0 e um spec de Playwright que lê meridianos e paralelos na conta\ndo Web Mercator (0,30 px de pior, 130 amostras). Contrato, regra do PDF, decisão\ne Ajuda atualizados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "1edb1fd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1edb1fd43a3da9121852679f24f36fc7c612d0de",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/geoswarm",
+      "date": "2026-10-21T12:30:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Dashboard: hover dos mapas por feature-state, sem refazer layout dos tiles\n\nO destaque do municipio sob o mouse usava setFilter na camada de contorno, o que\nrefaz o layout de todos os tiles de limites no worker unico do MapLibre a cada\nmunicipio cruzado (~0,6 s cada, medido); com o mouse em movimento o contorno\nficava para tras do cursor. Agora o source usa promoteId 'gid' e o contorno\nacende por feature-state (so repinta). Vale para o Mapa de feicoes e o Mapa de\ncoletas. Medido no navegador: de ~970 ms para ~263 ms ate o mapa assentar por\ntroca, com piso de ~300 ms do fade do proprio MapLibre.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "4641221",
+      "htmlUrl": "https://github.com/1cgeo/geoswarm/commit/4641221c2b6e9ef0b2fa6008e023e926b36bdb7d",
+      "repoUrl": "https://github.com/1cgeo/geoswarm"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T12:29:03.000Z",
+      "author": "Maj Diniz",
+      "message": "texto: opção Negrito na ferramenta de texto\n\nA feição de texto ganha `negrito: true|false` (ausente = regular, todo texto antigo\nsegue igual) e um alternador \"Negrito\" no painel, logo depois do Tamanho da Fonte.\n\n- Camada: `text-font` por feição (`TEXT_FONT_EXPRESSION`, case sobre\n  ['get','negrito'] == true), nas quatro camadas do par letras/fundo; a MapLibre\n  6.11.2 declara `text-font` data-driven, e a área de coordenação já usava o mesmo case.\n- Medida: `textFontStackOf` (gêmea em JS) leva a fonte à caixa de seleção, à alça\n  de rotação, ao clique exato (o medidor recebe as propriedades da linha) e à imagem\n  de quadrado/círculo/elipse (marca @bold por expressão).\n- Controle: negrito entra nas listas visuais, no hasFeatureChanged (ausente = falso)\n  e no Descartar de texto antigo (Object.assign não tira a chave). \"Mesmo estilo\"\n  compara negrito normalizado.\n- Sync, .ebgeo, KMZ, copiar/colar e desfazer levam a chave sem mudança de código\n  (propriedade de feição aberta nos dois pacotes); testes de guarda presos.\n- Ajuda: Negrito na página do texto (315 de 320 palavras) e linha nas novidades de\n  2026-10-21; wiki da ferramenta de texto.\n\nTestes: negrito-do-texto, negrito-painel-do-texto, negrito-ebgeo-ida-e-volta,\ntext-control-has-changed (casos novos), fundo-de-texto-camada e\nclique-no-texto-girado (ajustados), backend negrito-do-texto-no-sync, e o spec\nPlaywright negrito-do-texto.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "567f1c7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/567f1c75f5b64df7523dd6ff3ff00bfa237dc09f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T12:11:55.000Z",
+      "author": "Maj Diniz",
+      "message": "briefing: carregar o texto do slide no editor não conta mais como edição\n\nAo montar o formulário do slide, o conteúdo ia direto para a raiz do Quill, e o\nobservador do Quill dobrava a mutação um instante depois como text-change de\nusuário, já com o ouvinte do slide ligado. Toda repintura do formulário marcava\no editor como sujo e agendava um autosave; \"Voltar\" logo depois perguntava por\nalterações não salvas que ninguém fez.\n\nO caminho medido (sondas no navegador, 4 de 4 reprovações antes): o salvar ecoa\npelo sync com o campo confirmedVersion, `_refreshSlideForm` adia a repintura\nporque o foco está no formulário, o clique em Salvar tira o foco e a repintura\nroda; 19 ms depois o text-change espúrio liga `_hasUnsavedChanges`, e o Voltar\nabre a confirmação. O carregamento passa por `replaceQuillContentSilently`, que\ndobra a mutação em silêncio e limpa o histórico.\n\nProva: briefing-vista-do-slide-cobertura.spec.js 3 de 3 (os dois casos), e oito\nspecs do editor de briefing, 13 casos, verdes numa rodada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "2042ce1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2042ce1eaddf5e1feb6491bdd5a17fdb2a82e3d5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T12:06:22.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a altura dos modelos 3D medida e a decisão de não mexer agora; PENDENCIAS.md sai\n\nO Silo está 4,8 m alto nos dados, não 15; o resto era o terreno do Cesium e o geoide na MapLibre. O chefe decidiu não gravar heightOffset nem converter o geoide agora, e o último item das pendências fecha por decisão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "bd24ff3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bd24ff34bf9da1325f6f33ccb7dae15d68c81cef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:56:34.000Z",
+      "author": "Maj Diniz",
+      "message": "briefing: a pré-carga de tiles começa a baixar o destino e o voo sai na hora\n\nCom async: true o flyTo interceptado da apresentação esperava todos os tiles do\ndestino e do caminho antes de a câmera sair, e um servidor lento deixava a\napresentação parada no slide anterior (decisão do chefe, 2026-10-21). Com false\nos pedidos do destino saem na mesma volta, antes da câmera, e os do caminho\ndepois, enquanto ela voa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "4aa49c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4aa49c6de9b66fef0aaea6e7fe4b9f25cb020eea",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:26:18.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into fix/pendencias",
+      "sha": "1436cec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1436cec3fde48d55109d79d0cbf14b9fa49c4695",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:25:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into fix/exportacao",
+      "sha": "34518c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/34518c633933379c62b7a4afca071d9d589a3449",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:20:15.000Z",
+      "author": "Maj Diniz",
+      "message": "captura: o mapa escondido da captura leva as imagens do mapa vivo (a figura saía de \"Exportar Imagem\")\n\nRegressão deste lote, pega pelo spec imagem-nas-saidas-do-mapa (\"a figura não\naparece na captura do mapa\", 0 pixels magenta). Com o atlas em globo e o\nzoom abaixo de 12 (o spec usa 10), a captura passou a ir ao mapa escondido\nplano (fffca35f8), e esse mapa só gerava as imagens por expressão\n(installGeneratedImages): nada copiava as que o mapa vivo registrou por\naddImage, como a figura da ferramenta de imagem. Em 39461d410 o defeito já\nexistia nesse mapa, mas ele era só reserva e a captura copiava a tela.\n\nO conserto reusa o que o PDF e o quadro da carta fazem em\ncriarMapaEscondido: transferMapImages(map, tempMap) logo depois de criar o\nmapa (pixelRatio, sdf e zonas de esticamento preservados; hachura e imagens\nque o mapa já tem, puladas).\n\nProva: o caso unitário novo (o mapa da captura tem a figura com o mesmo\npixelRatio) reprova com a cópia desligada (1 de 18 vermelho) e passa com\nela; o spec imagem-nas-saidas-do-mapa, 3 de 3 verdes, a captura com 576\npixels magenta (antes 0).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "db9ba89",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/db9ba8952528f990278963caad45d07d35b80820",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:11:49.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a decisão dos submapas cita sem crase o PENDENCIAS_AJUDA.md, que foi apagado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "c74ab24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c74ab24b4b29957ca3a151cca11e84297929f66a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:09:27.000Z",
+      "author": "Maj Diniz",
+      "message": "test: tira o import sem uso do censo do terreno no 3D\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "2eb6d8c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2eb6d8c2596e5304a5f35e099951556cb12bb581",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:09:07.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: PENDENCIAS.md fica só com o Silo, e as citações do plano de migração do 3D resolvem\n\nOs itens 1 e 2 de PENDENCIAS.md foram consertados e saíram; fica o 3 (o Silo\nflutuando), que outra frente mede. Com o item 2 saiu a citação a Source/Scene/Globe.js\ndo @cesium/engine, que o docs-integridade não resolvia.\n\nNo PLANO-MIGRACAO-3D-MAPLIBRE.md, só as citações: os caminhos relativos à pasta do\nvisualizador (services/..., tools/...) passam a ser escritos a partir da raiz; os\ntrês arquivos do ebgeo_produtor e oito nomes de API de dependência (Cesium, three,\n3d-tiles-renderer) saem da crase, porque crase promete código deste repositório. A\nfrase que apontava os dois primeiros achados para PENDENCIAS.md diz que foram\nconsertados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "4492269",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/44922692d2e0145b7187a369bdf63ab8bf987fa7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:08:22.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: as sete mídias pendentes refeitas pelo motor, a linha no lugar do polígono na figura da etiqueta e o aviso de camada oculta na página de copiar e colar\n\n- submapas-01, quem-alcanca-01, l3-tabela-01, l3-tabela-02, l5-catalogo-01 e l5-catalogo-02\n  regeradas com o mapa base de produção; descrições e alt acompanham a tela de agora (sem\n  Restringir acesso no menu, Considerar o alcance, coluna Etiqueta, Filtrar por local).\n- l6-etiqueta-01 desenha uma LINHA: só a etiqueta da linha tem Acompanhar a linha, e a tomada\n  agora confere a chave antes da captura.\n- copiar-e-colar.mdx ganha a colagem em camada oculta, com outros trechos enxugados para caber\n  nas 320 palavras (contarPalavras: 320).\n- PENDENCIAS_AJUDA.md apagado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "8534645",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/853464517b3bf7cb62c54681c18f970f61436a1b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:06:40.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: o plano do compositor de cartas sai da raiz, e as 23 decisões do dono vão para o contrato\n\nAs decisões 1 a 23, que o código cita pelo número, passam à seção 8 de\ndocs/cartas-contrato.md com a numeração intacta; a linha 3 do contrato e o T9 dos\nrequisitos de abandonar o EBGeo Desktop apontam para lá. O resto do plano fica no\nhistórico do git, e a seção 8 diz onde lê-lo. A citação na migração 050_cartas.sql\nfica como está (o migrador recusa arquivo aplicado que mudou).\n\nEntrada em docs/decisions/decisions-2026.md e linha no índice.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "b57a37d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b57a37dbad000af696602698545ac0e5894d1c00",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:03:48.000Z",
+      "author": "Maj Diniz",
+      "message": "3D: o terreno esconde o modelo enterrado, e as linhas da medição continuam inteiras\n\nmap_3d.js liga scene.globe.depthTestAgainstTerrain, que o Cesium deixa falso: sem\nele o modelo abaixo do chão era pintado por cima do terreno e o erro de altura\nficava invisível.\n\nAs ferramentas foram conferidas uma a uma. Ponto, rótulo e ícone (marcador,\nmedição, comentário, presença, observador e prévia da visibilidade) já carregam\ndisableDepthTestDistance e seguem por cima. As quatro linhas da medição tinham a\nmesma opção, que PolylineGraphics ignora; passam por measurementPolyline, com\ndepthFailMaterial na cor da linha. Ficam testados contra o terreno, declarados\nno censo: o preenchimento da área (PolygonGraphics não tem material de falha de\nprofundidade) e o arame da visibilidade (PolylineCollection).\n\nBancada do mecanismo (Cesium 1.145, elipsoide, 1280x720), opção desligada e\nligada: caixa enterrada 35802 px para 0; linha que desce sob o chão 2952 para 64\nsem depthFailMaterial e 2952 para 2952 com ele; ponto enterrado com a opção 331\npara 331. Sem captura do aplicativo com o terreno de produção.\n\nPendência 2 de PENDENCIAS.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "f49b136",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f49b136a9022ccd8b1932d80f0fcbbc817b9f7ac",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T11:03:47.000Z",
+      "author": "Maj Diniz",
+      "message": "briefing: slide de câmera 3D salva grava graus, e a inclinação 0 deixa de virar -30°\n\nO visualizador salva a câmera em radianos e o slide guarda graus. O caminho das\norientações salvas do editor (_loadSavedOrientations) copiava os radianos direto,\ne a apresentação os lia como graus: heading π/2 virava 1,57°. A conversão passa a\nser feita ali, com a conta direta, porque o Cesium pode não estar carregado.\n\nNa apresentação, `slide.orientation?.pitch || -30` trocava o pitch 0 gravado por\n-30°; os dois sítios (_apply3DCameraFromSlide e o 3D para 3D do mesmo modelo)\npassam a usar `??`.\n\nSlides já gravados por esse caminho continuam em radianos (não há como separá-los\ncom segurança): quem notar um slide 3D torto refaz a orientação.\n\nPendência 1 de PENDENCIAS.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "ceeb956",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ceeb9560ae99e636677524fbb0a66885554a681f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:53:25.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: o censo de campos semeia a cor do ponto no formato atual, e o rename legado tem caso próprio\n\nA migração da cor legada (832d3f625, decisão do chefe) entrega o ponto com\n`color` como `fillColor` em toda leitura, e o censo semeava `color`: os três\ncaminhos acusavam \"campos perdidos\".\n\nEscolha: o dado do censo grava o formato que a ferramenta grava\n(`fillColor`), e um bloco à parte semeia o ponto LEGADO e exige, em cada um\ndos três caminhos (envio ao servidor, gravação de volta, aditiva), o mesmo\nponto no formato atual: valor em `fillColor`, sem `color`, todo o resto\nigual. É o mais estrito: declarar o rename no censo tiraria\n`color`/`fillColor` da comparação, e uma perda de verdade de qualquer das\nduas chaves passaria calada; assim a comparação do censo segue sendo de\ntoda chave, e o rename é provado onde acontece.\n\nO bloco novo compara por toStrictEqual, não pela lista `perdas`: ela usa\nJSON.stringify e reprova pela ORDEM das chaves (o rename põe `fillColor` no\nfim), o que a primeira rodada mostrou como falsa perda.\n\nProva: o arquivo e ponto-cor-legada-ao-abrir, 13 de 13 verdes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "7377215",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/737721577f406170b7123da76f603c314f3dda2d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:49:31.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: a captura que copia a tela avança um quadro inteiro do relógio falso (16 ms), não 10 ms\n\nOs três casos vermelhos da bateria (\"CONTROLE: com o atlas plano...\", \"no\nlimiar (12) e acima...\" e \"Salvar tela no limiar baixa a tela\") eram do\ndublê, não do produto. O caminho que copia a tela espera um\nrequestAnimationFrame, e o vi.useFakeTimers() do vitest 4.1.11 finge todos\nos timers menos nextTick e queueMicrotask, inclusive o rAF, por cima do\nsetTimeout(cb, 0) que o beforeEach instala. O rAF falso dispara no próximo\nmúltiplo de 16 ms do relógio (16 - (agora - início) % 16), e os casos\navançavam 10 ms: o quadro nunca chegava e a captura parecia travada. No\nnavegador o rAF dispara a cada quadro, então \"Salvar tela\" não trava.\n\nProva: o mesmo arquivo, mudando só o avanço de 10 para UM_QUADRO_MS (16),\nfoi de 3 vermelhos em 17 para 17 verdes. Nenhuma asserção mudou.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "bd88db7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bd88db74e22e8c0b7937279281eee82fba9f68e2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:44:39.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: novidades reescritas para o leigo, uma frase por função, com teto de 35 palavras no teste\n\nA página tinha virado lista de opções (98 itens, linha de até 90 palavras). Agora são 74 linhas,\ncada uma com o nome da tela e o que a pessoa passou a poder fazer; o detalhe fica no \"Veja como\".\nSaíram jargão e polimento, e a linha do sombreamento na aba Camadas, que a mudança de 2026-10-20\ndesmentiu. novidades.test.mjs reprova a linha acima de 35 palavras fora o link, com controle de\nduas linhas reais coladas, e a regra das novidades diz a forma.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "40bce6a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/40bce6aa794836a819868d061fd206a4e27be81e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:40:33.000Z",
+      "author": "Maj Diniz",
+      "message": "360: o marcador é achado na fonte do mapa pela API pública, e ir até ele não recarrega os marcadores\n\n_findMarkerInSource lia source._data.features. Na MapLibre 6.x o _data de\numa GeoJSONSource é o envelope { geojson } | { url } | { updateable }; o\nrepro contra a 6.11.2 instalada mediu _data = ['geojson'], _data.features\nvazio e serialize().data.features com 1. A busca nunca achava nada, e todo\n\"ir até\" um projeto 360 recarregava os marcadores (reescrevendo a fonte e\nrefazendo os agrupamentos) e caía no cache de projetos; sem ele, a\nnavegação falhava com o marcador no mapa.\n\nAgora pela leitura pública que o repo já tem (readGeoJSONSourceData, o\nserialize da fonte). O teste usa a GeoJSONSource de verdade do pacote.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "89d6db9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/89d6db92a9e8040cd62eb88694b618252a516e1e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:40:32.000Z",
+      "author": "Maj Diniz",
+      "message": "briefing: a pré-carga de tiles volta a pré-carregar na MapLibre 6.x, o destino e no zoom certo\n\nmaplibre-preload.js lia style.sourceCaches, nome da 5.x; na 6.11.2 (e na\n6.15.0) o estilo guarda tileManagers, e o for...in sobre undefined não\npedia tile nenhum. Repro no Chromium com a MapLibre instalada: 0 tiles\npré-carregados, os 16 do destino pedidos só depois de a câmera andar.\n\nLigado o nome novo (gerentesDeTile, com a captura das classes de tile por\ngetIds/getTileByID), o mesmo repro mostrou o que o nome velho escondia:\n- os cantos vinham do transform da PARTIDA no zoom do destino (130 tiles da\n  área errada num voo do zoom 5 ao 8): agora de um clone do transform posto\n  no estado (_transformNoEstado), sem mexer no mapa vivo;\n- o zoom era o piso do zoom do mapa, não o dos tiles que a fonte desenha:\n  agora zoomDosTiles, o coveringZoomLevel da MapLibre dentro da faixa;\n- a coluna além do antimeridiano fazia o id de tile lançar e a chamada\n  remendada rejeitava antes do movimento original: o voo não começava.\n  Colunas dão a volta, linhas além do polo saem, tile recusado é pulado e\n  uma pré-carga que falha nunca segura o movimento;\n- o destino era carregado duas vezes (como 1ª amostra do caminho).\n\nDepois: os 12 tiles do destino pedidos antes de a câmera andar.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "784990e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/784990edfbc0b73160575c0b899b548ff24f40f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:40:32.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: o polígono do dado compartilhado grava o formato da ferramenta (opacity e a hachura)\n\nrealPolygonFeature (frontend e o espelho do backend) gravava fillOpacity e\nhatchPattern, que a ferramenta de polígono não grava e nenhuma camada lê:\nsem opacity o preenchimento saía opaco (o padrão 1 do MapLibre). Agora leva\nas chaves de estilo de AddPolygonControl.DEFAULT_PROPERTIES: fillColor,\nlineColor, lineWidth, opacity, lineStyle e as cinco da hachura.\n\nOs três specs que usam o dado (carta-zoom-do-mapa-base, hachura-sem-esticar,\nmapa-helpers) passavam opacity por cima, e o caso de acerto de mapa-helpers\nque usa o padrão não depende de opacidade: nenhum passava por acaso.\n\nfixture-de-poligono-pinta-a-opacidade avalia a pintura que\nsetupPolygonLayers monta sobre o dado; em 39461d410 sai opacidade 1.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "d6f9a8c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d6f9a8c8e006cac80bbb806544431879d9478e21",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:40:11.000Z",
+      "author": "Maj Diniz",
+      "message": "store: o ponto de cor legada (color) ganha fillColor ao abrir, só em memória\n\nDecisão do chefe: migrar ao abrir. Até 2026-01-22 a ferramenta de ponto\ngravava a cor em color; desde ddc516e16 grava fillColor e a camada lê só\nfillColor, e nenhuma migração renomeou a chave: um ponto daquela época\npintava preto. normalizeLegacyPointProperties põe fillColor com o valor de\ncolor e tira color quando não há fillColor.\n\nMora em ensureMapDataShape, a normalização de leitura que as quatro portas\nde um documento de mapa atravessam (IndexedDB em local.repository, .ebgeo\nem import-normalize, retrato do servidor em remote-operation-handler,\nsubida de atlas local), ao lado dos apelidos legados da declinação.\n\nSó em memória, sem escrita de volta: gravar viraria uma operação de sync\npor ponto legado a cada pessoa que abrisse o atlas de servidor, todas sobre\nas mesmas feições e ao mesmo tempo. O disco guarda a forma antiga até o\npróximo salvamento do ponto, e toda leitura normaliza de novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "832d3f6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/832d3f625549722c68a153d706d2fe54327e61fe",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:40:10.000Z",
+      "author": "Maj Diniz",
+      "message": "exportação: a captura vai ao mapa plano só com a tela curva, e o buffer de desenho onde a 6.x o lê\n\nDecisão do chefe: \"Salvar tela\" e o slide 2D do briefing desenham no mapa\nescondido plano só quando a tela está de fato curva, com o atlas em globo e\nabaixo de ZOOM_EM_QUE_O_GLOBO_FICA_PLANO (12). O número é o da MapLibre\ninstalada: `globe` expande para interpolate 11 vertical-perspective, 12\nmercator na 6.11.2 e na 6.15.0, e um teste o lê do pacote. Acima dele, ou\ncom o atlas plano, a captura copia a tela como antes (telaCurva).\n\npreserveDrawingBuffer: a 6.x só o lê em canvasContextAttributes (MapOptions\nem maplibre-gl.d.ts, fundido chave a chave sobre os padrões), e os mapas\nescondidos o passavam no nível de cima, onde é ignorado sem aviso. A fábrica\no põe no bloco certo, depois das opções de quem chama; a régua reprova o\nconstrutor que o passe no topo.\n\nTestes: os dois lados do limiar (11,99 e 12/16) na captura e em telaCurva,\no limiar lido do pacote, e o bloco (e) da régua com o buffer.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "fffca35",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fffca35f8bd8e44f4edaeef97abcc4113205b313",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T10:35:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21: estilos e grupos do mapa base da DSG no learnings do atualizar-ebgeo-dsg (comparar fonte a fonte, 404 logo depois do Added source, túnel que sai com código 1), evento barra-invertida no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a278f87",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a278f872f49304d74ec5f9511d9c76e5c89473d9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T10:32:58.000Z",
+      "author": "Maj Diniz",
+      "message": "estilos da Topográfica e da Ortoimagem da DSG trazidos à versão do 1° CGEO, com os grupos completos (Decisions 2026-10-21 cont. 1, receita na wiki da DSG)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c8a784f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c8a784fdc0308568cd8451706111ee3e946a8d9f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T10:20:05.000Z",
+      "author": "Maj Diniz",
+      "message": "grupos do mapa base gravados no EBGeo do 1° CGEO e da DSG (Decisions 2026-10-21, projeto atualizado, estilos mais antigos da DSG na wiki)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2135f59",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2135f59546515c97f827795ad8c348a97725b10c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:10:04.000Z",
+      "author": "Maj Diniz",
+      "message": "testes: o ponto do dado compartilhado grava o formato da ferramenta (fillColor), e não sai mais preto\n\nrealPointFeature (frontend e o espelho do backend) se anuncia como o\nformato EXATO que a ferramenta grava, mas gravava color e rotation: a\nferramenta de ponto grava fillColor desde ddc516e16 (2026-01-22, quando a\ncamada passou a ler ['get', 'fillColor']), e nenhuma camada de ponto lê\ncolor. O MapLibre recebia null e pintava o círculo com o padrão da\nespecificação, preto; o único spec que conta pixel colorido\n(carta-zoom-do-mapa-base) contornava passando fillColor por cima.\n\nAgora o dado leva as chaves que a camada de ponto lê, com os valores da\nferramenta: fillColor, lineColor, lineWidth, opacity, size, markerSymbol e a\nâncora de zoom. O app não muda: os importadores dão ao ponto os padrões da\nferramenta, e o color legado só existiria em acervo local gravado antes de\n2026-01-22 (caso descrito ao chefe, sem decisão aqui).\n\nfixture-de-ponto-pinta-a-cor avalia a pintura que setupPointLayers monta\nsobre o dado; em 39461d410 o círculo sai rgba(0, 0, 0, 1).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "a107a8e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a107a8e215bbe463112b5be295e65815285d4c3e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:09:54.000Z",
+      "author": "Maj Diniz",
+      "message": "pdf: poda as funções do plano em Mercator de pdf-blocos.js, sem chamador desde o sistema do quadro\n\nDesde ea6ad0c6c (2026-10-20) a folha única e o quadro da carta são\ndesenhados no sistema do quadro, com o plano de blocos em plano-do-warp.js,\ne dez exportações de pdf-blocos.js ficaram sem chamador em src/:\nplanejarBlocos, margemQueCabe, quadroDaFolha, geometriaDoQuadro,\nquadroDoCentro, centroDoBloco, limitesDaFolha, limitesEmMercator,\nprojetorDaFolha e SRS_DA_FOLHA (mais PASSO_CSS, lido só por duas delas).\nSaem com os testes que só as exercitavam: pdf-blocos.test.js inteiro, o\nbloco de quadro/limites/projeção de quadro-de-mapa.test.js, o de\ngeometriaDoQuadro de quadro-de-mapa-zoom-fixo.test.js e o caso de COSTURA da\nbancada de PDF, que localizava as costuras pelo planejarBlocos e forçava os\nblocos por um gancho que o produto não tem mais. Ficam BLOCO_TETO_PX,\nMARGEM_BLOCO_CSS, AREA_MAXIMA_CANVAS_2D e zoomDoQuadro, que têm chamador.\n\nO contrato das cartas citava limitesEmMercator e SRS_DA_FOLHA dizendo que o\nmosaico segue em EPSG:3857; o mosaico sai pelo jsPDF, sem georreferência, e\na frase passou a dizer isso.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "856f703",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/856f703c33d4b648e991c8cacf081465ef8ae92a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T10:09:40.000Z",
+      "author": "Maj Diniz",
+      "message": "exportação: todo mapa de saída nasce em Mercator plano, inerte e sem atribuição\n\nA projeção é do atlas (globo por padrão) e Map.getStyle() a serializa, então\no mapa escondido que copiava o estilo vivo nascia em globo onde ninguém\nsobrescrevia: o KMZ do Garmin e as duas capturas de tela (o PDF, o quadro da\ncarta com a prévia e os dois mapas do zoom fixo, o mosaico e o QAN já\nforçavam Mercator, cada um à mão). A captura lia o canvas da TELA, que com o\natlas em globo é o globo.\n\nAgora um ponto só, criarMapaDeSaida (import_export/mapa-de-saida.js): estilo\npor comProjecaoPlana, container inert, attributionControl false, a\ncredencial e o zoomLevelsToOverscale do mapa vivo, todos depois das opções\nde quem chama. Os seis construtores (PDF/quadro, mosaico, QAN, Garmin e os\ndois da captura) viram chamadas a ele; a captura de instância delega à\nestática. Com o atlas em globo, \"Salvar tela\" e o slide do briefing saem do\nmapa plano escondido, e o container dele tem o tamanho CSS da tela e a razão\nde pixel dela (antes, o tamanho em pixel de dispositivo: o dobro do terreno\nnuma tela 2x). A escolha do atlas para o mapa vivo não muda.\n\nRégua (e) em maplibre-construtores-regua; testes de comportamento em\nmapa-de-saida-plano, mapa-de-saida-garmin e screenshot-capture-timeout.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "38616fb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/38616fb326c3f9daaf7fa7f46504fe1c544eb368",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T09:33:42.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21 (cont. 3): 3D do EBGeo Web do Cesium para o MapLibre, piloto com dados de produção, PR #27 no maplibre-gl-3d-tiles (redesenho parado) e o plano decidido (ebgeo_web 39461d410) com PENDENCIAS.md; decisão, wiki, learnings da medir-desempenho-web, perguntas pela ferramenta no passo 6 da planejar-mudanca-sistema e décima primeira leva do learnings dela, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011Zv1JHgSeicKc7F6gt8nEw",
+      "sha": "f07e57f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f07e57fafe5a966f1ac82100063f808fe776ee6b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T09:33:03.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: plano de migração do 3D do Cesium para o MapLibre e pendências achadas no levantamento\n\nO plano leva o 3D para dentro do mapa MapLibre, numa camada three.js com o\n3d-tiles-renderer, com as sete decisões do chefe de 2026-10-21. PENDENCIAS.md\nregistra três defeitos fora do escopo, com o código, o conserto proposto e a\nprova: o slide de briefing de câmera salva em radianos, o modelo enterrado\ndesenhado sobre o terreno e o Silo Três Mártires 15 m acima do terreno.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_011Zv1JHgSeicKc7F6gt8nEw",
+      "sha": "39461d4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/39461d41005c65ac98038ddadab763e3e59ae8a4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T08:50:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21 (cont. 2): EBGeo 994ded5c2 no dsgoficial, no 1º CGEO e na DSG, e o Mapa das OM finalizado na DSG (carta e16a46c1, brasões do catálogo, folha fora do mapa); decisão, projeto do Mapa das OM com a escala medida, learnings da atualizar-ebgeo-dsg\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "8ac2506",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8ac250698fcbae2ccc1011e6541f12073df17f5c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T08:38:45.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21: 16 Cartas Ortoimagem de SARP de OMs da 5ª DE no SAP 3.0 (produtos 6953 a 6968, lote 115) pelo upload-web/produto, byte conferido 16 de 16; decisão, rota e GPTS de página inteira no learnings e na SKILL do cadastrar-acervo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01K57vbu2eWXMtJVpTf1AGyd",
+      "sha": "48945e4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/48945e441c2cac955c755227ed23cd89f587bc8c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-20T20:29:29.000Z",
