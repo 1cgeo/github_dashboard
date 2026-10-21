@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-21T14:59:14.602Z",
+  "lastUpdate": "2026-10-21T19:13:12.483Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-21T12:50:10.000Z",
+    "1cgeo/ebgeo_web": "2026-10-21T18:08:50.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-10-14T17:58:02.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-10-16T15:44:01.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-10-21T18:25:43.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-10-01T13:36:20.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-16T16:45:18.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-21T14:48:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-21T18:19:32.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9716,
+    "totalCommits": 9747,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2932,
+      "1cgeo/ebgeo_web": 2956,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -145,7 +145,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 174,
       "dsgoficial/configuracoes_producao": 210,
-      "dsgoficial/ferramentas_edicao": 487,
+      "dsgoficial/ferramentas_edicao": 490,
       "dsgoficial/DsgTools": 655,
       "dsgoficial/sap": 181,
       "dsgoficial/SAP_Gerente": 122,
@@ -180,7 +180,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1183,
+      "1cgeo/chefe_dgeo": 1187,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -188,6 +188,267 @@
     }
   },
   "commits": [
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-10-21T18:25:43.000Z",
+      "author": "1º Ten Marcel",
+      "message": "2.3.1: correção dos estilos para respeitar map e mapEdition",
+      "sha": "8d36c18",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/8d36c18842091ad246d3d4d28086492d3e892328",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T18:19:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21 (cont. 5): relevo recortado sob os modelos 3D, Calibrar, gravação do catálogo sem perder dado; b0340c04d nos três destinos e 245 modelos readotados; decisão, teste da imagem depois do último commit na subwiki, autorização que não se repassa ao filho, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "219b38e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/219b38e0c19bda192620b6f8b287a80c53cadc92",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T18:08:50.000Z",
+      "author": "Maj Diniz",
+      "message": "admin: o comentário da miniatura diz que o servidor a guarda por endereço, não embutida\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "3d88cae",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3d88caecb5ee1ad13238b199d6d5f54ada278ab8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T18:08:07.000Z",
+      "author": "Maj Diniz",
+      "message": "spec da miniatura do catálogo segue o produto: endereço por conteúdo, rota e cartão\n\nO caso \"uploads a thumbnail for a data layer\" esperava o data URL no config.thumbnail,\ne desde 2026-10-07 (decisão \"a miniatura do catálogo sai do /api/config\") o servidor\nguarda os bytes por SHA-256 e deixa no config o endereço de /api/v1/catalog-thumbnails.\nO caso agora prende a corrente pelo hash: o SHA-256 dos bytes que o formulário enviou\nnomeia o endereço do config, a rota devolve 200, image/webp e esses mesmos bytes, e o\ncartão do catálogo no mapa carrega esse endereço (rede 200, imagem decodificada, src sem\ncair no desenho padrão).\n\nControles negativos: guardarMiniaturas devolvendo o config intacto reprova no passo 1;\no cartão desenhando DEFAULT_THUMBNAILS reprova no passo 3 (a imagem padrão decodifica,\nentão é o src que separa sucesso de fallback). Arquivo inteiro 15 de 15 com\n--repeat-each=3, sem flaky; lint limpo; test:tocados (test:frontend) verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "a54e394",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a54e394778f1db494bafe890aa073bd328f009a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-10-21T17:59:35.000Z",
+      "author": "1º Ten Marcel",
+      "message": "2.3.0: move estilos 1:10.000 e 1:2.000 de styles/map para styles/mapEdition e restaura styles/map\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>",
+      "sha": "ce95542",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/ce95542479d5593a9e4ff5c4a14a39276d5d49f3",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T17:10:53.000Z",
+      "author": "Maj Diniz",
+      "message": "backend: a imagem leva o models3d-ajustar.js, a ferramenta do operador dentro do container\n\nNo 1º CGEO o npm run models3d:ajustar morreu com ERR_MODULE_NOT_FOUND: o script não é importado pelo src/, então não entrava na lista do COPY.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "b0340c0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b0340c04d83dcfda4cf7c6dc8aa867009b780bda",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-10-21T16:53:42.000Z",
+      "author": "1º Ten Marcel",
+      "message": "2.3.0: estilos específicos para 1:10.000 e 1:2.000",
+      "sha": "8192554",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/819255495435a290ce5f373c39c4a1c52ca072aa",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:41:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into claude/cartas-v3\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "22dbcae",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/22dbcae37887d05be35813d83a5838fb2836c3fb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:40:40.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: censo do botão direito, testes do zoom com décimo e das grades, Ajuda dentro das 320 palavras, spec das ferramentas e painéis\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3691e31",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3691e31b12aea5542d52756b2683b27036279baa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:18:19.000Z",
+      "author": "Maj Diniz",
+      "message": "backend: a imagem copia scripts/lib3d (pegada e tileset), que a adoção importa\n\nSem eles o servidor não sobe (ERR_MODULE_NOT_FOUND), como em a30d3a036; o teste imagem-copia-o-que-o-src-importa reprovava em 20fe26f33.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "70f9d29",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/70f9d2994079bef7cd9ddd8584c8201dfd50f872",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:15:11.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: o zoom do mapa do quadro com classes próprias (carta-zoom-do-mapa), sem herdar o layout do zoom da folha\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "79e5e73",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/79e5e7331375df1da290944b31a25acb57b0328a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:13:56.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: novidades das ferramentas, do menu, dos painéis, da roda nos números, das duas grades e do zoom com decimal na carta\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "43eb599",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/43eb599567986b51d87545223d9f71439561faf0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:13:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into fix/models3d-gravacao\n\n# Conflicts:\n#\tdocs/decisions/DECISIONS.md\n#\tdocs/decisions/decisions-2026.md",
+      "sha": "20fe26f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/20fe26f3391c62a973281f128148cfad4bb38b6a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:13:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'claude/cartas-v3-grade-zoom' into claude/cartas-v3; roda no zoom do mapa e passos da grade\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "696ca15",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/696ca1590aefad8943dabfc4b7da328f35d0f120",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:13:39.000Z",
+      "author": "Maj Diniz",
+      "message": "modelos 3D: pegada.js sem atribuição inútil (lint)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "7046946",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7046946aff392fa9524dee33c99bd9059106ab34",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T16:13:28.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão 2026-10-21 (cont. 8): Arandu e Cacequi privados no EBGeo da DSG e do 1º CGEO; na DSG concedidos aos 3 donos dos atlas da Arandu e emprestados por esses atlas, relidos pela fn_can_see_resource; banco do ebgeonovo na wiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "501a1e5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/501a1e5e9dbc678dc0c9d39d97051850446b29c9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:11:53.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: uma grade por sistema no quadro (gradeGeo e gradeUtm, cada uma ligada e configurada à parte, em áreas colapsáveis) e o zoom do mapa com uma casa numa régua\n\nA grade do quadro passa a dois campos do documento, gradeGeo e gradeUtm, cada um null ou a grade completa com o seu liga/desliga (desligar guarda o estilo). O formato antigo (grade com tipo e um estilo) é só lido, por um normalizador único (cartas/grade-do-quadro.js) por que passam o desenho da folha e da página, a faixa tracejada, as faces de fonte e o painel; a carta antiga desenha idêntico (digestos do desenho de 51cf9edd4 presos em teste) e a primeira edição grava o formato novo e anula grade. Com as duas ligadas, a borda é uma só (a da geográfica quando ela tem, senão a da UTM) e os rótulos UTM ficam por dentro dos geográficos, por lado.\n\nO zoom do quadro aceita uma casa (6,4): guardado em décimos, faixa em décimos arredondados para dentro, régua que grava uma vez ao soltar e número ao lado que aceita 6,4 ou 6.4. O renderizador já não supunha zoom inteiro.\n\nEsquema do servidor aceita os dois formatos e o zoom decimal. Contrato, decisão, Ajuda e roteiros das figuras atualizados. Conserta também o currentColor do commit base que reprovava o stylelint.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "12779c1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/12779c12238a926e4f98178edb7a85e1aed7384d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:07:52.000Z",
+      "author": "Maj Diniz",
+      "message": "modelos 3D: o relevo recortado sob o modelo, na pegada medida da geometria\n\nDecisão do chefe em 2026-10-22, depois da medida dos sete modelos do 5º CGEO:\neles estão no chão verdadeiro, e o relevo que o Cesium desenha (quantized-mesh\ndecimado) fica até 9 m acima dele, escondendo 66% a 88% do chão de cinco\nmodelos desde o depthTestAgainstTerrain.\n\n- A pegada (chave do cabeçalho `pegada`) se mede na adoção, do próprio\n  .3dtiles: os triângulos de um corte grosso da árvore numa grade de 1 m,\n  furos fechados, buracos preenchidos, recuo de 1 m para dentro e no máximo\n  64 vértices por anel (scripts/lib3d/pegada.js). Medida que não sai não\n  impede a adoção.\n- O visualizador e o Calibrar recortam o relevo dentro da pegada de cada modelo\n  aberto (globe.clippingPolygons, services/recorte-do-relevo.js), e devolvem o\n  relevo quando o modelo sai. Sem WebGL 2 não recortam (o Cesium lançaria no\n  desenho). O furo fica preto: pintá-lo de terra fazia o clique nele achar um\n  ponto do outro lado da Terra.\n- Medido nos sete, com o relevo de produção e sem mexer no heightOffset: os\n  pixels escondidos vistos de cima a 300 m caíram de 9.306 a 718.199 para 0 a\n  372; o tempo de quadro com recorte não se separou do ruído das duas rodadas\n  sem recorte; até 5,6 KB de textura por modelo.\n- Testes unitários da pegada e do recorte, um spec do visualizador e o caso no\n  spec do Calibrar; wiki, decisão, uma frase na Ajuda do 3D.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "4c8b76a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4c8b76add5a8aabf486495c3357361ad6116cda9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:04:48.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: a prévia velha do quadro fica no chão dela ao mover o conteúdo ou mudar a escala, e o Papel anda de 1 mm na roda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "717cc1a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/717cc1a0aa6c0497c265943e9eda90681e84f743",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:02:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'claude/cartas-v3-painel-direito' into claude/cartas-v3\n\n# Conflicts:\n#\tajuda/src/content/docs/como-fazer/criar-uma-carta.mdx\n#\tajuda/src/content/docs/como-fazer/mover-e-agrupar-itens-da-carta.mdx",
+      "sha": "1748df4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1748df4ecc996b5ad0f06f4b34c18a8027115be2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:01:52.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: painel direito em seções e partes que abrem e fecham no título, e a roda do mouse nos campos numéricos\n\n- Cada tipo de item ganha chave própria (props:<tipo>:<parte>) e partes onde a seção é longa: quadro\n  (Mapa e camadas, Escala e centro abertos; Sistema, com o quadro principal, e Moldura fechados; a\n  grade direto na seção), texto (Conteúdo, Fonte; Caixa fechada), tabela (Dados, Fonte e bordas;\n  Colunas e cabeçalho fechado), legenda (Gerar das camadas, Texto e tamanho, Entradas; Fundo e\n  moldura fechado). Posição e tamanho titulada; Organizar aberta só para vários itens. Aviso nunca\n  fica dentro de parte fechável. Os testids não mudam.\n- numero(): com o campo em foco, a roda sobre ele e as setas dão um passo (Shift, dez), mostrado na\n  hora e gravado uma vez por rajada (400 ms ou ao sair); opção passo, com padrão pelas casas. O\n  painel redesenhado no meio da rajada a passa ao mesmo campo novo, sem pular valor nem foco. Na\n  Escala do quadro a roda anda pelas escalas padrão (c.passos, escalaVizinha).\n- CSS do painel de 380 px: partes sem o padding de seção, rótulo lado a lado em uma linha com\n  reticências (título com o texto inteiro), linhas de dois e três campos; currentColor ->\n  currentcolor (stylelint, vinha do commit base).\n- Testes unitários da roda e das seções; spec cartas-ux abre Fundo e moldura antes de marcar Fundo;\n  capturas da Ajuda (cartas-03, 04, 08) abrem a parte fechada; contrato e páginas da Ajuda.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "769b8b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/769b8b3b84f902c039adc2d52a62ff5b5f888c94",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:01:51.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: contrato e Ajuda descrevem o painel esquerdo novo, as ferramentas da folha e o menu do botão direito\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2c5d973",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2c5d9738884b5b3f0c50c51d794b1dfb13b8d28a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T16:01:49.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: ferramentas da folha (Seleção, Mão, Mover conteúdo do mapa), zoom pela roda e no painel esquerdo, e menu de contexto próprio\n\nO painel esquerdo (340 px; o direito, 380 px) abre com Desfazer, Refazer e Exportar, as três ferramentas e o zoom da folha (−, valor, +, Ajustar, 100 %); Papel, Adicionar e Itens abrem e fecham pelo título. A roda sem modificador dá zoom no ponteiro. Mover conteúdo do mapa arrasta o mapa no quadro (o centro, pelo plano do próprio quadro, gravado uma vez ao soltar) e a roda sobre o quadro anda a escala pela série 1-2-2,5-5 (uma gravação por rajada). Espaço segurado e botão do meio rolam a folha. O botão direito abre o menu do editor (item, quadro, papel) e o do navegador fica só nos campos de texto.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "db066c2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/db066c20ba7d2120898968e3cd494d48470b1a6b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T16:00:49.000Z",
+      "author": "Maj Diniz",
+      "message": "decisão 2026-10-21 (cont. 7): grupos do mapa base regravados sem o Sombreamento no EBGeo do 1º CGEO e da DSG (6 linhas relidas contra o backup); túnel tsh órfão depois do TaskStop na subwiki\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0c95686",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0c95686c47c8eff0b8681ef1b1fd9fae469c49dc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-21T15:55:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-21 (cont. 6): mosaico e Mapa do QAN em UTM até 1:250.000, painel Mapa base, cabeçalho verde e clique de fora no EBGeo Web (949c8a266, 3b546bde7); oitavo caso de escape em conventions/saida.md (barra invertida em string de Python), armadilhas de teste na subwiki, projetos e wiki sem a contradição do mosaico e da chave Nomes, livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4d7d1f4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4d7d1f40a35a7f2855891871156bda9f216a4e15",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T15:50:47.000Z",
+      "author": "Maj Diniz",
+      "message": "menus e popovers fecham só no clique que começa fora deles\n\nPedido do chefe em 2026-10-21, depois do conserto dos modais: os menus e\npopovers que fecham por `click` no documento tinham a mesma forma. O\n`click` de um aperto num item e uma soltura sobre o mapa vai ao ancestral\ncomum, fora do menu, e o menu fechava.\n\n`apertoComecouDentro` (utilities/clique-no-fundo.js) lembra, por um ouvinte\nde `pointerdown` da página na fase de captura, onde começou o aperto do\nclique em curso, e os 23 fechamentos por clique de fora em 22 arquivos\n(menu de contexto, seletor de mapa base, coordenadas, grade, grupos da\nbarra, menus e popovers da aba Camadas, combos dos atributos militares,\nmenu de opções da feição, ajuda do 360 e do 3D, slides do briefing)\ndeixam de fechar quando ele começou dentro.\n\nProvas: unitários do guarda e censo que reprova o ouvinte de documento\ncom `!x.contains(e.target)` sem o guarda (controle com o menu de contexto\nde antes); Playwright no menu de contexto real (apertar num item e soltar\nno mapa não fecha, clicar no mapa fecha), que reprova o arquivo de\n949c8a266. Suíte do frontend verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3b546bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3b546bde7768c304960dac45702c2c7623db042c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T15:39:25.000Z",
+      "author": "Maj Diniz",
+      "message": "mosaico e Mapa do QAN em UTM até 1:250.000; Sombreamento no alto do Mapa base e \"Todos os nomes\"; cabeçalho verde em cinco painéis; modal fecha só no clique no fundo\n\nDecisões do chefe em 2026-10-21: \"acima de 250k continuar 3857, até 250k\nser utm correto\", para o mosaico do PDF simples e o Mapa do QAN, como já\nvalia para a carta e o PDF de uma folha.\n\n- Mosaico: até 1:250.000 é uma folha só de SIRGAS 2000 / UTM cortada em\n  páginas (pdf-mosaico-no-sistema.js), cada página desenhada por\n  renderizarQuadroDeMapa no sistema do mosaico (parâmetro novo `sistema`),\n  seta-norte girada pela convergência, prévia na tela com as páginas no\n  sistema. Acima, o Web Mercator de antes.\n- Mapa do QAN: o retângulo do mapa pelo mesmo renderizador; o rodapé diz o\n  sistema (UTM e fuso, ou Web Mercator).\n- Painel Mapa base: o Sombreamento sai de Relevo e fica no alto, junto da\n  chave \"Todos os nomes\" (era \"Nomes\"); a árvore ignora o item reservado de\n  uma base salva antes, e os três arquivos de grupos o perdem.\n- Cabeçalho verde dos modais em Mapa base, Luminosidade, Meteorologia, Quem\n  alcança este ponto e Eventos (\"N em aberto\" vira etiqueta).\n- Modal fecha só quando o aperto e a soltura caem no fundo\n  (utilities/clique-no-fundo.js), no ModalBase e nos 11 fundos próprios.\n\nProvas: Playwright lê por pixel linhas da quadrícula UTM no mosaico 2x2\n(pior 0,73 px a 150 DPI, 2.410 amostras) e no Mapa do QAN (1,30 px a 300\nDPI, 1.306 amostras); o código anterior erra 13 px nos dois. O repro dos\nmodais (ModalBase e confirmação) reprova o código anterior. Unitários do\nmosaico no sistema e do clique no fundo, com censo. Suítes: frontend,\najuda (97) e backend (6.963) verdes; figuras da Ajuda do Mapa base, da\nLuminosidade, do Quem alcança e dos Eventos refeitas pelo motor.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "949c8a2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/949c8a266c5a0c2127d8f7e24809d3cbcdf91c53",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T15:36:37.000Z",
+      "author": "Maj Diniz",
+      "message": "cartas: seção colapsável no painel (clique no título abre e fecha, estado lembrado neste computador)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "51cf9ed",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/51cf9edd4483ebd453d1ec1611472f66d3a74f68",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T14:59:24.000Z",
+      "author": "Maj Diniz",
+      "message": "modelos 3D: o Calibrar no censo de referências a recurso, e chaves numéricas sem colchetes\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "9f279fa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9f279fa88d733ab894632304d8f68ba22946ccfd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-21T14:48:36.000Z",
@@ -205,6 +466,24 @@
       "sha": "b5ba7b2",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b5ba7b2aa35920a8ab279ad68bddc9671a839b11",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T14:37:33.000Z",
+      "author": "Maj Diniz",
+      "message": "admin: Calibrar do modelo 3D no Painel do Administrador, e o formulário do modelo 3D grava só o que mudou\n\nDecisão do chefe em 2026-10-21: \"em modelos 3D vamos ter que adicionar um\nCalibrar também; a função da calibração é definir o deslocamento\", só ajuste\nmanual, no Painel do Administrador.\n\n- Botão Calibrar na linha de Modelos 3D, pelo gate do Editar (quem mantém o\n  modelo), fora da cena caminhável. Abre por cima do painel o modelo no Cesium\n  com o relevo e depthTestAgainstTerrain, enquadrado no ponto de navegação;\n  passos de 0,1, 1 e 10 m, campo numérico, setas do teclado, Ver de lado. O\n  modelo se move ao vivo; Salvar mostra o valor gravado e o novo, confirma e\n  grava só {config: {heightOffset}} pelo PATCH parcial; Cancelar volta ao\n  gravado sem escrever. A regra mora em calibracao-3d.js (sem DOM); a tela e o\n  Cesium chegam sob demanda pela porta porta-da-calibracao-3d.js.\n- A conta do deslocamento passou a uma função só (deslocamento-vertical.js),\n  usada pelo visualizador e pela calibração.\n- O formulário do modelo 3D grava pelo PATCH só as chaves que mudaram desde que\n  a linha foi lida (patchDoConfig): pelo PUT, uma chave escrita por outro lado\n  com o formulário aberto voltava ao valor velho.\n- Ajuda: página \"Como acerto a altura de um modelo 3D que flutua ou afunda?\",\n  com a figura calib3d-01 pelo motor, e a linha nas novidades.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "1952a61",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1952a6173559847ca8ce3efc146d3688bc29dfff",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T14:37:14.000Z",
+      "author": "Maj Diniz",
+      "message": "models3d: a gravação só muda o pedido; a readoção preserva o operador, models3d:ajustar e PATCH parcial do modelo 3D\n\nPedido do chefe em 2026-10-21: \"só atualizar campos específicos de modelos\nespecíficos, nunca perder os dados\". A readoção montava o config pelo\ncabeçalho (heightOffset 0 numa árvore) e o UPSERT_TILESET_3D o juntava com o\nnovo vencendo: o heightOffset medido naquele dia voltava a 0 a cada readoção.\n\n- Cada chave do config tem dono (CHAVES_DO_CABECALHO: url, groundHeight,\n  minHeight, forma3d; CHAVES_DO_OPERADOR: heightOffset, locate, plantio de GLB,\n  vitrine). configDaReadocao decide chave a chave sobre a linha relida com\n  FOR UPDATE na transação da escrita; o nome também fica. Quem traz valor de\n  uma pessoa (--nome, plantio do importar-glb, vitrine do pacote) o declara em\n  explicitas. O dry-run da adoção diz o que muda e o que fica.\n- npm run models3d:ajustar: só as chaves pedidas dos modelos pedidos (--ids e\n  --campos, ou --arquivo), null remove, --dry-run com antes e depois, um modelo\n  por vez, releitura que para na primeira divergência; valida pelo schema do\n  PATCH.\n- PATCH /api/v1/tilesets/:id: mescla no servidor (null remove), lista fechada\n  de chaves (patchDeTilesetSchema), mesma permissão e trilha do PUT.\n- Censos de auditoria, de saídas e de superfícies classificados; wiki, README,\n  decisão e livro-razão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "58f8ba3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/58f8ba33faea133f10e6d1756320fd5be4d3505f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
