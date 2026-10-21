@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-21T19:13:12.483Z",
+  "lastUpdate": "2026-10-21T23:07:10.732Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-21T18:08:50.000Z",
+    "1cgeo/ebgeo_web": "2026-10-21T22:55:00.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-10-05T15:43:51.000Z",
     "dsgoficial/ferramentas_edicao": "2026-10-16T15:36:17.000Z",
     "dsgoficial/DsgTools@dev": "2026-10-02T13:27:10.000Z",
-    "dsgoficial/sap": "2026-10-14T17:53:39.000Z",
+    "dsgoficial/sap": "2026-10-21T20:58:47.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-09-25T18:43:16.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9747,
+    "totalCommits": 9749,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2956,
+      "1cgeo/ebgeo_web": 2957,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -147,7 +147,7 @@
       "dsgoficial/configuracoes_producao": 210,
       "dsgoficial/ferramentas_edicao": 490,
       "dsgoficial/DsgTools": 655,
-      "dsgoficial/sap": 181,
+      "dsgoficial/sap": 182,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 75,
       "dsgoficial/EBGeo_Desktop": 146,
@@ -188,6 +188,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-21T22:55:00.000Z",
+      "author": "Maj Diniz",
+      "message": "botão direito: o menu do navegador sai, e cada contexto com comandos abre o seu; MapLibre 6.15.0\n\n- menu nativo bloqueado em index, atlas, admin e calibração (utilities/menu-nativo.js), exceto em campo de texto; o tutorial fica de fora\n- camada, pasta, pasta de submapa, cabeçalho da seção, linha do mapa e cartão de atlas abrem o mesmo ⋯/⋮ do botão; \"Colar nesta camada\" no topo do ⋯ da camada\n- linha da tabela de atributos e cartões de Cartas e Briefings abrem menu no cursor (utilities/menu-no-cursor.js, casca extraída da árvore de feições)\n- os seis menus que fechavam só por click fecham também no botão direito de fora (utilities/fora-do-menu.js)\n- \"Mover para…\" do mapa só com destino aceito (temDestinoDeMover); \"Mover para camada…\" da tabela some com o mapa travado\n- ícone dos cabeçalhos de busca por coordenada, nome geográfico e marcador da primeira pessoa sem caixa colorida; classes feature-icon-bg-* apagadas\n- maplibre-gl 6.11.2 -> 6.15.0; o teste do bundle lê só o maplibre-gl.mjs (o shared vem vazio desde a 6.13)\n- novidade na Ajuda e decisão em docs/decisions\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_016vjAYt9NBQ8ncg16arTUUX",
+      "sha": "1145bbd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1145bbdde873fbb607fa03e1a0f1a8f3aeac9997",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-10-21T20:58:47.000Z",
+      "author": "Maj Diniz",
+      "message": "json de edicao: carta nao-SCN sai com center + escala do centroide\n\nO gerador tratava qualquer valor em produto.inom como INOM, e as cartas\nespeciais gravam o marcador 'Não-SCN' em mi/inom: o JSON saia com\n\"inom\": \"Não-SCN\" e sem center/escala, que o plugin exige na nao-SCN.\nE o caminho do center dependia de latitude/longitude_centro, que a API de\nproduto nao aceita (nenhum produto do banco os tem).\n\nAgora so e SCN quem tem INOM de verdade (^[NS][A-Z]-dd); o resto leva\ncenter + escala, com latitude/longitude_centro quando gravados e, na falta,\no centroide da geometria do produto. resolveLocalizacao exposto em\n_helpers, com teste que reprova o codigo anterior.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01AB5F2YYix3QXm7RJRiVpNV",
+      "sha": "dd565f8",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/dd565f87a3e015f48715c554b31211efb292e5ee",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-10-21T18:25:43.000Z",
