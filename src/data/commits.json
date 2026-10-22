@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-22T19:13:03.307Z",
+  "lastUpdate": "2026-10-22T23:05:44.072Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-22T09:22:06.000Z",
+    "1cgeo/ebgeo_web": "2026-10-22T22:54:19.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-10-14T17:58:02.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-10-21T18:25:43.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-10-22T19:21:08.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-10-01T13:36:20.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -124,7 +124,7 @@
     "1cgeo/sap_master": true
   },
   "stats": {
-    "totalCommits": 9752,
+    "totalCommits": 9770,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -134,7 +134,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2958,
+      "1cgeo/ebgeo_web": 2975,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -145,7 +145,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 174,
       "dsgoficial/configuracoes_producao": 210,
-      "dsgoficial/ferramentas_edicao": 490,
+      "dsgoficial/ferramentas_edicao": 491,
       "dsgoficial/DsgTools": 655,
       "dsgoficial/sap": 182,
       "dsgoficial/SAP_Gerente": 122,
@@ -188,6 +188,168 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:54:19.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: réguas medidas no build integrado (grafo do modal com a Ajuda contextual, copiar com duas páginas de tarefa novas, Descartar entre os dois primeiros) e novidade dentro das 35 palavras\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "819d82f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/819d82f97c1f3cba806839cd0b5d0da3f2217374",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:34:10.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: figuras das páginas novas, tela-01 refeita, páginas novas no ARQUITETURA e na base da busca\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "a1f954a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a1f954a716c24780b3ed1e71ce48dad706f5c0df",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:31:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ajuda/busca' into ajuda/integracao",
+      "sha": "a7fc608",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a7fc608a5fb80b3a3345c5740cbb0a87ef08e8a4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:31:07.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: o botão ? e o O que fazer? na volta pela tela e nas novidades\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "8cb2fbd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8cb2fbd2838f57424d0d6636d648e4166ba675ce",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:30:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ajuda/contextual' into ajuda/integracao",
+      "sha": "85b1ce7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/85b1ce75fa2c41a06b89d9fc70157effe2949bb5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:30:27.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: integração da obra (páginas novas na barra, testes da barra manual, selo Novo no grupo recolhido, linhas de novidade)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "1d88fc1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1d88fc1bc73d682495ea12e0959692d31bd4b8ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:29:43.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda contextual: \"?\" nas abas, painéis e diálogos abre a página da Ajuda daquela tela, e o aviso com página ganha \"O que fazer?\"\n\nUm caminho só para a Central (frontend/src/js/ui/ajuda-contextual.js): a base do chip\n(app.tutorialUrl, tutorialUrl, ./ajuda/), o endereço <base>/<slug>/ e os dois mapas por chave\nestável, tela -> página e trecho de mensagem -> página. Os chips da mesa e do celular passam a\nabrir por ele. O link do aviso nasce no toast_service pela frase, e também nas Pendências, na tela\nEBGeo indisponível e na trava de aba. O teste novo confere cada slug contra ajuda/src/content/docs\n(existe, não é rascunho), cada chave contra o que o app desenha e cada trecho contra o código.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "b1088d2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b1088d2c1cf78ae15277c1008fe5ec95c54ccb58",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:28:52.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: busca tolerante sem os três defeitos de 2026-10-22, perguntas da tropa na base e sinônimos nas palavras\n\nDegrau 1 ou 2 com menos de três páginas não encerra mais a busca: o degrau 3 completa a lista\n(\"ver o nome do córrego na carta\" achava uma página só, a errada). \"quem\" deixou de ser palavra\nvazia (\"quem mexeu no meu calco\"). A palavra que o índice não tem deixou de casar com quase tudo:\ncada palavra conta só nas páginas que a têm de fato (prefixo de 60% das letras ou o mesmo núcleo\nde flexão), porque o Pagefind troca \"companhia\" por \"com\" (115 de 116 páginas) e junta\n\"caderneta\" a \"cadeado\". O teste novo reprova o código antigo em 8 de 20 casos.\n\nA base ganha a lista \"tropa\": 36 perguntas das tarefas \"com esforço\" e \"não acha\" do relatório\nde encontrabilidade, com lista de páginas certas e papel ajuste ou retido. As palavras de 14\npáginas ganharam sinônimos orientados só pelas de papel ajuste.\n\nMedido com npm run ajuda:avaliar-busca, antes e depois: AJUSTE 93/106 -> 96/109 de 114,\nRETIDO 64/83 -> 66/96, CONTROLE 1/4 -> 1/4 de 5. Tropa (script à parte): ajuste 4/8 -> 15/18\nde 18, retido 8/12 -> 9/13; pergunta sem resposta 115 e 114 resultados -> 68 e 73.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "54d13c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/54d13c662b1401ca183e56c585ac085e286b69c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:28:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ajuda/lacunas' into ajuda/integracao",
+      "sha": "69604f4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/69604f482492aca748a6e0328ecddd6c32f458ae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:28:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ajuda/paginas' into ajuda/integracao",
+      "sha": "ab8904d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ab8904db7c66ea93906dc547fd97055e8304606c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:28:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ajuda/barra' into ajuda/integracao",
+      "sha": "de9862d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/de9862d4766350579b476b772e5b90a4412846fc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:28:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ajuda/portas' into ajuda/integracao",
+      "sha": "d28c73e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d28c73ea1b119cf014d3c4aa3a95af11c087cf87",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:27:54.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: três páginas-mãe (imprimir, levar o atlas, análise do terreno), páginas de Terreno, Configurações do atlas, botão direito e Usuários online, rótulos da tela e frases de ligação (órfãs de 30 para 3)\n\nAs sete páginas novas levam figura nova (tomadas lacunas-*-01 e midias/lacunas.json, ainda por gerar\nno motor). Limpar tudo, a aba Coordenadas, Importar slides e Abrir mapa de origem entram numa frase de\npágina vizinha. conhecendo-a-tela ganha a aba Cartas e o Mapa base; o alt de l2-mapas-02 diz Salvar\nvista inicial, como a figura já mostrava.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "f9ac26f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f9ac26f234965b96897de9d58ded6e18acb9f25a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:22:47.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a resposta (description) aparece sob o título, e seis páginas no molde de resposta primeiro (piloto)\n\nTituloDaPagina imprime a description logo abaixo do H1, dentro do data-pagefind-body e fora da\npágina inicial; estilo .ajuda-resposta no ebgeo.css. Piloto em camada-ativa-e-mover-de-camada,\ntabela-de-atributos, cobertura-de-radio, linha-de-visada, importacao-falhou e\npendencias-de-sincronismo: passos logo no começo, explicação e casos raros depois. Na tabela, os\nrótulos seguem o código (Só selecionadas, Aproximar o mapa da feição, Buscar em todas as colunas,\nAtributo, Remover coluna…) e remover coluna pergunta e desfaz; na visada, o verde e o vermelho\ncomo o código os calcula; Pendências aponta as 10 páginas de caso.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "7e861e1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7e861e19e6777145775733bda4d64e558b1f4e7e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:16:58.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: barra lateral escrita à mão por área de trabalho (src/barra.mjs), com rótulo curto para as 115 páginas e o teste que reprova página fora da barra, repetida, slug inexistente e rótulo longo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "b16c21a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b16c21a49dc68f55bfcf0fd163de38b27b6275bd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T22:15:27.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: página inicial com Comece aqui, Mais procurados e um cartão por área; novidades e selo \"Novo\" na mesma janela de 30 dias\n\nA página inicial troca as quatro portas de página única (Porta.astro, podado) por quatro\nLinkCards de começo, oito tarefas frequentes e um Card por grupo de 1º nível da árvore da barra\nlateral, com as listas fora do índice da busca e o link do manual anterior mantido, em letra\nmenor, no fim. Três links apontam as páginas-mãe que a obra cria em paralelo\n(escolher-como-imprimir, escolher-como-levar-o-atlas, escolher-a-analise-do-terreno).\n\nNovidades: 83 itens viram 75, cada um numa frase, sem polimento, e 14 dos 17 sem link ganham o\nda página; seção 2026-10-22 vazia no topo para a integração. DIAS_DE_NOVIDADE de 60 para 30,\ncom o caso de datas fixas do teste das guardas e os comentários que citavam 60.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "cf21c97",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf21c979cfe3ad1a39b921846ae0eb240f677750",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-22T20:46:08.000Z",
+      "author": "Maj Diniz",
+      "message": "aditiva: o slide segue o mapa pelo nome, e o .ebgeo sai com a hora local\n\nO briefing de um atlas local aditivado num atlas novo chegava \"mapa ausente\":\no mapa \"Principal\" tem id \"Principal\", e o rewrite da aditiva trocava o mapId\ndo slide pelo id novo do mapa, que nenhum nome casa. O slide volta ao nome do\narquivo e segue o renomeio (\"Principal_1\"). Medido com o .ebgeo de campo de\n2026-10-22: os 5 slides chegam em \"Principal_1\" e apresentam.\n\nOs dois testes que exigiam o id novo no slide passam a exigir o nome, que é o\nque o apresentador e a lista de briefings comparam.\n\nO nome do .ebgeo, do print 3D e dos arquivos de recuperação sai pela hora\nlocal (carimboDeArquivo), e não mais pelo toISOString em UTC.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01DxNJqsy8HQtsYMuc5StsfA",
+      "sha": "39b1978",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/39b19785c19e54f318d167bacd726e2a009265c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-10-22T19:21:08.000Z",
+      "author": "Maj Diniz",
+      "message": "2.3.2: grade de edição numera só o km cheio a 1:10.000 e 1:5.000, e nada a 1:2.000\n\nAbaixo de 1:25.000 o espaçamento de 4 cm fica menor que 1 km e os dois\ndígitos do km se repetiam em linhas vizinhas. A 1:2.000 a folha tem cerca\nde 1 km, então não há número de grade, e a exportação deixa de exigir a\ncamada edicao_grid_numerico_p preenchida nessa escala.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "534d7f8",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/534d7f815e5ac8a6df19b799bbdecd60e6acf0e7",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-22T09:45:21.000Z",
