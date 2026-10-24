@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-10-23T23:00:29.652Z",
+  "lastUpdate": "2026-10-24T13:56:15.347Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-10-23T15:22:12.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-23T19:00:07.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-24T13:50:51.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-23T19:00:03.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-24T13:50:46.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9820,
+    "totalCommits": 9837,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 20,
-      "1cgeo/ebgeo_campo": 12,
+      "1cgeo/ebgeo_campo": 27,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1199,
+      "1cgeo/chefe_dgeo": 1201,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,159 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-24T13:50:51.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: o plano do EBGeo Web passou ao PLANO.md (W1 a W6)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "1088181",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/108818147caa50922d321d28583171bd9b7ebcd8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T13:50:46.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: o que falta no EBGeo Web (W1 a W6) e o cortado contra o inchaço; MUDANCAS-EBGEO-WEB.md apagado\n\nAtualização sem manifesto nem APK pelo EBGeo (a assinatura do Android garante a integridade).\nO app manda trocar a senha no EBGeo Web para desconectar o celular perdido.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "606b9d1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/606b9d1e26e0d0e592411cc8281b76c98e34038b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-24T13:42:33.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: posição no modelo do Cursor on Target; wiki e decisões da sessão\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "19ca379",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/19ca379af8a0a6166185b94ce6710ee8a091d530",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T13:42:30.000Z",
+      "author": "Maj Diniz",
+      "message": "gitattributes: .bat e .cmd com CRLF\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "172f619",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/172f619c70681727ac1540f47b4b40a29e709fe1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T13:42:15.000Z",
+      "author": "Maj Diniz",
+      "message": "app Android, ferramentas da raiz e do teste da porta, posição no modelo do Cursor on Target\n\n- app/android: núcleo nativo (cofre no Keystore, mensageiro e armazém com a fila, protocolo em\n  Kotlin com os envelopes de teste, serviço de campo em primeiro plano com GNSS e rede, posição\n  simulada recusada, precisão convertida de 68% para 95%, sinal de vida).\n- app web: só o retorno assinado apaga ou recusa um item da fila; todo ponto sai com origem e\n  precisão; \"Estou aqui\" no mapa; botão POSIÇÃO com a precisão e a hora em que a posição chegou.\n- retransmissor: a caixa atende aparelho vivo ou revogado (para o aviso de revogação).\n- ferramentas/raiz: raiz e certificados das chaves operacionais, fora da rede.\n- ferramentas/teste-porta: teste de ponta a ponta contra o EBGeo real (17 passos).\n- PLANO.md: o ponto ruim sai marcado, nunca descartado (o chefe, 2026-10-24).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "04d6931",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/04d6931d6c4b98b9ef4cea429b6b50677c4ae108",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T02:50:08.000Z",
+      "author": "Maj Diniz",
+      "message": "app: parte web completa, EBGeo simulado e teste de ponta a ponta\n\nApp em TypeScript e Vite (Capacitor configurado): login pela VPN ou pelo\nretransmissor, destino, mapa MapLibre, evento com foto, à distância (WMM e\ngeodésica), comentário, estado, posição com a chave de posição, fila com\nconfirmação assinada e alteração atômica, Meus aparelhos, troca de caminho.\nChaves na WebCrypto não exportáveis (desvio da demonstração; Keystore depois).\n\nEBGeo simulado de desenvolvimento faz o papel da porta campo e segue\nprotocolo/MENSAGENS.md. Teste no Chrome sem cabeça: 15 passos, três execuções\nseguidas. O teste achou e o app corrigiu: aviso que roubava o toque, painel\nrecriado sem mudança (toque perdido), campo apagado no redesenho, mapa sem\naltura pelo CSS do MapLibre, painel esmagado, sobreposição dos botões do mapa.\n\nRetransmissor: CORS e limite de login configurável.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "727b75f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/727b75f528217f58422aa65020def0b65a6c7801",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T01:35:39.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: etapas R0 a R3 em Rust\n\nFio, assinatura, certificado, registro e autorização conferidos pelos mesmos\nenvelopes de teste do protocolo; loja em SQLite; API do aparelho com login,\nenvelopes e caixa com long-poll; canal do EBGeo com desafio preso ao TLS,\ncréditos, confirmação, retornos, registro versionado e chave publicada;\nlimites por aparelho e por IP; limpeza. TLS 1.3 com ACME e ring; modo sem TLS\nsó no recurso dev. Teste de ponta a ponta com app e EBGeo simulados: 20 passos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "d4fc620",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/d4fc6206f1ec25c00bdc20f9078179c9b0056a6e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T00:56:03.000Z",
+      "author": "Maj Diniz",
+      "message": "protocolo: envelope com HPKE, assinaturas, certificados e envelopes de teste\n\nCabeçalho de layout fixo, fio em classes de tamanho, HPKE X25519 com\nChaCha20-Poly1305 e o cabeçalho como dado associado, ECDSA P-256 do aparelho\n(aceita s alto) e Ed25519 estrito do EBGeo, certificado assinado pela raiz,\nlista de aparelhos assinada e autorização da caixa. 23 fios de teste, os\ninválidos derivados de fios reais; 35 testes passam.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "2ddfd79",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/2ddfd7989113a73a297e4757ba87e07680ad2e01",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T00:45:44.000Z",
+      "author": "Maj Diniz",
+      "message": "segurança: regras do protótipo que já fala com o EBGeo real\n\nProtocolo inteiro desde o início, raiz de protótipo separada, lista de contas\ne atlas permitidos, contas e atlas de teste, sem túnel que termine o TLS,\ndesligamento em um gesto e homologação antes da produção.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "130612b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/130612be94d6bc755524f59f493ce0aba10d7559",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T00:37:35.000Z",
+      "author": "Maj Diniz",
+      "message": "planos de obra do app, do retransmissor e do ebgeo_web; chave de posição\n\napp/PLANO.md e retransmissor/PLANO.md com contratos, organização, dados e\netapas com critério de pronto; MUDANCAS-EBGEO-WEB.md ganha o plano de obra\n(rotas, migração 053, WS, frontend, etapas E1 a E6). Formato de fio no\nprotocolo/README.md. SEGURANCA.md ganha a chave de posição, que assina sem\ndesbloqueio para o serviço de posição funcionar com o celular bloqueado.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "1291e87",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/1291e87d354bcbccf011aee0c92fdee984a56d4b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T00:31:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor em Rust (C19) e documento de segurança\n\nSEGURANCA.md cobre modelo de ameaças, criptografia e hierarquia de chaves,\nenvelope, login, retransmissor, canal EBGeo-retransmissor, porta campo, app,\natualização, servidor, incidentes e prova. Propõe HPKE e identidade P-256 no\nKeystore no lugar da sealed box e do Ed25519.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "2e42260",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/2e422609d24448b9c6c8d1d03ecafff1d21da682",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T00:21:07.000Z",
+      "author": "Maj Diniz",
+      "message": "organização inicial: protocolo, retransmissor e app num monorepo\n\nWorkspaces do npm. O protocolo é JS ESM com JSDoc, copiado para a branch\nebgeo-campo do ebgeo_web e conferido por vetores de teste. Nada implementado.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "a4329a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/a4329a94aa1107a1618a3151155cdbf02ecf1809",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T00:16:27.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: posição para quem lê o mapa, camada especial com estilo, sem aviso\n\nC8: a posição vai só para o atlas e o mapa escolhidos e a vê quem lê o mapa;\ncamada especial \"Aparelhos de campo\" no painel de camadas, com estilo.\nC18: sem aviso de aparelho novo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "c96e9da",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/c96e9da4dcacbe0124747604a18c75378cb96afc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-23T23:59:45.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: sem QR (só login), mudanças no ebgeo_web e protótipo atualizado\n\nMUDANCAS-EBGEO-WEB.md lista o que o ebgeo_web precisa ganhar, lido na main\nem 435769912. O protótipo troca o EBMail pelo retransmissor, entra com\nusuário e senha, escolhe o destino e ganha Meus aparelhos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "f9addb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/f9addb55fa7404be298afcf8844e65f0f2e0a5ac",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-23T23:46:49.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: login pela senha através do retransmissor basta (C18)\n\nSem aprovação de Gestor; limitador por conta na porta campo e aviso de\nnovo aparelho. QR vira opção. Destinos pedidos logo depois do login.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "dab9244",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/dab9244bd94726a4664f35bc28b05f6055ede2b8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-23T23:31:14.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: retransmissor num servidor comercial pequeno (C17)\n\nTamanho estimado para menos de 100 usuários, região São Paulo, sem estado\nque importe, endurecimento, domínio neutro, sem CDN no começo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "0499793",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/0499793f98eecf6f1d85311ff5d4b622ab263771",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-23T23:17:36.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: EBMail abandonado, retransmissor cego como alternativa à VPN (C3)\n\nC16 cai; pareamento sem VPN vira a P6 e a hospedagem a P7. Envelope ganha\ncontador por aparelho e assinatura por fora; saída do EBGeo DSG medida em\n2026-10-23 (443 para qualquer destino, sem interceptação, WebSocket 600 s).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "272ffd7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/272ffd7344fc81384246413fdc161c98c0ad6127",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
     {
       "repo": "1cgeo/github_dashboard",
       "date": "2026-10-23T21:36:38.000Z",
