@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-10-25T14:14:27.521Z",
+  "lastUpdate": "2026-10-25T18:17:36.774Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-10-25T09:44:00.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-25T13:36:18.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-25T16:33:41.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9862,
+    "totalCommits": 9864,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 20,
-      "1cgeo/ebgeo_campo": 42,
+      "1cgeo/ebgeo_campo": 44,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -191,6 +191,24 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T16:33:41.000Z",
+      "author": "Maj Diniz",
+      "message": "app: a fila leve, lida à parte, sem as posições velhas\n\nMedido no S24 (2026-10-25): a leitura da fila pela tela (Campo.fila) custava de 2,1 a 34 s.\nDevolvia os 860 itens guardados, com o fio cifrado de cada um, abria no Keystore o resumo lacrado\nde cada relato (~240 ms cada) e rodava no mesmo executor de uma linha só que o envio; a tela relê a\nfila a cada aviso do núcleo (enfileirou, enviou, confirmou).\n\n- Armazem.itensParaATela: os não resolvidos e os 100 resolvidos mais recentes, sem o fio;\n- o resumo aberto uma vez e guardado em memória (Mensageiro.itensDaFila);\n- a leitura num executor próprio: o envio nunca espera atrás dela (CampoPlugin);\n- a posição confirmada sai da fila depois de 1 h (eram 838 dos 860 itens);\n- a tela lê a fila uma vez por vez, e os avisos que chegam no meio pedem uma leitura a mais, não\n  uma cada; a tela da situação se redesenha quando a fila muda (o \"Chegou ao EBGeo\" não aparecia).\n\nAntes e depois no S24: leitura da fila de 2,3-15,2 s para 8-16 ms (71 itens); \"Chegou ao EBGeo\"\nna tela da situação de nunca (30 s de espera, duas vezes) para 1,3-1,4 s. A CPU com a tela ligada\nnão mudou além da variação (app 9,35% para 8,55%, WebView 5,12% para 4,86%): a releitura não era\na causa dela. Testes: unitários do núcleo 6 de 6, ponta a ponta 18 de 18.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "faa9a58",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/faa9a58490506679de920b596ec42b2a445f08c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T15:44:51.000Z",
+      "author": "Maj Diniz",
+      "message": "app: situação, evento, comentário e estado otimistas, com volta e erro na recusa\n\nO chefe (2026-10-25): \"Ao mudar a situação tem um tempo travado que aparece que não funcionou. O\nideal era optimistic update\". A tela só mudava depois de o núcleo montar, cifrar e assinar a\nmensagem (no celular, no Keystore); comentário e mudança de estado nem isso: só apareciam na\npróxima busca de eventos, até 5 minutos depois.\n\nAgora a mudança aparece no ato e a mensagem sai em seguida:\n- situação (situacao.ts): a nova vale na hora; se não entrar na fila volta à anterior com erro,\n  e a recusa do EBGeo, que chega depois pela fila, também a desfaz, no disco inclusive;\n- evento novo, comentário e estado (eventos-mapa.ts): pendências por cima da lista do EBGeo, que\n  saem na falha de enfileirar (o formulário do evento e o texto da resposta voltam preenchidos),\n  na recusa (com o motivo no aviso) ou quando a lista pedida depois da confirmação as substitui.\n\nTeste de ponta a ponta: três passos novos, com a assinatura emulada lenta (800 ms) para exigir a\ntela trocada ANTES de a mensagem existir na fila, e o simulado ganha /dev/recusar para provar a\nvolta. Controles negativos: a situação só depois de enfileirar, a recusa sem voltar e o\ncomentário recusado que fica reprovam cada um o seu passo. O teste também foi posto em dia com o\ncaminho automático (a sonda), que o tinha quebrado no segundo passo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "7d6b5ed",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/7d6b5ed62a1c33192e5b76fd716c087129c3bd59",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
     {
       "repo": "1cgeo/ebgeo_campo",
       "date": "2026-10-25T13:36:18.000Z",
