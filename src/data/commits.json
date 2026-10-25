@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-25T18:17:36.774Z",
+  "lastUpdate": "2026-10-25T22:25:14.657Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-25T09:44:00.000Z",
+    "1cgeo/ebgeo_web": "2026-10-25T20:00:37.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-25T11:23:18.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-25T18:54:12.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-25T16:33:41.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-25T21:36:52.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9864,
+    "totalCommits": 9876,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2995,
+      "1cgeo/ebgeo_web": 3002,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 20,
-      "1cgeo/ebgeo_campo": 44,
+      "1cgeo/ebgeo_campo": 48,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1209,
+      "1cgeo/chefe_dgeo": 1210,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,87 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T21:36:52.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.1: o pedido acorda o laço; login, mapas, eventos e aparelhos dizem que estão esperando\n\nO chefe, 2026-10-25, com a v0.1.0 no S24: o login demorou sem dizer se andava, e depois a tela\nficou em \"sem atlas\" até a lista chegar.\n\nCausa (regressão do cb24adb): sem pendência, o laço da frente dorme 30 s, e o `pedir` postava sem\nacordá-lo; a resposta pelo retransmissor só é lida pela rodada. Mensageiro.pedir passa a chamar\nacordar() depois de postar. Medido no S24, \"Atualizar a lista\" pelo retransmissor: 11,5 a 22,6 s\nna 0.1.0 (6 rodadas), 2,3 a 2,5 s na 0.1.1 (10 rodadas, resolução de ~1 s do instrumento).\n\nTelas de espera, com um giro comum (.giro, .carregando):\n- login: o botão conta os segundos, com o aviso de que sem VPN a resposta volta pelo retransmissor;\n- o login vale sozinho e a lista de atlas vem depois: \"Buscando os seus mapas no EBGeo…\", e na\n  falha o motivo com \"Atualizar a lista\", em vez de \"A sua conta não é Editor de nenhum mapa\";\n- Eventos: \"Buscando os eventos deste mapa…\" em vez de \"Nenhum evento\", erro no lugar da lista;\n- Meus aparelhos: o erro com \"Tentar de novo\", em vez de \"Carregando…\" para sempre.\n\nTestes: unitários do núcleo 6 de 6, ponta a ponta 19 de 19; capturas das telas de espera no\nsimulado com cada pedido atrasado em 6 s.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "0e7e3d5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/0e7e3d5b83564982dbc97b3ca14a023c2f4338bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T20:00:37.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o cabeçalho da porta sem a lista do protótipo\n\nA remoção das listas (3ad54bc7b) deixou no cabeçalho do porta.js a frase de que a conta da lista do\nprotótipo é conferida antes da senha; a lista não existe mais.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "b8be8fd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b8be8fd9d9a4a80d380ad54a48a46e1952227fe8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T19:37:56.000Z",
+      "author": "Maj Diniz",
+      "message": "implantação: a prova de ponta a ponta sem a conta da lista, que saiu\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "7bf1d3f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/7bf1d3f9b7815dbfd66da511c0148f6b9ad0fa52",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T19:36:47.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: sem listas de contas e de atlas no campo\n\nO chefe (2026-10-25) tirou a limitação do protótipo: entra quem tem conta no EBGeo, e cada envelope\npassa pela permissão do mapa. As variáveis CAMPO_CONTAS_PERMITIDAS e CAMPO_ATLAS_PERMITIDOS saíram\ndo código do ebgeo_web, e agora deste roteiro e do README.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "fab48cb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/fab48cb545061a877ae085601da02d76b3e903b5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T19:35:46.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: sem lista de contas e de atlas permitidos (o chefe, 2026-10-25)\n\nSaem CAMPO_CONTAS_PERMITIDAS e CAMPO_ATLAS_PERMITIDOS: a porta atende toda conta do EBGeo, com a\npermissão por mapa de sempre (Editor no mapa de destino, relida a cada envelope), e o militar vê\ntodos os atlas dele. A guarda de produção deixa de exigir a lista de contas; seguem o atestado\nexigido, o retransmissor wss:// e a assinatura do APK.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "3ad54bc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3ad54bc7b399985c6757d2a6c6e861cb7db7478d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T19:29:45.000Z",
+      "author": "Maj Diniz",
+      "message": "deps(ajuda): lock resincronizada para o npm 12.0.2 da DSG (@emnapi/core e @emnapi/runtime)\n\nO lock da ajuda mexido em c7559c23b reprovava o `npm ci` do npm 12.0.2 do EBGeo DSG\n(\"Missing: @emnapi/core@1.11.3 from lock file\"), e o build do frontend pararia antes da troca.\nGerado no servidor com `npm install --package-lock-only`; passa no `npm ci --dry-run` do\n12.0.2 (DSG) e do 11.8.0 (1º CGEO).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "abb41c0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/abb41c0a6abde67da4c5bcbe2f526fd2b986e9e2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-25T18:54:12.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: main do ebgeo_web, v0.1.0 com a implantação, instrumentos de bateria\n\n- PROJECT.md reescrito: o ebgeo_web na main (64b77f64a), a implantação e a v0.1.0 juntas pelo\n  IMPLANTACAO.md do ebgeo_campo, o que se mediu de vazão, de tela otimista e de bateria;\n- Decisions: a entrada do merge e da distribuição, com a linha no índice;\n- medir-desempenho-web: medir pela via lenta do próprio sistema infla a medida; os pontos cegos do\n  batterystats, do contador de satélites e da métrica de CN0; a correção dos 13 comandos;\n- livro-razão: jargão sem explicar e investigação sem teto.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "a2867f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a2867f630e2a8f8ca6a40f35f4a44027eaed8517",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T18:49:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge da main na ebgeo-campo: o EBGeo Campo vai à main\n\nTraz da main a rodada 2 do diagnóstico de desempenho (851e2fcb6) e as dependências do Dependabot\n(c7559c23b). O que a mesclagem pediu:\n- DIAGNOSTICO-DESEMPENHO.md: dois conflitos resolvidos com o texto novo da main e as três\n  correções de citação da ebgeo-campo reaplicadas (`map.style.imageManager`, `setPaintProperty` e\n  `setLayoutProperty`); o texto novo da main citava três caminhos que não existem\n  (image_tool, leg-row, collab.rooms sem os prefixos) e o `transferSize` da Resource Timing, e o\n  docs-integridade reprovava;\n- frontend/package-lock.json: o commit do Dependabot deixou o lock fora de sincronia\n  (`@emnapi/runtime@1.11.3` faltando) e o `npm ci` recusava instalar; resincronizado com\n  `npm install`, conferido com `npm ci` limpo;\n- images.service: o conserto do arquivo no reenvio renomeia por cima do original, e no Windows o\n  antivírus ou o sincronizador que acabou de ver o arquivo faz o rename falhar com EPERM por um\n  instante (3 em 300 numa pasta do OneDrive, nenhum fora); tenta de novo até ~0,9 s, como o\n  graceful-fs. O imagem-reenvio-recupera-arquivo falhava 4 de 6 vezes; agora 8 de 8 passam.\n\nTestes do resultado: backend 7092 de 7093 na rodada (a falha era a acima, consertada; 213 de 213\nnos testes de imagem depois), frontend 1561 de 1562 arquivos (o docs-integridade, consertado: 11\nde 11), lint limpo nos dois.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "64b77f6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/64b77f64ad20edd66e6fa426889bb5b340ff6cc2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T18:19:20.000Z",
+      "author": "Maj Diniz",
+      "message": "app: coleta no ritmo do intervalo, laços que dormem, Voltar que fecha o painel; roteiro da implantação\n\nBateria (o chefe, 2026-10-25: \"a coleta deve depender dessa configuração\", com folga para entregar\nno intervalo). Medido no S24 com o batterystats, tela apagada: ~2% da bateria por hora, ~80% dele o\nGNSS, que o serviço pedia a cada 5 s com o chip ligado o tempo todo.\n- ServicoDeCampo: GNSS e rede pedidos no ritmo do envio (30, 60 ou 120 s) menos 10 s de folga; o\n  laço dorme até o próximo envio e acorda com pendência, ponto novo ou parada;\n- Mensageiro.acordar/esperarTrabalho: os laços do serviço e da frente do app dormem até ter o que\n  fazer (eram passadas a cada 2 s e 1,5 s); o relato novo os acorda na hora;\n- posicao.ts: com o app escondido, a tela para de ler o GPS (o pedido contínuo de alta precisão da\n  WebView seguia ligado).\nMedido depois: com a tela apagada, só o pedido do serviço fica ativo. O chip do S24 rastreia sem\nparar com leitura a cada 20 s e 50 s, e dorme ~90% do tempo com 110 s (contagem de mensagens de\nsatélite, instrumento ruidoso); a economia nos ajustes de 30 e 60 s não ficou provada.\n\nVoltar do celular (o chefe): fecha o painel aberto e volta ao mapa (MainActivity pergunta a\nwindow.ebgeoVoltar da ui.ts); no mapa, o Voltar é o do Android. Passo novo no teste de ponta a ponta.\n\nIMPLANTACAO.md: o roteiro da implantação em produção para o agente que a fizer (certificados,\nEBGeo DSG, retransmissor na raiz de produção, v0.1.0 do app, prova e volta atrás).\n\nTestes: unitários do núcleo 6 de 6, ponta a ponta 19 de 19.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "cb24adb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/cb24adb7c87e873608af0de207a1c023162fabb1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
     {
       "repo": "1cgeo/ebgeo_campo",
       "date": "2026-10-25T16:33:41.000Z",
@@ -208,6 +289,24 @@
       "sha": "7d6b5ed",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/7d6b5ed62a1c33192e5b76fd716c087129c3bd59",
       "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T14:49:44.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o envelope em 3 comandos no banco, com revogação e permissão na hora\n\nCada envelope de posição fazia 13 idas ao banco em série, e a espera por elas, em 4 vagas, era o\nteto do EBGeo. Agora:\n- um comando (aparelhos.conferirEReivindicar) relê o aparelho e a conta, reivindica o id da\n  mensagem e aceita o contador só se o aparelho vive, reserva o contador do retorno e lê a versão\n  da visão do destino e o último ponto; a linha do aparelho é travada (FOR UPDATE) antes de o\n  contador ser decidido;\n- outro grava a posição e o sinal do GPS (posicoes.gravarPosicaoESinal); o terceiro, o retorno;\n- em memória ficam só as chaves do aparelho, que não mudam, e o destino conferido (visão, mapas,\n  camada de campo), preso à versão da visão que o próprio comando lê (sqlDaVersaoDaVisao): mudar\n  compartilhamento, mapa, camada, conta, OM, papel ou grupo vale no envelope seguinte.\nDecifrar passou para antes do aparelho vivo: não grava nada, e dá ao comando o atlas de destino.\n\nCarga pelo retransmissor, 400 aparelhos a 1 envelope/s, 4 vagas: 297,6 envelopes/s (antes 182,7),\n30.176 de 30.176 confirmados, ~3,3 transações por envelope (antes ~16). Com 8 vagas (não incluído),\n389,7/s e p50 de 0,2 s, com o retransmissor da VM a ~80%.\n\nO teste novo manda envelopes de verdade pela porta, que nenhum teste exercitava: 3 comandos em\nregime, as quatro mortes e a permissão retirada valendo no envelope seguinte, camada recriada,\nmensagem repetida, contador repetido e envelopes simultâneos. Controles negativos: memória sem\nconferir a versão, reivindicar sem conferir vivo e contador sem conferir reprovam cada um o seu.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "d8a6596",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d8a65960676d16dc6b69d2320880e4091dcd4cef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T13:36:39.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: cripto do protocolo pelo node:crypto\n\nSob carga, a cripto em JavaScript (@noble, @hpke) era 78% do tempo ocupado do node: 6,3 ms\npor envelope (duas conferências P-256, decifrar, cifrar e assinar o retorno). O\ncripto-nativa.js faz o mesmo sobre o OpenSSL (HPKE da RFC 9180 com X25519, HKDF-SHA256 e\nChaCha20-Poly1305; P-256 e Ed25519 com KeyObject em cache) em 0,21 ms, e a porta campo o liga\nao carregar, pelas primitivas trocáveis do protocolo (1cgeo/ebgeo_campo 4a83e233, copiado).\n\nCarga de ponta a ponta pelo retransmissor, 200 aparelhos a 1 envelope/s: 158,5 envelopes/s\n(antes 100,8), p50 de 0,3 s (antes 1,9 s), CPU do node de 18 a 37% (antes ~92%).\n\nO teste novo confere os envelopes de teste do protocolo (tests/fixtures/campo-vetores.json,\nque nenhum teste lia) nas duas implementações, as idas e voltas entre elas e a ligação na\nporta. Controle negativo: um rótulo do HPKE trocado no cripto-nativa.js reprova 7 casos e\ndeixa o modo JavaScript verde.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "8488cc4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8488cc4dacccec44350131f01ed069e8f88455c0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_campo",
@@ -235,6 +334,15 @@
       "sha": "3b75974",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/3b75974feffe4c6cf7e5d2c341d41014c35f5522",
       "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T11:16:02.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: seleção do militar como a do EBGeo Web, camada preparada antes, fila paralela e censos de rota\n\n- Seleção dos militares (o chefe, 2026-10-25): caixa tracejada pelo mesmo gerenciador das feições\n  (fonte de caixas fora do store), shift+clique, ferramenta de retângulo e \"Selecionar todas\";\n  com vários, o painel de vários grava só o que se mexeu, um setLayerStyle por camada. Selecionar\n  uma feição solta o militar (_notifySelected); militar e feição não se misturam. Corrige o\n  \"Selecionar todas\" que gravava o militar em selection.features.\n- D-A3: \"Preparar aparelhos de campo\" no \"⋯\" das camadas cria a camada de campo antes da primeira\n  posição, \"Só este mapa\" (createFieldLayer, prepararCamadaDeCampo).\n- Fila dos envelopes do retransmissor em ordem por aparelho e paralela entre aparelhos (4 vagas):\n  de 44,9 para 98 envelopes/s com 100 aparelhos (p50 de 2,2 s para 0,8 s); com 200 aparelhos o\n  teto passa a ser a CPU do node (61 a 69/s).\n- Censos de rota: o padrão só com router/app não via rotasDoFio, rotasDaConta nem\n  importAttemptRoutes; os censos de saídas, auditoria e superfícies passam a vê-los, com as 13\n  rotas classificadas, e o de leitura ganha GET /admin/retransmissor.\n- Teste de socket da difusão de posições (com sentinela), integração da camada preparada, unidade\n  da fila; endereço de download em dsgoficial/ebgeo_campo-app; docs-integridade verde (as três\n  citações do DIAGNOSTICO-DESEMPENHO.md pelo nome real, e a exceção updateData, que já era falsa).\n\nTestes: backend 7026 (7023 + o censo de leitura corrigido), frontend 1562 arquivos, lint limpo.\nControles negativos: fila com 1 vaga e difusão sem filtro de visão reprovam; createFieldLayer sem\ntipo reprova.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "1782476",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1782476cf42471ba8cf5a50498dab403a14d8443",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_campo",
