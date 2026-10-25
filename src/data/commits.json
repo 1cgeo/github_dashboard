@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-24T22:20:48.232Z",
+  "lastUpdate": "2026-10-25T14:14:27.521Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-23T15:22:12.000Z",
+    "1cgeo/ebgeo_web": "2026-10-25T09:44:00.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-24T17:06:43.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-25T11:23:18.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-24T17:06:41.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-25T13:36:18.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9849,
+    "totalCommits": 9862,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 2993,
+      "1cgeo/ebgeo_web": 2995,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 20,
-      "1cgeo/ebgeo_campo": 36,
+      "1cgeo/ebgeo_campo": 42,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1204,
+      "1cgeo/chefe_dgeo": 1209,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T13:36:18.000Z",
+      "author": "Maj Diniz",
+      "message": "protocolo: primitivas trocáveis pelas nativas do ambiente\n\nA conferência P-256, a assinatura Ed25519 e o HPKE (cifrar e decifrar) passam por\nsrc/primitivas.js: sem troca, valem as em JavaScript (o app fica nelas); o EBGeo Web troca\npelas do node:crypto. Sob carga, a cripto em JavaScript era 78% da CPU do EBGeo, 6,3 ms por\nenvelope contra 0,21 ms no nativo (medido em 2026-10-25).\n\nO teste novo prova que a trocada é a que roda, que a recusa dela vira o mesmo erro do\nprotocolo e que limpar volta às daqui. O README diz como o ebgeo_web prova a equivalência e\ncorrige o passo da cópia (à mão; não há script).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "4a83e23",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/4a83e233496ca995645c4c9c5135f88bd3d93e4d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-25T11:23:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-25: EBGeo Campo (chaves de produção, distribuição, seleção do militar, Doze)\n\n- PROJECT.md do ebgeo-campo reescrito (Magalu, S24, dsgoficial/ebgeo_campo-app, medidas).\n- Decisions: chaves de produção e distribuição na dsgoficial; seleção do militar e D-A3.\n- env-guia: chaves do retransmissor e a pasta das chaves de produção.\n- contrato-de-pronto: a rodada final fecha verde; controle negativo pelo executor da suíte.\n- planejar-mudanca-sistema: gestos do app existente; varrer os caminhos de seleção (décima\n  segunda leva da camada quente, sem perda).\n- medir-desempenho-web: CPU do app Android por uid, Doze forçado com trap, instrumentos que\n  mentiram, gargalo que se move ao paralelizar (sobre a divisão em duas camadas da outra sessão).\n- livro-razão: três correções do chefe; MEMORY: poda leve.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "9eebc7b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9eebc7bd09ece0725dda77a7909230db18405eb7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T11:16:15.000Z",
+      "author": "Maj Diniz",
+      "message": "app: tela travada em retrato\n\nO app girava com o celular e a interface ficava ruim (o chefe, 2026-10-25). A atividade principal\npede retrato (screenOrientation); conferido no S24 (requestedOrientation=SCREEN_ORIENTATION_PORTRAIT).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "3b75974",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/3b75974feffe4c6cf7e5d2c341d41014c35f5522",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-25T09:59:17.000Z",
+      "author": "Maj Diniz",
+      "message": "publicar: o canal é dsgoficial/ebgeo_campo-app, com o certificado de produção fixado\n\n- O repositório de distribuição foi criado na dsgoficial (o chefe, 2026-10-25), com a\n  página de download no GitHub Pages e o histórico das versões lido dos Releases.\n- A chave de produção do APK e a raiz foram geradas em 2026-10-25; o SHA-256 do\n  certificado fica em certificado.sha256 e na página, e o publicar.sh recusa APK de\n  outra chave.\n- As notas da versão levam o que mudou (terceiro argumento) antes dos dois SHA-256.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "8264a3a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/8264a3a89b56145337708111cc0e8b2296e44c6d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-25T09:48:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-25: rodada 2 do diagnóstico de desempenho do EBGeo Web, learnings da skill em duas camadas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "fbf48be",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fbf48bed0f98faa4347d7c277d443a96642df605",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T09:44:00.000Z",
+      "author": "Maj Diniz",
+      "message": "deps: fecha os alertas do Dependabot (dompurify 3.4.17, fast-uri 3.1.9, vitest 4.1.12, vite 8.3.5, multer, body-parser, nodemailer, undici, zod)\n\nnpm audit fix no backend, na ajuda e no frontend; no frontend, a versão fixa do dompurify,\no override do fast-uri e o piso do vitest sobem para a primeira versão corrigida. npm audit\ndá zero nos cinco package-lock (raiz, frontend, backend, ajuda, video); o build passa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "c7559c2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7559c23bec5d1f0dbe7c3279b8265d5a8701e3c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T09:33:03.000Z",
+      "author": "Maj Diniz",
+      "message": "diagnóstico de desempenho: rodada 2 (19 frentes), carga colaborativa 50 a 300 e tempo na máquina fraca\n\nAcrescenta azimute, setas, junção e conversão de linhas, snap, eventos, PDF do QAN,\ncontrole temporal, troca de atlas, .ebgeo grande, painéis do ponto, colaboração ao vivo\ne a carga progressiva; mede tempo na estação, com CPU 4x e no perfil fraco sem GPU.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "851e2fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/851e2fcb67b99d67f62ce2873a7c5ce26af6ec96",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-25T01:00:11.000Z",
+      "author": "Maj Diniz",
+      "message": "medir-desempenho-web e contrato-de-pronto: pontos cegos da bancada de campo e o controle negativo sem git checkout\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "6868f7f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6868f7f94576af3e3485cc7925c2965f27da7bb7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T23:46:10.000Z",
+      "author": "Maj Diniz",
+      "message": "ferramentas/carga: circuito aberto (--aberto), divisão entre processos (--inicio) e latências cruas (--saida)\n\nMede o retransmissor sozinho: cada aparelho manda no ritmo marcado sem esperar a confirmação, e a\nmedida é o tempo de aceitar o envelope. Medido em 2026-10-24: 486 envelopes/s com p95 de 56 ms e\n43% de CPU numa vCPU; 741/s com p95 de 105 ms, 80% de CPU e conexões recusadas por tempo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "d7800e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/d7800e2042e4381b0616b96f825a881c3b8c703c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-24T23:29:27.000Z",
+      "author": "Maj Diniz",
+      "message": "medir-desempenho-web: três instrumentos que mentiram na carga do EBGeo Campo\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "8693c12",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8693c12aac0ab109006b592b85079d82f0360e68",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T23:29:14.000Z",
+      "author": "Maj Diniz",
+      "message": "ferramentas/carga: carga de ponta a ponta com aparelhos sintéticos pelo retransmissor\n\nN aparelhos com login, chaves e fio de verdade mandam posições pelo retransmissor, e cada envelope\né medido do envio à confirmação assinada na caixa. Cada aparelho tem a própria conexão TLS.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "f685d72",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/f685d720447756e31a572da425e88be0bdb98d74",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-24T23:03:27.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: decisões de 2026-10-24 (escopo, situação, Magalu, endereço fixo, posição sem prazo)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "7a8410c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7a8410c571e6a053f8c4d3939e87419e2be9a6ed",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-24T23:03:25.000Z",
+      "author": "Maj Diniz",
+      "message": "situação, protocolo enxuto, retransmissor na Magalu e app sem foto solta\n\n- \"Minha situação\" no app (situacao.ts), com a mensagem `situacao` no protocolo e no simulador.\n- Fio enxuto: classes que dobram (1 KiB a 4 MiB), pontos compactos em delta, foto até 185 KB,\n  caixa só com pendência e confirmada pela leitura seguinte, eventos a cada 5 min, conexão TLS\n  reaproveitada, sonda do caminho de 5 min, cache de sessões TLS no retransmissor.\n- Retransmissor na Magalu Cloud em relay.dgeo.app.br, com o serviço do systemd e o instalador\n  (retransmissor/deploy/); endereço fixo no APK, troca de servidor pelo DNS.\n- App: sem o FOTO solto (foto só no evento), topo com \"VPN/Internet/Sem rede\" e a fila como ícone.\n- VetoresTest compara corpos em forma canônica (o org.json do Android não tem `similar`).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "5c754e1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/5c754e10d2301bd6362e6a5ad1edcfc6c38e968a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-24T17:06:43.000Z",
