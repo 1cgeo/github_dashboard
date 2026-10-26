@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-26T16:41:42.863Z",
+  "lastUpdate": "2026-10-26T23:41:45.774Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-26T16:00:14.000Z",
+    "1cgeo/ebgeo_web": "2026-10-26T20:48:42.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -49,7 +49,7 @@
     "dsgoficial/pto_controle@qgis4": "2026-03-10T09:23:04.000Z",
     "1cgeo/tileclass": "2026-10-03T10:42:42.000Z",
     "1cgeo/controle_orcamentario": "2026-07-25T21:22:38.000Z",
-    "1cgeo/ebgeo_360": "2026-10-13T20:08:31.000Z",
+    "1cgeo/ebgeo_360": "2026-10-26T20:48:03.000Z",
     "1cgeo/ferramentas_ebgeo": "2026-10-16T19:32:09.000Z",
     "1cgeo/0Bug_Report": "2024-02-01T10:32:26.000Z",
     "1cgeo/0Bug_Report@qgis4": "2026-05-15T20:55:00.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-26T16:28:06.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-26T20:18:42.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-26T13:20:56.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-26T20:48:46.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9897,
+    "totalCommits": 9917,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3011,
+      "1cgeo/ebgeo_web": 3015,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -169,11 +169,11 @@
       "1cgeo/geoswarm": 68,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
-      "1cgeo/ebgeo_360": 65,
+      "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 20,
-      "1cgeo/ebgeo_campo": 50,
+      "1cgeo/ebgeo_campo": 58,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1220,
+      "1cgeo/chefe_dgeo": 1227,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,186 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T20:48:46.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.7: faixa da barra do Android, avisos no centro, um celular por conta\n\nPedidos do chefe, 2026-10-26:\n- O que eu enviei e Meus aparelhos ganham a faixa da barra do Android embaixo, como as telas\n  com botão fixo: no S24 a lista entrava sob os botões (a folga só no fim da rolagem, da\n  0.1.6, não bastava).\n- Todo aviso aparece no centro da tela, por cima de tudo: no alto cobria o cabeçalho.\n- Um celular por conta (a regra é do EBGeo, 1cgeo/ebgeo_web): o login avisa que tira a conta\n  do celular anterior, e o celular desligado volta ao login com o porquê fixo na tela, não\n  num aviso passageiro. O simulado segue a regra.\ne2e: 28 passos, com a barra do Android de 48 px desenhada, o aviso no centro e um segundo\ncelular entrando na conta; com o estilo e os textos de antes, cada um reprova.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "b418cac",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/b418cacb9448fcca4720135b0857e7fa41143614",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T20:48:42.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: um celular por conta; o login novo desliga o anterior\n\nDecisão do chefe, 2026-10-26. Dois celulares na mesma conta viravam um militar só no mapa,\ncom o rastro pulando entre os dois, e a conta emprestada passava despercebida. O login novo\nrevoga os outros aparelhos vivos da conta (APARELHO_REVOKE na trilha, \"login em outro\ncelular\") e os avisa pela caixa; o envelope do desligado volta REVOGADO. Saem o limite de\n5 aparelhos e a recusa LIMITE do login. O mesmo login entregue de novo recebe a resposta\nguardada e não religa o anterior nem derruba o novo.\nTeste: campo-um-celular-por-conta (3); com a porta de antes, 2 reprovam. Campo: 115 de 115.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "abafd7d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/abafd7df4dee3583248f852ad18c23cb754fb79f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_360",
+      "date": "2026-10-26T20:48:03.000Z",
+      "author": "Maj Diniz",
+      "message": "mineirao e itaquera: lotes de Street View do 4º e do 5º CGEO, mais nova por ponto, 10 m e dois andares\n\nMineirão (643 fotos) e Neo Química Arena em Itaquera (913 fotos) entram pelo\nPROJECTS com skipTargets, a partir de pastas preparadas: a foto mais nova a 6 m,\nafinamento a 10 m por classe de lugar lida por visão, grafo próprio e andares\nExterno e 1º andar. Os runbooks ficam em docs/migracao-mineirao.md e\ndocs/migracao-itaquera.md; as entradas anteriores (Maracanã, Mineirão) ficam\ncomentadas, como as outras já carregadas.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "af70a81",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_360/commit/af70a810907a9df40d0649e72b7bd223d774f7c5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_360"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T20:26:12.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.6: erros em português; o login confere o bloqueio de tela; margem da barra do Android\n\nPedidos do chefe, 2026-10-26:\n- O login sem bloqueio de tela mostrava \"java.lang.IllegalStateException: Secure lock screen\n  must be enabled...\". Agora o núcleo confere o bloqueio antes de gerar as chaves e pede\n  para ativá-lo; e toda mensagem de erro que vai à tela passa por erros.ts, que troca o que\n  o Android, o Keystore, a rede e a WebView dizem em inglês pelo que fazer, em português\n  (o original vai para o console). O motivo do EBGeo, já em português, passa intacto.\n- O que eu enviei e Meus aparelhos, sem botão fixo embaixo, ficavam sob os botões do S24: o\n  fim do meio agora respeita a margem segura, como as outras telas.\nTestes: erros.test.mjs (18 mensagens reais e 6 do EBGeo); com o tradutor desligado, reprova.\ne2e 26 passos, com a margem de 48 px conferida; com o estilo de antes, reprova (20 px).\nKotlin: compila e os testes da JVM passam.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "1ddf611",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/1ddf61187db64bf64d99fc6634a70b7f2a8f503e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T20:18:42.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 11): 360 de Itaquera no ebgeonovo e na DSG (913 fotos, Externo e 1º andar) e \"Itaquera\" no 3D neo_quimica\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "772ff12",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/772ff128e3e148b8582eed9877bb00b7a8ccf090",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T20:18:06.000Z",
+      "author": "Maj Diniz",
+      "message": "publicar: cada versão sai também como ebgeo-campo-<versão>.apk\n\nNo celular, o download repetido de ebgeo-campo.apk vira \"ebgeo-campo (1).apk\", e o chefe\ninstalou o arquivo velho duas vezes (o app seguiu na 0.1.3). O botão da página baixa agora o\nnome com a versão; o fixo continua para o link latest/download/ebgeo-campo.apk.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "3c867e4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/3c867e46d18d26147556455fc1d5b1a8c6fd3aff",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T20:06:46.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.5: telas cheias com o cabeçalho e o botão de ação fixos; Enviar desabilitado com a foto em preparo\n\nPedidos do chefe, 2026-10-26:\n- Novo evento, Minha situação, O que eu enviei, Ajustes e Meus aparelhos cobrem o mapa\n  vinculado, as abas e a barra de EVENTO e POSIÇÃO. O cabeçalho com o Voltar e o botão de\n  ação (ENVIAR, ENVIAR SITUAÇÃO, Sair da conta) ficam sempre à vista, e só o meio rola,\n  sem voltar ao topo a cada redesenho. O aviso desce para cima do botão fixo.\n- A seta e a engrenagem do topo abrem e fecham a sua tela.\n- Com a foto em preparo, o ENVIAR fica desabilitado, com o giro (PREPARANDO A FOTO).\n- UTM por padrão (quem escolheu o formato fica com o seu); 60 s já era o padrão.\n- \"Sair da conta e apagar as chaves\" virou \"Sair da conta\", com a mesma confirmação.\ne2e: 26 passos, com a tela cheia conferida com o meio rolado até o fim, o Enviar\ndesabilitado, as aberturas e fechamentos e os padrões; com o ui.ts e o estilo de antes,\nreprova na primeira tela cheia.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "9fc904a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/9fc904a6356300c9e84f1e888004fde9ad28e699",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T19:17:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 9): pedido 237 da AD/3 (Exercício Perseu) por faixas do mosaico da DSG, sem entrar no acervo; learnings do cadastrar-pedido-mapoteca (avulso por escala, prova da pasta pelo zip, DOTENV_CONFIG_QUIET no --json) e do baixar-acervo-bdgex (folha no BDGEx pelos dois relatórios, INOM por prefixo)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "98b10de",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/98b10de8d8b37dd9cd22329fc279313659241426",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T19:15:41.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.4: a versão do app vai em todo envelope\n\nO militar atualiza o app sem fazer login de novo, e o EBGeo só sabia a versão do login.\nAgora o corpo de todo envelope leva versaoApp: no núcleo nativo (Mensageiro.kt, a\nversionName do APK) e no caminho do navegador (mensageiro.ts). Custa uns 22 bytes por\nenvelope; protocolo/MENSAGENS.md documenta.\n- e2e: o simulado guarda a versão por tipo de envelope, e os 8 tipos levam a 0.1.4; com\n  o mensageiro.ts de antes, reprova (nenhum leva).\n- O caminho nativo compilou e os testes da JVM passam (18), mas não há teste que prove a\n  versão no envelope nativo.\nNão publicada: sai pela estação das chaves, com o chefe.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "a628020",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/a62802059c710f5664ab02d2a7921ea6e1246495",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T19:15:41.000Z",
+      "author": "Maj Diniz",
+      "message": "README: a data da atualização de segurança do Android não barra o login\n\nDecisão do chefe, 2026-10-26: o teto de 12 meses deixava de fora muito celular com\nAndroid 11 ou mais novo. O conserto está no atestado.js do 1cgeo/ebgeo_web.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "71e0c7f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/71e0c7fd59fd6cec6194af7f48817d9cf2f5f7dc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T19:15:37.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a versão do app que vem no envelope vale e fica gravada\n\nO militar atualiza o app sem fazer login de novo, e aparelhos_de_campo.versao_app ficava\ncom a do login (o S24 do chefe mandava com a 0.1.3 e o registro dizia 0.1.1): no dia em que\na versão mínima subisse, o celular atualizado seria recusado com ATUALIZE. Desde a 0.1.4 o\napp manda versaoApp em todo envelope (protocolo/MENSAGENS.md do 1cgeo/ebgeo_campo).\n- O comando único do envelope grava a versão só com o contador maior já visto: o envelope\n  montado antes da atualização, que chega atrasado, não a volta para trás.\n- A recusa ATUALIZE usa a versão do envelope; sem ela (app até a 0.1.3), a guardada.\n- Sem migração. O login repetido não precisa mudar: login novo gera chaves e registro novos.\nTeste: campo-versao-do-app (4), pela porta de verdade com a mínima em 0.1.4; no código de\nantes, 2 reprovam (a versão não grava; o envelope é recusado com ATUALIZE).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "9c44cc3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c44cc32a584717740db473034245827fd52124d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T19:15:36.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a data da atualização de segurança do Android não barra mais o login\n\nO teto de 12 meses do patch no atestado deixava de fora muito celular com Android 11 ou\nmais novo (o chefe, 2026-10-26: sem limite de data, fixo no código). Continuam a chave em\nhardware, o bootloader travado e o boot verificado; a data só fica gravada no atestado.\nTeste: campo-atestado-raiz-e-foto, com patch velho, ausente e com root; reprova no código\nde antes.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "581e6b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/581e6b36f618e5eac04876ded5de74f3872b13b8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T18:40:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 8, parte 3): o script de blobs tem de barrar o commit\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "91fd093",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/91fd0936b39e983a0dbdce4059ad82f5946b823c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T18:40:16.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 8, parte 2): decisão e estado do ciclo da anulação de R$ 269,69 da 2026NE000274 e do recolhimento da 2026NC402778 no SAP 3.0\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "86d198a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/86d198ad2212cdeaa99bd0c2cc37d4d76b6466f0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T18:39:51.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 8): anulação de R$ 269,69 da 2026NE000274 (movimento 2) e recolhimento da 2026NC402778 (id 82) no SAP 3.0, achados na conferência do SAG e relidos campo a campo; NC 116 em saldo zero; learnings do consultar-orcamento (anulação com recolhimento chega ao SAG como par)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "c3a9522",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c3a95225bf1013fe36763b0a95f13a8a058c3e42",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T18:37:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 7): 2026NC402791 (insumos da HP Latex 335) no SAP 3.0 (id 125) e as minutas 31613 (DIEGO, ata 5/2026, R$ 11.680,00) e 31614 (FASTPRINTER, ata 7/2026, R$ 1.290,00) no SPED, uma por fornecedor; conferência do SAG acha a anulação de R$ 269,69 da NE000274 por lançar; onde se compra o suprimento da Latex 335; learnings do requisitar-sped e do lancar-orcamento\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "4f41781",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4f4178116b85719eb66b93f871ea90b961f650ca",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T18:19:32.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.3: a cadência do militar parado é a escolhida (FiltroDePosicao)\n\n- O ponto parado só entrava com MAIS de 60 s desde o anterior, fixos, e a leitura do GPS sai a cada\n  intervalo menos 10 s: com 60 s escolhidos, uma leitura em cada duas ficava de fora, e o S24\n  chegou ao EBGeo a cada 90 a 91 s (2026-10-25); com 30 s, ~80 s. Agora a leitura parada entra\n  quando já passou o ritmo da leitura, com 5 s de folga para o GPS que entrega antes.\n- FiltroDePosicaoTest (5): 72 pontos em 1 h parado a 60 s (a regra anterior dava 36), 180 a 30 s\n  (dava 45), a leitura de 45 s do S24 dentro da folga, a leitura repetida logo depois fora.\n  NÃO rodado nesta máquina (sem JDK): roda na estação das chaves antes do build.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "9bb0617",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/9bb0617be7a4eb2d267ba83b7cfa3ff0233948fe",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T18:19:25.000Z",
+      "author": "Maj Diniz",
+      "message": "campo, evento, etiqueta e testes: evento do Campo pelo padrão do mapa, alça da etiqueta do ponto no texto, correção de zoom em vários eventos, e os 9 testes vencidos (o chefe, 2026-10-26)\n\n- Campo: o evento que chega do celular segue o padrão de zoom do mapa (`maps.feature_defaults`),\n  como o criado no Web; sem padrão, sem referência como antes. Teste\n  campo-evento-tamanho-do-mapa.test.js (com o null fixo de antes, 2 de 3 reprovam).\n- Etiqueta do ponto: a alça de mover vai para o meio do texto. Na âncora ela ficava no centro do\n  ponto com a etiqueta no lugar, e arrastar o ponto pelo centro movia a etiqueta. O arraste guarda\n  a distância entre o ponteiro e a etiqueta, sem salto. Novo caso no spec da etiqueta (na base, a\n  alça mede 0 px do centro do ponto).\n- Vários eventos: a \"Correção de Zoom\" lia só o primeiro. Agora aparece ligada só se todos\n  crescem, e ligar grava a âncora só nos que não têm (valor por evento). Teste em\n  evento-painel.test.js, que a regra anterior reprova.\n- Testes vencidos (falhavam igual na main antes desta obra): o olho é da pessoa desde 12/10\n  (arvore-de-pastas, camadas-cabecalho-e-lote); o aviso termina em \"O que fazer?\" desde 22/10; com\n  o mapa travado o \"⋯\" fica com o olho e o cadeado bloqueado; as seções da aba Etiqueta (18/10)\n  abrem e, com a etiqueta desligada, ficam sem ponteiro de propósito (cobertura-desenho-abas); no\n  toque os botões de 44 px crescem para a esquerda, e a régua é a borda do painel (medido: botão\n  em 71 px, lista em 84, painel em 56).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "6cc2b33",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6cc2b33493017dc0fdf2bbd68d0d05997790948f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T18:10:45.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.3: o Enviar espera a foto em preparo; print liberado\n\n- Foto e envio rápidos (o chefe, 2026-10-26: \"o evento chegou sem foto\"): o preparo da foto leva\n  segundos num celular fraco, e o Enviar não o esperava; o evento saía sem a foto, e ela caía no\n  formulário já descartado. Agora o formulário mostra \"Preparando a foto…\" e o Enviar espera\n  (\"ESPERANDO A FOTO\"); se a foto falha ou o militar sai do formulário, não envia.\n- Print e gravação de tela liberados: saiu o FLAG_SECURE (o chefe, 2026-10-26).\n- e2e: cada JPEG do preparo atrasado 1,5 s e Enviar logo depois da foto; com o ui.ts da 0.1.2,\n  reprova com o evento sem foto (miniaturas 0).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "d079a7a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/d079a7a9c29bc2f076de1d33529417ee981ef559",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T18:06:15.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 2): 360 do Mineirão no ebgeonovo e na DSG, 643 fotos a 10 m em dois andares\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "896224d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/896224d539c43f1b7bcbd00452fe2bf170663db3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-26T16:28:06.000Z",
