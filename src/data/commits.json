@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-25T22:25:14.657Z",
+  "lastUpdate": "2026-10-26T16:41:42.863Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-25T20:00:37.000Z",
+    "1cgeo/ebgeo_web": "2026-10-26T16:00:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-25T18:54:12.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-26T16:28:06.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-25T21:36:52.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-26T13:20:56.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9876,
+    "totalCommits": 9897,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3002,
+      "1cgeo/ebgeo_web": 3011,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 20,
-      "1cgeo/ebgeo_campo": 48,
+      "1cgeo/ebgeo_campo": 50,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1210,
+      "1cgeo/chefe_dgeo": 1220,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,195 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T16:28:06.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 5): sem o \"Preparar aparelhos de campo\", correção de zoom do evento, etiqueta do ponto; 14c4d9c93 nos três destinos\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "5d95941",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5d95941d8bd339a9fcebae08ba0a74d2b215fce6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T16:00:38.000Z",
+      "author": "Maj Diniz",
+      "message": "prospectar: placar da rodada c2+simbologia com 12 B, não 13 (contado no catálogo; o commit 69aeee2f diz 18 B novos na sessão, são 17)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "d631ae6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d631ae624d6abf710708a23fe3134e241cd7446c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T16:00:14.000Z",
+      "author": "Maj Diniz",
+      "message": "campo, evento e etiqueta: sai o \"Preparar aparelhos de campo\", a correção de zoom do evento sem âncora, e a etiqueta do ponto depois de mover o ponto (o chefe, 2026-10-26)\n\n- Sai o \"Preparar aparelhos de campo\" do \"⋯\" das camadas (\"ela não serve para nada\"): a camada\n  nasce com a primeira posição. Saem o item do menu, a regra `acaoDePrepararCampo` e os testes\n  dela; `prepararCamadaDeCampo` fica na store só para a preparação do e2e e do motor da Ajuda.\n  A página \"Receber militares no mapa\" perde o passo e ganha a figura v2-campo-receber-01 (a\n  camada no alto da lista).\n- Evento: a \"Correção de Zoom\" mostra o que o mapa desenha. O evento do EBGeo Campo nasce no\n  servidor com a correção ligada e sem zoom de referência, que não escala: a chave dizia ligada\n  sobre um marcador que nunca crescia, e religar gravava só a chave. Agora aparece desligada, e\n  ligar grava a referência no zoom de agora (medido no app: 30, 30 e 28 px por zoom antes; 31, 63\n  e 123 px depois de ligar). Teste em evento-painel.test.js, que a regra anterior reprova.\n- Etiqueta: a alça media o deslocamento a partir da feição guardada na seleção. Depois de\n  arrastar o ponto ainda selecionado, a etiqueta saltava exatamente o arraste do ponto (o\n  \"rotacionar e transladar desfazia o translado\"). A alça lê a cópia selecionada na hora do\n  arraste, e o ponto redesenha as alças quando a etiqueta muda pelo painel (ligada no painel,\n  ficava sem alças até selecionar de novo). Spec etiqueta-do-ponto-depois-de-mover.spec.js com as\n  combinações de mover o ponto, mover e girar a etiqueta pela alça e pelo painel; no código\n  anterior reprova no segundo arraste da etiqueta.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "14c4d9c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/14c4d9c93436437f75eef5f57c4ea2207cc669dd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T16:00:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (prospecção): similares ao ORBAT Mapper, rodada c2+simbologia e fontes do ecossistema MapLibre\n\n- catálogo: +346 itens (A: mil-sym-ts e zaes-code/tactical-graphics; 18 B novos, entre eles KADAS Albireo, plugins APP-6D com ORBAT, ol-plot, PyTAK)\n- prospectar.py: busca sem gh pela credencial do git; aplicar aceita linha de triagem com colunas vazias no fim\n- ruido.txt: termos de C2 cibernético; consultas.tsv: \"military symbology\"\n- learnings: placar das duas rodadas; radar-tecnologico: fontes do ecossistema MapLibre\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "69aeee2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/69aeee2f3734ce8aa92a00a5cd490f0117323c5a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T14:16:01.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo_web 89fdf14d2 nos três destinos: decisão, projetos do campo e do celular, tempo de build do 1º CGEO\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "fcca2d5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fcca2d530ee18c8748731d82e9357c9d8905c748",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T14:01:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont.): Ajuda do EBGeo Campo, celular sem o canto da mesa e iniciais sem a OM, figura l2-celular-01\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "2ba78da",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2ba78daea1a98d7a38b40fabe58b68a0c9a4f82d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T13:55:29.000Z",
+      "author": "Maj Diniz",
+      "message": "celular: o canto da conta da mesa não cobre mais o alto, as iniciais sem a OM, e a figura l2-celular-01 da tela nova (o chefe, 2026-10-26)\n\n- responsive.css: o phone-mode esconde o .maplibregl-ctrl-top-right. Para quem entrou, a cápsula\n  da mesa (ponto do envio, nome do atlas, avatar) ficava por cima do alto do celular, cobrindo o\n  logo e o botão da conta. Prova: \"celular com conta\" em e2e-ui/celular.spec.js, que varre o alto\n  numa grade de 8 px (toBeVisible não vê sobreposição); reprovou 3 de 3 no código anterior.\n- celular.model.js: iniciaisDaConta tira a OM entre parênteses, o formato do nome desde\n  2026-10-05 (\"Maj Diniz (1º CGEO)\" dava \"(C\", agora \"MD\"). Teste unitário com os quatro casos,\n  que a regra anterior reprova.\n- Ajuda: l2-celular-01 regerada pelo motor, com o celular refeito; a ficha diz que o botão do\n  norte só aparece com o mapa girado.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "89fdf14",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/89fdf14d219294af12f413583cdb6f7484d4b33e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T13:20:56.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.2: sinal intermitente; a hora do relato, o lote sem sinal e o ritmo da fila\n\n- Comentário, mudança de estado e situação levam `instante`, a hora em que o militar os fez; o EBGeo\n  (ebgeo_web 8c226e2ca) grava essa, e não a da chegada.\n- Sem sinal, o lote de posição cresce (até 10 min ou 400 pontos) enquanto o envelope anterior não sai\n  do celular, e fica gravado no armazém a cada ponto: 8 h a 30 s eram 960 envelopes, perto das\n  1.000 lacunas de contador que o EBGeo guarda; agora são até 50. O lote devolvido depois de uma\n  falha volta na ordem (o add(0, …) um a um o invertia).\n- A fila sai a até 60 por minuto, rajada de 30, também pela VPN (Ritmo), e o 429 do caminho só adia.\n- Simulado: a hora do relato e o contador com lacunas, como o EBGeo (exigia a ordem estrita e\n  recusava a posição que a fila manda fora de ordem na volta da rede).\n- Testes: SemSinalTest (7; sem a regra do lote, reprova com 960 envelopes) e a fase do sinal\n  intermitente no e2e (22 passos; com o app sem o carimbo, reprova no comentário).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "7cc9d48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/7cc9d48cb15147e4358c7689bb1bf1cc76d4559e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T13:20:39.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: sinal intermitente; a hora do relato e o limite que não perde mensagem\n\n- Comentário, mudança de estado e situação gravam a hora em que o militar os fez (`instante` do\n  app, a mesma janela do evento: até 30 dias atrás, 5 min à frente), e não a da chegada. Sem o\n  campo (app até a 0.1.2), a da chegada. A situação mais velha que a guardada não a substitui.\n- O limitador do aparelho vem antes do comando único e responde 429 sem retorno e sem reivindicar\n  a mensagem. Antes, a recusa LIMITE ficava gravada como o retorno da mensagem, o app a dava por\n  definitiva, e o reenvio recebia a mesma recusa: a fila acumulada sem sinal perdia pontos acima\n  de 120 por minuto pela VPN. Não é o 503, que no canal do retransmissor derruba todos.\n- tests/integration/campo-sem-sinal.test.js: 4 casos; com o código anterior, 3 reprovam.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "8c226e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8c226e2caeff18782a280d0a61a31701b1e0df60",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T13:00:05.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-web: tablet e celular refeito no ar (push 808122185), decisões, projeto e wiki\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01SUcWMw4pLULdWQAp5rTGuH",
+      "sha": "69c6108",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/69c6108b818d6f39761c4e811a5bdd97d940ca22",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-26T12:51:26.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.2: sem escolha de camada, primeiro ponto na hora, fundo OSM na primeira abertura, desbloqueio de 1 h\n\n- Destino: o militar escolhe atlas e mapa; os relatos vão sempre para a camada padrão \"EBGeo Campo\".\n  O destino gravado com camada volta à padrão.\n- Posição: o primeiro ponto sai assim que o compartilhamento liga (a última leitura do GNSS de até\n  60 s, ou o primeiro ponto que chegar); o sinal de vida espera esse ponto até 30 s. Antes saía um\n  envelope vazio e o primeiro ponto esperava o intervalo inteiro.\n- Fundo: o OSM pedido antes de o mapa existir ficava perdido na primeira abertura, e isStyleLoaded()\n  falso com tiles carregando pendurava um once('load') que nunca disparava. O pedido fica guardado e\n  se aplica no load. Sem a opção \"Nenhum\".\n- Cofre: identidade e embrulho valem 1 h depois do desbloqueio do celular (eram 5 min), nas chaves\n  geradas num login novo.\n- e2e: prova que a tela de destino não oferece camada e que a primeira abertura pede os tiles do OSM\n  (respondidos localmente); com o mapa.ts antigo, reprova.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "4ed1cfb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/4ed1cfbe7ad2b32628a22a0bee442bac688a4a49",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T12:50:23.000Z",
+      "author": "Maj Diniz",
+      "message": "celular: refeito do zero, visor do atlas com anotação de ponto (o chefe, 2026-10-26)\n\nA tela de celular deixa de ser a mesa encolhida. No alto, o logo do EBGeo, a\nconta, a faixa do mapa aberto e as abas Mapa, Camadas e Lista; embaixo, Anotar\ne Mais. Tema claro, nas cores do EBGeo Web, no molde do EBGeo Campo.\n\n- Anotar cria só ponto (ponto, evento, símbolo militar, medida de coordenação,\n  símbolo de engenharia e comentário), pelo GPS (celular-gps.js, novo) ou pela\n  mira, sempre pela porta do controle, e abre o Editar da mesa.\n- A ficha decide o Editar pela origem da feição (podeEditarFeicaoSync) e mostra\n  o crachá da feição recebida de outro mapa.\n- Mais: 360, modelos 3D (pela forma declarada), briefings, Medir pela mira com\n  vírgula decimal (celular-medir.js), Compartilhar e Ajuda pelo módulo único.\n- O Voltar do navegador fecha a tela por uma sentinela única no histórico.\n- Mapa sem acesso oferece o Pedir acesso da mesa.\n- Saem os onze módulos da gaveta e os testes deles; os censos foram\n  reclassificados. Ajuda (seção No celular, novidades, tomada da figura) e\n  decisões atualizadas.\n\nTestes: celular.model (unit) e celular.spec.js (Playwright, 6/6, com 320 px e\ndeitado); unitários do frontend verdes fora coordination-line-width-expression,\nque já reprovava; Ajuda 112/112.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01SUcWMw4pLULdWQAp5rTGuH",
+      "sha": "8081221",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/808122185da36de31b9bd4b29ce19333fa12774b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T11:41:26.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: Militares em campo (receber e acompanhar os militares do EBGeo Campo) e as novidades enxutas (o chefe, 2026-10-26)\n\n- duas páginas novas no grupo Militares em campo: Receber militares no mapa (Preparar aparelhos de\n  campo, quem vê, nível Edição, o link para a página do aplicativo) e Acompanhar os militares\n  (lista, Última posição, cores e anéis, rastro na linha do tempo), com duas figuras e um clipe do\n  motor (lib/campo.mjs, tomadas v2-campo-*, lote midias/v2-campo.json);\n- novidades: sai o que falava da própria Ajuda (vídeos curtos, manual único, Ajuda por área) e as\n  seções de 25/09 e 23/09, fora dos 30 dias; entra Militares no mapa;\n- origem externa: LINKS_PARA_FORA libera só o href de <a> para a página de download do app (o\n  mesmo endereço como imagem, estilo ou script segue reprovando), e o rastreador do build não o\n  segue.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "117de45",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/117de4566dea5452eff27321f3510bb4db4e633f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T10:50:04.000Z",
+      "author": "Maj Diniz",
+      "message": "tablet: o tablet faz o que a mesa faz (o chefe, 2026-10-25 e 26)\n\nAvaliação por captura em seis tablets, deitado e em pé, com toque, e os\nconsertos na faixa do tablet (ponteiro grosso fora do corte de telefone),\ncom as regras de leiaute em frontend/src/css/tablet.css. A mesa e o\ncelular não mudam (mesa comparada por captura antes e depois).\n\n- barra de ferramentas guardada num botão (gaveta), balão só de ícones,\n  pílulas de 3D, 360 e Terreno só ícone; ferramentas do 360 à direita\n- painel lateral sem véu sobre o mapa; em pé ele afina para 340 px\n- inclinar o 2D pelo gesto de dois dedos (touchPitch volta a ligar só na\n  faixa); a bússola arrastada gira, porta da caneta\n- 3D: câmera na tela (aproximar, afastar, inclinar, bússola), ferramentas\n  em duas colunas, coordenada do toque e do centro\n- briefing em pé lado a lado com o mapa; barra do editor de texto em uma\n  linha; título do slide sem corte\n- carta em pé com a folha em cima; pinça e dois dedos na folha\n- alvos de toque da aba Camadas; botões que ficavam transparentes depois\n  do toque; trilha que rola; minimapa do 360 fora da trilha\n- Ajuda e novidades; decisão em docs/decisions/decisions-2026.md\n- spec camera-e-gaveta.tablet.spec.js (11 casos, 3 de caneta) e\n  unitários dos modelos novos\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01SUcWMw4pLULdWQAp5rTGuH",
+      "sha": "deb6b5b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/deb6b5b5fb642f3cc7e63bd188bbed5da050852d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T09:57:04.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: posições na linha do tempo como feição, sem o \"Ajustar\"; b4fdfba41 nos três destinos\n\n- decisão 2026-10-26: as posições contam na janela automática da linha do tempo até o agora, o\n  botão \"Ajustar\" sai, o play sai de baixo do painel; ebgeo_web b4fdfba41 na DSG (só frontend),\n  na estática do dsgoficial e no 1º CGEO (backend novo e a 053);\n- PROJECT.md do ebgeo-campo: replay resolvido, cadência de 90 s explicada pelo código (v0.1.2);\n- atualizar-ebgeo-dsg: marcador que some se procura nos chunks do index; Pages pela API pública;\n  o 1º CGEO pode estar mais atrás que a DSG;\n- subwiki do ebgeo-web: painel fixo mede a caixa, não o width; build órfão depois da parada por memória;\n- livro-razão: explicação sem ler o código; barra invertida no heredoc (recorre).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "683433e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/683433e9d4580e20c24ca79a3b2515cad98fa213",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T09:32:35.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: as posições contam na janela automática da linha do tempo, até o agora; sai o \"Ajustar\" (o chefe, 2026-10-25)\n\n- temporal/extensoes-temporais.js (folha sem imports): a camada de campo registra a faixa das\n  posições, da primeira até o agora, e resolveTimelineBounds a junta à extensão das feições só no\n  limite automático; a janela fixada por um editor vence;\n- TemporalController.estaNoAgora: o cursor no fim de uma barra que termina no agora fica ao vivo e\n  acompanha o relógio a cada sync e ao religar; a camada pede o sync a cada 30 s com o cursor ali;\n- o menu da camada perde o \"Ajustar a linha do tempo às posições\", que gravava a janela do mapa\n  para todos e parava na última posição;\n- a barra lê data-sidebar-state e, com o painel aberto, encaixa no vão entre a miniatura do mapa\n  base e os botões do canto direito: a 1280 px o play ficava embaixo do painel;\n- tests/e2e-ui/campo-replay.spec.js: a prova do replay de 2026-10-25 como spec permanente (barra\n  automática, B1, B2, B3, B5, cor de idade, play livre e sem cobrir vizinhos), com controle\n  negativo no código anterior nos três eixos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "b4fdfba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b4fdfba41083d27acea931c1b6a57e1e5a2bf0d2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T08:44:26.000Z",
+      "author": "Maj Diniz",
+      "message": "desempenho: consertos do diagnóstico (ondas 1 e 2) e das duas regressões da remedida\n\nPacotes A a T do DIAGNOSTICO-DESEMPENHO.md: seletor de cor sem reter o painel,\nlisteners de conteúdo refeito com escopo, imagens do mapa soltas com a feição e\npartilhadas por ícone, filtros por camada, árvore de camadas remendada no lugar e\nsolta quando escondida (content-visibility), realce da tabela por updateData, GDAL\ne CRC fora da thread, fotos em WebP, fila de sync lendo só o necessário, o autor\nsem reaplicar as próprias edições (edição, reconexão e F5), backend da colaboração.\n\nRegressões achadas pela remedida e consertadas: Camadas no perfil fraco\n(content-visibility) e PDF A0 (o PNG lido inteiro no MEMFS do worker).\n\nO documento ganhou a seção de resolvidos, com a prova de cada um.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "8fa56f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8fa56f5970964edf6b9be169f8736f7feee561b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T00:08:51.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: sem a pendência do pacote sem cifra (o chefe pediu para não anotar)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "53e3ff6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/53e3ff6f95e5f99c79c4fb14e32e1a38d1d60b46",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-26T00:07:52.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-25: EBGeo Campo ligado na DSG, posições e replay verificados, hora de Brasília\n\n- decisões cont. 3 a 5: sem lista de contas e de atlas (3ad54bc7b, migração 053), campo ligado no\n  EBGeo DSG (metade do servidor; a da VM e as versões estão na cont. 2), EBGeo Web na hora de\n  Brasília (32ee1d1d8, só frontend);\n- PROJECT.md do ebgeo-campo fundido com o da outra sessão: posições do S24 lidas no banco, replay\n  provado no EBGeo local, o que depende do chefe;\n- CLAUDE.md (com aval) e conventions/saida.md: horário sempre no de Brasília;\n- conventions/escrita.md 3.4.2: código de regra do projeto não vai sozinho ao chefe;\n- atualizar-ebgeo-dsg: delta de backend só de comentário, tsh scp com destino relativo;\n- subwiki do ebgeo-web: sonda headless, prova que grava estado do mapa só no EBGeo local;\n- wiki/servidor-ebgeo-dsg: seção EBGeo Campo; env-guia e .env.example: pacote da implantação;\n- livro-razão: horário em UTC (estilo) e jargão sem explicar (recorre).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "f5e6488",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f5e6488deaf09f6f58abd7caa09e0fb786316bba",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-25T22:34:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-25: EBGeo Campo em produção, v0.1.1 com o conserto da latência e as telas de espera\n\n- PROJECT.md do ebgeo-campo reescrito: em produção, certificados até 2026-12-09, v0.1.1, verificações da EBNet;\n- decisão: a implantação (retransmissor na raiz de produção, campo ligado) e as versões v0.1.0 e v0.1.1;\n- medir-desempenho-web: o e2e pela via rápida escondeu a regressão da via lenta; a tela do Android pelo\n  uiautomator, com o nó fora da tela que dá bounds zerados;\n- livro-razão: regua-cega (produção) e espera-sem-aviso;\n- MEMORY.md drenado (o estado do diagnóstico de desempenho foi para a wiki do ebgeo-web).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01NgibXohFxnkEDVBdquMcbX",
+      "sha": "b528f35",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b528f35695f581be1a3e027f3484968af3d0f967",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-25T22:29:17.000Z",
+      "author": "Maj Diniz",
+      "message": "fuso: o EBGeo Web mostra e lê toda data e hora na hora de Brasília (o chefe, 2026-10-25)\n\n\"Sempre mostrar os dados em horário de Brasília\": até aqui cada tela usava o fuso do navegador\n(getHours, toLocale*String, new Date(a, m, d, h)), e um computador em UTC mostrava 21:43 para um\nponto das 18:43 de Brasília e gravava 3 h fora a hora digitada.\n\n- utilities/hora-brasilia.js, a folha de zero imports que já guardava o P fixo (UTC−3) da\n  luminosidade e da meteorologia, ganha partesP, instanteDeCamposP, inicioDoDiaP,\n  formatarDataP/HoraP/DataHoraP, formatarIntlP e minutosAteUtcDaLetra.\n- data-brasileira.js e temporal.utils.js escrevem e leem a hora de parede em P (campo de data,\n  datetime-local, importação sem fuso).\n- O GDH automático sai em P com a letra (251843POUT26, 251843P OUT); o GDH sem letra, como todo\n  GDH escrito antes, segue lido como Zulu.\n- As 35 telas que formatavam ou liam hora pelo fuso do computador (auditoria, histórico,\n  eventos, cartas, campo, régua do tempo, catálogo, briefings, exportações) passam pelos helpers.\n- Teste novo: hora-de-brasilia-em-toda-tela, com o processo em UTC, Nova York, Tóquio e São\n  Paulo. Os testes do GDH em Zulu passam a cobrar P; os de \"frases sem import\" aceitam só a folha\n  da hora de Brasília, que segue sem import nenhum.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VZPwcjcJBH1sZHybJL3u6M",
+      "sha": "32ee1d1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/32ee1d1d83a78440e3ae1b404978821e62457359",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_campo",
       "date": "2026-10-25T21:36:52.000Z",
