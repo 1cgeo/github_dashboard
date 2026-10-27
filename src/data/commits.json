@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-26T23:41:45.774Z",
+  "lastUpdate": "2026-10-27T15:49:50.763Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-26T20:48:42.000Z",
+    "1cgeo/ebgeo_web": "2026-10-27T15:40:04.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-26T20:18:42.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-27T15:44:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-19T13:16:55.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-27T09:07:48.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-26T20:48:46.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9917,
+    "totalCommits": 9944,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3015,
+      "1cgeo/ebgeo_web": 3030,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 20,
+      "1cgeo/ebgeo_produtor": 21,
       "1cgeo/ebgeo_campo": 58,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1227,
+      "1cgeo/chefe_dgeo": 1238,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,249 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T15:44:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-27 (cont. 5): referências externas do EBGeo Web\n\nLearnings da prospectar-ferramentas-militares: o fan-out por eixo (cinco\nagentes no ORBAT Mapper, inventário completo e régua só nas candidatas),\na crase no DEMANDAS-REFERENCIAS-EXTERNAS.md que o docs-integridade\nreprova para símbolo de fora, e o commit do documento sobre a\norigin/main sem tocar a árvore suja de outra sessão. Livro-razão com a\npergunta sem sugestão (correção do chefe) e a crase que recorreu três\nvezes. Estatísticas da wiki atualizadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUCoHyhvVSaKrFoix",
+      "sha": "4c2e72b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4c2e72b9cb824cfb6c94b18b76f34aee2bc69576",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T15:40:39.000Z",
+      "author": "Maj Diniz",
+      "message": "referências externas do EBGeo Web (2026-10-27): dezessete referências e o ORBAT Mapper por cinco agentes\n\nVereditos do chefe gravados na Decisions (três entradas e o índice),\nna wiki referencias-externas-ebgeo-web e no catálogo da skill\nprospectar-ferramentas-militares; learnings com o critério do ganho\ngrande e claro, o eixo de interface e desempenho e as perguntas com\nsugestão. O debate mora no DEMANDAS-REFERENCIAS-EXTERNAS.md do\nebgeo_web (9df10dc20). Os dois arquivos da Decisions levam também\nentradas de outras sessões que estavam na árvore sem commit.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUCoHyhvVSaKrFoix",
+      "sha": "ae2e150",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ae2e1506f864b0aed531856dc3d0804777f0db0a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T15:40:04.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: demandas das referências externas lidas pelo chefe em 2026-10-27\n\nDezessete referências (Sandkasten, Auftragstaktik, GABRIEL, KADAS, QGIS\nAPP-6D, ZSKarte, symbol.army e map.army, font-faces do MapLibre, o\nexperimento de animação e o TacTrace do ORBAT Mapper, TacMap,\ntactical-graphics, maplibre-cog-protocol, Military Cartography Tools,\nMilitarySym-V e o ORBAT Mapper avaliado por cinco agentes), cada ideia\ncom o veredito do chefe: anotada, descartada ou em aberto. Inclui a\nmedida do tracejado do MapLibre 6.15.0 entre zooms (1,9 vez) e a da\nfonte separada na reprodução.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUCoHyhvVSaKrFoix",
+      "sha": "9df10dc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9df10dc20542497d96ed76d74fe6e5b15161eadf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T15:16:08.000Z",
+      "author": "Maj Diniz",
+      "message": "decisões 2026-10-27 (cont. 2 e 3): a regra do rastro dos militares é da camada (duração e precisão aceita, ebgeo_web 57852a52d); ebgeo_web 71392cc9b nos três destinos com a migração 054\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "76fac93",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/76fac93aade9a74d058f21723ee11962db75f71b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T14:55:04.000Z",
+      "author": "Maj Diniz",
+      "message": "remover_worktree: recusa a worktree que um processo vivo usa (em 2026-10-27 apagou a bancada viva de outra sessão na onda2 do ebgeo_web)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "f4c5edf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f4c5edf589942e67ff6c655ddf83aad8bf4fcbfa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T14:53:49.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: reconnect-replay segura a reconexão de B até o envio de A terminar (o chefe, 2026-10-27)\n\nCom reconnectBaseMs = 60, B voltava ~70 ms depois da queda e o push de A (começado ~25 ms depois\ndela, ~60 ms de duração) ainda estava em curso: a op chegava AO VIVO e a afirmação \"não entregue com\no socket caído\" reprovava, 8 de 8 rodadas em 2026-10-27, a main limpa 42f5be64d incluída. Medido com\nmarcas na cópia do teste: queda 113-116 ms, push 136-151 a 199-208 ms, online de novo 187-189 ms. O\nteste só passava quando o envio ganhava a corrida. Um portão em _reabrirComCredencialFresca segura a\nreabertura até o envio voltar; a queda e a afirmação continuam as mesmas.\n\ne2e vitest 331/331; o arquivo 3 de 3.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "71392cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/71392cc9b726f569cc9025e843b6d7c9fe8a3cc1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T14:24:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-27 (cont. 4): conferência com o SAG até 26 OUT e os sete achados lançados no SAP 3.0 (NE000326/327 do Tyvek, SIBGRAPI com NE000318 anulada e recolhida, NC402767 e NE000325, dois RPNP), ND 339093 no domínio; reconta em delta zero; a linha da conferência passa a citar o delta da reconta (livro-razão, recorrência de 2026-09-03)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b6ef4f0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b6ef4f0213f7f640fabe47f107b0b401fa2f62b2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T14:12:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Descartar 3D/360 apaga a chave criada, filtros sem passada repetida na troca de mapa, submapas locais na ordem de criação, e o teste de memória do push roda sempre (o chefe, 2026-10-27)\n\nDescartar dos marcadores 3D e 360: o store mesclava as propriedades e a janela temporal posta pelo\npainel sobrevivia. O Descartar passa `{ substituir: true }` a updateMarker/updateMarker360, que trocam\npropriedades e estilo; o gravar campo a campo continua mesclando. O limite conhecido sai da página e o\nit.fails vira repro (descartar-3d-360-apaga-chave-criada); controle: com a mescla, 3 casos reprovam.\n\nTroca de mapa: o botão da lista de eventos repõe \"Mostrar resolvidos\" a cada MAP_LOCK_CHANGED, e\nsetResolvedEventsShown fazia uma passada inteira de filtros com o mapa novo pela metade. Com a mesma\nescolha ela não escreve nada. Medido entre submapas (bancada de troca, 3 rodadas por árvore): 198 para\n99 setFilter em 96 de 96 trocas; numa rodada limpa a ida caiu de ~103 para ~23 ms de tarefa e a volta\nde ~102 para ~84 ms.\n\nOrdem dos submapas: num atlas local sem ordem salva a lista seguia a ordem lexicográfica dos UUIDs.\ngetAllMapNamesStore ordena pelo sync.createdAt, lido do índice em memória do mapResolver (preenchido no\ninitialize e no saveMap do escopo ativo); a ordem salva continua mandando e o atlas de servidor fica\ncomo estava. A cópia de um mapa local ganha o próprio createdAt e vai ao fim.\n\nMemória do push perto do teto de 16 MiB: o teste pulado em toda rodada passa a rodar, com GC forçado\nem processo e teto de 25 vezes o corpo (medido 16,1; quatro cópias extras dão 26,9 e reprovam).\n\nSuíte: lint ok; frontend 23.984/23.984; backend 7.117/7.117, 0 pulados; ajuda 113/113; e2e 330/331, a\nfalha é reconnect-replay, que reprova igual no 42f5be64d limpo (defeito anterior, fora desta obra).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "b09eb59",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b09eb597388796e9c5d042752b0fc40fca9fd812",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T14:09:37.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a regra do rastro da camada, com a duração (1 a 24 h, ou tudo) e a precisão aceita (50 m por padrão), escolhidas pelo Editor no painel e gravadas na hora (o chefe, 2026-10-27)\n\nO ponto acima do limite não aparece, nem no rastro nem como posição: o militar fica no último\nponto aceito e a etiqueta diz \"precisão ruim depois\"; sem nenhum aceito na janela, fica só na\nlista. O servidor segue gravando todo ponto. A carga ao vivo lê de 24 em 24 h até cobrir a regra,\ndivide a leitura que volta cheia, e o replay lê os blocos vizinhos numa chamada só.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "57852a5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/57852a52d7adacd6a014139c6e5c2663e3be8e20",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T12:24:41.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-27 (cont. 3): Ajuda do celular refeita e publicada (ebgeo_web 744863956, figuras do motor), motor da Ajuda sem a carta topográfica raster apagada (6b32870bd), spec de tela do .ebgeorec 4 de 4; subwiki (textContent no rótulo em caixa-alta, a fonte apagada)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "33776fb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/33776fb9d8aa0a7060536c66354a207075999125",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T12:23:43.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: o motor de mídia sem a carta topográfica raster, apagada do servidor (o chefe, 2026-10-27)\n\ncarta_topografica_sul_webp responde 404 no servidor de tiles: as bases de mapa do harness (osm e\nbdgex) passam ao mosaico planet_webp, e a conferência do TileJSON público antes e depois da rodada\npassa a ler o sentinel2_latam_2024 no lugar dela.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "6b32870",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6b32870bd4514001063def3c26b2f5a0efe14189",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T12:23:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: desenhar e analisar no celular, com as figuras do motor (o chefe, 2026-10-27)\n\n- Duas páginas novas: \"Como desenho uma linha, uma área ou um símbolo no celular?\" (Anotar ›\n  Desenhar por toque, Finalizar, Desfazer, Atração, Ajustar no mapa) e \"Como faço linha de visada,\n  enlace de rádio ou cobertura no celular?\" (Mais, a mira, Marcar, os valores antes do Calcular).\n- A página do celular diz que ele desenha e analisa (o aviso de \"use o tablet para desenhar\" saiu),\n  com as duas na barra e duas linhas nas novidades de 2026-10-27.\n- Figuras celular-desenhar-01 e celular-analisar-01 pelo motor, com as tomadas e o lote\n  roteiros/midias/celular.json. Refeitas nesta estação: a primeira versão, de outra máquina, não\n  chegou ao repositório.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "7448639",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/744863956f0b9f1d7de7bbff15439d52f797f786",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T12:08:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-27 (cont. 2): Ajuda do reconhecimento (ebgeo_web 80d2bbae9) com a correção da credencial da trilha que a tomada achou; figura l2-celular-01 refeita (5768c137a); a Ajuda do celular está no disco de outra máquina; subwiki (H.264 no Chromium do Playwright, cookie de sessão no motor) e livro-razão\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "9454d5a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9454d5a60a7239088aacaddde9957b6b0fbe107d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T12:06:46.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a figura do celular refeita pelo motor, com o Mais dizendo \"360, 3D, análises\" (o chefe, 2026-10-27)\n\nA figura anterior mostrava a legenda antiga do botão Mais (\"360, 3D, medir\"), de antes das\nferramentas do mapa no celular (1b7179478).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "5768c13",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5768c137afb563a2d9063adf64ff2488c2afcef1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T12:03:22.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: ver o vídeo de um reconhecimento, com a figura do motor; a trilha leva a credencial (o chefe, 2026-10-27)\n\n- Página nova \"Como vejo o vídeo de um voo de reconhecimento no mapa?\" (Camadas > Vídeo de\n  reconhecimento), linha nas novidades de 2026-10-27 e o tipo Reconhecimento na página do Catálogo.\n- Figura rec-video-01 pelo motor: um reconhecimento INVENTADO (trilha de 30 s em Porto Alegre,\n  vídeo neutro em WebM VP8, que o Chromium do Playwright toca), semeado pelo administrador da rodada.\n- A tomada achou um defeito do cliente: a trilha ia só com o ?atlasId= do atlas em foco, sem\n  Authorization, e o gate de escopo respondia 404 até ao dono do atlas quando o cookie de sessão não\n  vinha junto. Agora leva o cabeçalho de cabecalhosDeAsset, como o 3D.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "80d2bba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80d2bbae939aae1dceae56d4a68ca98d2fd42b2e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T11:45:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-27 (cont. 1): o celular do EBGeo Web com todas as ferramentas do mapa (ebgeo_web 1b7179478, sem deploy; Ajuda pendente das figuras); decisão que revê o corte de 2026-10-26; subwiki (bancada de toque, módulo vivo no Vite, testid literal e :has fora do piso); livro-razão (afirmado sem medir, duas vezes, e barra invertida)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01StmJrN8hCXimKQfAhhYj4w",
+      "sha": "5b6cb77",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5b6cb777df624e1447e0a543682404981f26843c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T11:35:42.000Z",
+      "author": "Maj Diniz",
+      "message": "celular: todas as ferramentas do mapa (desenho por toque, análises pela mira, folha de baixo para os painéis da mesa e dos visores, ajustar no mapa, desfazer na ficha) (o chefe, 2026-10-27)\n\n- Anotar › Desenhar: as 17 ferramentas de desenho da mesa por toque direto, com a instrução no\n  alto, a Atração e a barra Cancelar | Desfazer | Finalizar (os botões de toque da própria\n  ferramenta, escondidos na tela de telefone).\n- Mais: Linha de visada, Visibilidade, Enlace de rádio, Cobertura de radar e de rádio pela mira,\n  com os parâmetros principais numa tela antes do Calcular (createFeature de cada análise aceita\n  os escolhidos por cima dos padrões; LOS ganhou createLOSAtCoordinates); Horizonte pela mira\n  (ModoHorizonte.abrirEm, ouvir) e fechado pelo Voltar; Medir ângulo; Informações da carta;\n  Relevo em 3D em Camadas; Cenas 3D no catálogo.\n- Folha de baixo: o painel que a ferramenta da mesa abriria na barra lateral (showToolPanel) e os\n  painéis do 3D, do 360 e da cena (o conteúdo do painel de feição emprestado ao hospedeDoPainel).\n- Ficha: o resultado das análises (cartão da visada, seção de informação da mesa, o perfil de\n  elevação trazido para dentro), Ajustar no mapa e o Desfazer logo depois de criar ou ajustar.\n- Testes: celular.model (catálogo da mesa coberto, parâmetros, valorDoParametro), abrirEm do\n  Horizonte, censos de edição e de tipos, celular.spec (desenho, folha, análise de vários pontos)\n  e celular-visores.spec (o marcador 3D na folha).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01StmJrN8hCXimKQfAhhYj4w",
+      "sha": "1b71794",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b71794780c953c6afbe778deceb37a4c03238cd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T11:31:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-27: reconhecimento por vídeo no EBGeo Produtor (.ebgeorec, 5dd725d) e importado pelo EBGeo Web (main 9a46aaa74, branch apagado, sem deploy); cone com alcance em metros por correção do chefe; contrato-de-pronto (pior caso sem estado do anterior); subwiki (releitura de jsonb por igualdade profunda, cache do /api/config, sharp, tar do Git Bash, WebCodecs, heredoc com barra invertida recorreu)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "72a54df",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/72a54df3acf32523564224c14f85b3a93271648b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T10:41:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge da main no bancada-video-reconhecimento: o reconhecimento vai à main\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "9a46aaa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9a46aaa74ac19088265ae4737d0f6ead92302d02",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T10:41:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconhecimento: importar o .ebgeorec do EBGeo Produtor, e o cone com tamanho de terreno\n\n- Pacotes: o .ebgeorec entra pelo envio tus e pelo pacote:importar, com a conferência do contrato\n  sincronizada do ebgeo_produtor 5dd725d (leitor de MP4 e conferência de cada versão do vídeo);\n  importa pelo serviço do catálogo (createCatalogItem/updateCatalogItem), guarda os dois vídeos na\n  loja sem o teto do vídeo de prévia, e relê linha e vídeos no disco campo a campo (igualdade\n  profunda: o jsonb reordena as chaves). Substituir apaga os vídeos da vida anterior.\n- Painel: a categoria Reconhecimento troca o \"+ Novo\" por \"Importar pacote de reconhecimento\".\n- O cone de visada tem alcance em METROS no terreno (padrão 100 m), ajustado por - e + no painel\n  de estilo, e não muda com o zoom (o chefe, 2026-10-27); a chave nova faz o estilo salvo em pixels\n  cair no padrão. O seletor de outra cor não estoura mais a largura do painel.\n- pacote:importar casa o --usuario também pelo login (o admin do seed não tem e-mail).\n- Podados dev/reconhecimento/montar-pacote.mjs e semear.mjs, que o pacote substitui.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "c2dab05",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c2dab05888ca66c435d03d39c126a3d8c4e4c75c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-27T09:07:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconhecimento por vídeo: o .ebgeorec (fase 5 do PLANO-RECONHECIMENTO.md do ebgeo_web)\n\n- packages/pacote: o tipo reconhecimento no manifesto (fonte, instante do primeiro quadro com o\n  fuso, defasagem, câmera, rumo medido ou estimado, as duas versões e a trilha em vetores\n  paralelos), o leitor de estrutura MP4 (mp4.js, sem decodificar) e a conferência de cada versão:\n  H.264, moov antes do mdat, altura 720/540, quadro-chave a cada 2 s, taxa até 3.000/1.500 kb/s,\n  quadros iguais nas duas e decodificados pelo ffmpeg quando há decodificador.\n- packages/reconhecimento: o .SRT da DJI e o GPX, a trilha no tempo do vídeo, as duas versões numa\n  passada com o x264 (a receita da bancada de vídeo do ebgeo_web), a miniatura e o pacote, com a\n  pasta de trabalho reaproveitada quando só o metadado reprova.\n- CLI: ler-reconhecimento e empacotar-reconhecimento; conferir aceita .ebgeorec.\n- App: a tela do reconhecimento (ler, conferir o relógio vendo o vídeo com o ponto na trilha,\n  alinhar os inícios do GPX, miniatura pelo quadro, metadados e gerar), o vídeo servido com Range\n  e o ffmpeg 9.0.2 gpl do BtbN embutido no instalador (app/ffmpeg/baixar.mjs, sha256 fixado).\n\nProva: o voo DJI 0003 de 2026-10-26 (4K, 89,5 s) virou .ebgeorec em 28 s com tudo aprovado;\nscripts/prova-rec.js pegou os 21 piores casos no item alvo; rec.e2e.js passa no app de\ndesenvolvimento e no empacotado (o ffmpeg de dentro); npm test e p360.e2e.js verdes.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "5dd725d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/5dd725d873d143beb72a0fde75c4396aa4b33518",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T08:30:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 13): reconhecimento como 7º tipo do catálogo do EBGeo Web (ebgeo_web bb56969b8, branch bancada-video-reconhecimento, sem merge nem deploy); vídeo H.264 padrão 720p/3 Mb/s e leve 540p/1,5 Mb/s com troca Auto; learnings do medir-desempenho-web (VMAF por índice de quadro, balde de banda no Windows) e subwiki (UI branca, estilo próprio, aba Camadas)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "8d3c382",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8d3c3823349fa39ed19972b4e1f9c3c77aca34c4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T02:54:33.000Z",
+      "author": "Maj Diniz",
+      "message": "área de transferência: a cópia leva o id do depósito, não os bytes das fotos\n\nO texto copiado (versão 2) carrega só o id da cópia; os blobs das fotos anexas, das feições de\nimagem e dos ícones personalizados ficam num depósito do IndexedDB (`store/deposito-da-copia.js`),\nválido por 1 hora e com teto de 128 MB por cópia. Colar no mesmo atlas segue pelos ids; colar em\noutro atlas do mesmo navegador lê os bytes do depósito; de um atlas do servidor, sem depósito, os\nbytes são baixados do servidor de origem; de atlas local, entre navegadores, a foto chega com a\nminiatura e um aviso. A purga da saída apaga o depósito salvo quando a origem é provadamente local,\ne a abertura do mapa recolhe o vencido. A leitura da versão 1 continua aceita.\n\nMedido com um ponto com foto de 363 KB: o texto copiado caiu de 492.273 para 7.831 caracteres, em\nChromium pelo caminho real (Ctrl+C, colagem noutro atlas local com SHA-256 igual, e noutro perfil\ncom o aviso da miniatura). Com 20 fotos, no caminho da cópia em node: 4.936.916 para 56.081.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "42f5be6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/42f5be64d93539076fa3e07e3a4208f91aa419bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T01:42:21.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento: tipo do catálogo, camada com trilha e vídeo na aba Camadas, e o painel de estilo próprio\n\nPLANO-RECONHECIMENTO.md, fases 2 e 3 para a fonte DJI, pela ordem do chefe de pôr o reconhecimento\nna aba Camadas como as outras camadas do catálogo.\n\nBackend: o sétimo tipo de recurso (migração 054, tabela `reconhecimentos` no molde de\n`orthoimages`, no eixo de acesso por OM), com a trilha e os vídeos no `config`; a trilha fora do\n`/api/config`, por `GET /reconhecimentos/:id/trilha` com o gate do recurso e o visitante no item\npúblico; os vídeos pelo gate do vídeo do catálogo e re-cunhados quando o item vira privado.\nCONSTITUICAO.md 2.1, 2.4 e 8.1 com o sétimo tipo.\n\nFrontend: seção \"Reconhecimento\" na aba Camadas (abrir vídeo, enquadrar, estilo, legenda do\n\"colorir por\"); janela flutuante com player, qualidade Auto/Padrão/Leve (desce por travada ou\nquadro perdido), seguir e HUD; o vídeo move ponto, cone e trecho percorrido, e o clique na trilha\nabre o vídeo no instante; painel de estilo com receitas, cor por tempo, velocidade ou altura,\nmarcas de hora, paradas, setas e cone.\n\ndev/reconhecimento: montar o pacote a partir do vídeo DJI e do .SRT, e semeá-lo no catálogo.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "bb56969",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bb56969b831a4e27f348b50dbe585794f3031445",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-27T00:20:31.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-26 (cont. 10): celular do EBGeo Web, bússola do 360 centrada, excluir em folha de baixo, dois dedos inclinam e catálogo de 360 e 3D (ebgeo_web 8da9655be, sem deploy); subwiki: gesto de dois dedos por CDP, modal no celular e CRLF no open() do Python\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01StmJrN8hCXimKQfAhhYj4w",
+      "sha": "4292aa8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4292aa8f407a53903ec1538e464095085ff5e17c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T00:18:16.000Z",
+      "author": "Maj Diniz",
+      "message": "celular: bússola do 360 centrada, excluir em folha de baixo, dois dedos inclinam, catálogo de 360 e 3D com busca (o chefe, 2026-10-26)\n\n- panels-360.css: até 768 px a faixa de bússola centra em 50%; o recuo de meia trilha da mesa a\n  deixava 28 px à direita no celular. Abaixo de 360 px ela encolhe 20% e não toca o Fechar.\n- phone.css: a confirmação vira folha de baixo, Excluir e Cancelar na largura toda (48 px), o\n  Cancelar por último. A regra de 768 px do responsive.css esticava o modal a 100vh. O botão do\n  excluir diz \"Excluir\" em vez de \"Confirmar\" (feature-panel-content.js).\n- map_sig.js: touchPitch pelo ponteiro grosso (isCoarsePointer), não pela faixa do tablet; dois\n  dedos subindo deitam o mapa também no celular. Gesto real por CDP: 65 graus, 0 no código anterior.\n- phone-layout.js: Mais > Imagens 360° e Modelos 3D abrem um catálogo com busca (regra do\n  CatalogService), miniatura, fotos ou forma, local, data e distância do centro do mapa (do mais\n  perto ao mais longe, linhasDoCatalogo em celular.model.js); o toque abre como o catálogo da mesa.\n  A busca geral acha 360 e 3D. O censo de superfícies perde a leitura direta de config.tilesets.\n- Testes: celular.spec.js ganha dois dedos e a folha de excluir; unitário de linhasDoCatalogo.\n  Ajuda: a página do celular cita o catálogo e os dois dedos.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01StmJrN8hCXimKQfAhhYj4w",
+      "sha": "8da9655",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8da9655bee6894e7c7f33108fa84447f462ddd27",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-26T22:40:35.000Z",
+      "author": "Maj Diniz",
+      "message": "bancada do vídeo de reconhecimento: compressão (VMAF) e carga no Chrome com rede estrangulada\n\nFase 0 do PLANO-RECONHECIMENTO.md. codificar.mjs compara H.264, HEVC, VP9 e AV1, resolução com\nteto de taxa e GOP, com VMAF na tela de 1920x1080 e na janela de 960x540, e se reprova pelos\ncontroles sem perda e degenerado e pela contagem de quadros. carregar.mjs serve com Range como o\nvídeo do catálogo, atrás de um enlace estrangulado, e mede primeiro quadro, travadas, quadros\nperdidos e seek no Chrome; o controle 4K tem de travar e saturar o enlace, e o perfil de máquina\nfraca tira a GPU de vídeo e prende o Chrome a N núcleos com a afinidade relida.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "83b18f6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/83b18f61fadb413d40a181361bb8feabacf5c3bb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_campo",
       "date": "2026-10-26T20:48:46.000Z",
