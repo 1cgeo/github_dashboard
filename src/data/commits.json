@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-27T15:49:50.763Z",
+  "lastUpdate": "2026-10-27T23:40:48.805Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-27T15:40:04.000Z",
+    "1cgeo/ebgeo_web": "2026-10-27T22:22:26.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9944,
+    "totalCommits": 9947,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3030,
+      "1cgeo/ebgeo_web": 3033,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -191,6 +191,33 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T22:22:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Camadas: a árvore solta é refeita sem o anel girando, e a reabertura sem GPU volta a ~0,5 s (o chefe, 2026-10-27)\n\nA aba solta a árvore quando sai da tela (decisão de 2026-10-25), e a reabertura a refazia com a lista\nvazia, o que mostrava o \"Atualizando...\" com o anel em animation: spin infinita. Sem GPU cada quadro\ndessa animação é desenhado por software e disputa os núcleos com a reconstrução. Medido no perfil fraco\n(2 núcleos, CPU 3x, SwiftShader), 1.000 feições, janela pintada: com o anel, a lista aparecia em 1,8 a\n4,1 s com 59 a 149 quadros por reabertura (os mesmos 8 commits da página; os quadros vinham da animação\nno compositor); com só o anel parado por CSS (intervenção), 0,40 a 0,49 s e 11 quadros. Com o conserto,\n3 rodadas intercaladas contra o antes dos consertos (r2+r3): lista em 451 a 647 ms (antes 52 a 120 ms,\nporque mantinha a lista velha na página) e painel assentado em 412 a 707 ms (antes 482 a 790 ms).\n\nA reconstrução da árvore solta mostra só o texto; a primeira carga e a troca de atlas mantêm o anel.\nTeste arvore-solta-refaz-sem-giro.repro.test.js; controle: com o anel sempre, o caso da reabertura\nreprova.\n\nSuíte: lint ok; frontend 24.025/24.025; backend 7.126/7.126 (a 1ª rodada teve 14 falhas e 1.048\ncancelados que não se repetiram, nem isolados nem na 2ª rodada inteira); e2e 331/331; ajuda 113/113.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "7c44167",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7c441677b2c5a97251f52283c2595f71a467da61",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T22:01:28.000Z",
+      "author": "Maj Diniz",
+      "message": "remove o PLANO-RECONHECIMENTO.md da raiz (o chefe, 2026-10-27)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "6eb20f7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6eb20f76e16c6a538340fafa881f8ce02d0ecdd5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-27T16:49:25.000Z",
+      "author": "Maj Diniz",
+      "message": "campo, grupos e pessoas: o style da camada disputa chave por chave; conceder a grupo de que se é dono ou membro, o administrador pela mesma regra; a busca de pessoas casa a OM (o chefe, 2026-10-27)\n\n- Estilo do rastro: o `patch` da camada leva uma entrada por chave do `style`, também sem base, e o\n  servidor grava só essas chaves (`style = (style - removidas) || postas`) e disputa cada uma como\n  `estilo:<chave>` (`estilo-por-chave.js`); o painel do militar passa a troca como função do\n  `style` da hora, aplicada dentro da trava do store. Chaves diferentes não se recusam nem se apagam.\n- Grupos: `fn_can_address_group` (055) e `GET /access-groups/enderecaveis` para o seletor das\n  quatro telas de dar acesso; as escritas de recurso, atlas e mapa usam a mesma regra. A aba Grupos\n  do administrador segue vendo todos (revê a de 2026-08-20).\n- Pessoas: a busca casa nome, nome de guerra, login e a OM (sigla ou nome), palavra a palavra, sem\n  acento e com o ordinal como letra (revoga a parte da OM da D13).\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01A61Bj7NZtYi2nSp8NmGVyV",
+      "sha": "0775d1d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0775d1dbd3baf57e667b33e06a72b97022f8a0af",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-27T15:44:36.000Z",
