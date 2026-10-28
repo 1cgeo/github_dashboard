@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-28T16:32:33.654Z",
+  "lastUpdate": "2026-10-28T23:58:37.609Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-28T15:22:15.000Z",
+    "1cgeo/ebgeo_web": "2026-10-28T23:27:35.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-20T19:04:47.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-10-28T18:17:17.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-28T15:04:47.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-28T22:19:46.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-27T09:07:48.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-28T21:25:32.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-28T11:05:09.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9979,
+    "totalCommits": 10026,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3050,
+      "1cgeo/ebgeo_web": 3073,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -165,14 +165,14 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 435,
+      "dsgoficial/pytorch_segmentation_models_trainer": 445,
       "1cgeo/geoswarm": 68,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 21,
+      "1cgeo/ebgeo_produtor": 30,
       "1cgeo/ebgeo_campo": 61,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1249,
+      "1cgeo/chefe_dgeo": 1254,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,348 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T23:27:35.000Z",
+      "author": "Maj Diniz",
+      "message": "Rastreio: SGP4 pela porta vendor/sgp4.js (sem o WebAssembly que quebrava o build), lockfile que o npm 12 da DSG aceita, satélites na página estática pelo CelesTrak direto e os censos das rotas novas\n\nO satellite.js pela raiz arrasta o propagador WebAssembly, com await de topo no worker, e o build\nrecusa; a porta carrega sob demanda só os arquivos em JavaScript puro. O lock é o da main mais o\nsatellite.js, conferido no npm ci dos npm 12.0.2, 11.8.0 e 11.6.2 (o gerado na estação reprovava\nno 12.0.2). Na página do dsgoficial, sem servidor, os satélites leem o CelesTrak direto (CORS\naberto, cache de 2 h no navegador); aeronaves, navios e GPS ficam só onde há servidor. Bateria:\nfrontend 24118 de 24118, backend 7177 de 7177, Ajuda 113 de 113.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SP62VCKMXqeAm1oxL",
+      "sha": "765fb5e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/765fb5eef9a501f13ae895c774510e6ae62ee751",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T22:33:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Rastreio ao vivo na categoria Externa: satélites, aeronaves, navios e interferência no GPS\n\nNovo kind 'rastreio' das camadas externas (o chefe, 2026-10-28), lido pelo intermediário\n/api/v1/rastreio do servidor (CelesTrak com cache de 2 h, ADS-B do adsb.lol com cache por\ncélula, relé do AIS do aisstream.io), anônimo como a categoria. Painel de estilo de cada fonte\nno gabarito do reconhecimento: receitas com prévia, cor por altitude, categoria, tipo, grupo ou\nórbita com legenda e contagem ao vivo, rastro, vetor de rumo, movimento suave, militares e\nemergência em destaque, órbita no solo e área de visada dos satélites ('Quem vê esta área').\nA integridade GNSS segue o método da GPSJAM sobre o NACp e o NIC do ADS-B. A chave do AIS é\ndo administrador, na aba Sistema, provada no aisstream.io antes de gravar e fora do config\npúblico. A camada externa raster ganha corpo próprio no painel de estilo, e a renovação\npausa com a aba escondida.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SP62VCKMXqeAm1oxL",
+      "sha": "5c3e88a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5c3e88aa734bba98da17d83f7e502637238732b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T22:19:46.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 12): reconhecimento ao vivo no GitHub (ebgeo_web d62552c19, ebgeo_produtor 7207273, sem deploy), a gravação que nunca se apaga sozinha, a UI nova do Produtor (tema à mão, paleta e símbolo do EBGeo, conta à parte, drone por adição); subwiki (prova do ao vivo, régua de revisão de tela por visão), learnings (quantidade do ensaio, login no contexto, paridade de camada, armadilhas já escritas que recorreram) e livro-razão (4 correções do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "e687eb4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e687eb4826ddce4714687bda066635f753bcb2b9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T21:33:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a main do GitHub (revisão de mesa, Sombreamento, desempenho) com o ao vivo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "d62552c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d62552c19ea6724bb98dd8b5d4873feee3242fdf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T21:25:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Transmitir voo: o cartão do drone diz de onde vem a posição, sem o nome do codificador (que já está na faixa de status), e com vírgula decimal\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "7207273",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/7207273a260676cd063d942ca654354cd5039bd3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T21:22:27.000Z",
+      "author": "Maj Diniz",
+      "message": "App, segunda revisão da tela: cabeçalho igual em toda tela, estado técnico dentro do conteúdo, caminho de arquivo como componente, e o endereço RTMP da placa física em destaque com \"Copiar\"\n\n- A frase da conta corrigida: \"A conta só é necessária para transmitir ao vivo e para enviar ao EBGeo.\"\n- Cabeçalho: símbolo, nome e tela | conta, Início, tema. Terreno, codificador e alcance saem dele para\n  uma faixa de status no topo do conteúdo, em linguagem de gente (\"Sem terreno 3D no EBGeo Web\",\n  \"Vídeo por hardware (Intel Quick Sync)\"), com o detalhe técnico no title; o projeto 360 aberto vai\n  para o cartão do projeto.\n- componentes.js: o caminho de arquivo (nome em destaque, pasta-mãe suave com reticências no meio,\n  caminho no title, \"Mostrar na pasta\" por shell.showItemInFolder), a linha de mensagem e o plural de\n  verdade (\"1 mapa ficou\", \"nenhum pedaço na fila\").\n- Tabela chave/valor com a inicial maiúscula em toda tela.\n- A tela em pt-BR em qualquer Windows (--lang): a data do 360 e do reconhecimento em dd/mm/aaaa,\n  gravada em ISO.\n- Transmitir voo: enderecos.js põe em destaque só a placa física (Wi-Fi, depois Ethernet), com\n  \"Copiar\"; as virtuais em \"Outros endereços (N)\", recolhido; o laço fora. \"3. Drones\" vira etapa com\n  o mesmo título das outras, e cada drone um bloco dentro dela.\n- Testes: a escolha dos endereços (Windows e Linux), o destaque, o recolhido, o laço e o Copiar lido\n  da área de transferência no aovivo.e2e, o plural do destino, e a tela em pt-BR com --lang=en-US.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "3d8594a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/3d8594a45db05fe53f54e9d10faf4ed25d4c2cd8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T21:21:24.000Z",
+      "author": "Maj Diniz",
+      "message": "lint: a main de volta ao verde (o no-fallthrough do passador de slides e os 9 erros de CSS da revisão de mesa que ele escondia) (o chefe, 2026-10-28)\n\n- keyboard-service-briefing.js: o comentário do PageDown sobe para antes do primeiro case (no-fallthrough).\n- CSS: cinco seletores duplicados fundidos na primeira regra (.export-pdf-btn, .atlas-header__name:focus, .briefing-card-meta, .briefing-text-panel duas vezes), cada um conferido contra as regras do meio: nenhuma de mesma especificidade mexe nas propriedades movidas, e as que mexem (:hover, o !important da tela estreita) vencem nas duas ordens. Três linhas em branco antes de comentário.\n- stylelint: length-zero-no-unit ignora a propriedade customizada. O --fix trocaria --briefing-panel-width: 0px por 0, e a variável entra em calc(var(...) + var(--space-4)), onde 0 sem unidade invalida a expressão. Sonda: margin: 0px segue reprovado.\n- Prova: npm run lint verde (JS, CSS e backend) e e2e 332 de 332.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "303b1ec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/303b1ec6b7726cb7c8ae2221e4cfc8830738a469",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T21:13:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 11): a main do EBGeo Web no ar no 1º CGEO (c0232be9d, migrações 055 a 057, dump antes), com os três achados da mesa resolvidos (Partes do mapa base anda com o Seletor de mapa base, editor de briefing a 420 px medido, sete testes de briefing de volta ao verde); projetos da mesa, celular, tablet e grade com o estado do deploy; decisão com o raio de explosão; atualizar-dockers (commit visto no ar antes do push, por bare temporário); subwiki (padrão que muda quebra os testes da premissa antiga)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RkKSPsfZHHH2biDRS",
+      "sha": "3907e7e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3907e7e183c8be6f24e631f777838c5ced1c0b36",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T21:00:35.000Z",
+      "author": "Maj Diniz",
+      "message": "limites conhecidos: os itens de desempenho na régua da página (data no aceito, motivo no \"Sem repro:\", caminho inteiro) e o diagnóstico citado sem crase, porque saiu da raiz (o chefe, 2026-10-28)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "44dee05",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/44dee0503503a17c5bc7294ca94b52dd3aece1bd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T21:00:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Mesa: Partes do mapa base sai do palco com o seletor, editor de briefing a 420 px e sete testes de tela de briefing de volta ao verde (o chefe, 2026-10-28)\n\nTrês achados da Ajuda da revisão de mesa, cada um com o teste que reprovava antes:\n\n- \"Partes do mapa base\" ficava na apresentação com todos os controles desmarcados: a coluna do\n  palco é a de um mapa bloqueado (`_applyMapLockState`), e o botão, que não escreve, ficava. Agora\n  anda com a caixa \"Seletor de mapa base\" (`briefing-presentation.css`); o\n  `briefing-controles-do-slide.spec.js` o mede no editor, no palco e depois de sair, e reprovava com\n  \"partesDoMapaBase continua na tela ao apresentar\".\n- O editor de briefing tinha piso de 360 px, e a 1280 e a 1024 \"Posição não definida\" e os rótulos\n  dos controles do slide quebravam em duas linhas. Medido no navegador, \"Controle de coordenadas\"\n  pede 157 px mais a caixa e a coluna de 400 dava 155: o piso vai a 420 (`briefing-editor.css`). O\n  novo `briefing-editor-na-mesa.spec.js` conta as linhas pelo retângulo do texto, e reprovava com o\n  editor de 361 px.\n- Sete testes de tela de briefing, em cinco arquivos, estavam vermelhos desde a revisão de mesa, por premissa do\n  merge e não por defeito do app: a barra do texto escondido repete Próximo, Anterior e Sair (o\n  seletor solto achava dois, e o modo estrito parava), o briefing intocado é apagado ao fechar, e o\n  slide 1 já nasce com posição. Os seletores ficam presos a `.briefing-text-panel__controls`, o\n  briefing do teste ganha título, o \"sem posição\" vem do slide do +, e o editor salva antes de fechar.\n\nAjuda: a linha dos \"Controles visíveis\" em montar-um-briefing diz que o seletor traz as partes; seis\nfiguras refeitas pelo motor (o palco sem o botão, o editor mais largo, e o cartão com o Apresentar\nem `v2-desenho-mapa-ausente-01`, agora com o anel na linha de dados inteira).\n\nProva: os 25 arquivos de spec que criam briefing (44 testes, 42 verdes e os 2 consertados depois, 8 de 8 nos dois arquivos); vitest do frontend com\n24.079 aprovados e só o `dist-dentro-do-piso` vermelho, que pede o `dist/` construído; Ajuda com\nbuild e testes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RkKSPsfZHHH2biDRS",
+      "sha": "c0232be",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c0232be9dc6d6154b17594b8df12b410063478f2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T20:57:49.000Z",
+      "author": "Maj Diniz",
+      "message": "App: visual do EBGeo Web com tema claro e escuro, a conta como opção à parte, e \"Transmitir voo\" com um drone e \"Adicionar drone\"\n\n- Tema claro (padrão) e escuro, escolhidos à mão no cabeçalho, sem automático: config:gravar\n  aceita a chave `tema` na lista fechada, o preload a lê de forma síncrona e o tema.js a aplica\n  antes da primeira pintura; nativeTheme e fundo da janela acompanham.\n- Paleta, fonte, cantos e sombras do design-tokens.css do ebgeo_web; faixa verde com o símbolo do\n  EBGeo (cópia sem alteração, ORIGEM.json com o sha256), também ícone da janela. Campos, botões,\n  pílulas de estado, barra de progresso e barra de rolagem num componente só nos dois temas, e a\n  faixa que se recolhe em janela estreita.\n- A conta sai da tela inicial e vira o botão do cabeçalho (conta.js); o app só a pede no contexto:\n  ao abrir \"Transmitir voo\" e no \"Enviar ao EBGeo\", que segue sozinho depois de entrar.\n- \"Transmitir voo\" nasce com o cartão de um drone; \"Adicionar drone\" acrescenta outro, sem teto, e o\n  cartão ainda não iniciado se remove.\n- app/test/ui.e2e.js: tema relido do config.json e aplicado antes da first-paint, lista fechada,\n  telas de produção e .ebgeorec sem conta, envio e Transmitir voo pedindo a conta, cartões de drone.\n  aovivo, conta, p360 e instalado ajustados ao novo caminho.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "1262c35",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/1262c358f5d34b786d0ce9d7f170c7bfd693d39d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T20:12:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, integração: nada se apaga sozinho (o chefe, 2026-10-28), a régua de uma versão do Produtor e o estado das quatro frentes\n\n- Sai a limpeza automática de 7 dias (aovivo.limpeza.js e o timer do index.js). A gravação sai só por\n  DELETE /api/v1/aovivo/transmissoes/:id, do administrador, com a camada já fora do mapa (409 se viva),\n  com linha na auditoria (CATALOG_DELETE); o publicado guarda os MP4 finais.\n- O vendor ebgeo-pacote vem do 1cgeo/ebgeo_produtor c9f5d37, que exporta conferirVersaoReconhecimento:\n  a conferência do MP4 final deixa o manifesto sintético.\n- PLANO-AO-VIVO.md e cláusula 5.14: link público fora, publicado privado, login do Produtor só por https,\n  sem IA e dois drones; o estado das frentes C e D com a prova de ponta a ponta.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ce95efe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ce95efed172ddb7a545af7352b1e39deb65820dd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T20:12:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, integração: o frontend lê o formato real do backend (final.url, camera.fovHorizontal e camera.desvioRumo)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2c80eda",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2c80eda46b5e3fdb32d539a9f11b89915996de0f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T20:08:13.000Z",
+      "author": "Maj Diniz",
+      "message": "desempenho: DIAGNOSTICO-DESEMPENHO.md sai da raiz, e as 47 citações apontam o commit que o guarda (aa34e0041) (o chefe, 2026-10-28)\n\nO que ficou aberto ou aceito do diagnóstico mora em docs/wiki/limites-conhecidos.md (seção Desempenho), e as decisões em docs/decisions/decisions-2026.md (2026-10-28). O arquivo inteiro, com as medidas de origem, segue em `git show aa34e0041:DIAGNOSTICO-DESEMPENHO.md`.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "3e0f070",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3e0f070645e2d37e942a0a9a13f2599104aed1f2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T20:07:40.000Z",
+      "author": "Maj Diniz",
+      "message": "desempenho: a remedida 2 fecha o diagnóstico (árvore apagada solta o foco e os arrastes, falha de rede sem reconciliar a fila inteira, o primeiro slide preso ao mapa aberto) e o que fica vai para os limites conhecidos (o chefe, 2026-10-28)\n\n- Árvore de camadas: _soltarArvoreDesenhada esquece a linha que guardava o tab stop, e os arrastes recebem o callback ligado uma vez (o contexto compartilhado das setas de _desenharArvore retinha a árvore apagada). Medido: controle +46.020 para +24 nós, última camada +46.326 para +228, ouvintes +3.038 para -8.\n- Sincronização: o push que falha sem resposta do servidor não roda _reconcileConvergenceGuard (decisão do chefe). Medido com 500 pendentes, 15 s parado: 1.079 para 91 leituras do IndexedDB.\n- Briefing: o primeiro slide nascer no mapa aberto já veio com a revisão de mesa (naVistaAtual); o teste novo o prende, porque sem mapa o primeiro \"Salvar posição\" recriava o editor de texto (18 de 54 na remedida).\n- docs/wiki/limites-conhecidos.md ganha a seção Desempenho, e decisions-2026.md o que o chefe decidiu do diagnóstico.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01VVWrvGvj1MAqVwwiAuRgJ3",
+      "sha": "0341165",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/03411657370d8c1901c112691bcb35ae5621174a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T19:22:02.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 10): a Ajuda do EBGeo Web acompanha a revisão de mesa (ebgeo_web 6976bc6a4: 13 páginas, 19 mídias, uma nova); 01-Projects/ebgeo-mesa com os três achados verificados (dois specs de tela quebrados pelo botão Próximo Slide repetido, medidos; Partes do mapa base visível na apresentação; editor de briefing a 360 px); wiki ebgeo-web ganha a faixa da mesa; referência da Ajuda (busca de controle, motor em 1280x800, botão repetido no modo estrito, geometria da figura)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "03d7d40",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/03d7d40b99928deceafd74dffa8caf62cbb2e7a5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T19:12:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: a revisão de mesa (daa986b33) no texto e nas figuras (o chefe, 2026-10-28)\n\nO briefing nasce na vista da tela, e o passo a passo de \"Como monto uma apresentação\" muda: leva-se o\nmapa ao lugar antes de CRIAR BRIEFING, e Salvar Posição fica para o slide do +. A apresentação ganha\nApresentar no cartão, o passador (PageUp e PageDown) e a seção \"Esconder o texto\" (T e a barra do\ncanto). Botão direito com Excluir Feição e Abrir Ficha; a tela com as duas fileiras, a dica e a alça\ndo painel; o minimapa recolhível do 360; \"Fora do terreno\" e \"Elev: sem relevo\" no 3D; a dica do chip\nno desenho; o tipo do lugar na busca; Exportar PDF no pé; Excluir atlas no fim do menu da conta.\nLinha \"Mesa revista\" nas novidades.\n\nMídia pelo motor: 18 refeitas e lidas ao lado das antigas, e a nova l5-apresentar-03 (texto\nescondido). l2-conta-01 e l5-catalogo-01 saíram iguais e ficaram. Tomadas: l5-briefing-01 mostra o\nslide 2 sem posição; as da apresentação clicam em Apresentar, com o seletor do Próximo Slide preso ao\npainel (a barra escondida tem um segundo); tela-01 tira o 6 de cima da pílula Modelos 3D;\nv2-base-direito-01 sobe o ponto, que o menu mais alto cobria.\n\nProva: npm run build com o lint de conteúdo, e npm test na ajuda, 113 de 113.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6976bc6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6976bc6a435e9f9e6e5f315ff454f663b1310744",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-28T18:17:17.000Z",
+      "author": "Maj Borba",
+      "message": "Add TesseraCacheLoader + TripleGateEnsemble; rename DualGateMoE/TripleGateMoE to GateEnsemble/TripleGateEnsemble\n\n- TesseraCacheLoader (few_shot/tessera_cache.py): drop-in third external-\n  embedding source (alongside AlphaEarth Foundations/OlmoEarth), direct\n  HTTPS access bypassing the geotessera package's own HTTP client, which\n  hung indefinitely in the target environment.\n- TripleGateEnsemble (few_shot/methods/triple_gate_ensemble.py): 3-expert\n  fixed-weight ensemble extension of GateEnsemble, built to test whether a\n  third embedding source improves on the 2-source average.\n- Renamed DualGateMoE -> GateEnsemble and TripleGateMoE -> TripleGateEnsemble\n  (files, classes, tests, configs, docs, CHANGELOG) after a terminology\n  review: a fixed-weight combination has no gating network producing\n  input-dependent weights, so it is a plain ensemble, not a mixture of\n  experts in the standard sense.\n- q_strategies.py / concat_aux_loader.py / base_method.py / hisplit.py /\n  gfss_model.py / few_shot_config.py: carries forward the aux-loader and\n  q-dispatch refactors this session built on top of (ConcatAuxLoader,\n  named multi-source aux signals).\n- Tests: 29 new tests (TesseraCacheLoader, TripleGateEnsemble), all\n  existing suites updated for the rename; full suite passes except 13\n  pre-existing, unrelated failures (kmeans determinism, cuCIM/GPU import,\n  one corrupted test fixture).",
+      "sha": "4400c44",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/4400c44d63e6c138f5e3637a917360d6a63bbdfc",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T17:54:13.000Z",
+      "author": "Maj Diniz",
+      "message": "packages/aovivo: o aviso \"o Pilot 2 parou, encerre\" sai do cartão quando o drone é encerrado\n\nVisto na captura da prova contra o EBGeo real: o cartão concluído ainda pedia para encerrar.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c9f5d37",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/c9f5d37d08d8dff10ad1d3267450f165a3f2e7ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T17:53:05.000Z",
+      "author": "Maj Diniz",
+      "message": "App: tela \"Transmitir voo\" com dois drones ao mesmo tempo, a fila que anda desde a abertura, e a prova de ponta a ponta contra o EBGeo real (aovivo.e2e.js)\n\nDestino em atlas e mapa de Editor, pasta da gravação, um cartão por drone com o endereço RTMP, o estado da recepção e da fila e o encerrar; aviso do firewall na primeira escuta. Os cartões se atualizam no lugar: recriados a cada segundo, o botão Encerrar sumia debaixo do clique. Prova: dois voos reais da DJI por RTMP, a rede cortada 32 s no meio, início a 9 e 11 ms do emissor, pedaço na playlist 0,5 s (mediana) depois do último quadro, o buraco preenchido em 6 s depois da borda, os dois finais aprovados no servidor com todos os quadros.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d4f4f50",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/d4f4f50a8b6293d1621fe2ec35a7bde6b1af67e5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T17:53:04.000Z",
+      "author": "Maj Diniz",
+      "message": "packages/aovivo: Transmitir voo (frente D da F2 do PLANO-AO-VIVO.md do ebgeo_web): escuta RTMP e corte fMP4, fila SQLite, enviador, telemetria trocável e MP4 final\n\nDois ffmpeg por drone com o Node no meio (o receptor -listen 1 copia em FLV e mede o início pelo progresso; o codificador faz leve 540p e padrão 720p com quadro-chave a cada 2 s, no QSV, NVENC ou AMF que codificar de verdade, senão x264), a chave do RTMP conferida pelo aviso do ffmpeg, a fila única dos drones em node:sqlite na ordem do chefe (telemetria, a leve de todos com a borda primeiro e o buraco depois, a padrão quando sobra), o enviador sobre a conta da F1 com pausa na rede caída e espera crescente por item, a fonte de telemetria trocável com o simulador do .SRT, e o MP4 final montado sem recodificar e conferido antes de subir. Medido: sem -fflags nobuffer (com ele o primeiro segundo sumia) e com o tubo em FLV (no MPEG-TS a taxa de quadros da DJI chegava dobrada).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0369a93",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/0369a931a6c2db9d17bc2e07cfc38bffb038820a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T17:53:03.000Z",
+      "author": "Maj Diniz",
+      "message": "packages/rede e packages/pacote: o laudo no corpo do último PATCH do tus (lerFim) e a régua de uma versão do reconhecimento fora do pacote (conferirVersaoReconhecimento), para o MP4 final do ao vivo\n\nO tus do ao vivo no ebgeo_web responde o último PATCH com 200 (aprovado) ou 422 (reprovado) e o laudo em JSON, com Upload-Offset igual ao tamanho; sem lerFim o cliente descartava o corpo e o 422 virava um erro sem laudo. A conferência de uma versão é a mesma conferirVideoMp4 do pacote, com a duração e a taxa medidas no próprio arquivo (é o conserto que o backend do ao vivo pede para deixar o manifesto sintético).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "52a706c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/52a706cf56387bbd4408f658aaa62c67db4d435b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T17:48:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge: revisão de mesa (ux-mesa-responsiva) na main, do projetor 1024x768 ao ultrawide (o chefe, 2026-10-28)\n\nFases 1 a 5 da revisão de UI e UX da mesa, cada uma conferida pelo chefe por prancha ANTES | DEPOIS:\ncoluna de ferramentas em duas fileiras com pouca altura e pílulas de ícone; botões de 48 px e fundo\nescuro só com dedo; ponto importado no zoom do enquadramento; elevação do 3D sem leitura falsa;\npainel lateral com alça de largura guardada; coordenadas na área livre; seletor de mapa base que\nnunca sobe; editor de briefing proporcional; apresentação com o mesmo recorte em qualquer tela,\npainel e letra proporcionais, esconder texto com barra de controles, T, PageUp e PageDown; minimapa\ndo 360 proporcional e recolhível; 2D fora do Tab sob os visores; Atalhos, Exportar PDF, catálogo e\nescolha de atlas mais densos; dica própria nos controles; briefing que nasce na vista atual e some\nse fechado intocado; Apresentar e \"sem posição\" no cartão; Excluir Feição no botão direito; tipo do\nlugar na busca; alvos de 24 px, anel de foco e \"Partes do mapa base\" com ícone próprio.\n\nConflitos com a main: a Ajuda fica com o Sombreamento em Camadas (93a28e649) e o nome novo do botão;\ncoordinates.css junta a grade nova (c9a89151e) e a centralização na área livre. Gate no resultado:\nbuild, frontend (1 falha em quadro-de-mapa-direto-no-destino que passa sozinho, 9 de 9) e Ajuda\n(113 de 113). Backend e e2e não rodados: o branch não toca o backend.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "daa986b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/daa986b333dec04d8b40b1e7355c0153225ef5cc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T17:13:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Mesa: ícone e nome próprios para \"Partes do mapa base\", minimapa do 360 recolhível, barra de controles com o texto da apresentação escondido, e o passador de slides (PageUp e PageDown)\n\nO botão da coluna usava o desenho de três folhas, o mesmo de \"Camadas\" na trilha, para uma coisa que\nsó liga e desliga partes do mapa base: agora controles deslizantes e o nome \"Partes do mapa base\",\no mesmo da Ajuda (página e citações atualizadas). O minimapa do 360 ganha \"Recolher\" e, recolhido,\num botão de mapa no mesmo canto; a escolha fica guardada, e na mesa com menos de 760 px de altura ele\nnasce recolhido. Na apresentação, \"Esconder texto\" no pé do painel e, com o texto escondido, uma\nbarra no canto com anterior, contador, próximo, \"Mostrar texto\" e sair: antes, escondido o texto,\nquem usava mouse ficava sem controle nenhum. PageDown e PageUp passam o slide, e o quadro de Atalhos\ndiz isso e o T. Acionados uma vez no projetor: minimapa 0, 135 e 0 px; painel e barra trocam de\nlugar e a trilha do app segue fora. Revisão de mesa (o chefe, 2026-10-28).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "8bff5e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8bff5e754ce2c87332f5f5281f2b777048678e93",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T17:13:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 9): LAI 60143.005146/2026-96 (Barra do João Pedro, Xangri-lá/Capão da Canoa) concluída no mesmo dia: Carta Tramandaí (MI 2972-4, 1979) em PDF e GeoTIFF e 8 fotos aéreas no repositório da DSG (link 413), pedido 241 no SAP 3.0 e DIEx 31722 em elaboração, sem o modelo Word; criar_diex_lai.js ganha --corpo; learnings (definição normativa se aponta, lugar pelo topônimo, prova pelo curl.exe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "16c0c0e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/16c0c0e38c693bac5dfc7d0e35f5ede51af27b3e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T16:57:42.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 6): grade do EBGeo Web no navegador (Lat/Long GMS e decimal, UTM, MGRS por célula), Sombreamento de volta à aba Camadas com estilo da pessoa, e as 105 mídias da Ajuda refeitas (celular com toque, aba Processar)\n\nDecisões das duas obras; estado em 01-Projects/ebgeo-grade e nos PROJECT do celular e do tablet (prompts\nde figuras cumpridos, apagados); wiki ebgeo-web; subwiki com capturas para o chefe, a montagem do\ngrid_style no servidor e o gabarito de painel de estilo; livro-razão: capturas entregues sem leitura em\nrecorte (o chefe pediu a revisão por visão); referência da Ajuda: celular com toque e lote por folha de contato.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "706c79b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/706c79b1b6bb8f28909e9e4b1871e6009424793b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T16:49:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: as figuras e os clipes refeitos depois da revisão do celular e da aba Processar (o chefe, 2026-10-28)\n\nCelular: l2-celular-01, celular-desenhar-01 e celular-analisar-01 com a faixa verde do alto e a barra de\nmodo nova, e os alt reescritos pelo que mostram. As tomadas entram por entrarNoCelular (cenas.mjs), que\nliga o toque por CDP: sem ele os botões de desenho espelhados não nascem e o Finalizar saía apagado.\n\nMesa: as 102 mídias anteriores à troca, com \"Análise\" na barra lateral e os cartões coloridos do\nImportar (28 figuras, 74 clipes), refeitas e lidas uma a uma. Três tomadas consertadas: o menu do mapa\nnão mostra \"Mover para…\" sem destino (l2-mapas-02), e a espera pela ferramenta ativa pede o botão\npresente e não visível, porque o balão do grupo fecha (p2-selecionar-01, l6-desenho-02). O alt de\nv2-base-inicio-01 diz Processar.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d4c6470",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d4c647050eeb732419307f2df59e04f751d4ea02",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T16:12:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a frente B do ao vivo (frontend)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\n# Conflicts:\n#\tPLANO-AO-VIVO.md",
+      "sha": "91ba5cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/91ba5ccb9ba495ffb041b08a6aa3f1014cd64dbb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T16:12:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a frente A do ao vivo (backend)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f15e86f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f15e86f27b162c5fafbe4e0bb8327892b83be8f9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T16:12:12.000Z",
+      "author": "Maj Diniz",
+      "message": "App: conta do EBGeo na tela inicial, senha do proxy numa janela própria e \"Enviar ao EBGeo\" depois de cada pacote\n\n- Tela inicial: o endereço do servidor (sobe da tela do 3D, com o mesmo ORIGEM_PADRAO), o alcance\n  (\"EBGeo alcançável\" ou \"sem rota até o EBGeo, ligue a VPN\", 5 s), entrar e sair, quem está\n  dentro e por qual OM publica, e \"Enviar um pacote já gerado\".\n- app/src/main/rede.js: a conta, o tus e o envio do packages/rede sobre o net.fetch; o refresh\n  cifrado pelo safeStorage em sessao.json (o access só em memória; no Linux sem chaveiro a sessão\n  não se guarda); o 407 resolvido por net.request com a pergunta na janela proxy.html, sem nada\n  em disco. index.js exporta `rede` (conta.buscar, conta.json, tus.enviar, cliente.pedir) para a\n  transmissão do voo construir em cima; o terreno e o ebgeo://servidor também saem por ele.\n- \"Enviar ao EBGeo\" (envio.js) no 3D, no 360 e no reconhecimento, logo abaixo do pacote pronto:\n  identificador sugerido pelo nome, acesso, OM só para o administrador, progresso, interromper,\n  laudo e releitura; resposta perdida no importar manda conferir no painel.\n- Lista fechada (configuracao.js): config:gravar só aceita ebgeoOrigem validado e p360:configurar\n  só operador, projeto360 e entrega360; trocar o servidor é sair do anterior.\n- README e docs/desenvolvimento.md com a conta, o envio, a API para a frente D e a prova.\n\nProva: app/test/conta.e2e.js (novo) abre o app atrás de um proxy Basic local: janela do proxy\ncom a senha errada e a certa, alcance, lista fechada, login, envio de 18 MiB com a conexão cortada\nno meio do 2º pedaço (sha256 igual no servidor), nenhum token legível na pasta de dados, segunda\nabertura pelo cofre, sair revogando e troca de servidor; p360.e2e.js termina enviando o .ebgeo360\ngerado pela tela. Os dois verdes; 4 controles negativos na tela reprovaram no passo alvo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0114da6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/0114da61a1baef84b2e4de2e47dc3441c2fb369e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-28T16:12:11.000Z",
+      "author": "Maj Diniz",
+      "message": "packages/rede: conta do EBGeo, cliente tus próprio e o \"Enviar ao EBGeo\" (F1 do PLANO-AO-VIVO.md do ebgeo_web)\n\n- Conta (criarConta): login por usuário e senha, refresh ROTATIVO como o servidor faz (uma\n  renovação por vez, o refresh novo no cofre antes de qualquer uso, 429 não derruba a sessão,\n  renovação antes do pedido com folga de 60 s, desarmada se o relógio diverge), sair revoga no\n  servidor, Bearer só para a origem da sessão, senha só por https (ou http no próprio computador).\n- Rede (criarCliente): prazo por tentativa e o 407 do proxy resolvido UMA vez por um gancho\n  (autenticarProxy), porque o net.fetch do processo principal não dispara o login do Electron\n  (medido no Electron 44, http e CONNECT).\n- Tus (criarTus): pedaços de 8 MB, retomada pelo HEAD de onde o servidor parou, espera crescente\n  em falha de rede e 5xx; enviarPacote faz envio, conferir com o identificador e importar, e\n  devolve INCERTO quando a resposta do importar não chega (prazo, conexão, 502/504).\n- Alcance (medirAlcance): /api/v1/config com prazo de 5 s.\n- test/ebgeo-simulado.js: login, refresh rotativo com janela de 10 s e reuso lido como roubo,\n  logout, tus com dono e gravação em fluxo, conferir, importar, defeitos injetáveis e um proxy Basic.\n\nProva: 25 testes do packages/rede verdes, perguntando ao servidor simulado (refresh contados,\nsessão encerrada, sha256 dos bytes guardados); 15 controles negativos, cada regra desfeita na\nfonte, reprovaram e voltaram pela cópia; npm test da raiz verde (142 testes).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8b39455",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/8b3945584466bcf9d6094449947382eba985584d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T16:11:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconhecimento ao vivo, frente A: o backend da transmissão do drone sob /api/v1/aovivo (o chefe, 2026-10-28)\n\nA migração 058_aovivo.sql cria transmissão, qualidades, pedaços e telemetria, e alarga o CHECK de layers.tipo para aovivo, uma camada por transmissão (dois drones no mesmo mapa são duas camadas). A chave features.aovivo nasce desligada (503 DESLIGADO) e a pasta AOVIVO_DIR entra na sonda de escrita, no Dockerfile e no .env.example.\n\n- Criar abre a transmissão e a camada pelo sync, com Editor exigido no mapa; pedaço, init, telemetria, encerrar e o MP4 final só com Bearer e só do dono, que continua Editor.\n- Playlist EVENT montada do banco: EXT-X-MAP, EXT-X-PROGRAM-DATE-TIME, EXT-X-GAP no buraco e EXT-X-ENDLIST encerrada e completa; o seq começa em 0 e o mesmo seq substitui.\n- O MP4 final sobe pelo tus (sem refletir origem, Bearer até no HEAD), é conferido pela régua do reconhecimento do vendor, vai para a loja de vídeos e sai por rota própria com Range até ser publicado.\n- Telemetria gravada e difundida no quadro aovivo_telemetria só a quem lê o mapa; publicar cria o item reconhecimentos no formato do importado; a limpeza apaga a gravação cuja camada sumiu há mais de 7 dias.\n- Censos de saída, papel global, auditoria, leitura, superfícies, campos livres e imagens órfãs classificam as rotas e tabelas novas; cláusula 5.14 da constituição; estado da frente A no plano.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f997ac4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f997ac4dea89b4f0bd810a1d86d1bf4465568573",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:57:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconhecimento ao vivo no mapa, frente B: camada aovivo, player HLS, dois drones e \"Publicar no catálogo\" (o chefe, 2026-10-28)\n\n- Camada tipo aovivo (aovivo/aovivo.layer.js): casa a lista do mapa com as camadas pelo camadaId, lê a trilha, desenha com a camada do reconhecimento (percorrido forte, ponto e cone em metros), registra a faixa na linha do tempo e acrescenta os pontos do quadro aovivo_telemetria, que o ws-client passa a rotear. Nunca é a camada ativa, sem tabela de atributos.\n- Player: a janela do reconhecimento ganha fonte trocável e modo ao vivo; a fonte HLS abre na leve, troca de nível sem recarregar, assina os pedidos (atlasId e Authorization) e o botão \"Ao vivo\" segue a borda até a pessoa levar o vídeo a outro instante. Com os MP4 finais, troca para o arquivo com a lógica de qualidade de sempre.\n- Dois drones no mesmo mapa: cor e nome por transmissão, o quadro do WS pela transmissão certa, uma janela por camada nascendo ao lado da outra, as duas no mesmo cursor.\n- \"⋯\" da camada: \"Abrir o vídeo\" e, só para quem produz, \"Publicar no catálogo…\", recusado pelo estado até a gravação final.\n- Com features.aovivo desligado nada aparece, nem a linha na aba Camadas.\n\nProva: tests/unit/aovivo.test.js (22 casos, 9 controles negativos reprovando); censos das superfícies de recurso e da escrita crua atualizados. Suposições sobre o backend listadas no PLANO-AO-VIVO.md, \"Estado das frentes\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c144c5d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c144c5d574410fa1f9c21acf6a13de01f91e9f2d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:57:39.000Z",
+      "author": "Maj Diniz",
+      "message": "hls.js 1.7.3 no frontend, carregado só pela porta vendor/hls.js (decisão 5 do PLANO-AO-VIVO.md, o chefe, 2026-10-28)\n\nO lockfile ganha só a entrada do hls.js (o npm desta máquina reescrevia marcas de peer em outros pacotes; ficaram de fora). A porta entra no censo de carga sob demanda.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6ae1f03",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6ae1f03636b073ec0e7755069d7dc418533ad55e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:52:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Mesa, fluxos e acessibilidade: briefing que nasce na vista atual e some se fechado intocado, Apresentar no cartão, Excluir no botão direito, dica de término do desenho, tipo do lugar na busca, alvos de 24 px, anel de foco e menu da conta\n\nBriefing: o slide 1 nasce no mapa e na vista que o autor olha (antes \"Sem mapa\" e sem posição, e a\nprimeira apresentação era recusada); fechar o editor sem tocar apaga o rascunho (a bancada acumulou\noito \"Novo Briefing\"); o aviso \"criado\", que cobria a coluna por 3 s, saiu. Cartão: botão Apresentar\nverde e \"sem posição\" antes do clique (B7, B8). Botão direito: \"Abrir Ficha\" sobre uma feição, e\n\"Excluir Feição\" em vermelho sobre a seleção, com a confirmação da tecla Delete (B11). Chip de\nferramenta: \"botão direito termina, Esc cancela\" nas nove ferramentas que terminam assim (B10).\nBusca: o tipo do lugar primeiro, \"Lago · Gramado, RS\" (E28). Ocultar, Bloquear e Tabela de Camadas e\nda ficha com 24 px (D19); anel de foco de teclado em duas cores, visível no verde e no branco (D21);\n\"Excluir atlas\" no fim do menu da conta, sob uma linha (D23). Censos atualizados com motivo.\nRevisão de mesa (o chefe, 2026-10-28).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "3f81e76",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3f81e760925bac4e9cca60edef264729ee956518",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:52:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Mesa: o seletor de mapa base nunca sobe, com painel aberto ou no editor de briefing\n\nO chefe recusou a subida (\"nunca levantar ele, ficar naquela posição\"). Ela existia para escapar da\nbarra de coordenadas centrada na janela; com mouse a barra já centra na área livre à direita do\npainel (fase 2), e medido em projetor, notebook e FHD o seletor fica a 24 px da borda nos dois\nestados sem encostar na barra. No toque a barra segue centrada na janela, e a subida fica lá.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "07ed4f4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/07ed4f46ed019016b1f4226150fa7b2b1ad6a0d4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:30:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Mesa: Atalhos sem corte, Exportar PDF fixo no pé, catálogo e escolha de atlas mais densos, colunas vazias da tabela estreitas e dica própria nos controles do mapa\n\nAtalhos: até 1200 px de largura, três colunas acima de 1400, descrição que quebra linha em vez de\ncortar em reticências (D22). O botão \"Exportar PDF\" fica no pé do painel enquanto o formulário rola\n(C13). Catálogo: janela até 1680 px, grade que ganha colunas (6 no FHD), desenho genérico numa faixa\nbaixa (C18). Escolha de atlas: capa de iniciais com 56 px em vez de 120, e o ladrilho de criar local\nmais baixo (C16). Tabela: Descrição e Etiqueta vazias nascem com 96 px, e os atributos entram na tela;\na ordem das colunas segue a do chefe (C17). Dica própria (`ui/dica.js`) na coluna, na navegação, na\ntrilha, nos chips e nos visores: 300 ms, ao lado do grupo e dentro da tela, no lugar do `title`\nnativo de cerca de um segundo (D20). Revisão de mesa (o chefe, 2026-10-28).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "22f36ee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/22f36ee92def02676a9a3fd6dc85222b432a637a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:22:17.000Z",
+      "author": "Maj Diniz",
+      "message": "PLANO-AO-VIVO.md: reconhecimento ao vivo do drone no mapa, com o contrato entre as frentes (o chefe, 2026-10-28)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6e447a0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6e447a0015c791082f9dfa133ce532a03882ff1b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-28T15:22:15.000Z",
@@ -1632,6 +1974,15 @@
       "repoUrl": "https://github.com/1cgeo/github_dashboard"
     },
     {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-23T19:12:05.000Z",
+      "author": "Maj Borba",
+      "message": "HiSplit: valida shape do aux vs aef_dim, erro claro em vez de matmul opaco\n\naef_dim (HiSplit, dimensiona aef_gate_linear) e a largura real do tensor\nque um loader externo entrega via set_aux (ex. gfss.aef_cache_loader's\nn_bands) sao valores de config independentes, sem nada sincronizando os\ndois -- risco real ao combinar produtos de embedding com larguras\nnativas diferentes (AEF 64, OlmoEarth ate 128). _qfeat agora levanta\nValueError com a largura recebida vs. aef_dim esperado, em vez de deixar\nestourar dentro do matmul do nn.Linear com uma mensagem criptica.\n\n1 teste novo confirmando a mensagem de erro.",
+      "sha": "5097f84",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5097f8472887733b45fae3ecb7c07298e10b8738",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-23T19:00:07.000Z",
       "author": "Maj Diniz",
@@ -1666,6 +2017,15 @@
       "sha": "09fe2a9",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/09fe2a9aafdf93b484732b922e21a8adad8bfa04",
       "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-23T18:52:50.000Z",
+      "author": "Maj Borba",
+      "message": "olmoearth_cache: reusa conexao S3 entre chamadas (open_store + root)\n\ndownload_tile() abria a store do zero a cada chamada -- medido ~55s/tile\nde espera de rede (CPU real so' 0.3s/tile) pro download em lote dos 607\ntiles do projeto de pesquisa. Novo open_store() abre a conexao 1 vez;\ndownload_tile(..., root=...) reusa -- ~2.3s/tile com threads (24x mais\nrapido), medido no script de download em lote.\n\n2 testes novos confirmando o controle de fluxo (root omitido chama\nopen_store, root passado nao chama) sem rede real.",
+      "sha": "b9bb2e5",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b9bb2e5bc9cc35a650042f0c025f6a4e91567d12",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
       "repo": "1cgeo/chefe_dgeo",
@@ -1749,6 +2109,15 @@
       "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
     },
     {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-23T18:23:08.000Z",
+      "author": "Maj Borba",
+      "message": "Integra download/cache do OlmoEarth v1.3 como fonte alternativa de embedding\n\nNovo few_shot/olmoearth_cache.py: download_tile() baixa a janela de um\ntile direto do bucket publico (S3-compativel, sem auth) do OlmoEarth v1.3\n(allenai.org/papers/olmoearth-v1-3; 10m, anualizado, 64/128-dim), salva\ncache .npz por tile (key 'olmoearth', int8, -128 nodata), reprojetado da\nzona UTM da loja pro grid proprio do tile via rasterio.warp.reproject\n(nao e' um crop ingenuo). OlmoEarthCacheLoader le esse cache pro\nmecanismo wants_aux/set_aux -- mesma assinatura de AefCacheLoader, drop-\nin via o novo gfss.aef_cache_loader (Hydra target), sem mudar HiSplit.\ndequantize_olmoearth usa o esquema proprio do produto (raiz quadrada\ncom sinal, v=sign(q)*(|q|/127.5)^2) -- NAO e' a mesma formula linear\n/127 do AefCacheLoader, produtos diferentes.\n\nGFSSModel.__init__: gfss.aef_cache_loader, quando setado, e'\ninstantiate()ado em vez do AefCacheLoader(aef_cache_dir) padrao --\ngenerico, qualquer classe com load_batch compativel funciona.\n\nNovo optional-dependency group \"olmoearth\" (zarr>=3, obstore, pyproj).\n\nCobertura confirmada contra a loja real (nao so' o README), nao so'\ninferida: 19 pontos reais testados nos anos que os tiles do projeto de\npesquisa realmente usam no sul do Brasil (2017/2022/2023/2025) --\nembedding real em todos, nenhum nodata. 2016 esta fora do range do\ndataset (2017-2025 so'), sem substituto.\n\n9 testes novos (test_olmoearth_cache.py, sem rede) + 1 teste de\nintegracao real via train() (test_gfss_model.py). 73/73 + 139/139\npassando, sem regressao.",
+      "sha": "5781f9c",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/5781f9c57b7bfbccb27825b9c45c2ac6c76eaf97",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
       "repo": "dsgoficial/ferramentas_edicao",
       "date": "2026-10-23T18:21:31.000Z",
       "author": "1º Ten Marcel",
@@ -1792,6 +2161,15 @@
       "sha": "f2fe132",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/f2fe1325a93d4ec065ff809bd287aaf3e24179ad",
       "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-23T17:56:14.000Z",
+      "author": "Maj Borba",
+      "message": "HiSplit: aef_gate compoe o gate AEF com q: edl (e qualquer q treinavel)\n\nNovo aef_gate: bool (default False, sem mudanca de comportamento) --\naplica o gate AEF (_qfeat, inalterado) junto de q: linear/trans/edl,\nem vez de so' atraves de q: linear_aef_gate (mutuamente exclusivo ate\nagora). aef_gate_linear e' um nn.Linear de verdade, entao e' pego\nautomaticamente pelo loop generico de treino de q (gradiente flui por\n_scores, igual q_weight/q_bias) -- nao pelo self-fit de\n_fit_aef_gate, que continua restrito a q==\"linear_aef_gate\" (pl_trainer.\nmax_steps precisa ser >0, como ja' e' pra qualquer q treinavel).\naef_gate=True com q nao-treinavel e nao-linear_aef_gate (proto/\nproto_prob/logreg) levanta ValueError -- o gate nunca seria ajustado.\n\nMotivado por pedido do usuario: q=edl (cabeca evidencial em pares) tem\nganho proprio, pequeno mas real e consistente nos 2 biomas (+0.011 a\n+0.020 mIoU-novo), que precede o gate AEF e nunca foi combinado com\nele -- o gate foi implementado como seu proprio valor de q desde o\ninicio, tornando os dois mutuamente exclusivos por construcao, nao\nporque a combinacao foi tentada e falhou.\n\n8 novos testes (TestAefGateComposedWithQ), 130/130 HiSplit + 193/193\nHiSplit+GFSSModel, sem regressao.",
+      "sha": "9f1995a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/9f1995ac7640d55a5260e5e84c3e6c27d006a20f",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
       "repo": "1cgeo/ebgeo_campo",
@@ -1918,6 +2296,24 @@
       "sha": "b4d6eb7",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b4d6eb7c5b3254ded4c738b7d04995e41a2382bd",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-23T13:40:56.000Z",
+      "author": "Maj Borba",
+      "message": "HiSplit: aef_gate_uncertainty_blend -- pos-gate, determinista, sem params novos\n\nAlternativa ao aef_gate_uncertainty (concat): em vez de dar a base_vacuity\npro Linear do gate como entrada, aplica deterministicamente DEPOIS --\ngate' = w*gate + (1-w), w = 1-base_vacuity -- puxando o gate de volta pra\n1 (sem modulacao) onde o modelo base esta incerto. Reusa exatamente a\nformula de _apply_confidence_weight, so' que no gate em vez de em q.\n\nMotivado por pergunta do usuario apos o resultado do aef_gate_uncertainty\n(concat) em Pampa: diff ~0.0001, nenhum Wilcoxon p<0.1 em nenhum K --\n\"o base vacuity nao poderia ser aplicado apos o gate?\" (ao inves de so'\nentrada que o fit pode aprender a ignorar). Essa versao e' uma regra\nfixa, nao um peso que o Adam controla.\n\n10 novos testes (TestAefGateUncertaintyBlend), 185/185 HiSplit+GFSSModel\npassando.",
+      "sha": "f75af40",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/f75af40b3aecedaaf79008ee2109d92f415e4e43",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-23T12:40:45.000Z",
+      "author": "Maj Borba",
+      "message": "HiSplit: aef_gate_uncertainty combina o gate AEF com a incerteza do base evidencial\n\nConcatena a base_vacuity do modelo base (requer base_output: evidential,\ncheckpoint R2-EDL) ao embedding AEF antes do gate multiplicativo --\nfeatures' = features * sigmoid(Linear([aef; base_vacuity])), input dim\naef_dim+1. base_vacuity e' a unica medida de incerteza utilizavel aqui sem\ndependencia circular (split_vacuity/dissonance dependem de q, ou seja de\n_qfeat, e recursariam).\n\nMotivado por pergunta do usuario no projeto de pesquisa: ja' sabiamos que\ntrocar o checkpoint congelado por R2-EDL tem efeito assimetrico por bioma\n(ajuda Pampa, atrapalha MA); essa mudanca torna a incerteza um sinal\nexplicito que o proprio gate aprende a usar, em vez de so' um efeito\nindireto de qual checkpoint alimenta o gate.\n\n7 novos testes (TestAefGateUncertainty), 100% das linhas novas cobertas;\n180/180 testes de HiSplit/GFSSModel + suite completa (4391 passed, 13\nfalhas pre-existentes e nao relacionadas -- kmeans determinism, cuCIM,\nfixture corrompida, bcm parity -- sem overlap com hisplit.py).",
+      "sha": "e94b04e",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/e94b04efe9b7c90186405ab41fe217883ed07b3b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
       "repo": "1cgeo/ebgeo_web",
@@ -2269,6 +2665,15 @@
       "sha": "1145bbd",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1145bbdde873fbb607fa03e1a0f1a8f3aeac9997",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-21T22:17:19.000Z",
+      "author": "Maj Borba",
+      "message": "feat(hisplit): AlphaEarth Foundations multiplicative gate (q=linear_aef_gate)\n\nGates the frozen base features with an external per-pixel embedding\nbefore the linear head (features' = features * sigmoid(Linear(aef))),\nfit jointly with the head by a self-contained Adam loop inside\ninit_from_support (_fit_aef_gate, mirrors _fit_logreg's sklearn fit --\npl_trainer.max_steps stays 0, like logreg/proto).\n\nNew generic BaseGFSSMethod.wants_aux/set_aux mechanism: GFSSModel loads\nand re-aligns an auxiliary per-batch tensor under every TTA pass (same\ntransform as the image), zero impact on every other method (default\nFalse/no-op). New AefCacheLoader (few_shot/aef_cache.py), pure I/O over\na per-tile .npz cache, graceful (zero) fallback on a missing tile.\nNew gfss.aef_cache_dir wires it into GFSSModel.\n\nMotivated by a 4-stage separability probe run outside this repo (see\nthe companion doctoral project's analise_comparativa_hisplit_estado_da_\narte_2026-10-16.md, Sec 8.14): this exact multiplicative gate was the\nstrongest and most consistent non-linear interaction between AEF and\nthe base's features for a campo x cultivada-style split, confirmed in\n2 biomes (K>=3) -- plain concatenation and a generic MLP on the\nconcatenation were both weaker.\n\n12 new tests (10 unit + 2 end-to-end through train()), all passing,\nplus the full existing test_gfss_model.py/test_few_shot_hisplit.py/\ntest_few_shot_backbone.py suites (190 tests).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013fipMhds365ues51cEByaj",
+      "sha": "61aa6cd",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/61aa6cd4897d202217a87bb9c443577e5996670d",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
       "repo": "dsgoficial/sap",
@@ -2928,6 +3333,15 @@
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
     },
     {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-21T00:45:00.000Z",
+      "author": "Maj Borba",
+      "message": "feat(hisplit): hard-decode (BCM-style override gated by uncertainty) and BCM-as-teacher distillation\n\nPedido do usuario: investigar como incorporar o mecanismo do BCM\nusando incerteza/evidencia, apos hisplit_logreg (mesmo classificador\ndo BCM) nao ter empatado com o BCM em MA -- sinal de que a decisao\ndura (BCM) vs. a fatoracao suave do HiSplit, nao so o classificador,\npode explicar parte do gap.\n\n- hard_decode_measure/hard_decode_threshold (None/0.3, desabilitado\n  por padrao): snapa q para um one-hot no proprio argmax, por mae,\n  onde a medida de incerteza esta abaixo do limiar (confiante) --\n  override duro tipo BCM, mas so onde o modelo esta confiante, em\n  vez de sempre. Funciona com qualquer q.\n- bcm_teacher_weight (0.0, desabilitado por padrao, trans only):\n  ajusta um LogisticRegressionCV (mesmo classificador do\n  hisplit_logreg/BCM) no suporte e destila a decisao dele em q via\n  CE ponderada pela confianca do proprio professor.\n\n14 testes novos, 100/100 passando. 2 falhas pre-existentes em\ntest_few_shot_bcm.py (confirmadas no HEAD limpo antes desta mudanca,\nnao relacionadas).\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013fipMhds365ues51cEByaj",
+      "sha": "ab13ea0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/ab13ea0dc41178324c4664bf2ef61a8d4da7b7ca",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-20T20:29:29.000Z",
       "author": "Maj Diniz",
@@ -3061,6 +3475,15 @@
       "sha": "ea6ad0c",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ea6ad0c6ce7793080bd07da5ab7c31d2743b7326",
       "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-10-20T19:19:03.000Z",
+      "author": "Maj Borba",
+      "message": "feat(hisplit): Tversky term on the trans adaptation's support\n\nNew tversky_weight/tversky_alpha/tversky_beta (0.0=disabled, default,\nno behaviour change). Adds (1 - mean_c Tversky_c) over children\npresent in the K-shot support to adapt_to_query's loss, averaged\nuniformly over classes instead of _support_ce's per-pixel average --\nmotivated by checking whether that per-pixel averaging (which lets\nthe easier/majority \"kept\" child dominate the gradient on a tiny,\nimbalanced support) is part of why the pseudo-label mechanisms never\nsaw a confident novel pixel. tversky_beta > tversky_alpha penalises\nfalse negatives more, to push confidence onto an under-predicted\nnovel child; alpha=beta=0.5 is the Dice coefficient.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_013fipMhds365ues51cEByaj",
+      "sha": "c424b4a",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/c424b4a728c190e6a06cdeb48fc1d19307ba0978",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
     },
     {
       "repo": "dsgoficial/pytorch_segmentation_models_trainer",
