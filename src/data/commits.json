@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-27T23:40:48.805Z",
+  "lastUpdate": "2026-10-28T16:32:33.654Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-27T22:22:26.000Z",
+    "1cgeo/ebgeo_web": "2026-10-28T15:22:15.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-10-05T15:43:51.000Z",
     "dsgoficial/ferramentas_edicao": "2026-10-16T15:36:17.000Z",
     "dsgoficial/DsgTools@dev": "2026-10-23T16:25:25.000Z",
-    "dsgoficial/sap": "2026-10-21T20:58:47.000Z",
+    "dsgoficial/sap": "2026-10-28T14:07:26.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-09-25T18:43:16.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-27T15:44:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-28T15:04:47.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-10-27T09:07:48.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-26T20:48:46.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-28T11:05:09.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 9947,
+    "totalCommits": 9979,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3033,
+      "1cgeo/ebgeo_web": 3050,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -149,7 +149,7 @@
       "dsgoficial/configuracoes_producao": 210,
       "dsgoficial/ferramentas_edicao": 498,
       "dsgoficial/DsgTools": 656,
-      "dsgoficial/sap": 182,
+      "dsgoficial/sap": 183,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 75,
       "dsgoficial/EBGeo_Desktop": 146,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 21,
-      "1cgeo/ebgeo_campo": 58,
+      "1cgeo/ebgeo_campo": 61,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1238,
+      "1cgeo/chefe_dgeo": 1249,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,294 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:22:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Sombreamento: os tamanhos de letra da rosa pelos tokens da casa (régua de tipografia da main)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "269cb4e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/269cb4e52fb70f8fa1ee7eca4f4f443350aaf10c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T15:10:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Sombreamento: volta a ser a primeira linha da aba Camadas, sem remoção, com o olho e \"Configurar estilo\" (força, direção da luz, luz presa ao mapa ou à tela, cores de sombra, realce e destaque), estilo da pessoa levado por \"Salvar vista inicial\"; sai do painel Mapa base (o chefe, 2026-10-28)\n\nAs opções são as do ORBAT Mapper e a forma é a do painel da trilha do reconhecimento: receitas com\nprévia desenhada (serras vistas de cima, tingidas pela luz), força em degraus, rosa da luz com o\nporquê, paletas com \"outra cor\". O estilo mora no registro da vista da pessoa e em\nmaps.base_view.estiloDoSombreamento, fechado pelo mesmo vocabulário no cliente e no servidor\n(normalizarEstiloDoSombreamento); a cor escolhida guarda a transparência da pintura da instalação.\nO motor da Ajuda passa a ligar o sombreamento como a produção. Ajuda: página nova com duas figuras,\nquatro páginas reapontadas, barra lateral e novidades.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "93a28e6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93a28e649d5f446ddc5de9f21ad568fa23a04014",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T15:04:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 7): reconhecimentos do CI Butiá (cib-sede-2026-10-27 e cib-barracoes-2026-10-27, voos de 27/10 do Mavic 3E) no EBGeo do 1º CGEO e da DSG, privados da OM, pela rota do painel com ensaio antes; importar-modelo-3d ganha o scripts/enviar_pacote.mjs (tus, conferir e importar de dentro do container, porque o pacote-importar.js não vem na imagem) e o nome de reconhecimento pelo lugar, nunca pelo arquivo DJI\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "04acb6a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/04acb6aaa9338c16c2bcc7914b04cc76410b6f68",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T14:59:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 6): revisão de UI do celular do EBGeo Web por visão em 12 tamanhos, com a bancada completa (milsymbol, relevo sintético, 3D e Ajuda), e as ondas 1 a 3 publicadas (ebgeo_web e87a444b9, a9bdceced, 872b1e0c5, sem deploy); prompt das figuras do celular na Ajuda; subwiki (câmera do MapLibre sob folha, corrida de carga sob demanda, celular deitado); livro-razão (fonte do vault ignorada, régua cega pega pelo controle negativo)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QrgAF4dU4LRY9D5kC",
+      "sha": "4b37851",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4b3785129e1cdc669dced9557bcb6641efa1f84f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T14:16:45.000Z",
+      "author": "Maj Diniz",
+      "message": "vault: revisão de tablet do EBGeo Web e o prompt das figuras da Ajuda (o chefe, 2026-10-28)\r\n\r\nO diagnóstico e o estado do projeto ebgeo-tablet, as decisões de 2026-10-28 (cont. 1, 2 e 3 do\r\ntablet), três lições da bancada na subwiki do ebgeo-web e o prompt para outro agente refazer as\r\nfiguras da Ajuda. Montado sobre o origin/main num índice temporário: as mudanças de outras\r\nsessões que estão no disco (celular, mesa, telemetria, livro-razão) ficam de fora. Pedido do chefe.\r\n\r\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\r\nClaude-Session: https://claude.ai/code/session_018J7V3Q2bgSnzmZ9mfvS32h",
+      "sha": "f60d6c8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f60d6c8bafaebb56ccf149ae60efd6cec246b58a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T14:16:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Celular deitado: Anotar e Mais num trilho à direita, a ficha e as análises numa folha lateral, e o 3D sem colisão (o chefe, 2026-10-28)\n\nOnda 3 da revisão de UI do celular. Deitado, a casca era a pilha de pé espremida: a barra de baixo comia um quinto da altura e a folha de baixo deixava uma faixa de mapa.\n\n- A barra vira um trilho à direita, com a ação principal embaixo; o recuo do mapa troca o pé pela direita (_aplicarAlturas lê o corte deitado).\n- A ficha, o Editar, o Onde, os parâmetros da análise e a folha da ferramenta sobem pela lateral, sem alça; o enquadramento da feição respeita o recuo da direita.\n- Anotar em três colunas e cinco formas por linha; Mais em duas colunas.\n- 360 com o minimapa menor e as ferramentas em grade; 3D com as ferramentas numa grade de cinco à esquerda da coluna de zoom e o fechar fora de cima do \"+\" (a 568x270 os dois se cobriam).\n- Com a folha da ferramenta aberta o aviso e a posição param antes dela, e o aviso do sistema centra na faixa de mapa.\n\nMapa livre deitado com a ficha aberta: de 0% para 41 a 44%. Prova: dois casos em celular.spec.js, que reprovam a versão anterior.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QrgAF4dU4LRY9D5kC",
+      "sha": "872b1e0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/872b1e0c552223bceaa82630ecc94f51c7232039",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-10-28T14:07:26.000Z",
+      "author": "1º Ten Marcel",
+      "message": "log: limita o log de JWT expirado por IP e rota, e registra a requisição ao terminar\n\nCliente com QGIS aberto e token vencido reenviava /microcontrole/feicao a cada\nsegundo e inundava o log (stack completo, 2 linhas por tentativa). Agora o\nTokenExpiredError gera no máximo 1 linha curta por IP+rota a cada 5 min, com a\ncontagem de suprimidos. Demais 401 e erros seguem com log completo.\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>",
+      "sha": "a883bcd",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/a883bcd1ec931a854df8076cf0897ac2de4acc23",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T14:02:27.000Z",
+      "author": "Maj Diniz",
+      "message": "tablet: filtro por local do catálogo à vista em pé, régua de 44 px na carta, no briefing e na tabela, e três specs que reprovavam pela semeadura (o chefe, 2026-10-28)\n\nCatálogo em pé: o filtro por local ia no fim da fileira que rola de lado, invisível, e esticava a\nfaixa a 170 px; agora vem numa fileira própria, embaixo das abas. A faixa também passava 24 px da\ntela (width 100% com o padding por fora).\n\nAlvos de toque: botões da carta (34 px), do editor de briefing (24 a 36 px, e a barra do Quill de\n40 px) e da tabela de atributos (32 e 40 px) sobem para 44 px; o selo de envio, que só com o ponto\nde cor tinha ficado com 18 px de largura, também.\n\nSpecs: \"camadas pelo dedo\" esperava o olho da camada no servidor, e o olho é da pessoa desde\n2026-10-12, e tocava em Camadas com a aba já aberta, o que a fechava; as três de rota semeavam a\ntrajetória só na store, e desde 2026-10-25 a seleção monta a feição pela fonte do mapa, então a\nficha dizia \"Sem trajetória\". O botão de Modelos 3D sem catálogo já dizia o motivo no toque: não é\ndefeito.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3Q2bgSnzmZ9mfvS32h",
+      "sha": "46835ae",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/46835ae693d5a7e9e530967808fdf0cb520d556d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T13:39:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Grade no tablet e na Ajuda: a seta de opções e o painel com alvos de toque (32 px na barra, 44 px no painel) e a figura v2-atlas-grade-02, a referência MGRS em cada célula com o painel aberto (o chefe, 2026-10-28)\n\nA regra de mesa da seta (12 px, !important, no fim do coordinates.css) vencia a de toque. Medido com\ntoque emulado em 1024x768 e 768x1024. O alvos-de-toque.tablet.spec.js não vê a grade: a bancada do\ne2e sobe com features.grid desligado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2909158",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2909158758c14696297f58c58f80490cbcad5263",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T13:20:41.000Z",
+      "author": "Maj Diniz",
+      "message": "processing-tab-local: a aba tem quatro cartões de algoritmo, com Pontos Dominantes (o chefe, 2026-10-28)\n\nA spec contava três desde antes de Pontos Dominantes entrar na aba, e os seis casos dela\nreprovavam pela contagem, não pela tela.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3Q2bgSnzmZ9mfvS32h",
+      "sha": "3110f1c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3110f1cde9e053bdde0629532df12282fe52d8cb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T13:18:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 4): pedidos 239 (Esc Sau/3ª RM, mapa de OM 6698 em 80 x 62 cm, pasta 08_EscSau3RM) e 240 (4º RCB, 86 itens digitais, um mosaico por escala e a 1:25.000 em três grupos); mosaicar-cartas aceita 1:100.000 e 1:25.000, edição antiga com paleta, CRS sem código e --tol-centro; o peso vira pergunta da SKILL.md (livro-razão, custo-sem-medida recorreu na mesma skill)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "dba6221",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dba6221eb6d811bd918752244df29fb867f41aa3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T13:17:59.000Z",
+      "author": "Maj Diniz",
+      "message": "Grade: os consertos da bateria da raiz (contrato da forma da grade lido de DEFAULT_GRID_STYLE, censo do clique de fora, isenção morta do despachante, seletor CSS duplicado, página da Ajuda no teto de palavras) (o chefe, 2026-10-28)\n\nforma-do-escritor-atravessa lia o literal setGridStyle(mapName, { e conhecia só format e visible; agora\nlê as chaves de DEFAULT_GRID_STYLE e grava o estilo inteiro, e reprova o servidor antigo, que as descartava.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3b64ff4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3b64ff4ec45282f83fb6fc4d00de18fb5d335498",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T13:09:58.000Z",
+      "author": "Maj Diniz",
+      "message": "tablet: a aba Processar, o Importar com o desenho do Exportar e o Cancelar na barra do desenho (o chefe, 2026-10-28)\n\nAs três escolhas que a revisão de tablet deixou para o chefe, todas na recomendação: a aba da\nbarra lateral com os algoritmos passa de \"Análise\" a \"Processar\" (o grupo da gaveta, de terreno,\nsegue \"Análise\"); o Importar ganha o desenho do Exportar, com borda neutra, ícone em verde claro e\nseta, e sai a paleta de cores própria dele; a barra de desenho do toque ganha Cancelar antes do\nDesfazer nas nove ferramentas 2D que a usam.\n\nProva: três casos novos em revisao-de-tablet.tablet.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3Q2bgSnzmZ9mfvS32h",
+      "sha": "7ee056e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7ee056e9f523ef5640ab36e78fae77041bda4d28",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T13:05:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Celular: o toque que carrega uma ferramenta dá retorno na hora e não aceita outro até ela entrar (o chefe, 2026-10-28)\n\nA ferramenta de desenho e a análise carregam o módulo na primeira vez, e a tela de Anotar ou de Mais ficava aberta e muda nesse intervalo: o segundo toque, num botão vizinho, abria outra ferramenta, e a que terminava de carregar por último vencia (medido: o Setor tomava o lugar do Círculo). O botão tocado ganha aria-busy e um giro, e o toque seguinte é ignorado até a ferramenta entrar.\n\nRevisão por visão das telas da obra: a folha Onde sobe na meia altura (na espiada a opção No mapa ficava fora), e a barra de quatro botões a 320 px aperta a letra (Cancelar e Concluir encostavam na borda).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QrgAF4dU4LRY9D5kC",
+      "sha": "a9bdcec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a9bdcecedd9d761adb97be509365d810d16523be",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T12:39:33.000Z",
+      "author": "Maj Diniz",
+      "message": "tablet: a revisão por visão em dez tamanhos e os consertos dela (o chefe, 2026-10-28)\n\nO menu do toque longo fica aberto ao soltar o dedo (o clique sintetizado depois do touchend o\nfechava), o \"Mais ações\" do cartão de atlas aparece sem mouse, a tabela de atributos abre com\nlinhas à vista no tablet deitado, o editor de briefing deixa de amontoar selo, coordenadas e\nminiatura, a busca não fica por baixo do selo de envio em pé, o chip \"Ferramenta ativa\" desce\npara o lugar das pílulas, a gaveta cabe deitada, Salvar e Descartar grudam no pé da ficha, e\ncarta deitada, minimapa do 360, linha da aba Camadas, abas do catálogo, faixa do atlas.html e\ntabela da Administração ganham leiaute de tablet. As dicas de mouse dizem \"Toque\" no toque.\n\nProva: revisao-de-tablet.tablet.spec.js, 7 casos, que reprova o commit anterior em 7 de 7.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3Q2bgSnzmZ9mfvS32h",
+      "sha": "aa34e00",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa34e00414571a69abc254180e4820819345f68e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T12:23:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 5): prêmio EB/DCT da Mostratec 2026 (placa genérica, 6 certificados com a assinatura reproduzida do TC Dresch por aval dele, slide de fundo); método das peças em wiki/pecas-graficas-impressas (Edge headless, fonte estática, régua de moldura em todas as páginas); visibilidade 3D na captura estática do EBGeo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d40fbb8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d40fbb8f31d3c7cd84adc45c808b54c0c6b982b4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T12:17:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Celular: mais mapa, a ficha e as análises numa folha de baixo, e uma barra de modo só (o chefe, 2026-10-28)\n\nOndas 1 e 2 da revisão de UI do celular por captura em 12 tamanhos, em pé e deitado.\n\n- O alto vira uma faixa só (logo, mapa aberto, busca e conta) sobre as abas; a busca sai de cima do mapa. Mapa livre num iPhone SE em pé: de 40% para 60%; deitado a 568x270, de 37% para 55%.\n- No modo de marcação a casca sai de cena; a barra Anotar e Mais some dentro das telas.\n- A ficha, o Editar, o Onde e os parâmetros da análise sobem numa folha de três alturas (alça e arraste), com a feição enquadrada acima dela.\n- Toda barra de modo é sair (Cancelar, ou Concluir quando nada se grava), Desfazer e a ação. Finalizar e Desfazer espelham a mesa em aria-disabled e recusam dizendo o que falta; a Área do Medir vira chave no aviso.\n- A conta da análise que não sai deixa a folha aberta, com o aviso e os pontos.\n- A linha inteira do Relevo em 3D liga a chave; Compartilhar pela folha do sistema; a busca sem nomes de lugar diz isso; coordenada em metro inteiro com o formato escrito; distância acima de mil km sem o ponto; inclinação do perfil com vírgula; aviso de placa de vídeo sem \"computador\"; Fechar igual no 3D e no 360, e o 360 sem a faixa branca deitado.\n\nAs três figuras do celular na Ajuda mostram o alto antigo até a próxima rodada do motor de mídia (falta a origem dos tiles nesta estação).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QrgAF4dU4LRY9D5kC",
+      "sha": "e87a444",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e87a444b9e2b3941d31ac00068783823d169530e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T11:53:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Grade no navegador: Lat/Long (GMS e decimal), UTM e MGRS para o mundo, dois botões (ligar e opções) e a referência MGRS em cada célula, como uma grade alfanumérica; o servidor guarda o estilo inteiro (o chefe, 2026-10-28)\n\nAs linhas saem de tiles vetoriais escritos no cliente (protocolo próprio, MVT à mão, sem dependência\nnova), com as exceções da Noruega e de Svalbard e o recorte na borda da zona; a referência é a grade\ndo ORBAT Mapper (MIT). O painel tem sistema, formato, intervalo mais fino, cor, opacidade e espessura,\ne grava uma vez 600 ms depois da última mudança. normalizeMapChanges montava o grid_style só com\nformat e visible e descartava o resto em silêncio: agora monta por GRID_STYLE_KEYS.\n\nPlano em PLANO-GRADE.md; Ajuda, novidades e o clipe v2-atlas-grade-01 refeitos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c9a8915",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c9a89151e929b25e6c69ee897564a7a978442a7e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T11:46:06.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont.): a tomada historico-restaurar-02 era corrida contra o Salvar que fecha a seleção (3 em 5 medidas, 9 em 9 depois, ebgeo_web 77c7d535d); porta do motor ocupada por outra sessão se troca, não se mata\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "395b149",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/395b1496562a0e59f275244f51f255fc0f7fdb14",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T11:43:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: a tomada historico-restaurar-02 espera o Salvar fechar o painel e seleciona o ponto de novo (reprovava 3 em 5)\n\nO Salvar do painel fecha a seleção depois de gravar (tool_manager/helpers/buttons.helpers.js), e a\ntomada clicava em Histórico deste item numa corrida contra esse fechamento: o botão ficava no DOM,\nescondido, e o clique esgotava 30 s. Medido em 2026-10-28: 2 aprovadas em 5 antes, 9 em 9 depois.\nO recorte fica rente à gaveta nos lados (a folga de 16 px levava um rótulo do mapa cortado).\n\nTestes da Ajuda: 113 de 113.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "77c7d53",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/77c7d535d5c4f932b0889e0a459039e23efceaa6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T11:23:13.000Z",
+      "author": "Maj Diniz",
+      "message": "vault: o trabalho não commitado de outras sessões entra por cima do remoto\n\nDecisões de 2026-10-26 (cont. 10 e 11), 2026-10-27 (cont. 2) e 2026-10-28 (Horizonte), com a de 2026-10-24\nmarcada SUPERADA em parte; a revisão de UX do celular (diagnostico-ux-2026-10-28.md e a linha no PROJECT.md);\na pasta ebgeo-tablet; a bancada de celular e de tablet na subwiki do ebgeo-web; a telemetria. Juntado\narquivo por arquivo com o origin/main: nenhuma linha do disco nem do remoto ficou de fora, nenhuma entrada\nrepetida, e a edição do remoto prevaleceu na linha de 2026-10-25 (SUPERADA). Pedido do chefe.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "6851a7e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6851a7e0500e3d04a8209314563b76b52919792e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T11:19:52.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 3): LAI de Salvador do Sul (60143.005077/2026-11) nasce Concluída, pedido 238 com 22 fotos pelo polígono do município (link 412) e DIEx 31680 em elaboração; gera_retorno.py vira script da skill entregar-lai, com o molde em assets; testa_guarda.py marca a fixture C:/x com path-ok (o guard barrava todo commit)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1eb125f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1eb125fd174662c7197063819d91230a2a7391e5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T11:06:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28: Ajuda do ebgeo_web (5b0afcf97) com restaurar, coluna do Horizonte e slide Horizonte; o método da Ajuda sai do learnings quente para references/ajuda-ebgeo-web.md (17 para 14 KB), com figura de diálogo modal virando clipe e o teste de Atalhos como checagem prévia (recorreu)\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "b371fd1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b371fd13d693a159516feeb5f9a461a32c99462a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T11:05:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 2): a página de download do EBGeo Campo recebe a versão escrita a cada publicação (atualizar_pagina.sh, ebgeo_campo 19cb28d; página c521303 na 0.1.8)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "b9547e0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b9547e086a011ff6227e744a072f23a4e51b45c4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-28T11:05:09.000Z",
+      "author": "Maj Diniz",
+      "message": "publicar: a cada versão, a página de download recebe a versão escrita (atualizar_pagina.sh)\n\nA página lê as versões pela API do GitHub, mas sem ela (sem rede para a API, ou o limite de 60 pedidos por\nhora esgotado num IP compartilhado) valia o texto fixo, parado na 0.1.5. O atualizar_pagina.sh troca os\nmarcadores data-versao e data-data do index.html e o link do botão, confere os três lugares e empurra; o\npublicar.sh o chama depois do release (o chefe, 2026-10-28). Prova: reprova a página sem marcadores (0 de 3)\ne leva a página da 0.1.7 à 0.1.8.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "19cb28d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/19cb28d4fff10805c47efee1ef3db241ec15c002",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T11:01:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: restaurar o atlas ou uma feição a um momento, a coluna de ferramentas do Horizonte, guardar a direção e o slide Horizonte (o chefe, 2026-10-28)\n\nDocumenta fd164a6ce e dde488b04.\n\n- Páginas novas: como-fazer/voltar-a-uma-versao (\"Restaurar o atlas até aqui\", \"Restaurar esta\n  versão\" do momento e da feição, o que não volta) e como-fazer/guardar-a-direcao-do-horizonte\n  (Salvar a direção, Abrir o Horizonte nesta direção, Salvar a imagem, Adicionar ponto e Criar\n  ponto aqui), na barra e nas novidades de 2026-10-28.\n- Horizonte, Histórico, montar e apresentar um briefing ganham o link, a coluna e o slide Horizonte\n  (o editor só oferece a orientação salva com o Mapa do slide escolhido).\n- Mídia pelo motor: clipe historico-restaurar-01 (a figura com a pergunta desfocava a gaveta e o\n  botão só existe com o mouse em cima), figuras historico-restaurar-02, horiz-coluna-01,\n  horiz-direcao-01 e briefing-horizonte-01; l7-horiz-03 e v2-terreno-horiz-01 regravadas na barra\n  nova. Ajudante abrirHorizonteEm em lib/cenas.mjs; criarAtlas aceita propriedades da feição.\n- atalhos.test: \"desfazer\" ganha a página de tarefa nova (medida em 2º, atalhos em 6º), limite 6.\n\nTestes da Ajuda: 113, com o de atalhos reprovando antes do limite novo e passando depois; build com\no lint de conteúdo verde.\n\nCo-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+      "sha": "5b0afcf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5b0afcf97ed75612c346e9612d9a3166393bf068",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-28T11:00:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 1): EBGeo Campo sem sinal; app 0.1.8 publicada (reconexão no intervalo, intervalos de 15, 30 e 60 s; ebgeo_campo d914688) e envelope atrasado que grava os pontos (ebgeo_web 2b4484c4f, sem deploy); guarda.sh barra python pelo stdin, com aval do chefe e prova em testa_guarda.py; livro-razão (barra invertida, 9º evento)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "4c132d6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4c132d6cf3eafea67ee0f910bf139fc781e60dff",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-28T10:58:15.000Z",
+      "author": "Maj Diniz",
+      "message": "publicar: o SHA-256 do APK pelo stdin, conferido como 64 hex\n\nCom o caminho do APK no argumento, o sha256sum do Git Bash põe uma barra invertida antes do hash\nquando o caminho tem barra invertida, e ela saiu na nota da v0.1.8 (corrigida no release).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "3118afc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/3118afc477f10287e34a3a210b206fb65591a08a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T10:46:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Campo: o envelope sem sinal que chega depois de um mais novo grava os pontos (o chefe, 2026-10-28)\n\nO semSaltos descartava todo ponto mais velho que o último gravado do aparelho, e o lote do período\nsem sinal que chegava atrasado (troca do retransmissor para a VPN no meio da fila, ou o 503 que o\nretransmissor reentrega) perdia todos os pontos e saía confirmado. A referência dele passa a ser o\nponto gravado logo antes do primeiro do lote (ultimoPontoMedido com antesDe), uma ida a mais ao banco\nsó no envelope atrasado; o salto impossível contra esse ponto ainda cai. Prova: spec em\ncampo-porta-envelope.test.js, que reprova o tradutor anterior (0 de 10 pontos gravados).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "2b4484c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2b4484c4f3b2131809ed5b90c0347a11e515c821",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-28T10:46:34.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.8: sem rede, a reconexão no intervalo escolhido; intervalos de 15, 30 e 60 s\n\n- Sem rede e com a fila parada, o laço do serviço e o da frente do app tentavam a rede a cada 2 s\n  (1,5 s na frente), com a sonda e a caixa saindo a cada passada. Agora tentam no intervalo escolhido\n  (Mensageiro.semRede, LoteDePosicao.espera); o relato novo e o ponto novo ainda acordam o laço na hora.\n- Os intervalos de envio passam a 15, 30 e 60 s (eram 30, 60 e 120), padrão 60; o guardado fora da\n  lista volta ao padrão no núcleo e na tela. Com 15 s a leitura do GNSS fica no piso de 10 s.\n- Prova: SemSinalTest (espera sem rede e intervalos) e o e2e (os três botões dos Ajustes).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "d914688",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/d914688f866440d79dfa0a54571e0e10be183a5c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T10:07:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Horizonte: a barra de baixo fica com data, hora e Sol, e as ferramentas vão para a coluna do canto superior direito, com Mover e Adicionar ponto (o chefe, 2026-10-28)\n\n\"Pode ter a barra em baixo, mas quero ela com pouca coisa, quero ferramentas no canto superior\ndireito como nas demais áreas\" e \"uma para mover e uma para adicionar o ponto\".\n\n- A coluna vertical do 360 e do 3D, sob o fechar: Ajustes da vista (painel com a altura do olho,\n  o exagero e a altura do alvo), Símbolos do mapa, Imagem sobre o relevo, Mover, Adicionar ponto,\n  Salvar a direção e Salvar a imagem. A barra de baixo guarda a data, a régua da hora e o Sol.\n- Mover e Adicionar ponto são ferramentas de clique: ligada, o clique no chão voa até lá ou cria\n  um ponto; o arrasto continua girando; o céu não faz nada; o primeiro Esc desliga a ferramenta\n  (e fecha o painel de ajustes) antes de fechar a vista.\n- Teste com duas contas: a direção salva chega ao banco com a vista inteira, ao mapa do colega e\n  ao painel de camadas dele.\n- Ajuda e wiki dizem onde fica cada controle.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "dde488b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dde488b04c17ba4234354b4705145ba73e5335f2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T01:24:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Histórico restaura o atlas inteiro ou uma feição a um momento (cópia do antes), e o Horizonte salva a direção, a imagem e o ponto e vira slide do briefing (o chefe, 2026-10-27)\n\n- Restaurar: migração 056 (cópia do antes por gatilho, ordenada pelo relógio da escrita); \"Restaurar esta versão\" no momento e \"Restaurar o atlas até aqui\" em cada alteração (Gestor e Dono, só nos mapas que quem pede edita), sexta exceção REST com o marcador atlas_restored; a feição volta pelo sync no \"Histórico deste item\". Revê a D4.\n- Horizonte: \"Salvar a direção\" (ponto com a vista em properties.horizonte, reaberto pelo painel), \"Salvar a imagem\" (PNG com legenda) e \"Criar ponto aqui\"; slide Horizonte (migração 057) transita como 2D e o apresentador abre a vista por cima.\n- Testes: historico-restaurar-momento (integração), historico-restaurar-versao e horizonte: ferramentas (UI), slide-horizonte (unidade); censos classificados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RYoPnHoe5wLorjnS1",
+      "sha": "fd164a6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fd164a6ceadb0cb7807713b13edc9ff38e5dd595",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-27T22:22:26.000Z",
