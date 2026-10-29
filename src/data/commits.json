@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-28T23:58:37.609Z",
+  "lastUpdate": "2026-10-29T16:47:50.488Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-28T23:27:35.000Z",
+    "1cgeo/ebgeo_web": "2026-10-29T16:31:26.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-28T22:19:46.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-29T15:10:15.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-28T21:25:32.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-29T13:51:40.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-28T11:05:09.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10026,
+    "totalCommits": 10058,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3073,
+      "1cgeo/ebgeo_web": 3087,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 30,
+      "1cgeo/ebgeo_produtor": 42,
       "1cgeo/ebgeo_campo": 61,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1254,
+      "1cgeo/chefe_dgeo": 1260,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,294 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T16:31:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Campo: o militar fica no mapa na última posição conhecida, mesmo fora da janela do rastro (chefe, 2026-10-29)\n\nNo atlas do exercício na DSG os aparelhos sumiram do mapa: a carga só cobria as últimas horas da\nregra (no máximo 24 h por leitura), e o juntarPontos apagava o militar sem ponto na janela.\n- GET /campo/posicoes?ultimas=1 devolve também a última posição de cada militar em cada mapa, de\n  todo o histórico (DISTINCT ON por mapa e conta); só a carga ao vivo pede, o replay não\n- juntarPontos aceita o ponto mais velho que a janela quando ele é o mais novo do militar, e o corte\n  das horas nunca apaga o último ponto\n- militarMostrado: sem ponto na janela, o marcador fica na última posição, sem rastro\n- Testes: caso novo da última posição fora da janela; as duas premissas antigas (\"só velhos some\")\n  reescritas para a regra nova\n\nGate: eslint dos arquivos tocados; vitest dos dois arquivos de campo (14 de 14). Suíte inteira não\nrodou (o chefe pediu menos rodadas; outra obra está aberta na mesma árvore).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "aab60f4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aab60f4879ec307a5b1bcd7baed7ce31c09a98dd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T15:10:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisions: a entrada da ortoimagem e do Produtor por agentes renumerada para 2026-10-29 (cont. 6), porque a do deslocamento no terreno já ocupa a cont. 5\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "82a859b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/82a859b15f3c724d40f3a233d6a4eebcbeefc417",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T15:09:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-29 (cont. 5): ortoimagem e Produtor por agentes de IA na main (ebgeo_produtor 1498f74, ebgeo_web 88dcf9afa); PROJECT.md dos dois com o estado final, o que ficou sem prova e o que depende do chefe; decisão com o raio dos dois pushes e da migração 059; conventions/subagentes (prova de instalador mexe na máquina do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "b6d4309",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b6d4309c050756d08e185c9c7c5eb345ad6bb1e9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T15:07:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into ortoimagem",
+      "sha": "88dcf9a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/88dcf9afa733f9a6e23b16a0032301f4e5c7511b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T15:05:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconhecimento, rastreio, grupos e cartões de atlas (chefe, 2026-10-29)\n\n- Reconhecimento: o ▶ da aba Camadas toca o vídeo com a janela já aberta; o cone de visada vira a área que a câmera via no chão (rumo, inclinação do gimbal do SRT, campo de visão e altura relativa do drone), só liga e desliga, e sem inclinação medida fica o cone de direção com alcance fixo\n- Rastreio: o estilo guardado é uma cópia do objeto do painel (o filtro de grupos do satélite não relia a fonte), e o grupo tirado some na hora; navios em área nova: consulta a cada 5 s no primeiro minuto, \"Buscando os navios desta área\", anel girando na linha\n- Relé do AIS: área vale 60 min e a costa do Brasil entra em toda assinatura viva, memória quente para qualquer porto\n- Grupos de acesso: \"Meus grupos\" só com os grupos de que a pessoa é dona (também o administrador), e \"Grupos de que participo\" com os de que é membro sem ser dona\n- Cartões de atlas do mesmo tamanho: capa de iniciais com a altura da capa com imagem, cartão com a altura da linha\n\nGate: lint; npm test (frontend 24155, backend 7177, e2e 332, banco próprio); ajuda:test 113. Grupos e cartões entraram depois da rodada do frontend, cobertos só pelo lint.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0c81697",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0c816975e7adc8e111bca96c29a3eb1dbd258139",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T14:49:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into ortoimagem",
+      "sha": "0e32713",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e32713bc61462829a66201146fb0788364932d9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T14:48:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Censo das superfícies de recurso: o UPDATE do acesso do reconhecimento na unidade própria (marcarAcessoDoReconhecimento)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "c43224f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c43224f63df1945e5eadf4572a8a0b091ddee0e8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T13:57:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Reconhecimento de pacote nasce com o acesso pedido no mesmo INSERT (antes entrava público e um UPDATE o fechava); o modelo \"+ Novo\" da ortoimagem aponta o prefixo de tiles da instância, que a validação nova exige\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "4b23909",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4b23909a59413ff96042667f1e2d7135c38ab3b4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T13:54:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Lote de ajustes do chefe (2026-10-29): player do reconhecimento, campo, sombreamento, notas, seleção, etiqueta, texto das pernas, ícone de mover, carta, 360 e 3D, e a Ajuda enxuta com as figuras refeitas\n\n- Símbolo de OM enquadrado com folga (zoom 14,05 em vez de 15,6, o brasão não enche a tela)\n- Reconhecimento: botão Repetir, o play leva o mapa até o voo, só a última janela a tocar segue a câmera\n- Sombreamento: sem \"Quando o mapa gira\" (âncora sempre a da instalação), cores com folga, cor personalizada entra na paleta\n- Botão de notas do mapa cinza sem notas e verde com notas (MAP_NOTES_CHANGED também na gravação local)\n- Clique noutra feição fecha a caixa de sobrepostos\n- Nome do evento com teto de 60 caracteres (cabe na pílula)\n- Campo: a linha do militar seleciona, avisos na segunda linha, rastro na cor escolhida mesmo sem posição nova\n- Horizonte: imagem sobre o relevo ligada por padrão\n- Etiqueta: \"Estilo do Texto\" e \"Contorno do Texto\" numa seção só (2D, marcador e medição 3D)\n- Observações por perna da linha e do polígono escritas no mapa, com seção \"Texto no mapa\" (ligar, cor, tamanho, contorno)\n- Ícone de mover preso à geometria (não pula com zoom nem giro), e o enquadramento reserva o alcance dele\n- Carta: a lista de escalas mostra todas as padrão; camadas do quadro desligam navios e reconhecimento na prévia e mostram o nome\n- 360 e 3D: sem dica dupla no Salvar orientação e no Voar para posição salva\n- Ajuda: Novidades de 96 para 45 linhas, páginas atualizadas, 91 figuras e clipes refeitos pelo motor\n\nGate: lint; npm test (frontend 24150, backend 7177, e2e 332, banco próprio); ajuda:test 113.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "42cc714",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/42cc714a92f493455f87a8a6b2bac18838ba37d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T13:52:02.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into ortoimagem",
+      "sha": "83df945",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/83df945be63d94925e3a3105d85c647e526f3167",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T13:51:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Vendor do pacote no 1498f74 do ebgeo_produtor: os metadados do produtor validados pelo esquema do manifesto e o ensaio do empacotar (branch agentes junto com o da ortoimagem)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "4ebba90",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4ebba90ca3f990f8b63ba8ed490e693682b09e8e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:51:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Docs: a ortoimagem também no Linux x64 (o GDAL embutido do conda-forge linux-64), no lugar do \"só Windows\" que o merge do branch ortoimagem deixou\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "1498f74",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/1498f743135ef6509d07431023b33a8eab895ee1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:51:06.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ortoimagem' into agentes",
+      "sha": "cff0b74",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/cff0b741b1c65588570c091b6e7016450a2463c9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T13:49:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Ortoimagem por pacote (.ebgeoorto): o importador publica no Martin e a linha nasce privada da OM; a escrita valida fonte e limites; a data de captura guardada em AAAA-MM-DD\n\nImportação (PLANO-ORTOIMAGEM.md, decisões do chefe de 2026-10-29)\n- O envio tus aceita .ebgeoorto, e o controlador despacha pelo tipo da extensão (tipoDoPacote) e\n  RECUSA extensão desconhecida, que até aqui virava modelo 3D.\n- importarPacoteOrto: a régua do vendor, depois cópia para MARTIN_ENTRADA_DIR, sha256 lá, rename\n  para MARTIN_MBTILES_DIR com o id como nome, espera da fonte no /catalog do Martin\n  (MARTIN_INTERNO_URL), um tile do zoom mínimo e um do máximo pedidos ao Martin e comparados byte a\n  byte com o arquivo, e só então a linha, privada da OM no mesmo INSERT (nascimento de\n  createCatalogItem), relida campo a campo. Falha depois do rename devolve o arquivo à entrada,\n  nunca apaga. Id ocupado na tabela, na pasta ou no catálogo do Martin é recusado; não há\n  substituir. A conferência pede o dobro do MBTiles livre.\n- As três chaves no config.js e no .env.example, juntas ou nenhuma (validateEnvVariables), a\n  entrada fora da vigiada, e as duas pastas na sonda de escrita do boot quando ligadas. Sem elas a\n  conferência reprova servidor.ortoimagem_configurada e os outros tipos seguem.\n- Painel: botão \"Importar pacote de ortoimagem\" na sub-aba Ortoimagem; a tela do pacote mostra\n  zoom, resolução, equipamento e limites, não oferece acesso nem substituir e diz que a ortoimagem\n  entra privada. CLI pacote-importar despacha o tipo.\n\nValidação do config da ortoimagem (validarConfigDeOrtoimagem): bounds [O,S,L,N] com O<L e S<N em\ngraus válidos; source raster com tiles relativos sob o prefixo de tiles ou absolutos http(s), com\n{z}/{x}/{y}, tileSize 256 ou 512, zooms inteiros 0..24 com mínimo até o máximo; POST exige o config.\nVale no POST, no PUT e no importador. A forma real das ortoimagens do 1º CGEO passa\n(catalog-ortoimagem-config.test.js). A frase de .custom() sai em pt-BR no 422 (any.custom).\n\nData de captura (decisão do chefe): guardada em AAAA-MM-DD em todo o catálogo, a tela em dd/mm/aaaa.\nMigração 059_data_de_captura_iso.sql (aditiva, idempotente, só o DD/MM/AAAA de calendário, nas\nseis tabelas de catálogo e em external_layers); a escrita NORMALIZA DD/MM/AAAA (lerDataDeCaptura)\nem vez de recusar, porque painel aberto antes do deploy, roteiro antigo e cabeçalho de .3dtiles\nainda mandam esse formato e a conversão não tem ambiguidade; o resto é recusado. Os formulários\nusam o campo de data da casa; popup do 3D, subtítulo da busca, tela do pacote e de-para da\nAuditoria mostram dd/mm/aaaa (exibirDataDeCaptura).\n\nProva: EBGeo local com Martin 1.12.0 vigiando a pasta (log \"Added source\"), linha privada da OM,\ntile pelo portão recusado ao anônimo e servido ao produtor, id ocupado e extensão desconhecida\nrecusados, ortoimagem no mapa no Chromium. Testes: lint verde; npm test (test:tocados) com 24140 do\nfrontend, 7232 do backend, 332 do e2e de contrato e 113 da Ajuda, todos verdes; controles\nnegativos em cada regra nova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "0e25176",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e25176b135bf8125756d1f60014bab0057205e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T13:49:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Vendor do pacote no 7a6a9ef do ebgeo_produtor: o contrato do .ebgeoorto e a régua da ortoimagem\n\nSincronizado por scripts/pacote-sincronizar.js a partir do branch ortoimagem do 1cgeo/ebgeo_produtor\n(commit 7a6a9ef, só packages/pacote). Tipo ortoimagem, extensão .ebgeoorto, corpo ortoimagem com\nbounds, zooms, formato webp, tileSize 256, tilesPorZoom, gsd_cm, equipamento opcional, crs_origem e\norigem; a régua confere journal, SQLite, metadado contra o manifesto, zooms, contagem, WebP de\n256 px, decodificação amostrada, lugar e miniatura. conferirArquivos despacha por tipo e tipo\ndesconhecido reprova em manifesto.tipo (antes caía na régua do 360). Arquivo novo: mercator.js.\nNenhuma dependência de execução nova (o sharp entrou só como devDependency do pacote no Produtor).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "fdc6d48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fdc6d487d133dcdb898a384751f6b758be5bbbbf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:44:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Docs: README (pelo terminal, com um agente de IA), docs/desenvolvimento.md (o CLI para agente: desenho, medidas que o decidiram, verbos, guardrails, prova com testes, controles negativos, agente sem contexto e instalador) e CLAUDE.md (o ponteiro do plano podado trocado pelas decisões e pelos planos vivos do vault, e as regras do CLI)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "9e17df0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/9e17df042abf79fe21042262ae9c74460e0954e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:38:37.000Z",
+      "author": "Maj Diniz",
+      "message": "instalador.nsh: o HWND_BROADCAST e o WM_SETTINGCHANGE pelo WinMessages.nsh do NSIS (defini-los à mão colidia com o MUI2, e o makensis abortava)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "73eae91",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/73eae91cb24436b4c4beb289b1fba8c38b0d321a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:30:23.000Z",
+      "author": "Maj Diniz",
+      "message": "App: trava de instância única e a porta do CLI no processo que tem a sessão (servico-cli.js; --servico-cli sobe sem janela e sai sozinho), o registro de tarefas da tela, e o instalador com o atalho ebgeo-produtor no PATH do usuário (bin/.cmd e bin/ do Git Bash), o AGENTS.md e o SKILL.md; cli.e2e.js com a prévia, o código, o envio pela janela e sem ela, nenhum token na saída e nenhuma sessão perdida\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "99f66a6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/99f66a69c10e4b962eeaec184eca539b325d1c2b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:30:22.000Z",
+      "author": "Maj Diniz",
+      "message": "CLI para agente de IA: doctor, guia gerado do contrato vivo (esquema e régua do pacote, prosa curada só em regras.js), ler e empacotar por tipo (modelo3d, projeto360, reconhecimento, ortoimagem) com --dry-run e lote, conferir, enviar com prévia e código de confirmação pela sessão do app, tarefas, e --json em todos; guardrails no CLI (sem credencial em opção nem variável, sem sobrescrever, sem Transmitir voo); os verbos de antes mantidos; instalar.js (PATH do usuário, AGENTS.md, SKILL.md); agentes.test.js com o campo aceito que tem de gravar\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "43eb10f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/43eb10fcbd5fee76f4c4ff4d24c89af11f2a2a13",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T13:30:21.000Z",
+      "author": "Maj Diniz",
+      "message": "packages/pacote: os metadados do produtor validados pelo esquema do manifesto, em tempo de execução (CAMPOS_DO_PRODUTOR com o ponteiro de cada campo, validarMetadados que recusa campo desconhecido, descreverMetadados para o guia) e o ensaio do empacotar (confere e não escreve); o 360 com ensaio; a telemetria vizinha no pacote do reconhecimento\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "2a63c68",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/2a63c68e78170b98ce66143002ea53fe51e7096c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T12:28:32.000Z",
+      "author": "Maj Diniz",
+      "message": "app/gdal: o GDAL embutido também para o Linux x64 (conda-forge linux-64 fixado por sha256), com a extração em Node e o fecho das bibliotecas conferido nos dois sistemas\n\nconda-linux64.json: os 63 pacotes do libgdal-core 3.13.3 resolvidos uma vez pelo micromamba (glibc 2.17\nou mais nova; com 2.28 a resolução é a mesma), URL e sha256 de cada um. O baixar.mjs monta bin/ e lib/:\nos cinco executáveis e as .so que eles pedem pelo DT_NEEDED do ELF (69 binários, 160 MiB), achadas\npelo RUNPATH $ORIGIN/../lib e $ORIGIN que o conda-forge grava, com os links simbólicos copiados com o\nnome pedido. No fim RELÊ do disco todo binário copiado: toda dependência está na pasta ou é da glibc\n(libc, libm, libdl, libpthread, libresolv, o carregador), e no Linux cada uma se acha pelo RUNPATH.\n--plataforma monta o de outro sistema sem executar.\n\nA extração passou a ser do próprio Node (ZIP armazenado com ZIP64, zstd do node:zlib, leitor de tar),\nigual nos dois sistemas: o tar do Linux não abre ZIP, e o do Windows não cria link simbólico.\n\nProva: os dois montados do zero (win32: 51 pacotes, 54 binários, 552 dependências relidas, e o\ngdalinfo, o gdalsrsinfo e os drivers respondem; linux: 63 pacotes, 69 binários, 317 dependências). Num\nDebian 12 sem GDAL (Docker), o ldd não acha falta, só a glibc vem do sistema, o gdalinfo responde\n3.13.3 com GTiff, WEBP e MBTiles, o PROJ do pacote responde o EPSG:31982, e a receita inteira sobre o\nGeoTIFF da fixture gera os mesmos 96 tiles (z18 a z21) do Windows, 90 deles idênticos byte a byte.\nControle negativo: sem copiar a libproj, o baixar.mjs para em \"fecho aberto\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "5115890",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/511589056c7d69d382d14b0e9394dea29351bf4c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T12:04:31.000Z",
+      "author": "Maj Diniz",
+      "message": "README e docs/desenvolvimento.md: a ortoimagem (uso, receita, armadilhas, prova contra o MBTiles do 1º CGEO, custo do GDAL no instalador e o que não foi provado)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "6f81b57",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/6f81b573381299952960f7a53680d9a2f016dd1b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T12:04:30.000Z",
+      "author": "Maj Diniz",
+      "message": "App: opção Ortoimagem na tela inicial (GeoTIFF, leitura, gerar com cancelar, conferir no mapa, miniatura pelo enquadramento, metadados e .ebgeoorto) e o .ebgeoorto no \"Enviar ao EBGeo\", sem o nível de acesso\n\nA tela segue a UI nova (cabeçalho, faixa de status, componentes, tema claro e escuro). O mapa é o\nCesium do 3D em 2D, com os tiles do MBTiles gerado servidos por ebgeo://orto/tiles e a imagem do EBGeo\npor baixo quando o servidor responde. A geração e a conferência rodam na thread de trabalho, e\nCancelar mata o GDAL e apaga o parcial. A data do voo aparece em pt-BR e vai ISO no manifesto, e o\nidentificador orto_<ano>_<nome> vem sugerido e editável e segue para o envio.\n\npackages/rede: .ebgeoorto em TIPOS_PACOTE e tipoDoPacote, SEM_ACESSO (o 360 e a ortoimagem não levam\naccessLevel; a ortoimagem nasce privada da OM), e o administrador escolhe a OM por orgId. O EBGeo\nsimulado dos testes aceita o .ebgeoorto como o backend vai aceitar.\n\nProva: app/test/orto.e2e.js passa no app de desenvolvimento e no empacotado com o GeoTIFF real; o\ne2e inteiro: 8 aprovados e 3 pulados por falta de material (o instalado, o reconhecimento e as telas).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "329d2dc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/329d2dc536f0951eb2c5e7bc44a021ee2d13679a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T12:04:29.000Z",
+      "author": "Maj Diniz",
+      "message": "GDAL embutido (conda-forge, fixado por sha256) e packages/ortoimagem: do GeoTIFF ao MBTiles das ortoimagens do EBGeo, a miniatura e o .ebgeoorto; CLI ler-ortoimagem e empacotar-ortoimagem\n\napp/gdal/baixar.mjs traz o libgdal-core 3.13.3 do conda-forge: os 51 pacotes resolvidos uma vez pelo\nmicromamba e fixados em app/gdal/conda-win32.json (URL e sha256 de cada um), e só os quatro\nexecutáveis da receita mais o gdalsrsinfo, com as DLLs achadas pela tabela de importação (54\narquivos), o proj.db, o share/gdal e as licenças. Custa 125 MB no disco e 30 MB no instalador (205,0\npara 235,0 MB). O app instalado aponta GDAL_BIN para resources/gdal/bin; o GDAL do PATH nunca é usado,\ne o PROJ_DATA e o GDAL_DATA são sempre os do embutido.\n\npackages/ortoimagem: ler o GeoTIFF (gdalinfo -json, recusa sem georreferência e fora de 8 bits) e\nsugerir o zoom máximo pela regra UPPER (mínimo 10); gerar o MBTiles (gdalwarp para 3857 na resolução\ndo zoom, -tap, cúbica, alfa; gdal_translate MBTILES WebP 90 CUBIC UPPER; gdaladdo average; os zooms\nabaixo do gdaladdo pela média dos filhos ponderada pelo alfa; o metadado das 189 do 1º CGEO e\njournal_mode=DELETE), com progresso e cancelamento; a miniatura pelo enquadramento; o manifesto\nrelido do MBTiles e o pacote pela régua do contrato. Três armadilhas medidas e tratadas: o UPPER com a\nresolução exata grava o zoom de cima, o gdaladdo para onde a imagem cabe num tile, e os bounds do GDAL\nincluem a margem transparente.\n\nProva: do GeoTIFF reconstituído do orto_2023_5rcmec em SIRGAS 2000 / UTM 21S (227 MiB), 70 s, os\nmesmos zooms e a mesma contagem de tiles do MBTiles do 1º CGEO em todos os zooms; 32 piores casos pegos\nno item alvo sobre o pacote gerado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "1f19146",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/1f19146dfad4e6d0a486b8fd923af5954b287036",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T11:54:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-29 (cont. 3): tiles incrementais do basemap DSG (plano no edgv_topo_20 1283b3f: tile inteiro pelo mesmo tippecanoe, z10 para cima, mestre em MBTiles, cache só do que mudou); wiki vector-tiles, martin-ebgeo e edgv-topo-20 (basemap DSG de produção ainda é o atlas Perseu, cabeçalho do PMTiles por od); decisão; learnings de planejar-mudanca-sistema e livro-razão (1 correção do chefe); mais as pendências de outras sessões (cartas militares, ortoimagem, produtor por agentes, rastreio, skills)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RkKSPsfZHHH2biDRS",
+      "sha": "66e02df",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/66e02df04c440ff8874e51ac43d819c47775d16d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T11:17:20.000Z",
+      "author": "Maj Diniz",
+      "message": "packages/pacote: o contrato da ortoimagem (.ebgeoorto) e a régua dela, e a conferência despacha pelo tipo, recusando o desconhecido\n\nTipo ortoimagem, extensão .ebgeoorto, arquivos manifest.json, ortoimagem.mbtiles, miniatura.webp e\nconferencia.json. O corpo traz bounds [O,S,L,N], minzoom, maxzoom, formato webp, tileSize 256, a\ncontagem de tiles por zoom, gsd_cm, equipamento (opcional), crs_origem e a origem (nome e sha256 do\nGeoTIFF, software, versão do GDAL); o acesso não viaja no manifesto.\n\nA régua confere o journal pelo cabeçalho do arquivo (WAL reprova: o Martin abre só leitura), o\nSQLite, as tabelas, o metadado contra o manifesto (format, bounds, minzoom, maxzoom), todo zoom de\nminzoom a maxzoom com tile e nenhum fora, a contagem por zoom, o cabeçalho WebP 256x256 de todo\ntile, a decodificação de até 16 tiles por zoom, os bounds dentro da extensão dos tiles do zoom\nmáximo, o lugar e a miniatura 640x360 até 256 KB. A conta da grade (TMS e XYZ) mora em mercator.js.\n\nconferirArquivos despacha por uma tabela com um tipo por chave: tipo sem conferência reprova, e a\nortoimagem não cai mais na régua do 360. abrirSqlite fecha o banco quando o integrity_check estoura\n(no Windows o arquivo aberto impedia apagar a pasta extraída).\n\nProva: os 32 piores casos de test/casos-ortoimagem.js, nascidos degradando o pacote, reprovam no\nitem alvo no CI (fixture do sharp) e em scripts/prova-orto.js sobre as duas ortoimagens reais do\n1º CGEO (orto_2023_pnr_1cgeo e orto_2023_5rcmec), que aprovam inteiras.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "7a6a9ef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/7a6a9efdbf04b41daa61e3c531b4f3c84f03b85f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T10:55:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Rastreio, navios: o \"Sem tipo\" em cinza escuro, o símbolo maior de longe, o atracado menos apagado e a área nova sem o \"0 navios\"\n\nNa DSG (2026-10-29) os navios chegavam e não se viam: logo depois de assinar, 271 de 307 ainda\nnão tinham mandado o tipo (o estático chega a cada ~6 min) e saíam em #adb5bd, que some no mapa\ntopográfico; o atracado repete a posição a cada 3 a 6 min e passava do esmaecer (0,35) o tempo\ntodo; e de longe o símbolo tinha ~14 px. Agora: \"Sem tipo\" e o parado da rampa de velocidade em\n#495057, piso do tamanho 0,6 como o satélite, esmaecido do navio a 0,65, e a frase da área nova\ndiz que os primeiros chegam em até 1 min.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SP62VCKMXqeAm1oxL",
+      "sha": "5fc2dcd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5fc2dcdc4bd5e12f6aa849d720aa87a816d225ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T09:38:12.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento 2026-10-29: atraso do player ao vivo na main do ebgeo_web (79dbe69a6, sem deploy), alvo da playlist arredondado pela RFC 8216, 11 s para cerca de 8 s; folga menor do hls.js recusada; decisão no índice\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "b912758",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b912758a3a63d8c3f05f3fa538dba6b75fa5a3f9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T08:40:37.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, atraso: o alvo da playlist é o maior pedaço arredondado (RFC 8216, 4.3.3.1), e não para cima\n\nBancada de 2026-10-28 (dois drones, a rede do Produtor cortada 30 s, amostra a cada 1 s do hls.js\ne da rede do navegador): com os pedaços de 2,002 s o alvo saía 3, e o hls.js segue o ao vivo três\nalvos atrás da borda, 9 s; somados aos 2 a 3,5 s de idade da borda (envio do pedaço 0,4 s, espera\nda recarga 1 a 1,4 s e a idade da playlist), o vídeo ficava 11 s atrás do voo. A RFC pede só que a\nduração de cada pedaço, arredondada ao inteiro mais próximo, não passe do alvo: com 2, o atraso\ncaiu para 7,3 a 8,3 s, sem travada nova, e a playlist é recarregada uns 20% mais vezes.\n\nPLANO-AO-VIVO.md, frente B: a decomposição medida e as variantes do hls.js que não foram adotadas.\nÀ espera da decisão do chefe; não vai à main sem ela.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "79dbe69",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/79dbe69a6549629a7cd88296ca900fb1253c40a6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T00:45:31.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 13): rastreio ao vivo (satélites, aeronaves, navios, GPS) no ar na DSG e no dsgoficial (ebgeo_web 765fb5eef), navios fora do 1º CGEO sem saída para a internet; 01-Projects/ebgeo-rastreio novo; seis projetos (grade, mesa, celular, tablet, campo, reconhecimento) com o estado da troca de 51 commits na DSG; wiki ebgeo-web com os fatos das fontes; subwiki (SGP4 sem WebAssembly, saída medida no container, chave de WebSocket pelo open, censos, lockfile pela 3ª vez fundido numa regra); atualizar-ebgeo-dsg (docker cp como root, varredura dos projetos depois da troca); decisão e livro-razão (2 casos)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SP62VCKMXqeAm1oxL",
+      "sha": "dd836e3",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dd836e3d19a9144812901ec27dd517ce439877a5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T00:38:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-28 (cont. 12, fecho): o player do ao vivo consertado e a aba Camadas no GitHub (ebgeo_web 5d46d3ea7), o atraso medido no player, e o raio do push na Decisions\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "e2d91b2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e2d91b21240003484e106d27006e4eadeae8d52f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-28T23:59:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a main do GitHub (rastreio ao vivo na categoria Externa) com o player e a aba Camadas do ao vivo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TDmE6jbK44JAuFmjP",
+      "sha": "5d46d3e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5d46d3ea78ac6c28915e6e6dd42d86cd488e35a3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-28T23:27:35.000Z",
