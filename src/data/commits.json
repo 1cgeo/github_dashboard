@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-29T16:47:50.488Z",
+  "lastUpdate": "2026-10-29T23:53:50.420Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-29T16:31:26.000Z",
+    "1cgeo/ebgeo_web": "2026-10-29T23:22:45.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-29T15:10:15.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-29T23:44:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,9 +67,9 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-29T13:51:40.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-29T21:41:38.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-28T11:05:09.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-29T21:05:48.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10058,
+    "totalCommits": 10102,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3087,
+      "1cgeo/ebgeo_web": 3121,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,8 +172,8 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 42,
-      "1cgeo/ebgeo_campo": 61,
+      "1cgeo/ebgeo_produtor": 44,
+      "1cgeo/ebgeo_campo": 62,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1260,
+      "1cgeo/chefe_dgeo": 1267,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,402 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T23:44:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-29 (cont. 13): teste do ao vivo na DSG investigado (4 transmissões, telemetria do simulador, 2 abertas, final faltando, relógio, gravações soltas) e segunda rodada planejada, construída e na main dos três repositórios (ebgeo_web ed2c5b136 com a migração 063, Produtor 7c09992, app Campo 781fff1), sem deploy; decisões 14 a 22 e o push; wiki ti-infraestrutura (Kaspersky e build em contêiner); learnings de atualizar-ebgeo-dsg e planejar-mudanca-sistema (split da camada quente); livro-razão (2 correções do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "3e0fe37",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3e0fe37e666e23deaf27a73f380fc16144579d72",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T23:22:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into aovivo2\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "ed2c5b1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ed2c5b1369db4fcccc77c9c5203d6ee78ccc90dc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T23:21:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda, ao vivo segunda rodada: transmissões do drone no mapa, Receber e as figuras pelo motor\n\n- Página nova \"Como acompanho no mapa a transmissão ao vivo de um drone?\" (Camadas > Transmissões\n  ao vivo): a camada pelo + (Nova camada) do Gestor, o Transmitir voo do Produtor, a linha de cada voo\n  com o estado (no ar, sem sinal, encerrada, gravação completa, sem posição), o ⋯ da linha, encerrar,\n  apagar (a gravação vai a Gravações ao vivo, aba Sistema) e o Receber. Linha nas novidades de\n  2026-10-29, linha no ARQUITETURA e duas perguntas na avaliação da busca (as duas em 1º lugar).\n- \"Receber militares no mapa\" corrigida: a camada Aparelhos de campo entra pelo + do Gestor, não nasce\n  com a primeira posição, e sai a culpa da chave central; seção \"Para parar de receber\" com o que o app\n  mostra (textos copiados do 1cgeo/ebgeo_campo aovivo2). \"Acompanhar os militares\" aponta o Receber.\n- Figuras pelo motor: aovivo-adicionar-01, aovivo-linhas-01 e aovivo-menu-01 (novas), v2-campo-receber-01\n  (refeita: o menu do +) e v2-campo-receber-02 (nova: Receber no ⋯ da camada). As rotas do ao vivo são\n  DUBLADAS por page.route em lib/aovivo.mjs, com três voos inventados em horas fixas; conta, atlas, sync\n  e camada são reais. A lista v2-campo.json perde os passos da chave central que não existe mais.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "1b66824",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b66824e22d52d3fe8947d4ef3fd30c90e005bfb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T22:59:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Constituição: 5.13 e 5.14 com a segunda rodada do ao vivo (a camada do sistema adicionada e ligada pelo Gestor, Receber, encerrar e apagar pelo dono ou Gestor, a gravação para a administração, sem chave central; aval do chefe em 2026-10-29)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "ae9b73d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ae9b73dab672d00170d51ffef3dc9ebf50d72e2d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T22:56:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada: a suíte inteira verde sobre a junção\n\n- a lista das transmissões é lida quando o mapa do atlas fica ativo (MAP_LOCK_CHANGED, como Aparelhos de campo); antes a primeira leitura esperava a releitura de 15 s, medido na tela real contra o EBGeo local\n- a cópia e a importação de atlas levam o Receber da camada de campo (censo de colunas de layers)\n- o fixture de camada só escreve tipo e receber quando o caso pede (o banco de antes da 044 não tem as colunas)\n- as citações de migração pelo nome do arquivo; as classes das linhas sem a palavra transmissao (censo de acento); o espelho das unidades de disputa com receber; o plano sem crase em símbolo que saiu do código\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "c3ddbe7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c3ddbe7ba99b11183126aec4525f0eedab14da12",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T22:48:23.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-grade 2026-10-29: grade no papel (MGRS na Carta, PDF, mosaico e QAN) e fuso da barra pelo núcleo na main do ebgeo_web (cb9e2f5f7)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3S4kDbJjaodPkQB9eA",
+      "sha": "24591f6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/24591f6bb28737ac91ef200652197a580286f631",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T22:45:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Grade no papel: chaves nos dois if do desenhista que o lint acusou\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3S4kDbJjaodPkQB9eA",
+      "sha": "cb9e2f5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cb9e2f5f7591b696fa85520c27a5e983c2dda5e6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T22:40:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Fuso UTM: a coordenada mostrada e a convergência meridiana usam o fuso da grade (Noruega, Svalbard e antimeridiano) (chefe, 2026-10-29)\n\ncoordinate_converter e meridian_convergence calculavam a faixa de 6 graus à mão: em Bergen a coordenada dizia fuso 31 onde a grade e o MGRS dizem 32V, a convergência do Azimute media contra o meridiano do 31, e na longitude 180 a convergência usava um fuso 61 a 183 graus. As duas passam a chamar utmZoneAt do núcleo; no Brasil nada muda. Teste contra a biblioteca mgrs, com controle negativo (5 de 7 reprovam com a conta antiga).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3S4kDbJjaodPkQB9eA",
+      "sha": "e8ce81c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e8ce81ce183f077c1b1087291ada34d95207cc6e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T22:32:06.000Z",
+      "author": "Maj Diniz",
+      "message": "Grade no papel: quadrícula MGRS na Carta, no PDF, no mosaico e no Mapa do QAN, cada fuso no seu pelo núcleo da grade, passo de 4 cm, e a grade da tela fora da exportação (chefe, 2026-10-29)\n\nO núcleo da grade (grid-box.js) passa a dar linhas UTM e Lat/Long, bordas de fuso com as exceções da Noruega e de Svalbard e as letras do quadrado de 100 km para uma caixa de papel; as cópias da conta do fuso chamam o núcleo. O desenhista único ganha o formato MGRS na forma da carta militar (algarismos abreviados na borda, letras do quadrado junto às linhas de 100 km ou num cruzamento perto do centro, quadro de referência), desenha cada fuso no seu com o limite tracejado e rotula a borda do mosaico no fuso de cada linha. O passo da quadrícula é o degrau mais perto de 4 cm no papel (ET-RDG). O PDF ganha o seletor Nenhuma | UTM | MGRS, sugerido pela grade do mapa; o QAN segue o formato da tabela; a Carta aceita gradeUtm.formato 'mgrs'; a grade da tela sai do estilo exportado. Ajuda e Novidades atualizadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3S4kDbJjaodPkQB9eA",
+      "sha": "1a9cdff",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1a9cdffe97aeb9fedf5159edf031cc1b90fcaa02",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:42:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada: junção das frentes A e B (unidade de disputa receber no cliente, recusa da camada ao vivo igual nos dois lados, comentários do Campo sem a camada que nascia sozinha) e o plano com as decisões 14 a 22 e o contrato\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "b825d92",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b825d92de3e4d599875db88c95855699743bdfcf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T21:41:38.000Z",
+      "author": "Maj Diniz",
+      "message": "App: Transmitir voo da segunda rodada (destinos do EBGeo, sem .SRT, relógio, encerrada ou apagada no EBGeo, Tentar de novo) e o e2e com a web encerrando um drone\n\n- Destino por GET /aovivo/destinos (só os mapas de Editor que recebem), com a lista vazia explicada e \"Atualizar a lista\"; saem aovivo:atlas, aovivo:mapas e aovivo:escolherSrt.\n- Cartão: \"posição do drone: ainda sem fonte\", o desvio do relógio acima de 2 s, reconexões, encerrada pela web, apagada no EBGeo, a montagem que falhou com \"Tentar de novo\" e \"Tirar da lista\".\n- aovivo.e2e.js: dois drones só com vídeo, o EBGeo simulado 5 s à frente, a rede cortada, a web encerrando o drone 2 no meio do voo, o drone 1 com a escuta reaberta depois do fim do vídeo.\n- README e docs/desenvolvimento.md com o desenho e a prova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "7c09992",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/7c09992bd19ae3c4c2f3d08b192c690a47807e99",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-29T21:41:36.000Z",
+      "author": "Maj Diniz",
+      "message": "aovivo: segunda rodada do ao vivo no pacote (sem .SRT, relógio do EBGeo, escuta com prazo e continuação, estado no EBGeo, montagem que falha visível)\n\n- Sai o telemetria.js (seletor de fonte e simulador do .SRT, decisão 14); a transmissão sai só com vídeo, e a fonte real entra no evento inicio da estação.\n- relogio.js: desvio pelo ponto médio de GET /aovivo/relogio, ao entrar, ao abrir e a cada 5 min; o criar manda o início no relógio do EBGeo e refaz uma vez no 400 INICIO_NO_FUTURO; o fim sai do início gravado pelo servidor.\n- corte.js: -rw_timeout de 2 s no receptor (a escuta fecha uns 6 s depois do silêncio) e a continuação na mesma porta e chave: seq e t seguem, a lacuna em preto (settb+tpad), o tfdt deslocado (deslocarTempo), o init comparado byte a byte; init diferente ou lacuna acima de 10 min vira \"<nome> (2)\".\n- estacao.js: consulta GET /transmissoes/:id a cada 15 s e no 409 de pedaço; encerrada pela web descarta o que passa do ultimoSeq do servidor e monta os finais com tudo o que gravou; apagada (consulta ou 410) para tudo e guarda a pasta; montagem que falha fica no cartão com Tentar de novo.\n- enviador.js: 410 TRANSMISSAO_APAGADA, 409 de pedaço avisa a estação, sai o 503 DESLIGADO.\n- Simulado no contrato da segunda rodada (relógio, destinos, receber, encerrar pela web, apagar, 410) e testes novos: estacao.test.js e relogio.test.js, com controles negativos (29 testes).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "31a4183",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/31a4183d707932024f7cd28bbe9ec149ed691778",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:40:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'aovivo2-front' into aovivo2",
+      "sha": "14723da",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/14723da24359611eedb84904803f4490de8a68a5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:38:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada (A): rotas do contrato, apagar, encerrar pela web e a administração\n\nPOST /transmissoes não cria camada: exige a \"Transmissões ao vivo\" do mapa com\nreceber (409 RECEBIMENTO_DESLIGADO) e o início até 30 s à frente do servidor\n(400 INICIO_NO_FUTURO); a aberta segue recebendo com o receber desligado.\nNovas: GET /relogio, GET /destinos, GET /transmissoes/:id (estado com\nsem_sinal de 60 s, apagada, encerradaPor, semSinalDesde), encerrar pela web\n(dono ou Gestor, corpo vazio, fecha no último pedaço; encerrar de novo devolve\no estado), POST /apagar (só marca), PATCH /estilo (Editor, substituições\naninhadas), GET /admin/transmissoes e POST /admin/purgar-soltas; DELETE purga\nsó a solta. Toda escrita na apagada é 410 TRANSMISSAO_APAGADA, o tus incluso.\nO objeto leva dono { id, nome }. Sai o 503 DESLIGADO. Censos de rota,\nauditoria, saída e cache atualizados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "30fd12a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/30fd12ab8ba410ffeadfd612473be44e2c2e232c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:38:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada (A): o Campo recebe só no mapa com Receber, e as chaves centrais saem\n\nA posição e a situação do militar não criam mais a camada \"Aparelhos de\ncampo\": sem ela, ou com receber falso, voltam como recusa assinada\nRECEBIMENTO_DESLIGADO (resposta 200, sem mudar o protocolo); o evento segue.\nA camada e o receber ficam guardados com o destino, pela versão da visão\n(o envelope em regime continua em 3 comandos). O destinos ganha\nrecebePosicao por mapa. Saem features.campo e features.aovivo: o padrão\nestático, o gate da porta (agora \"chaves operacionais configuradas\", 503\nDESLIGADO como antes) e o ligado() do cliente do retransmissor, que conecta\nquando a URL está posta. O PUT do painel deixa as duas chaves caírem do corpo\nsem 422, e a linha gravada é podada na leitura e na escrita.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "9fff97c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9fff97ce44f562bdaefb23d8575ba856ec833e69",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:38:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada (A): as camadas do sistema no sync são do Gestor\n\nCriar a camada campo ou aovivo e mudar o receber exigem Gestor do mapa\n(recusaDoGestorDaCamadaDoSistema), a segunda do mesmo tipo no mapa é recusada\ncom a frase, e a \"Transmissões ao vivo\" não se exclui nem se renomeia, como a\n\"Aparelhos de campo\" (recusaDeCamadaDoSistema). O receber viaja no objeto da\ncamada (retrato, canônico, rebroadcast), tem unidade de disputa própria e só\nse grava na criação da camada do sistema. Fecha o colateral \"qualquer Editor\ncria camada aovivo ou campo pelo sync\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "dd9ff9e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dd9ff9e0b6cd527859f5f0c7a207d7cba4bea89e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:38:31.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada (A): migração 063, uma camada aovivo por mapa e o Receber\n\nlayers.receber (padrão verdadeiro, vale para campo e aovivo); o UNIQUE de\naovivo_transmissoes.camada_id sai e entra o índice parcial\nlayers_aovivo_unica_por_mapa; a transmissão ganha estilo (aninhado),\napagada_em, apagada_por e encerrada_por. O dado de hoje: a camada aovivo viva\nmais recente de cada mapa vira \"Transmissões ao vivo\", as outras saem, toda\ntransmissão do mapa aponta para ela, a da camada apagada nasce apagada, o\nestilo plano da camada antiga vira o aninhado da transmissão, e cada atlas\ntocado ganha o marcador view_changed. O gatilho da versão da visão passa a\ndisparar na troca de receber. Prova na forma do teste da DSG (quatro\ntransmissões, três com a camada apagada), com a segunda passada idempotente.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "c7212e1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7212e191fe9ee235fe9a8a01dfcc87bb70e555c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:33:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Campo sem a chave central no cliente: o interruptor é o \"Receber\" da camada (decisão 16 do chefe, 2026-10-29)\n\nA camada \"Aparelhos de campo\" deixa de ler features.campo (o _contexto vale com atlas do servidor e mapa de id real); quem recusa a posição nova é o servidor. Os specs do replay e da regra do rastro e as cenas do Campo da Ajuda (lib/campo.mjs e as três tomadas) não ligam mais a chave pelo PUT /config/admin; a camada continua criada pelo Dono do atlas antes das posições.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "9f1b7ba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9f1b7ba96f37fbb5be5d0969f9feb45705a0758c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:33:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Administração: a seção \"Gravações ao vivo\" na aba Sistema (decisão 20 do chefe, 2026-10-29)\n\nTodas as transmissões do servidor (GET /aovivo/admin/transmissoes) com atlas, mapa, dono, estado, tamanho em disco e quem apagou e quando, e o resumo das soltas. \"Apagar de vez\" só na solta (DELETE /transmissoes/:id) e \"Apagar as soltas\" (POST /admin/purgar-soltas), as duas depois da confirmação, com a lista relida. A leitura aceita atlas, mapa, dono e apagadaPor como objeto {id, nome} ou texto e os bytes como número ou {pedacos, finais}, porque o contrato não fixa a forma.\n\nProvas: admin-gravacoes-aovivo.test.js (leitura, frases e avisos) e o spec e2e-ui/admin-gravacoes-aovivo.spec.js, com as rotas do ao vivo dubladas (não rodado nesta frente).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "112430b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/112430b95cbd8753c87998206cbfabfa15361068",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T21:33:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Ao vivo, segunda rodada (frente B): \"Transmissões ao vivo\" é uma camada por mapa, com uma linha por transmissão; Nova camada e Receber para as camadas do sistema\n\nA camada aovivo do mapa passa a ser o contêiner (decisão 15 do chefe, 2026-10-29): cada transmissão casa com ela pelo camadaId e vira uma linha dentro dela, como os militares em \"Aparelhos de campo\", com o estado (\"No ar desde\", \"Sem sinal desde\", \"Encerrada às\", \"Gravação completa\", na hora de Brasília), \"sem posição\" na que não mandou telemetria, o olho da pessoa e o \"⋯\" da transmissão: Abrir o vídeo, Ir para a trilha (recusado sem posição), Estilo da trilha, Encerrar transmissão (dono ou Gestor, no ar ou sem sinal, POST encerrar com corpo vazio), Publicar no catálogo e Apagar transmissão (dono ou Gestor, com o aviso próprio: nome, quem gravou, duração, que sai do mapa e que a gravação vai para a administração). O estilo da trilha sai do style da camada e vai para a transmissão (PATCH .../estilo). A lista é relida a cada 15 s enquanto o mapa tem a camada, porque a transmissão nova não muda camada nenhuma.\n\nAs camadas do sistema: \"Transmissões ao vivo\" primeiro e \"Aparelhos de campo\" segundo na raiz; o \"+\" oferece as duas ao Gestor do mapa quando faltam (prepararCamadaAoVivo e prepararCamadaDeCampo, com a guarda nova GERIR_CAMADA_ESPECIAL, pergunta ao mapa); \"Receber: ligado/desligado\" no \"⋯\" das duas, pelo sync (layer/update com receber), com a linha que diz que não recebe; nenhuma das duas se exclui (a lixeira some, a store recusa, a pasta que a guarda não se exclui). Sai a chave central do ao vivo no cliente (aoVivoLigado, camadaAoVivoEscondida).\n\nProvas: aovivo.test.js, aovivo-linha-camadas.test.js, aovivo-estilo-no-painel.test.js e camadas-do-sistema.test.js, com os controles negativos (o Editor não encerra nem apaga a alheia, o Leitor não vê escrita, o Gestor vê tudo); o censo da edição por mapa com os sítios novos; e o spec e2e-ui/aovivo-transmissoes.spec.js, com as rotas do ao vivo dubladas (não rodado nesta frente).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "b6b3ea2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b6b3ea284038b540f4b18ef323e56bfa59da16d7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-29T21:05:48.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.9: o mapa que não recebe posição (decisões 21 e 22 do chefe, 2026-10-29)\n\n- Escolha do destino: o mapa com recebePosicao falso aparece desabilitado, com \"Não está recebendo\n  posições: peça ao Gestor para ligar Receber na camada Aparelhos de campo.\"; sem o campo (EBGeo de\n  antes), recebe. A seleção cai no primeiro mapa que recebe.\n- Recusa RECEBIMENTO_DESLIGADO da posição ou da situação, lida pelo codigo (Mensageiro.kt e a cópia\n  web): pausa o envio da posição, avisa na tela e numa notificação própria, volta à escolha do mapa\n  com a lista atualizada, e a posição recusada sai da fila na hora. Só pausa a mensagem feita para o\n  destino de agora e depois da última pausa (destino-em, recebimento-pausado-em): a recusa do que\n  esperava na fila para o mapa anterior só limpa a fila. Outro código segue como antes.\n- Regras puras em recebimento.ts e RecebimentoDesligado.kt, com testes e controles negativos.\n- Simulado: Receber por mapa (/dev/receber), recebePosicao no destinos e a recusa; MENSAGENS.md\n  com o código e o campo.\n- versionCode 10, versionName 0.1.9 (sem publicar).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "781fff1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/781fff151b2da8270e006c6f644af61ce5edd841",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T20:33:26.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-29 (cont. 12): Inundação na main do ebgeo_web (2c066753d, migração 062, sem deploy), na fila com o Horizonte e o Deslocamento\n\n- 01-Projects/ebgeo-inundacao: PROJECT.md com o estado final e o que depende do chefe; F0 (marcas do SGB, dados de validação de 2024), linha de base e scripts da F1 do HAND\n- Decisions: cont. 4 superada em parte; HAND por Priority-Flood renumerado para cont. 11 (colidia com a cont. 5 do Deslocamento); cont. 12 com o raio do push\n- wiki hand-inundacao nova, ligada no índice, glossário, mapa e vizinhas; ebgeo-web com a Inundação\n- subwiki ebgeo-web: teste de busca da Ajuda frágil ao Pagefind; fila de push entre sessões\n- conventions/subagentes: \"falha preexistente\" do filho se reproduz na main pelo pai\n- env-guia: FATHOMDEM_LOCAL_DIR, HAND_3ESTADOS_DIR, HAND_PILOTO_DIR\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "7aa0756",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7aa07562bb7427b38e83ec817ca8fedebcb5b6c7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T20:09:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Horizonte no celular e no tablet: o Voltar fecha a vista aberta pelo marcador, \"Horizontes salvos\" no celular, toque de 44 px na lista; Ajuda em dia (figuras, páginas e as perguntas de busca que faltavam) (chefe, 2026-10-29)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3StCk25QMU8c4JdZYz",
+      "sha": "13f9e84",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/13f9e842e31886dc8f99b9e8ae8710080d1f8c84",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:29:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a origin/main (53d38b38e, perfil do trajeto do Deslocamento) na Inundação: sem conflito; o censo do registro fica com a entrada nova do profile-panel.manager e com as seis saídas de processamento\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2c06675",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2c066753d80a8575379c064c60132176d4c18b9b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:28:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Inundação no tablet: as dicas na língua do dedo e o spec do tablet em pé (820 x 1180, toque)\n\nAs dicas do painel e dos avisos passam por naLinguaDoPonteiro (\"Toque na mancha...\"), e a do desenho do dique, com o dedo, fala de Finalizar e Cancelar em vez de botão direito, Enter e Esc. O spec novo dirige tudo pelo toque: a gaveta, Análise > Inundação, o rio, a aba Parâmetros, o dique com Finalizar e a profundidade na mancha, sem nada do painel passar da borda. Com as dicas antigas, o spec reprova (\"Clique na mancha...\" no lugar de \"Toque na mancha...\").\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6fc14fb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6fc14fbc19a31b2df3fde4dcc7e46d22ed8af64a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T19:28:02.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-deslocamento 2026-10-29: perfil do terreno do trajeto na main (ebgeo_web 53d38b38e), ambiente limpo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "07aac3b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/07aac3bf0a6d3eb1a6271f9851ea39b581809e30",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:21:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a origin/main (1819a82b7, vistas do Horizonte, migração 060) na Inundação: sem conflito; o README das migrações diz que o 060 não mexe no CHECK que a 062 redeclara\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2b0c191",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2b0c191a0f01699660b002f07b4bb75ec50cde6e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:20:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda, Inundação: a página sem a palavra \"mapa\", que devolve a página de atalhos ao 3º lugar na busca por \"girar o mapa\"\n\nMedido no build real com a ordem de consultas do teste: com a página da Inundação contendo \"mapa\" (uma ou quatro vezes, tanto faz), a frequência do termo nos documentos sobe, e atalhos cai para 4º, 0,0011 atrás de modelos-3d. Na origin/main ela ficava em 3º por 0,0008. Sem a palavra, atalhos fica em 3º com 0,029 de folga. O rótulo da mira (\"Ler cota no mapa\") continua no app; a página diz \"a mira ao lado do campo\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7df5fd0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7df5fd0482b57b34b9df73bfb994c52441e37153",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:10:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Deslocamento: o perfil do terreno do trajeto, na aba Estilo, abre o painel da Linha ao longo da rota calculada (chefe, 2026-10-29)\n\nO perfil é amostrado sobre as pernas emendadas (rotaDoTrajeto), não sobre a linha pelos pontos clicados, e o painel recebe a rota como geometria, para o cursor do gráfico andar sobre o caminho. Recalcular o trajeto refaz o perfil; perna sem caminho desliga o interruptor. Ajuda e wiki do repo atualizadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "53d38b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/53d38b38eac7ab14532d3b065aa65b220b0263f0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:06:07.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki inundacao: pior caso medido da gravação ao soltar (grade no teto, 1,25 a 1,35 s no node)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6b804e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6b804e2dde065fd64013d39d78040ee1f11eaffd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T19:03:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: duas perguntas da avaliação da busca para a página da Inundação\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "754d06a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/754d06adc1664d1541ab7aaf57fc4598c522bf02",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T18:35:58.000Z",
+      "author": "Maj Diniz",
+      "message": "subwiki ebgeo-web: tomadas do grupo Análise e parâmetros de escolha do celular (2026-10-29)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e262001",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e2620012b5bd969c3b4c72c630c9a19ac5801137",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T18:35:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Horizonte: \"Salvar orientação\" no molde do 360, com vista sincronizada, marcador 2D e \"Horizontes salvos\" na aba Camadas (chefe, 2026-10-29)\n\n- Migração 060: tabela horizonte_vistas (documento de escalares, cópia do antes por mapa), aditiva.\n- Alvo horizonte_vista no sync, Histórico, .ebgeo, cópia e fusão de mapas, clone e importação de atlas.\n- Marcador próprio no mapa 2D que reabre o Horizonte com a vista guardada; seção \"Horizontes salvos\" com abrir, renomear e excluir.\n- Exagero vertical padrão 1,5; \"Adicionar ponto\" desliga depois de criar; pontos com etiqueta na vista; Fechar na pílula do 360.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1819a82",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1819a82b7078ab8d3310b9b94dbfc4ae4932da6c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T18:33:38.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-deslocamento 2026-10-29: celular e Ajuda na main (ebgeo_web ac727748f), ambiente de teste limpo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "04ed6ca",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/04ed6ca98dae6cd40f4abbe855a76404bc7cc5f2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T18:13:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a origin/main (ac727748f, Deslocamento no celular e na Ajuda) na Inundação: o modo da Inundação no celular pela escolha da tela de parâmetros, o grupo Análise com sete botões nas tomadas e nos textos da Ajuda, e a Inundação na página de escolher a análise\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1b99c9b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b99c9b3999e33cbe0e586a132e5e67eae7b24a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T18:11:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Inundação: o clique na linha do dique ou no número dele seleciona a inundação dona, pelo caminho da seleção (fonte inundacao-diques em DERIVED_SOURCE_OWNERS), com o teste que reprovava\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a004397",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a004397685516e46bcfbca2902559ee689252829",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T18:08:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Deslocamento: o celular pede tropa, período e tempos antes da conta, e a Ajuda ganha a página da ferramenta (chefe, 2026-10-29)\n\nA tela de parâmetros do celular aceita parâmetro de escolha e de tempos; a feição nasce com a tropa, o período e os tempos escolhidos. Página ferramentas/deslocamento com três figuras do motor de mídia, a ferramenta listada onde as análises vizinhas aparecem, o grupo Análise com seis botões nas figuras e textos, e a ajuda contextual da feição.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ac72774",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ac727748f3d78593554bffd9fa0d57c993ae0cdf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T17:48:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Junta a origin/main (Deslocamento, 7161fc336) na Inundação: listas fechadas e censos com os dois tipos, a 062 sobre a 061\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "983ad0f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/983ad0f6175d3df4767bc26710adba513b242132",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T17:44:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Inundação, ajustes do chefe: gravação silenciosa ao soltar o nível, sonda com rótulo no mapa, celular, Ajuda atual\n\n- Soltar o nível depois do arrasto grava sem o diálogo de cálculo (ele só abre se passar de 1 s); a prévia raster fica até o polígono ser desenhado e sai sem quadro vazio.\n- A profundidade do clique na mancha aparece no mapa, junto do ponto, no rótulo de medida da casa, com o marcador na cor da faixa (neutro na ilhada), e sai com Esc, clique fora ou troca de feição.\n- Celular: a Inundação no Mais, o rio pela mira, o raio antes da conta, a ficha com o resumo e o Editar da mesa; spec em viewport de telefone sem transbordo.\n- Ajuda: a página descreve os dois modos, a mira, os diques numerados, o recálculo ao confirmar e o raio até 100 km.\n- Specs de repro: soltar o nível não abre o diálogo e não deixa quadro vazio; os números dos diques no mapa; a altura do dique recalcula uma vez.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8fff30f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8fff30f031d0869212bca18e03f8cc42646bffeb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T17:33:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Inundação na barra Análise (F2 e F3 do plano): núcleo puro com paridade contra referência em scipy, worker com prévia raster, modos da cota e do HAND, diques numerados, ilhada, painel, celular, Ajuda e servidor\n\n- Núcleo `analysis_tools/inundacao_tool/inundacao.model.js`: enchimento 4-conexo a partir do rio, semente a até 500 m, diques pela travessia de Amanatides e Woo, faixas editáveis, área ilhada (lado seco 8-conexo), célula de 30 m engrossada acima do teto de células.\n- Paridade célula a célula contra `dev/inundacao-referencia/referencia.py` (scipy.ndimage) em 20 casos, quatro deles do FathomDEM real degradado; duas mutações plantadas reprovaram (8-conectividade da água: 6 de 23; lado seco 4-conexo: 5 de 23).\n- Prévia do arrasto do nível em raster (bench: polígono 240 a 260 ms na grade cheia, raster 114 a 144 ms); polígono gravado ao soltar.\n- HAND por `HAND_URL`, `HAND_MINZOOM`, `HAND_MAXZOOM` (map2d.handSource); `carregarTilesDaCaixa` aceita a fonte como parâmetro e o sentinela vira NaN antes da bilinear.\n- Tipos `inundacao` e `processed_inundacao` em todas as listas; migração `062_inundacao.sql` com o CHECK do 043 mais os tipos do Deslocamento e os da Inundação.\n- Painel no padrão da casa (slider, mira no Aa do Limite, cartões de dique do Limite), recálculo só ao confirmar o valor, números dos diques no mapa, limites só físicos ou de cálculo.\n- Specs Playwright: `inundacao.spec.js` e `inundacao-dique-sobre-feicao.repro.spec.js`; Ajuda, wiki e decisão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a7fa053",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a7fa053e19ae5c50d1420959918906e303568769",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-29T17:30:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-29 (cont. 8): Deslocamento no terreno na main do ebgeo_web (7161fc336, migração 061, sem deploy), a partir da análise do Itinera, do Movement Analysis e do zero2route3d; wiki trafegabilidade nova (Diretriz 214-EME e DAMEPLAN, tabelas lidas no documento) ligada no índice, glossário e mapa; ebgeo-web e referências externas; subwiki (stack local com os tiles de produção, createLabelSection, CHECK de tipo entre frentes); learnings de planejar-mudanca-sistema; decisões e livro-razão (2 correções do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "06426fc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/06426fcb0fc909df980fa79a181caa0c7771ce7c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T17:25:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Deslocamento: o celular cria o alcance e o trajeto pela mira, o KMZ nomeia a saída, e os censos e a higiene das migrações conhecem o tipo novo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7161fc3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7161fc336a3797a15f4514c18a700066b52bfe21",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T16:36:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into deslocamento",
+      "sha": "48197c8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/48197c8a14c30d16a9c9aa8e5fe2489f46c509e5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-29T16:36:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Deslocamento no terreno: alcance em faixas de tempo e trajeto por pernas, através campo, na barra Análise (chefe, 2026-10-29)\n\nDijkstra de 8 vizinhos sem redução de chave (A* por perna) num worker, sobre o MDT e a cobertura Overture da carta topográfica pintada na ordem do estilo; quatro tropas do DAMEPLAN (CE 5.80, 3.6.1) com dia e noite; declividade e classes adequado, restritivo e impeditivo da Diretriz 214-EME, editáveis num bloco recolhido e gravadas na feição; massa d'água e curso d'água escolhíveis (o curso multiplica o fator da célula). Migração 061 alarga o CHECK de tipos. Porquê e fontes em docs/wiki/deslocamento-no-terreno.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "389911b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/389911b677872c857080484b970cb50a64abeba0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-29T16:31:26.000Z",
