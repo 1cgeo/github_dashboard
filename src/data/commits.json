@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-29T23:53:50.420Z",
+  "lastUpdate": "2026-10-30T16:37:53.082Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-29T23:22:45.000Z",
+    "1cgeo/ebgeo_web": "2026-10-30T02:26:44.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -9,7 +9,7 @@
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
     "1cgeo/doc_topografica": "2026-10-01T10:11:53.000Z",
-    "1cgeo/doc_dgeo": "2026-10-23T14:02:17.000Z",
+    "1cgeo/doc_dgeo": "2026-10-30T12:15:47.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-29T23:44:36.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-30T16:16:49.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,9 +67,9 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-29T21:41:38.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-30T12:05:59.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-29T21:05:48.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-30T12:41:40.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10102,
+    "totalCommits": 10133,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,11 +136,11 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3121,
+      "1cgeo/ebgeo_web": 3125,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
-      "1cgeo/doc_dgeo": 563,
+      "1cgeo/doc_dgeo": 564,
       "1cgeo/ferramentas_mgcp": 20,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
@@ -172,8 +172,8 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 44,
-      "1cgeo/ebgeo_campo": 62,
+      "1cgeo/ebgeo_produtor": 51,
+      "1cgeo/ebgeo_campo": 66,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1267,
+      "1cgeo/chefe_dgeo": 1282,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,285 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T16:16:49.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-tuiuti: PROJECT.md só com o estado, os fatos moram no repositório batalhas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "09c6055",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/09c60552fde57d59e1046f1599793b4e35623466",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T16:02:53.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30 (cont. 5): projeto ebgeo-tuiuti com as duas frentes, repositório 1cgeo/batalhas, Monte Castelo vira o foco e a demonstração sai do vault para lá, lições de revisão por agentes em conventions/subagentes.md\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "748d697",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/748d69750799ca4d3e3d8c532dde120a6ee32db3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T15:54:23.000Z",
+      "author": "1º Ten Marcel",
+      "message": "demo do EBGeo com Monte Castello: dossie com fonte por afirmacao, calco GeoJSON e o .ebgeo de dois mapas\n\nPesquisa da batalha organizada para desenhar a manobra no EBGeo: cronologia hora a\nhora de 21 FEV 1945 (Joel Silveira do PO de Cordeiro de Farias), moldura americana\ncom hora (Fisher, Cassino to the Alps, cap. XXIV), 37 toponimos com coordenada do\nOSM e altitude do ele ou amostrada no EU-DEM 25 m. Divergencias entre fontes e\nlacunas declaradas no dossie; o que e calculo meu (cotas 813, 920 e 930, pelo\ncruzamento do eixo com a curva de nivel) sai marcado feicao a feicao.\n\nO monte-castelo.ebgeo e o que se usa: dois mapas, 119 feicoes, 21 simbolos militares\npor SIDC e 15 pontos moveis com trajetoria. O mapa do dia corre de minuto em minuto\ndas 05:00 as 19:00 em modo relativo com H-Hora as 05:30; o da campanha, de dia em\ndia de 24 NOV 1944 a 05 MAR 1945. O PNG do simbolo nao viaja, e o bitmapVersion fica\nde fora para a regeracao pelo SIDC disparar.\n\nFormato copiado do codigo do ebgeo_web e conferido contra a exportacao real\ntests/fixtures/ebgeo-2.2/03-completo-2.4.ebgeo. O confere.mjs roda o portao de\nversao do produto, o registro de tipos e as constantes temporais contra os dois\narquivos, com seis controles negativos que o portao recusa. Ele pegou dois defeitos\ndo gerador: o ano carimbado em 1945 para os ataques de 1944, com a janela da 232a\nDivisao invertida, e quatro feicoes com janela fora da janela do mapa do dia, que\nexistiriam no arquivo sem nunca aparecer na tela.\n\nFalta a prova na tela: ninguem abriu o arquivo num EBGeo rodando.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+      "sha": "c540149",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c540149ee54d19975eca788b5cc8e1a0b336ef42",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T12:45:03.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30 (cont. 4): EBGeo Campo 0.1.10 publicado, conserto da 0.1.8 e 0.1.9 presas no logo (build sem VITE_*)\n\nPROJECT.md do ebgeo-campo reescrito, com a seção \"Publicar uma versão (o que já deu errado)\"; contrato-de-pronto\n(o artefato com duas configurações: a releitura abre a tela do APK, não só o dex); env-guia (o source come as\ncontrabarras do caminho do Windows, e a keystore assina nesta máquina); livro-razão com os dois eventos; Decisions.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "82109a9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/82109a90880c95ae3f34037bd796b6b7a44bd32f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-30T12:41:40.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.10: conserta o app preso no logo da abertura da 0.1.8 e da 0.1.9\n\nAs duas saíram do `vite build` sem VITE_RAIZ_PUB, VITE_EBGEO_URL e VITE_RETRANSMISSOR_URL (o Gradle só\nexige os -P): o `config.ts` lançava ao carregar e `principal()` nem começava. Medido nos APKs publicados:\na 0.1.7 tem os três no JS e as origens no CSP, a 0.1.8 e a 0.1.9 têm `void 0` e nenhuma origem.\n\n- vite.config.ts: o build de produção recusa sem os três, com a raiz fora de hex de 64 ou URL sem https.\n- publicar.sh recusa o APK sem a configuração (conferir_config.mjs: os três no JS, as duas origens no\n  CSP, iguais aos -P do BuildConfig) e o que não sai do logo (teste-app/abertura-apk.mjs: a tela do APK\n  no Chrome com a native-bridge.js do Capacitor e a ponte Android simulada, sem conta e logado). As duas\n  reprovam o APK publicado da 0.1.9; a primeira reprova também o APK sem os -P.\n- README de publicar e IMPLANTACAO: os VITE_* em app/.env.production.local junto dos -P; a keystore\n  está na estação do chefe (EBGEO_CAMPO_CHAVES_PRODUCAO_DIR), lida do .env sem `source` no bash.\n- VetoresTest: os vetores do FLUXO (tipo 4, bd5ffc0) deixavam a JVM vermelha; o app não trata fluxo, e\n  o teste passa a exigir que o núcleo os recuse.\n- protocolo: `node --test test/` falha no Node 24; `node --test` roda os 46.\n\nPublicada em dsgoficial/ebgeo_campo-app v0.1.10 (SHA-256 105485a7…, certificado e3456ac7…).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "4a57e15",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/4a57e15d53edd99fb49f337299d3a2dc396b4661",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T12:16:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisions e learnings: doc_dgeo, seção EBGeo refeita em torno do EBGeo Produtor (doc_dgeo a96fb4a)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "6802835",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/68028353aacbcb54d044b66945365b82a7197d24",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/doc_dgeo",
+      "date": "2026-10-30T12:15:47.000Z",
+      "author": "Maj Diniz",
+      "message": "EBGeo: seção nova do EBGeo Produtor (como cada produto é feito) e poda do que ficou velho\n\n- Nova seção \"EBGeo Produtor\": visão geral, Modelo 3D, Projeto 360, Reconhecimento, Ortoimagem e Transmitir voo, com 21 capturas do app 0.2.0; texto tirado do código, rótulos da tela.\n- Introdução reescrita: como cada produto chega ao EBGeo; o uso das ferramentas fica na Ajuda do próprio EBGeo Web.\n- Saem 17 páginas que ensinavam o fluxo que o EBGeo Web não tem mais (config.js compilado, public/3d, rebuild, deploy antigo, tutoriais de cache e de conversão b3dm) e as de ferramentas que repetiam a Ajuda, com os anexos que só elas usavam.\n- Ficam aparadas, como Insumos 3D e Insumos 2D: voo e Metashape, terreno, nuvem de pontos, banco de vetores e Martin.\n- streetview/ intocado (transição do método antigo).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "a96fb4a",
+      "htmlUrl": "https://github.com/1cgeo/doc_dgeo/commit/a96fb4adb62aedd4fe82eb2f64c1fceb0407d79a",
+      "repoUrl": "https://github.com/1cgeo/doc_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T12:05:59.000Z",
+      "author": "Maj Diniz",
+      "message": "360: o hub mostra a preparação também depois de criado o projeto; a versão do Produtor no manifesto vem do app (era 0.1.0 fixo)\n\nAchados das capturas da documentação: o quadro \"Preparação no mapa\" do hub aparecia zerado com o projeto criado, porque o p360:estado só mandava o resumo no ramo sem projeto.json. e2e p360 verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "7a17f30",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/7a17f30a40ed7ec97e5369906b8b5a83dfb72599",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:58:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30 (cont. 2): EBGeo Produtor 0.2.0 publicado; wiki ebgeo-360 com a máscara desenhada por projeto, faixa ou foto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "f68c3cc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f68c3ccd71a7db11e87130c799bd17e4a323c8b7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:56:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisions: EBGeo Produtor 0.2.0 publicado (tag v0.2.0 e Release), máscara desenhada por projeto, faixa ou foto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "c2df8b5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c2df8b518e27850b5e8405a717b2ce4eac9d00d8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T10:54:27.000Z",
+      "author": "Maj Diniz",
+      "message": "0.2.0: máscara desenhada sobre a foto, aplicada ao projeto, à faixa ou às fotos selecionadas\n\n- Editor da máscara (editorMascara.js): polígonos sobre a foto equirretangular, faixa do nadir com 13 vértices para moldar à viatura, arrastar vértice, desfazer, prévia do desfoque, navegação entre as fotos mantidas.\n- preparo360: rasterizarDesenho (união dos polígonos, 4 subamostras, borda suavizada, PNG determinístico); o modelo \"desenho\" guarda os polígonos no preparo.json.\n- Escopo, como o plugin antigo aplicava cada máscara às fotos da camada: máscara do projeto mais exceções (faixa da foto aberta ou fotos selecionadas, pelo nome), cor \"Máscara\" no mapa e lista de exceções com Ver e Remover.\n- projeto360: cada foto com a sua máscara; só a foto cuja máscara mudou refaz a pirâmide; o mascara do manifesto segue o contrato (com exceções, nome por máscara e sha256 da atribuição).\n- Versão 0.2.0 do app.\n\nTestes (uma rodada, no fim): 281 unitários sem nenhum pulado (CLI com ffmpeg e GDAL embutidos); e2e no executável INSTALADO do 0.2.0: p360, aovivo, conta, ui (4), instalado (conversão com o ktx embutido), orto e cli, 10 de 10.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "c106770",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/c106770418c96fd8265e279188ea64c3e29fbd22",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:43:46.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30 (fecho): as 5 entradas restauradas ficam (o chefe); learnings da retrospectiva (blob sobre o HEAD só vale se o HEAD não mudou: zero linhas removidas antes do commit); contrato-de-pronto (o backup antes da mutação só existe depois de listado no destino, o caso do retransmissor)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "9d7893c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9d7893ca7965eea0e363fed65be42bf886bd5549",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:38:46.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30 (cont.): retransmissor do EBGeo Campo com o fluxo do Produtor na VM de produção (ebgeo_campo bd5ffc0, sha256 7f58a655, 1 s parado, canal reautenticado, 12 aparelhos mantidos); backend 064 com o chefe e Produtor 0.2.0 com a outra sessão; versão do app pelo retransmissor (ebgeo_produtor f5934f1)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "35a6a1f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/35a6a1fdb2e054c36844a8b72fced1a71fa5150a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T10:34:59.000Z",
+      "author": "Maj Diniz",
+      "message": "aovivo: a versão que o notebook manda ao EBGeo pelo retransmissor é a do app (app.getVersion()), não um 0.1.0 fixo\n\nO EBGeo grava a versaoApp no aparelho (admin e auditoria); com a 0.2.0 o notebook dizia 0.1.0.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "f5934f1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/f5934f114c60d8e701f08ee8b21636e8b880254d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:30:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisions: restauradas as 5 entradas de 2026-10-28 (cont. 1 a 4) da revisão de tablet e do celular do EBGeo Web, apagadas sem querer pelo 66e02df0; texto tirado de 4b378512, no lugar de antes (depois da Mostratec), no índice e no decisions-2026 (o chefe, 2026-10-30)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "067a476",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/067a476bbf638d5d1f36f0e3cb737f95f46666f1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:08:50.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30: o 360 sem QGIS no EBGeo Produtor (ebgeo_produtor 53c888a, preparação no mapa do app, entrega 360 removida, desfoque da viatura); wiki ebgeo-360 e ferramentas-ebgeo; conventions/subagentes (arquivo das duas frentes com um dono, e o e2e que estoura antes da janela)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "171762b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/171762ba0e9d02cd7ef1a0e0c830fe3d8a32e92e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T10:07:24.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30: ao vivo do drone também pelo retransmissor do Campo (ebgeo_campo bd5ffc0, ebgeo_web 5e3d2aa13, ebgeo_produtor b331f38, sem deploy); decisão e estado no PROJECT.md; subwiki com a ordem de implantação, o retransmissor de produção como padrão do app de teste, os pacotes por cópia no app, o firstWindow que esconde a queda do processo principal e o ffmpeg do PATH\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "9e271a0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9e271a03b6bf0ecf44a1df8bbeedbd21a078bb3f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T10:03:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Docs: a cópia dos pacotes no app envelhece; o sintoma (firstWindow) e como ver o erro de carga\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "50bc0a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/50bc0a90c8515e020aa2abc0448dce997887b96f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T10:02:09.000Z",
+      "author": "Maj Diniz",
+      "message": "360 sem QGIS: a preparação no mapa do app (fotos, limpeza, faixas, ligações, andares, máscara com desfoque, criar) e o projeto nasce dela\n\nO plugin qgis/ e a entrega 360 (entrega.json + estrutura.gpkg) saem (chefe, 2026-10-29: \"não existe mais passo no QGIS\"). O produtor renderiza as panorâmicas no software da câmera e faz o resto no EBGeo Produtor.\n\n- packages/preparo360: o núcleo do plugin portado com os testes dele (EXIF sem decodificar, limpeza de paradas e revisitas, faixas com corte manual, ligações pelo nome, fonte externa, validação que aponta as fotos), o arquivo de trabalho preparo.json e a máscara da viatura (desfoque, cobrir, brasão; as máscaras da casa do ferramentas_ebgeo).\n- app: tela preparar360.html com mapa MapLibre 6.15.0 (fundo do EBGeo Web pelo proxy ebgeo://mapa, só nas origens que o EBGeo declara), ferramentas (selecionar, mover, ligar, planta, atalhos, Ctrl+Z) e visualizador 360 em Three.js 0.164.0 com a máscara ao vivo.\n- projeto360: criarProjeto nasce da preparação, lê cada foto inteira (JPEG íntegro, sha256, repetida), refaz enquanto não há calibração, troca de máscara refaz a pirâmide; a miniatura sai da pirâmide.\n- cli: sem validar-entrega; ler mostra a etapa de preparação.\n- docs/preparo-360.md é o contrato novo.\n\nTestes: preparo360 13/13, projeto360 8/8, rede 26/26, pacote 58/58, cli 12 (4 pulados por ffmpeg/GDAL ausentes na máquina), e2e p360 pela tela verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLQs7nSrdWpHhyoAx8",
+      "sha": "53c888a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/53c888aa96ad028c836d8c52ed3c9237b3aa0486",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T10:01:43.000Z",
+      "author": "Maj Diniz",
+      "message": "aovivo: transmitir voo também pelo retransmissor do EBGeo Campo, sem VPN\n\nComo no Campo, o Produtor escolhe sozinho entre a VPN e o retransmissor (decisões 23 a 26 do\nPLANO-AO-VIVO.md do ebgeo_web). Pelo retransmissor cada pedido vai num envelope HPKE do Campo,\nfio do tipo FLUXO com o pedaço fMP4 como anexo, e só sobem a leve ao vivo, a telemetria e o\ncontrole; a padrão e os MP4 finais esperam a VPN.\n\n- packages/aovivo: envelope.js (o protocolo do Campo em node:crypto, conferido contra os vetores\n  do ebgeo_campo bd5ffc0), retransmissor.js (login, fluxo e caixa), caminho.js (a escolha com\n  sonda de 15 s, 5 s sem alcance), a fila só da leve pelo retransmissor e o relógio por 3 amostras.\n- app: chaves do notebook no cofre do sistema (safeStorage); pela VPN entra também no\n  retransmissor, e sem rota entra só por ele (SO_RETRANSMISSOR); a tela mostra o caminho.\n- app/test/lancar.js: o app de teste aponta o retransmissor para uma porta local fechada, para\n  nenhum e2e entrar no de produção com a conta de teste.\n- scripts/e2e-retransmissor: o e2e com o retransmissor, o backend e o Produtor de verdade.\n- docs/desenvolvimento.md: o caminho pelo retransmissor e a prova (inclui o texto da outra sessão).\n\nProva: aovivo 68/68 com o ffmpeg embutido; e2e do app aovivo, conta e ui 6/6; e2e real com a VPN\ncortada, a leve completa pelo retransmissor em 1,2 s e a padrão 1,0 a 1,2 s depois da volta.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaYCs1m8V5K8bTKqv",
+      "sha": "b331f38",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/b331f38fb6f027628dd5271a88c41bcb259bc441",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T02:26:44.000Z",
+      "author": "Maj Diniz",
+      "message": "aovivo: o ao vivo do Produtor também pelo retransmissor do EBGeo Campo (terceira rodada, decisões 23 a 26 do chefe, 2026-10-29)\n\nSem VPN, o EBGeo Produtor manda o ao vivo em fios do tipo FLUXO pelo retransmissor cego, e o EBGeo\naplica com a mesma régua das rotas /api/v1/aovivo. O frontend não muda.\n\n- protocolo (cópia do 1cgeo/ebgeo_campo bd5ffc0): fio FLUXO com anexo binário e classes finas;\n  estado PRODUTOR na lista; vetores novos.\n- migração 064: aparelhos_de_campo.perfil (campo ou produtor), aditiva.\n- campo/porta.js: login de perfil produtor sem atestado e sem a versão mínima do app do Campo,\n  com o id da conta no retorno; um aparelho por perfil na conta (o notebook não derruba o\n  celular); o fluxo só do produtor, e o produtor só manda fluxo; limitador próprio.\n- aovivo/aovivo.envelope.js: as mensagens aovivo_* pelo serviço e pelos esquemas da rota\n  (aovivo.schemas.js, agora compartilhados), com o status e o código da rota no retorno; a\n  padrão recusa SO_PELA_VPN (decisão 24).\n- retransmissor.client.js: o produtor vivo sai na lista com o estado PRODUTOR.\n\nProva: tests/integration/campo-fluxo-aovivo.test.js (6, julgados pelo banco e pelo disco; com o\nfluxo recusado na porta, os 4 do fluxo reprovam); suíte do backend 7275 de 7277, com o comentário\nda 064 corrigido e relido (citacao-de-migracao) e o sub-ramos-velhos-recusam-tipo verde sozinho\n(reprova só na suíte inteira, fora desta obra); e2e com o retransmissor em Rust, este backend e o\nProdutor de verdade (scripts/e2e-retransmissor do ebgeo_produtor). Sem deploy: o retransmissor\nnovo vai antes, senão a lista com o estado 3 derruba o canal do retransmissor velho.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5e3d2aa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5e3d2aa13d6cf11ba635939ba3dac7d024efacb0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-30T01:23:45.000Z",
+      "author": "Maj Diniz",
+      "message": "fluxo: o ao vivo do drone pelo retransmissor (fio do tipo 4, decisões do chefe de 2026-10-29)\n\nO EBGeo Produtor passa a mandar o ao vivo também sem VPN, pelo retransmissor, como o Campo.\n\n- protocolo: fio do tipo 4 (FLUXO), assinado só pela identidade, com etiqueta própria, anexo\n  binário depois do JSON (o pedaço fMP4, sem base64) e classes finas acima de 64 KiB (de 64 em\n  64 KiB até 4 MiB); estado PRODUTOR (3) na lista de aparelhos; as mensagens aovivo_* e o login\n  com perfil produtor em MENSAGENS.md. Vetores novos: 6 fios do fluxo, nascidos de um fio real\n  degradado, e o registro com produtor (46 de 46 no node).\n- retransmissor: POST /v1/fluxo só para o aparelho com estado produtor, fila em memória com teto,\n  prazo e limites próprios (src/fluxo.rs), 503 FLUXO_CHEIO; no canal com o EBGeo o fluxo sai pela\n  mesma mensagem 4, com sequências a partir de 2^62 e só com o crédito que a fila do Campo deixa;\n  a loja ganha a coluna produtor. teste-fluxo com 29 passos (7 do fluxo), cargo test e clippy\n  sem aviso.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "bd5ffc0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/bd5ffc041f8ad87ded6fcb78ebd967c323780fae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-30T00:59:11.000Z",
+      "author": "Maj Diniz",
+      "message": "teste-app: o e2e espera o envelope \"desligado\" sair da fila antes da recusa pedida\n\nO envelope do desligar entra na fila depois do clique (a assinatura é assíncrona), e a fila vazia logo\napós o clique passava a espera: a recusa pedida em seguida caía no \"Sinal de vida (GPS desligado)\", a\nposição seguinte chegava, e o controle negativo da 0.1.9 via \"chegou\" no lugar de \"recusada\" (3 de 4\nrodadas). O desligarPosicao espera uma posição da fila feita depois do clique e nenhuma pendente.\nMedido: 5 de 5 rodadas verdes, 33 passos. Só o teste muda, o app não.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ae1fe9d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/ae1fe9d7de98c1de251c4ce8c9afd4543b751746",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T00:58:53.000Z",
+      "author": "Maj Diniz",
+      "message": "subwiki ebgeo-web: funde as duas linhas do censo de tipos nos specs de tela (Deslocamento e Inundação)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "27baa01",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/27baa014afd34a82d1d5259009fdd985010e0b0d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T00:58:13.000Z",
+      "author": "Maj Diniz",
+      "message": "subwiki ebgeo-web: censo de tipos também nos specs de tela do Playwright (2026-10-29)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "bf830b8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bf830b826a5a13b8dd37503fc21053bbde99f981",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T00:57:19.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e todos os tipos: as saídas derivadas do deslocamento, da inundação e da cobertura de rádio entram na lista nomeada (chefe, 2026-10-29)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3StCk25QMU8c4JdZYz",
+      "sha": "b8b3afd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b8b3afd0a9507aaf7d62ce6d32cfd867ab44f588",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T00:43:59.000Z",
+      "author": "Maj Diniz",
+      "message": "Testes de tela: o relevo local volta a ser por caso (helper relevo-local), não da suíte inteira; o padrão global derrubava os specs que provam a recusa sem relevo (chefe, 2026-10-29)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3StCk25QMU8c4JdZYz",
+      "sha": "a3feb3c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a3feb3c98340dccefe89d1a23f239d6a71434a7b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-30T00:41:08.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-29 (cont. 15): Dependabot zerado no ebgeo_web (e635eb55e), no EBGeo Produtor (e10ea7b) e no app EBGeo Campo (088bd1a); worktrees da obra do ao vivo removidos; learnings de revisao-codigo (alerta medido por npm audit de cada lockfile, override que trava o fix) e wiki ti-infraestrutura (NODE_USE_ENV_PROXY e o NODE_TLS_REJECT_UNAUTHORIZED no ambiente)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "e72e37c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e72e37c1ed45afb28ae017f83b652c40b6d33967",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-30T00:38:27.000Z",
+      "author": "Maj Diniz",
+      "message": "deps: @capacitor/cli 8.6.0 (uuid GHSA-w5hq-g745-h8pq e xcode, transitivos do CLI de build); npm audit de 3 moderados para 0; o cap sync android com o CLI novo não muda nenhum arquivo versionado do projeto Android, e o core e o android do Capacitor seguem em 8.5.3\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "088bd1a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/088bd1a4eab24ed29f0619901e0a114d72ef66ec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-30T00:37:14.000Z",
+      "author": "Maj Diniz",
+      "message": "deps: Electron 44.10.0 (GHSA-jr5w-w6x2-84p9, certificados intermediários eMudhra comprometidos), ajv 8.20.0 no pacote e no entrega360 (GHSA-2g4f-4pwh-qvx6, ReDoS com $data) e fast-uri 3.1.9 (três avisos de URI); npm audit da raiz e do app de 2 e 10 para 0; testes unitários e e2e do app verdes com o binário novo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "e10ea7b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/e10ea7bec5eab1caaa317f226b43b3bb0ef04434",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T00:32:27.000Z",
+      "author": "Maj Diniz",
+      "message": "deps(backend): qs 6.16.2 no override do express (GHSA-6pq8-jhm2-2vcw, DoS no qs.stringify com arrayFormat comma), express 4.22.3 e body-parser 1.20.9; npm audit de 3 moderados para 0, lock conferido pelo npm ci --dry-run do npm 12.0.2 (DSG), 11.8.0 (1º CGEO) e 10.9.9 (imagem base); suíte do backend 7260 de 7260\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3PzhpocqiMa9Paz7NX",
+      "sha": "e635eb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e635eb55e4dd175a47ba81737bea686a245af8cd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-29T23:44:36.000Z",
