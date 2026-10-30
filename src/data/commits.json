@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-30T16:37:53.082Z",
+  "lastUpdate": "2026-10-30T23:33:46.093Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-30T02:26:44.000Z",
+    "1cgeo/ebgeo_web": "2026-10-30T21:47:30.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10133,
+    "totalCommits": 10141,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3125,
+      "1cgeo/ebgeo_web": 3133,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -191,6 +191,78 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T21:47:30.000Z",
+      "author": "Maj Diniz",
+      "message": "terreno do mapa base: corrige os 15 achados da revisão independente\n\nA análise que passa do limite lê o zoom do recorte, conta os tiles da caixa\ninteira como pedidos, para o Deslocamento avisar a área sem relevo, e mascara\no pixel fora dos limites numa cópia. O Horizonte não pede tile fora e deixa\nfixo até onde o relevo vai. config.terreno no mapa base é proibido, porque\nfurava a lista fechada, a posse, a exclusão e a trilha.\n\nA concessão com o terreno desligado põe a fonte no mapa; a base sem terreno\ndevolve o globo e a próxima base com terreno religa; terrainPreferredBasemap\nnão tira a pessoa de base com terreno próprio; a frase diz que excluir\nsuspende as concessões. E os oito baixos: portão do botão, id de terreno\nprivado na rota do catálogo, credencial e enlace local no endereço, licença\nno botão, trilha da criação, dono do terreno da instalação e o aviso do slide.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "e2d9ba0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e2d9ba0c937ee17036838ac0209ae56da1f58f3e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T20:41:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Teste da passada de trajetória: o retorno agora diz se algo moveu, e a fonte que falha responde falso\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "8b42dd0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b42dd0e425db965f070e3e2d78b715f329a7a77",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T20:27:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Terreno do mapa base: cada base aponta um terreno cadastrado na aba Catálogo, e as análises leem o terreno da base na tela (chefe, 2026-10-30)\n\nA tabela terrenos é o oitavo tipo de recurso, com a linha da instalação, que lê TERRAIN_URL e HILLSHADE_URL sem guardar endereço, e basemaps.terreno_id por chave estrangeira. O /api/config publica o terreno de cada base sem vazar o privado, resolverTerreno é a fonte única no cliente, a troca de base com terreno ligado preserva o botão e o exagero, e a análise recusa fora dos limites e grava o terreno usado. O Cesium fica fora.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "21e7f82",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/21e7f823648f19a75939c9145517951ea32f1f21",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T19:50:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Fuso do mapa: os achados da revisão independente; quem mostra hora de mapa acompanha a engrenagem, a lista lê o fuso do mapa fechado, o que sai do aplicativo nomeia o fuso\n\nM1: o campo do evento, a lista e a tabela escutam TEMPORAL_CONFIG_CHANGED; o campo preso ao fuso da montagem gravava quando com 4 h de erro. M2: a lista com Todos os mapas lê a config de cada mapa, e o CSV ganha a coluna Fuso. M3: carimbo do PDF e balão do KMZ nomeiam o fuso. B1: quando citado no fio e na última mudança segue o fuso. B2: Hora da imagem no fuso do mapa, sem America/Sao_Paulo. B3: linha que não é objeto não derruba a op, e a criação de mapa normaliza. B4: escrita em fonte móvel faz uma passada só, sem anunciar cursor parado. B5: o campo do fuso aceita o que o leitor aceita, e rótulo sem fuso avisa. Cada um com repro que reprovou antes; spec de tablet do fuso.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "60d2a6b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/60d2a6b8dcd55ea240850a9f38ddad6306c7c37a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T19:17:16.000Z",
+      "author": "Maj Diniz",
+      "message": "Fuso do mapa: os campos da engrenagem com classe própria, para não virarem o primeiro campo de data de quem procura por `temporal-settings__datetime`\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "1b750f4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b750f428844ce01343cb75579c4db60f882e3b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T18:16:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Fuso do mapa: o achado da suíte, campo vazio não vira 31/12/1969 (`null` somado ao ajuste), `fusoDoMapaSync` só com a memória, sem arrastar o gerente de estado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "d88d040",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d88d040fb3cbae8c5fe2af14dead14793189f816",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T18:10:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo: fuso por mapa, deslocamento fixo com rótulo curto na engrenagem; a campanha na Itália de 24 NOV aparece como 24/11, e nenhum instante guardado anda (decisão de 2026-10-30)\n\nToda hora do módulo saía em Brasília. O fuso é lente, como `modo` e `origem`: fica em `fuso` e `fusoRotulo` da config temporal, nulo é o comportamento de hoje, e H+N e D+N contam da origem como antes. Passa a valer na régua, nos campos de data, nas datas e horas do painel, na trajetória, ao colar lista, no D-Dia, no `quando` do evento, na importação de hora sem fuso próprio (KML, GPX, CSV, GeoJSON) e no GDH, que escreve a letra do fuso e J no que nenhuma letra nomeia.\n\nMora no JSONB `temporal_config`, sem migração: anda em retrato, duplicação, clone e `.ebgeo`. O servidor valida por lista fechada (`normalizeTemporalFuso`, formato inválido degrada a nulo e a op nunca é recusada) e preserva a chave AUSENTE no UPDATE, para cliente antigo não apagar o campo; o cliente faz o mesmo com o eco ao vivo (`configComFusoGuardado`).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "1b40345",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1b403455afac4c1df88f102620c297760e97f85b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-30T17:56:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo: o ponto móvel volta a andar depois de recarregar; a varredura de trajetórias é refeita quando a fonte recebe dado, e a saída cedo do quadro segue barata\n\nA primeira varredura do boot achava a fonte vazia e guardava \"nenhuma fonte tem trajetória\": a partir daí todo quadro saía cedo, com a barra e o filtro vivos (medido em 2026-10-30 com o Monte Castelo: recarregar e tocar movia 0 de 6). Quem invalida agora é o `sourcedata` de conteúdo numa fonte fora da lista, por `observarFontesDeTrajetoria`; fonte seguida não reage, e a escrita no meio de uma varredura impede que ela guarde a resposta velha. Com a linha do tempo parada, o controlador pede uma aplicação, porque não há próximo quadro.\n\nRepro em tests/e2e-ui/temporal-movel-depois-de-recarregar.repro.spec.js, que reprovava antes (1 passed, 1 failed) e passa depois.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "b61fbea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b61fbea0f91db88bf7bc510c9f04a9a3d893c0cc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-30T16:16:49.000Z",
