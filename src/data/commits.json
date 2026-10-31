@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-31T15:41:15.314Z",
+  "lastUpdate": "2026-10-31T23:13:03.711Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-30T21:47:30.000Z",
+    "1cgeo/ebgeo_web": "2026-10-31T21:53:28.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-31T02:16:33.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-31T22:07:59.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,9 +67,9 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-31T13:33:12.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-31T18:45:10.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-30T12:41:40.000Z"
+    "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10145,
+    "totalCommits": 10169,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3133,
+      "1cgeo/ebgeo_web": 3140,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,8 +172,8 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 53,
-      "1cgeo/ebgeo_campo": 66,
+      "1cgeo/ebgeo_produtor": 59,
+      "1cgeo/ebgeo_campo": 72,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1284,
+      "1cgeo/chefe_dgeo": 1289,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,222 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T22:07:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-31 (cont. 4): fim da obra de segurança, regra de prompt para outra máquina, MEMORY abaixo do gatilho e split do learnings\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a57356d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a57356d415afaa7278c343b3dfd9d9e19ff41d5b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T21:56:11.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: reconhecimento bidirecional na main, backend por relato do agente da implantação, e as lições do commit só de doc\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "48ff9d0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/48ff9d039540103b27ad7169b93cdfe705d232aa",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T21:53:28.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: P23 sem o nome de API do Android, que o censo de símbolos da wiki reprova\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "061e5ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/061e5ce0cc26f9ec17d3b9aef4a5849bf64e57a1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T21:51:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge reconhecimento-bidirecional: feições no vídeo nas duas direções e \"Quem vê este ponto\"\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d4d4ed7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d4d4ed787306309a4d1b9b4bc92d5bc59fb8b9ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T21:48:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-31 (cont. 3): app 0.1.11 e Produtor 0.2.2 publicados, e o trabalho pendente das outras sessões fundido sem voltar o HEAD\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7aadc1c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7aadc1cc71be3a345abc271dfbfdd9afeda2267f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-31T21:48:23.000Z",
+      "author": "Maj Diniz",
+      "message": "IMPLANTACAO: app 0.1.11 e Produtor 0.2.2 publicados, sem confirmar o backend na DSG\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "70db1cf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/70db1cf810d0baed79b9ba0f99193d22dafd7b31",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T21:48:20.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: P21 a P23 com o que o S24 provou e o que falta\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c698676",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c6986764567ce8e01c480bcff6fbc080178d2623",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T21:29:52.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento: feições no vídeo nas duas direções e \"Quem vê este ponto\"\n\nAs feições do mapa aparecem no vídeo com o estilo real: um mapa escondido\ncom a câmera do drone desenha as mesmas camadas, com tamanho fixo e o relevo\nlevado a cada vértice. As ferramentas do mapa marcam no vídeo pelo caminho de\nescrita normal, e a feição grava a procedência (reconhecimento, instante,\npixel e incerteza).\n\n\"Quem vê este ponto\" é ferramenta e painel de ponto: consulta os\nreconhecimentos ligados, até o alcance do setor da câmera, e abre cada vídeo\nno melhor instante. O mouse aparece nas duas telas e o setor usa a calibração\ndo voo. O vendor do pacote sobe para a calibração do Produtor.\n\nTambém: o play não aproxima mais o mapa, o clique no vídeo não toca nem\npausa, os painéis de ponto se arrastam pelo cabeçalho e \"Duplicar Seleção\"\nsai do botão direito.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5b44415",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5b44415de50408e81c87762fa272583f625cde80",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T20:04:25.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: estado da implantação e o que falta provar no S24\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "822dea2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/822dea259a81592a850204161a077a65e4fde858",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-31T20:03:31.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.11: dois defeitos achados no S24, antes de publicar\n\nP23: o importantForAutofill não barrava o WebView, e o campo de login chegava\nao Samsung Pass. O MainActivity agora não entrega o serviço de preenchimento.\nFalta provar a sessão ausente num login novo.\n\nP22: com a tela travada os retornos não abrem, e cada posição saía de novo a\ncada 2 min. Sem reenvio com a tela travada, e o pendente sai antes do reenvio.\nFalta provar no aparelho.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2309924",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/2309924d81bc8986017240aac3c84fc689921574",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-31T18:45:14.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.11: os consertos de segurança, ainda sem publicar\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "937b0e0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/937b0e09fea94634578401e03fee3bf6f51583b5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T18:45:10.000Z",
+      "author": "Maj Diniz",
+      "message": "0.2.2: a cifra do retransmissor funciona no app instalado, e os consertos de segurança do ao vivo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b0acdca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/b0acdcae146b454a35be3f612ae8687dfe1b9251",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-31T18:38:36.000Z",
+      "author": "Maj Diniz",
+      "message": "instalar.sh: a conferência do sshd não cai no SIGPIPE do pipefail\n\nCom o pipefail, o grep -q fecha o pipe no primeiro acerto, o sshd -T morre de SIGPIPE, e o script parava num valor certo, antes de mexer no serviço. O WSL da prova não tinha sshd, e por isso só apareceu na VM.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "95e0286",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/95e0286c7eabac6024b24a3903ec3b568b2128a5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T18:11:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-31 (cont. 2): segurança do EBGeo Campo e do ao vivo na main, três planos viram wiki, a prova roda no ambiente que executa\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "29b2519",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/29b25192d0916b314dfc7bb7fbc1b5a212267ad1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T18:09:51.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as citações de segurança apontam a wiki do ebgeo_web, e o IMPLANTACAO ganha a ordem da obra\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4639a8a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/4639a8a0dba4b4af1d2b20d7da4a90785bec63a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-31T18:09:48.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as citações de segurança apontam a wiki do ebgeo_web, e o IMPLANTACAO ganha a ordem da obra\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "326464b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/326464b09d509cd5944a383289e408bb4e118ada",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T18:09:45.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: SEGURANCA-EBGEO-CAMPO.md sai, e a wiki diz o que os códigos P1 a P43 querem dizer\n\nO porquê, os riscos aceitos e as armadilhas vão para docs/wiki/seguranca-do-campo.md. O estado e as decisões\nabertas vão para o vault da DGEO, e a ordem de implantação para o IMPLANTACAO.md do ebgeo_campo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4114631",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4114631243c15933dc97d4aafbce411057ed41e2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T18:08:02.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: PLANO-GRADE.md e PLANO-ORTOIMAGEM.md saem, com as decisões e o contrato na wiki\n\nAs duas obras estão implementadas. As decisões e o porquê foram para docs/wiki/grade-do-mapa.md e\ndocs/wiki/ortoimagens.md, e as citações apontam para lá. O vendor segue a fonte do ebgeo_produtor.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d4a4a9e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d4a4a9e8ae2a78b79aacf7de117bdfd9ad6035dd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T17:40:07.000Z",
+      "author": "Maj Diniz",
+      "message": "ortoimagem: as citações do plano apagado apontam a wiki do ebgeo_web\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c07e4f3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/c07e4f30537d210c591a7763b38bdb44494c43a3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-10-31T17:36:47.000Z",
+      "author": "Maj Diniz",
+      "message": "segurança do EBGeo Campo e do ao vivo: consertos no servidor, e o plano do ao vivo vira wiki\n\nO servidor deixa de cair por um retransmissor comprometido ou um envelope ruim: créditos impostos, nenhuma\nexceção fora da captura, um 503 só derruba o canal com o banco fora, certificado vencido só para o canal, log\ne buffer com teto. O ao vivo ganha tetos de pedaço, de disco, de trilha e de transmissões, confere o codec\ndo init e não bloqueia o laço de eventos no MP4 final. Mais P2, P8 parte 1, P15, P27, P29, P31, P32, P33 e P34.\n\nRegras do chefe (cláusula 5.14): o notebook entra com qualquer conta Editora de um mapa, e publicar é do\nGestor ou Dono do atlas, com o item sempre privado, na OM de quem publica.\n\nPLANO-AO-VIVO.md sai: as decisões e o contrato estão em docs/wiki/reconhecimento-ao-vivo.md.\nSEGURANCA-EBGEO-CAMPO.md passa a dizer só o estado de cada achado e a ordem de implantação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "80fa656",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80fa6564955aa599f6f48ef0cbd3eadbeb355b54",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T17:04:06.000Z",
+      "author": "Maj Diniz",
+      "message": "aovivo: a cifra no Electron e os consertos de segurança do envio ao retransmissor\n\nO Electron 44 não tem chacha20-poly1305 no createCipheriv (\"Unknown cipher\"), e o login e o fluxo pelo\nretransmissor não cifravam dentro do app: as provas rodavam em Node. A cifra vem da @noble/ciphers 2.4.0\nem versão fixa (decisão do chefe), conferida pelo vetor da RFC 8439 e pelo login de verdade no Electron.\n\nDo levantamento de 2026-10-31: P14, P15, P19, P27, P40 (teto do moov) e P43 (a escuta por um porteiro em\nNode, só na placa escolhida, com chave de 128 bits; o ffmpeg aceitava vídeo sem o publish). Mais três\ndefeitos do envio: o REVOGADO em texto não apaga mais as chaves, a raiz e o endereço só se trocam fora do\napp instalado, e as respostas do retransmissor têm teto. A fila trata TETO_DE_GRAVACAO e SEM_ESPACO.\n\nDepende de bancada: a chave de 26 caracteres no Pilot 2 e a queda real do Wi-Fi.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b8d48be",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/b8d48be730ff35e9cc4a9a6a4007ac0ec576fd77",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-10-31T17:04:06.000Z",
+      "author": "Maj Diniz",
+      "message": "segurança: consertos do levantamento de 2026-10-31 no retransmissor, no app e no protocolo\n\nRetransmissor: P5 (fila em tmpfs e a lista na pasta persistente), P9, P11, P12, P13, P14, P16, P17, P27 e as\nbaixas do quadro, da confirmação da caixa e do deploy. O teto da loja cai para 128 MiB.\nApp: P7, P8 parte 2 (30 dias, decisão do chefe), P14, P15, P19, P20, P21, P22, P23, P27, as baixas e a recusa\nCHAVE_VENCIDA, que monta o fio de novo. A versão segue 0.1.10: não publicado.\nProtocolo: a chave publicada aceita a assinatura anterior, e os vetores cobrem as bordas de Ed25519, o\ncontador acima de 2^63 e o login autoassinado aberto como retorno.\n\nProvado em Node, na JVM e no navegador, com controles negativos. O que depende do celular e o binário real\nna VM seguem sem prova: o estado está em SEGURANCA-EBGEO-CAMPO.md do 1cgeo/ebgeo_web.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4f140dd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/4f140dd5d276e3a5f70a5e12eb4ef165474f2041",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T16:14:35.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento: a altura vai relativa ao terreno, para o datum do terreno do mapa não entrar na conta\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "43b0c71",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/43b0c71447f7a3d9dd98605b421aa01638560b71",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T16:14:03.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento: calibra a câmera do voo pelo próprio vídeo\n\nCom um terreno, o Produtor rastreia feições na versão padrão e ajusta rumo,\ninclinação, rolagem, FOV e altura para que o mesmo ponto caia na mesma\ncoordenada em todos os quadros. O resultado vai nos campos opcionais novos de\ncamera; pacote velho segue válido. Só entra o ajuste que melhora rastros fora\ndele, e sem terreno a câmera fica nominal.\n\nO FOV padrão do Mavic 3E passa a 71,6: 73,7 supunha 36 mm de largura, e a\nimagem Esri deu o máximo entre 71,0 e 71,6 nos três voos.\n\nJulgado pela Esri, fora do ajuste: sede de 14,7 m para 4,4 m de mediana.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "38df619",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/38df6192bf1408b65bcb356f4cf8ba43af76b563",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
     {
       "repo": "1cgeo/ebgeo_produtor",
       "date": "2026-10-31T13:33:12.000Z",
