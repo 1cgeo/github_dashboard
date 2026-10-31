@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-10-30T23:33:46.093Z",
+  "lastUpdate": "2026-10-31T15:41:15.314Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-10-30T21:47:30.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-30T16:16:49.000Z",
+    "1cgeo/chefe_dgeo": "2026-10-31T02:16:33.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-30T12:05:59.000Z",
+    "1cgeo/ebgeo_produtor": "2026-10-31T13:33:12.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-30T12:41:40.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10141,
+    "totalCommits": 10145,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 51,
+      "1cgeo/ebgeo_produtor": 53,
       "1cgeo/ebgeo_campo": 66,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1282,
+      "1cgeo/chefe_dgeo": 1284,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,42 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T13:33:12.000Z",
+      "author": "Maj Diniz",
+      "message": "0.2.1: a trilha do reconhecimento segue o tempo da legenda do SRT e guarda o giro da câmera\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ce3ec27",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/ce3ec27714e02c4630fcb1e790c31ea42a34dbf7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-10-31T13:14:02.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento: a trilha do SRT segue o tempo da legenda e guarda o giro da câmera\n\nA hora escrita no bloco do SRT salta para trás no meio do voo (-0,505 s e\n-0,357 s nos voos do CI Butiá de 2026-10-27), e a trilha usava essa hora como\nrelógio: tudo depois do salto ficava atrasado contra o vídeo e a trilha acabava\nantes dele. O tempo do vídeo agora é o início da legenda.\n\nO corte de vértices olhava só a posição: com o drone parado, caía a 1 vértice\npor segundo enquanto a câmera girava. Agora rumo e inclinação também guardam\nvértice, com o mesmo teto de 10 por segundo.\n\nContra todos os blocos dos SRT reais: rumo máximo de 36,08 para 4,22 graus na\nsede e de 21,01 para 3,82 nos barracões. Os pacotes já publicados continuam\nerrados até serem refeitos dos originais.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d6daca2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/d6daca26e8f9bdd4bb0eabc6c7335329f3b2743f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T02:16:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30: HAND da América do Sul calculado e publicado no 1º CGEO e na DSG (fonte hand_as do Martin, HAND_URL no backend)\n\n- 01-Projects/ebgeo-inundacao: plano, F0 (ASF reprovado; HydroSHEDS v2 a partir de 209 km² e água da JRC), F1 (piloto de escala), rodada continental (2,0 x 10^10 células, 6 h 30 min), receita continental também na ASC, F4 e F4b (manchas do SGB, CSI 0,41 a 0,65 sem ajuste), e a publicação com as provas\n- Decisions: 2026-10-29 cont. 13 e 2026-10-30, cont. 1 e cont. 2, com o raio da publicação\n- wiki hand-inundacao (estado e escala) e servidor-ia (hugepage do numpy, cache do rio-rgbify, proxy sem Range, escala medida)\n- atualizar-dockers/learnings: fonte nova no Martin sem reinício, env nova pelo compose com -f, cópia grande para a DSG\n- conventions/subagentes: mutação em produção, o pai executa e o filho levanta\n- env-guia: HAND_AS_DIR\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "bbc78a8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bbc78a8a4c3172f2add0bf1cf872e6484b014b54",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-10-31T02:12:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-10-30 (cont. 6): Monte Castelo como maquete de 1944, fuso e terreno por base na main do ebgeo_web, lições de subagentes\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "1026099",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1026099125ac6e5e96214f81935ad9897dc119fd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-10-30T21:47:30.000Z",
