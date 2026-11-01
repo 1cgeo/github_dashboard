@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-10-31T23:13:03.711Z",
+  "lastUpdate": "2026-11-01T16:41:44.505Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-10-31T21:53:28.000Z",
+    "1cgeo/ebgeo_web": "2026-11-01T11:33:04.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-10-31T22:07:59.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-01T12:26:34.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-10-31T18:45:10.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-01T10:51:43.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10169,
+    "totalCommits": 10182,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3140,
+      "1cgeo/ebgeo_web": 3144,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 59,
+      "1cgeo/ebgeo_produtor": 61,
       "1cgeo/ebgeo_campo": 72,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1289,
+      "1cgeo/chefe_dgeo": 1296,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,123 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T12:26:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-01 (cont. 1): manuais do EB contra o EBGeo Web, com site e nada recusado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9993a79",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9993a797c49d36822f6c66cae9a16f3949c74525",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T11:33:04.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: feições no vídeo, Quem vê este ponto e as feições no Horizonte\n\nDuas páginas novas em como-fazer (feicoes-no-video e quem-ve-este-ponto),\ncom figura do motor sobre um voo inventado com a câmera inclinada, na barra\ne nas novidades. O Horizonte aponta as feições do mapa na vista, e o\ndetalhe (haste, esmaecido, crista, Símbolos do mapa) entra na página dos\nsímbolos no Horizonte, porque a do Horizonte já estava no teto de palavras.\n\nConsertos: copiar-e-colar sem \"Duplicar Seleção\", que saiu do menu; o botão\ndireito ganha \"Quem vê este ponto\", e a figura dele é refeita; o vídeo do\nreconhecimento deixa de dizer que tocar leva o mapa até o voo, e a figura\ndele é refeita com os botões novos da janela.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "30d69df",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/30d69df0fde52f73cf35c60258542cfd45ed9cc3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T11:06:37.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki/ebgeo-web: o link quebrado sai\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ee742d0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ee742d03e33cdbcb265f9ad1888467d582d32f68",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T11:06:19.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-01: feições no vídeo e Horizonte em tela plana, método de medir overlay e as correções da sessão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "add7f0f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/add7f0f4a2db9b17d3b20f837c2c8c9bf5ed4ea2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T10:59:56.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: Produtor 0.2.3 lançado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3ef29c0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3ef29c0d33cb13ee6afe9847821698758927bc84",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-01T10:51:43.000Z",
+      "author": "Maj Diniz",
+      "message": "0.2.3: a trilha do reconhecimento sem o batimento dos degraus da DJI\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "dfced54",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/dfced547c93349b018a02d676fc62eb577fbe245",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T10:51:20.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: o plano sai para a wiki do repositório, e o que falta\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4ca2e1b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4ca2e1b807600a699183d3b75c948e1d38d492b6",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T10:51:07.000Z",
+      "author": "Maj Diniz",
+      "message": "docs e testes: o plano bidirecional sai para a wiki, e os testes de navegador deixam \"Duplicar Seleção\"\n\nA wiki feicoes-no-video guarda o porquê e as medidas. Os testes que clicavam no\nitem removido passam a copiar e colar pelo menu de contexto.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5ab88fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5ab88fc1be7a6dd8fb50b90b0cfa4fa4bce3b28e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T10:21:19.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: trilha do Produtor sem batimento e worker do Horizonte na main, com os pacotes refeitos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "746979c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/746979c9380f31754ba60c194171816cc2c40304",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T10:19:16.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o recorte das áreas pelo relevo vai para um worker\n\nAo mudar a altura do olho, o recorte de cada polígono travava a vista: 1392 ms\ncom 100 feições e a CPU da tela 4 vezes mais lenta. No worker, o maior\ntravamento cai para 61 ms, e a vista segue com o recorte anterior até a\nresposta chegar. Sem worker, o recorte volta à tela e dá o mesmo resultado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d129738",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d129738368007d604cb7f87ef106ac4888fa9ba9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-01T10:19:15.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento: a trilha do SRT sem o batimento dos degraus de 10 Hz\n\nO rumo da DJI anda em degraus de 10 Hz num SRT de 30 quadros por segundo, e o\ncorte pedia 0,1 s exatos: 3 quadros valem de 0,099 a 0,101 s, e os vértices\nalternavam 3 e 4 quadros. A escada amostrada assim dava um batimento de cerca\nde 0,4 s, e a feição sobre o vídeo oscilava até 20 px em 640 no giro.\n\nO SRT passa por uma média centrada de 0,21 s pela regra do trapézio, que não\natrasa, e o corte tolera o arredondamento do relógio. O teste de movimento lê\no valor gravado, para o drone parado não virar vértice a cada 3 quadros.\n\nMedido contra o fluxo da imagem no voo da sede: erro do passo no giro, P95 de\n9,03 para 1,48 px por quadro, e oscilação máxima de 20,5 para 4,07 px.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "498403f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/498403f8dd566e16fa79f440b3d1f5dc76baf5c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-01T01:07:36.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: feições no vídeo e no Horizonte em tela plana na main (acb2ec954), e o que falta do reconhecimento\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a171b7c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a171b7caac140b49592acc970908b2fe8604397b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T01:06:56.000Z",
+      "author": "Maj Diniz",
+      "message": "feições no vídeo em tela plana e no panorama do Horizonte com estilo\n\nVídeo: a perspectiva do MapLibre estendia a largura da linha na escala do\ncentro da vista, e em câmera rasante a linha perto do drone saía dezenas de\nvezes mais larga. Agora o mapa escondido é plano e a câmera do drone leva cada\nvértice ao pixel, com recorte atrás da câmera. O alcance de 3 km passa a ser\ncortado na geometria, e o símbolo não é mais cortado ao meio.\n\nHorizonte: as feições aparecem com o estilo real pelo mesmo mapa sobreposto\n(js/map/mapa-sobreposto.js), num plano de azimute e elevação. O relevo na\nfrente esmaece o que esconde, o recorte das áreas fica guardado por grade e\nolho, e a roda do mouse só reescreve o que tem haste. Os painéis de ponto\npassam a ser arrastados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "acb2ec9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/acb2ec9540bbb75fb1b094a2469e1f5f71423680",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-10-31T22:07:59.000Z",
