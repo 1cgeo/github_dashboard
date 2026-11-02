@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-01T23:28:23.220Z",
+  "lastUpdate": "2026-11-02T20:06:49.346Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-01T21:46:11.000Z",
+    "1cgeo/ebgeo_web": "2026-11-02T20:00:10.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-01T21:49:31.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-02T16:16:13.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-01T21:01:13.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-02T18:35:35.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10188,
+    "totalCommits": 10207,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3147,
+      "1cgeo/ebgeo_web": 3158,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 62,
+      "1cgeo/ebgeo_produtor": 68,
       "1cgeo/ebgeo_campo": 72,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1298,
+      "1cgeo/chefe_dgeo": 1300,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -192,6 +192,159 @@
   },
   "commits": [
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T20:00:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Visibilidade refeita: vários observadores, círculo ou setor, três modos de exibição e o motor da cobertura de radar\n\nPedido do chefe depois da comparação com o viewshed do ORBAT Mapper (2026-11-02). O motor é a\nvarredura polar da cobertura de radar com a refração óptica, escolhido por medida contra o R2 do\nORBAT: 98,3 % de acerto em 5 km contra 88,5 % da visibilidade de cunhas, pelo mesmo custo.\n\n- Um clique dá um observador com círculo de 5 km; cada clique soma outro à mesma análise, que é a\n  unidade de edição. Setor por observador, com as alças antigas por observador e o nome de cada um.\n- A grade RLE guarda numa célula só a contagem de observadores e a faixa da altura para ser visto;\n  Exibir (aba Estilo) troca entre Visível, Ângulo morto e Altura para ser visto sem refazer a conta.\n- Cálculo num Worker com Cancelar; prévia ao vivo no arrasto num worker de vida longa; o\n  recompositor da saída fica pausado até o recálculo.\n- Grudar no ponto alto ou baixo no painel, com anel e cota à vista e o cume preso; Alt e Alt+Shift\n  só sobrepõem a escolha.\n- O perfil escolhe o observador no próprio painel e ganha malha própria; o contrato com a grade\n  vira concordância medida.\n- O formato antigo continua lido e desenhado, e a primeira edição o converte; o formato novo não\n  tem `center` no topo, para a aba com código antigo não o sobrescrever.\n- Celular com N observadores; a saída `-visao-<n>` entra no clique, no diff remoto, no olho e no 3D.\n- Docs: wiki/visibilidade.md, decisão em decisions-2026, regra de atalho e configuração em\n  .claude/rules/ferramentas-e-tipos-de-feicao.md, Ajuda e novidades.\n\nGate: lint verde, frontend 25.103/25.103, Ajuda 113/113, os specs e2e da Visibilidade verdes\n(9 specs). Os 17 vermelhos do e2e completo são idênticos no HEAD puro (worktree de base), sem\nrelação com esta mudança. Limite aceito: o círculo que cruza o meridiano de 180 graus é recusado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "48f991c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/48f991c9af7f60d4827e3efd2b62aa5eca86f50d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T19:33:59.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: detecção de objetos no vídeo, o voo real do 1º CGEO nas figuras de vídeo e as correções da semana\n\nPágina nova \"Como vejo os veículos e as pessoas detectados no vídeo do\nreconhecimento?\": liga pelo botão Detecção de objetos do player, o estilo\nguarda só os filtros, Salvar no mapa grava na camada ativa, Quem vê este\nobjeto e os limites. Figura rec-deteccao-01 com a detecção real.\n\nAs quatro figuras de vídeo (rec-video-01, rec-feicoes-01, rec-quem-ve-01 e\nrec-deteccao-01) trocam o voo inventado por 30 s do voo do 1º CGEO de\n26/10/2026 (liberado pelo chefe): trilha e câmera calibrada do pacote, e a\ndetecção do EBGeo Produtor 083a350 no original 4K (277 objetos, como a prova\nda wiki). `noChaoDoQuadro` põe feições e alvos dentro do quadro.\n\nCorreções dos commits de 30/10 a 02/11: camadas de imagem no 3D só no chão,\nSímbolos do mapa nas barras do 3D e do 360, Imagens 360° e Modelos 3D no Mais\ndo celular, rótulo e aviso do PDF de 10 MB, avisos do terreno por base,\nseções recolhíveis, perfil do QAN com subida e descida, gravação ao vivo\npublicada como privada, padrões do fundo da declinação, fuso inválido, e as\nlinhas das novidades (3D, Posto de Observação, pontos finais).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "143f1f6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/143f1f6c307a7ae7a6e895a0d930b856a8aca099",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T18:35:35.000Z",
+      "author": "Maj Diniz",
+      "message": "versão: o aviso grande de versão nova do Produtor, pelo EBGeo, e o 426 ATUALIZE_PRODUTOR\n\nDecisões do chefe de 2026-11-02: a fonte da verdade é o EBGeo de cada\ninstância (GET /api/v1/produtor/versao, sem login: {atual, minima,\nondeBaixar}); com a rota ausente, o Produtor fica quieto.\n\n- rede: X-EBGeo-Produtor com a versão do app em todo pedido (o cliente põe;\n  a conta, o tus, o retransmissor, o mapa base e o terreno passam por ele;\n  fetchComVersao para o terreno da thread do reconhecimento e do CLI);\n  compararVersoes (semver 2.0.0), consultarVersao, fraseDaVersao; o erro\n  lê o corpo {codigo, mensagem} do 426, e o cliente avisa quem ouve.\n- app: consulta ao abrir, depois de cada login, ao trocar o servidor e a\n  cada 6 h; a faixa no topo de toda tela (versao.js), amarela com versão\n  nova e \"Baixar\" (só https), vermelha abaixo da mínima ou depois de um\n  426, com \"peça o instalador ao administrador\" sem endereço; o envio\n  recusado diz que enviar de novo não adianta.\n- ao vivo: o 426 para a fila de vez, sem repetir, com a mensagem no\n  cartão; o que estava na fila fica para o Produtor atualizado.\n- CLI: a linha versão no doctor, com a mesma frase da faixa; o envio\n  recusado sai 6 e manda não tentar de novo com esta versão.\n- EBGeo simulado: a rota e a recusa 426, escritas à parte.\n\nProva: semver, cabeçalho, consulta e 426 no envio e no ao vivo\n(rede/test/versao.test.js, aovivo/test/versao.test.js); a faixa pela tela\ncontra o simulado, sem rota, amarela em seis telas nas larguras de 1400\ne 640 px, vermelha com o envio recusado (app/test/versao.e2e.js).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "083a350",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/083a3502087f0f8fd098be4da25e3eeb5cd46974",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T18:12:00.000Z",
+      "author": "Maj Diniz",
+      "message": "0.3.0: a detecção de objetos no vídeo do reconhecimento, e o Produtor em AGPL-3.0\n\nA versão leva a IA no vídeo: a caixa \"Detectar objetos\" no reconhecimento (pós-voo, sobre o\noriginal 4K) e no Transmitir voo (ao vivo, 5 amostras por segundo), com o modelo YOLO11s\nVisDrone embutido em resources/ia. O instalador de cada plataforma leva só o binário do\nonnxruntime-node dela: os de macOS e Linux pesavam 158 MB no do Windows (349 para 296 MB).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "dd400d9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/dd400d93ca0a4ca356a9c3b570bd2a44f412cc00",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T17:55:35.000Z",
+      "author": "Maj Diniz",
+      "message": "IA no vídeo do reconhecimento: detecção de objetos no vídeo e no mapa, Salvar no mapa, Quem vê este objeto e o ao vivo\n\nO contrato e o estado moram em docs/wiki/ia-no-video.md.\n\nPós-voo: o importador guarda o deteccoes.json do .ebgeorec (resumo em\nconfig.deteccoes, arquivo em config.deteccoesArquivo, fora do /api/config) e\nGET /reconhecimentos/:id/deteccoes o serve com a porta da trilha. O botão\n\"Detecção de objetos\" do player liga caixa, rótulo por tipo, cor por objeto e\nrastro de 3 s no vídeo, e ponto e rastro no mapa; os filtros moram no estilo.\nO rastro corrige a deriva da pose pela mediana do passo dos objetos do quadro\n(medido: carro parado andava de 2 a 7 m em 3 s). \"Salvar no mapa\" grava ponto\ne rastro na camada ativa pelas ferramentas de ponto e de linha; \"Quem vê este\nobjeto\" abre do vídeo, do mapa e da feição salva. A pegada da câmera passa a\nsair do mesmo modelo do pixel para o chão (fora da pegada: de 13,7-32,0% para\n0,1-1,0% dos pixels do quadro). Vendor do pacote do Produtor 4483262.\n\nAo vivo: PUT /aovivo/transmissoes/:id/deteccoes/:seq com a porta do pedaço,\nquadro aovivo_deteccoes no socket, GET .../deteccoes juntado, e a junção dos\npedaços vira o deteccoes.json do item ao publicar, pela régua do pacote.\n\nDe volta o CSS que 5b44415de apagou do painel de estilo, da janela e do ao\nvivo, com o teste que reprova a classe sem regra.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "599c329",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/599c32934a2b7277ebf3c1426c8d8c5521eb2187",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T16:48:04.000Z",
+      "author": "Maj Diniz",
+      "message": "ia: a detecção de objetos no ao vivo, com as detecções de cada pedaço pela mesma fila\n\nA fase 2 da IA no vídeo (docs/wiki/ia-no-video.md do ebgeo_web).\n\n- corte.js: com `ia`, o codificador ganha um ramo depois do fps=30: o\n  quadro do RTMP antes da recodificação, a 5 por segundo, em 1280x720 com a\n  faixa das qualidades, em rawvideo no pipe:1, lido sempre (o codificador\n  nunca espera); evento quadroIa com o t da transmissão.\n- @ebgeo-produtor/ia: criarDetectorAoVivo, numa thread própria (uma\n  passada, movimento da câmera, rastreador); descarta o quadro com o\n  detector ocupado; acima de 80% do intervalo, cai de 5 para 2 por segundo\n  e depois desliga, com aviso; o pedaço de 2 s fecha uma amostra depois do\n  fim. O rastreador ganha novas() para o ao vivo.\n- estação: \"detectar\" por drone, o detector injetado (criarIa), o\n  ia/<seq>.json na pasta e o item deteccoes na fila com o MESMO seq do\n  pedaço; no encerrar, o último pedaço fecha e o que passa do último\n  pedaço gravado sai da fila.\n- fila e enviador: tipo deteccoes (qualidade ia) na camada 3, depois da\n  leve; PUT /aovivo/transmissoes/:id/deteccoes/:seq com {t, duracao,\n  quadros, objetos}; pelo retransmissor, esperam a VPN.\n- app: \"Detectar objetos\" no cartão do drone, e o estado da detecção nele.\n- EBGeo simulado do ao vivo: a rota nova, no formato do contrato.\n\nProva: com 1080p30 de um voo real por RTMP, o pedaço da leve fica pronto\n0,165 s depois do fim dele com a detecção e 0,168 s sem ela; a detecção\nfica a 5 por segundo e as 20 detecções sobem com os números dos 20\npedaços. Números em docs/desenvolvimento.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d51f75a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/d51f75a812265328c205c76d3a21ee34258fb7ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T16:25:23.000Z",
+      "author": "Maj Diniz",
+      "message": "ia: a detecção de objetos no pós-voo, do original 4K ao deteccoes.json no .ebgeorec\n\nA fase 1 da IA no vídeo (docs/wiki/ia-no-video.md do ebgeo_web).\n\n- packages/ia (novo, onnxruntime-node 1.31.1 exato, DirectML e CPU no\n  Windows): detector com o letterbox, a decodificação e o NMS por classe do\n  ultralytics; o 4K em 4x4 ladrilhos de 1280x720 mais a passada inteira\n  reduzida, com a fusão entre ladrilhos; as amostras a 5 por segundo por um\n  ffmpeg com duas saídas; o movimento da câmera por homografia (RANSAC\n  sobre os cantos e o Lucas-Kanade do rastrear.js, numa thread própria); o\n  rastreador BoT-SORT com o casamento do C-BIoU para 5 amostras por\n  segundo; a costura de trilhas; o montador do deteccoes.json; a bancada.\n- reconhecimento: etapa opcional \"detectar\" no gerarReconhecimento (o\n  detector entra por injeção), com o arquivo na pasta de trabalho; o\n  rastrear.js expõe piramide, seguir e parear.\n- CLI: empacotar reconhecimento --detectar; IA_MODELO no ambiente; o guia\n  lista os arquivos opcionais.\n- app: a caixa \"Detectar objetos\" com a bancada da máquina e o tempo por\n  quadro medido; app/ia/baixar.mjs (gh release download, sha256) e\n  resources/ia no instalador; o \"Sobre\" diz se o modelo está instalado.\n- scripts/prova-rec.js: 11 piores casos do deteccoes.json.\n\nProva (RTX 4070 Ti): o deteccoes.json relido dos pacotes casa com o\nultralytics nas mesmas amostras (2.312 de 2.313 caixas no corte de 20 s do\nvoo 0002, 4.592 de 4.592 no voo 0003), 176 ms por quadro de 4K, e os 32\npiores casos reprovam no item alvo. Números em docs/desenvolvimento.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ecbb35a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/ecbb35abc424257ef69a6cacdf8ca12b0e20c556",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-02T16:16:13.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02: feições do mapa nativas no 3D do EBGeo, base híbrida com o drapeado do Cesium\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6ade826",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6ade8268614efc7957a82863fcb2a9b37329fff9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T16:05:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge origin/main na obra das feições nativas no 3D, com as correções da rodada final\n\nA amostra do chão do modelo em lotes (obra de 2026-11-02) passa a valer também para o chão das\nfeições nativas: uma fila só de lotes no visor, e a grade só se amostra quando há feição na cena.\nCensos de metros por grau e de listas de tipos com os módulos novos, a Ajuda do 3D no teto de\npalavras, lint, e o teste do ponto fora do alcance com a raiz vazia a 4,5 km.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9a3e35c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9a3e35c416e48d2029344e526215a6d3fd248dfc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T15:44:58.000Z",
+      "author": "Maj Diniz",
+      "message": "licença: o EBGeo Produtor passa a AGPL-3.0-only\n\nDecisão do chefe de 2026-11-02 (docs/wiki/ia-no-video.md do ebgeo_web): a\nAGPL-3.0 libera o modelo YOLO11s VisDrone e o ultralytics, e combina com o\nFFmpeg gpl (GPLv3) que já vai dentro.\n\n- LICENSE com o texto da GNU AGPL v3 (gnu.org, sha256 0d96a4ff...).\n- \"license\": \"AGPL-3.0-only\" no package.json da raiz, de cada workspace e\n  do app.\n- README: a seção Licença.\n- Tela inicial: o \"Sobre o EBGeo Produtor\", com a versão, a licença e os\n  componentes de terceiros.\n- Instalador: app/LICENCAS.txt é a página de licença do NSIS\n  (nsis.license; o oneClick também a mostra) e vai instalado ao lado do\n  LICENSE.txt (extraFiles).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4acfbee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/4acfbee917acd5d554ea244c8c13d4caa5bcd4d6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T15:42:46.000Z",
+      "author": "Maj Diniz",
+      "message": "pacote: deteccoes.json opcional no reconhecimento, com a régua do contrato\n\nO .ebgeorec ganha o deteccoes.json da IA no vídeo (docs/wiki/ia-no-video.md\ndo ebgeo_web) como arquivo OPCIONAL: entra só quando o manifesto declara\nreconhecimento.deteccoes {arquivo, modelo {nome, sha256}, amostragem,\nobjetos}, e o pacote sem ele segue válido.\n\n- esquema.js: ARQUIVOS_OPCIONAIS e arquivosDoPacote(manifesto), usados pela\n  estrutura do ZIP, pelo empacotar e pela conferência dos arquivos soltos;\n  opcional presente sem declaração sobra e reprova.\n- deteccoes.js: ESQUEMA_DETECCOES, MODELOS_DE_DETECCAO (o sha256 da\n  pré-release ia-yolo11s-visdrone-1, com a ordem das classes) e\n  conferirDeteccoes, com um item por eixo: esquema, modelo, manifesto,\n  quadros, t (crescente, de 0 à duração), caixas (0 a 1, x1 < x2, y1 < y2,\n  classe do modelo), ids (únicos, toda caixa com objeto) e objetos (n, t0,\n  t1, classe da maioria e conf mediana das caixas).\n- conferencia.js: deteccoes.bytes (teto de 64 MiB), deteccoes.json e a\n  régua acima no tipo reconhecimento.\n\nProva: os quatro deteccoes.json reais do protótipo em Python aprovam em\ntodos os itens, e 18 piores casos nascidos degradando um deles reprovam no\nitem alvo (test/deteccoes.test.js).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4483262",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/4483262f885aec6660380506e938354bf1d8c832",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T14:02:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Feições do mapa desenhadas pelo próprio Cesium no 3D: linhas, áreas, hachuras, análises, táticas, coordenação, rótulos e raster\n\nBase híbrida em feicoes_nativas/: área lisa e linha cheia no drapeado por textura do\nCesium 1.145, hachura, tracejado, foto e billboard em primitivas. Com 1000 feições e\n16 vezes os pixels, o giro fica em 57 a 60 q/s, contra 13 do volume de sombra; atraso\nde 0 quadros. Sem relevo, chão plano logo abaixo do modelo. Clique por conta, sem\nvazar para marcador e medição. Censo dos 33 tipos e spec de e2e de todos os tipos.\nA wiki docs/wiki/feicoes-nativas-no-3d.md guarda o contrato, as medidas e os limites.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "960a16d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/960a16dd95039f31c680ca08198928e40d0763b9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-02T13:20:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02: obra de nove itens no EBGeo Web com três agentes na árvore viva\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f33e7bd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f33e7bd9b27cddcc957e2626e1644d1047953777",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T13:06:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Obra do chefe de 2026-11-02: linha no pincel, fundo da declinação, PDF de até 10 MB, perfil no QAN, 3D sem travar, seções recolhíveis, lixeira das camadas do sistema, estilo pelo Horizonte e catálogo inteiro no celular\n\n- Pincel mágico: o traço aberto quase reto, ou com até 4 trechos de canto nítido, vira Linha; o arco segue pincel (calibração sintética de 400 traços por classe).\n- Declinação magnética: caixa de fundo atrás do diagrama, com cor, opacidade e borda, pintada no recorte (desligada por padrão).\n- Exportação: \"Limitar a 10 MB\" na folha avulsa, no mosaico e na carta, JPEG antes de DPI e cada arquivo medido; o Mapa do QAN de linha ganha o perfil do terreno em vetor.\n- 3D: a amostra de altura dos símbolos vai em lotes de 2 e a grade do chão só quando falta, em vez de dezenas de picks síncronos numa tarefa só.\n- Aba Camadas: Modelos 3D, Imagens 360°, Horizontes salvos e as seções do catálogo recolhem como camada.\n- Camadas do sistema: \"Aparelhos de campo\" e \"Transmissões ao vivo\" se excluem vazias, pelo Gestor do mapa, nos dois pacotes (decisão registrada).\n- Horizonte: clique seleciona ponto e símbolo militar na vista e o cartão edita o estilo; o ponto criado nasce com etiqueta.\n- Celular: Mais > Catálogo com todas as categorias, e a seção \"Do catálogo\" em Camadas.\n\nGate: npm run lint verde; npm test com frontend 24.798/24.798 e e2e 332/332; backend 7.379/7.380, o único vermelho era o teste da regra antiga das camadas do sistema, corrigido e rodado isolado (4/4); Ajuda 113/113.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "762ed84",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/762ed84c193a5b18e57b2de392749b4c71b3abda",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T23:55:30.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge origin/main: as novidades ficam com as duas entradas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cbc3d99",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cbc3d999eef77c2350e07718df8972441bac6cb1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T23:53:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Símbolos do mapa: o texto entra no 360 e no 3D como os outros ícones\n\nO texto vira imagem, com a cor, o halo, o negrito, a rotação e o fundo da feição, e por isso anda no mesmo\nquadro da câmera. A wiki registra por que linha e área ficaram de fora até aqui.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9425ca4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9425ca42134272ccc158df8ef802484377605726",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T23:21:02.000Z",
+      "author": "Maj Diniz",
+      "message": "Teste do botão Símbolos do mapa no 3D acompanha a notação do :not\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "edfe454",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/edfe454da57cc41205bec77c2801d6a491976591",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-01T21:49:31.000Z",
       "author": "Maj Diniz",
@@ -199,6 +352,24 @@
       "sha": "f021058",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f021058fb4362f4cac3d41c3bf446b62c746c9ca",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T21:48:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Barra do 3D: o botão Símbolos do mapa entra no :not da regra de somente leitura, na notação que o lint pede\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f8a593d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f8a593d450540fd45a4960f26ea1731531026a04",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-01T21:47:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Símbolos do mapa no 360 e no 3D: pontos, símbolos militares, medidas, engenharia e OM aparecem nas duas vistas\n\nNo 360 a feição fica apoiada no chão, com a distância em cima e o tamanho dado pela distância, e aparece\ntambém no mini-mapa. No 3D ela é billboard, sempre por cima, e sai na fase 5 da migração para o MapLibre.\nO clique abre o painel lateral normal, sem segundo caminho de escrita: com a vista aberta, Delete, Ctrl+Z e\no aviso de desfazer passam a valer. A lista do combobox buscável aparece acima das duas vistas, e o nome\nlongo do Tipo de OM para antes da seta.\n\nO plano sai para docs/wiki/simbolos-no-360-e-3d.md. O plano de migração do 3D perde o argumento de oclusão\nque o código já tinha superado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "28022e9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/28022e9f8eb0fc89d977c683cd1b8fa6c85adf20",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_web",
