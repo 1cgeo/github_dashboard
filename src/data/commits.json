@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-02T20:06:49.346Z",
+  "lastUpdate": "2026-11-03T17:44:37.006Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-02T20:00:10.000Z",
+    "1cgeo/ebgeo_web": "2026-11-03T17:36:49.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-02T16:16:13.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-03T15:07:26.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-02T18:35:35.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-02T20:24:03.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10207,
+    "totalCommits": 10242,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3158,
+      "1cgeo/ebgeo_web": 3179,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 68,
+      "1cgeo/ebgeo_produtor": 69,
       "1cgeo/ebgeo_campo": 72,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1300,
+      "1cgeo/chefe_dgeo": 1313,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,321 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T17:36:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Instalador do EBGeo Produtor: o Location do tus relativo ao próprio endpoint, para o envio funcionar sob o /ebgeo/ do 1º CGEO\n\nNo primeiro envio real (2026-11-03), o tus respondia `Location: /api/v1/produtor/admin/instalador/tus/<id>`, e sob o `/ebgeo/` do 1º CGEO o caminho absoluto resolvia para fora do app: a frente recusou o pedaço de 64 MB com 413 e o envio parou em 0 bytes. Agora o Location é `tus/<id>`, que resolve certo contra o endpoint sob qualquer prefixo e na raiz, como na DSG. O teste de integração confere o formato e a resolução nas duas bases, e reprova o código de antes (6 de 9).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "d8dc345",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d8dc34553947e781039ba0807aac936153c14f16",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T15:43:08.000Z",
+      "author": "Maj Diniz",
+      "message": "Censo das saídas de conteúdo: o DELETE /:id de relatos, que devolve JSON (a main estava vermelha nele desde a exclusão do relato)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "ab906ca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ab906ca998a01552524f6b57b153b2aa06e680ea",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T15:08:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Relatos e ORBAT: o DELETE /:id de relatos no censo da auditoria, e a atribuição do mapa base acima da doca da árvore\n\nO censo da auditoria reprovava na main desde 2efd88411: a rota nova de excluir relato não estava nele (é AUDITADA, RELATO_TEMA, emissor relatos.service.js). E a doca da árvore da ORBAT, presa ao pé da tela, cobria a atribuição sempre aberta de 908a06fda: a doca publica a própria altura em --altura-da-doca-orbat enquanto aberta, e o canto do MapLibre sobe por ela. Achados do agente das figuras da ORBAT.\n\nProva: auditoria-censo.test.js (10 de 10) e o caso novo de atribuicao-do-mapa-base.spec.js, que reprova o orbat-doca.js de antes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "80f0d07",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80f0d07e5e91c4f82aaa286601753ca765688e71",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T15:07:26.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03: capacitação no exterior sai da Holanda\n\nPágina wiki/capacitacao-exterior com o levantamento de alternativas ao ITC/Twente,\na decisão do chefe nos Decisions, a regra de levantamento de opções em prosa com\n\"Útil para\" (escrita.md 3.4.3) e o conserto do PDF acima de 10 MB (fontes.md).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "abb7c89",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/abb7c896a1a8167345c650013aabd54c641c2823",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T14:48:53.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-web: o EBGeo é aplicação interna, e termo de terceiro não freia ligar base (correção do chefe)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "0653694",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0653694853a1a5d76ee1cabc24dd8456058cca2f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T14:42:02.000Z",
+      "author": "Maj Diniz",
+      "message": "EBGeo Produtor servido pelo próprio EBGeo: o administrador carrega o instalador na aba Sistema com a atual e a mínima, o download público vira o \"onde baixar\", e a tela Informações mostra o Baixar a quem entrou na conta (nunca no build do GitHub Pages)\n\n- O envio é pelo tus (64 MB por pedido, retomável), com a atual e a mínima no metadado conferidas antes do primeiro byte (o .exe, o teto PRODUTOR_INSTALADOR_MAX_BYTES de 1 GiB, o semver, a mínima até a atual e a versão do nome igual à atual). No último pedaço: o cabeçalho PE, o sha256, o rename para PRODUTOR_DIR/instalador/<sha256>.exe e as chaves produtor_instalador e produtor numa transação; o anterior sai do disco depois.\n- GET /api/v1/produtor/instalador sem login (limitador próprio, ETag = sha256, no-cache, Range e 304); o ondeBaixar publicado passa a ser essa rota sobre app.urlBaseLinkPublico, só https. Com o instalador, o ajuste da tela não muda a atual; restaurar apaga o ajuste e o instalador.\n- Informações e Suporte: a seção \"EBGeo Produtor\" (versão e Baixar), só com conta e com instalador, pelo GET /instalador/resumo; o módulo só carrega sob VITE_EBGEO_ESTATICO !== '1' escrito por extenso, e o pacote estático não leva a rota.\n- 4° CGEO: Comando Militar da Amazônia Oriental no lugar do Comando Militar do Norte, renomeado em maio de 2026.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "c24e383",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c24e3837c7d1d14a46e8dddbd5947e5787541d57",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T14:36:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Mapa base: a atribuição da base sempre aberta na tela, no computador e no celular (o chefe, 2026-11-03, com o OSM e o Esri World Imagery)\n\nO mapa principal nascia com attributionControl: false, e o celular escondia o canto do MapLibre. A política de tiles do OpenStreetMap pede a atribuição \"clearly on the map\", nunca \"behind toggles\" nem \"off-screen\", e a Esri pede o texto de copyright do serviço. Agora o controle do MapLibre fica aberto (compact: false), no canto de baixo à direita; os controles do pé e a barra de coordenadas sobem 18 px para não serem cobertos. No celular o mesmo nó vai para o alto do palco enquanto a casca está ligada, só na aba Mapa, e volta ao sair.\n\nProva: atribuicao-do-mapa-base.spec.js (computador, 1024 px com o texto longo da Esri, celular), que reprova o código de antes nos três.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "908a06f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/908a06fda24b346b4338cfcf88d4a2109f800ec5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T13:43:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Relatos: o administrador exclui um relato pela aba Relatos, com a imagem e o tema que fica vazio (o chefe, 2026-11-03)\n\nDELETE /api/v1/relatos/:id, só administrador, numa transação: o relato sai, a imagem vai junto pelo ON DELETE CASCADE e o tema só sai quando fica vazio (relatos.tema_id é RESTRICT). A trilha grava RELATO_TEMA com ato excluir, o relato e se o tema saiu, sem o texto. Na aba Relatos, \"Excluir\" em cada relato, com confirmação que diz se o tema sai junto. Sem migração.\n\nProva: relatos.test.js (o último relato leva imagem e tema, com outro no tema o tema fica, a trilha, 404 no que não existe, 403 e 401 fora do administrador) e o caso do administrador em relato-imagem-e-meus-relatos.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "2efd884",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2efd88411d017d1b3184d6e877cf3cbe9166cbe9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T13:33:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Relato: a imagem da tela sem o app de novo nem as imagens escondidas, o envio sem resposta tenta mais uma vez, e \"Só os não lidos\" em Meus relatos (o chefe, 2026-11-03)\n\nNa DSG a imagem da tela levava 16,9 s para 172 kB: o html2canvas esperava os 15 s padrão pelos ícones preguiçosos escondidos do index.html, e a cópia da página baixava de novo o código do app (cerca de 60 pedidos por captura, pelos modulepreload). A cópia agora deixa fora os scripts, os pré-carregamentos e o que está em display: none, mantém as folhas de estilo e espera cada imagem no máximo 3 s; na página real da DSG a mediana caiu de 19,4 s para 5,0 s, com a imagem igual pixel a pixel.\n\nO primeiro envio do chefe não chegou a nenhum dos dois proxies da DSG e caiu no prazo de 60 s; o segundo clique passou na hora. O envio que não teve resposta nenhuma (rede ou prazo) tenta de novo uma vez, com 25 s por tentativa; o que o servidor recusa não se repete.\n\nEm Meus relatos, \"Só os não lidos\" vem ligado: a resposta marcada como lida sai da lista, o que ainda espera resposta fica, e desligar traz todos.\n\nProva: relato-imagem-envio-e-lidos.test.js (13) e relato-imagem-e-meus-relatos.spec.js (2), que reprova o código de antes nos dois casos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "e9c9b7c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e9c9b7c352a6fd2efdc163f8a88f1d550fef1a1d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T13:21:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03 (ORBAT, 2ª rodada): ORBAT na wiki do EBGeo, figuras da Ajuda só pelo motor, símbolo deslocado no cliente novo, linha do tempo desligada e falhas intermitentes\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "cbfc9ce",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cbfc9cebda1630d0cd913038f46f7b0150d32600",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T13:17:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo desligada ignora a data, leitura de coordenadas presa à barra do tempo, barra do tempo sem cobrir trilho, painel e botões, e a ORBAT com cópias ligadas e árvore que cabe na doca (o chefe, 2026-11-03)\n\n- Desligar a linha do tempo desconsidera a data: o controlador publicava o desligamento antes de\n  limpar o estado, e camadas ao vivo, de campo, externas, anéis, 3D e 360 ficavam no cursor velho\n  (temporal-controller.js; temporal-controller-estado-e-aplicacao.repro.test.js).\n- A leitura de coordenadas é parte da barra do tempo: o deslocamento do painel aberto, a regra do\n  briefing e a transição a tiravam do lugar; a doca re-encaixa e o desencaixe volta ao canto\n  (coordinates.css, briefing-editor.css, mouse-coordinates.control.js;\n  coordenadas-na-barra-temporal.test.js).\n- Barra do tempo: régua com rótulos que cabem pela largura medida e datas que quebram; no tablet\n  em pé e na mesa estreita começa depois da miniatura e termina antes dos botões; a barra do\n  desenho sobe acima dela; no celular a casca hospeda a barra acima de ANOTAR e MAIS.\n- Pílula \"Modelos 3D\" desabilitada opaca.\n- ORBAT: unidade com mais de um símbolo no mapa ganha o halo em todos e as linhas de cada cópia\n  até a cópia mais próxima; a árvore escala para caber na doca (forma compacta no tablet em pé),\n  rótulo quebra depois da \"/\" e o halo não encosta no rótulo; o celular ganha \"Também em\" e\n  segue o cursor.\n- run-tests.js grava também um TAP (backend/data/ultima-rodada.tap.log) com o exitCode do\n  arquivo que morre sem subteste (admin-panel-authz, uma vez em ~2.400).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "e8c2e79",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e8c2e7904af8a9e4849ee898727c582c4ac248f4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T11:46:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: as figuras da ORBAT pelo motor, com o catálogo e a Topográfica de produção (o chefe, 2026-11-03)\n\n- orbat-01 e orbat-02 saíam de capturas manuais do EBGeo local, com o OSM de fundo; agora saem das\n  tomadas tomadas/orbat-01.js e orbat-02.js, registradas em roteiros/midias/orbat.json.\n- A ORBAT \"4ª Bda Inf Mtz\" (Amigo) nasce pela API do app (store/orbat.api.js), com os símbolos dos\n  Exemplos do seletor (MD33-M-02) decompostos pelo próprio gerador, e cada unidade vai ao mapa por\n  lancarUnidadeNoMapa, perto de Santa Maria (RS).\n- orbat-01, 1280 x 720: a aba ORBAT com o 11º BI Mtz selecionado, a linha azul com seta até a\n  brigada, as verdes até as duas companhias e o halo vermelho, sem anel; a tomada confere no mapa\n  uma linha ao superior, a seta, duas de grau 1, nenhuma de grau 2 ou 3 e o halo.\n- orbat-02, 1280 x 800: o organograma do Abrir árvore, com o Cmdo 4ª Bda Inf Mtz (elemento de\n  comando) ao lado da brigada, que o texto da página já descrevia; na janela de 720 px a segunda\n  companhia do 11º BI saía cortada, e a tomada reprova nó fora da doca.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "6e262c0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6e262c04d1bd50252448e2f2450a66ad73962cfc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T11:29:08.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: o do 1º CGEO público no 1º CGEO, e a confiança mínima padrão da detecção em 0,7\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "8cba8e1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8cba8e19376d4c0fa3b66e472a81766530c535ae",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T11:28:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Detecção de objetos: a confiança mínima do objeto passa a 0,7 por padrão (o chefe, 2026-11-03)\n\nNos três voos publicados, o padrão novo deixa 176 de 277 objetos no 1º CGEO, 23 de 93 na sede e 3 de 84 nos barracões do CI Butiá (contra o 0,3 de antes). Quem já escolheu outro valor no estilo do reconhecimento continua com o seu.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "7f424e0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7f424e0113779539fec96367b39406c74d4ccee2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T11:25:48.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: os dois do CI Butiá públicos no 1º CGEO\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "c571cf8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c571cf8095a282d2c3bff400368f89b2ac7f955f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T11:24:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: as Novidades só com o que interessa ao usuário médio\n\nSaem 19 linhas: a função do administrador (versão do Produtor, terreno do mapa base, calibrar modelo 3D, excluir a camada do sistema, Receber), os ajustes finos de estilo e de tela e o detalhe do especialista, e a seção de 2026-10-03, que passou dos 30 dias. As duas páginas de administrador perdem o selo novo, para não serem cobradas na página. A regra fica no comentário do topo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "4e403b7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4e403b72082b74ce2a4fde37000a8818ef103ecf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T11:09:45.000Z",
+      "author": "Maj Diniz",
+      "message": "ORBAT sem órbita, \"Também em\" e aviso de duplicado no cartão, linhas vivas no arrasto e fora do instante da linha do tempo, e o símbolo militar deslocado no cliente novo (o chefe, 2026-11-03)\n\n- Sai a órbita (P11): a unidade sem símbolo no mapa não é desenhada, e a linha liga à ancestral\n  desenhada mais próxima, com o estilo do grau real.\n- O halo, as linhas e o cartão da unidade selecionada somem ao clicar no mapa ou sair da aba\n  ORBAT (orbat-selecao.js); o clique no próprio símbolo ligado mantém a seleção.\n- Símbolo fora do instante da linha do tempo não ancora linhas; o painel (\"sem posição\",\n  \"Neste mapa\") segue o cursor, inclusive depois de a aba ser escondida e reaberta.\n- No arrasto as linhas seguem o símbolo num SVG sobre o mapa: a fonte da ORBAT se escreve uma\n  vez no início e uma depois de soltar, nunca por quadro (regra de 2026-10-20).\n- Cartão: \"Também em\" com os outros mapas do atlas (lidos do IndexedDB, sem rota) e o aviso de\n  símbolo repetido no mapa, com \"Selecionar no mapa\"; o merge segue sem recusa.\n- Símbolo militar deslocado (anterior à ORBAT): no cliente que abre o atlas do zero, a segunda\n  reconstrução das fontes pulava o registro do bitmap sem carimbar a coleção e gravava a fonte\n  sem iconOffset (73 a 106 px fora da coordenada até a recarga). Agora o atalho carimba pelo\n  desenho local (layer_setup.js; imagem-pulada-carimba-a-colecao.repro.test.js).\n- Celular: o alto deitado numa linha só com o inseto; busca, inseto e conta com 44 px em pé e\n  deitado. Tablet: alvos de 44 px no painel da ORBAT e a lista sem cortar a designação.\n- Ajuda \"Como monto a ordem de batalha\" e a figura orbat-01 sem a órbita; wiki e decisão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "e7f298d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e7f298d338ebd343733419e6fcc15f871209287f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T10:55:15.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: detecção de objetos nos três reconhecimentos publicados do 1º CGEO e da DSG, e o método de acrescentá-la ao pacote publicado na skill importar-modelo-3d\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "5ad11b1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5ad11b1704365d92f75a5e186ca707bbfd6d994c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T10:24:41.000Z",
+      "author": "Maj Diniz",
+      "message": "atualizar-dockers: sonda de tela e escrita pela API com o Squid em 503, pelo túnel SSH\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "b8be5dd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b8be5dd14505c7903afb276c9e93304b206ceb6c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T10:24:09.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo: abrangência nas seis bases de produção e o Produtor com atual e mínima 0.3.0 no 1º CGEO e na DSG; nenhum reconhecimento publicado tem detecção\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "8d6e7dc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8d6e7dc1bb568b4085d83252236705af9dde1591",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T10:22:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisões: a abrangência gravada nas bases de produção e a versão do EBGeo Produtor nas duas instâncias (mínima 0.3.0)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "93c0281",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93c0281285d6de26fc8faff1f25e37e2a5e9f54b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T09:23:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02 (deploy do seletor de mapa base): no ar no 1º CGEO e na DSG (bd72e94ee), tipo nas bases de produção, ids reais dos mapas base na wiki, sonda de tela logada e o trabalho pendente das outras sessões\n\nRefeito por cima do remoto (45cb7527): as entradas apendadas unidas às das outras retrospectivas, o PROJECT.md do seletor num só (ebgeo-seletor-do-mapa-base), e o ebgeo-campo e o ebgeo-reconhecimento como o remoto, que é mais novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "7e68e1c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7e68e1cb5ec8c2dd08e6d55abd21c6191e56c480",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T09:17:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda da Análise de Visibilidade: o gesto de um clique por observador, Exibir em três desenhos, a aba Parâmetros e o perfil com o campo Observador\n\nAs tomadas l7-visib-01 e v2-terreno-visib-01 regravadas no gesto novo (um clique põe o Observador 1 num círculo de 5 km, cada clique soma outro, o botão direito encerra); l7-visib-02 refeita com dois observadores e o campo Observador do painel. Tomadas novas visib-exibir-01 (Visível, Ângulo morto, Altura para ser visto) e visib-parametros-01, com a abertura comum em lib/visibilidade.mjs. Na página, Esc no passo 4; no celular, a Visibilidade marca vários pontos como as coberturas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "f0ea549",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f0ea54974d901b0015064a4003c2dff454d13f50",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T02:09:25.000Z",
+      "author": "Maj Diniz",
+      "message": "ORBAT do atlas: aba ORBAT com lista e árvore, arrastar a unidade para o mapa, linhas de subordinação, órbita, aba ORBAT no Configurar Símbolo e o .ebgeoorbat (o chefe, 2026-11-02)\n\nA ordem de batalha vira entidade de sync do ATLAS (orbat e orbatUnit, migração 067_orbat.sql),\ncom várias ORBAT de afiliação própria. Lê todo participante, inclusive o link público; escreve o\nEditor do atlas (ENTIDADES_DO_ATLAS). A unidade tem no máximo um símbolo por mapa, e o servidor\nrecusa o segundo vínculo. O vínculo mora na feição (properties.unidadeOrbatId), sem FK nem índice\núnico. As cópias (símbolo decomposto, designação, escalão superior) são refeitas pelo servidor em\ntodo mapa do atlas e entregues também ao autor pelo socket.\n\nCliente: aba ORBAT no trilho com lista colapsável, cartão da unidade com os comandos, Abrir árvore\n(organograma no layout do Unit Generator), Gerar imagem (PNG), interruptor das linhas de\nsubordinação (linha ao superior distinta), olho do ramo, unidades sem símbolo em órbita, aba ORBAT\nno Configurar Símbolo Militar antes de Exemplos, \"Ir para a ORBAT\" em Detalhes da Feição,\n.ebgeoorbat sem posições, celular só leitura com busca. Clone, .ebgeo e histórico do atlas\ncarregam a ORBAT.\n\nDocs: docs/wiki/orbat.md, CONSTITUICAO 5.15 [vigente], decisão do dia, DEMANDAS 3.1, Ajuda\n\"Como monto a ordem de batalha (ORBAT)?\" e a linha das novidades.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "e794f02",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e794f02628c2f5b8f38886bd326e8188b1501853",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T23:41:59.000Z",
+      "author": "Maj Diniz",
+      "message": "Decisões: o deploy do seletor de mapa base nas duas instâncias e o tipo gravado nas bases de produção\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "75382ab",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/75382abe8b9a8f8cda960ef424abb7b20098926e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T23:22:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Seletor de mapa base: \"Mais mapas base\" some de verdade quando nada fica fora da grade\n\nO `hidden` que o seletor põe era vencido pelo `display: flex` da classe, e o 1º CGEO, com quatro\nmapas base públicos, mostrou \"Mais mapas base 0\" logo depois do deploy. A regra do `[hidden]` e o\npasso 8 de `mapas-base-filtros.spec.js`, que reprovou antes do conserto. Linha no livro-razão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "bd72e94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bd72e94ee933668f6cd9b359ef5ebf96ed3b7550",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T22:29:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Mapa base: tipo e abrangência no catálogo, filtros da tela \"Mapas base\", o celular na mesma grade e \"Na tela\" para a base fora da grade\n\nO config do mapa base ganha tipo (cartas, imagens, relevo, externos; lista fechada espelhada entre\nos pacotes) e bounds (oeste, sul, leste, norte), com campo próprio na aba Catálogo, validação no\nbackend e saída no /api/config. A tela \"Mapas base\" põe um chip por tipo existente, com contagem, e\n\"Só os que cobrem a vista\"; o cartão fora da vista fica apagado, com \"Fora da vista atual\", e a\nescolha dele aplica e oferece \"Ir para a área\". O corpo da tela virou um painel só, usado pelo\ndiálogo da mesa e pela folha do celular, que agora mostra a grade da mesa pelo mesmo registro.\nAplicação automática (vista salva, slide, link) não muda a grade: o rodapé mostra \"Na tela: <nome>\".\nPágina nova da Ajuda, \"Como troco o mapa base e acho um que não está na lista?\", com duas figuras\ndo catálogo real, ligada nas novidades, na barra e no \"?\" da tela \"Mapas base\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "941d910",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/941d910a2d55347545885fff937904608ba8d402",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-02T21:44:05.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02 (cont. 3): os 17 vermelhos do e2e-ui e o cartão do Horizonte com a trava\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "45cb752",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/45cb7527f2f62c6c993976e1e23c26eaa99ea7d2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T21:39:46.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartão do Horizonte esconde a edição com a trava, como os painéis; visibilidade 3D sob a regra\n\nDecisão do chefe (2026-11-02): com o mapa, a camada ou a feição travados, o cartão de edição do\nHorizonte deixa de desenhar os controles e escreve só o motivo, como os painéis laterais desde\n2026-09-25 (`modoDoCartao`). Antes ele oferecia a mudança e a recusava depois.\n\nO 3D e o 360 conferidos: as feições do mapa abrem o painel lateral, que já escondia a edição, e os\npainéis próprios (marcador 3D, medida 3D, marcador 360) já recebiam `feature-panel--locked` ao vivo.\nO da visibilidade 3D tinha os ângulos e a altura do observador fora da regra de CSS, ativos com a\ntrava; agora ficam sob ela (`panels-3d.css`).\n\nAjuda (Símbolos no Horizonte), exceção em `.claude/rules/architecture.md` e decisão em\ndocs/decisions. Prova: unidade 25.142 verdes (fora `dist-dentro-do-piso`, sem `dist/` na\nworktree), Ajuda 113/113, lint verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9bb0ab2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9bb0ab25baf5591a3c304f6d43f8680ea4e2dca5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-02T21:31:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02 (IA no vídeo): detecção de objetos no Produtor 0.3.0 e no EBGeo Web, aviso de versão pelo EBGeo, Relatos de problema e sugestão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "73001f1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/73001f156d79c26291c49aebed80dddaed6f19f5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-02T21:26:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02 (seletor de mapa base): grade do seletor do EBGeo Web na main, prompt do deploy passado a outro agente\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cf2c234",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cf2c234cd10d70c73f9b8fd3d618ab63f66fa974",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T21:07:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Seletor de mapa base em grade: quatro por padrão, até oito com os mapas salvos, e \"Mais mapas base\" com a troca do 4º ao 2º lugar\n\nA grade mostra os quatro primeiros do catálogo pela prioridade; as bases das vistas salvas dos\nmapas do atlas ganham lugar depois deles, até oito (2, 3 ou 4 por linha). \"Mais mapas base\" abre\na tela \"Mapas base\" (modal padrão, busca, filtro Privados, selo e compartilhar). A escolhida de\nfora entra no 4º, depois no 3º e no 2º, e fica onde entrou; cheia, sai a usada há mais tempo. O\n1º e os lugares de mapa salvo nunca saem, e o padrão que saiu volta ao seu lugar. Desfazer no\naviso, \"Restaurar a grade padrão\" na tela. A grade é da pessoa, neste computador, e a tecla à\nesquerda do 1 percorre só ela. Decisão do chefe registrada em docs/decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "af6009f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/af6009f8dc4516857fa4ac1d76968699676fbde6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-02T21:01:38.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui verde de novo: dois defeitos de produto e quinze testes que ficaram para trás\n\nOs 17 vermelhos da suíte do Playwright (que o `npm test` da raiz não roda) já estavam na main\nantes da Visibilidade nova. Cada um foi julgado contra o commit ou a decisão que mudou o\ncomportamento.\n\nDefeitos de produto, cada um preso por teste de unidade novo:\n- `marcadores-das-vistas.js`: as vistas salvas do Horizonte chamavam `addSource` antes de o estilo\n  carregar e davam \"Style is not done loading\" a cada mudança num mapa aberto em aba oculta. Agora\n  esperam `styleDoneLoading`, e o `style.load` refaz as camadas.\n- `campo-de-data.js`: o Enter no filtro da Auditoria confirmava a mesma data duas vezes (o redesenho\n  da barra tira do documento o campo focado e dispara o `change`), e a lista ficava em \"Carregando a\n  trilha\" para sempre. Guarda de reentrância em `confirmar`.\n\nTestes desatualizados:\n- O \"+\" de camada abre o menu das camadas do sistema para o Gestor (b6b3ea284, decisão 16 de\n  2026-10-29): helper `abrirNovaCamadaComum`, que segue os dois caminhos.\n- O olho é da pessoa e o servidor descarta `visivel` (decisão de 2026-10-12): os testes leem a vista\n  da pessoa e conferem o cadeado, que segue do atlas; o arrasto logo depois de destravar espera o\n  hit test do próprio app.\n- Seletores com vários elementos legítimos: os sliders de \"Espessura\" da linha e da etiqueta\n  (fefa2cc51), o campo de data de dois inputs (ed6a1f493), dois avisos de gestos diferentes vivos\n  ao mesmo tempo (b1088d2c1); a expressão do GDH ganhou o \"P\" de Brasília (32ee1d1d8).\n- Busca de topônimos com o tipo no subtítulo (3f81e7609) e a bandeira do 360 religada depois do\n  pré-voo; a reserva da direita do `fitBounds` medida pela coluna de ferramentas, que vira duas em\n  tela baixa (7968c78a4).\n\nProva: os 16 specs (os 15 vermelhos, `layers-tab-local` e `aovivo-transmissoes`) 43/43 verdes com\n`--retries=0`; lint verde; unidade 25.098 verdes, fora `dist-dentro-do-piso` (sem `dist/` na\nworktree) e `docs-integridade` (tempo esgotado na rodada cheia, 11/11 isolado).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b1da189",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b1da189974ef6ab835182f4fcfa4b23357952dd7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-02T20:24:03.000Z",
+      "author": "Maj Diniz",
+      "message": "reconhecimento e versão: o campo de visão padrão de 71,6° na tela e no ao vivo, e a recusa do EBGeo fechada com ponto\n\nA tela do reconhecimento mostrava 73,7° (o valor velho, que supunha 36 mm de largura do sensor) e\no ao vivo mandava 73,7 na câmera da transmissão; os dois passam aos 71,6° medidos, o FOV_PADRAO do\npacote. A mensagem do EBGeo na recusa por versão termina num endereço, sem ponto, e a frase seguinte\ndo Produtor emendava nela na faixa, no envio e no doctor: `fecharFrase` fecha antes. O teste novo\nreprova o código de antes com a mensagem real do backend.\n\nnpm test: 385 de 390. As 5 falhas são do packages/aovivo (corte: \"erro do início\" de 333 a 341 ms\ncom o h264_nvenc, e as 4 que dependem dele), e falham igual com o estacao.js de antes desta mudança.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "68abe4f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/68abe4f195938028aa0f3ae4b10074731dc9b19c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-02T20:12:16.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-02 (cont. 2): Visibilidade do EBGeo refeita, com vários observadores no motor do radar\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b9fe532",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b9fe532834fad09971e26c2563de15f4d30bc612",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-02T20:00:10.000Z",
