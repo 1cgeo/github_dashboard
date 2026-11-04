@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-04T00:30:32.352Z",
+  "lastUpdate": "2026-11-04T17:53:58.993Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-03T22:48:32.000Z",
+    "1cgeo/ebgeo_web": "2026-11-04T14:17:51.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-10-20T12:16:34.000Z",
+    "1cgeo/controle_acervo": "2026-11-04T14:54:16.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-03T23:57:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-04T16:37:37.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -68,7 +68,7 @@
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-11-03T20:57:09.000Z",
-    "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
+    "1cgeo/sap_master": "2026-11-04T13:16:05.000Z",
     "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
   "repoPrivate": {
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10280,
+    "totalCommits": 10333,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3191,
+      "1cgeo/ebgeo_web": 3227,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -155,7 +155,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 617,
+      "1cgeo/controle_acervo": 622,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -174,7 +174,7 @@
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 84,
       "1cgeo/ebgeo_campo": 72,
-      "1cgeo/sap_master": 21,
+      "1cgeo/sap_master": 22,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 63,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1324,
+      "1cgeo/chefe_dgeo": 1335,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,483 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T16:37:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: origem da frente de comando e controle do EBGeo (Arandu-Araucária, AEL, visita do Gen Soeiro) e o marco da visita do Gen Bastos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "331ab8a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/331ab8ac4873f6cd1487f4fd0ba08e22b6dc0252",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T15:03:23.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: o RPCMTec com um botão de PDF só, a família da carta do plano à obra, e a terceira poda do atualizar-dockers\n\n- lancar-rpcmtec/SKILL.md: as fases 6 e 7 pelo fluxo da 3.51.3 (PDF para\n  assinatura só com tudo conferido, fechar num ato, sem o anexo avulso).\n- planejar-mudanca-sistema/learnings.md: do plano à obra no mesmo dia\n  (contrato antes de delegar, ensaio com dado real por cópia, uma suíte com\n  banco por vez).\n- atualizar-dockers: terceira poda do learnings (de 24,8 para 10,1 KB), os\n  casos datados palavra por palavra no detalhado.\n- Decisions: o deploy da 3.51.3.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "e34789a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e34789a5c737b5eae69a2c6bcc026cb0e3aa669b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-04T14:54:16.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.51.3: o RPCMTec baixa o PDF por um botão só, que pede quem assina e só libera com tudo conferido; sai o aviso das calculadas sem linha; a grade do PIT dá a sobra à coluna Meta\n\n- RPCMTec: o \"Baixar PDF\" do administrador é o PDF para assinatura (o segundo\n  botão saiu); quem assina é uma lista à vista dos usuários ativos, no lugar do\n  combo que abria cortado dentro do diálogo; o botão fica travado com subseção\n  por preencher ou sem conferência, e o servidor recusa o PDF para assinatura\n  no mesmo caso, com as frases do Fechar (vale para o pit_cli).\n- Sai o aviso \"N subseção(ões) calculada(s) sem linha\".\n- Execução do PIT: a coluna Meta fica com a sobra da largura (piso de 380 px),\n  os totais encolhem até o conteúdo, e a unidade da quantidade do ano desce\n  para uma linha menor embaixo do número (a coluna Ano de 130 para 72 px).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "6974820",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/6974820f08404f91d20b5206e1ca080b16bbd719",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T14:47:35.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: figuras do controle temporal na Ajuda, atribuição do mapa base fechada e o crédito do overture_energia_v2 igualado no 1º CGEO e na DSG\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8733844",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/873384459867a8e3553863433900f914e4feee2b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T14:17:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda (motor): o estado da linha do tempo espera o mapa ocioso antes de escrever a validade\n\nA tomada l5-tempo-02, cujo estado as figuras do tempo e da trajetória usam,\nreprovava às vezes com \"a validade do ponto não chegou à fonte do mapa (null)\"\n(2 em 6 rodadas num dia de banco lento). Instrumentada, a falha mostrou a store\ncom a validade e a fonte do mapa sem ela: o despachante da fonte points\nescreveu a coleção inteira logo depois do patch, a cerca de 4 s da abertura do\natlas. A origem dessa escrita não se repetiu em 22 rodadas instrumentadas.\n\nO estado agora espera o mapa ocioso antes das escritas, e a mensagem de falha\ndiz o valor na fonte e na store.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e4bb0f8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e4bb0f8c6fa95f52e6ba72e5a4df9e50b3674495",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T14:17:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Mapa base: a atribuição nasce fechada, só o botão \"i\", e fica assim (o chefe, 2026-11-04)\n\nRevoga a atribuição sempre aberta de 908a06fda. Aberta, ela ocupava o pé da\ntela e, na Topográfica, repetia o crédito, porque a fonte composta do Martin\njunta a redação de overture_energia_v2 à das outras tabelas.\n\nO MapLibre 6.15 com compact: true nasce aberto e só recolhe no primeiro\narraste; map/atribuicao-fechada.js recolhe o controle quando ele nasce compacto\ne marca no contêiner do mapa se ele está aberto. Fechado, o botão fica no canto\nde baixo, que a doca da ORBAT não cobre; só o texto aberto sobe acima dela (no\ncaminho de antes, o botão subia junto e caía atrás do Refazer). No celular o\nnó segue no alto do palco, com o estilo compacto do MapLibre.\n\nProva: atribuicao-do-mapa-base.spec.js (computador, troca de base, doca da\nORBAT, 1024 px com o texto da Esri, celular), 4 de 4; a versão aberta reprova\npor não ter o controle compacto. Refeitas pelo motor as mídias que mostravam o\ntexto aberto: evento-01, l7-lum-02, orbat-01, orbat-02, tempo-barra-01,\nv2-base-tempo-01 e 02, v2-base-traj-01 e 02 e o clipe de v2-base-tabela-02.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "80db55c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/80db55c436b73f3b2a11494e674840596889e373",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T13:58:38.000Z",
+      "author": "Maj Diniz",
+      "message": "deploy da família da Carta Topográfica: SAP 3.0 3.51.2 no ar com o banco em 3.51.0, e os 691 arquivos militares renomeados para CTM_ (2026-11-04)\n\n- sap3-familia-da-carta/PROJECT.md: no ar, com o backup e a imagem de volta;\n  pendências do plugin 2.1.0 e da instalação do SAP DSG.\n- Decisions: o deploy com o raio de explosão.\n- atualizar-dockers/learnings.md: a migração estrutural com ensaio em\n  produção, o commit alheio que entra no deploy e a prova do renome pelo\n  download com SHA-256.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "ed1adb8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ed1adb84fb71fcbfa252d6c66471d4c273e4e1da",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-04T13:41:02.000Z",
+      "author": "Maj Diniz",
+      "message": "ferramentas_acervo 2.1.0: a versão do plugin acompanha a família da Carta Topográfica (SAP 3.0 3.51.0)\n\nO plugin mudou na 3.51.0 (combo de família no cadastro, a especificação 2 ou 12\nna versão, o filtro de família na busca) e seguia como 2.0.0: o QGIS não avisava\nninguém de atualizar, e o plugin velho deixa de cadastrar Carta Topográfica\ncontra o servidor novo, que exige a família.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "7f5c5a9",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/7f5c5a9ced897f79f3c39cdd72a62d124a23fa17",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T13:18:11.000Z",
+      "author": "Maj Diniz",
+      "message": "família da carta na 3.51.0 do SAP 3.0, o clique dos filtros na 3.51.1, o SAP DSG com a família e o CIB acertado pela carta (2026-11-04)\n\n- sap3-familia-da-carta/PROJECT.md: o estado da obra implementada (cb21348,\n  sem deploy), os ensaios, e as pendências do deploy (renome dos militares,\n  acervo cobertura).\n- Decisions: a obra implementada e o acerto do CIB.\n- conventions/saida.md: o nono caso, o heredoc com < /dev/null no mesmo comando.\n- livro-razão: o clique negado com sonda sem a casca da aplicação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "5e0ba1d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5e0ba1db07bdd3c7abbe4490ac0413a432282b54",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-04T13:16:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Produção com a família da Carta Topográfica (SAP 3.0 3.51.0): a militar vira o tipo \"Carta Topográfica militar\", com cor própria, no quadro por tipo e no gráfico por mês; a SCN segue \"Carta Topográfica\", e a instalação com o SAP 3.0 anterior, que não manda a família, fica como era\n\nO SAP 3.0 3.51.0 tirou o subtipo 24 (Carta Topográfica Militar) e passou a\ndizer SCN ou militar pela FAMÍLIA do produto (campo `familia` na série de\nprodução dos indicadores). O painel agrupa pelo tipo, e sem isto as duas se\nsomariam. A regra mora em server/src/analise/tipo_produto.js e no gêmeo\nclient/src/js/utils/tipo-produto.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "9316c1c",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/9316c1c9ee64cdca0817a5771fe5120b513e5afb",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-04T13:15:15.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.51.2: a 4.6 do RPCMTec não lista material de empenho anulado por inteiro\n\n- O recebimento SEM data cuja NE estava anulada por inteiro no corte da edição sai da 4.6, pela\n  régua datada do ORC-08 (neAnuladaNoCorte, em empenhado_sql.js). Caso real: a 2026NE000007\n  (baterias LiPo), anulada inteira em 14/10/2026 pela 2026RO000021, seguia na 4.6 de outubro com a\n  situação digitada à mão para explicar (chefe, 2026-11-04).\n- A edição anterior à anulação continua listando; anulação parcial não esconde; material já\n  recebido nunca sai. O recorte da 4.6 em rpcmtec_estrutura.js diz isso. Sem migração, piso 3.51.0.\n\nProvas: o teste novo rpcmtec_recebimento_anulado (5 casos) reprovou 3 sem o filtro e passa com\nele; suíte do servidor sobre a 3.50.0, 6753 de 6754 (a falha, campo.test, estouro de pilha no\nregex do base64 na rodada longa, passa sozinha, 44 de 44); depois do rebase sobre a 3.51.1,\nrpcmtec, empenho e orçamento 1073 de 1073.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "bf97631",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/bf976312ebcacd19d49848c7bfcd722d80d5fd93",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-04T12:56:26.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.51.1: clicar no nome ou no número da opção dos filtros da busca marca a opção, e não fecha mais o painel\n\nO foco do clique no texto (que não é focável) ia para o main da casca, que tem\ntabindex=-1, e o focusout do filtro tratava o ancestral como saída: o painel\nfechava no mousedown e a opção não marcava. Só a caixa, que pega o foco, marcava.\nProva: no Chromium com a casca, nome e número fechavam o painel sem marcar, e\ncom o conserto marcam e o painel fica aberto; o teste novo reprova o código\nanterior.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "a6e3db0",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/a6e3db01f8ed5abec292d41607f79db9a1b515b0",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T12:26:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: as figuras do controle temporal pelo motor e as mídias que a obra deixou velhas\n\nNovas: tempo-barra-01 (a barra com o instante, o selo da luz, a régua e o zoom\nnumerados), tempo-camada-01 (a janela Validade no tempo da camada) e\ntempo-cronologia-01 (a Cronologia na vista Lista, com a linha do Agora).\n\nRefeitas porque a tela mudou: v2-base-tempo-01 e 02 e v2-base-traj-02 (a barra\nnova), l5-tempo-03 e v2-base-traj-01 (Velocidade de marcha no painel), cartas-09\n(o seletor de data da casa), l5-tempo-04 (Fuso do mapa ao fundo), l5-exportar-01\n(o grupo Tempo do KMZ), l7-lum-01 (Quem vê este ponto no menu), l7-lum-02 (a\njanela redimensionável), l3-vista-01 (Imagens 360° na coluna), evento-01,\nv2-base-tabela-01 e 02 (ORBAT no trilho), e cartas-08, cuja antiga levava um\nanel de foco no campo Y mm que parecia um segundo realce. l5-exportar-03 bateu\ne ficou.\n\nRecortes: tempo-camada-01 sem a folga da esquerda, que levava as pontas dos\nrótulos do trilho de abas, e l3-vista-01 fechado abaixo da coluna, sem a\natribuição do mapa base cortada ao meio.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "82383e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82383e79497a449fb40374e13d6a5de04e9aa8c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-04T12:26:09.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.51.0: a Carta Topográfica ganha a família no produto (Carta SCN ou Carta militar) e a especificação fica na versão; a grade do PIT corta só a descrição\n\n- Banco: dominio.familia_produto e acervo.produto.familia_id, obrigatória só na\n  Carta Topográfica; o produto de Carta Topográfica sem subtipo; a versão dela\n  só 2 (T34-700) ou 12 (ET-RDG); saem o 24, o 28 e o define_produto; a\n  identidade vira acervo.produto_identidade_ocupada (MI ou INOM, escala, tipo,\n  subtipo, família); o nome físico da militar ganha o prefixo CTM; o\n  carta_militar do metadado se deriva da família; as mv_produto_* ganham a\n  família. Migração 2026-11-04_a_familia_da_carta_topografica.sql, que sobe o\n  piso, ensaiada contra a instalação nova e contra os dados reais do acervo.\n- Servidor: Joi da família nos cinco schemas de produto, rota de domínio,\n  busca e facetas por família, CSV com a família, situação geral com a militar\n  em chaves próprias, resolver da mapoteca pela família, a militar sem XML,\n  série do SAP DSG por família, invariantes 2a e 2b com a família, 2e sai e\n  entra o 2f (carta_militar contra a família).\n- Tela: família no formulário do produto, filtro e cartão na busca, fato na\n  ficha; versão da Carta Topográfica só 2 ou 12.\n- CLIs e plugin ferramentas_acervo: família no domínio, no cadastro, na busca\n  e no resolver (--familia).\n- Execução do PIT: a descrição longa da meta não esconde mais a etiqueta\n  (à mão, automática) nem o relógio de quem lançou.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "cb21348",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/cb213485cc2d4a4a5ab4016cbcd1dbfc0bf9a4e3",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T10:46:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: controle temporal na main do ebgeo_web, boot de fumaça antes da suíte, o par do TaskStop, banco por TEMPLATE e o incidente do GitHub no push\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "67f7e95",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/67f7e95b511f3dffaeb22af273e74a2016ce32a2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T10:35:02.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: o PIT 2027 inteiro no SAP 3.0 (Meta 1, campos, impressão da Meta 4 e o plano das Metas 6 e 7) e a obra da família da carta\n\n- pit.md: a Meta 4 em 31 pedidos da mapoteca, o PDR no módulo orçamento e o plano dos itens Manuais.\n- Decisions: PIT R0, as 44 Topográficas, a família da carta, a Meta 1, a Meta 4 e as Metas 6 e 7.\n- 01-Projects/sap3-familia-da-carta: o plano da obra, sem código.\n- learnings: a impressão do PIT vai para o detalhe da mapoteca (quente em 10,5 KB); o plano dos itens Manuais entra na responder-demanda-pit.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QRsu674fpqik8TzZZ",
+      "sha": "278b99c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/278b99c4ffbf3ddc63266e244d0ea033753adf4b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T09:55:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge controle-temporal: o controle temporal repensado (barra, Cronologia, validade da camada, fuso do mapa, seletor de data e hora, desempenho e Ajuda)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "af1ce7f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/af1ce7f809be34135a6ff195f441cbec273f16b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T09:29:22.000Z",
+      "author": "Maj Diniz",
+      "message": "medir-desempenho-web: lições das duas rodadas de desempenho do controle temporal do EBGeo Web, mais telemetria (2026-11-04)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "fb3b208",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/fb3b208fa7ce30fd1843fa707d2e3b7374e236ce",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T09:08:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge ct-calendario: seletor de data e hora da casa, com OK e Cancelar, hora opcional e a regra sem hora\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "2b8de1f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2b8de1f4b3705295e112bf4cfb85175bbe2df9a3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T09:07:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Seletor de data e hora da casa no lugar do calendário nativo, com OK e Cancelar, hora opcional e a regra do que se salva sem hora (o chefe da DGEO, 2026-11-04)\n\n- ui/seletor-de-data.js (vista) e ui/seletor-de-data.model.js (regras puras): grade do mês em\n  português, ano digitável, \"Definir hora\" opcional, Hoje, Limpar onde o campo aceita vazio,\n  Cancelar e OK; Esc cancela, Enter confirma, clique fora cancela; fuso do mapa mostrado quando\n  não é Brasília; popover ancorado na mesa, folha na base no celular, alvos de 44 px no toque.\n  Pendurado no body e segurando os próprios eventos na captura da janela, para não ser cortado\n  nem fechar o anfitrião (validade da camada, configurações temporais).\n- Regra do papel em utilities/data-brasileira.js: sem hora, Início e instante valem 00:00 e Fim\n  vale 23:59:59.999, no fuso do mapa; vale também para o texto digitado só com a data, e no Fim\n  23:59 escrito é o fim do dia. Valores gravados continuam lidos como antes.\n- campo-de-data abre o seletor (papel, aceitaVazio, referência); papel passado na validade da\n  camada, no Início/Fim da feição (um e em lote), na tabela de atributos e no Início/Fim do mapa.\n- Migrados os nativos que escapavam: data do Horizonte, data da declinação e instante do quadro\n  da carta.\n- Testes: seletor-de-data.test.js novo; data-brasileira, fuso-do-mapa, hora-de-brasilia e\n  horizonte atualizados; censo do botão direito declara o seletor. Ajuda e wiki atualizadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "2329224",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2329224fa709435f3d738ec478d6c0e7caed803f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T08:31:59.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions: alturas re-medidas dos nove 3D, minzoom 7 no mapa base DSG do 1º CGEO e o id da DSG para a 15ª Cia E Cmb Mec (2026-11-04)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "4e69da5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4e69da5216981cd8a19cb42d41b55e4bc99ae579",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T08:25:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Barra do tempo recolhida encolhe ao conteúdo (relógio, play e coordenadas), sem os 720 px da aberta (o chefe, 2026-11-04)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "d42c218",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d42c218c3214020638dd3fe0567fbe922444ab94",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T04:58:08.000Z",
+      "author": "Maj Diniz",
+      "message": "CSS do controle temporal: seletores duplicados da revisão fundidos na regra original e linha em branco antes dos comentários (stylelint)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "a1a3f9f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a1a3f9f14175d29149b6cb5e83ca33942b15a8a1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T04:23:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-desempenho2' into controle-temporal",
+      "sha": "c4db142",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c4db142e12c920fcd7218abab8a9c6887b5b2388",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T04:22:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo, desempenho 2: a árvore escreve só o que mudou e fora do evento do cursor, o filtro poupa as fontes sem a camada que entra ou sai, e a Cronologia mexe só no \"Agora\" e no cursor\n\nTrês custos medidos pela frente anterior com 2.000 feições em 50 camadas (10 com validade):\n\n1. Aba Camadas (tempo-na-arvore.js, tempo-na-arvore.controle.js): a passada regravava título,\n   aria-label e instante de todo relógio de linha com o mesmo valor (~4.460 registros de mutação por\n   passada) e rodava síncrona no evento do cursor. Agora guarda por linha e por pílula o que escreveu\n   e só escreve o que mudou (a passada depois do desenho, `forcar`, olha tudo de novo); a regra de\n   cada feição roda uma vez por passada, e não duas; o evento agenda UMA passada depois do quadro,\n   coalescida. A regra visível não muda.\n\n2. Filtro (visibility-filter.js): a causa medida na página viva foi a lista `in layerId` (sem as\n   camadas fora do passo) dentro da chave da BASE: em cada célula com entrada ou saída de camada, 109\n   setFilter, 106 em fontes vazias, contra 3 nas outras. A cláusula da janela não marcava fonte\n   nenhuma como temporal. Agora a base é a lista desenhada, e a camada de estilo sem a cláusula\n   temporal segue só o dentro/fora das camadas com validade que a fonte dela tem; o evento de\n   conteúdo da fonte reconfere, para a feição de camada que chega a uma fonte poupada.\n\n3. Cronologia (cronologia-janela.js): a Lista refazia as linhas visíveis em todo quadro; com o\n   \"Agora\" entre as mesmas duas linhas, só a hora dele muda. Nas Raias, `--cronologia-cursor` vai\n   no próprio cursor, e não na raiz das raias.\n\nTestes novos, que reprovam o código de antes (rodados contra 9b49128c7):\ntempo-na-arvore-escreve-so-o-que-mudou.test.js, filtro-janela-de-camada-por-fonte.test.js e o bloco\n\"desempenho: o passo do cursor\" de cronologia-janela.test.js, com as equivalências (passada\nincremental igual à do zero; filtro segurado igual ao completo e à regra pura, em células variadas e\ndesligado).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "7962e0f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7962e0f1d5f38ffbc441b3cafb24c7ef97d47b00",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T03:48:18.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-testes' into controle-temporal",
+      "sha": "5f8a246",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5f8a24629efc174af35427740bfb2282d6b030b5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T03:47:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo, testes: a trava da camada pelo auxiliar na validade (T18), os censos conhecem as chamadas novas e os mocks as seções novas\n\n- setLayerValidity, o menu da árvore e shiftLayersValidity perguntam a trava EFETIVA\n  (camadaTravadaDeFato / isLayerEffectivelyLocked); a pasta só nomeia a frase.\n- repro do mapa travado: shiftLayerValidities mockada, e cobrada a ordem (só anda depois do Dia D).\n- painel da feição: createTemporalBatchSection no mock; a liberação em lote é a 4ª seção.\n- censos de edição por mapa, leitura do mapa aberto e referência de recurso: as chamadas\n  novas da cronologia, da árvore, do celular e do cursor lembrado classificadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "69b2ec6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/69b2ec6a3c83ac574319b28d9de4c789b3352ce7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T03:38:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-desempenho' into controle-temporal",
+      "sha": "9b49128",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9b49128c755ebaf58ea80f285fd9b46ad84cdf5b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T03:03:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo, desempenho: a entrada da fonte própria dos que andam não estoura mais a espera de 2 s (T30)\n\nNa entrada, a fonte pequena era regravada em todo quadro e nunca ficava carregada, então a espera\nda entrada só acabava em ESPERA_MAXIMA_MS, com a fonte de origem INTEIRA regravada em cada quadro\ndesse meio. Medido na bancada (atlas local, 1366x768, GPU, n=3 por célula, rodada 0 descartada):\ncom 2.000 feições, play a 1x levava 2.086 ms [2.085-2.093] e 122 regravações da origem até separar;\ncom 1.050 e CPU 4x, 2.292 ms. Agora a entrada só regrava a fonte pequena depois que a escrita\nanterior carregou: no play, de 82 a 251 ms (medianas das seis células); no arraste, de 91 a 543 ms;\nde 2 a 9 regravações da origem em todas elas.\n\nEfeito na reprodução de 12 s com 1.050 símbolos e CPU 4x (n=5): 15,1 q/s [13-15,6] para\n16,8 [16,3-17], tarefas longas de 3,0 s para 2,0 s; o \"antes\" (main) ficou em 7,2 e 7,4 nas duas\nsessões, o controle de deriva. Com a CPU normal nada muda (já era 59,9).\n\nTeste: WORKER LENTO em tests/unit/temporal-fonte-em-movimento.test.js, que reprova o código\nanterior (a fase fica em \"entrando\") e passa com o conserto.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "e0fde00",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e0fde0088bc679d102f5f095f7a9d9cf383d78df",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T02:36:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-ajuda' into controle-temporal",
+      "sha": "f4e8f39",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f4e8f393d65d3827f960f3a3b7a25a8fb960da68",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T02:35:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda e documentação da obra do controle temporal\n\nAjuda (ajuda/src/content/docs/como-fazer/):\n- usar-a-linha-do-tempo reescrita para a barra nova: relógio e pílula Linha do tempo, instante digitado (T) e GDH com a letra do fuso, selo Dia/Crepúsculo/Noite e faixas da noite, roda, − e + e Janela inteira, passos, Repetir um trecho, Agora, recolher na barra de coordenadas, desligar volta ao modo normal;\n- páginas novas: validade-no-tempo (validade da feição, lote, Validade no tempo… da camada, interseção, (3 de 4) e 0 de 4, relógio âmbar, submapa, a célula da unidade inteira), cronologia (Lista, filtros, Só na vista do mapa, Raias com arraste e Ctrl+Z) e configurar-a-linha-do-tempo (engrenagem, fuso com Monte Castelo em +01:00, Reagendar, que saiu da página da barra);\n- trajetória: Velocidade de marcha e Parar até…; tabela: Início, Fim e Só no instante; exportar: a escolha Tempo do KMZ; compartilhar esta vista: o instante só com a linha do tempo ligada;\n- barra lateral, índice, novidades de 2026-11-03 e ARQUITETURA.\n\nMídia: tomadas novas tempo-barra-01, tempo-camada-01 e tempo-cronologia-01 (lista midias/tempo.json), ainda SEM arquivo gerado: o motor precisa do retrato e dos tiles de produção, e nesta sessão não havia cache nem acesso. O build reprova as três como mídia pendente até o motor rodar. Precisam ser refeitas pelo motor, pela barra nova: v2-base-tempo-01, v2-base-tempo-02, l5-tempo-03, v2-base-traj-01, v2-base-traj-02 e l5-exportar-01.\n\ndocs/wiki/modulo-temporal.md: a barra é da pessoa e a janela é do mapa (vista, instante digitado, luz, preferências, recolher não lembrado, sem aviso), a Cronologia é janela, o popover da validade da camada e os rótulos de medida na regra única.\n\n.claude/rules/temporal.md: a regra do T25 (célula inteira para visibilidade, cursor cru para posição) e a validade da camada (colunas da 068, interseção, janelas-de-camada.js).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "d72b54d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d72b54dd40b3c1afed6992c4c049d5abe597c79d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T02:10:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-revisao' into controle-temporal",
+      "sha": "bbbc775",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bbbc77587387c77e23db64cd8a5e2b6cdc435465",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T02:08:34.000Z",
+      "author": "Maj Diniz",
+      "message": "controle temporal, revisão visual: consertos da barra, da Cronologia, da tabela, da rota, da folha do celular, do KMZ por evento e dos rótulos de medida\n\nBarra do tempo:\n- \"Agora\" (T08) estilizado e escondido de fato: o display de .temporal-bar__btn vencia o hidden e o botão aparecia cortado em todo mapa;\n- campo do instante sem transbordar a caixa (box-sizing), Esc fecha a caixa com o foco em qualquer controle dela;\n- fuso do mapa menor e com reticências, sem correr por baixo do selo (Monte Castelo);\n- marcas de evento sem os 44 px que o toque dá a todo botão (cruzavam os rótulos), alvo maior pelo ::before;\n- barra estreita (celular, tablet com painel): Cronologia só com o ícone, ações quebram linha, caixa do instante centrada na barra;\n- recolhida no celular encolhe ao conteúdo.\n\nFolha de baixo do celular (Luminosidade e Cronologia): a alça é parte da faixa verde, sem a faixa branca de 50 px. Cronologia no celular: as linhas que atravessam a lista abrangem 3 colunas, sem a coluna fantasma que cortava a Feição.\n\nTabela de atributos: publica --altura-da-doca-tabela e a barra sobe sobre ela (T14); Início, Fim e Quando com a largura do instante inteiro.\n\nRota e validade: \"Parar até\" com o pause do Feather e o formulário com o campo inteiro; Início e Fim alinhados no painel, no lote e no popover da camada; o número da rota redondo no tablet; frase do popover sem \"Hora em hora de Brasília\".\n\nAba Camadas no tablet: o olho da camada não é mais cortado pela pílula \"(8 de 15)\".\n\nKMZ \"uma pasta por evento\": a janela de cada evento é a célula da régua (T25), janelaDoEvento em kml-instante.js.\n\nRótulos de medida em DOM (visada): seguem isVisibleUnderTemporal com a célula e o revelar do filtro, recalculados só na fronteira da célula e ao ligar ou desligar; desligado, todos aparecem.\n\nstore.js reexporta getLayerById: sem ele o controle-temporal em 1fffd321a não subia (SyntaxError no boot).\n\nCitação da marcha a pé: Tab 6-1 do EB70-MC-10.304, PDF p. 47.\n\nCenso do T38: classificados o filtro de visibilidade e os cinco leitores das frentes feição e camadas que estavam sem classe.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "e636248",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e636248801efde803763b316ac70fd95c48db5ea",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T02:00:25.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions: a FINAL do PDR 2027 fecha no assinado, com a sobra em folga (2026-11-03)\n\n- pit.md: a FINAL fechada em R$ 489.484,37, sobra nos Correios e em material de rede\n- Decisions (cont. 15): PUT nos pdr_item 48 e 54, anexo 68 no lugar do 67\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UeiSJx2PvbvTqYvRh",
+      "sha": "0d8e470",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/0d8e470762a902b30067dc4d86fee40cb331b66e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T01:09:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Camadas: tempo-na-arvore importa getLayerById das operações de camada (o boot parava com SyntaxError)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "ced4e30",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ced4e30b250d429000f9e0dec71708db22619495",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T01:06:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Integração: Cronologia lista a camada que entra e sai, KMZ por instante respeita a validade da camada, epoch negativo sem 1 ms adiantado e o executor do backend cria data/\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "1fffd32",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1fffd321a2545edad4da590bd555bec625189384",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T01:04:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-camadas' into controle-temporal\n\n# Conflicts:\n#\tdocs/wiki/modulo-temporal.md\n#\tfrontend/src/js/import_export/kmz/kmz-export.service.js",
+      "sha": "f56c7cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f56c7ccac4dae4943bb7173ccc454d8b14eb5c56",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T01:02:30.000Z",
+      "author": "Maj Diniz",
+      "message": "controle temporal, camadas (T18 a T21): validade no tempo da camada, a árvore diz quem está fora do instante, a pílula conta e o aviso liga o revelar\n\nT18 (modelo A do chefe): a camada ganha temporalInicio/temporalFim (migração 068_validade_da_camada.sql, BIGINT anuláveis e CHECK início <= fim), e a feição aparece na INTERSEÇÃO da janela dela com a da camada. Servidor: UPDATE_FIELDS.layer, unidade de disputa validade (e o espelho do cliente), normalizeLayerChanges pela regra de normalizeEpochMs (invertida perde o fim, fração vai ao milissegundo de baixo, também em 1945), retrato, op canônica, readMapLayers do eco, INSERT da criação, cópias estruturais e import. Cliente: setLayerValidity com as guardas de posto, mapa travado, cadeado da camada e da pasta (frase nova), um Ctrl+Z por gesto (entrada layerValidity), Reagendar leva a validade (a camada travada fica), atlas local para o servidor, KMZ com TimeSpan no Folder e a interseção no Placemark, e a leitura do TimeSpan do Folder na entrada.\n\nRegra única: as janelas moram numa folha de zero imports (layers/janelas-de-camada.js); o filtro tira da lista a camada fora da célula e soma o match da interseção (buildLayerWindowClause), o esmaecer do revelar usa a mesma cláusula e isVisibleUnderTemporal lê comJanelaDaCamada. visibilidade-temporal-uma-regra-so.test.js avalia os dois caminhos com as janelas de camada. listarJanelasDeCamada serve a Cronologia; a extensão das janelas entra na janela automática.\n\nT19 a T21 (alternativas A): pílula \"(3 de 4)\" com título no fuso do mapa, \"0 de 4\" âmbar com a camada inteira fora, relógio na pílula de quem tem validade (abre o popover Início/Fim, leitura para Leitor e camada recebida), \"Validade no tempo…\" no ⋯, feição fora esmaecida sem itálico com relógio âmbar só quando tem janela própria, grupo esmaece com todos fora, ao vivo esmaece a transmissão fora do intervalo, aviso de uma linha que usa o mesmo toggleReveal, celular com a meta \"N de M no instante\" e a Lista com as fora no fim. Desligada é o modo normal puro. O estado fica fora da assinatura da linha: uma passada troca classe e contagem só quando a célula quantizada muda (medida com 50 camadas e 2.000 feições).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "978203b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/978203b5a7dd30074aed86005902a21279aab827",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:55:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-3d' into controle-temporal",
+      "sha": "3cbdc14",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3cbdc142dd71096f6b4908a81ef8256056660b56",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:55:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo, frente 3d: os pontos do 3D e do 360 e os anéis no 3D seguem o cursor a cada quadro (T15)\n\nOs três leitores que a frente regras achou parados na reprodução passam a seguir o cursor com no máximo\num quadro de atraso, uma atualização por quadro de animação e só para o que se move:\n\n- pontos e símbolos no 3D e no 360: aoMudarFeicoesPontuais ouve o cursor e o interruptor e, uma vez por\n  quadro, chama o passo dos móveis (só a feição com trajetória anda, para o ponto da rota no cursor, sem\n  ler fonte); a releitura inteira só quando muda a janela publicada pelo controlador (fronteira da\n  célula, ligar e desligar) e uma vez quando a movimentação para. No 3D a entidade muda de posição no\n  lugar, e o móvel em movimento não se amostra no chão do modelo. O 360 não ouve mais o cursor com a\n  espera de 150 ms que recomeçava a cada quadro.\n- feições não pontuais no 3D: a fonte escrita em quadros seguidos (os anéis do alcance) é lida no\n  quadro seguinte, uma leitura de cada vez; a escrita solta continua com a espera de 80 ms. Na\n  fronteira da célula a camada reavalia o que já leu, sem ler fonte.\n- a conferência de 1 s compara a casa e a rota do móvel, e não a posição; o teto de 200 feições vale\n  para as paradas, e o móvel ao alcance entra sempre.\n\nRegra pura em map/feicoes-pontuais/seguir-o-cursor.model.js, com a bancada de 200 paradas e 10 móveis.\nO censo do T38 tira o 360 (não lê mais o instante) e classifica os dois leitores da Cronologia, que o\nmerge da frente cron deixou fora do inventário.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "0733ac9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0733ac94b478a526eda415ff5a82041340be2c1d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:42:27.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-feicao' into controle-temporal",
+      "sha": "1fff3ae",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1fff3ae797aeb57024df19e50aa7f0eda6b4d306",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:41:44.000Z",
+      "author": "Maj Diniz",
+      "message": "controle temporal, frente feição: validade em lote com um Ctrl+Z (T22), Início e Fim na tabela e \"Só no instante\" (T23), desfazer da janela no painel e o N8 fechado (T24), hora do ponto novo pela marcha (T29), fonte própria dos símbolos que andam (T30), \"Parar até\" na rota (T32) e KMZ no instante ou por evento (T37)\n\n- A janela e o GDH derivado são UMA escrita por `gravarJanelaDeValidade` (`updateFeatures` com transformação sobre a feição guardada): um Ctrl+Z para uma feição e para o lote.\n- Tabela: colunas `@tempo:inicio` e `@tempo:fim` no fuso do mapa, editáveis e ordenáveis, e o filtro \"Só no instante\" pela regra do mapa.\n- Marcha: velocidade da feição, depois o amplificador Z, depois o padrão do tipo pelo SIDC (a pé 4 km/h, motorizada 30 km/h), no clique, na coordenada digitada e na lista colada.\n- Fonte em movimento: separação pela cadência da passada, sem piscar nas duas trocas; bancada em `frontend/bench/fonte-em-movimento.mjs`.\n- KMZ: modos janela (padrão), instante e uma pasta por evento em radioFolder.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "cc17ff2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cc17ff2d2c6ebdaa1ab4c8c0524243a73e82b976",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T00:41:17.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions: mapa base DSG do 1º CGEO com o PMTiles do Perseu e os filtros visivel_code da DSG (2026-11-03)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "c95f260",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c95f2607355f5283dedea19b82a4b2b5b4fff441",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:38:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Cronologia: as bordas do utilitário comum de redimensionar, no lugar do canto próprio\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "ff001ba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ff001ba527686e3d265771e5ab88192b1d822efc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:37:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-janelas' into controle-temporal",
+      "sha": "0cecfe9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0cecfe921cd100925fb4650dec762b57be6a2ba2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:37:02.000Z",
+      "author": "Maj Diniz",
+      "message": "janelas do mapa: redimensionáveis pelas bordas e responsivas (o chefe, 2026-11-03)\n\nUtilitário comum `utilities/redimensionar-pela-borda.js`, irmão de `arrastar-pela-alca.js`: alças\nna borda direita, de baixo e no canto (mouse e toque, 16 px, aria-hidden, fora do Tab), mínimo e\nmáximo por janela, a tela vence o mínimo, respeita a coluna e o painel lateral aberto (medidos),\nlembra o tamanho por tipo de janela no localStorage (com try/catch), encolhe quando o navegador ou\no painel lateral aperta e volta à escolha quando há espaço, duplo clique (ou dois toques) volta ao\npadrão, desligado no celular. Aceita também a borda de cima e uma âncora explícita, para a doca da\nCronologia.\n\nLigado nas seis janelas: as cinco da casca dos painéis de ponto (Luminosidade, Meteorologia, Quem\nalcança, Quem vê este ponto, Quem vê este objeto) e a janela do vídeo do reconhecimento, que trocou\no `resize: horizontal` e o `min-width: 360px` pelo utilitário.\n\nConteúdo: no cartão de mesa o corpo rola dentro do cartão (cabeçalho e \"Salvar tabela\" ficam à\nvista; em 1366x768 a Meteorologia perdia o rodapé), os rótulos de linha e as células da\nMeteorologia quebram no cartão estreitado e na folha do celular (a tabela da Luminosidade cortava\no D+2 em 390 px), o nome no Quem alcança quebra em vez de cortar. Na janela do vídeo, cabeçalho e\ncontroles quebram em linhas, o palco ocupa a altura escolhida com o vídeo em faixa, não passa mais\nsob a coluna de navegação no tablet em retrato e no celular ocupa a largura da tela (começava em\n-58 px).\n\nAjuda: o gesto nas páginas da Luminosidade e do vídeo do reconhecimento.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "5c47c88",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5c47c88e12a0d056540022d8426d43e9014a7738",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:31:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Cronologia: erro do alternar vai ao console em vez de void\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "9b17d89",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9b17d8979c308093a8f4dd30815d7eef9fa8c356",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:31:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Cronologia: o botão da barra abre e fecha a janela e segue o estado dela\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "b2e1d5e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b2e1d5eb08b3f5676d05b5ee69fb7b68f7ddc65d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:31:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-barra' into controle-temporal\n\n# Conflicts:\n#\tfrontend/src/js/temporal/temporal-controller.js",
+      "sha": "8a44258",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8a442589736e63617e57f387599352bab913f26c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:29:51.000Z",
+      "author": "Maj Diniz",
+      "message": "barra do tempo: zoom da régua na tela da pessoa, noite e crepúsculos, instante digitável, trecho em laço, pílula, recolher e a barra sobre a doca ORBAT\n\nT01 zoom (roda, pinça, + e −, Shift+roda, faixa da janela inteira, Janela inteira), getViewRange e TEMPORAL_VIEW_CHANGED no controlador; T02 faixas de noite e crepúsculo (náutico opcional) e o selo de luz pelas efemérides do centro do mapa, no fuso do mapa e na data real, com cache por dia; T03 e T04 instante digitável (data e hora ou GDH com a letra do fuso, ano de dois dígitos no século da janela) e formato como preferência da pessoa; T05 o instante sob o ponteiro e sob o dedo; T07 passo antes e depois; T09 velocidade visível em toda tela; T10 trecho com reprodução em laço; T13 pílula \"Linha do tempo\"; T14 a barra sobe sobre as docas que publicam --altura-da-doca-*; T39 recolher num item compacto, sem lembrar entre sessões. Sai o aviso de controle temporal habilitado e desabilitado (o chefe, 2026-11-03). Ponto de extensão da Cronologia em registrarCronologia.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "849567e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/849567e1b85933605eac2796aeea34e6386da1c3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:27:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'ct-regras' into controle-temporal",
+      "sha": "1eeac5a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1eeac5a1b36b54d72c1460e4483c2f4d205a0c45",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:26:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha do tempo, frente regras: célula do dia inteiro no fuso do mapa, cursor lembrado, link com instante, botão Agora, barra no 3D e no 360, e desligar volta ao modo normal (o chefe, 2026-11-03)\n\n- T25: a célula de visibilidade é a unidade inteira alinhada ao calendário no fuso do mapa\n  (dia de 00:00 a 24:00, hora cheia, minuto, semana de segunda a domingo), contada de D no\n  relativo, semiaberta; sai TEMPORAL_RENDER_SUBSTEPS (meia unidade a partir do início da\n  janela). Custo: um rebuild de filtro por unidade cruzada, metade do anterior.\n- T16: o cursor é lembrado por mapa depois do F5, no registro da vista da pessoa\n  (temporalCursor, temporalNoAgora), gravado no máximo uma vez por segundo e no pagehide.\n- T17: \"Compartilhar esta vista\" leva o instante na chave t do link 2D só com a linha do\n  tempo ligada; quem abre recebe a linha do tempo ligada naquele instante, como aplicação.\n- T08: botão \"Agora\" com fonte ao vivo (irParaAgora, estadoDoAgora); botão mínimo nos\n  controles da barra, em arquivo próprio.\n- T15: a barra sobe sobre o 3D e o 360 e a reprodução não pausa mais ao entrar (N4 fechado).\n- T38: censo de todo leitor do instante, com a classe de cada um e a prova por classe; o\n  Horizonte, que ficava no último instante com a vista aberta, relê ao desligar e no cursor.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "b6e6e24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b6e6e24d98716aafb9c870c71c0cbc366c38d87d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T00:23:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Cronologia (T26, T27, T28): janela flutuante com a Lista das mudanças no trecho da régua e as Raias com arrasto da hora\n\nA janela segue o padrão de \"Luminosidade neste ponto\" (cabeçalho verde arrastável, Esc fecha), é\nredimensionável por duas variáveis de CSS e vira folha de três alturas só com a Lista no celular.\nA Lista vem do dado real do mapa (entra, sai, ponto de rota, evento), só no trecho de getViewRange,\nno fuso do mapa, com o \"agora\", filtros por tipo e \"Só na vista do mapa\", e é virtual. As Raias\ngravam o arrasto de ponto, início e fim por updateFeature({ transform }), um Ctrl+Z, com encaixe\nde 8 px no cursor e nos eventos; o Leitor não vê alça e o mapa travado recusa com o motivo.\nA porta (abrir, fechar, alternar, observar, raiz) carrega a janela sob demanda.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "43a4703",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/43a47035386652d4f013fab302f318c6bde6a800",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-03T23:57:54.000Z",
