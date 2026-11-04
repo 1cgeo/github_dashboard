@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-03T17:44:37.006Z",
+  "lastUpdate": "2026-11-04T00:30:32.352Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-03T17:36:49.000Z",
+    "1cgeo/ebgeo_web": "2026-11-03T22:48:32.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-03T15:07:26.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-03T23:57:54.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-02T20:24:03.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-03T20:57:09.000Z",
     "1cgeo/sap_master": "2026-10-19T22:46:03.000Z",
     "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10242,
+    "totalCommits": 10280,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3179,
+      "1cgeo/ebgeo_web": 3191,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 69,
+      "1cgeo/ebgeo_produtor": 84,
       "1cgeo/ebgeo_campo": 72,
       "1cgeo/sap_master": 21,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1313,
+      "1cgeo/chefe_dgeo": 1324,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,348 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T23:57:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03: PDR 2027 aprovado, a planilha FINAL e o cadastro no SAP 3.0\n\n- pit.md: seção do PDR 2027 aprovado (DIEx 2443-E1/DSG), a planilha FINAL e a Meta 4.2 (R0 em Tyvek, execução em sulfite)\n- Decisions (cont. 6) Meta 4.2 e (cont. 13) os 24 pdr_item de 2027 e o anexo\n- lancar-orcamento: o meta_pit_id do pdr_item aponta para pit.meta, não para o item\n- livro-razão: o 70 oferecido como meta voltou 400\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UeiSJx2PvbvTqYvRh",
+      "sha": "3bcd01a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3bcd01af87a77dee9810ff53bd1d65f8c710e1d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T22:48:32.000Z",
+      "author": "Maj Diniz",
+      "message": "ORBAT: o símbolo segue a unidade no atlas local e o SIDC segue o escalão, a árvore liga a coluna única e cabe na doca, e a bola vermelha só com a aba ORBAT ou a árvore aberta (o chefe, 2026-11-03)\n\n- Atlas local: sem servidor, nada refazia os símbolos ligados (\"mudar a designação não\n  atualizou o símbolo\"). store/orbat-copias-locais.js aplica a regra do servidor depois de\n  cada escrita da ORBAT, em todo mapa do atlas, sem passo de desfazer, e repinta pelo\n  FEATURE_MODIFIED da cópia do servidor.\n- SIDC nas cópias: o mapa desenha pelo sidc, e a cópia trocava o escalão sem ele (17 copiado,\n  SIDC 16). Servidor e cliente refazem o SIDC por feição, com o status dela\n  (sidcDasPropriedades, preso ao buildSIDC pelo teste do espelho).\n- Árvore: com uma coluna só a raiz fica sobre ela e o ramo liga (o print do chefe); o\n  barramento sempre alcança o tronco; a árvore cabe na doca pela altura também; o \"+n\" vai\n  ao fim do rótulo; sem posição esmaecida e repetida marcada, como na lista; árvore pequena\n  centrada.\n- Seleção: halo e linhas só com a aba ORBAT ativa ou a árvore aberta (selecaoAparece); sair\n  da aba com a árvore aberta mantém, fechar a árvore fora da aba limpa; o celular segue\n  desenhando.\n- Aba: o cartão redesenha a seleção depois de criar, duplicar e apagar (a recarga podia\n  desenhar antes da seleção nova, e o \"Lançar no mapa\" sumia).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "fc1f0f8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fc1f0f8024950d7d8e3a4b7c7f9ee4be483bb0a4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T22:27:54.000Z",
+      "author": "Maj Diniz",
+      "message": "requisitos, T1 e T2: o padrão de cache do GTA.js e o pacote de área só em PMTiles anotados para decidir depois, com as cotas e a evicção do navegador\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "da8138f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/da8138f225611640dee18f30276c0829df16f8b4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T21:08:38.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions: Arena Castelão no 3º CGEO e a altura de aman e colinas da DSG no 1º CGEO (2026-11-03)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "ee606ab",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ee606abd8c3b47264466be55e612c6b4e7b24cc0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T20:57:09.000Z",
+      "author": "Maj Diniz",
+      "message": "0.3.1: o envio ao EBGeo do 1º CGEO, e o ao vivo depois do teste com o Pilot 2\n\nA versão leva o conserto do envio tus atrás do /ebgeo (efbc011): no 1º CGEO o \"Enviar ao EBGeo\"\nsumia a 0 MiB, pela tela e pelo CLI. E o que entrou na main desde a 0.3.0: no Transmitir voo a\nposição do drone pela SEI do Pilot 2, o pedaço de 1 s, o caminho escolhido no painel da conta\n(automático, rede do EB ou internet) e o cartão do drone revisto; a detecção do ao vivo pela régua\ndele e na placa de vídeo mais rápida; o campo de visão padrão de 71,6°; e o app de\ndesenvolvimento ao lado do instalado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9021e8c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/9021e8c0b84c7fa8a8aeb9851c1802fec570edcf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T20:44:45.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03: balanço numérico do período do Chefe do 1º CGEO, o 532 do RPCATec 2025 decomposto e a área por INOM\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "75f1fe6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/75f1fe694b873e6f0c6986fe1ac0f56a3571abcd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T20:41:37.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: o Web dos consertos do ao vivo na main em 8b90f2a0b, gate verde, deploy amanhã\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "ba23e62",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ba23e629c71c517d63c1c5379120921010a4f079",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T20:40:17.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into conserto-aovivo-web",
+      "sha": "8b90f2a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8b90f2a0b07d79259afe8888f21d0e84a3a2f503",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T20:39:59.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions: a entrada da OM dona renumerada para (cont. 7), sem colidir com a (cont. 3) de outra sessão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "4089ca0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4089ca08931c9eca2c631b1e48f720b2e8adef8f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T20:39:06.000Z",
+      "author": "Maj Diniz",
+      "message": "decisions: toda carga no EBGeo tem OM dona (o chefe, 2026-11-03)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "c0e3ba1",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c0e3ba1e6436c6ffed1ee498ea74c1c6c51c6956",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T20:38:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Pacotes e ao vivo: o Location do tus sob o /ebgeo/, e toda carga com OM dona (o chefe, 2026-11-03: \"acervo institucional não existe, sempre tem que ter uma unidade\")\n\n- `pacotes.tus.js` e `aovivo.tus.js` devolvem `Location: tus/<id>`, relativo ao endpoint, como o instalador do Produtor (`d8dc34553`): o caminho absoluto resolvia fora do `/ebgeo/` do 1º CGEO, e a aba do admin dava 413. O Produtor resolve contra o endpoint e segue compatível.\n- A OM dona do pacote (`omDonaDaCarga`): a que o administrador indicar (`orgId` ou `orgSlug`, conferida no banco; inexistente é 400); sem indicação, a OM de quem carrega (a produtora, e senão a lotação), também para o administrador. A substituição sem indicação mantém a dona, e o item vivo sem dona recebe a de quem carrega. Conta sem OM é recusada com 400.\n- No ao vivo, o administrador publica na lotação dele, e não mais no acervo institucional; conta sem OM é recusada. Sai a entrada do ao vivo do censo de papel global, que não compara mais papel ali.\n- Testes: o Location nos pacotes e no ao vivo, e o caso do administrador (lotação, indicação, substituição que mantém, OM inexistente e conta sem OM); o código antigo reprova os dois. Backend 7.446 de 7.446.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "6e6ddfd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6e6ddfd55ebc3d1f6a79c696b834d46a4ea4b7d0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T19:55:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento: o estado dos consertos do ao vivo e o próximo passo de 2026-11-04\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "76d7b49",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/76d7b49585896456aad550c99150686211f3c8d2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T19:41:50.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03: alinhar o clone quando a entrada alheia está no meio do arquivo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "65e8128",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/65e8128d8850d77ddb2d7d59d59c1669681d6656",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T19:38:51.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03: notebook da DGEO por SSH, o helper notebook.py e o .env replicado nele\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a6c8ac0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a6c8ac05b63ac54352a6ec2694581cf830c92796",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T19:33:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03: teste e2e do ao vivo com o Pilot 2 real na DSG, a telemetria na SEI, a placa da detecção e as transmissões de teste purgadas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "8c43555",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8c435556dc03391156844f2e7a6186d031b54e5e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T19:28:12.000Z",
+      "author": "Maj Diniz",
+      "message": "rede: o endereço do envio tus é o endpoint da sessão mais o id, e não a Location como veio\n\nO @tus/server do EBGeo Web (relativeLocation) responde /api/v1/pacotes/tus/<id> sem saber do\nproxy. Atrás de um prefixo (o /ebgeo do 1º CGEO) a Location resolvida caía fora dele, o nginx\ndava 404 no primeiro PATCH e o envio \"sumia\" a 0 MiB, pela tela e pelo CLI. A DSG, servida na\nraiz, não era afetada. Da Location só vale o último segmento, o que serve também à forma\nrelativa tus/<id> do instalador.\n\nO simulador ganha o prefixo (404 do nginx fora dele, Location sem ele), e o teste novo reprova\no código anterior com o mesmo \"O envio sumiu do EBGeo\". Medido em 2026-11-03 com três .ebgeo3d\ndo CI Butiá, importados no 1º CGEO depois do conserto.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "efbc011",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/efbc011f307ffa9d88936c2813d430e501f0ed37",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-03T19:01:03.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-03 (deploy): três instâncias em c81c00c97, o Location do tus sob o /ebgeo/, cópia pelo Teleport e a régua de ausência que repete\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "e06c253",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e06c253c301b8f8b21e0e65035847ec00c94ef94",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:58:18.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo, playlist: o teto da linha do tempo volta a 300.000, pelo custo do pior caso\n\nCobre quase 7 dias com o pedaço de 2 s (6,9) e 3,5 dias com o de 1 s, e nenhum\nvoo chega perto. Os 610.000 que cobririam os 7 dias do MAX_T_S com o pedaço de\n1 s custavam no pior caso 0,43 s e uns 300 MB por leitura, contra 0,23 s e\n155 MB (medido em 2026-11-03). O teste prende os dois lados: 3 dias com pedaço\nde 1 s cabem, e o teto não sobe sem decisão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0435c5e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0435c5e940e41b242822cdb645b941c887575517",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:57:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'conserto-ia-ambiente' into integracao-aovivo",
+      "sha": "827eb0e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/827eb0ed2d925986b90222785478f19788f67871",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:57:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'conserto-aovivo' into integracao-aovivo",
+      "sha": "8adf291",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/8adf291392ee344d996c67b52e7f544808786b72",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:55:56.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo, docs: a Ajuda do botão \"Ao vivo\", do atraso e da linha com o dia, e a wiki com as medidas de 2026-11-03 e as decisões do conserto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "060b7e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/060b7e28b84bcf614c8ee0decef10c60352841e1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:55:55.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo, player: alcança a borda com o pedaço de 1 e de 2 s, \"Ao vivo\" só perto do agora, a qualidade atrasada no seletor, e a janela fechada não baixa nada\n\nMedido com o DJI Pilot 2 na DSG em 2026-11-03 (o chefe): a leve ficava 10,98 s\natrás da chegada ao notebook sem alcançar; com a fila do Produtor atrasada, a\npadrão mostrava \"Ao vivo\" aceso com o vídeo 63 s atrás do voo; e a janela\nfechada seguia pedindo a playlist uma vez por segundo.\n\n- hls.js com dois alvos atrás da borda e a recuperação até 1,1 vez, e o salto\n  de quem segue em três alvos (3 s no pedaço de 1 s, 6 s no de 2 s), não 6 s fixos.\n- \"Ao vivo\" acende na borda E com o quadro a até 15 s do agora, pelo relógio do\n  servidor (o cabeçalho Date das playlists); longe, o botão diz \"Atrasado 63 s\".\n- O seletor marca \"atrasada 56 s\" na qualidade cuja borda chega mais de 10 s\n  atrás da outra, lida a cada 10 s pela delta.\n- Fechar a janela para o hls.js (stopLoad) e a leitura da outra; reabrir\n  retoma o mesmo hls.js. A fonte de arquivo do reconhecimento gravado não muda.\n\nBancada (corte real do Produtor, 2 espectadores, mediana): pedaço de 1 s de\n6,92 para 3,27 s, de 2 s de 6,89 para 5,86 s; com a queda de 10 s, 2,85 s e\n4,87 s, sem salto para trás.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0daf826",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0daf8265414ce703767f5e533f07e44be73df4be",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:55:32.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a frase da linha leva o dia quando não é de hoje, em Brasília\n\nA linha \"Drone Externo\" de 29/10, lida em 03/11, dizia \"Encerrada às 16:00, à\nespera da gravação final\" (o chefe, 2026-11-03). Agora diz \"Encerrada em 29/10\nàs 16:00\", e \"No ar desde\" e \"Sem sinal desde\" ganham o dia do mesmo jeito; o\nano só quando é outro. O dia é o civil de Brasília, como a hora.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "633bc28",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/633bc28c00332f19191c311277a2dac698f74694",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:55:23.000Z",
+      "author": "Maj Diniz",
+      "message": "compressão: a playlist HLS do ao vivo sai em gzip\n\nA tabela de tipos do compression não marca o application/vnd.apple.mpegurl, e\na playlist saía crua: 19.331 B a cada recarga com 21 min de voo, medidos na DSG\nem 2026-11-03. O filtro sai do app.js para utils/compressao.js, junto do tile\nvetorial do 360, que tinha o mesmo motivo, e ganha o teste com o controle do\nfiltro padrão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "97df7ec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/97df7ec0de8edd21567a5571f19d3140fa9aaeb8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:55:23.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo, playlist: o alvo e o buraco pela duração típica da própria transmissão, o teto de 7 dias com o pedaço de 1 s, e a atualização delta\n\nO Produtor novo corta de 1 em 1 s e os velhos seguem em campo com 2 s. O piso\nfixo de 2 s dava ao pedaço de 1 s o alvo 2 (bancada de 2026-11-03: 7,19 s\ncontra 3,97 s com o piso 1); agora o piso é a mediana dos 31 pedaços mais\nnovos, que também dura o buraco sem pedaço seguinte. O teto da linha do tempo\npassa a 610.000, para cobrir os 7 dias do MAX_T_S com o pedaço de 1 s.\n\nEnquanto não há ENDLIST, a playlist declara CAN-SKIP-UNTIL de 30 s, e o\nhls.js 1.7.3 pede _HLS_skip=YES sem o modo de baixa latência. Só se pula o\ncomeço contínuo de pedaços presentes, longe da borda e recebidos há mais que a\nfronteira, porque o player copia os pulados da cópia que tem, buraco inclusive.\nPadrão de 2 h com pedaço de 1 s: 222.084 B por recarga, a delta 1.217 B.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f34378c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f34378c10f796d1f71731f93e876ab4d27e221fc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:43:29.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: o Transmitir voo com a posição pela SEI do Pilot 2, o pedaço de 1 s, o caminho escolhido e as provas\n\nO desenvolvimento.md ganha, na seção do Transmitir voo, o pedaço de 1 s (e o que o backend atual\naceita), a posição pela SEI (o formato medido, a taxa de 2 por segundo e por quê, a altitude sem\nreferência, o rumo fora), o vídeo como chegou sem as amostras só de SEI, a escuta que não abre, o\naviso do hotspot e o cartão do drone; na do retransmissor, o caminho escolhido no painel da conta.\nA prova da rodada traz as contagens, o controle negativo contra 68abe4f e o que não se provou. O\ntítulo do e2e diz que o drone 1 agora traz a posição.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f60c560",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/f60c560181d8e7f8ea5e387c8dcc3eb65baba367",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:40:46.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: o lote da posição com 1 s de pontos, e o teste do caminho sem contar as sondas\n\nO lote esperava o span inteiro de 1 s entre o primeiro e o último ponto, e a 2 por segundo saía\nde 1,5 em 1,5 s (5 lotes nos 8,2 s do trecho real); fecha agora com dois pontos. O teste do\ncaminho contava também os avisos das sondas do alcance.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c101e20",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/c101e20be5c3b70099a7a53961c3e072eb4456ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:33:54.000Z",
+      "author": "Maj Diniz",
+      "message": "tela do ao vivo: o cartão do drone depois do teste com o Pilot 2, e o caminho na faixa\n\n- \"Atraso ao vivo\" (0,4 s, com quem assistia vendo 11 s depois) vira \"Envio da leve\", com o\n  `title` dizendo que mede só o envio;\n- a padrão com o pedaço mais velho esperando mais de 20 s: o cartão diz que a rede não dá\n  conta dela ao vivo e que ela sobe depois, sem atrasar a leve;\n- \"Vídeo recebido 1.194 s\" vira \"19 min 54 s\";\n- o passo a passo do controle some quando o vídeo chega (o endereço fica, para a reconexão);\n- a escuta no hotspot (\"Conexão Local* N\"): o aviso de que o Windows trata a rede como Pública,\n  com o \"failed to start livestream\" e a pergunta da Ajuda que tem a regra do firewall;\n- a posição: \"pelo vídeo do DJI Pilot 2 (N pontos)\", ou \"sem posição\", e o aviso do formato\n  que mudou; o aviso da escuta leva o detalhe técnico no `title`;\n- a faixa de status mostra o caminho escolhido e o em uso, e o cartão diz que pelo\n  retransmissor a padrão e os finais esperam.\n\nO texto mora em `cartao-drone.js` e `caminho-aovivo.js` (puros, testados direto no\naovivo.e2e.js). O e2e passa o drone 1 para o RTMP real do Pilot 2 (a fixture com a SEI) e\nconfere a trilha no EBGeo contra o .SRT do notebook; o drone 2 segue sem posição.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3c61622",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/3c61622b3039752682a68cffe74f17d8249651c2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:33:54.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: o caminho escolhido no painel da conta, automático, rede do EB ou internet\n\nPedido do chefe (2026-11-03), para testar os dois caminhos sem cortar rota. \"Automático\" é o de\nsempre; \"Rede do EB (EBNet/VPN)\" só vai direto, e sem alcance a fila espera, nunca vai ao\nretransmissor; \"Internet (retransmissor do EBGeo Campo)\" só vai por ele, mesmo com o EBGeo ao\nalcance, e segue a regra de que por ele sobe só a leve. Sem o notebook registrado no\nretransmissor não há caminho: nenhum pedido sai pela VPN, e o painel diz para entrar de novo\npela rede do EB. A escolha fica nos ajustes da fila (`caminho`, em aovivo.db), lida ao abrir o\napp, e vai com o estado da tela (`caminhoPreferido`, `faltaRetransmissor`).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "feb0de6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/feb0de6105ff9fcfaa51568f13f097027e70766b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:28:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Mapa base: a base escolhida em \"Mapas base\" entra na grade sem o aviso \"entrou na grade no lugar de\" (o chefe, 2026-11-03: \"muito chato o aviso\")\n\nSai o aviso e o Desfazer dele; a grade mostra a troca, e \"Restaurar a grade padrão\" continua na tela \"Mapas base\". O aviso de base fora da vista (\"Ir para a área\") fica. O spec da grade passa a contar o aviso na hora, depois de 1,5 s (o `toHaveCount(0)` repetia até o aviso sumir e aprovava o código antigo), e reprova o código de antes. A Ajuda \"Trocar o mapa base\" perde a frase do Desfazer.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "4612692",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4612692fad16f2fa00939e33a750ef330a86a6da",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:25:55.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a placa da sonda, a régua do ao vivo e o app de desenvolvimento ao lado do instalado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "083cd38",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/083cd38497d9f5113c6a564cd1338f940b5b8a07",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:25:55.000Z",
+      "author": "Maj Diniz",
+      "message": "app: o desenvolvimento ao lado do instalado, com o ffmpeg e o ktx de app/ e pasta de dados própria\n\n- Binários (ambiente.js, desenvolvimento.js): sem a variável no ambiente ou no .env, vale o baixado\n  em app/<nome>/<plataforma> (npm run ktx, ffmpeg, gdal, ia), e só então o PATH, para o ffmpeg e\n  o ktx; o GDAL do PATH nunca. Antes, sem FFMPEG_BIN o app de desenvolvimento ia ao ffmpeg do PATH,\n  e na estação sem nenhum a escuta do ao vivo fechava com ENOENT.\n- Pasta de dados (index.js, antes da trava): o app não empacotado usa\n  \"<appData>/EBGeo Produtor (desenvolvimento)\", salvo EBGEO_PRODUTOR_DADOS. No mesmo productName o\n  instalado e o de desenvolvimento dividiam a trava de instância única, a sessão, a fila aovivo.db\n  e a porta do CLI. O CLI do repositório calcula a mesma quando fala com o electron . (dados.js,\n  o critério do comandoDoApp), e o doctor reprova se divergem.\n- IA_SONDA aponta <dados>/ia-placa.json, a placa escolhida pela sonda do detector.\n\nProva: com um electron . do código de antes aberto, o --servico-cli de antes devolveu a porta dele\n(modo janela); o de agora subiu o próprio (modo servico). desenvolvimento.e2e.js (doctor sem\nEBGEO_PRODUTOR_DADOS e o ambiente.js no Electron) e os testes de unidade de app e cli reprovam o\ncódigo de antes; app/package.json ganha o npm test da unidade.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ac3755a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/ac3755a94421303f43e0985d8df0ec6eaf825770",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:25:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ia: o ao vivo abre pela régua dele, não pelos 40 ms do pós-voo\n\nO ao vivo recusava a detecção pelo LIMITE_GPU_MS do pós-voo (40 ms, feito para as 17 inferências do\nquadro de 4K), embora já se governe pelo tempo medido: cai de 5 para 2 por segundo e desliga acima\nde 80% do intervalo. amostragemDoAoVivo abre quando a bancada cabe no orçamento da amostragem mais\nlenta (400 ms a 2 por segundo), porque recusar na abertura o que o governador aceitaria rodando é\nrecusar à toa, e abre já na mais rápida em que cabe, para não gastar 10 amostras acima do\norçamento. A CPU fica de fora salvo EBGEO_PRODUTOR_IA_CPU=1 (no ao vivo ela é do receptor e do\ncodificador). A recusa diz a placa e o tempo.\n\nTestes: a régua (78,5 ms abre a 5, 200 ms a 2, 516,5 ms na dml:0 recusa, a CPU recusa salvo\nforçada, o pós-voo nos 40) e a thread que abre a 2 por segundo. Contra o código de antes reprovam a\nthread a 2 por segundo (abria a 5) e o ao vivo com o modelo nesta estação (recusava a 327,6 ms).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9a93381",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/9a93381b391dc62f76075c51173ec354c2dd7c7d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:25:41.000Z",
+      "author": "Maj Diniz",
+      "message": "ia: o detector abre na placa de vídeo mais rápida, achada por sonda\n\nA DirectML sem deviceId abre no adaptador 0 do DXGI, o da tela principal. Na estação da Intel UHD\n630 (placa 0) e da GTX 1050 Ti (placa 1) o modelo levou 327 ms na placa 0, 84 ms na placa 1 e 250\nms na CPU, e o detector abria na pior. O binding do onnxruntime-node 1.31.1 só passa o deviceId ao\nDML (o performance_preference e o device_filter existem na DLL, mas o binding os aceita e os\nignora: medido, o tempo da placa 0), então a placa se acha medindo.\n\n- placa.js: a sonda abre o detector em cada placa, de 0 até a primeira que não abre, e na CPU,\n  mede (uma de aquecimento e a mediana de até 3, largando quem passa do dobro da melhor) e fica com\n  a mais rápida. A escolha fica por processo e no arquivo de IA_SONDA; a bancada de quem abre a\n  confere, e acima de 1,5 vez o tempo dela mais 10 ms a sonda roda de novo.\n- detector.js: provedores(plataforma, placa) com o deviceId; provedores pelo nome (dml:1, cpu),\n  que a tela do reconhecimento e o cartão do ao vivo já mostram.\n- abrirDetector devolve a placa e a sonda; o pós-voo segue nos 40 ms.\n\nplaca.test.js reprova o código de antes; com o modelo, abriu em dml:1 com 77,5 ms.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f4fd81b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/f4fd81bf0c2f582abce69ea19497afda569384b0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:25:34.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a escuta que não abre diz por quê em linguagem de gente\n\nCom o ffmpeg fora do caminho, o cartão dizia \"a escuta fechou sem vídeo (receptor -4058): sem\nmensagem\" (o -4058 é o ENOENT do Windows). O corte guarda a falha do spawn no resumo do fim, e\n`motivoDaEscuta` diz \"o ffmpeg não foi encontrado: ...\" (ou o que o ffmpeg escreveu), com os\ncódigos e o caminho no `avisoDetalhe`, que a tela põe no `title`.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5c5906f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/5c5906f02a02fc022064c55d079b9140f17686b3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:24:13.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a posição do drone pela SEI do Pilot 2, e o vídeo como chegou sem as amostras só de SEI\n\nO RTMP do Pilot 2 leva a posição numa SEI user_data_unregistered (UUID 816d384e-998c-11ea-\nb294-02fcdc4e7412, protobuf, campo 51: latitude, longitude e altitude em mm), medida em\n2026-11-03 com o Mavic 3E contra o EBGeo da DSG. O corte lê o FLV do receptor em fluxo\n(`flv.js`) depois de entregá-lo ao codificador, e `sei-dji.js` manda à fila o primeiro ponto\nde cada meio segundo, com o `t` da tag (na continuação, somado ao fim do último pedaço mais a\nlacuna), em lotes de 1 s: 2 por segundo mantêm uma hora em 7.200 pontos, longe do afinamento de\n50.000 da leitura da trilha. A altitude vai como veio, sem referência prometida; o rumo não sai\n(o candidato, o campo 8.6, não se confirmou). O UUID ou o protobuf que mudam avisam uma vez, e\no vídeo segue. O .SRT do final deixa o rel_alt de fora quando ele não veio (antes saía 0).\n\nO vídeo como chegou: cada tag só de SEI entra na unidade de acesso do quadro seguinte antes do\n`-c copy` (`juntarSei`), e o MP4 sai com uma amostra por quadro (247 de 247, 30,06 q/s\ndeclarados, no trecho real; antes, 592 amostras e 71,92 q/s), com a posição dentro.\n\nFixture: 8,2 s do RTMP real (630 KB), conferidos contra o decodificador Python da bancada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "59723b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/59723b32eab95e5b86fdcd509c8454aac5b65dec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-03T18:18:15.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: o pedaço de 1 s, separado do teto de 2 s do quadro-chave da régua\n\nNa bancada com o Pilot 2, com o alvo da playlist do EBGeo em 1, o atraso de quem assiste caiu\nde 7,4 para 3,2 s. O `-g`, o `-force_key_frames` e o `-hls_time` do corte passam ao `PEDACO_S`\n(1 s); o `GOP_S` segue o teto do pacote (`LIMITES.reconhecimento.gopS`, 2 s), que o MP4 final\nmontado dos pedaços continua cumprindo. A estação passa o pedaço ao detector (`criarIa({gop})`),\nque sem ele supõe 2 s. O backend atual aceita (`X-Aovivo-Duracao` de 0 a 30 s), com o alvo da\nplaylist ainda em 2 até o backend novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "610b5ec",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/610b5ec627d4750793aec8ec8d2d1413c381c66d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-03T18:06:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Envio tus do painel: o endpoint sempre absoluto, para o Location relativo do instalador sair sob o /ebgeo/ do 1º CGEO\n\nO tus-js-client resolve o Location da criação contra o endpoint pelo url-parse, que, com a base relativa da API (`/ebgeo/api/v1`, a do 1º CGEO), devolve o Location intacto, e o navegador o resolve contra a página: depois de d8dc34553 o pedaço do instalador saiu em `/ebgeo/tus/<id>` (405). Com o endpoint absoluto (`endpointDoTus`), `tus/<id>` sai sob o próprio endpoint, na raiz e sob prefixo. O teste usa o mesmo url-parse do cliente e a URL nativa, e reprova o endpoint relativo de antes (3 de 4).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3UgbHzGj2LU9WEZKbu",
+      "sha": "c81c00c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c81c00c9713c4ede6254c68c6bab8511d68da718",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-03T17:36:49.000Z",
