@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-04T17:53:58.993Z",
+  "lastUpdate": "2026-11-05T00:49:47.377Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-04T14:17:51.000Z",
+    "1cgeo/ebgeo_web": "2026-11-04T21:57:44.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-04T16:37:37.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-04T23:52:22.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-03T20:57:09.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-04T21:09:34.000Z",
     "1cgeo/sap_master": "2026-11-04T13:16:05.000Z",
     "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10333,
+    "totalCommits": 10358,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3227,
+      "1cgeo/ebgeo_web": 3243,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 84,
+      "1cgeo/ebgeo_produtor": 87,
       "1cgeo/ebgeo_campo": 72,
       "1cgeo/sap_master": 22,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1335,
+      "1cgeo/chefe_dgeo": 1341,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,231 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T23:52:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: Meu Acervo do EBGeo Web desenhado com o chefe e implementado em fases por agentes (branches acervo/* no GitHub, migrações 070 a 075), o ajuste da janela do vídeo e o prompt de continuação para outra máquina\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QWo4jrn3yETu2c5iL",
+      "sha": "e513dd7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e513dd70993622b7a162dc0afc5f0cffbc07c707",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T22:08:52.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: segunda colheita do ORBAT Mapper no EBGeo Web, 17 aprovadas na main (07645dbbe) e a rodada única de testes do repositório entre sessões\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "83da88d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/83da88d83bf8cf2d1eeb0c3803f5251e10035190",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:57:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Integração da segunda colheita do ORBAT Mapper: a busca e o \"Também em\" levam o mapa até a unidade como o clique na ORBAT, e a Ajuda de Camadas no teto\n\n- `centralizarUnidade` passa a enquadrar pelo `levarAteUnidade` (o mesmo do clique na unidade, com o piso do limite de zoom da camada), então a busca do topo, o \"Também em\" e a volta do celular de outro mapa seguem uma regra só.\n- Ajuda: a página Como faço uma camada aparecer só quando me aproximo? cabe no teto de 320 palavras, ganha a figura l3-zoom-01 (declarada no roteiro, pendente de gravação), entra na barra e na ARQUITETURA.\n- A tomada orbat-01 esperava a linha \"Superior:\", que a trilha da cadeia de comando substituiu.\n\n(o chefe da DGEO, 2026-11-04)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "07645db",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/07645dbbedb5f11b400fce82c78d07713b02289a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:54:47.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'colheita-camadas'\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "f6f883c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f6f883c10f29622fbf44bb35d35f380413b1aca0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:54:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: Montar a ORBAT dentro do teto de 320 palavras depois de juntar os grupos da colheita\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "b689518",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b689518dadfc00a9db94b9758d6f3d420c16f18d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:53:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Segunda colheita do ORBAT Mapper, camadas (3, 12 e 21): enquadrar a camada e a pasta, a miniatura do próprio símbolo e a camada e a pasta que só aparecem a partir de um zoom\n\nCandidata 3: \"Enquadrar a camada\" e \"Enquadrar a pasta\" como primeiro item do ⋯, para todo papel, e também na camada recebida e na pasta de sistema. Entram as feições que o mapa desenha (olho, pasta, grupo, tempo), em qualquer zoom, cada uma lida por getFeaturesByIds (a recebida no mapa de origem), pelo enquadramento comum. Com nada desenhado, o item recusa com a frase e a câmera fica.\n\nCandidata 12: o símbolo militar mostra a miniatura de 20 px desenhada do SIDC pelo cache da ORBAT (miniaturaDoSidc, um desenho por SIDC distinto), e o símbolo de OM mostra o brasão. O desenho chega por uma porta sob demanda, para não pesar no boot. Sem nome, a linha usa a designação; sem as duas, o tipo.\n\nCandidata 21: \"Mostrar só a partir deste zoom\" no ⋯ da camada e da pasta grava o zoom do momento arredondado para baixo. A linha ganha o selo; afastada, fica esmaecida com o olho aceso. O popover do selo oferece Aproximar até, Usar o zoom atual e Mostrar em qualquer zoom, e grava em quem tem o limite. Na pasta com limite vale o zoom mais perto dos dois. A regra é a lista in layerId do filtro e drawnLayerIds, e não o minzoom (as camadas de estilo são compartilhadas) nem o zoom no filtro (ladrilho a ladrilho, no worker). O evento zoom só reescreve a camada de estilo cuja fonte tem a camada que cruzou o limite. A feição selecionada não some no meio do gesto. \"Ir até\" termina no limite (frameFeatures, zoomToFeature). O PDF e o quadro da carta decidem pela escala da folha, e o 3D pelo zoom da câmera. Um Ctrl+Z por gesto (layerMinZoom, layerFolderMinZoom).\n\nServidor (inevitável, porque camada e pasta são colunas): 069_zoom_minimo_da_camada.sql (layers.zoom_minimo e layer_folders.zoom_minimo, 1 a 24, CHECK), zoom-minimo.js como espelho da regra do cliente, UPDATE_FIELDS, normalização, retrato, op canônica, readMapLayers, INSERT e reviver, unidade de disputa zoom (com o espelho do cliente), eco ao colega, e as cópias e o import (duplicar, clonar, .ebgeo, atlas local para o servidor).\n\nAjuda (página nova e novidades), wiki zoom-minimo-da-camada e testes dos dois lados. (o chefe da DGEO, 2026-11-04)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "d3cb836",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d3cb836b6fde1b47616a7454c7bd77afd9a5b24d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:53:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'colheita-dados'\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "7420f4b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7420f4b0cb9a6389df1407658f8fffcda413d099",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:53:20.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'colheita-busca'\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "b4504bd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b4504bdb521f3d965ac15074f6414055858f2aa3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:53:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'colheita-mapa'",
+      "sha": "5fb949f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5fb949ff51d664f34dd34e4f040d61604e73c4ea",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:53:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'colheita-cartao'\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "9a03290",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9a03290cdeb336443fdb81b7e50443053bca2863",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:53:11.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'colheita-arvore'\n\n# Conflicts:\n#\tajuda/src/content/docs/novidades.mdx",
+      "sha": "a2bdf33",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a2bdf33ba049312b3cf65a9713e7328940edca35",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:27:50.000Z",
+      "author": "Maj Diniz",
+      "message": "Exportar GeoJSON dos dados do mapa na aba Exportar, com ida e volta pela importação, e a coluna Coordenada no CSV da tabela de atributos no formato da barra (o chefe da DGEO, 2026-11-04)\n\nCandidata 17: \"Exportar GeoJSON\", com o seletor de mapa igual ao do KMZ e nenhuma opção a mais. Saem todas as feições de todas as camadas num FeatureCollection RFC 7946 (anéis fechados e orientados, sem crs), com nome, descrição, camada, tipo, atributos, período em ISO 8601, sidc e designação no símbolo militar, texto no texto, e o estilo nas chaves do simplestyle. A metade do EBGeo vai num membro estrangeiro (ebgeo_dados), que a importação lê: as camadas voltam como camadas, com atributos, cores e tipo. A frase de saída conta o que ficou de fora (fotos, hachura, figura da imagem, trajetória, feição sem geometria).\n\nCandidata 18: a coluna Coordenada no CSV da tabela, com o texto que a barra inferior mostra no formato escolhido nela, lido no clique; linha e polígono pelo centro, e o cabeçalho diz \"centro\"; a dica do botão nomeia o formato; o BOM continua.\n\nAjuda: seção do QGIS em exportar-para-outros-programas, a frase do CSV na tabela de atributos e duas linhas nas novidades. Os três censos de sítio classificam as chamadas novas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "a95303b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a95303b7c2a342006226164d7abc650db54e6ac2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:23:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Busca do topo acha a unidade da ORBAT e o símbolo pela designação, em grupos com contagem, setas e Enter; o lugar diz distância e direção do centro do mapa; as listas do seletor de símbolo buscam sem acento e sem maiúscula (o chefe da DGEO, 2026-11-04)\n\n- Listas do símbolo (cand. 4): busca de cada lista pela dobra do catálogo (`normalizarTexto`), só dentro da lista, com o trecho achado marcado no nome escrito com acento (`trechosAchados`).\n- Busca do topo (cand. 10): feições por termos sem acento e pela designação do símbolo militar; unidades da ORBAT pela designação, com miniatura, \"Superior: X · ORBAT\" ou \"Sem símbolo neste mapa\"; escolher seleciona na ORBAT, abre a aba e vai até ela por `centralizarUnidade`, ou abre o outro mapa pelo \"Também em\"; grupos Coordenadas, Unidades, Feições, Catálogo e Lugares com contagem; combobox ARIA com seta para baixo e Enter. A metade pesada carrega sob demanda (porta nova no censo).\n- Lugar (cand. 15): \"12 km NO\" à direita da linha, do mesmo centro que vai ao gazetteer.\n- Ajuda e novidades atualizadas; uma frase na wiki do catálogo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "8dafcbd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8dafcbd0848012feb1a9bc9435df5d32d7138187",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:19:21.000Z",
+      "author": "Maj Diniz",
+      "message": "O menu do mapa marca o ponto com uma mira e mostra em Copiar Coordenadas a coordenada que copia, no formato da barra (o chefe da DGEO, 2026-11-04)\n\nSegunda colheita do ORBAT Mapper, candidata 7. A mira de 24 px fica no pixel do clique enquanto o menu está aberto e sai com ele por todas as portas de fechar; no toque longo sobe 40 px acima do dedo, ligada ao ponto por uma haste, e segue o ponto se o mapa andar com o menu aberto. O item Copiar Coordenadas continua o segundo do menu e mostra o valor em fonte mono; o clique copia exatamente o texto mostrado e diz quando a cópia falha. Geometria em context-menu/mira-do-menu.model.js; teste em tests/unit/mira-e-coordenada-no-menu-do-mapa.test.js. A candidata 8 (cache da consulta com terreno) foi medida e não adotada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "d2b9bbd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d2b9bbd29f558a8fc3ed29eee19f9f148ea5f420",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T21:17:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento 2026-11-04: o reteste com o Pilot 2, a nuvem da DJI no Produtor 0.4.0 e o deploy de bf559400f nas três instâncias\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "46ab72a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/46ab72a98af3e7c9894b28c916b6422fc8ea314f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:09:51.000Z",
+      "author": "Maj Diniz",
+      "message": "ORBAT: ordem das subordinadas, ramo para outra ORBAT, filtro sem posição e o clique que leva o mapa até a unidade (segunda colheita do ORBAT Mapper, grupo árvore)\n\n- Candidata 1: Subir, Descer e Subir um nível no cartão (desenhados e recusando com a razão nas pontas, só para quem edita o atlas), e o arrasto com barra fina antes ou depois da linha; o meio da linha troca o superior como antes. Destinos puros em orbat-ordem.model.js, gravados por moverUnidade com antesDe.\n- Candidata 13: Mover para… no cartão (ORBAT e Superior, a confirmação conta os símbolos e os mapas que mudam de afiliação) e Importar .ebgeoorbat sob a unidade selecionada (criarUnidadesSob: ids novos, pai remapeado, um lote, sem ORBAT nova).\n- Candidata 14: a pílula \"N sem posição neste mapa\" sob a busca, só entre 1 e o total menos 1; ligada, a lista mostra só as sem posição, com as superiores esmaecidas, e segue o cursor da linha do tempo.\n- Candidata 23: clique ou Enter na linha da lista e clique no nó da árvore selecionam e enquadram a unidade pelo frameFeatures do Zoom para Seleção; as setas, o arrasto (o clique depois da soltura é engolido) e o clique no mapa não movem a câmera; o celular enquadra do mesmo jeito.\n- Ajuda: página nova Organizar a ORBAT (figura orbat-03 pendente), ponteiro em Montar a ORBAT, duas linhas nas novidades.\n\n(o chefe da DGEO, 2026-11-04)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "e6c95e1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e6c95e13dda314b690619645c956adc7b05ca95e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T21:09:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartão da unidade na ORBAT: designação editável no próprio nome, trilha da cadeia de comando com o nível de cada degrau, e Gerar imagem no ramo da selecionada em PNG, SVG e Copiar texto (o chefe da DGEO, 2026-11-04)\n\nColheita do ORBAT Mapper, candidatas 5, 6 e 11. O nome do cartão vira botão com lápis (Enter ou sair grava uma vez só, Esc desfaz, vazio não grava) e a unidade recém-criada já abre com o campo ativo; o cartão não se refaz enquanto a pessoa digita. A trilha vai da raiz até a unidade, cada degrau seleciona pelo caminho da aba, e o ▾ lista o nível com o ponto verde da mesma contagem do \"sem posição\"; a linha \"Superior:\" saiu. Gerar imagem abre no ramo da selecionada, até os níveis contados dele, com \"Ver a ORBAT inteira\"; o SVG é o mesmo texto do PNG, só com miniatura data:, e o texto lista as unidades desenhadas, recuadas pelo nível. O PNG segue primário. Lógica em orbat-designacao.js, orbat-trilha(.model).js e orbat-organograma.js, com testes que reprovam nos dez mutantes do controle negativo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RFnDNLwHuML9f5LVa",
+      "sha": "8f569e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f569e7123ea7e3efe75f34eec69d66a90a5cd24",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-04T21:09:34.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as credenciais da DJI no instalador e o build por trás do antivírus que intercepta o TLS\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "c5453d5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/c5453d532595e95fe44a9f61b6d3e43381c0ea25",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-04T20:50:35.000Z",
+      "author": "Maj Diniz",
+      "message": "gitignore: as credenciais da DJI que o build grava (app/dji/credenciais.json)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "cfb1e94",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/cfb1e9414703023050af383d1cee0c378362b173",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-04T20:50:03.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.0: a atitude da câmera pela nuvem da DJI no ao vivo, e a chave curta\n\n- Transmitir voo: a Cloud API da DJI servida pelo Produtor no hotspot (nuvem-dji.js: broker MQTT\n  na 1944 e a página do Pilot 2 na 1945, dentro da faixa do firewall do RTMP). O OSD do drone traz\n  altura relativa, rumo, inclinação e zoom a cada 2 s, e a fusão (atitude.js) os põe em cada ponto\n  da SEI pelo tempo da SEI 245. \"Transmitir pela nuvem\" pede o RTMP ao Pilot 2 (live_start_push),\n  e o endereço RTMP vira plano B. As credenciais do app da DJI entram no build (app/dji/gravar.mjs).\n- Firewall: o app confere as regras de entrada do hotspot e cria as do app e do ffmpeg com um\n  aviso do Windows (\"Liberar o notebook para o controle\").\n- Detecção ao vivo: o movimento estimado a 640x360 (o quadro de 144 para 100 ms, 5 por segundo),\n  o tempo do quadro e das partes no cartão, e o aviso com a casa decimal no empate.\n- Chave RTMP curta, lembrada pelo nome do drone e editável; URL sem :1935; o aviso sem GPS e o da\n  rede que sumiu; a pasta de dados do teste.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "0ad3261",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/0ad326101ef2bc557200b7c245dd4266914bcd86",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T20:27:26.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: resposta à avaliação de segurança do CDCiber (DIEx 2457-E4 e 2458-E4), FME fora do DSGTools e versão corrigida até 29 JAN 27\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b94005a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b94005a48d35d0617e31dabe93ed9d1faba1355e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T20:14:23.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a câmera, o rumo ponto a ponto e a Ajuda da nuvem da DJI\n\nA transmissão com a telemetria da Cloud API da DJI (EBGeo Produtor 0.4.0) trouxe à DSG a\ninclinação, o rumo e a altura por ponto, e o cliente não os usava:\n\n- montarReconhecimento: desvioPitch, desvioRoll e alturaNoInicio do ao vivo (zero e null, como\n  o gravado sem calibração). Sem eles a câmera saía null: sem feições no vídeo, sem objetos no\n  mapa e a pegada plana.\n- cameraDoEstado: a altura de referência é o primeiro ponto com altura medida, e a nuvem aberta\n  depois da decolagem não tira mais a câmera do voo inteiro.\n- O rumo é ponto a ponto, como o pitch: na transmissão de 2026-11-04, 931 de 2.215 pontos\n  medidos, e exigir todos jogava fora o medido da transmissão inteira. O instante sem medida é\n  estimado, com \"(est.)\" e o traço do cone só nele. O pacote publicado segue \"tudo ou nada\"\n  (o formato do pacote não aceita rumo nulo).\n- Detecções: a frase \"Sem relevo no mapa\" dava a culpa ao mapa quando faltava a inclinação ou a\n  altura da câmera; agora diz o motivo certo.\n- Ajuda: a nuvem do Produtor (http://192.168.137.1:1945/), o Transmitir pela nuvem, e a regra de\n  firewall dos dois programas na faixa 1935-1945, com o botão do Produtor.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "bf55940",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bf559400ff8a92ca1eb0ad60a8c1c6e7654ade18",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T20:09:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: worktree removido pelo remover_worktree.py, que a guarda exige\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8f96f5c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8f96f5c770f188646d8da3a7b9248be4cadab358",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-04T20:08:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-04: pedido 273 da 8ª Bda Inf Mtz (Op Passo da Pátria) cadastrado sobre a pasta montada antes do DIEx\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "538d7d5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/538d7d5ba597d925a637f202c77c2e02f49e4da5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-04T20:06:38.000Z",
+      "author": "Maj Diniz",
+      "message": "Linha de Coordenação: as setas de manobra (Direção de ataque, Ficar em condições de prosseguir e Corredor de mobilidade)\n\nTrês símbolos novos no grupo Manobra, desenhados pela prancha do MD33-C-01:\n- 140603 Direção de ataque: haste cheia e ponta cheia estreita, com as farpas recuadas;\n- 140699/01 Ficar em condições de prosseguir: haste tracejada e ponta cheia;\n- 149900/01 Corredor de mobilidade: ponta nos dois extremos e o escalão num vão\n  no meio, com os glifos da Linha de Limite (seletor Escalão no painel).\n\nA ponta é polígono, e a camada de preenchimento de coordination_lines só pinta\npolígono, então o miolo vai para a fonte irmã como extra de kind 'fill', com\ncamada própria (coordination-line-extras-fill-layer), e o contorno fica no traço\nda linha. A camada entra em FEATURE_LAYER_IDS, no filtro adicional, na pilha de\ndesenho e no hover; o 3D e o KMZ pintam o extra novo. O tamanho do símbolo é o\ncomprimento da ponta; Inverter Linha vira a seta.\n\nTeste: coordination-line-setas-de-manobra.test.js (10 casos, todos reprovam com\no código da HEAD anterior). Ajuda: página da Linha de Coordenação e novidades.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKZymPvAcn2gTQ4q7n",
+      "sha": "c1c3481",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c1c34816e4bb2313171743a0199fff650e5561b1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-04T16:37:37.000Z",
