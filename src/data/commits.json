@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-06T00:56:50.828Z",
+  "lastUpdate": "2026-11-06T17:18:44.529Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-05T19:18:34.000Z",
+    "1cgeo/ebgeo_web": "2026-11-06T17:00:40.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-05T19:35:20.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-06T16:18:38.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10455,
+    "totalCommits": 10475,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3297,
+      "1cgeo/ebgeo_web": 3314,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1357,
+      "1cgeo/chefe_dgeo": 1360,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,186 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T17:00:40.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge do conserto do slide Horizonte (0e8fffad4, sobre 85808985f) na main\n\nO commit foi feito sobre 85808985f para o deploy levar só ele, sem a aquisição pelo vídeo que segue em curso na main.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "dbd5606",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dbd56065c862fc778c2d2fa07d719f4f3d9f90e8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T16:45:04.000Z",
+      "author": "Maj Diniz",
+      "message": "slide Horizonte: sobe ao servidor como Horizonte, pelo vocabulário único dos modos\n\nO corpo que as três portas do cliente mandam ao servidor (salvar o atlas local, enviar o local e\nimportar o .ebgeo, todas por buildServerImportPayload) fechava o modo do slide numa lista à mão,\n'3d' || '360' : '2d', que não tinha o Horizonte. O slide Horizonte chegava 2D, com a orientação\ndo horizonte guardada (o slide 2 do atlas Monte Castello, na DSG, chefe da DGEO, 2026-11-06).\n\n- store/slide-mode.js: SlideMode sai de briefing.operations.js para um módulo sem dependência,\n  com modoDoSlide (valor conhecido passa, o resto vira 2D); briefing.operations.js o reexporta.\n- local-atlas-to-server.js: o modo pelo modoDoSlide.\n- Testes: tests/unit/slide-horizonte-sobe-ao-servidor.test.js (todo modo do vocabulário atravessa\n  o conversor e o importSchema; o Horizonte com a orientação inteira; o par, modo desconhecido\n  vira 2D) e tests/e2e/slide-horizonte-sobe-e-volta.e2e.test.js (sobe pelo import real e volta no\n  pullSync Horizonte, no atlas e no clone). Os dois reprovam a linha antiga com '2d' no lugar de\n  'horizonte'.\n- acervo-gestao.test.js: sai a variável `texto` sem uso, aviso de lint que já vinha da main.\n\nAs portas do servidor (sync, import, clone, importar de outro atlas) já preservavam o modo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "0e8fffa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0e8fffad43ea74729f818c4c43984ce744352eeb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-06T16:18:38.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-06: cena do slide no ar, portão do tile privado e Monte Castello privado na DSG\n\nDecisions: a cena do slide e um controle temporal só no palco, o deploy de 85808985f nas três\ninstâncias e o portão do tile privado com Monte Castello só na DSG. Livro-razão: três correções do\nchefe (UI proposta sem a tela real, atlas com poucas ferramentas do EBGeo, dois controles\ntemporais). Lições: o motor da Ajuda (origem em URL, tomada de grupo com margem 9), o rebase com\nconflito em CRLF e o hash fixo no deploy. wiki/martin-ebgeo corrigida (sem cache de tile no proxy\nda frente) e com o portão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "ec38d2d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ec38d2d2ee6490a2565264127a139de7f982fd33",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T14:56:12.000Z",
+      "author": "Maj Diniz",
+      "message": "plano de rádio e comunicações: sai a demanda dos símbolos (simbologia-03)\n\nOs símbolos de comunicações do PlanMilT foram revistos contra o MD33-C-01 e\nnão trazem nada de norma que falte ao EBGeo: nove já estão nos Exemplos do\nSímbolo Militar, CN e NA estão desenhados fora da norma, e RCS Loc e COGE não\nexistem nela. A seção sai do plano e fica uma linha em Fora do escopo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5794efc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5794efc4fb2a8c2f2be38c76572d6121535c12d2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T14:52:58.000Z",
+      "author": "Maj Diniz",
+      "message": "plano: rádio sobre mata e cidade, e planejamento de comunicações no Processar\n\nPlano aberto em 2026-11-06, sem código. Sai da leitura item a item do\nPlanMilT (MIT) e do CommuniCoP (sem licença), achados no e-book do PremIA\n2026, contra a main em 416eaaf7a, e da ligação com a análise dos manuais\n(N15, N41, N56 e N100).\n\n- Frente 0: a lista do Processar ganha rolagem vertical no verde do EBGeo e\n  busca por nome e descrição.\n- Frente 1: perda por vegetação (P.833 saturada) e urbana, sinal ao longo do\n  perfil, parcelas da perda, margem contínua, enlace nos dois sentidos e\n  difração em múltiplos gumes.\n- Frente 2: ligações das frações aos nós, malha entre nós, melhor sítio e\n  ponto alto por fração, no Processar, com cada ligação nascendo Enlace de\n  Rádio.\n- Símbolos de comunicações do PlanMilT revistos contra o MD33-C-01: nove já\n  estão nos Exemplos, CN e NA fogem da norma, RCS e COGE não existem nela.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5c01add",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5c01addb4da0fc75f0cd5b2377fb876118dbff5a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T14:39:00.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: a fonte credenciada do caso de exportação é desenhada, como a camada que a pessoa vê\n\nCausa: o caso \"o mapa da exportação pede a fonte credenciada\" trocava a\nconfig da camada semeada por só source e sourceLayer, sem style. Sem\nstyle.fill nem style.border a camada de dados adiciona a fonte e nenhuma\ncamada do MapLibre (terrain/data-layers.manager.js), e desde 8fa56f597\n(2026-10-26, consertos do diagnóstico de desempenho) o mapa de saída leva\nsó as fontes que uma camada desenhada lê (soOQueDesenha, mapa-de-saida.js,\nguardado por mapa-de-saida-so-o-que-desenha.test.js, motivo no\nDIAGNOSTICO-DESEMPENHO.md de aa34e0041): a fonte sem camada saía do estilo\nda folha e o mapa oculto não pedia nada, zero pedidos. O defeito ficava\nescondido atrás do GDAL que não carregava no worktree.\n\nConserto: a config do caso leva o estilo de borda da camada semeada, e o\ncaso afirma antes a premissa de que uma camada desenhada lê a fonte.\nControle: com o mapa de saída sem transformRequest, o caso reprova no\natlasId do pedido do mapa oculto; com o produto intacto, passa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "1512776",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1512776f4e804b62b001dfacac98e883b2c2e1f9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T14:39:00.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: o Vite do e2e serve o arquivo cru de pacote que mora em outro drive\n\nCausa: num worktree em C: com o node_modules ligado por junção ao checkout\nprincipal em D: (a montagem que o vault ensina), o Vite resolve o pacote\npelo caminho real e pede o arquivo cru por /@fs/D:/..., e o\nserveRawFsMiddleware do Vite 8.3.5 no Windows tira a letra do drive e serve\na partir de \"/\", a raiz do drive do processo: o caminho vira\nC:\\desenvolvimento\\..., que não existe, e o fallback de SPA responde o\nindex.html com 200 e text/html. Desde 8dd5fdcb4 (2026-09-14, o GDAL sai de\npublic/vendors e entra pelo npm por ?url) o gdal3WebAssembly.wasm e o .data\nchegam assim; o GDAL aborta (\"expected magic word 00 61 73 6d, found 3c 21\n44 4f\"), o worker e a queda para a thread principal falham, e o PDF de\nfolha única sai em erro em 0,2 s. Medido: 5 vermelhos em\nexportacao-com-fonte-que-falha.spec.js e pdf-legenda-declinacao.repro.spec.js\nem 3 de 3 rodadas isoladas com mais de 19 GB livres; pelo caminho do\nworktree o mesmo arquivo saía application/wasm com 28 MB. Não é carga nem\nproduto: no checkout principal e no build o arquivo sai certo.\n\nConserto: pacotesEmOutroDrive, um middleware instalado depois dos internos\ndo Vite (só o arquivo cru que o serveRawFsMiddleware não achou chega a ele,\nlido por req.originalUrl porque o fallback já trocou o req.url), que serve\no /@fs/ cujo caminho cai dentro do caminho real de um node_modules deste\ncheckout em outro drive. Fora disso segue para o Vite, e no checkout\nprincipal o middleware nem é instalado. Medido: o .wasm sai\napplication/wasm com 28.219.835 bytes, e um package.json fora do\nnode_modules e um caminho com .. continuam sem ser servidos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "4a1f99f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a1f99f98cac2721ee1d35d85d5238563a802bd2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-06T14:20:50.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-06: RTM de outubro pelo SAP 3.0 (4.1 = Total Convencional do Anuário, Qnt em branco da EXTRA_PIT pela observacao_envio), DIEx 32027 por molde do mês anterior, sem anexos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ee7b77e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ee7b77ef0deaa40e289132c0a77e3324766b00b2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T13:16:24.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: o olho do grupo é da pessoa, e o repro do grupo oculto cobra a regra de 2026-10-12\n\nCausa: o repro de 0fc5196dd (2026-09-24) cobrava o grupo oculto gravado no\nbanco (groups.visible=false) e o Editor deixando de desenhar os membros, e o\nsegundo caso cobrava o visivel=false do membro oculto por conta própria no\nbanco. A regra mudou por decisão do dono em 2026-10-12 (\"o olho de camada,\npasta, grupo e feição é da pessoa, não do atlas\",\ndocs/decisions/decisions-2026.md): 53c075f36 (2026-10-12) trocou o gesto do\ngrupo por alternarOlhoDoGrupo, uma escolha da pessoa, e 2ea94a381\n(2026-10-12) fez o servidor tirar o visible da atualização de grupo\n(TARGETS_WITHOUT_SHARED_EYE, UPDATE_FIELDS e IGNORED_COLUMNS). O produto\nsegue a decisão; o spec esperava o valor que não chega mais.\n\nConserto: o caso do grupo cobra que só o Dono deixa de desenhar os membros,\no banco guarda a semente, o Editor continua desenhando, o F5 do Dono mantém\na escolha e o do Editor não muda, e mostrar devolve. O caso do membro\noculto por conta própria cobra a escolha da pessoa (visivelParaMim) e a\nsemente no banco. A ausência se prova por barreira de renome.\n\nControles: com o olho do grupo viajando de novo (op do gesto, visible\ndevolvido a TARGETS_WITHOUT_SHARED_EYE e a UPDATE_FIELDS.group), o caso\nreprova no desenho do Editor; com o servidor também gravando (unidade\nvisivel e IGNORED_COLUMNS sem o grupo), reprova no banco; com a escolha sem\ngravar no disco, reprova no F5 do Dono; e com mostrar o grupo pintando os\nmembros de visível, o segundo caso reprova no m1.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "8c7302c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8c7302cfda6e9e8c29f55a7058de5e7cf1d1824b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-06T13:13:50.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-reconhecimento 2026-11-06: a aquisição pelo vídeo revista na main do ebgeo_web (8eb5bdaff), com os atalhos, o zoom afastado e a janela sob os painéis\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMwbLBAeMQrmtPYcQk",
+      "sha": "436af25",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/436af254a1940522d91b6c7538c1f3448651e15b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T13:03:29.000Z",
+      "author": "Maj Diniz",
+      "message": "vídeo do drone: os atalhos valem com o foco no vídeo, o mapa se aproxima do quadro e a janela fica sob os painéis\n\nOs três do chefe, testando a aquisição pelo vídeo (2026-11-06). A janela segura só o espaço e as\nsetas, e as letras seguem para os atalhos das ferramentas; a tela cheia saiu do F (o da Frente\nocupada); soltar a barra do tempo ou escolher num seletor devolve o foco à janela. Desenhar pelo vídeo\ncom o mapa afastado aproxima o mapa da área do quadro no primeiro vértice: no zoom 11, 7 das 28\nferramentas perdiam o último vértice ou não gravavam, e com o conserto deram 28/28. A janela fica logo\nabaixo da coluna de ferramentas (z-index dela no toque e com mouse), e os painéis de Desenho, Militar,\nAnálise e Utilitários abrem por cima do vídeo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMwbLBAeMQrmtPYcQk",
+      "sha": "8eb5bda",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8eb5bdaff2660ed39102b3d9328b108f1d8ba787",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T10:57:32.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: o olho do Dono fica na tela dele, e o spec do colega cobra a regra de 2026-10-12\n\nCausa: o spec de 14a32949e (2026-09-24) cobrava o olho como estado\ncompartilhado (o banco gravando visivel/visible e o Editor deixando de\ndesenhar). A regra mudou por decisão do dono em 2026-10-12 (\"o olho de\ncamada, pasta, grupo e feição é da pessoa, não do atlas\",\ndocs/decisions/decisions-2026.md): 53c075f36 (2026-10-12) tirou a op de\nsincronismo do clique e 2ea94a381 (2026-10-12) fez o servidor descartar o\nolho de cliente antigo. Desde então o banco fica com a semente e o caso\nreprovava esperando o visivel=false que nunca chega.\n\nConserto: o spec cobra a regra nova nos dois casos (feição e camada): só o\nDono deixa de desenhar, o banco guarda a semente, o Editor continua\ndesenhando, o F5 do Dono mantém a escolha, o do Editor não muda, e mostrar\ndevolve. A ausência se prova por barreira (um renome que chega ao banco e ao\nEditor depois do clique), não por espera.\n\nControles: com o olho viajando de novo (servidor sem o descarte e o gesto\nemitindo a op), o caso reprova no banco e, sem a leitura do banco, no\ndesenho do Editor; com a escolha sem gravar no disco, os dois casos\nreprovam no F5 do Dono.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "8580898",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/85808985f1535055c504f71c9ae930a21d553606",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T10:57:32.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: a legenda do PDF conta pela instância real da aba, não por um this falso\n\nCausa: o caso \"a legenda do PDF conta so o que a folha desenha\" chamava\n_collectFeatureStats com um this falso que só tinha o mapa e o teste de\nlimites. Em d3cb836b6 (2026-11-04, a camada que só aparece a partir de um\nzoom) a contagem passou a decidir pela escala da folha, por\nthis._parseScaleDenom(), e o this falso não tinha o método: TypeError antes\nde contar. O produto não tem o defeito: a aba real (new PDFExportTab(map) em\nmap_sig.js) chama a contagem com o método presente.\n\nConserto: o spec monta a instância real, cujo construtor só preenche campos.\nControle: com o filtro de visibilidade da contagem desligado, a legenda conta\n5 pontos e o caso reprova; com o produto intacto, 1.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "0c5feb8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0c5feb8f69d22a49a060580a6ca8bfbb2f70c717",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T10:26:25.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: a figura briefing-cena-01 pelo motor de mídia, e a v2-desenho-briefing-02 sem a caixa \"Barra temporal\"\n\nA tomada da cena centra o grupo e realça com margem 9: rolado só até aparecer, o grupo saía cortado\nembaixo, e com margem 3 a moldura cobria a primeira letra de \"CENA\" e \"TERRENO\". As duas figuras\nforam lidas inteiras antes do commit.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "9fba6f1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9fba6f10e17c461a776a395438334fc0bf7c9d31",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-05T22:57:39.000Z",
+      "author": "Maj Diniz",
+      "message": "censo dos leitores do instante: o apresentador só reposiciona as coordenadas (sem-instante)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "5cc4994",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5cc49940a7c09b76cc1f666e39af5d7319353709",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-05T22:06:17.000Z",
+      "author": "Maj Diniz",
+      "message": "teste: o caso de tela do vídeo mede o ângulo pelo valor dele e roda medição e encaixe com o mapa vazio\n\n- o ângulo não tem total: o caso lê a linha do ângulo, e não esperava 4 min pelo total\n- as medições e o encaixe vêm antes da matriz: com as feições dela debaixo do clique, medir abre o menu\n  de seleção de feições sobrepostas no meio do clique duplo (a seleção não conhece a medição como\n  ferramenta ativa, no mapa também), e o alvo do encaixe vira um entre vários vértices a 1 ou 2 m\n- o encaixe devolve o mapa vivo para perto do voo e desliga o encaixe ao sair: o pincel amostra o\n  traço nos pixels do mapa\n- cada clique do gesto confere que o ponto do quadro está no vídeo, e não sob um painel\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMwbLBAeMQrmtPYcQk",
+      "sha": "b401504",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b40150432a599421902fd5c7ec42a543e4e37f07",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-05T21:44:50.000Z",
+      "author": "Maj Diniz",
+      "message": "revisão independente: relevo na saída, religar cancelado, coordenadas no palco, cena na troca de mapa, palco pelo mapa do slide, teto do caminho\n\n1. a saída devolve a base ANTES do relevo, e devolverRelevo não apaga a espera quando o relevo\n   não pôde ligar (o teste do revisor, trazido para o repositório)\n2. no palco as coordenadas não se encaixam na barra temporal escondida; o apresentador as\n   reposiciona ao entrar e ao sair\n3. um número de geração: a decisão do slide cancela o _religarRelevo pendente\n4. trocar o mapa do slide zera só cena.camadas (cenaParaOutroMapa)\n5. aplicarCenaDoSlide filtra pelas camadas do slide.mapId, lidas do repositório\n6. a pré-carga do caminho vai da chegada para a partida, com a cota repartida pelas amostras\n- \"Voltar à Posição Salva\" para o trecho no fim, por desenho: escrito no JSDoc, na wiki e na Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "b5c03d4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b5c03d4beb3d9e9721dcc2108548369a8bb1391f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-05T21:18:17.000Z",
+      "author": "Maj Diniz",
+      "message": "consertos da rodada final: alça, rótulos do seletor, guarda de document, Ajuda no teto e três specs\n\n- a alça mede a largura computada, não a caixa com a borda (crescia 1 px por passo)\n- os rótulos Pequeno/Normal/Grande ancorados em #briefing-editor: a barra do Quill é irmã do\n  contêiner e o quill.snow.css chega depois com a mesma especificidade\n- pedirLarguraDoPainel sem página não faz nada (teste do apresentador em node)\n- três páginas da Ajuda de volta ao teto de 320 palavras; a largura arrastada na página da cena\n- briefing-editor-na-mesa conta oito controles; o spec da largura só abre a lista fechada; o da\n  cor escolhe pelo seletor nativo e compara sem caixa\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "bebee14",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bebee1440bbc4ecfd562b3320a379d671759ff9d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-05T21:09:47.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a matriz da aquisição pelo vídeo na wiki, a Ajuda do desenho no vídeo e o livro-razão\n\n- docs/wiki/feicoes-no-video.md: o que o vídeo entrega a cada ferramenta e por quê, e a matriz medida antes e depois\n- Ajuda \"Como vejo e desenho as feições do mapa no vídeo\": terminar como no mapa, Esc, pincel, encaixe e a\n  recusa da ferramenta que não marca no chão (319 palavras)\n- livro-razão: a obra anterior provou o desenho no vídeo só pelo clique de um ponto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMwbLBAeMQrmtPYcQk",
+      "sha": "744d563",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/744d563d3100695696ffeaab3f439552649d6f7e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-05T21:09:47.000Z",
+      "author": "Maj Diniz",
+      "message": "vídeo do drone: a aquisição pelo vídeo entrega à ferramenta os eventos dela, encaixa nos pixels do vídeo e acha a feição pelo id novo\n\nRevisão completa do desenho no vídeo pedida pelo chefe (\"bem bugado\"), ferramenta por ferramenta,\ncom o gesto do mapa e a feição relida (matriz em docs/wiki/feicoes-no-video.md):\n\n- feicoes-no-video: o gesto vira MapMouseEvent de verdade, com point e lngLat coerentes e a marca do\n  clique de desenho (o fim de arrasto da seleção descartava o clique depois de arrastar o mapa);\n  movimento também antes do primeiro vértice, clique duplo, e o botão direito no ponto onde caiu\n  (no último vértice, linha e limite perdiam um vértice e polígono e área eram recusados); o\n  contextmenu sem dono no canvas vai ao mapa, onde a medição o ouve; o pincel recebe o traço como\n  ponteiro; o que não marca no chão é recusado com aviso; o rascunho no vídeo é a prévia da própria\n  ferramenta, projetada pela câmera\n- encaixe nos pixels do vídeo, pelo mapa escondido, e o mapa vivo sem encaixar de novo enquanto o\n  ponteiro está no vídeo (snapping.service: suspenderNoMapa)\n- a procedência acha a feição pelo id que não existia no primeiro vértice (feicoes-no-video.model),\n  e não pelo primeiro vértice: retângulo, círculo, elipse, seta, símbolos e análises ficavam sem ela\n- reconhecimento-camada: o clique que vem do vídeo não leva o vídeo a outro instante pela trilha\n- reconhecimento-janela: Esc, Enter, Ctrl e Meta chegam ao mapa (cancelar, concluir, inverter o encaixe)\n- tool-registry: desenhaPorArrasto; pincel: a captura de um ponteiro que o navegador não conhece não lança\n- e2e video-aquisicao.spec.js: 28 ferramentas desenhadas pelo vídeo, medições, Esc, clique depois de\n  arrastar o mapa, encaixe e recusa; reprovava antes pelos motivos acima\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMwbLBAeMQrmtPYcQk",
+      "sha": "cda2380",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cda238073381d0ef263a2a226261be4a1e0fa56e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-05T19:35:20.000Z",
