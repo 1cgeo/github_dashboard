@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-07T16:13:08.034Z",
+  "lastUpdate": "2026-11-07T23:33:14.877Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-06T20:57:51.000Z",
+    "1cgeo/ebgeo_web": "2026-11-07T23:23:46.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-11-05T14:57:00.000Z",
     "1cgeo/sap_master": "2026-11-04T13:16:05.000Z",
-    "1cgeo/ebgeo_campo": "2026-10-31T21:48:23.000Z"
+    "1cgeo/ebgeo_campo": "2026-11-07T21:26:48.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10486,
+    "totalCommits": 10498,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3322,
+      "1cgeo/ebgeo_web": 3330,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 89,
-      "1cgeo/ebgeo_campo": 72,
+      "1cgeo/ebgeo_campo": 76,
       "1cgeo/sap_master": 22,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -191,6 +191,114 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T23:23:46.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: o Contrato diz a espera da borda, e um teste prende o reenvio de hoje\n\nA doc ainda dizia \"O buraco entra com EXT-X-GAP\" sem a espera que\n00b5cb078 criou e ae113dc0a consertou. Agora descreve, pelo código de\nbordaSemBuracoRecente: a janela de ESPERA_DO_BURACO_S (4 s) pela duração\ntípica, o pedaço abaixo do buraco que segura a borda, o buraco fundo que\nnunca segura, o começo do voo e a playlist que nunca encolhe. O item\nPedaços diz que o reenvio conta como chegada nova.\n\nCaso novo em aovivo-rotas, \"REENVIO NO MEIO DO VOO\": com o 3 faltando e o\n4 chegado há 1 s, a borda segura no 2; o reenvio do 2 põe recebido_em no\nagora, ele deixa de segurar, e o 3 sai com EXT-X-GAP dentro da espera. Com\no recebido_em da primeira chegada posto de volta no banco, a borda segura\nde novo. É o comportamento de hoje, e a escolha entre manter a primeira\nchegada ou deixar como está fica com o chefe (Pendências da página).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "1d3d926",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1d3d9262e25628f04a4e72052a2cde70d49700bc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T23:23:46.000Z",
+      "author": "Maj Diniz",
+      "message": "vite: o npm run dev serve o arquivo cru de pacote em outro drive, como o e2e\n\nO pluginPacotesEmOutroDrive, nascido no Vite do e2e em 4a1f99f98, sobe para\no vite.config.js. Num worktree em C: com o node_modules por junção para D:,\no Vite 8.3.5 pede o arquivo cru por /@fs/D:/..., tira a letra do drive e o\nfallback de SPA devolve o index.html com 200. O plugin só entra na lista\nquando algum node_modules do pacote está em outro drive que o do processo\n(pacotesEmOutroDriveDoCheckout), só no servidor (apply: serve), e serve só\no caminho que cai dentro desse node_modules. O e2e o herda da base e perde\na cópia própria.\n\nProva, no npm run dev do worktree (config com só o cacheDir trocado):\no gdal3WebAssembly.wasm do ?url de gdal.js saía text/html com 48.294\nbytes; agora sai application/wasm com 28.219.835, igual byte a byte ao do\ndisco. O package.json fora do node_modules e os caminhos com .. continuam\ncaindo no index.html. Pelo caminho do checkout principal (cwd em D:) a\nlista é vazia e os plugins são os cinco de antes; no worktree entra o\nsexto.\n\nfirst-person-collaboration.spec.js passou a abrir a cena nos dois clientes\nno worktree (o worker não responde mais 404), mas reprova adiante numa\nasserção velha, e por isso a nota de que ele não roda em worktree fica.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "82ea4e6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/82ea4e6cc52416b2a15b4c3091cf3b7cd9c10dc2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T23:23:45.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: a última configuração do PDF cobra o \"Limitar a 10 MB\"\n\nAs preferências gravam limitarTamanho desde 762ed84c1 (2026-11-02), de\npropósito: o validador, a captura, a restauração e o unitário entraram\njuntos, com o motivo no código (\"quem manda o PDF por mensagem manda\ntodos\"), e a Ajuda documenta a caixa. O spec do mosaico não contava com a\nchave e reprovava no toEqual do JSON gravado.\n\nAgora o caso exporta com a caixa LIGADA, o oposto do padrão, e confere a\nchave no JSON gravado (limitarTamanho: true), a caixa marcada ao reabrir e\ndepois de recarregar, e desmarcar sem exportar não grava. O retrato da\ntela lê #pdf-limite-10mb, e o padrão de fábrica a cobra desmarcada.\n\nProva: o spec da origin/main reprova o caso do mosaico com a chave a mais\n(+ limitarTamanho); o novo passa nos dois casos (Chromium, backend real).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "4fcfa1c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4fcfa1c05a1095922280903d314eb413cf5f4abe",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T22:49:35.000Z",
+      "author": "Maj Diniz",
+      "message": "PLANO-SIAOP-CALCO-DE-MANOBRA: o calco de manobra do SIAOP refeito no EBGeo, plano adiado por decisão do chefe (2026-11-07)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "e0f3b5d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e0f3b5da905ce8f36fcbc05367bc7b85333ad5b1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T22:47:40.000Z",
+      "author": "Maj Diniz",
+      "message": "EBGeo Campo 0.1.12 e 0.1.13 no EBGeo Web: o vídeo do celular pelo fluxo, o estimado sem distância, o relevo pelo servidor e o ao vivo da posição\n\n- porta campo: o celular manda envelope e fluxo (o notebook só fluxo); do fluxo do celular passam só os tipos de TIPOS_DO_AOVIVO, depois da versão mínima pelo versaoApp do corpo, num balde próprio de 600 por minuto (C23)\n- estimadoValido aceita distanciaPor, direcaoPor, inclinacao, faixa, foto e o estimado sem distância; o painel do evento os mostra na seção Posição estimada (C21)\n- pedido relevo: o servidor cruza a visada com o Terrain-RGB de CAMPO_RELEVO_URL (ou o TERRAIN_URL absoluto) e responde distância e faixa, ou SEM_RELEVO (C21)\n- posição: intervalo e aoVivoAte gravados com o sinal de vida (078_envio_do_aparelho.sql), a linha Envio na ficha do militar e o anel do ao vivo no marcador (C20)\n- de passagem, o gate de lint da main: a linha em branco que faltava em reconhecimento.css e o assert disjuntivo de meu-acervo-gestao-e-lixeira.test.js\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "6689839",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6689839a5b5940f51fc5498781ff35099a8beb9a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-07T21:26:48.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.13: o vídeo ao vivo do celular (C23)\n\nO botão redondo de câmera, acima do centrar no mapa, abre a transmissão\n(decisão do dono: não é tela nova no menu). A tela diz o mapa de destino\nantes do TRANSMITIR e, no ar, é a da câmera, de lado: o selo AO VIVO, o\ntempo no ar, o azimute e o atraso medido (do fim da filmagem do pedaço à\nconfirmação assinada do EBGeo). \"Marcar aqui\" abre o Novo evento À\ndistância com a direção da retícula e o quadro do vídeo, como a mira da\nC21, e o vídeo segue no ar. Sem sinal, o selo troca para GRAVANDO, o\natraso some e a tela diz quantos segundos estão guardados; ENCERRAR fecha\no último pedaço e o resto segue subindo, com o \"Apagar o que falta\".\n\nO vídeo sai pelo MESMO contrato do ao vivo do drone: as mensagens\naovivo_* do EBGeo Produtor num fio do FLUXO, assinado pela identidade do\ncelular, pela VPN ou pelo retransmissor, e o EBGeo Web o mostra no mesmo\nplayer. O núcleo (ServicoDeVideo) filma com a Camera2 e o codificador\nH.264 do aparelho, a 640x360, 15 quadros por segundo e 400 kb/s, com um\nquadro-chave por segundo; o Fmp4 e o Cortador fazem o init e os pedaços\nde 1 s (~50 KB, na classe de 64 KiB do fluxo). A TransmissaoDeVideo\ndecide a ordem do Produtor: o relógio do EBGeo, o criar, o init, o\npedaço mais novo primeiro, a telemetria em lotes de 5 s (a posição, o\nrumo verdadeiro da câmera pela bússola e a declinação, a inclinação como\no pitch do gimbal, a altura 1,5 m sobre o chão) e o encerrar. Sem sinal,\nos pedaços ficam no celular cifrados em AES-GCM com uma chave por\ntransmissão, selada no Keystore (GuardaDoVideo). O vídeo sai deitado,\n16:9, como o do drone: a tela vira de lado na rotação do sensor, e a\nprévia é uma SurfaceView atrás da WebView. Segue com o app fechado, com\na notificação que encerra; com a tela travada a câmera grava e o envio\nvolta ao desbloquear. Não liga com 20% de bateria fora do carregador.\n\nO protocolo em Kotlin ganha o fio do FLUXO (só a montagem: o app segue\nrecusando o tipo 4 que chega). O retransmissor aceita o fluxo de todo\naparelho ativo, e não só do produtor (o pendente leva 403 PENDENTE).\nFalta o EBGeo Web aceitar o fluxo do celular na porta campo: o contrato\nestá em protocolo/MENSAGENS.md e o roteiro no IMPLANTACAO; até lá, o\nvídeo para na terceira recusa do caminho, com o aviso.\n\nTestes: JVM 80 de 80 (17 novos: FluxoTest, Fmp4Test com H.264 real do\nffmpeg, TransmissaoDeVideoTest), protocolo 76 de 76, teste-app 7 de 7\n(erros e recebimento; o seguranca.test.mjs tem 1 falha de antes, de\n2309924), retransmissor cargo 52 de 52 e teste-fluxo 32 de 32 (o passo\nnovo reprova o retransmissor de antes, 403 contra 202), e2e 45 de 45\n(seis passos novos, do botão ao recusado), e o conferir.mjs novo 6 de 6:\no fio do Kotlin abre no abrirFio, o init e os pedaços passam no\ninitValido, amostrasDoInit e pedacoValido do EBGeo Web e no ffprobe (45\nquadros), os corpos passam nos esquemas Joi dele, e o hls.js 1.7.3 dele\ntoca pela playlist do aovivo.playlist.js, com os controles degradados\nreprovando. O vite build de produção sai. Falta provar no aparelho: a\ncâmera, o codificador, a prévia, o segundo plano, a bateria e o atraso\nreal.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "69e22a5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/69e22a5145182002675986ee8cbcb474d93c8c91",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T21:04:32.000Z",
+      "author": "Maj Diniz",
+      "message": "postos de observação: setores para a área, áreas no mapa, candidatos densos e o limite dito; a pílula \"Linha do tempo\" sai\n\nPostos de Observação, depois da rodada do chefe em Schwaz (2026-11-07): cada posto vira o seu setor\nde observação apontado para a área (o círculo cheio só quando o posto está dentro dela); a área a\nobservar e a área permitida ficam desenhadas na camada de saída (feicoesDeApoio, no mesmo desfazer);\nos candidatos são até 150 topos ao alcance da área mais uma grade de 250; o que ninguém vê sai em\ncinza discreto, e o resultado diz o que limita a cobertura (a distância de onde o posto pode ficar,\na quantidade e o alcance, ou o relevo). A ilustração do painel foi refeita e conferida na tela.\n\nA pílula \"Linha do tempo\" do rodapé sai do app, por decisão do chefe: a linha do tempo liga pelo\nrelógio do cartão do mapa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "cb97a0c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cb97a0c45300edd5c7cb271865c0a639e1285360",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T20:35:53.000Z",
+      "author": "Maj Diniz",
+      "message": "postos de observação no Processar e itinerário desenfiado no Deslocamento\n\nPostos de Observação: escolhe N postos pela cobertura somada (guloso, para quando um posto a\nmais acrescentaria menos de 1% da área), entre os topos do Pontos Dominantes e uma grade sobre a\nárea permitida; a saída é criada pelas próprias ferramentas (o materializar do algoritmo): cada\nposto é a medida Posto de Observação planejada e a cobertura é uma Visibilidade real com os postos\ncomo observadores. As duas prévias do painel ficam no mapa juntas.\n\nDesenfiado: a seção Observação inimiga do Deslocamento evita as Visibilidades marcadas, em\nProibir (padrão) ou Penalizar (peso 4); o trajeto mostra o que o inimigo ainda vê, em vermelho, e\no mais rápido sem desenfiar, em cinza, e o quadro diz quanto custa andar escondido. Decisões do\nchefe de 2026-11-07 em docs/decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "9c15183",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c1518378d1a24df48568edcd5d3c68d680cf410",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-07T20:34:17.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.12: Ir até e Perto de mim (C22)\n\nA aba Eventos ganha o segmento \"Perto de mim\", 1 km, 5 km, 10 km e\nTodos (o padrão), lembrado por mapa: com o GPS a lista vai do mais perto\nao mais longe, com a distância e o azimute magnético de cada evento à\ndireita; sem GPS, a ordem por hora e o segmento desabilitado, com\n\"Esperando o GPS…\". Abrir a aba liga o GPS da tela, e a lista se\nreordena quando o militar anda mais de 10 m.\n\nO detalhe do evento ganha o IR ATÉ, acima do Ver no mapa: a seta pela\nbússola com o celular deitado (o N gira junto; em pé, a tela pede para\ndeitar), a distância grande, o azimute e o tempo a pé a 4 km/h, e abaixo\nde 20 m a seta vira \"Você chegou\". A distância e o azimute são da\ngeodésica inversa no WGS 84, menos a declinação do WMM. O filtro e a\nseta são do app, sobre o que já chegou: o protocolo não muda.\n\nO IMPLANTACAO ganha a seção da 0.1.12, com o que falta no EBGeo Web e o\nque só o aparelho prova antes de publicar. O simulado ganha o\n/dev/evento, para o teste criar os eventos da mesa.\n\nTestes: JVM 63 de 63, protocolo 76 de 76, teste-app 7 de 7, e2e 39 de\n39 (dois passos novos: o Perto de mim com o raio lembrado depois de\nreabrir, e o Ir até com a seta, o deitar e a chegada). O vite build de\nprodução sai. Falta provar no aparelho: a seta com a bússola real,\nandando.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "870e78c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/870e78c026c52c3443f8e5d1d700bb593cf33ff3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-07T20:24:39.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.12: apontar e marcar, a mira com a câmera no À distância (C21)\n\nO Novo evento \"À distância\" ganha o \"Mirar com a câmera\": a câmera de\ntrás com a retícula no centro da imagem, o azimute (milésimos ou graus),\na inclinação e a qualidade do GPS. O MARCAR devolve ao formulário a\ndireção, a inclinação, a posição do militar no toque e a foto da mira,\ne o resultado é um evento comum, sem alerta nem tipo novo. A distância\ntem três modos: Digitar (o padrão), Pelo relevo (pedido novo `relevo`\nao EBGeo, com a faixa de erro na tela) e Sem distância (o evento no\nponto do observador, com a direção também no texto, porque o EBGeo de\nhoje descarta o estimado sem distância).\n\nA bússola vem do vetor de rotação do Android (Bussola.kt, Orientacao.kt),\ncom a calibração do magnetômetro e a precisão do rumo: a mira pede o\ngesto do oito quando ela está ruim, sem travar. Sem GPS o MARCAR espera;\nsem rede o Pelo relevo avisa. No navegador, o deviceorientationabsolute,\nque agora ouve antes do requestPermission que o Chrome nega.\n\nO estimado ganha distanciaPor, direcaoPor, inclinacao, faixa e foto\n(protocolo/MENSAGENS.md). O EBGeo Web ainda não os guarda nem calcula o\nrelevo: o simulado responde com o chão plano, só para o teste.\n\nTestes: JVM 63 de 63 (OrientacaoTest novo, 5), protocolo 76 de 76,\nteste-app 7 de 7, e2e 37 de 37 (dois passos novos: a mira com o ponto a\n800 m, e o relevo e o sem distância). Falta provar no aparelho: a câmera\nno WebView, a bússola real e a calibração.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "9f4c7c7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/9f4c7c75e931ee4ef4e1f209a0645d0259c1d3c8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-07T20:12:51.000Z",
+      "author": "Maj Diniz",
+      "message": "app 0.1.12: o modo ao vivo da posição (C20)\n\nEm Ajustes, \"Enviar posição a cada\" ganha Ao vivo ao lado de 15, 30 e\n60 s, sem botão próprio. No ao vivo o GNSS é lido a cada segundo, o\nenvelope sai de 2 em 2 s, a caixa não espera (a espera longa de 20 s\nsegurava o laço do serviço) e um wake lock parcial segura a CPU. Dura\n30 min e volta sozinho ao intervalo escolhido, ou antes, com a bateria\na 20% fora do carregador, e não liga nessa carga. O cartão diz a hora\nda volta, o botão POSIÇÃO diz \"ao vivo, 29 min\" e o marcador ganha o\nhalo. A leitura da caixa sem espera sai no máximo a cada 1,5 s (15 s\nsem rede), abaixo do limite do retransmissor.\n\nCada envelope de posição leva o intervalo e, no ao vivo, o aoVivoAte,\npara a ficha do militar no EBGeo Web (protocolo/MENSAGENS.md); o EBGeo\nde antes os ignora.\n\nTestes: JVM 58 de 58 (AoVivoTest novo, 7), protocolo 76 de 76,\nteste-app 7 de 7, e2e 35 de 35 (dois passos novos do ao vivo, com o\nprazo). O seguranca.test.mjs segue com 1 falha de antes desta obra\n(P23 espera o setImportantForAutofill que o 2309924 trocou). Falta\nprovar no aparelho: o wake lock, o atraso com a tela travada e a\nbateria.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "2014d8d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/2014d8d1393eb79b77bb0d9e0873e897216eb83a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-07T19:45:53.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa de calor: visualização da camada no style, sincronizada, com painel no molde do Sombreamento\n\nA mancha é uma camada heatmap sobre a mesma fonte dos marcadores, e segue o olho, a validade e a\nlinha do tempo pelo filtro único (filtrosAdicionaisDe). Entram ponto, evento, símbolo militar,\nmedida de coordenação, símbolo de engenharia e símbolo de OM, cada tipo ligável, com o filtro por\ntipo de evento; raio em metros no terreno (500 m padrão); quatro vagas fixas dão a cada camada a\nsua rampa de cor, intensidade e opacidade, e a vaga sem uso fica escondida. Sai na Carta e no PDF.\nDecisão do chefe de 2026-11-07 em docs/decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "907f370",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/907f3708beadd4ce33eb169d15f5f92e365b8d18",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-07T12:40:02.000Z",
