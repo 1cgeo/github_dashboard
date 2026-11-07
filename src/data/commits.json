@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-06T17:18:44.529Z",
+  "lastUpdate": "2026-11-07T00:02:30.319Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-06T17:00:40.000Z",
+    "1cgeo/ebgeo_web": "2026-11-06T20:57:51.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-06T16:18:38.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-06T21:15:29.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10475,
+    "totalCommits": 10485,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3314,
+      "1cgeo/ebgeo_web": 3322,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1360,
+      "1cgeo/chefe_dgeo": 1362,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,96 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-06T21:15:29.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-tuiuti 2026-11-06: a missão é Monte Castelo (prazos do CMS caíram), o ao vivo consertado, o atlas sem OSM e a corrida da apresentação no ar\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "f8a3706",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f8a37062cb2bd86a81832f2782cce9fc2dc732f0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T20:57:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge dos cherry-picks da apresentação (55a8afe87, sobre 8f37ecac8) na main\n\nO deploy leva 8f37ecac8 mais 51ae96162 e efd027523, sem a aquisição pelo vídeo; a main já tem os dois, então o merge não muda o conteúdo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "0456023",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/04560230ea2dd41156fe18c42a78690e62badeaf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T20:55:15.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentação: a barra do trecho escondida fica vazia, sem a hora e a régua do slide anterior (Monte Castello, 2026-11-06)\n\nMedido na DSG, nas passadas lentas: no slide 4 a barra dizia 13:00 com o filtro em 18:00, e no 11,\n12/12/1944 15:00 com o mapa em 27/01/1945 12:00.\n\nMedido aqui antes do conserto: nos slides sem trecho a barra JÁ saía da tela (hidden, sem caixa,\nnenhum ponto em que ela seja o elemento de cima), em 6 de 6 passagens, pela tecla e pela volta, e\no instante do mapa era o do slide. O que ficava era a barra escondida com a hora, a régua e a luz\ndo slide anterior no DOM (\"12/12/1944 10:00\" e 5 marcas com o mapa em 18:00), o mesmo desenho da\nmedida da DSG; uma barra à vista relê o cursor a cada quadro e não mostraria hora velha.\n\nA decisão, pela doc: o slide com instante e sem trecho também fica sem barra (\"Sem trecho, nada\ntemporal aparece\"); o instante não toca nada, e quem diz a hora é o mapa.\n\nO conserto: esconder limpa a hora, a régua, a luz e o preenchimento, e mostrar parte da barra\nvazia, que pega a hora do cursor no primeiro quadro.\n\nGuarda: tests/e2e-ui/briefing-barra-do-trecho-some.repro.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit efd0275231c4e548a20ed7e1a76a8dd9b9653bbb)",
+      "sha": "55a8afe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/55a8afe873eeb3fae00eee475a47f3de9cd0d1d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T20:55:15.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentação: a transição de um slide deixado não aplica nada depois da do slide novo (Monte Castello, 2026-11-06)\n\nMedido na DSG, avançando rápido no atlas de Monte Castello: em 3 de 6 rodadas o contador era do\nslide 17 e a régua tocou o trecho do 16, com a camada que só a cena do 16 fixa.\n\nA causa, no código: transitionToSlide chamava map.stop() e seguia, sem descartar a transição em\nvoo, que continuava depois de cada await (troca de mapa, base, interruptor, camadas do mapa do\nslide, relevo, voo, visualizadores) e pintava o slide deixado por cima do novo. O apresentador\ntambém seguia depois do await e aplicava controles, Horizonte e anúncio do slide deixado. E a\nporta do relevo liga o terreno DEPOIS do await interno dela (o exagero do atlas), onde nenhuma\nconferência da transição alcança.\n\nO conserto: uma geração por transição no serviço (_geracao, tomada também por resetTo2D), uma\npor navegação no apresentador (_navegacao, tomada também pela saída) e a geração que a porta do\nrelevo já tinha (_geracaoDoRelevo) conferida depois de cada await dela. A superada sai sem\naplicar nada e devolve false; o destroy() mantém o contrato de antes.\n\nMedido antes: só para a frente, 12 avanços e nenhuma sobreposição (o toque durante a transição\npula o voo em vez de avançar); a sobreposição vem de uma perna instantânea (voltar, Home, End,\nir para o slide, primeiro slide, slide sem acesso), e no vaivém o relevo do slide 3 ligava sob\no 4 em 5 de 5 rodadas. Os 11 casos de unidade reprovavam pela mesma causa.\n\nGuardas: tests/unit/briefing-transicoes-sobrepostas.repro.test.js (a primeira presa em cada um\ndos 7 awaits do caminho, a saída e o apresentador), tests/unit/relevo-do-slide-sobreposto.repro\n.test.js (a porta real) e tests/e2e-ui/briefing-avanco-rapido.repro.spec.js (5 rodadas, as duas\npernas).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 51ae9616246207c84405df8c8f2ccc3ef75ce8af)",
+      "sha": "6ae5f23",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6ae5f233e6255d3b86415ba8872152c4c4b694e5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T20:55:15.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentação: a barra do trecho escondida fica vazia, sem a hora e a régua do slide anterior (Monte Castello, 2026-11-06)\n\nMedido na DSG, nas passadas lentas: no slide 4 a barra dizia 13:00 com o filtro em 18:00, e no 11,\n12/12/1944 15:00 com o mapa em 27/01/1945 12:00.\n\nMedido aqui antes do conserto: nos slides sem trecho a barra JÁ saía da tela (hidden, sem caixa,\nnenhum ponto em que ela seja o elemento de cima), em 6 de 6 passagens, pela tecla e pela volta, e\no instante do mapa era o do slide. O que ficava era a barra escondida com a hora, a régua e a luz\ndo slide anterior no DOM (\"12/12/1944 10:00\" e 5 marcas com o mapa em 18:00), o mesmo desenho da\nmedida da DSG; uma barra à vista relê o cursor a cada quadro e não mostraria hora velha.\n\nA decisão, pela doc: o slide com instante e sem trecho também fica sem barra (\"Sem trecho, nada\ntemporal aparece\"); o instante não toca nada, e quem diz a hora é o mapa.\n\nO conserto: esconder limpa a hora, a régua, a luz e o preenchimento, e mostrar parte da barra\nvazia, que pega a hora do cursor no primeiro quadro.\n\nGuarda: tests/e2e-ui/briefing-barra-do-trecho-some.repro.spec.js.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "efd0275",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/efd0275231c4e548a20ed7e1a76a8dd9b9653bbb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T20:55:15.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentação: a transição de um slide deixado não aplica nada depois da do slide novo (Monte Castello, 2026-11-06)\n\nMedido na DSG, avançando rápido no atlas de Monte Castello: em 3 de 6 rodadas o contador era do\nslide 17 e a régua tocou o trecho do 16, com a camada que só a cena do 16 fixa.\n\nA causa, no código: transitionToSlide chamava map.stop() e seguia, sem descartar a transição em\nvoo, que continuava depois de cada await (troca de mapa, base, interruptor, camadas do mapa do\nslide, relevo, voo, visualizadores) e pintava o slide deixado por cima do novo. O apresentador\ntambém seguia depois do await e aplicava controles, Horizonte e anúncio do slide deixado. E a\nporta do relevo liga o terreno DEPOIS do await interno dela (o exagero do atlas), onde nenhuma\nconferência da transição alcança.\n\nO conserto: uma geração por transição no serviço (_geracao, tomada também por resetTo2D), uma\npor navegação no apresentador (_navegacao, tomada também pela saída) e a geração que a porta do\nrelevo já tinha (_geracaoDoRelevo) conferida depois de cada await dela. A superada sai sem\naplicar nada e devolve false; o destroy() mantém o contrato de antes.\n\nMedido antes: só para a frente, 12 avanços e nenhuma sobreposição (o toque durante a transição\npula o voo em vez de avançar); a sobreposição vem de uma perna instantânea (voltar, Home, End,\nir para o slide, primeiro slide, slide sem acesso), e no vaivém o relevo do slide 3 ligava sob\no 4 em 5 de 5 rodadas. Os 11 casos de unidade reprovavam pela mesma causa.\n\nGuardas: tests/unit/briefing-transicoes-sobrepostas.repro.test.js (a primeira presa em cada um\ndos 7 awaits do caminho, a saída e o apresentador), tests/unit/relevo-do-slide-sobreposto.repro\n.test.js (a porta real) e tests/e2e-ui/briefing-avanco-rapido.repro.spec.js (5 rodadas, as duas\npernas).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "51ae961",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/51ae9616246207c84405df8c8f2ccc3ef75ce8af",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T19:34:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge do cherry-pick do conserto da borda (8f37ecac8, sobre 0e8fffad4) na main\n\nO deploy leva 0e8fffad4 mais ae113dc0a, sem a aquisição pelo vídeo; a main já tem o conserto, então o merge não muda o conteúdo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "595aff3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/595aff315434936d6e9777b9a74066f618c06224",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T19:29:12.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a borda da playlist não esvazia quando o pedaço de baixo do buraco chega depois dos de cima no começo do voo\n\nCausa: 00b5cb078 (2026-11-05) fez a borda esperar o buraco recente, e quando o pedaço logo abaixo\ndele não segura (chegou depois dos de cima) o laço de bordaSemBuracoRecente saía por break com\nnoBuraco ainda ligado, e a regra do começo do voo devolvia -1 com o seq 0 presente. Com o pedaço\nde 1 s, o 0, o 3 e depois o 1 (o 2 faltando) esvaziavam por até 4 s a playlist EVENT que já listava\no 0, e o mesmo com o 0 reenviado depois do 2. Era o vermelho da IDEMPOTÊNCIA DO SEQ em\naovivo-rotas (a playlist sem nenhum pedaço). Agora quem não segura devolve a borda achada acima.\n\nO vermelho da PLAYLIST era o teste preso à regra de antes (EXT-X-GAP na hora): ele passa a cobrar\na espera (a borda no 0, sem buraco) e o EXT-X-GAP passada a espera, com a chegada posta no banco.\nCaso novo FORA DE ORDEM pela rota: o 2 antes do 1 entra sem buraco, e no começo do voo a playlist\nnunca encolhe. A IDEMPOTÊNCIA cobra também que o reenvio não tira o que já estava listado, e o\nunitário novo lê o começo do voo a cada 50 ms.\n\nControles: com o aovivo.playlist.js da main, 3 vermelhos (FORA DE ORDEM, IDEMPOTÊNCIA e o unitário\nnovo, \"a borda encolheu de 0 para -1\"); com a borda de volta ao maior recebido, 4 vermelhos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit ae113dc0a88fdc2b0effe4ba142368983aab84de)",
+      "sha": "8f37eca",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f37ecac84ee35fa2551717ca8a22829b4f75d01",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-06T19:29:12.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a borda da playlist não esvazia quando o pedaço de baixo do buraco chega depois dos de cima no começo do voo\n\nCausa: 00b5cb078 (2026-11-05) fez a borda esperar o buraco recente, e quando o pedaço logo abaixo\ndele não segura (chegou depois dos de cima) o laço de bordaSemBuracoRecente saía por break com\nnoBuraco ainda ligado, e a regra do começo do voo devolvia -1 com o seq 0 presente. Com o pedaço\nde 1 s, o 0, o 3 e depois o 1 (o 2 faltando) esvaziavam por até 4 s a playlist EVENT que já listava\no 0, e o mesmo com o 0 reenviado depois do 2. Era o vermelho da IDEMPOTÊNCIA DO SEQ em\naovivo-rotas (a playlist sem nenhum pedaço). Agora quem não segura devolve a borda achada acima.\n\nO vermelho da PLAYLIST era o teste preso à regra de antes (EXT-X-GAP na hora): ele passa a cobrar\na espera (a borda no 0, sem buraco) e o EXT-X-GAP passada a espera, com a chegada posta no banco.\nCaso novo FORA DE ORDEM pela rota: o 2 antes do 1 entra sem buraco, e no começo do voo a playlist\nnunca encolhe. A IDEMPOTÊNCIA cobra também que o reenvio não tira o que já estava listado, e o\nunitário novo lê o começo do voo a cada 50 ms.\n\nControles: com o aovivo.playlist.js da main, 3 vermelhos (FORA DE ORDEM, IDEMPOTÊNCIA e o unitário\nnovo, \"a borda encolheu de 0 para -1\"); com a borda de volta ao maior recebido, 4 vermelhos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "ae113dc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ae113dc0a88fdc2b0effe4ba142368983aab84de",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-06T18:20:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-06 (cont.): o Horizonte no ar em 0e8fffad4 e o EOxCloudless 2016 no lugar do Esri em Monte Castello (DSG)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "b4ccef0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b4ccef051c88c8a55e6fe52fc08fef3c1987ebda",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-06T17:00:40.000Z",
