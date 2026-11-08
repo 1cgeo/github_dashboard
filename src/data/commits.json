@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-08T16:35:15.974Z",
+  "lastUpdate": "2026-11-08T23:32:23.756Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-08T16:10:53.000Z",
+    "1cgeo/ebgeo_web": "2026-11-08T22:06:57.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-11-08T13:39:11.000Z",
+    "1cgeo/controle_acervo": "2026-11-08T16:03:49.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-08T15:38:13.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-08T19:07:48.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -68,7 +68,7 @@
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-11-08T12:21:06.000Z",
-    "1cgeo/sap_master": "2026-11-08T15:47:05.000Z",
+    "1cgeo/sap_master": "2026-11-08T16:53:36.000Z",
     "1cgeo/ebgeo_campo": "2026-11-08T16:05:49.000Z"
   },
   "repoPrivate": {
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10549,
+    "totalCommits": 10571,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3361,
+      "1cgeo/ebgeo_web": 3372,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -155,7 +155,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 623,
+      "1cgeo/controle_acervo": 624,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -174,7 +174,7 @@
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 91,
       "1cgeo/ebgeo_campo": 77,
-      "1cgeo/sap_master": 36,
+      "1cgeo/sap_master": 41,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 63,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1365,
+      "1cgeo/chefe_dgeo": 1370,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,195 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T22:06:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Processar: LPH e LPE, Corredores de Mobilidade, Recobrimento de Fogos e Região de Posição, busca por nome, arma e termo do manual, e setor de tiro na aba Alcance\n\nQuatro cartões da análise dos manuais (N40, N86, N129 e N130), com os números conferidos na página: C 5-7 Tab N-8 e N-9, EB70-MC-10.334, C 6-20 8-3, EB70-MC-10.321 e 10.363.\n\n- LPH e LPE: t = D/(Va+Vi) e D/(Va+Vr), d = Va x t a partir do PI, sobre os eixos da camada; a LPH e a LPE nascem como Linha de Coordenação 140000 com o Tipo e a hora, mais os trechos de contato e um ponto por eixo.\n- Corredores de Mobilidade: worker com o motor do Deslocamento, transformada de distância exata, corredor pela largura do escalão, estrangulamentos, vias de acesso pela separação da Tab N-9; seta 149900-01 com o escalão; Cancelar no executor.\n- Recobrimento de Fogos e Região de Posição: grade de alcance comum, setor de tiro da feição, interseção exata das coroas com recaída em grade, lance de 2/3 do útil opcional.\n- Busca da aba Processar: `armas` e `palavrasChave` na definição, tirados das demandas dos manuais.\n- Setor de tiro: `alcance.setor {direcao, abertura}` na aba Alcance; anéis em setor; o Quem alcança respeita o setor.\n- Linha de Coordenação: `createFeature(pontos, escolhas)` para criação por código.\n- Ajuda: quatro páginas com figura do motor, barra lateral e novidades.\n\nPortão: lint, build, frontend 26940, backend 7651, Ajuda 113, e2e 334; controle negativo dos testes novos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "1a81327",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1a813274c80655b046914eea97ef38b70306ba08",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T19:07:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-08: estilo das camadas de dados por família e Países do mundo no ar nas duas instâncias, world_ebgeo de 17/09 na DSG, MI das grades mais cedo\n\n- projeto 01-Projects/ebgeo-estilo-camadas-de-dados (artefato aprovado, harness da tela real, extração dos países do world_ebgeo, scripts de catálogo, miniaturas e rótulo das grades)\n- Decisions cont. 9 e cont. 10; livro-razão com as três correções do chefe e a recorrência do blob\n- atualizar-ebgeo-dsg: trocar arquivo do Martin pede limpar o cache da frente (tile guardado 30 dias)\n- retrospectiva: scripts/blob_apendice.py nomeia o blob pelo caminho inteiro (DECISIONS.md e decisions-2026.md colidiam no Windows)\n- subwiki ebgeo-web: ler o que o cadastro já faz, procurar a fonte no Martin antes de gerar dado, medir o estilo gravado antes de mudar a forma, censo novo no rebase, Vite órfão\n- wiki: servidor-ebgeo-dsg (cache da frente), martin-ebgeo (paises_mundo e world_ebgeo igualado)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "427d64c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/427d64c687fe23788c4e59bdf6159cc2d54acd6d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T18:36:23.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: página do estilo das camadas de dados (grades, limites, países e imagens de SARP), com a figura do motor; linha nas novidades\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "6afac85",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6afac8560af84366455e0694b07d991be5b686a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T18:17:16.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-08 (deploy e Ajuda): f0fbcb7ec no 1º CGEO, DSG e Pages; relevo do Campo pela aba Sistema; 34 figuras, 3 páginas e 9 defeitos de tela na Ajuda\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "a4ca302",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a4ca302a8be8d8fa1548c8c25ba8686a16b002bb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T18:15:38.000Z",
+      "author": "Maj Diniz",
+      "message": "camadas de dados: o estilo do painel genérico de antes vira o novo (o fundo zerado da grade segue sem fundo)\n\nTrês atlas da DSG zeraram o fundo da Moldura 1:50.000 no painel antigo; com a família, o fundo colorido voltaria. estiloGravadoDoDado traduz o estilo antigo de valores constantes (fundo zerado, espessura, cores, tamanho, contorno do texto) no gerente, nas duas legendas e no painel, que grava a tradução em `dado` na primeira edição.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "eef8217",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eef8217ed072cad8f74cba1996200870f248a4f6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T18:04:43.000Z",
+      "author": "Maj Diniz",
+      "message": "camadas de dados: painel de estilo por família (grades de folhas, municípios, distritos, imagens de SARP, países), legenda da carta e quadro que cria a camada nunca ligada\n\n- config.estilo.familia (moldura | municipio | distrito | sarp | pais) liga a camada de dados ao corpo novo do painel, no molde do Sombreamento: estilo rápido com os casos de fundo de carta, cada parte (fundo, borda, rótulo, ícone) com o seu interruptor, fundo sem cor, de cor única ou por atributo, espessura e tamanho com a medida no papel, traço contínuo, tracejado ou traço e ponto\n- o estado mora em styleOverrides.dado; as classes de um estilo por atributo são a fonte única do fill-color, da legenda da aba Camadas e da legenda da carta\n- SARP: ícone de longe e área de perto, com os zooms da troca editáveis (padrão do cadastro antigo: 10, 12,5 e 12,5) e a cor por idade do voo ou por drone pintando o ícone e o contorno\n- \"Gerar das camadas\" escreve uma entrada por classe das camadas de dados do quadro; o quadro cria escondida no mapa vivo a camada de dados marcada que o mapa nunca ligou\n- docs/wiki/estilo-da-camada-de-dado.md e decisão de 2026-11-08\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "26f96e2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/26f96e2cc1703be75611c9590425aa05a774ae5f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T17:19:07.000Z",
+      "author": "Maj Diniz",
+      "message": "Janela do vídeo: o encaixe abaixo da busca não mede sem janela de navegador (os testes do player em node)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "f0fbcb7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f0fbcb7ecd0b394d0488705d2730b2ffebfcb1e0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T17:17:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Trecho visto em magenta, cada percentual com a sua área e o espaço da Observação inimiga (fila do chefe, 2026-11-08)\n\n- Itinerário desenfiado: o trecho que o inimigo vê passa de vermelho (#dc2626) a magenta (#c026d3),\n  que não é nenhuma das cores da Visibilidade (o vermelho do não visto sumia o trecho e dizia o\n  contrário), nem o laranja do trajeto, nem o cinza do mais rápido; a tabela da página acompanha.\n- Postos de Observação: o aviso diz \"da área a observar\", e o painel da Visibilidade diz \"Visto por\n  ao menos um, no alcance\" e \"PO N vê, no alcance dele\": 73% e 41% eram de áreas diferentes.\n- Observação inimiga: a lista de Visibilidades ganha margem própria abaixo da dica.\n- Figuras refeitas pelo motor: postos-01 e desenfiado-01. A desenfiado-02 saiu com o mapa idêntico\n  (o trecho visto de 72 m não aparece nem na antiga nem na nova) e voltou ao git.\n\nControle negativo: com o código de antes, 4 dos 5 casos novos reprovam.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "9f423f4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9f423f4678a096a8eadc5e0727cc0dc288bd14d2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T17:02:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: páginas do mapa de calor, dos Postos de Observação e do itinerário desenfiado (2026-11-07)\n\nTrês páginas novas em como-fazer, com figura pelo motor, a entrada na barra, o link da página\nvizinha (Sombreamento, Pontos Dominantes, Deslocamento) e a linha nas novidades de 2026-11-07.\nRótulos copiados do código: painel-do-mapa-de-calor.js e layer-list.component.js,\npostos-de-observacao.algorithm.js e visibility_attributes_panel.js, deslocamento_attributes_panel.js.\n\nO itinerário desenfiado diz que, em Proibir, partida ou chegada no meio do chão visto já dá \"Não há\ncaminho fora da vista do inimigo\": só a célula do próprio ponto fica livre (fatorDaVista). As\nfiguras do desenfiado ficam em Penalizar, porque em Proibir os retalhos vistos a leste do Morro\nSantana fecharam a passagem nos três trajetos tentados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "ef357d8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ef357d86744e4fa8eee16fb3dd6006bbc678b690",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T16:53:36.000Z",
+      "author": "Maj Diniz",
+      "message": "Testes do reenvio: o SAP 3.0 falso passa a mandar o fechamento_id no item antigo do historico quando sobe para a 3.53.0, como o real, e a conferência de que o mês não se busca de novo compara a chamada inteira (mes=1 casava com mes=10 e mes=11)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "504d307",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/504d307e0bb3c9aa1610084d0ab4c5f97772e0ff",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T16:41:15.000Z",
+      "author": "Maj Diniz",
+      "message": "Relevo do Campo: as duas rotas e as duas consultas a terrenos nos censos, e o 422 da recusa no teste\n\nAs rotas GET e PUT /campo/admin/relevo nos censos de leitura e de saída de conteúdo, as consultas de\nterrenosParaORelevo e de lerFonte como público por desenho (access_level no WHERE), e o no-store da\nrota de campo de 7 para 9. O teste de integração esperava 400 e a recusa é 422 (ValidationError).\nControle negativo do teste de integração: com o lerFonte de 618036a77 o caso do pedido relevo reprova,\ne com a gravação sem mescla o caso da URL do retransmissor reprova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "961fe3c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/961fe3c1480d9b4d61e396cdb6a82bc8a066be27",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T16:40:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-08: separa a linha do split colada na anterior\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "17bf1e5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/17bf1e5397f4f9cdeb393a2bcadb97ca2ad3c969",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T16:39:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Itinerário desenfiado sem caminho não diz \"nada\" visto, e os Postos de Observação são \"PO N\" e abrem na cobertura\n\n- Deslocamento: com perna nenhuma com caminho, \"Visto pelo inimigo\" diz \"sem caminho para medir\"; com\n  parte delas, o número sai como o \"das pernas com caminho\" (o worker soma só nelas, e o 0 virava \"nada\").\n- Visibilidade: o observador pode levar um `nome` próprio (opcional, aparado, até 40 caracteres; o sem\n  nome fica com a forma de antes), que o rótulo do mapa, o painel e o perfil dizem no lugar de\n  \"Observador N\".\n- Postos de Observação: cada observador da \"Cobertura dos PO\" leva o nome do posto (\"PO N\"), e no fim\n  só a cobertura fica selecionada, com o painel que diz quanto cada posto vê (antes, \"4 feições\n  selecionadas\").\n\nControle negativo: com o código de antes, 7 dos 8 casos novos reprovam (o oitavo é o \"como antes\").\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "6c02272",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6c022723a0b5df5f05df54edcd1dd4678c6e4399",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T16:39:02.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-08: o split de learnings com entrada alheia não commitada\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "62f1b7b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/62f1b7bfaab56d386ba6465382b74f2d5575cfc8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T16:38:30.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-08: PITCIC do terreno no ar no 1º CGEO e na DSG (calco de restrições ao movimento e declividade do Sul em COG com estilos), 8 camadas antigas desligadas, Ajuda publicada\n\n- projeto 01-Projects/ebgeo-pitcic-terreno (processamento, prova por blocos, harness, artefato, contrato de publicação)\n- regra de texto de produto sem informação interna (conventions/escrita.md 3.4.4)\n- atualizar-dockers: trava de deploy em curso antes do preparar.sh no corpo da SKILL; learnings da rota de COG, do MSYS e do :anterior\n- atualizar-ebgeo-dsg: rota de COG, cp -n e cadastro pela API\n- wiki: pitcic, trafegabilidade, ebgeo-web, servidor-ebgeo, servidor-ebgeo-dsg; env-guia com PEDOLOGIA_IBGE_DIR e PITCIC_TERRENO_DIR\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "e0701c4",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e0701c49b897651c596ddc97435067dfe6331df1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T16:30:23.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: evento-perto-01 com o motivo dito para o evento e rec-cobertura-01 com a janela abaixo das pílulas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "1e8519e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1e8519eb4be581520257c1896ca7f9ff081efb3b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T16:26:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Reenvio, revisão independente (2026-11-08): o mês reenviado guardado antes da 3.53.0 se busca de novo uma vez quando a instalação sobe (o historico sem fechamento_id), senão o reenvio que já existia nunca ganhava a diferença; só o 404 do próprio SAP 3.0 (com o envelope do contrato) marca o fechamento como sem congelado, e o de um proxy se tenta de novo; o texto numérico não se converte na comparação sem chave (\"4.10\" e \"4.1\" eram a mesma linha); o cartão avisa quando o desfeito mais recente ainda não chegou e a comparação é com um mais antigo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "b1aaae6",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/b1aaae687347970abf7aac5bccc06434e3f7782d",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T16:16:10.000Z",
+      "author": "Maj Diniz",
+      "message": "Documentação da diferença do reenvio (2026-11-08): em docs/decisoes.md, a entrada que substitui o \"não se constrói ainda\" (o contrato da 3.53.0, o recurso rtm_fechamento buscado uma vez e imutável, o 404 marcado, a comparação no cliente e a prova na instância simulada); em docs/telas.md, a pergunta, o desenho do cartão e a chave de cada aba; em docs/plano.md, o item da F4 feito e a prova que falta depois do deploy da 3.53.0\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "019b031",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/019b0311b5232dfe4fbc4f77e46c83a0166a275e",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T16:16:10.000Z",
+      "author": "Maj Diniz",
+      "message": "RTM: o que mudou no reenvio (R7.3): no mês fechado com fechamento desfeito de RTM congelado guardado, o cartão logo depois da faixa do mês compara o vigente com o desfeito imediatamente anterior (\"Comparado com: Fechado em 03/10 por Maj Fulano\") ou com o escolhido no seletor, uma linha por aba com o resumo (\"Execução do PIT: 1 item mudou, 1 entrou, 1 saiu\", \"sem mudança\" em cinza) e, na aba que mudou, a tabela no clique (Mudou, Entrou, Saiu; o registro; \"Pronto 1 → 2\"); a chave de linha de cada aba sai do formato das abas no SAP 3.0 (o item do PIT, o nome completo do militar, a folha da Meta 1, a demanda do Extra-PIT, a revisão com o item na Errata), a linha sem chave estável (a Meta 4) ou de chave vazia ou repetida compara pelo conteúdo inteiro, e só as colunas que os dois envios têm entram na conta (client/src/js/utils/diferenca-rtm.js); sem os campos da 3.53.0, na prévia ou sem o guardado, a tela fica como era\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "42e0a91",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/42e0a914f89e93386f16776a2732949b9d1006ae",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T16:16:09.000Z",
+      "author": "Maj Diniz",
+      "message": "Sincronização do congelado do fechamento desfeito (SAP 3.0 3.53.0, R7.3): o item do historico da rtm/mes com fechamento_id e rtm_congelado que ainda não está guardado se busca UMA vez na rtm/fechamento e se guarda no recurso rtm_fechamento do mês (periodo AAAA-MM, um registro por id em fechamentos, sem migração), e o guardado vence o que chegar depois (o congelado de um fechamento desfeito não muda); a busca olha todo mês guardado do ano, para a falha de uma rodada se refazer na seguinte; o 404 é definitivo e fica marcado sem_congelado, sem derrubar a rodada; outra falha sai no log, a rodada fica parcial e o mês continua; a instalação até a 3.52.0 não manda os campos e nada se busca; a rota do recurso bruto aceita o rtm_fechamento\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "9769fde",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/9769fdea78927bbd214951af7d3c8afd66eadade",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T16:11:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Quatro defeitos de tela que as figuras da Ajuda de 2026-11-08 mostraram\n\n- Ficha do militar: a linha \"Unidade\" se relê a cada evento de feição da store enquanto a seção está\n  na tela (antes, lida uma vez, ficava \"nenhuma neste mapa\" depois de criar ou vincular a unidade).\n- Janela do vídeo: ancorada no pé, o pé desce o que falta para o topo não passar sob a busca e as\n  pílulas quando a legenda da cobertura abre (`peQueCabe` e um vigia de altura; o piso acima da barra\n  do tempo continua no CSS; a janela arrastada e a de tela cheia ficam onde estão).\n- \"Mais perto deste evento\": o motivo do motor do Deslocamento sai dito para a unidade e o evento,\n  sem \"ponto 1\" e \"ponto 2\" (`motivoParaOEvento`), e o teste prende as frases de origem do motor.\n- Miniatura da BDGEx: o logotipo no alto, a 64%, para o globo de 26 px não cobrir o \"x\".\n\nControle negativo: com o código de antes, os 8 casos novos reprovam.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QxbMTwGLTZT1uahGh",
+      "sha": "56d028c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/56d028c902e9bb4a3b70b19def328c254aa54dd1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-08T16:10:53.000Z",
@@ -208,6 +397,15 @@
       "sha": "b38a8bf",
       "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/b38a8bffa8de75fccaa381de3ce8f9a54c355323",
       "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-08T16:03:49.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.53.0: o contrato do SAP DSG serve o RTM congelado do fechamento desfeito, para o SAP DSG mostrar o que mudou no reenvio de um mês\n\nR7.3 do SAP DSG: \"a diferença entre o reenvio e o envio anterior\". O envio\nanterior já estava guardado (a reabertura copia edicao.rtm_congelado para\nrpcmtec.fechamento.rtm_congelado desde a 3.48.0), mas o contrato não o mandava.\nSó acrescentando, nenhum campo existente muda.\n\n- rtm/mes: cada item de historico[] ganha fechamento_id (o\n  rpcmtec.fechamento.id, como texto, como os outros bigint do contrato) e\n  rtm_congelado (falso no fechamento desfeito antes da 3.48.0).\n- Rota nova GET /api/master/v1/rtm/fechamento?ano=&mes=&id=, sob a mesma\n  verifyChave('sap_master') do router e com Joi como as vizinhas. Devolve\n  contrato, ano, mes, fechamento_id, fechado_em, responsavel, reaberto_em,\n  reaberto_por e abas, as do congelado lidas sem recalcular, na forma das abas\n  do rtm/mes fechado. 404 com o motivo: o fechamento não existe, é de outro mês\n  (o par ano e mês confere o id), ou não tem RTM congelado.\n\nSem migração, piso 3.51.0. Registro em docs/decisoes.md e no README.\n\nProvas: routes/master_rtm_mes.test.js ganha quatro casos (o histórico com os\ndois campos, a rota devolvendo as abas do desfeito com 4 feitos contra os 7 do\nvigente, os três 404 pela frase e o 400 sem id, e a guarda 401/401/200), que\nreprovam no código anterior por construção (campos ausentes, rota inexistente,\n404 sem a frase); o arquivo rodou uma vez, com o conserto, 9 de 9. A suíte\ninteira e o test:banco NÃO rodaram aqui: o banco de teste é compartilhado.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "9c677a1",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/9c677a104b11a0bc7ae7db8b32bc987ab45eba64",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
     },
     {
       "repo": "1cgeo/sap_master",
