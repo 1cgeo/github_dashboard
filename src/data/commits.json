@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-07T23:33:14.877Z",
+  "lastUpdate": "2026-11-08T16:35:15.974Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-07T23:23:46.000Z",
+    "1cgeo/ebgeo_web": "2026-11-08T16:10:53.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-11-04T14:54:16.000Z",
+    "1cgeo/controle_acervo": "2026-11-08T13:39:11.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-09-09T21:40:42.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-07T12:40:02.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-08T15:38:13.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,9 +67,9 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-05T14:57:00.000Z",
-    "1cgeo/sap_master": "2026-11-04T13:16:05.000Z",
-    "1cgeo/ebgeo_campo": "2026-11-07T21:26:48.000Z"
+    "1cgeo/ebgeo_produtor": "2026-11-08T12:21:06.000Z",
+    "1cgeo/sap_master": "2026-11-08T15:47:05.000Z",
+    "1cgeo/ebgeo_campo": "2026-11-08T16:05:49.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10498,
+    "totalCommits": 10549,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3330,
+      "1cgeo/ebgeo_web": 3361,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -155,7 +155,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 622,
+      "1cgeo/controle_acervo": 623,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -172,9 +172,9 @@
       "1cgeo/ebgeo_360": 66,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 89,
-      "1cgeo/ebgeo_campo": 76,
-      "1cgeo/sap_master": 22,
+      "1cgeo/ebgeo_produtor": 91,
+      "1cgeo/ebgeo_campo": 77,
+      "1cgeo/sap_master": 36,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
       "1cgeo/github_dashboard": 63,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 152,
-      "1cgeo/chefe_dgeo": 1363,
+      "1cgeo/chefe_dgeo": 1365,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,465 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T16:10:53.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: página do estilo da Declividade e das Restrições ao movimento, com a figura do motor; o motor repassa o pedido por faixa (COG)\n\n- como-fazer/estilo-da-declividade-e-das-restricoes (novo), na barra lateral e nas novidades\n- figura estilo-cog-01 pelo motor de mídia sobre o catálogo de produção\n- lib/tiles.mjs: o Range vai à produção e entra na chave do cache; a resposta volta 206 com o Content-Range\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "67217e7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/67217e75fd6d7c2a435b5bcbbb3eb6b4b28377a7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-08T16:05:49.000Z",
+      "author": "Maj Diniz",
+      "message": "IMPLANTACAO: o retransmissor da 0.1.13 no ar, e o APK 0.1.13 assinado à espera do S24\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "b38a8bf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/b38a8bffa8de75fccaa381de3ce8f9a54c355323",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T15:47:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Sincronização: os anos do RTM tiram o ano padrão do mesmo instante da rodada (anosSincronizados recebe o agora), e o teste da virada deixa de depender do relógio da máquina\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "aa5cd70",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/aa5cd70b668926adc8b484a6f9daac6910f1c6c7",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T15:38:13.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-tuiuti 2026-11-08: mancha vermelha, ao vivo, os consertos no ar por 3f08c92c5, o Pages, e a lição do deploy disputado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "6c0d781",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6c0d7811218fb6f392af827303f9a129255aee92",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T15:03:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Sincronização: em janeiro a rodada também lê o RTM do ano anterior (a OM fecha dezembro nos primeiros dias de janeiro); com SYNC_ANOS vazio, o último RTM da Visão geral, a matriz de envios e a abertura do RTM ficavam em novembro depois da virada (revisão independente de 2026-11-08)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "d9d2504",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/d9d25043be50a62d1259f0e7453c9318c0b7510d",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T14:43:33.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge do lote de consertos desta obra (eb10d3bd5, sobre 55a8afe87) na main\n\nO deploy leva 55a8afe87 mais os consertos da apresentação, do Horizonte, do ao vivo, da fonte externa e da pré-carga, sem o código de outras sessões; a main já tem todos, então o merge não muda o conteúdo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "d01ddea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d01ddeacbf8ce289118b7e59ca2f6427425fd813",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T14:16:59.000Z",
+      "author": "Maj Diniz",
+      "message": "camada de análise em COG que traz dado: estilo próprio para Declividade e Restrições ao movimento do PITCIC; tab-lock 3.5 em relógio falso\n\n- source.estilo.familia (declividade | restricoes) liga a camada COG a um corpo de painel no molde do Sombreamento e do Reconhecimento: estilo rápido com prévia pela própria função de cor, tropa, condição, parâmetros pré-preenchidos pelo manual, cores e legenda\n- o estilo mora em styleOverrides.cog do atlas; a função de cor entra antes do addSource na chave enderecoDoArquivoCog (camada= na query), e a troca de estilo muda só o # da fonte (setUrl), sem baixar o arquivo de novo\n- tab-lock-refutacao 3.5: a entrega de 1 ms e a espera de 30 ms eram relógio de parede, e com a suíte em paralelo o laço parado fazia a espera vencer a resposta (granted true intermitente); agora relógio falso\n- docs/wiki/estilo-da-camada-cog.md e decisão de 2026-11-08\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "5ab940a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5ab940a6245058056fc77074376cfa44ca27c960",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T13:52:57.000Z",
+      "author": "Maj Diniz",
+      "message": "Documentação dos campos da 3.52.0 (2026-11-08): em docs/decisoes.md, na entrada da revisão das telas, que o SAP DSG lê os seis consertos da fonte quando existem e que o contorno fica só para a 3.51.x e para o mês congelado antes dela; em docs/telas.md, as armadilhas com o campo novo e o contorno de cada uma, a origem do Extra-PIT e a situação da folha da Meta 1 no Detalhamento\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "1b4ac72",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/1b4ac72d2df43b00fdcaacd85bfd45bcd4101ce8",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T13:52:56.000Z",
+      "author": "Maj Diniz",
+      "message": "Os campos da 3.52.0 (SAP 3.0 51a5361): o painel lê o que o contrato passa a mandar e guarda o contorno para a 3.51.x e para o mês congelado antes dela; a nota dos pedidos de data futura sai do pedidos_futuros, e a mapoteca só com pedido futuro não é sem registro; o total do acervo já vem sem o só planejado, e a frase diz \"mais 355 só planejados, fora da conta\"; o custo da manutenção diz de quantas a soma é pelo quantidade_com_valor (\"4 manutenções no ano, 2 com custo lançado\"); o efetivo usa o aproveitamento_ponderado e os civis como vêm, sem converter de novo (a gêmea do servidor e a do cliente); a origem da linha do Extra-PIT vale quando vem, e o documento de autorização só sem ela; a folha da Meta 1 ganha a coluna Situação na tela (\"Pronta em 14/03/2026\", \"Faltando, prevista para 31/12/2026\") e o pronto e o faltando no título e no subtotal; as chaves novas do RTM ficam fora das colunas, do CSV e do ODS (FORA_DA_PLANILHA)\n\nCada campo com o teste do payload novo e do antigo. Os do cliente reprovam no\ncódigo anterior (10 de 90 nos três arquivos) e passam com o conserto\n(vitest de secoes-vazio, secoes, rtm e visao-geral: 96 de 96). Os do servidor\n(analise_rede e analise_efetivo) não rodaram aqui: o jest recria o banco de\nteste compartilhado no globalSetup, e ficam para a integração.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "cc1adfa",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/cc1adfa0c13e84979008f3178e482dd43ffdb3fa",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-08T13:44:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-08: o celular do comandante grava a posição no símbolo da fração, o temporal desligado no último ponto, o EBGeo contra o Pacificador e o C2 em Combate, e o SIAOP adiado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "819431c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/819431c4a4a1d84398f01b3cd20e99038be25b75",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-08T13:39:11.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.52.0: os seis consertos na fonte da revisão das telas do SAP DSG; o pedido de data futura não é aberto, o produto só planejado não é acervo, o custo sem valor lançado não é R$ 0,00, e o contrato ganha a média ponderada do efetivo, os civis, a origem do Extra-PIT e as datas da Meta 1\n\nRevisão das telas do SAP DSG (chefe, 2026-11-08). O contrato /api/master/v1 só\nganha campo; três campos existentes mudam de sentido porque estavam errados.\n\n- Mapoteca: o pedido de data futura (o PIT do ano seguinte, datado do 1º de\n  janeiro dele) sai da fila do painel (pending_orders e o pedidos_abertos do\n  contrato) e do \"Pedidos abertos\" da lista e da ficha de clientes, pela régua\n  PEDIDO_ABERTO de query_fragments.js; dias_aberto não sai mais negativo. O\n  contrato ganha mapoteca/painel.pedidos_futuros (quantidade, a_partir_de).\n  No 1º CGEO: 58 abertos viram 27, e os 31 do PIT 2027 vão à parte, a partir\n  de 2027-01-01.\n- Acervo: o produto cujas versões são todas Planejadas sai do total e das\n  quebras por tipo e por escala, e vai à parte em\n  produtos_total.produtos_so_planejados. Nenhum documento assinado lê esses\n  números (a 2.7 do RPCMTec conta só a Regular, por conta própria). No 1º\n  CGEO: 6.919 viram 6.564, e os 355 só planejados vão à parte.\n- Equipamento: custoManutencao.valor sai nulo quando nenhuma manutenção do\n  ano tem valor (era COALESCE para 0), com quantidade_com_valor ao lado; o\n  cartão diz \"Sem custo lançado\", e o equipamento_cli também. No 1º CGEO: 4\n  manutenções em 2026, nenhuma com valor.\n- Efetivo no contrato: indicadores.efetivo[] ganha aproveitamento_ponderado\n  (a conta do resumoPonderado, sobre os dias lotados e, no mês corrente, só os\n  decorridos) e civis (posto 1 Civil e 2 MOT, TIPO_POSTO_GRAD novo em\n  domain_constants). militares e aproveitamento_medio ficam como eram, e a aba\n  EFETIVO_PROD do RTM não ganha chave.\n- RTM: a linha da EXTRA_PIT ganha origem (demanda_extra ou pedido_civil), e a\n  da META1_DETALHADA ganha pronta, data_edicao (nula na Planejada) e\n  data_prevista, depois das chaves da planilha; o .ods não muda, e o RTM já\n  congelado fica como foi gravado.\n\nSem migração, piso 3.51.0. Registro em docs/decisoes.md e no README.\n\nProvas: unit master_efetivo_ponderado (novo), rtm_extra_pit_ctrl e\nrtm_meta1_ctrl reprovam 9 casos no código anterior pelo motivo certo, e o\nvitest do painel do equipamento reprova 2. Com o conserto, servidor rápida\n4348 de 4350; as 2 eram as linhas inteiras do rtm_extra_pit_ctrl sem a origem,\najustadas e passando no arquivo (38 de 38). Vitest do painel 13 de 13. Os de banco novos\n(mapoteca_pedido_futuro, dashboard_so_planejado, equipamento_custo_sem_valor)\nNÃO rodaram aqui: o banco de teste é compartilhado, e ficam para a integração.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "51a5361",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/51a536191742e01361d288fcba35a5fe50959238",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T13:37:24.000Z",
+      "author": "Maj Diniz",
+      "message": "o celular do comandante grava a posição no símbolo da fração; temporal desligado mostra o último ponto da trajetória; militar vira unidade pela ficha\n\nDecisões do chefe da DGEO de 2026-11-08:\n- Vincular o celular é arrastar a feição a cada posição: o servidor acrescenta o ponto à trajetória\n  do símbolo e move a geometria (no máximo 1 por minuto, só com 25 m ou mais de deslocamento, e\n  ignorando precisão pior que 50 m). Sai a cópia ao vivo desenhada por cima: mapa, PDF, Carta, 3D,\n  anéis e \"Quem alcança\" leem a mesma feição. O símbolo vinculado não se arrasta.\n- Com a linha do tempo desligada, toda feição com trajetória fica no ÚLTIMO ponto: a geometria\n  gravada é a ponta da trajetória (080, o alinhamento ao entrar no mapa e na importação).\n- Ao vincular, a trajetória planejada sai, depois da confirmação.\n- A ficha do militar de campo vincula a uma unidade da ORBAT ou cria a unidade com ele.\n\nSuíte: frontend 26.746, backend 7.644, e2e 334, Ajuda 113, Playwright 12 (4 specs).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "618036a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/618036a77b40691f1949ec0225c655643800f285",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T13:25:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Documentação da rede do RTM (2026-11-08): em docs/decisoes.md, a matriz na tela do RTM, o último RTM como coluna da Visão geral, a abertura no último mês fechado (decisão delegada pelo chefe), o ODS sem dependência e por que a diferença do reenvio espera o contrato mandar o congelado do fechamento desfeito; em docs/telas.md, a pergunta e o desenho de cada um; em docs/plano.md, o item da F4 feito\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "069177d",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/069177dcf1738dc62e3966292ff5961272b56b4d",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T13:24:53.000Z",
+      "author": "Maj Diniz",
+      "message": "RTM da rede (R7.1, R7.3, R7.5): a matriz \"Fechamentos de <ano>\" no alto da tela do RTM, com as OM nas linhas e os doze meses nas colunas (o dia do fechamento, Reaberto, Prévia ou \"-\"), a célula que leva àquele RTM, a linha e o mês abertos marcados e o rodapé com quantas OM fecharam cada mês, da rota nova /rtm/envios, que lê a rtm_edicoes e só o estado da rtm_mes; a coluna \"Último RTM\" na Visão geral (o mês fechado mais recente, do ano da tela para trás, e \"nenhum mês fechado\" na OM que não fechou); o RTM abre no último mês fechado da OM, e sem fechado no mês de hoje; o botão \"Exportar ODS\" baixa o mês inteiro num arquivo, uma folha por aba com as colunas do CSV, número, data e booleano tipados, de um gerador ZIP próprio sem dependência; o CSV da Planejamento e da Execução ganha o cabeçalho dos doze meses, que saía vazio\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "9be0173",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/9be017368b4167b60414ee29f0e4436a7ff2d930",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T13:20:39.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentação: o voo do briefing deixa de pré-carregar tiles (Monte Castello, slides 17 e 19)\n\nA pré-carga (`MaplibrePreload`) carregava cada tile num `Tile` que nenhum `TileManager`\nguarda: o mapa pedia o mesmo tile de novo ao desenhá-lo, e o que já estava na tela era\nbaixado outra vez. Com a fonte privada (`private, no-store`) o cache do navegador não\najuda, e esses pedidos ficavam na frente dos do mapa na fila única de imagens.\n\nMedido na bancada das bases privadas (42 ms por tile, três rodadas válidas) e na DSG,\nsó por leitura: o fundo do slide 17 ficava pronto em 13,4 s com a pré-carga e 5,1 s sem\nela (na DSG, 13,9 a 15,3 s contra 5,2 s); o do 19, em 10,1 s contra 5,1 s. A revisita\ndo 18 fazia 380 pedidos contra 1. Nenhum dos sete slides medidos ficou mais rápido com ela.\n\nO portão `PRE_CARGA_NO_VOO` nasce desligado; o `MaplibrePreload` e os testes dele ficam.\nGuarda: tests/unit/briefing-sem-pre-carga-no-voo.test.js (reprova o código anterior nos\ndois casos).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 3f08c92c50b2798392cdc20990a52cd211de66b2)",
+      "sha": "eb10d3b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb10d3bd56e569d9cf7dfa387b89e601afbdef89",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T13:20:39.000Z",
+      "author": "Maj Diniz",
+      "message": "apresentação: o voo do briefing deixa de pré-carregar tiles (Monte Castello, slides 17 e 19)\n\nA pré-carga (`MaplibrePreload`) carregava cada tile num `Tile` que nenhum `TileManager`\nguarda: o mapa pedia o mesmo tile de novo ao desenhá-lo, e o que já estava na tela era\nbaixado outra vez. Com a fonte privada (`private, no-store`) o cache do navegador não\najuda, e esses pedidos ficavam na frente dos do mapa na fila única de imagens.\n\nMedido na bancada das bases privadas (42 ms por tile, três rodadas válidas) e na DSG,\nsó por leitura: o fundo do slide 17 ficava pronto em 13,4 s com a pré-carga e 5,1 s sem\nela (na DSG, 13,9 a 15,3 s contra 5,2 s); o do 19, em 10,1 s contra 5,1 s. A revisita\ndo 18 fazia 380 pedidos contra 1. Nenhum dos sete slides medidos ficou mais rápido com ela.\n\nO portão `PRE_CARGA_NO_VOO` nasce desligado; o `MaplibrePreload` e os testes dele ficam.\nGuarda: tests/unit/briefing-sem-pre-carga-no-voo.test.js (reprova o código anterior nos\ndois casos).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "3f08c92",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3f08c92c50b2798392cdc20990a52cd211de66b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T12:54:47.000Z",
+      "author": "Maj Diniz",
+      "message": "vigia de origens: a sonda passa do 404 da borda, a exportação nomeia o buraco, a fila do navegador não vira silêncio\n\nTerceira revisão do vigia:\n\n- a sonda pede o último tile que deu 2xx na origem e, depois, os últimos tiles\n  distintos pedidos; o 404 (o servidor respondendo) passa ao candidato seguinte\n  na mesma volta, e todos em 404 deixam o 404 aceito na sonda seguinte. Readmite\n  com resposta HTTP real do servidor (2xx, 4xx, e o 404 quando a origem já o\n  devolvia a tile); 5xx, 407 e 408, que são o gateway, não readmitem. Antes, a\n  sonda repetia o 404 do tile da borda e a origem ficava suspensa para sempre\n  (S1: 38 sondas em 3 h);\n- exportação sem proporção: tile cortado por silêncio ou suspensão que continua\n  falho é buraco e nomeia a camada (X2: 80 tiles suspensos atrás de 100 bons;\n  X3: a origem que silencia no meio da folha); a recusa imediata só nomeia\n  quando nenhum tile da fonte desenhou (X1: uma recusa em dois não nomeia);\n- a rejeição demorada conta da última conclusão de pedido da origem (quando uma\n  das 6 conexões do navegador se solta), e só é silêncio se a origem não\n  respondeu nada a ninguém nesse meio tempo: o 16º tile de um servidor sem CORS\n  em HTTP/1.1 (S2) e a conexão do 4G que se reinicia numa origem viva (S3) não\n  suspendem; o TCP que expira em 21 s (R) segue suspendendo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit ce71fa9651e50d6880fd1e952794b7f5333ece7f)",
+      "sha": "f7a7001",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f7a70011aaed389af49c3aea5abcd7b4f5ecacf3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T12:54:47.000Z",
+      "author": "Maj Diniz",
+      "message": "vigia de origens: a sonda passa do 404 da borda, a exportação nomeia o buraco, a fila do navegador não vira silêncio\n\nTerceira revisão do vigia:\n\n- a sonda pede o último tile que deu 2xx na origem e, depois, os últimos tiles\n  distintos pedidos; o 404 (o servidor respondendo) passa ao candidato seguinte\n  na mesma volta, e todos em 404 deixam o 404 aceito na sonda seguinte. Readmite\n  com resposta HTTP real do servidor (2xx, 4xx, e o 404 quando a origem já o\n  devolvia a tile); 5xx, 407 e 408, que são o gateway, não readmitem. Antes, a\n  sonda repetia o 404 do tile da borda e a origem ficava suspensa para sempre\n  (S1: 38 sondas em 3 h);\n- exportação sem proporção: tile cortado por silêncio ou suspensão que continua\n  falho é buraco e nomeia a camada (X2: 80 tiles suspensos atrás de 100 bons;\n  X3: a origem que silencia no meio da folha); a recusa imediata só nomeia\n  quando nenhum tile da fonte desenhou (X1: uma recusa em dois não nomeia);\n- a rejeição demorada conta da última conclusão de pedido da origem (quando uma\n  das 6 conexões do navegador se solta), e só é silêncio se a origem não\n  respondeu nada a ninguém nesse meio tempo: o 16º tile de um servidor sem CORS\n  em HTTP/1.1 (S2) e a conexão do 4G que se reinicia numa origem viva (S3) não\n  suspendem; o TCP que expira em 21 s (R) segue suspendendo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "ce71fa9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ce71fa9651e50d6880fd1e952794b7f5333ece7f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:39:57.000Z",
+      "author": "Maj Diniz",
+      "message": "RTM: a Execução volta a caber na tela de 1440 px (a coluna Desvio levou a tabela a 1136 px num espaço de 1076, e o mês a mês perdia out, nov e dez atrás da rolagem); os três números e a barra cedem 66 px, e o piso fica em 1070\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "a36336a",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/a36336af6968eaa6855cf51ac93e0b5706f312a2",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:34:55.000Z",
+      "author": "Maj Diniz",
+      "message": "Revisão independente da integração (2026-11-08): a semana corrente dá a quem chegou nela os últimos dias, e não os primeiros (chegou no dia 311, hoje 312: 2 dias lotados, e não 4; a chegada lançada para o 314 não está lotada hoje); o cartão do RTM tira a média da Divisão ponderada pelos dias lotados, como a seção e a rede, e a cor e as faixas da aba Efetivo saem do aproveitamento nos dias lotado, com o número do SAP 3.0 (a 6.1) mantido e o outro ao lado quando difere; a OM sem efetivo lançado sai sem dado, e não 0 militares\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "03a2193",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/03a2193fbbcc6e7ff14fc9d6bb8597e12d84bf7a",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-08T12:21:06.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.4: a recusa CONTADOR reenviada com contador novo, e o REVOGADO com a causa de verdade\n\nConferido no banco e na trilha de auditoria da DSG (2026-11-08):\n\n- As 14 recusas CONTADOR do teste pelo 4G (7 da telemetria, 6 do relógio e o Encerrar) casam com 14\n  lacunas do contador do aparelho, cada uma a 10 a 31 ms de outra mensagem: o defeito corrigido na 0.4.3.\n  Mas a fila tratava a recusa como reprovação do conteúdo, e sete lotes de telemetria viraram 34 pontos\n  descartados. A recusa CONTADOR diz que a mensagem não valeu: sai de novo uma vez, com contador novo.\n- O notebook foi revogado porque outro EBGeo Produtor entrou com a mesma conta (a revogarOutrosDaConta,\n  um por conta): em 2026-11-04 13:26, um login do 0.3.1 pela VPN neste notebook, de outra instalação.\n  O texto do REVOGADO agora diz isso, além da gestão dos aparelhos.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "cdf3dee",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/cdf3dee51799494123fb8b8ff7e758bc2224432b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:20:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Documentação da revisão das telas (2026-11-08): a decisão do chefe (o RTM cobra o mês inteiro, também na prévia, e a tela o diz; o aproveitamento é sobre os dias lotados, com a média do mês ponderada; ausência não é zero) e os consertos que ficam para a fonte no SAP 3.0; em docs/telas.md, a régua do RTM na prévia e as armadilhas novas do dado (módulo sem registro, pedido de data futura, os dois Recebidos do orçamento, o produto só planejado, a manutenção sem custo, o civil em \"militares\")\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "a3d331d",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/a3d331d6bd377b2bf5c58c0aef6bb9084911f12c",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T12:18:23.000Z",
+      "author": "Maj Diniz",
+      "message": "vigia de origens: o prazo só aprende com a sonda, a rejeição demorada é silêncio, a exportação conta tiles\n\nSegunda revisão do vigia (sondas com ReadableStream real):\n\n- o prazo só aprende com a SONDA, um pedido sozinho, que mede o servidor e não a\n  fila do navegador; é redefinido a cada readmissão (pode descer), com teto de\n  20 s, e nunca aprende com resposta de tile. Antes, um proxy que devolve 504 em\n  30 s levava o prazo a 60 s e prendia as 16 vagas 30 s por rodada (P), e um\n  servidor válido de 4 s com 6 conexões o levava a 24 s (G);\n- a sonda readmite só com 2xx (o tile, ou o 204 do tile vazio);\n- a rejeição do fetch depois de 3 s (o TCP que expira) conta como silêncio e\n  suspende (R); a imediata segue como recusa, sem suspensão;\n- parar() aborta a sonda no ar e limpa o prazo dela na hora;\n- casa: saem o urlServidorPrincipal e o urlBaseLinkPublico (o OUTRO servidor,\n  a DSG por padrão) e as fontes do map2d (as da instância já moram na página ou\n  no tileServerUrl; um TERRAIN_URL de terceiro passa pelo vigia); a lista fica\n  em cache pela chave dos valores do config;\n- exportação: um tile isolado cortado não dá a camada como ausente; ela é\n  nomeada quando metade ou mais dos tiles foram cortados pelo vigia; o tile que\n  recarrega sai da conta, o mapa de saída se registra no vigia para pedir de novo\n  quando a origem volta, e o clear() do mapa reaproveitado apaga a contagem e os\n  motivos que aquela exportação escreveu.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 95f583c4fe8805367c0d6849875a97be4641c461)",
+      "sha": "411072c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/411072c3cb5fd083a780e9dd33e024ab1b1fd103",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T12:18:23.000Z",
+      "author": "Maj Diniz",
+      "message": "vigia de origens: o prazo só aprende com a sonda, a rejeição demorada é silêncio, a exportação conta tiles\n\nSegunda revisão do vigia (sondas com ReadableStream real):\n\n- o prazo só aprende com a SONDA, um pedido sozinho, que mede o servidor e não a\n  fila do navegador; é redefinido a cada readmissão (pode descer), com teto de\n  20 s, e nunca aprende com resposta de tile. Antes, um proxy que devolve 504 em\n  30 s levava o prazo a 60 s e prendia as 16 vagas 30 s por rodada (P), e um\n  servidor válido de 4 s com 6 conexões o levava a 24 s (G);\n- a sonda readmite só com 2xx (o tile, ou o 204 do tile vazio);\n- a rejeição do fetch depois de 3 s (o TCP que expira) conta como silêncio e\n  suspende (R); a imediata segue como recusa, sem suspensão;\n- parar() aborta a sonda no ar e limpa o prazo dela na hora;\n- casa: saem o urlServidorPrincipal e o urlBaseLinkPublico (o OUTRO servidor,\n  a DSG por padrão) e as fontes do map2d (as da instância já moram na página ou\n  no tileServerUrl; um TERRAIN_URL de terceiro passa pelo vigia); a lista fica\n  em cache pela chave dos valores do config;\n- exportação: um tile isolado cortado não dá a camada como ausente; ela é\n  nomeada quando metade ou mais dos tiles foram cortados pelo vigia; o tile que\n  recarrega sai da conta, o mapa de saída se registra no vigia para pedir de novo\n  quando a origem volta, e o clear() do mapa reaproveitado apaga a contagem e os\n  motivos que aquela exportação escreveu.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "95f583c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/95f583c4fe8805367c0d6849875a97be4641c461",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T12:17:17.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o fuso do mapa só na dica da hora, como em 2026-10-07 (decisão do chefe, 2026-11-08)\n\nO commit anterior pôs o rótulo do fuso na barra (\"Hora A (UTC+1)\" ao lado da hora). O chefe decidiu\nmantê-lo só na dica, como deixou na barra compacta de 2026-10-07: a hora continua no fuso do mapa,\no elemento sai da barra e a dica diz \"Hora do mapa (Hora A, UTC+1)\" (Brasília, sem fuso próprio).\n\n- interface.js e horizon.css: sai o elemento `fuso` e o estilo dele;\n- relogio.js: sai o `rotulo`; o `titulo` e a legenda da imagem usam a mesma forma \"Hora A, UTC+1\";\n- horizonte-visualizador.test.js volta a proibir o elemento na barra, como estava;\n- horizonte-relogio.test.js e o caso do relógio em horizonte.spec.js conferem a dica e a ausência\n  do elemento.\n\nNa captura do slide 2 a 1600 px, a barra volta à largura de antes, com 33 px de folga até o mini-mapa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 927b65b9ba218fc02e55a5a3e1314334ba70caeb)",
+      "sha": "177e92f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/177e92f8a2f1072f8cf099889d5321e51a226bfb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T12:17:17.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o fuso do mapa só na dica da hora, como em 2026-10-07 (decisão do chefe, 2026-11-08)\n\nO commit anterior pôs o rótulo do fuso na barra (\"Hora A (UTC+1)\" ao lado da hora). O chefe decidiu\nmantê-lo só na dica, como deixou na barra compacta de 2026-10-07: a hora continua no fuso do mapa,\no elemento sai da barra e a dica diz \"Hora do mapa (Hora A, UTC+1)\" (Brasília, sem fuso próprio).\n\n- interface.js e horizon.css: sai o elemento `fuso` e o estilo dele;\n- relogio.js: sai o `rotulo`; o `titulo` e a legenda da imagem usam a mesma forma \"Hora A, UTC+1\";\n- horizonte-visualizador.test.js volta a proibir o elemento na barra, como estava;\n- horizonte-relogio.test.js e o caso do relógio em horizonte.spec.js conferem a dica e a ausência\n  do elemento.\n\nNa captura do slide 2 a 1600 px, a barra volta à largura de antes, com 33 px de folga até o mini-mapa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "927b65b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/927b65b9ba218fc02e55a5a3e1314334ba70caeb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:15:42.000Z",
+      "author": "Maj Diniz",
+      "message": "Instalações: o endereço em HTTP sai em vermelho (R8.5), e \"Em dia\" só com dado novo; a rota devolve a marca de defasado, a mesma conta do painel, e a instalação ok com o último dado bom mais velho que duas rodadas sai \"Sem dado novo\"\n\nCom o agendador parado, a última rodada continuava `ok` e a linha ficava \"Em\ndia / Tudo certo\" com o ponto verde e \"há 3 dias\". A tela não lia a defasagem\ne a rota não a devolvia.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "ea74b6d",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/ea74b6d94bd8f4c82ca01bec7c845e7b5ef3c3f6",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:15:41.000Z",
+      "author": "Maj Diniz",
+      "message": "Ausência não é zero (revisão das telas, 2026-11-08): o módulo que a OM não tem (orçamento sem NC nem execução, mapoteca sem pedido nem estoque, acervo sem produto, equipamento sem inventário) sai nulo da rede e \"-\" na tela, fora do total e da ordem, e o detalhe diz que o SAP 3.0 daquela OM não tem o módulo; a mapoteca deixa o pedido de data futura fora dos abertos e ordena pelo parado desde a última movimentação; o PDR ganha o total e a linha do Extra-PDR, que fecham com a ND; a manutenção sem custo lançado deixa de sair R$ 0,00\n\nO 4º CGEO de teste, sem UG e sem inventário, saía \"Todas as NC do ano estão\nempenhadas\", seis \"0 de 0\", \"Nenhum material indisponível\" e, na mapoteca,\n\"Tempo médio 0 dias\"; o servidor somava como zero o payload vazio e a média\nnula. Os cartões \"Exemplares impressos\" e \"Crédito empenhado\" da Visão geral\ndizem de quantas OM é o total (\"de 1 das 5 OM\").\n\nMapoteca: 31 dos 58 abertos do 1º CGEO eram do PIT 2027 (data 01/01/2027,\n`dias_aberto` -54). Saem da conta e da lista, numa nota; \"Atrasados\" diz de\nquantos com prazo; a nova coluna \"Parado há\" (dias desde a última\nmovimentação) é a ordem da rede e da lista.\n\nOrçamento do 1º CGEO: R$ 266.020,21 nos itens do PDR contra R$ 644.080,10 na\nND é regra, e não erro. A ND soma a NC do PDR e a Extra-PDR (R$ 378.059,89,\nsem item por definição); o rodapé dos itens diz isso.\n\nAcervo: o `produtos_total` conta também o produto só planejado; a tela diz\nquantos produtos têm versão planejada, e o volume nulo sai \"sem arquivo\ncadastrado\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "bea8bd7",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/bea8bd7ff0cf0c47c196f1119c8fbaa50551a6b4",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:14:04.000Z",
+      "author": "Maj Diniz",
+      "message": "PIT: situação e desvio logo depois do item (a 1024 px saíam da tela) e a lista longa com o botão dos restantes; o item em risco dentro da margem de 2% sai \"Abaixo do plano\", neutro, ao lado da barra azul; a dica do esperado, do ritmo e da curva diz que medem bases diferentes; o mês corrente da curva sai parcial; a matriz OM × meta na ordem do ritmo, com o nome da meta no cabeçalho e o \"plano a vencer\" na legenda; \"Itens em risco\" em N de M na rede, \"Sem plano mensal\" só quando alguma OM tem; Extra-PIT pendente primeiro; plural nas alterações\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "12db38a",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/12db38a37e277857f03d2c99719544d798a69117",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:14:03.000Z",
+      "author": "Maj Diniz",
+      "message": "Efetivo pela régua do chefe: o aproveitamento de quem chegou ou saiu no ano sobre os dias em que ficou lotado (o 3º Sgt que chegou em outubro saía 12,1% e passa a 100%), a semana corrente cortada em hoje (312 dias, e não 315), a média da Divisão do mês ponderada pelos dias lotados (outubro do 1º CGEO de 82,9% para 89,5%), o civil fora dos militares (KPI, gráfico por posto e coluna da rede), o gráfico por posto com uma série por círculo, a população de cada bloco dita na frase, na dica e na nota da lista, e a lista longa com o botão dos restantes\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "c377215",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/c3772156aa13fddd5c5efb2ec5456cb66e0c6931",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/sap_master",
+      "date": "2026-11-08T12:13:27.000Z",
+      "author": "Maj Diniz",
+      "message": "RTM revisto por tela (revisão de 2026-11-08): a prévia do mês em curso diz que cobra o plano do mês inteiro e que o atraso de hoje está no PIT, e o Efetivo dela se diz projeção (a conta não muda, decisão do chefe); a Execução ganha a coluna Desvio na unidade do item, abre cada meta do mais atrasado ao mais adiantado pelo ritmo, como o PIT, e o mês a mês separa o mês com plano e sem entrega (0 com fundo de atenção) do mês sem plano; o item replanejado até o fim do mês leva a marca do PIT com o que mudou na dica; as situações do filtro somam \"Todos\" com \"Canceladas\", e \"Atrasados\" vira recorte à parte; o cabeçalho da meta conta os mesmos itens do percentual, com o sem previsto e os cancelados à parte; o Planejamento avisa a distribuição que não soma o previsto (a 4.1 com 574 para 554) e o plano depois do prazo; o Extra-PIT diz o que conta (demandas autorizadas e pedidos civis da mapoteca), a unidade na dica e abre pela conclusão mais recente; o detalhe tem subtotal por item e o \"Previsto no PIT\", a OM e o nome da meta ficam só no CSV; o cancelado sai \"-\" no andamento; o seletor diz o estado de cada mês\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TptLikm5tFdMqsW9T",
+      "sha": "5ae8c7c",
+      "htmlUrl": "https://github.com/1cgeo/sap_dsg/commit/5ae8c7cc4152b88b0be437c02283d5a7f71782b8",
+      "repoUrl": "https://github.com/1cgeo/sap_master"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-08T11:57:42.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.3: o ao vivo pelo retransmissor aguenta o 4G (contador único, o notebook desligado dito em palavras, a vaga da borda)\n\nMedido em 2026-11-08 num notebook só no 4G, sem EBNet, pelo retransmissor de produção até a DSG: o login\npelo retransmissor em 0,7 s, os 575 pedaços da leve e a telemetria enviados. Três defeitos achados:\n\n- O contador do fluxo saía repetido em mensagens juntas: o retransmissor.js lia sessao.contador DEPOIS\n  de esperar o cofre, e o EBGeo recusava a segunda (CONTADOR, \"Mensagem repetida ou fora de ordem\"); o\n  Encerrar parou a fila até o \"Tentar de novo\". Agora o contador fica preso à mensagem antes do await, e\n  as gravações do cofre vão uma por vez (o contador do disco não anda para trás, e o esquecer espera a\n  gravação em curso antes de apagar).\n- O notebook desligado do retransmissor pelo EBGeo (o aviso assinado de \"revogado\") ficava com a fila\n  dizendo só \"sem rota até o EBGeo: ligue a VPN\". O motivo do aviso fica na recusa, em palavras, e o\n  caminho diz que falta o retransmissor também no Automático sem o EBGeo ao alcance; a frase manda\n  entrar de novo na conta, que pela internet entra pelo retransmissor (a frase antiga mandava à rede do EB).\n- A vaga da borda: com as três vagas presas no atraso, o pedaço da leve que acabou de chegar de uma\n  transmissão no ar sobe numa vaga a mais (BORDA_MS 5 s). Pelo 4G, a borda tinha 3 s de mediana com a\n  fila vazia e 26 s atrás do buraco.\n\nOs quatro testes novos reprovam o código antigo e passam no novo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHT4Ee8pinW4nP4zpM",
+      "sha": "4c8cb4d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/4c8cb4d46ab36de92da6c6013e07a7d5e3fda78e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:55:53.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o relógio é o fuso do mapa, e o mini-mapa mostra a base em uso (Monte Castello, 2026-11-08)\n\nO slide 2 do briefing de Monte Castello (23/11/1944, 12:00, mapa em +01:00) marcava a hora de\nBrasília: a régua do Sol dizia \"02:55–12:31\", o arco ia de 04h a 11h e o Sol ficava baixo no\nsudoeste, o de 16:00 da Itália. A vista lia a data e os minutos sempre em P (interface.js e sol.js\ncom meiaNoiteP, horaMinutoP e a data civil de P). A posição do Sol estava certa para o instante; o\ninstante é que era outro.\n\nrelogio.js monta o relógio do fuso do mapa (fusoDoMapaSync e o fusoRotulo, os mesmos da barra\ntemporal): a data e os minutos, a régua, as marcas do arco, o nascer e o pôr reais e a legenda da\nimagem seguem o fuso, e o dia solar se ancora na data civil dele. A hora mostra o fuso ao lado,\ncomo a barra (\"Hora A (UTC+1)\"). Sem fuso próprio, nada muda: o elemento nasce escondido e a barra\nfica como o chefe a deixou em 2026-10-07.\n\nO mini-mapa mostrava a base do mini-mapa do 360 (a carta do BDGEx), em branco fora do Brasil, e em\nMonte Castello só o cone. Agora usa o estilo e a faixa de zoom da base em uso, com a mesma\ncredencial do mapa (credencialDeTile); a do 360 fica para a base sem estilo em mãos.\n\nProvas: horizonte-relogio.test.js (Sol contra a NOAA: 179,3° e 25,4° às 12:00 de UTC+1; nascer e\npôr teóricos às 07:21 e 16:43; o dia solar logo depois da meia-noite da Itália) e dois casos em\nhorizonte.spec.js (o relógio no fuso, e o mini-mapa com a base privada). No código de antes, os três\nreprovam.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 690e77e85056ed07f7c1591c205749aac29208a2)",
+      "sha": "4ba6dc2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4ba6dc24abf110ce214abc3b1d32c82b208e090d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:55:53.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o relógio é o fuso do mapa, e o mini-mapa mostra a base em uso (Monte Castello, 2026-11-08)\n\nO slide 2 do briefing de Monte Castello (23/11/1944, 12:00, mapa em +01:00) marcava a hora de\nBrasília: a régua do Sol dizia \"02:55–12:31\", o arco ia de 04h a 11h e o Sol ficava baixo no\nsudoeste, o de 16:00 da Itália. A vista lia a data e os minutos sempre em P (interface.js e sol.js\ncom meiaNoiteP, horaMinutoP e a data civil de P). A posição do Sol estava certa para o instante; o\ninstante é que era outro.\n\nrelogio.js monta o relógio do fuso do mapa (fusoDoMapaSync e o fusoRotulo, os mesmos da barra\ntemporal): a data e os minutos, a régua, as marcas do arco, o nascer e o pôr reais e a legenda da\nimagem seguem o fuso, e o dia solar se ancora na data civil dele. A hora mostra o fuso ao lado,\ncomo a barra (\"Hora A (UTC+1)\"). Sem fuso próprio, nada muda: o elemento nasce escondido e a barra\nfica como o chefe a deixou em 2026-10-07.\n\nO mini-mapa mostrava a base do mini-mapa do 360 (a carta do BDGEx), em branco fora do Brasil, e em\nMonte Castello só o cone. Agora usa o estilo e a faixa de zoom da base em uso, com a mesma\ncredencial do mapa (credencialDeTile); a do 360 fica para a base sem estilo em mãos.\n\nProvas: horizonte-relogio.test.js (Sol contra a NOAA: 179,3° e 25,4° às 12:00 de UTC+1; nascer e\npôr teóricos às 07:21 e 16:43; o dia solar logo depois da meia-noite da Itália) e dois casos em\nhorizonte.spec.js (o relógio no fuso, e o mini-mapa com a base privada). No código de antes, os três\nreprovam.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "690e77e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/690e77e85056ed07f7c1591c205749aac29208a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:41:31.000Z",
+      "author": "Maj Diniz",
+      "message": "drone em grafite com o nariz âmbar e 40 px; o globo do externo maior e já ligado na BDGEx, no OSM e nas Imagens do Google (079)\n\nO drone deixa de ser da cor da trilha (chefe, 2026-11-08): a cor da camada fica só na luz do\ncentro, que liga o drone à sua trilha quando há dois no mapa. O globo \"Precisa de internet\" passa\nde 18 para 26 px. A 079 liga `config.externo` nas três bases de fábrica que vêm de fora, sem tocar\no valor que o administrador já gravou.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "d7114b5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d7114b5937e8cc2a27e7744c46693a1d282e0c6f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:41:16.000Z",
+      "author": "Maj Diniz",
+      "message": "credencial de tile: as origens do map2d por varredura, e não pela chave do terreno\n\nO censo terreno-resolvedor-censo reprovou o origensDaCasa, que lia\nmap2d.terrainSource e hillshadeSource pela chave: QUAL terreno vale é decisão só\nda folha do resolvedor. Aqui só importa de que origem vêm as fontes que o map2d\ndo /config declara, então elas são varridas pelos valores.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 362fe4a8a0d81ac8a256f202d3c5d2ef76d26ac7)",
+      "sha": "8996ead",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8996ead1383563706a4eb5d09f4700c58bd25156",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:41:16.000Z",
+      "author": "Maj Diniz",
+      "message": "credencial de tile: as origens do map2d por varredura, e não pela chave do terreno\n\nO censo terreno-resolvedor-censo reprovou o origensDaCasa, que lia\nmap2d.terrainSource e hillshadeSource pela chave: QUAL terreno vale é decisão só\nda folha do resolvedor. Aqui só importa de que origem vêm as fontes que o map2d\ndo /config declara, então elas são varridas pelos valores.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "362fe4a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/362fe4a8a0d81ac8a256f202d3c5d2ef76d26ac7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:33:25.000Z",
+      "author": "Maj Diniz",
+      "message": "exportação: a camada que o vigia de origens fez falhar é nomeada, com o servidor\n\nO tile de outra origem que o vigia corta (silêncio, origem suspensa ou recusa)\nfica \"errored\", e o MapLibre conta isso como carregado: o PDF, o mosaico, o KMZ\ne o quadro saíam sem a base e sem uma palavra, onde antes do vigia a fonte\nficava carregando até o prazo e era nomeada. O repaintOnSourceError passa a\ncontar o erro de tile que traz vigiaDeOrigem, e a frase diz por quê: \"O PDF saiu\nsem a camada \"Imagem Esri\", que não carregou: o servidor externo X não\nrespondeu.\" O motivo viaja pelo NOME da camada, que é o que atravessa os Sets\nentre o quadro, o mosaico e a aba.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 700b06de4b158ec25a1230a5744496d1e26aa1f7)",
+      "sha": "fd4fa86",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fd4fa86b1c0ec856ddf03e81a1adef202db151a6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:33:25.000Z",
+      "author": "Maj Diniz",
+      "message": "exportação: a camada que o vigia de origens fez falhar é nomeada, com o servidor\n\nO tile de outra origem que o vigia corta (silêncio, origem suspensa ou recusa)\nfica \"errored\", e o MapLibre conta isso como carregado: o PDF, o mosaico, o KMZ\ne o quadro saíam sem a base e sem uma palavra, onde antes do vigia a fonte\nficava carregando até o prazo e era nomeada. O repaintOnSourceError passa a\ncontar o erro de tile que traz vigiaDeOrigem, e a frase diz por quê: \"O PDF saiu\nsem a camada \"Imagem Esri\", que não carregou: o servidor externo X não\nrespondeu.\" O motivo viaja pelo NOME da camada, que é o que atravessa os Sets\nentre o quadro, o mosaico e a aba.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "700b06d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/700b06de4b158ec25a1230a5744496d1e26aa1f7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:33:24.000Z",
+      "author": "Maj Diniz",
+      "message": "vigia de origens: um silêncio é uma falha, o lento é readmitido, a recusa não é silêncio\n\nRevisão do 18a0117b6 (a sonda do revisor sobre o criarVigiaDeOrigens):\n\n- conta UMA falha por evento de silêncio da origem, e não uma por pedido\n  abortado; o primeiro silêncio suspende, porque cada um a mais custa um prazo\n  de fila presa, e a readmissão ficou barata;\n- a sonda sai em 15 s, em modo cors (resposta opaca não readmite), com prazo de\n  60 s, e readmite quem responde devagar: o prazo da origem passa ao dobro da\n  maior espera que ela mostrou, até 60 s (servidor de 12 s: carrega);\n- o corpo que chega em pedaços (getReader) conta como atividade;\n- falha instantânea (CORS, DNS, certificado, queda de rede) não suspende nem\n  avisa: passa adiante como o MapLibre a passaria, para o painel e o aviso de\n  certificado de antes, uma vez;\n- a casa são todas as origens da instância no /config (nome público, tiles,\n  API, 360, ativos 3D, terreno), não só a da página;\n- etag no retorno, performance.now(), uma sonda por vez (pedido à origem\n  suspensa agendava outra com a primeira no ar), a sonda dorme quando nenhuma\n  fonte vigiada usa a origem, e os minimapas do Horizonte e do 360 também\n  pedem de novo quando ela volta.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 4c78454135f6f70dfc65ff314b3d0513ab6af833)",
+      "sha": "bbeca91",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bbeca91ce8494b02b91da7f61d0cc2ead34e5282",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:33:24.000Z",
+      "author": "Maj Diniz",
+      "message": "vigia de origens: um silêncio é uma falha, o lento é readmitido, a recusa não é silêncio\n\nRevisão do 18a0117b6 (a sonda do revisor sobre o criarVigiaDeOrigens):\n\n- conta UMA falha por evento de silêncio da origem, e não uma por pedido\n  abortado; o primeiro silêncio suspende, porque cada um a mais custa um prazo\n  de fila presa, e a readmissão ficou barata;\n- a sonda sai em 15 s, em modo cors (resposta opaca não readmite), com prazo de\n  60 s, e readmite quem responde devagar: o prazo da origem passa ao dobro da\n  maior espera que ela mostrou, até 60 s (servidor de 12 s: carrega);\n- o corpo que chega em pedaços (getReader) conta como atividade;\n- falha instantânea (CORS, DNS, certificado, queda de rede) não suspende nem\n  avisa: passa adiante como o MapLibre a passaria, para o painel e o aviso de\n  certificado de antes, uma vez;\n- a casa são todas as origens da instância no /config (nome público, tiles,\n  API, 360, ativos 3D, terreno), não só a da página;\n- etag no retorno, performance.now(), uma sonda por vez (pedido à origem\n  suspensa agendava outra com a primeira no ar), a sonda dorme quando nenhuma\n  fonte vigiada usa a origem, e os minimapas do Horizonte e do 360 também\n  pedem de novo quando ela volta.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "4c78454",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4c78454135f6f70dfc65ff314b3d0513ab6af833",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:29:45.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a doc e o CONFIG_DO_HLS_AO_VIVO dizem a espera real da borda\n\nDecisão do chefe (2026-11-08): a regra fica, e o que se escreve dela passa a\nser o medido. A janela de bordaSemBuracoRecente conta a partir do maior\nrecebido, e o buraco sai pelo fundo dela quando chegam os pedaços de cima:\ncom eles no ritmo, o GAP sai 3 s depois do pedaço seguinte no pedaço de 1 s e\n2 s no de 2 s, e não os 4 s de ESPERA_DO_BURACO_S. A janela de um pedaço a\nmais daria os 4 s e tiraria 20 dos 373 GAP dos voos reais da DSG, trocando\nsalto por parada no player; ficou de fora.\n\nO caso novo \"A ESPERA REAL\" em aovivo-playlist prende os 3 s e os 2 s.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit c57a1592ca42e8d658ea268dc606c8ea61d143ab)",
+      "sha": "344c428",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/344c428b6a609caa0a739507a0e5b423ff29a2f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:29:45.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a doc e o CONFIG_DO_HLS_AO_VIVO dizem a espera real da borda\n\nDecisão do chefe (2026-11-08): a regra fica, e o que se escreve dela passa a\nser o medido. A janela de bordaSemBuracoRecente conta a partir do maior\nrecebido, e o buraco sai pelo fundo dela quando chegam os pedaços de cima:\ncom eles no ritmo, o GAP sai 3 s depois do pedaço seguinte no pedaço de 1 s e\n2 s no de 2 s, e não os 4 s de ESPERA_DO_BURACO_S. A janela de um pedaço a\nmais daria os 4 s e tiraria 20 dos 373 GAP dos voos reais da DSG, trocando\nsalto por parada no player; ficou de fora.\n\nO caso novo \"A ESPERA REAL\" em aovivo-playlist prende os 3 s e os 2 s.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "c57a159",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c57a1592ca42e8d658ea268dc606c8ea61d143ab",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:29:44.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a regravação idêntica de um pedaço não conta como chegada nova\n\nDecisão do chefe (2026-11-08). A fila do Produtor repete o PUT cuja resposta\nse perdeu relendo o mesmo arquivo, e o recebido_em = NOW() desse reenvio\ntirava do pedaço logo abaixo de um buraco o direito de segurar a borda: o\nburaco saía com EXT-X-GAP antes da espera. Agora gravarPedaco compara o t, a\nduração e os bytes do arquivo gravado (byte a byte, até 4 MiB) e, sendo\nidêntico, responde igual sem regravar, antes do teto de gravação: o\nrecebido_em fica o da primeira gravação. O conteúdo diferente continua sendo\nchegada nova. O pedacoDa passa a ler t e duração.\n\nMedida de antes (produção, 2026-10-29 a 2026-11-05): 10 PUT repetidos em\n26.158, nenhum antecipou um GAP; no ensaio do hls.js 1.7.3, o GAP cedo só\nvira salto com o pedaço chegando entre uns 2,75 s e 3,0 s.\n\nTestes em aovivo-rotas: \"REENVIO IDÊNTICO NO MEIO DO VOO\" (o recebido_em, o\narquivo, a borda à espera do 3 e a ETag iguais), o controle \"REENVIO COM\nCONTEÚDO DIFERENTE\" (chegada nova, o 3 com EXT-X-GAP, ETag nova; os mesmos\nbytes com outra duração também) e \"A DELTA depois do reenvio\" (o idêntico\nsegue pulado, 5; o diferente para a delta no 2). Controle negativo com o\naovivo.service.js da main: 2 vermelhos, o idêntico e a delta, pelas\nmensagens certas; o controle e o IDEMPOTÊNCIA DO SEQ verdes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit 56dbd51295c841d8c4e7ec99f3a15e1aaf9141bb)",
+      "sha": "6852cb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6852cb036c3622ee342f8e9793db8db0f105c773",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T11:29:44.000Z",
+      "author": "Maj Diniz",
+      "message": "ao vivo: a regravação idêntica de um pedaço não conta como chegada nova\n\nDecisão do chefe (2026-11-08). A fila do Produtor repete o PUT cuja resposta\nse perdeu relendo o mesmo arquivo, e o recebido_em = NOW() desse reenvio\ntirava do pedaço logo abaixo de um buraco o direito de segurar a borda: o\nburaco saía com EXT-X-GAP antes da espera. Agora gravarPedaco compara o t, a\nduração e os bytes do arquivo gravado (byte a byte, até 4 MiB) e, sendo\nidêntico, responde igual sem regravar, antes do teto de gravação: o\nrecebido_em fica o da primeira gravação. O conteúdo diferente continua sendo\nchegada nova. O pedacoDa passa a ler t e duração.\n\nMedida de antes (produção, 2026-10-29 a 2026-11-05): 10 PUT repetidos em\n26.158, nenhum antecipou um GAP; no ensaio do hls.js 1.7.3, o GAP cedo só\nvira salto com o pedaço chegando entre uns 2,75 s e 3,0 s.\n\nTestes em aovivo-rotas: \"REENVIO IDÊNTICO NO MEIO DO VOO\" (o recebido_em, o\narquivo, a borda à espera do 3 e a ETag iguais), o controle \"REENVIO COM\nCONTEÚDO DIFERENTE\" (chegada nova, o 3 com EXT-X-GAP, ETag nova; os mesmos\nbytes com outra duração também) e \"A DELTA depois do reenvio\" (o idêntico\nsegue pulado, 5; o diferente para a delta no 2). Controle negativo com o\naovivo.service.js da main: 2 vermelhos, o idêntico e a delta, pelas\nmensagens certas; o controle e o IDEMPOTÊNCIA DO SEQ verdes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "56dbd51",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/56dbd51295c841d8c4e7ec99f3a15e1aaf9141bb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T10:46:01.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: servidor externo que não responde não segura mais a maquete e o relevo\n\nCom a internet direta caída (2026-11-05 e 06), a imagem Esri do estilo da base\npendurava e os tiles locais nunca carregavam. Causa medida no MapLibre 6.15.0:\na fila de imagens (ImageRequest) é global, em ordem de chegada, com 16 vagas,\ne o pedido pendurado só solta a vaga quando o tile sai da tela.\n\nO credencialDeTile passa a desviar o Tile de outra origem para o protocolo\nebgeo-externa (map/fonte-externa.js), registrado uma vez no map/maplibre.js.\nO protocolo corta por SILÊNCIO da origem (10 s sem nenhuma resposta), suspende\na origem com 4 falhas seguidas (falha na hora, sem rede), sonda fora da fila\n(1 min, dobrando até 5) e, quando ela volta, o mapa principal pede de novo os\ntiles dela. O painel de falhas diz qual base não carregou; um aviso diz por quê.\n\nBancada de navegador (n=3 por braço): controle 0/24 da maquete em 60 s; com o\nvigia, 24/24 em 10,5 s; servidor lento e válido de 4 s por tile, 0 tile cortado\n(prazo por pedido de 5 s cortou 16 a 22). Teste novo sobre a fila real do\nMapLibre reprova o credencialDeTile de antes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit bf61c57bef747487f8dcc042a8f4d8c6d700d1b6)",
+      "sha": "5df7d5a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5df7d5a69582ddbc9c34a3976ec4e43f37a865e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T10:46:01.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: servidor externo que não responde não segura mais a maquete e o relevo\n\nCom a internet direta caída (2026-11-05 e 06), a imagem Esri do estilo da base\npendurava e os tiles locais nunca carregavam. Causa medida no MapLibre 6.15.0:\na fila de imagens (ImageRequest) é global, em ordem de chegada, com 16 vagas,\ne o pedido pendurado só solta a vaga quando o tile sai da tela.\n\nO credencialDeTile passa a desviar o Tile de outra origem para o protocolo\nebgeo-externa (map/fonte-externa.js), registrado uma vez no map/maplibre.js.\nO protocolo corta por SILÊNCIO da origem (10 s sem nenhuma resposta), suspende\na origem com 4 falhas seguidas (falha na hora, sem rede), sonda fora da fila\n(1 min, dobrando até 5) e, quando ela volta, o mapa principal pede de novo os\ntiles dela. O painel de falhas diz qual base não carregou; um aviso diz por quê.\n\nBancada de navegador (n=3 por braço): controle 0/24 da maquete em 60 s; com o\nvigia, 24/24 em 10,5 s; servidor lento e válido de 4 s por tile, 0 tile cortado\n(prazo por pedido de 5 s cortou 16 a 22). Teste novo sobre a fila real do\nMapLibre reprova o credencialDeTile de antes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "bf61c57",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bf61c57bef747487f8dcc042a8f4d8c6d700d1b6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T10:43:58.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a imagem da base de imagens onde a fonte configurada não tem ladrilho (Monte Castello, 2026-11-08)\n\nO slide 2 do briefing de Monte Castello abria o Horizonte com \"Não foi possível carregar a imagem\"\ne o relevo cinza. A imagem vinha só de services.horizonteImagemUrl, o sr_sentinel_webp, que cobre\nsó o Sul: em Monte Castello os 343 ladrilhos voltavam 204, o corpo vazio não decodificava, e a\nmaquete de 1944 que o mapa mostrava nunca era pedida. Na DSG é igual: o mesmo Sentinel dá 204 ali.\n\nA fonte configurada continua primeiro, ladrilho a ladrilho. O que ela não dá sai das camadas raster\nda base em uso quando a base é de imagens (tipo 'imagens'), lidas do mapa vivo na ordem da base, sem\nas que os grupos esconderam, com a pintura como filtro de canvas e o ancestral no maxzoom da fonte.\nA credencial é a do mapa (credencialDeTile): na DSG a maquete e o terreno ficam em /martin/privado_*,\natrás do portão. Sem ladrilho em fonte nenhuma, o aviso diz que a imagem não cobre o ponto, em vez\nde pedir para verificar a conexão.\n\nProvas: horizonte-imagem-da-base.test.js (343 de 343 sem imagem no código de antes) e o caso da base\nprivada com terreno próprio em horizonte.spec.js (no código de antes, \"Verifique a conexão\").\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7\n(cherry picked from commit f0aaebba0e806a0af1250593d1f99de387bdced1)",
+      "sha": "4fb31e4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4fb31e427019deca6186062bd4996f4d4a0cb105",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T10:43:58.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a imagem da base de imagens onde a fonte configurada não tem ladrilho (Monte Castello, 2026-11-08)\n\nO slide 2 do briefing de Monte Castello abria o Horizonte com \"Não foi possível carregar a imagem\"\ne o relevo cinza. A imagem vinha só de services.horizonteImagemUrl, o sr_sentinel_webp, que cobre\nsó o Sul: em Monte Castello os 343 ladrilhos voltavam 204, o corpo vazio não decodificava, e a\nmaquete de 1944 que o mapa mostrava nunca era pedida. Na DSG é igual: o mesmo Sentinel dá 204 ali.\n\nA fonte configurada continua primeiro, ladrilho a ladrilho. O que ela não dá sai das camadas raster\nda base em uso quando a base é de imagens (tipo 'imagens'), lidas do mapa vivo na ordem da base, sem\nas que os grupos esconderam, com a pintura como filtro de canvas e o ancestral no maxzoom da fonte.\nA credencial é a do mapa (credencialDeTile): na DSG a maquete e o terreno ficam em /martin/privado_*,\natrás do portão. Sem ladrilho em fonte nenhuma, o aviso diz que a imagem não cobre o ponto, em vez\nde pedir para verificar a conexão.\n\nProvas: horizonte-imagem-da-base.test.js (343 de 343 sem imagem no código de antes) e o caso da base\nprivada com terreno próprio em horizonte.spec.js (no código de antes, \"Verifique a conexão\").\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKxFiSnNPpTwTzJZT7",
+      "sha": "f0aaebb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f0aaebba0e806a0af1250593d1f99de387bdced1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T10:36:27.000Z",
+      "author": "Maj Diniz",
+      "message": "fração: período pela hora do evento, desenhos na posição viva e o clique com tropa e celular; o cursor que pulava; a janela do vídeo acima da barra; o ícone do drone; o mapa base externo\n\n- Mais perto: o tempo pelo terreno usa dia ou noite pela hora do fato (o selo de luz da linha do tempo; crepúsculo conta como dia, decisão do chefe).\n- Anéis de alcance, \"Quem alcança\" e a caixa de seleção seguem a posição viva da fração, também no replay.\n- O clique na cópia viva seleciona o símbolo: painel da tropa com o bloco \"Posição ao vivo\" no topo.\n- Linha do tempo: o controlador guarda o instante escolhido e não o cursor preso ao sync anterior; a recarga do Campo mantém a faixa. Revisão pós-ação 10 de 10 sem a espera de contorno.\n- A janela do vídeo do reconhecimento sobe pela --temporal-bar-height (a legenda da cobertura ficava sob a barra).\n- O drone é um quadricóptero que gira pelo rumo, no pós-voo, no ao vivo e no celular.\n- Mapa base: config.externo, interruptor no Catálogo e o globo \"Precisa de internet\" no seletor; sem migração.\n- Censos: rótulo de auditoria do externo, glyphsDoEstilo na folha dos glifos, o SVG do drone e a classe posicao-ao-vivo.\n\nSuíte da raiz verde: frontend 26.665, backend 7.620, e2e 334, Ajuda 113; Playwright revisao-pos-acao e janela-sobre-a-barra 3 de 3.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "d54e179",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d54e17950607420928031d845f497a61a2006709",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-08T00:16:02.000Z",
+      "author": "Maj Diniz",
+      "message": "fração ligada ao aparelho, quem está mais perto do evento e a revisão pós-ação\n\n- Aparelho ligado à fração: o cartão da unidade na ORBAT vincula os celulares do Campo; o do comandante move o símbolo por uma cópia viva, sem escrita por posição; selo de idade na árvore, moldura \"sem notícia\" depois de 30 min, e o replay pela linha do tempo.\n- Mais perto deste evento: as frações por distância e, num clique, pelo tempo do Deslocamento (as 5 mais perto, tropa pela arma do SIDC); o clique desenha a rota.\n- Revisão pós-ação: o reconhecimento pós-voo segue o cursor (vídeo, drone, pegada e cobertura até o instante), o ao vivo gravado ganha a regra do cursor parado e da borda, o evento na hora do fato provado, e o ensaio Playwright com o Campo, o drone e os eventos no mesmo cursor.\n\nSuíte da raiz verde: frontend 26.614, backend 7.615, e2e 334, Ajuda 113; ensaio revisao-pos-acao.spec.js 1 de 1.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3U6Yv9xTYtrqBeuqMD",
+      "sha": "9476772",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/947677290337f55017177825920ec775a8da2f64",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-07T23:23:46.000Z",
