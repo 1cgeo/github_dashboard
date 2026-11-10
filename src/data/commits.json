@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-09T20:34:31.894Z",
+  "lastUpdate": "2026-11-10T17:36:10.142Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-09T19:36:56.000Z",
+    "1cgeo/ebgeo_web": "2026-11-10T15:59:43.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -56,8 +56,8 @@
     "1cgeo/server-healthcheck": "2026-08-04T12:52:33.000Z",
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
-    "1cgeo/autolabeller": "2026-11-09T18:30:24.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-09T20:12:11.000Z",
+    "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-10T16:17:03.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-11-08T12:21:06.000Z",
     "1cgeo/sap_master": "2026-11-09T12:17:34.000Z",
-    "1cgeo/ebgeo_campo": "2026-11-08T16:05:49.000Z"
+    "1cgeo/ebgeo_campo": "2026-11-10T16:13:30.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10597,
+    "totalCommits": 10680,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3374,
+      "1cgeo/ebgeo_web": 3431,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 91,
-      "1cgeo/ebgeo_campo": 77,
+      "1cgeo/ebgeo_campo": 97,
       "1cgeo/sap_master": 44,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -182,8 +182,8 @@
       "1cgeo/dsg_versioning": 151,
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
-      "1cgeo/autolabeller": 153,
-      "1cgeo/chefe_dgeo": 1380,
+      "1cgeo/autolabeller": 154,
+      "1cgeo/chefe_dgeo": 1385,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,753 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T16:17:03.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-10: a revisão completa, o plano, as decisões do chefe e os dois prompts da implantação\n\nA revisão de código do app, do retransmissor e da ligação com o EBGeo Web (66\nachados distintos, 15 graves), o plano por classe e por onda, as decisões do\nchefe do dia (a C13, a tela travada, o link público, a trajetória sem teto, o\n\"Pelo relevo\" suprimido), o retransmissor da revisão no ar, o backend na main\ndo ebgeo_web sem implantar, e os prompts para a estação que alcança a DSG.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "81b9afe",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/81b9afeda4e7a410e216c48c42343632d0ebbc5e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T16:13:30.000Z",
+      "author": "Maj Diniz",
+      "message": "teste-ponta-a-ponta: o vídeo ao vivo, a tela do EBGeo Web, o PMTiles e o login com o relógio adiantado\n\nO chefe pediu testado tudo o que a bancada deixava de fora (2026-11-10). Entram,\nnas duas rodadas (pelo retransmissor e direto):\n\n- o vídeo ao vivo do celular (C23) por um celular sintético, com o protocolo de\n  verdade e os pedaços do codificador de verdade, o mais novo primeiro e o buraco\n  preenchido depois, até a janela de vídeo do EBGeo Web;\n- a tela do operador e a do administrador do EBGeo Web num segundo navegador: a\n  camada \"Aparelhos de campo\", a ficha do militar, o evento com a foto, a\n  \"Posição estimada\", o comentário, o Receber, o replay e a aba Sistema;\n- o fundo por PMTiles escolhido pela tela, e o arquivo recusado;\n- o login com o relógio 11 min adiantado, pelos dois caminhos.\n\nSão 75 passos pelo retransmissor e 72 direto. Contra o backend de antes, a janela\ndo operador para aos 0,92 s no buraco do vídeo e não volta; contra o backend da\nrevisão (ebgeo_web affa4546b), toca. O \"Pelo relevo\" com terreno saiu: o modo foi\nsuprimido por decisão do chefe e sai do app na 0.1.14.\n\nSegue rodando o gêmeo em JavaScript do mensageiro. O núcleo Kotlin vem pela\nsubpasta do celular emulado, em obra.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "20f8a18",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/20f8a18985bca76f0c1cb2bd411398c5b90421cd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T15:59:43.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o spec do símbolo que segue o comandante publica o link sem esperar pergunta, e roda verde\n\nO spec esperava uma confirmação ao ligar o link público, e ela não existe\nnesse estado: o Aplicar só pergunta quando tira acesso de quem não está na\nsala (desligar o link, remover um grupo) ou quando o link publica arquivo\nprivado. A tela estava certa, e o spec passa a aplicar sem `confirmar`,\ncomo `despublicar-com-visitante.spec.js` faz ao ligar.\n\nRodado no chromium, verde na primeira tentativa, duas vezes. O controle\nnegativo, com o corte do link de volta ao da terceira rodada, reprova no\nprimeiro passo do visitante: \"o símbolo vinculado foi ao link público\".\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "affa454",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/affa4546ba3d18feafc8cc2e131eef0f02172308",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:51:56.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o que a bateria da rodada final achou\n\nDois censos e a integridade da documentação acenderam com a saída do\n\"Pelo relevo\": a contagem do `no-store` das rotas do campo (10 para 8), a\nfrase do motivo, e a regra `.claude/rules/configuracao-da-instancia.md`,\nque citava o relevo como exemplo vivo (quatro símbolos e dois caminhos que\nnão existem mais). A norma da regra não mudou: o exemplo vivo passa a ser\no retransmissor, e o relevo fica como história. A decisão de 2026-11-08\ncita `proxyDaFrenteUrl` como registro, e o símbolo entra na lista dos\ninexistentes de propósito.\n\nO censo de leitura por visão aponta o caso do teste pelo começo do nome,\nque mudou. E o caso da carga do teste do link vinculava ao mesmo\ncomandante o símbolo que devia ficar sem ponto: o comandante move todo\nsímbolo dele, e a premissa caía.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "ae88eb1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ae88eb1e4bc580b05855d17720ab3a5ab93397df",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:41:54.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: sai o \"Pelo relevo\" do servidor e da aba Sistema, e o estimado aceita a distância \"pela visada\" (decisão do chefe, 2026-11-10)\n\nO cálculo da distância pelo terreno não funciona: o erro relativo na\ndistância é o erro da inclinação dividido pelo ângulo da visada com o\nchão, e em terreno plano ou ondulado isso dá 50% ou mais por grau. No\nlugar entra, só no app (0.1.14), o \"Na visada\": o militar toca sobre a\nlinha do azimute no mapa.\n\nSaem do servidor o módulo do relevo, o pedido `relevo` no tradutor (o do\napp antigo passa a receber a recusa de tipo desconhecido, que é o que o\ncontrato das mensagens previa), a escolha do terreno na aba Sistema (as\nfunções, as duas rotas do admin, o formulário e os dois métodos do\ncliente da API) e a chave PROXY_DA_FRENTE_URL, que só ele lia. O\nTERRAIN_URL fica: é o terreno da instalação, lido pela configuração de\ntodo navegador. A chave `campo` do banco pode guardar um `relevoTerrenoId`\nde quem escolheu um terreno, que ninguém mais lê.\n\nNo estimado do evento, `distanciaPor` aceita `visada`, ao lado de\n`digitada` e `sem`; `relevo` e a `faixa` deixam de ser gravados. Na tela,\n`visada` tem a frase dela (\"pela visada, no mapa\"), e o evento antigo\ngravado pelo relevo segue legível. Os quatro censos perdem as entradas das\nrotas e das consultas removidas.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "46248de",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/46248de5cacc78d74e60868cb619f4d3d5a5e4c8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T14:41:53.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-10 (reedição das seis folhas fora da ASC): scripts da editar-carta para supressão na área edificada, medida no papel, quebra e abreviação (sem ponto, pela regra do chefe) e centragem de localidade, comparação float4 no gravar_rotulos_prod, learnings da rodada e pendências do piloto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMph6oRUWMns7Ei1P9",
+      "sha": "4377727",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4377727d8f6b003d3040e5ce9a6d51427111bc1b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o spec do Playwright fecha o socket à mão e segue a regra do link (C-D3)\n\nA emulação de sem rede não fecha o WebSocket já aberto, e o poll de 30 s desistia antes do batimento: o socket é fechado à mão, como nos dois specs do repositório, e a queda se reconhece pela transição. O visitante não tem o símbolo vinculado (a ausência se prova com um símbolo sem aparelho, que ele tem). Ainda não rodado: a bateria do Playwright é do coordenador.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "4f0d829",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f0d82919495cc9eb84d8b26bb43097e370ce5df",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: os testes da retomada de uma posição e do arquivo da lista lido só dentro do teto\n\nA reivindicação abandonada de uma posição já gravada é retomada sem devolver o contador (o reenvio leva a recusa de contador, e os pontos não entram duas vezes); a de uma posição que não chegou a ser gravada devolve, e o lote entra uma vez. O arquivo da lista de revogação maior que o teto não é lido: a leitura é observada, com o controle do arquivo normal, que é lido uma vez.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "415516a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/415516aacf67f0e6748194ec762fa3463494e93f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: os testes do retransmissor esperam por estado, não por tempo (S5)\n\nA espera da reconexão é lida do estado do cliente com a data do processo parada (a tentativa marcada menos o agora é exatamente a espera agendada: 1000, 2000, 4000), e não medida pelo intervalo entre a queda e a conexão seguinte, que numa máquina carregada reprovava o teto de um caso certo. O pedido do administrador é conferido pela tentativa desmarcada e pela conexão que chega antes da hora marcada. O envelope em voo do desligamento é visto no banco (a sessão à espera da trava), e não suposto depois de 300 ms.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "0442079",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0442079c0c4f9fcf6328f07851ef8218e019b4d6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a passagem provada com o cliente que abre pela cauda, e o carimbo que pode reprovar (C-D4, S5)\n\nCada atlas tocado ganha um marcador de visão e a versão dele anda; o intocado, nada; a segunda passada não grava marcador. Um arquivo novo roda a passagem de verdade e pede a cauda como o navegador pede, com a conta de um Editor e com o token do link: antes vem vazia, depois traz o marcador, e o retrato que ele manda tirar mostra o símbolo desvinculado, com o rastro e sem a conta. As linhas do teste nascem com o carimbo de um dia atrás: dentro de uma transação o NOW() é fixo, e a afirmação de que o updated_at não muda não podia reprovar.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "e7569c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e7569c6c078a3d87b69a988ffae85a7f64c963e2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o plano das consultas da tabela de pontos preso por teste (S3)\n\nCom 150 mil pontos e as estatísticas em dia, a pergunta do gatilho da cascata (os pontos de uma feição, sem predicado) usa o índice por feição, e o restaurar a um momento, a montagem e o cursor do retrato não varrem a tabela. As consultas são as do código, capturadas de uma chamada à função.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "fda6d82",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fda6d82ff0bb23868fcb0ffaa172d2c1d27a1e71",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: os testes das três regras do link, do S1 e do S2, com o visitante de verdade\n\nO visitante do link, no socket, na cauda e no retrato: o símbolo vinculado não está em saída nenhuma, nem o id dele num grupo, nem a exclusão; vincular o tira de quem o tinha e desvincular o devolve com o rastro, pelo marcador de visão; num atlas sem link nenhum marcador é gravado. A recusa de uma op (S1, o caso do revisor) não leva a feição e responde o que responde o id que não existe, com o controle de que a recusa de quem recebe a posição a leva. O cursor do retrato e o da rota (S2, o caso do revisor) não andam com os pontos de um mapa que a pessoa não lê, com o controle de quem lê. A cópia sai sem vínculo, sem pontos e sem rastro, e a rota do cursor recusa o cursor que não é inteiro.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "2a5efef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2a5efefcb2657f3bc931f4597acde86afa4ab2d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:11.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a wiki do campo com as três regras do link, a tabela das saídas e o que o link recebia antes da passagem (S4)\n\nEra falso que \"até a passagem esses símbolos não iam ao link\": o que roda hoje na DSG não tem corte nenhum, e o link recebe a posição, o rastro e a conta de todo símbolo vinculado. A passagem não cria exposição. A wiki ganha a tabela de cada saída de feição e o que ela faz para quem não recebe a posição, o marcador de visão que tira e devolve o símbolo ao visitante, a confirmação do desvínculo, a regra da cópia, e o marcador que a passagem grava para o navegador que abre pela cauda. Um comentário da importação de arquivo dizia a regra de antes.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "67ac838",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/67ac83847053b1e0cf13bc2830d1a4c12a401bfb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:38:10.000Z",
+      "author": "Maj Diniz",
+      "message": "constituição: a cláusula 5.12 diz as três regras do símbolo vinculado e do link público (decisão do chefe, 2026-11-10)\n\nSó texto. O símbolo vinculado a um celular não vai ao link público de jeito nenhum, nem parado, e nada conta que ele existe; desvincular mantém o rastro no símbolo, como registro da operação, e o link o recebe, com aviso e confirmação na tela quando o link está ligado; a cópia de um símbolo vinculado sai sem o rastro e sem o vínculo. Sai a frase do símbolo \"parado onde o Editor o lançou\", que era a regra de antes.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "ae84e0d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ae84e0dc5c2fd0e2d03d6d0ab95654213a2d2d2e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:21:38.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: desvincular o último celular avisa que o rastro vai ao link público, e pede confirmação (decisão do chefe, 2026-11-10)\n\nEnquanto vinculado, o símbolo não vai ao link público; desvinculado, volta\na ir, com o rastro, que fica nele como registro da operação. Quando o\natlas tem link público ligado, a saída do último aparelho pergunta antes,\ndizendo o que acontece, e o \"não\" não escreve nada. Sem link ligado, ou\ncom outro aparelho ainda vinculado, desvincula direto, como antes. O mesmo\nvale para a unidade de onde o militar sai ao ser vinculado a outra.\n\nO estado do link é perguntado ao servidor na hora (`GET /atlas/:id`, que\ntodo leitor alcança): a store não o guarda, e outra pessoa pode tê-lo\nligado há um minuto. Sem resposta, a tela pergunta com a frase\ncondicional: \"não sei\" nunca é lido como \"desligado\".\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "0001fb2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0001fb2f63f92df68fac012bc226df29a40674ec",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:20:13.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a tela diz por que não pôde quando o celular foi vinculado depois de ela abrir (C5)\n\nAs quatro telas que mudam a posição ou a rota perguntavam \"segue um\ncelular?\" à cópia que seguram. Se um colega vinculou o aparelho depois de\na tela abrir, o gesto passava, a store desfazia calada, e o editor de rota\nainda pintava a rota que não foi gravada.\n\nA pergunta é refeita à feição GUARDADA: dentro da transformação, no editor\nde rota (os dois caminhos de gravação), no painel de atributos temporais e\nna Cronologia; e na leitura da store antes de abrir a janela, em \"Editar\ncoordenadas\". Nada é gravado, a pessoa lê a frase da recusa, e a tela volta\nao que a store guarda (a lista do painel e a do editor, que o gesto muda\nantes de gravar, e a geometria da cópia), com o vínculo na cópia para o\ngesto seguinte já ser recusado na porta.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "cf015f2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf015f2b22e45b014c15f919a551d1fdc4a2fdcd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:20:13.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: as quatro portas da store presas no ponto de chamada (C-D3)\n\nA regra pura já tinha teste, mas apagar a chamada dela em `updateFeature`,\n`updateFeatures`, `updateFeatureProperty` ou `shiftMapTemporalTimes` deixava\na suíte inteira verde (revisão de 2026-11-10). Seis casos pela store de\nverdade, com repositório que clona na leitura e na escrita: mover e\nrenomear grava só o nome; só mover não grava nem declara operação; no lote\no vinculado fica e o ponto comum anda; a trajetória é recusada com a frase\ne a chave do cursor nunca é escrita; reagendar anda a janela e não os\ninstantes do rastro; desfazer um arrasto de antes do vínculo não move nem\ndesvincula. Cada porta tem o controle do símbolo sem vínculo, que anda.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "e4bcbe9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e4bcbe934c86d3df3045cd05dc9b0ab49712c790",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:15:45.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a cópia de um símbolo vinculado sai sem o rastro e sem o vínculo, no navegador (decisão do chefe, 2026-11-10; C4)\n\nA regra é uma só (`propriedadesDaCopia`, espelho de `propriedadesDeCriacao`\ndo servidor, presos um ao outro por teste) e passa a valer nos quatro\nsítios em que o navegador copia uma feição: colar e duplicar, que já\ntiravam o vínculo e agora tiram o rastro; a cópia da feição recebida de\noutro mapa, a cópia de camada entre mapas e a importação de `.ebgeo`, que\nlevavam o vínculo (revisão de 2026-11-10). Mover a camada guarda os dois,\nporque é o mesmo símbolo. O símbolo desvinculado que guarda o rastro é\nconteúdo comum, e a cópia dele leva a trajetória.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "fbe2c9d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fbe2c9d6a6c6fdeb919c0f03fe84c5f7c7406615",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:14:31.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o lote de ops não apaga o ponto que o quadro trouxe, e a memória guarda o maior lote do aparelho (C-D2, C1)\n\nDuas ou mais ops de feição do mesmo mapa num quadro são gravadas juntas\n(`writeRunToDocument`), e esse caminho gravava o documento como veio: o\nponto do comandante que chegou depois de o servidor montar aquelas ops\nsumia do rastro, e o símbolo voltava uma posição na tela. O lote passa\npela mesma preservação do caminho de uma op (`comOsPontosLembrados`), e a\nremoção em lote esquece os pontos do símbolo apagado.\n\nA memória dos pontos recentes sobe de 64 para 500, o maior lote que um\naparelho manda num envelope (`MAX_PONTOS_POR_ENVELOPE`, preso por teste),\ne deixa de ser podada pelo que um documento cobre: os documentos não\nchegam na ordem em que foram montados, e o que cobria mais tirava da\nmemória o ponto de que o seguinte, montado antes, precisava. O teto de\nsímbolos lembrados cai de 2000 para 500.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "edb35cc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/edb35cc71091c41607554eda9769200766a9873a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T14:13:10.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: sem tempo real o símbolo volta a seguir o comandante, e a busca dos pontos é da sessão (C-D1, C2, C3, C-D3)\n\nO ponto do comandante deixou de ser op no log, então a cauda não o traz, e\natrás de um proxy que recusa o socket não há quadro: o símbolo parava no\núltimo retrato, uma regressão contra a `origin/main`. Agora cada rodada do\npull sem tempo real pede os pontos pelo cursor, e a guarda do laço é\n`canReachServer` (com e sem socket).\n\nA busca passou a ser da sessão: lê o atlas de `session.atlasId` (o do motor\nainda é nulo durante a abertura) e guarda a trava nela, para a busca de uma\nsessão velha, pendurada na rede, não engolir a da nova. `mais` com o cursor\nparado encerra a busca em vez de pedir a mesma página cinquenta vezes.\n\nA falha não é mais engolida: fica na sessão (`falhaDaBuscaDePontos`) e no\nconsole. Os dublês do `sync-engine.test.js` ganham `getPontosDeSimbolo` e\n`applyRemoteFieldPoints`, que faltavam (a busca morria num TypeError em\ntodo caso com retrato), e a suíte inteira afirma que a busca não falhou.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "b9f8f0a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b9f8f0a90c40f3d72f754fddde923e445e10c680",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:59:46.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a passagem chega ao navegador que abre pela cauda, e o cabeçalho dela diz o que o link recebia (C-D4, S4)\n\nA migração da passagem não gravava op nem forçava retrato: o navegador que já\ntinha o atlas seguia mostrando vinculado o símbolo que ela desvinculou, o\ncartão recusava vincular quem \"já estava na lista\", a mão do Editor não movia\no símbolo, e o F5 não resolvia. Cada atlas com símbolo tocado ganha um\nmarcador `view_changed` no log, como na migração da camada ao vivo por mapa:\na versão do atlas anda e todo navegador tira retrato. As linhas das feições\nseguem sem mudar de `version`.\n\nE o cabeçalho dizia que \"até aqui esses símbolos não iam ao link\", o que é\nfalso para o que roda hoje: antes desta obra não havia corte nenhum, e o link\nrecebia a posição, o rastro e a conta de todo símbolo vinculado. A passagem\nnão cria exposição: o símbolo que ela desvincula vira conteúdo comum, com o\nrastro e sem a conta, pela regra do desvínculo.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "42b3fb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/42b3fb53c021db8bd1920569876333ae4a18de77",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:58:48.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o arquivo da lista de revogação tem o tamanho conferido antes de ser lido\n\nA leitura é síncrona e acontece no boot, e o teto só era aplicado depois de o\narquivo inteiro estar na memória: um arquivo de centenas de MiB na pasta do\nestado prendia o laço de eventos antes de ser recusado. O tamanho passa a ser\nperguntado antes; o teto de depois fica, porque o arquivo pode crescer entre\nas duas.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "3dd1258",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3dd1258764a7a78543b297696047c7797870e3bf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:58:48.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a retomada da reivindicação abandonada não regrava a posição que já tinha entrado\n\nA retomada devolvia o contador sempre, e o `catch` de 60 linhas abaixo se\nrecusa a devolvê-lo quando a posição já foi gravada, porque o lote reaplicado\ngrava os pontos de novo (`posicoes_campo` não tem como reconhecer o repetido).\nO processo que morria depois de gravar a posição e antes do retorno, com\nreenvio dois minutos depois, duplicava o lote. A retomada passa a perguntar\nao banco se o aparelho já tem ponto num instante do lote: tem, o contador não\nvolta, e o reenvio leva a recusa de contador, que não perde nada; não tem,\nvolta, e o lote entra.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "12dc2b4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/12dc2b42976afae9576440122b0060ade392cbb0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:56:53.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o índice por feição na tabela de pontos (S3)\n\nO único índice que começava por `feature_id` era parcial, e o Postgres não o\nusa para quem pergunta só pela feição: a cascata do `REFERENCES features(id)`\nvarria a tabela de pontos do sistema inteiro a cada feição apagada de verdade\n(504 ms contra 1,9 ms em 50 feições com 300 mil pontos, medido pelo revisor do\nservidor), e o restaurar a um momento também. Entra `(feature_id, id)` na\nmigração da tabela, que ainda não foi aplicada em lugar nenhum.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "ca4005e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ca4005ea05b1f0e5bbfc8bd7a8ef669fe2859447",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:56:53.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a cópia de um símbolo vinculado sai sem o rastro e sem o vínculo, no servidor (decisão do chefe, 2026-11-10)\n\nO chefe decidiu que copiar um símbolo vinculado gera a cópia sem o rastro e\nsem o vínculo. No servidor:\n- a cópia de mapa e de atlas (clonar, duplicar, importar de outro atlas) não\n  leva mais os pontos: a cópia nasce sem `aparelhosDeCampo`, sem trajetória,\n  na geometria da LINHA, que é onde o Editor pôs o símbolo. Para quem só\n  alcança a origem pelo link, o símbolo vinculado não é copiado (regra 1);\n- a criação pelo sync e a importação de arquivo passam pela mesma regra\n  (`propriedadesDeCriacao`): com vínculo, saem o vínculo, a trajetória e a\n  chave do cursor. Nenhuma criação legítima traz o vínculo, que entra por\n  edição depois de o símbolo existir.\n`copiarPontos` sai: ninguém mais a chama.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "3e68e8b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3e68e8b5ce9e65f47c42b8fea19517c5b24b9fe3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:56:21.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o cursor dos pontos só anda com os símbolos que cada um recebe, e a rota valida o cursor pedido (S2)\n\nO leitor de OUTRO mapa do mesmo atlas via o `pontosDoCampoAte` do retrato e o\n`ate` da rota do cursor andarem com os pontos de um mapa que ele não lê: dez\nsegundos depois de cada ponto, sabia que alguém andava no mapa restrito\n(provado pelo revisor do servidor). O recorte só tirava o link público.\n\n- no retrato, o cursor sai dos símbolos que ele SERVE montados: a visão\n  recebe a posição no mapa E lê o mapa ou recebe a camada do símbolo;\n- na rota, o recorte vai DENTRO da consulta (os mapas lidos e as camadas\n  recebidas de mapa não lido), porque o cursor anda por toda linha lida;\n- `depoisDe` que não é inteiro não negativo responde 422, e não chega ao\n  banco como parâmetro (`Infinity` e `1e30` davam erro interno).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "72b7500",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/72b750048614a16bcf8298925195905967310f65",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:56:21.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a recusa de uma op não leva o símbolo vinculado a quem não recebe a posição (S1)\n\nA recusa (conflito) leva a linha do servidor, e para o símbolo vinculado a\nlinha saía MONTADA: a conta que alcança o atlas pelo link e escreve em OUTRO\nmapa recebia, por uma criação sobre o id do símbolo, a posição do comandante,\no rastro e a conta dele (provado pelo revisor do servidor). Quem poda a recusa\nsó perguntava se quem empurra LÊ o mapa da linha, e o link dá essa leitura.\n\n`podarConflito` passa a perguntar primeiro pelo símbolo vinculado: a quem não\nrecebe a posição a recusa volta sem a linha, sem a versão e sem a marca de\nexcluído, com o motivo de uma feição que não existe. Vale também para a\nrecusa que não leva linha (o motivo \"foi movido para outro mapa\" confirmava\no id). A criação não tem como responder isso, porque o id não pode ser\ntomado: diz que o id está em uso, e mais nada.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "2606435",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2606435a70652c377b9bc750f0f449462a827dfc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:55:04.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o símbolo vinculado a um celular não vai ao link público em saída nenhuma (decisão do chefe, 2026-11-10)\n\n\"Vincular aparelho\" numa unidade sem símbolo cria o símbolo na posição\ndo militar, e essa geometria é a da linha: mandá-la ao link \"parada onde\no Editor a lançou\" entregava uma posição de verdade. O chefe decidiu que\no símbolo vinculado não vai ao link de jeito nenhum enquanto estiver\nvinculado, e que nada conte que ele existe.\n\n- `feicaoSemPosicaoDoCampo` deixa de ter forma cortada: vinculada, não\n  vai. Vale no retrato, na op (relay e cauda) e na cópia, que já passavam\n  por ela;\n- a op que só CITA a feição, sem o documento, é julgada pela linha, lida\n  uma vez por lote (`ctx.vinculoDaFeicao`): a exclusão do símbolo\n  vinculado não vai, o vínculo dele a um grupo não vai, e o grupo vai sem\n  esse membro. Sem linha, ou sem leitura do lote, não se conta. No\n  retrato, a lista de vínculos de grupo sai sem ele;\n- a sala só paga essa leitura quando tem um socket do link;\n- o símbolo que ENTRA e SAI: vincular o tira do visitante, e desvincular\n  o devolve com o rastro. Nenhuma das duas ops diz isso sozinha, então,\n  com o link público ligado, o push grava o marcador de visão logo depois\n  dela (`VINCULO_DE_CAMPO`) e o visitante tira retrato: o mecanismo da\n  feição que cruza a fronteira de uma camada.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "e721610",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e7216109837daffd4eee2fda4eb9e2db278c4bae",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:15:28.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o que a bateria achou, e as duas portas de tela que mudavam a posição de símbolo vinculado em silêncio\n\nDa bateria (1.286 testes no backend, 152 arquivos no frontend):\n- `pontos-do-campo.js` importava o banco no topo, e `sync/feature-conflicts.js`\n  passou a importá-lo: o espelho do cliente, que carrega aquele arquivo num\n  processo sem banco, deixou de carregar. O banco passa a ser importado na\n  hora da leitura sem transação;\n- a lista de handlers do socket que o teste do motor prende ganha o do\n  quadro de pontos;\n- dois testes novos estavam mal calibrados: o da passagem reconhecia o aviso\n  pela palavra da severidade, que o Postgres traduz (passa a ler o SQLSTATE),\n  e o da cauda partia da versão 0, de onde o servidor responde o retrato;\n- o teste de custo passa a dizer os números que mediu.\n\nDuas portas da tela ainda aceitavam o gesto sobre a posição de símbolo\nvinculado e a store o desfazia em silêncio: a coordenada digitada em\n\"Localização\" e o arrasto de um ponto da rota na cronologia. As duas recusam\ncom a frase, como o arrasto no mapa; a janela do símbolo segue arrastando.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "c124cb5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c124cb5d5996ade431e7fed5dcad2a077927a88c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:06:04.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a cláusula 5.12, a segurança do campo e a página da ORBAT com a tabela de pontos e o quadro\n\n- 5.12: a posição do comandante não mora na linha do símbolo; o servidor\n  monta a trajetória na saída só para quem a recebe, o ponto novo viaja\n  num quadro que o link não recebe, a mão do cliente não escreve a\n  posição de símbolo vinculado, e desvincular grava o rastro na feição;\n- `docs/wiki/seguranca-do-campo.md`: a forma final do corte do link\n  (\"não monta e não avisa\"), o custo do ponto, e a passagem, com a\n  consulta que conta os símbolos que a migração vai desvincular;\n- `docs/wiki/orbat.md`: onde os pontos moram, o contrato do quadro e da\n  rota do cursor, como o servidor escreve, e o que vincular, desvincular,\n  copiar e restaurar fazem com eles.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "d0c0a2c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d0c0a2c28e6b3e55471ae1c5ec31d841a893d9cf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T13:04:38.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a passagem do símbolo que já seguia um comandante para a tabela de pontos, e os testes da trajetória sem limite\n\nA migração `082_passagem_dos_pontos_do_campo.sql` leva a linha no\nestado antigo para a forma nova, sem op no log e sem tocar em `version`:\n- com a geometria de referência, os pontos-chave válidos vão para\n  `feature_pontos_do_campo`, a geometria volta para a referência, e a\n  feição montada é a de antes, chave a chave;\n- sem a referência e com trajetória, o símbolo é DESVINCULADO (a lista\n  fica, vazia; a trajetória fica na feição como realizada), e a contagem\n  sai em `RAISE WARNING`, com quantos são de atlas com link público:\n  desvinculada, a trajetória é conteúdo comum e o link a recebe.\nIdempotente. O teste a roda contra o banco montado no estado antigo, com\n500 pontos produzidos pela regra antiga, duas vezes.\n\nOs testes novos e os adaptados:\n- a forma montada da tabela é, chave a chave, a que a regra de antes\n  gravava na feição, com o lote atrasado no meio e os dois pontos no\n  mesmo milissegundo, com e sem a memória por conta;\n- o custo: 2.000 pontos, a linha da feição do mesmo tamanho no ponto 10\n  e no 2.000, nenhuma linha nova no log nem na cópia do antes, o quadro\n  do mesmo tamanho, a soma que dobra, e o retrato linear;\n- o símbolo segue o comandante sem tocar a linha; a mão do cliente é\n  recusada com frase; o cliente antigo; a cópia; o primeiro vínculo; e\n  restaurar o atlas a um momento.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "3b39e7b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3b39e7b6897e863f18d68672c422331cacef226b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:55:20.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: no cliente, o ponto do símbolo entra como estado remoto, e a mão do Editor não escreve a posição de símbolo vinculado\n\nO quadro `pontos_do_simbolo` e a rota do cursor entram no documento da\nfeição pelo caminho da op de um colega (`applyRemoteFieldPoints`): sob a\ntrava do documento do mapa, gravado no disco, anunciado como feição\nalterada. Nunca passam pela store de edição, então não geram operação de\nsaída, desfazer nem marca de edição local. O quadro entra na mesma fila\nde aplicação das ops do socket.\n\n- o ponto que a montagem do servidor já cobre (`pontosDoCampoAte`) e o\n  de instante repetido não entram duas vezes;\n- os pontos recebidos há pouco ficam lembrados por símbolo: o recibo ou\n  a cauda montados ANTES de um ponto e aplicados DEPOIS não o apagam;\n- depois de cada retrato e de cada resposta de sync, o navegador busca\n  pelo cursor o que o socket não entregou; o cursor fica guardado por\n  atlas. O visitante do link não pede.\n\nA mão deste cliente não escreve a geometria nem a trajetória de símbolo\nvinculado: a store devolve as duas ao guardado em toda escrita local,\nrecusa com frase a edição da trajetória, e o patch do sync nunca as leva\n(nem a chave do cursor). O vínculo deixa de mover o símbolo e de\nacrescentar ponto: quem move é o servidor. A ferramenta de trajetória e\no painel recusam o gesto dizendo o estado.\n\nO caso do Playwright (o símbolo anda na tela do membro e não na do\nvisitante do link) fica escrito e ainda não rodado.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "f920376",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f920376fa16d91c1b9b42e19f8c0017dd04ecfc7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:46:10.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: vincular de novo o símbolo que já teve aparelho leva a trajetória realizada para a tabela\n\nO cliente distingue duas trajetórias no símbolo sem vínculo (o chefe da\nDGEO, 2026-11-08): a PLANEJADA, do símbolo nunca vinculado, que sai no\nprimeiro vínculo depois da confirmação; e a REALIZADA, do símbolo que já\nteve aparelho (a lista fica, vazia), que o vínculo novo continua.\n\nO servidor tirava as duas da linha ao vincular, e a realizada se perdia.\nAgora ela vai para `feature_pontos_do_campo`, sem conta, e os pontos do\ncomandante novo a continuam. Quem a leva é `finishFeatureMutation`,\ndepois de a linha ser escrita: uma op recusada não grava nada.\n\n`gravarPontos` passa a receber três vetores, e não uma tupla por ponto:\na trajetória realizada entra inteira por ali, e ela não tem limite.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "d7b52c3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d7b52c3a69559955ff1f38057a6cd658666891db",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T12:38:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-10 (bancada de rótulos): juiz Opus medido contra o chefe (kappa 0,38 sem regra, 0,55 com os critérios dele), segunda onda de 17 famílias, seleção e 40 rótulos posicionados pelo chefe, regras-chefe da editar-carta reescrito em seleção, forma e posição\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SxdeBjfuYwmjWRaY8",
+      "sha": "771be84",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/771be8435737f41d439533c6b48223b91dc99c0b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:37:09.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o corte do link público na forma final, \"não monta e não avisa\" (5.12)\n\nCom a posição fora da linha da feição, o que vai ao link público é a\nprópria linha, sem o vínculo. Saem do item B a geometria de referência\n(`geometriaAntesDoCampo`), `referenciaAGuardar`, a limpeza no desvínculo\n(`semReferenciaSolta`) e o descarte da escrita do servidor em\n`opParaVisao` (ela não é mais op). Ficam a marca do link público na\nvisão e na assinatura, `recebePosicaoNoSimbolo`, os três sítios de saída\ne o teste do visitante, adaptado.\n\n- `feicaoSemPosicaoDoCampo` tira o vínculo e devolve a linha como está;\n  o corpo vinculado que TRAZ trajetória (a op antiga do log, a linha de\n  antes desta obra) segue sem ir: a geometria dele é a do comandante;\n- o cursor do retrato é o dos símbolos que a visão recebe montados,\n  nunca o contador da tabela: para o link é zero;\n- a vizinhança que a cadência lê fica limitada dos dois lados do lote.\n\nOs testes do visitante passam a provar, com o token do link de verdade:\no retrato, a cauda e o socket sem montagem, nenhum quadro de ponto, a\nrota do cursor vazia para a conta só pelo link e fechada ao anônimo, o\nteto da rota com continuação, o desvínculo que materializa e a cópia.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "ac9d467",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ac9d467675ca20ce96172d5b31d8c1b82587ba9e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:31:12.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o ponto do comandante vira uma linha da tabela, e a mão do cliente não escreve a posição de símbolo vinculado\n\n`seguirOComandante` deixa de regravar a feição a cada ponto. O ponto que\npassa a cadência é uma linha de `feature_pontos_do_campo` e um quadro\n`pontos_do_simbolo`: a linha da feição não muda (nem a versão, nem a\ngeometria), não há linha no log, nem cópia do antes, nem a trava do log\ndo atlas. A regra da cadência lê só a vizinhança do lote, que dá a mesma\nresposta que a trajetória inteira dava. Uma transação por símbolo, sob a\ntrava da linha dele.\n\nNo sync (`prepareFeatureMutation`):\n- a edição da geometria ou da trajetória de símbolo vinculado é recusada\n  com frase (`RAZAO_SEGUE_O_COMANDANTE`);\n- a op que mexe no vínculo tem essas duas entradas tiradas: vincular\n  tira da linha a trajetória planejada, e desvincular MATERIALIZA os\n  pontos na feição, uma vez, sob a trava da linha, e só os marca na\n  tabela depois de a linha ser escrita (`finishFeatureMutation`);\n- mover e restaurar gravam a posição e o vínculo que o servidor tem;\n- a feição criada com vínculo e com trajetória (a cópia de um símbolo\n  que seguia) nasce sem o vínculo, e a chave do cursor nunca é gravada.\n\n\"Restaurar o atlas a um momento\" tira os pontos gravados depois dele e\ndevolve os que um desvínculo posterior materializou. A importação de\narquivo usa a mesma regra da criação.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "5bb3273",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5bb32730079cc50e736861db33643df207924d26",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:28:15.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o quadro `pontos_do_simbolo` e a rota do cursor, com uma regra só de quem recebe\n\nO ponto novo do símbolo que segue o comandante viaja num quadro leve do\nsocket, fora do sync, do mesmo tamanho no primeiro ponto e no milésimo\n(`avisarPontosDoSimbolo`), e quem ficou para trás o busca por cursor\n(`GET /campo/simbolos/pontos`).\n\n- uma regra para os dois (`recebePontosDoSimbolo`): quem recebe a feição\n  (lê o mapa, ou recebe a camada por difusão) E a posição no símbolo. O\n  visitante do link público não recebe o quadro e recebe a lista vazia\n  da rota (cláusula 5.12);\n- nem o quadro nem a rota levam a conta do comandante;\n- a rota tem teto de linhas com continuação (`mais`), e o cursor só\n  passa de ponto assentado, para a gravação de `id` menor que aparece\n  depois não ficar para trás;\n- o quadro sai pela fila de difusão do atlas, atrás da op pendente.\n\nA rota e o tipo de quadro entram nos censos de saída de conteúdo, de\nleitura por visão e de superfícies de recurso.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "eb7953a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb7953aff7130c52f2ca65bc8e8a5f13b315a851",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:25:47.000Z",
+      "author": "Maj Diniz",
+      "message": "IMPLANTACAO: o retransmissor da revisão de 2026-11-10 no ar, e a ordem das três implantações\n\nO retransmissor com os consertos da revisão subiu em 2026-11-10 09:24:22 de\nBrasília (sha256 2c35d6f3d888ce73…, da main em 8ce4825), relido no destino. O\nbackend do EBGeo Web e o app 0.1.14 vêm depois, nessa ordem, e a versão mínima\nsó sobe depois do app.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "4d65598",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/4d65598ee5ef921d3a68007fc6f9bf6797a2940c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:25:34.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o símbolo vinculado sai montado dos pontos da tabela em toda saída (a op, o retrato, a cópia)\n\nA trajetória do símbolo que segue o comandante sai da linha da feição\n(decisão do chefe da DGEO de 2026-11-10: a trajetória não tem limite).\nO cliente aplica o documento inteiro de cada op e de cada retrato, então\nquem recebe a posição precisa receber a feição MONTADA em toda saída,\nsenão a edição do nome de um símbolo apagaria o rastro da tela.\n\n- a op (o relay e a cauda): o contexto do lote lê os pontos uma vez\n  (`contextoDeVisibilidade`), e `opParaVisao` monta para a visão que\n  recebe; um objeto montado por op e lote, para o leque serializar uma\n  vez só;\n- o retrato: uma leitura para todos os símbolos vinculados do atlas, na\n  transação dele, e o cursor de onde o cliente continua\n  (`pontosDoCampoAte`);\n- a cópia: os pontos vão com o id novo da feição, para quem recebe;\n- o recibo do autor e o lado do servidor numa disputa também.\n\nSem ponto na tabela, a feição montada é a linha como está: a op antiga\ndo log e a linha de antes desta tabela se leem como sempre.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "4886ec3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4886ec33ac83cef075fe6b31c1b1cd9c74920434",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:16:37.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a tabela dos pontos do símbolo que segue o comandante, e o módulo que a lê e monta\n\nDecisão do chefe da DGEO de 2026-11-10: a trajetória do símbolo não tem limite,\ne o custo de cada ponto tem de ser constante. Gravada na feição, ela fazia cada\nponto regravar a feição inteira quatro vezes no banco (a linha, a cópia do\nantes, `changes` e `data` no log) e mandá-la duas vezes a cada leitor.\n\nPrimeira parte, ainda sem uso: a migração `081_pontos_do_campo.sql` cria\n`feature_pontos_do_campo`, só de acréscimo, um ponto por linha, com o `id` que\nserve de cursor e a marca de quando o desvínculo materializou o ponto na\nfeição. O módulo `pontos-do-campo.js` grava, lê a vizinhança de um lote, lê por\ncursor, materializa, copia e restaura. A regra pura ganha `feicaoMontada`, a\nfeição como sai para quem recebe a posição, na mesma forma de quando a\ntrajetória morava na linha, com o maior `id` de ponto que entrou nela.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "baf7861",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/baf78614fad384a60746d8abd433e2600bc4dbf9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:14:02.000Z",
+      "author": "Maj Diniz",
+      "message": "teste-ponta-a-ponta: o app, o retransmissor e o backend do EBGeo Web de verdade, pelos dois caminhos\n\nPedido do chefe (2026-11-10): um teste simulado de ponta a ponta com todas as\nfunções do app indo pelo retransmissor ao EBGeo Web, e outro indo direto, como\nna VPN. Até aqui o e2e do app rodava contra o EBGeo simulado e só pela VPN, e\no teste da porta falava com o backend real sem a tela.\n\nA bancada sobe o banco descartável com as migrações do ebgeo_web, o backend\nreal, o binário de desenvolvimento do retransmissor e o Vite do app, e um\nroteiro só roda duas vezes: 50 passos pelo retransmissor e 47 direto. Cada\npasso confere no banco e nas rotas que a tela do centro de operações consome,\ne a prova do caminho é a coluna `caminho` de `posicoes_campo`.\n\nSete achados da revisão de 2026-11-10 e dois da própria bancada entram como\nreprovação conhecida, pela regra do xfail estrito: no dia em que o conserto\nentrar, o passo acusa \"passou o que devia reprovar\".\n\nRoda o gêmeo em JavaScript do mensageiro, não o núcleo Kotlin nem o vídeo.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "8ce4825",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/8ce4825a86d2f7e658f9a0f44010b0cd4477dcca",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:07:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: o README e o PLANO dizem o que cada teto garante e o que não\n\nO README afirmava que \"nenhum teto é tomado inteiro por um anônimo, por\num endereço ou por um aparelho\", e o código não sustenta a frase (revisão\nindependente da onda 3, D3). A seção virou uma tabela com duas colunas, o\nque o código garante e o que NÃO garante, com a conta de cada linha:\n\n- conexões: 128 por endereço, e quatro endereços tomam as 500;\n- corpos: a prévia confere a lista e não a assinatura, e no login só a\n  forma, onde quem segura é o limite de login por endereço;\n- fila de envelopes: 16 MiB por aparelho, e sete aparelhos enchem os 112;\n- caixas: 256 retornos ou 8 MiB, e a folga do retorno são duas caixas;\n- via do fluxo: sem fatia por aparelho, um só a mantém quase cheia;\n- canal: o upgrade do WebSocket segue sem autenticação.\n\nO PLANO deixa de generalizar a reserva depois da prévia: vale nas rotas\nde envelope e de fluxo, e o login está dito à parte.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "2e96d21",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/2e96d217b685e5649beed24787a7d25167ac7cb8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:06:46.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor/deploy: o instalar.sh avisa a linha que não preservou, pelo nome\n\noutras_variaveis descartava em silêncio a linha do arquivo em uso que é\nvariável do retransmissor mas está fora do molde CHAVE=valor: recuada,\ncom `export` na frente ou com minúscula. O script listava o que FICA, e\nnão o que saiu (revisão independente da onda 3, C5).\n\n- Cada linha dessas gera um aviso na saída de erro com o NOME da\n  variável, nunca o valor. O que não é do retransmissor e o comentário\n  seguem sem aviso.\n- O valor dado na linha de comando com quebra de linha não vai para a\n  configuração, com aviso: ele gravava uma segunda linha no arquivo, e\n  por ela passava uma RETRANSMISSOR_FILA_DIR, que tira a fila do tmpfs.\n- O fim de linha do Windows sai do valor preservado.\n\nO deploy/README diz o aviso e a volta atrás como ficaram.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "efba50b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/efba50bc0734748dfba6e3c213070baffe0d73e3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:05:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor/deploy: a volta atrás nomeia a cópia de antes de hoje, pelo caminho\n\nSe o serviço não subia, o instalar.sh mandava repor \"os arquivos\nguardados acima\". Na segunda rodada do mesmo dia, os guardados acima são\nas cópias com a hora no nome: o binário, a unidade e a configuração que a\nprimeira rodada pôs e que acabaram de falhar (revisão independente da\nonda 3, D4). A volta de verdade, a cópia sem a hora, não era citada.\n\n- volta_atras imprime o comando de cada um dos três, com o caminho da\n  cópia SEM a hora, e sai no fim nos dois casos: serviço de pé ou não.\n- A cópia sem a hora passa a ser, sempre, o que a máquina tinha antes de\n  hoje. Na máquina nova fica a marca .sem-anterior-<data>, para a segunda\n  rodada não guardar como \"de antes de hoje\" o que a primeira instalou.\n- A data é lida uma vez (HOJE): o nome da cópia e a instrução saem do\n  mesmo valor, mesmo atravessando a meia-noite.\n\nA régua está no tests/instalar-funcoes.sh, sem rodar o instalador: com a\nvolta apontando para a cópia mais nova, ela reprova.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "7612e2f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/7612e2f05358f1a3c8e2694d555300f2d7cb3013",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:03:51.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: uma fatia por aparelho na fila dos envelopes\n\nA cota da onda era só da caixa de retornos. Com o canal do EBGeo fora, um\naparelho ativo só ainda enchia os 112 MiB dos envelopes de todos em pouco\nmais de duas horas, pelos 50 MiB por hora do limite de bytes, e todo\nenvelope de todos levava 503.\n\nCada aparelho passa a guardar na fila, à espera do EBGeo, no máximo um\nsétimo da parte dos envelopes: 16 MiB no padrão, em bytes de fio. Acima\ndisso só ele leva 429 COTA_DA_FILA. O 429 é o status que o app trata como\n\"tente depois\" (Mensageiro.kt: adia o item e segue lendo a caixa); o 503\nmarcaria o caminho como fora, e o 403, o 400 e o 413, como recusa do\ncaminho. Com o EBGeo de pé a fila esvazia na hora e a fatia não pesa.\n\nA conta: o celular que volta de 8 h sem rede despeja 48 lotes de posição\nde até 10 min (menos de 1 MiB mesmo com o lote no degrau de 16 KiB, que\nnão medi) e os eventos com foto, 60 de uma foto ou 7 de cinco. Para\nencher os 112 MiB agora são precisos sete aparelhos.\n\nA soma por aparelho usa um índice novo na fila, que nasce no reinício\n(a fila é do tmpfs).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "fe2bf6c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/fe2bf6c66f47cc9602280cc777cfeca6037eb51c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T12:02:29.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o corte do link público sem variável morta na desestruturação (lint)\n\nO lint do backend reprova a variável do resto de uma desestruturação que não é\nusada, e a regra pura do corte tirava as chaves assim. Elas passam a sair por\n`delete` sobre a cópia. Sem mudança de comportamento: as suítes do símbolo\nrodaram depois.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "e7883dc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e7883dc27cf97d04b91b26666df34eecc676504e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T12:01:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: no teto, o retorno entra no lugar do mais velho da própria caixa\n\nO teto da loja era medido antes de a cota da caixa ser olhada: com a loja\nno teto do retorno e a caixa do destino na cota, o retorno novo era o\ndescartado, mesmo quando trocar o mais velho por ele não aumentava a\nloja, e o envelope dele era confirmado em seguida (revisão independente\nda onda 3, C1). A folga de 16 MiB são duas caixas de 8 MiB: dois\naparelhos com retornos de `eventos` não lidos a esgotavam.\n\nAgora o mais velho da caixa sai primeiro, dentro da transação, e o teto é\nmedido depois, em páginas de verdade. Se o novo cabe, entra; se não, a\ntransação é desfeita e o que saiu volta, para a caixa nunca perder um\nretorno sem ganhar outro. O retorno grande libera as páginas dele e a\ntroca cabe; o de 1 KiB divide a página com outros e nem sempre libera: o\nteto é da memória da máquina, e não cede à conta das caixas. O PLANO diz\nisso no lugar de \"o novo entra sempre\".\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "f380fc3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/f380fc3ab394d37d55eec78da2b562025ca67be9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:59:53.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: teste da conta do endereço que volta quando o teto geral recusa\n\nA conta do endereço é tomada antes da vaga geral, e o caminho em que a\ngeral falha era o único do estado novo sem asserção: com a conta vazando\nali, os 68 testes seguiam verdes (revisão independente da onda 3, D2), e\n128 recusas trancariam um endereço, um Wi-Fi de quartel inteiro, até o\nreinício.\n\nO teste novo enche o teto geral, recusa 200 conexões de dois endereços e\nexige a conta de cada um como estava, e os dois livres depois. Com o\nvazamento reposto ele reprova (128 contadas em cada endereço).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "8f39819",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/8f398198004b30919a881df6b1379bf38c817cd5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:59:53.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: teste que prende a ordem, o endereço do EBGeo só depois do desafio assinado\n\nA reserva de vagas é do endereço de quem ASSINOU o desafio, e era essa\nordem em ebgeo.rs que nenhum teste prendia: com lembrar_ebgeo posto antes\nde autenticar, os 68 testes seguiam verdes (revisão independente da onda\n3, D1). Guardado antes, qualquer um que faça o upgrade em /v1/ebgeo leva\nas 4 vagas e tira a reserva do EBGeo de verdade.\n\nO teste novo faz o upgrade e para no desafio, responde com a assinatura\nde outra chave, e exige que nenhum dos dois fique como o endereço do\nEBGeo nem entre pela reserva. Com a ordem invertida ele reprova.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "c2a8b85",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/c2a8b85eb706e126ccaac8cad5658956ec77f73b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:56:37.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: no corte do link público, \"a feição não vai\" deixa de ser `null`\n\nDefeito do commit do corte, pego pela suíte que já existia\n(`tests/ws/visao-por-mapa-no-socket.test.js`): a função que corta a feição\nrespondia `null` para \"não vai\", e `null` é também o corpo legítimo de uma op,\no `changes` de uma criação e o `data` de uma exclusão. Com os dois no mesmo\nvalor, toda op de feição com um corpo nulo deixava de chegar a quem alcança o\natlas pelo link público, e o visitante não via a feição nova nem a exclusão.\n\n\"Não vai\" passa a ser um valor próprio (`FEICAO_NAO_VAI`), e o corpo nulo volta\nnulo e segue o caminho dele. O teste do visitante ganha o caso que faltava: a\ncriação de uma feição comum e a exclusão do símbolo vinculado chegam ao link.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "16f94d0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/16f94d0d09d67d95801349abcbec469d944cd813",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:51:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Revert \"campo: a trajetória do símbolo que segue o comandante tem teto de 120 pontos-chave, os mais novos\"\n\nReverte o commit 64c151783. O chefe da DGEO vetou o teto em 2026-11-10: \"o\nideal era não ter limite, não faz sentido essa feature no EBGeo com um limite\".\nA regra `trajetoriaComOsPontos` volta a ser a de antes, o teste do teto sai, e o\nespelho do cliente volta ao que era. O corte do link público, que veio depois,\nnão dependia do teto e fica como está.\n\nSai junto o que os commits seguintes tinham escrito sobre o teto: a frase dos\n120 pontos na cláusula 5.12 e o item da wiki de segurança do campo, que passa a\ndizer que a trajetória não tem teto e qual é o custo que fica.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "a2e0723",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a2e0723f306f7dfb22e322b8201ff6e5fd0b13dd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:49:07.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a chave encapsulada de cada envelope não entra mais no cache de chaves da cripto nativa\n\nA chave encapsulada é nova em todo envelope e nunca volta. Guardada, cada\nenvelope decifrado deixava uma entrada no cache das públicas X25519, e aos 20\nmil o cache era esvaziado inteiro, com as chaves de retorno dos aparelhos, que\nsão as que ele existe para guardar: com 100 celulares no ao vivo de 2 s, uma\nlimpeza a cada 7 minutos. O `decifrar` passa a construir a chave do envelope\nsem guardá-la.\n\nO teste é de comportamento: depois de mais envelopes do que o cache comporta,\ncifrar para o aparelho não constrói a chave dele de novo (contado na chamada\ndo OpenSSL, e não no tamanho do mapa). Revisão de 2026-11-10 (protocolo).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "a24917a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a24917ae730e3c10d540e405ae918e52a8ffed82",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:48:00.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki: a segurança do EBGeo Campo no estado de hoje, depois da revisão de 2026-11-10\n\nO que a página passa a afirmar, do lado deste repositório: o que o servidor\nprecisa do lado de fora (a saída para a lista de revogação do Google e a pasta\n`CAMPO_ESTADO_DIR`), e onde isso aparece na aba Sistema; as armadilhas que a\nrevisão achou (o 503 que tem de desfazer a reivindicação e o contador, a\nrecusa de versão que não fica gravada, a reivindicação abandonada retomada no\nreenvio, a exceção de temporizador, o deslocamento de 32 bits com sinal no\nleitor DER, o instante repetido no cursor de eventos); o que mudou em P3, P10,\nP24, P26, P30, P33 e P34; e a posição dentro de uma feição, com o corte do link\npúblico e o teto da trajetória.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "576718c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/576718cdadf9e2fd79efbf357f487732cfaab613",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:46:55.000Z",
+      "author": "Maj Diniz",
+      "message": "admin: os testes das frases novas da aba Sistema do EBGeo Campo\n\nOs alertas das chaves (vencendo, vencidas, a pasta que não se lê, a releitura\nque falhou e os avisos da troca), a linha e os alertas da lista de revogação do\natestado, e os dois ramos novos da frase do retransmissor (conectado e ainda\nsem receber, e desconectado com a hora da próxima tentativa). As horas dos\ncasos são instantes em UTC, e a frase sai na de Brasília. De passagem, o\najudante de data do módulo de frases deixa de ter o nome da variável local de\n`fraseDoEstado`.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "aa5e0c3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa5e0c38c4fe19ab3f4c13b23e24254e6335ef69",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:46:04.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a pasta do estado (CAMPO_ESTADO_DIR) na imagem, no .gitignore e no .env.example\n\nO que faltava do item da lista de revogação do atestado: a imagem cria\n`/app/data/campo-estado` com o dono do processo, para o volume montado ali\nherdar o dono; o `.gitignore` deixa a pasta de desenvolvimento fora do\nrepositório; e o `.env.example` declara a variável e a saída 443 que ela\nsupõe. A pasta fica de fora da sonda de escrita do boot de propósito: sem\nescrita nela, o módulo segue com a lista só na memória e escreve um erro no\nlog, e isso não pode impedir o EBGeo inteiro de subir.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "3a91ead",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a91ead793f60d85cb2cd88cde76bfd427f4761e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:45:28.000Z",
+      "author": "Maj Diniz",
+      "message": "constituição 5.12: o símbolo que segue o comandante não leva a posição ao link público\n\nSó o texto da cláusula, em commit próprio, para o chefe poder vetar a redação.\nA 5.12 dizia que o link público nunca recebe posição, e desde 2026-11-08 a\nposição do comandante mora também na geometria e na trajetória de um símbolo\nmilitar. A cláusula passa a citar o símbolo: quem só alcança o atlas pelo link\ne não é membro do mapa o recebe parado onde o Editor o lançou, sem o rastro e\nsem o vínculo; e a trajetória guarda os 120 pontos mais novos (decisões do\nchefe de 2026-11-10). O estado da cláusula segue \"em obra\".\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "240994b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/240994b026c431451e5f7d887b10136106f974e9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:45:06.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o símbolo que segue o comandante não leva a posição ao link público (5.12)\n\nDecisão do chefe da DGEO de 2026-11-10. Desde 2026-11-08 a posição do\ncomandante é gravada na geometria e na `trajetoria` do símbolo, que é feição\ncomum, e o recorte das feições só perguntava se a visão lê o mapa: o visitante\ndo link público recebia a geometria movida, o rastro e o id da conta do\ncomandante, pela carga, pela cauda e pelo socket.\n\nA primeira escrita de `seguirOComandante` guarda a geometria de referência\n(onde o Editor tinha posto o símbolo) numa propriedade nova, fora da fronteira\ndos campos. Para a visão que alcança o atlas só pelo link e não é membro do\nmapa, toda saída de feição corta o símbolo vinculado: vai a geometria de\nreferência, sem trajetória, sem vínculo e sem a referência; a escrita do\nservidor não vai; e o símbolo que já seguia antes de a referência existir não\nvai, porque não há como saber onde o Editor o tinha posto. Os sítios são a op\n(`opParaVisao`, que serve o relay, a borda do socket e a cauda), o retrato e a\ncópia (clonar, duplicar, importar de outro atlas). O sync passou a marcar o\nlink público na visão que ele monta, e a assinatura da visão o leva, para a\nsala não servir o mesmo quadro a um membro e a um visitante. Desvincular o\ncomandante apaga a referência.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "7787269",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7787269951d795e214f5d508f755227b154db568",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:35:20.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a trajetória do símbolo que segue o comandante tem teto de 120 pontos-chave, os mais novos\n\nDecisão do chefe da DGEO de 2026-11-10. Sem teto, a trajetória crescia a um\nponto por minuto de movimento, e cada ponto regrava a feição inteira duas vezes\nna linha do log do atlas e a mandava a todo leitor do mapa: com 120 pontos a\nlinha tem uns 14 KiB, com um dia inteiro tem 158 KiB, e o log de um símbolo em\ndez dias de exercício passava de 1 GiB.\n\nQuando um ponto entra e a lista passa do teto, saem os mais velhos; o que\nentrou e saiu no mesmo passo não conta, e com a lista cheia o atrasado mais\nvelho que o mais velho guardado nem entra, para não haver escrita que não muda\nnada. A trajetória longa de antes é cortada na primeira escrita. O histórico\ninteiro segue em `posicoes_campo`. O número fica preso, em valor absoluto, no\nespelho do cliente.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "64c1517",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/64c15178313404253255fff1e58b969c5422c34a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T11:33:02.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-10 (garantia de aluguel): requerimento como espécie própria do SPED (rotas e molde 28848) na sped-protocolo e no learnings da requisitar-sped, conta própria do OD do 1º CGEO, norma EB90-N-08.001 na secretaria-administrativo, e a correção de espécie no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "756ebad",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/756ebadf0c2c85ee47589015262e6375292b58a3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:27:11.000Z",
+      "author": "Maj Diniz",
+      "message": "aovivo: o master não lista a variante com a mesma taxa e resolução de uma anterior\n\nO celular declara a `leve` e a `padrao` com a mesma largura, altura e taxa, e\nsó manda a leve: o master saía com duas variantes idênticas. Pela leitura do\nhls.js feita na revisão do EBGeo Campo de 2026-11-10, variantes iguais são a\nmesma variante com um caminho de reserva, e no primeiro EXT-X-GAP o player\ntroca para a reserva, que é a `padrao` vazia, e o vídeo para. É hipótese lida\nno código do player, ainda sem prova em navegador.\n\nO conserto é neutro para o drone, que declara as duas diferentes: só a\nvariante com a mesma taxa E a mesma resolução de uma já listada fica de fora.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "e0990a8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e0990a834a658ecdd5a54e828238300ad48a3b0e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T11:27:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-10 (360): Mineirão, Itaquera e Mané Garrincha todo Externo nas duas instâncias; X e Z do cib zerados no 1º CGEO e na DSG depois da prova cega (a crua já é nivelada, o Sol sem acelerômetro entortava 8°)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3Tgrdmy6Q4h77mmJgF",
+      "sha": "8c7e19c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8c7e19c79bca74ea9dd0c1a706c935114a3b1d81",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:26:32.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: sem o atestado exigido, a lista de revogação só é pedida depois da cadeia, como antes\n\nA conferência da lista antes de tudo vale para o atestado exigido, que é onde\na falta dela recusa todo mundo. Pedida sempre no começo, o primeiro login de\ncada processo sem o atestado exigido (desenvolvimento e testes) esperaria a\nrede, até 10 s, por um aparelho que nem manda cadeia.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "d8c30e9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d8c30e9b144d4adfe14b69aa3b75fba7a5523bf8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:26:02.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a lista de revogação do atestado sobrevive ao reinício, e a recusa sem ela deixa de culpar o celular\n\nA lista do Google morava só na memória. O backend que reiniciava sem alcançar\no endereço dela nascia sem lista nenhuma, e todo login novo era recusado na\nhora, e não depois dos 7 dias de folga da regra, com a frase do aparelho\nadulterado (\"use um celular sem root\").\n\nA última lista baixada fica em `CAMPO_ESTADO_DIR` (variável nova, padrão\n`./data/campo-estado`), com a hora, trocada de uma vez; o processo novo a lê e\na regra dos 7 dias conta da hora da baixa. Arquivo ilegível, velho ou com a\nhora no futuro é como não ter arquivo, e sem disco o módulo é o de antes. A\nfalta da lista passa a ser julgada antes da cadeia, com código e frase\npróprios (\"o problema é do servidor, e não do seu celular\"), e a aba Sistema\nmostra a hora da lista e alerta quando ela passa de dois dias sem baixar.\nRevisão de 2026-11-10 (web-aplicacao e operacao).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "fdc8937",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fdc893710860b7bf7ab9b8829073cfa6a32838c1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:23:08.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: README, PLANO e deploy/README no estado atual\n\nA revisão de 2026-11-10 listou a prosa vencida dos três, e a obra dela\nmudou contratos e limites. Reescritos no que o código faz hoje, sem o\ndesenho velho ao lado:\n\n- PLANO.md: a seção 4 descrevia arquivos que não existem (config.rs,\n  tls.rs, fio/, limites.rs, limpeza.rs, fuzz/) e agora traz a árvore\n  real; o registro é sempre a lista completa, em layout fixo; o esquema\n  da loja é o dos dois arquivos; \"o aviso de revogação não é reemitido\"\n  era falso (o EBGeo o reemite a cada canal pronto, no máximo uma vez por\n  hora); o deploy é o da unidade com DynamicUser e do binário compilado\n  no Docker, sem CI; as etapas dizem o que está feito e o que falta.\n- As rotas, o canal, a configuração e os limites ganham o que a obra\n  trouxe: o 401 RELOGIO, a reserva do corpo depois da prévia, a cota por\n  aparelho e por caixa, a folga do retorno, as vagas por endereço\n  (RETRANSMISSOR_CONEXOES_POR_IP, padrão 128), a reserva do canal e o que\n  derruba ou não a sessão do EBGeo.\n- README.md: \"Stack prevista\" e \"Estado (2026-10-23)\" viram o que é\n  feito e o que está no ar, com a linha do minuto no log.\n- deploy/README.md: o instalar.sh em duas partes, a configuração\n  preservada e a volta atrás.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "77291e1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/77291e1d9202ba655b350da849fe6beae769c4d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:22:05.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a troca de chaves malfeita chega à aba Sistema, e a chave anterior só vale com o certificado dela\n\nA releitura da pasta que falha mantém as chaves da memória e só escrevia no\nlog: `estadoDasChaves` devolvia `erro: null`, a aba não mostrava nada, o\noperador dava a troca por feita, e o campo parava no reinício seguinte do\nbackend. E o servidor que subia com a pasta errada dizia \"as chaves venceram\".\n\nO módulo guarda a última releitura que falhou (desde quando e por quê, sem o\ncaminho da pasta de segredos), e o estado leva isso à aba: \"As chaves da pasta\nnão foram lidas desde ...: seguem as anteriores, que valem até ...\". Os erros\nde ordem dos arquivos \"anterior\" deixam de sair calados e viram avisos: a\n`cifra-anterior.chave` sem o certificado dela (valia sem prazo) ou com o de\noutra chave (era aceita) não é mais carregada, e o\n`assinatura-anterior.certificado` copiado depois de o novo entrar é apontado. O\ncertificado anterior vencido segue saindo sem aviso. Revisão de 2026-11-10\n(operacao e enlace).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "a021f5a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a021f5a4be3326108513dbf16215a93421696b2e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:19:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor/teste-fluxo: porta por variável e dois passos da revisão\n\nRETRANSMISSOR_TESTE_PORTA troca a porta 18444, para duas árvores rodarem\no teste na mesma máquina. Dois passos novos, contra o binário de verdade e\ncom o protocolo em JavaScript: o registro que não confere e o tipo\ndesconhecido não derrubam o canal, e a caixa com o relógio fora da janela\nresponde 401 RELOGIO com a hora do servidor. São 34 passos.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "999e91a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/999e91aaf7b4d866ec9ce3c9fe126131e1143630",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:18:29.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o retorno de `eventos` cabe no degrau de 1.024 KiB, e o cursor avança sempre\n\nO teto do JSON de eventos era de 3 MiB, e o fio do retorno saía no degrau de 2\nou de 4 MiB. O núcleo Android do app lê o retorno guardado por um cursor cuja\njanela é de 2 MB: a linha maior trava a caixa do aparelho para sempre. O teto\npassa a 900 KiB, medidos em bytes do UTF-8 (era em caracteres) e contando os\nremovidos, com mais de 110 KiB de folga no degrau. O evento que sozinho passa\ndo teto (300 anotações de 2.000 caracteres) vai enxuto, marcado `cortado`.\n\nCom o teto menor, o cursor de antes parava de andar: ele guardava só o\ninstante, relia sempre a janela de 30 s e pulava os entregues por uma lista de\n200, e com mais de 200 eventos no mesmo `updated_at` (colar, combinar ou\nimportar um mapa) rodava em círculo. O cursor agora é a posição\n`(updated_at, id)` da última linha assentada, com os microssegundos do banco, e\no pedido seguinte lê só o que vem depois; os `vistos` ficam para as linhas com\nmenos de 30 s, que a posição não passa para não perder a transação que começou\nantes e gravou depois. O cursor de antes segue aceito.\n\nCusto: o app que não lê o `mais` só pede o resto no pedido periódico seguinte.\nRevisão de 2026-11-10 (app-nucleo e web-aplicacao).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "eb3bff0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb3bff08e5e8c14727ab09857c224389a8354900",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:18:07.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor/deploy: o instalar.sh confere antes, guarda o anterior e preserva as variáveis\n\nTrês defeitos da revisão de 2026-11-10:\n\n- A unidade do systemd só era conferida na hora de copiar, depois de\n  mexer no SSH, no firewall, no swap, na configuração e de trocar o\n  binário. Agora o binário, a unidade (presença, e o SHA-256 dela no\n  segundo argumento, opcional) e as variáveis são conferidos antes de a\n  máquina mudar.\n- O binário, a unidade e a configuração em uso são copiados para\n  `.anterior-<data>` antes da troca, que é o que a volta atrás do\n  IMPLANTACAO.md presume. A primeira cópia do dia não é sobrescrita.\n- O /etc/retransmissor.env era regravado só com as cinco chaves do\n  script. As outras RETRANSMISSOR_* do arquivo em uso ficam, as dadas na\n  linha de comando entram, e a dada vazia sai. As pastas da unidade, a\n  origem do SSH e o modo sem TLS nunca vão para o arquivo.\n\nDe carona, do mesmo relatório: as sessões de SSH são lidas uma vez e\nguardadas (a armadilha do pipefail com quem sai cedo do pipe), o relógio\nsem sincronização vira aviso, e o serviço é conferido de pé no fim.\n\ntests/instalar-funcoes.sh prova as duas funções puras sem rodar o script.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "ba3731d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/ba3731d76503ec4a3553a9e611304ed6fa65bc56",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:15:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: uma linha por minuto no log com os totais, sem IP e sem aparelho\n\nO /v1/saude é constante, e a fila cheia e a falha da loja não deixavam\nlinha nenhuma: com um militar dizendo que nada chega, não havia como\nsaber se o pedido dele bateu no retransmissor (revisão de 2026-11-10).\n\nA cada minuto, e só se houve movimento, sai uma linha com os depósitos\naceitos por rota, as recusas por código, os retornos guardados,\ndescartados e expulsos pela cota da caixa, as mensagens do EBGeo\nignoradas, as conexões recusadas, o tamanho da loja, os envelopes à\nespera, as conexões em uso e o estado do canal do EBGeo. Com fila cheia,\nfalha da loja, conexão recusada, retorno descartado ou mensagem\nignorada, ela sai no nível de aviso.\n\nA contagem é uma camada sobre as rotas, que lê o código preso à resposta\nda recusa: nenhuma rota fica de fora, e nenhum IP nem id de aparelho\npassa por ela. Nada disso vai à rota pública.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "f394478",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/f394478fe38b1e44ba5626ed4324aea303e8ac53",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:12:06.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o desligamento espera a fila do retransmissor, e a reivindicação abandonada é retomada no reenvio\n\nO desligamento fechava o pool com até 4 envelopes do retransmissor em voo, e a\nqueda do processo faz o mesmo: a linha de `campo_mensagens` já reivindicada\nficava sem retorno. Cada reenvio daquele relato esperava 10 s por um retorno\nque ninguém ia gravar e levava 503, por 7 dias; aí a limpeza apagava a linha, e\no reenvio seguinte levava a recusa CONTADOR.\n\nO desligamento agora para de receber, deixa terminar o que já começou (com a\nconexão aberta para o retorno e a confirmação saírem) e só então fecha o banco,\ncom prazo de 5 s. E a reivindicação sem retorno com mais de 2 min é retomada\npelo reenvio do mesmo aparelho: sai, o contador do fio volta às lacunas, e a\ntentativa seguinte aplica (ou confirma, pelos ids derivados, o que já tinha\nsido aplicado). A retomada é por idade, no reenvio, e não uma limpeza na\nsubida: a limpeza transformaria o reenvio em recusa CONTADOR, porque a linha\nnão guarda o contador, e erraria com duas instâncias no mesmo banco.\nRevisão de 2026-11-10 (enlace e web-aplicacao).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "5806169",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5806169987e10527d4fd0bf99ff96dbc8221d393",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:10:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: a leitura da caixa para no teto sem trazer o que passa\n\nler_caixa trazia até 50 retornos inteiros para a memória e só então\ncortava em 8 MiB: 30 retornos de 4 MiB na caixa eram 120 MiB lidos para\ndevolver 8 (revisão de 2026-11-10).\n\nA página agora sai da loja já cortada (pagina_de_retornos): uma consulta\nlê só os tamanhos e decide o último que cabe, e a segunda traz os fios\naté ele. O que a resposta devolve é o mesmo de antes, com uma diferença:\nnunca menos de um retorno, para a caixa não ficar presa atrás de um maior\nque o teto.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "41843e8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/41843e8d627ee547f03ef8254f65d4d876f7593f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:09:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: registro e chave que não conferem não derrubam mais o canal\n\nRegistro antes da chave, registro que não confere, chave mal formada,\ncertificado que não confere com a raiz, tipo desconhecido e mensagem\nvazia derrubavam a sessão, e o EBGeo reconectava em 1 s para mandar a\nmesma mensagem e cair de novo, sem fim (revisão de 2026-11-10). Viram\naviso no log, como o retorno que não confere já era: nada do que não\nconfere entra, e a lista e a chave guardadas seguem valendo.\n\nSeguem derrubando, porque seguir seria ficar com estado inválido:\ncréditos e confirmação mal formados (a conta dos dois lados deixa de\nbater e o canal ficaria ligado e mudo) e a falha da loja ao apagar o\nconfirmado, trocar a lista ou gravar a chave. Neles a reconexão é o\nconserto: zera os créditos, reenvia o não confirmado e informa a versão\nda lista no \"pronto\".\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "856943f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/856943fce457c4e691ce705a68a9551cc7ef7fba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:08:33.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: uma conexão por vez com o retransmissor, e a espera só volta ao mínimo depois de a conexão durar\n\n`conectar()` não conferia se já havia conexão viva ou tentativa agendada: o\nendereço corrigido no admin durante a espera ligava na hora e de novo quando o\ntemporizador velho disparava, a segunda derrubava a primeira no retransmissor,\ne o `close` da primeira agendava a terceira, sem parar. E a espera voltava a\n1 s em todo \"pronto\", então um retransmissor que autentica e derruba (ou uma\nsegunda instância com a mesma chave de operador) fazia o EBGeo refazer o aperto\nTLS, a assinatura e a lista uma vez por segundo.\n\nAgora há uma reconexão agendada só, `conectar()` não faz nada com conexão viva e\nnão lança (roda de temporizador), só o `close` da conexão atual agenda a\nseguinte, e a mensagem de uma conexão já trocada derruba ela, nunca a nova. A\nespera dobra de 1 s a 60 s e só volta a 1 s na queda de uma conexão que durou um\nminuto. O \"Salvar e reconectar\" da aba tenta na hora, e a aba diz a hora da\npróxima tentativa. Os testes vizinhos passam a pedir a reconexão em vez de\ncontar com o 1 s. Revisão de 2026-11-10 (enlace).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "06c9553",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/06c955387b49c41b1098b958e0fd69b74a761745",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:08:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: a caixa responde 401 RELOGIO quando o instante cai fora da janela\n\nCom o relógio do celular errado em mais de 5 min a caixa respondia 401\nAUTORIZACAO, igual ao da assinatura forjada: o app não lia retorno\nnenhum, nada se confirmava e o militar só via a fila parada (revisão de\n2026-11-10).\n\nO instante fora da janela passa a responder 401 com o corpo RELOGIO, e o\nDate da resposta, que o app usa para medir o desvio, fica escrito na\nconfiguração do servidor e preso por teste. A conferência do instante vem\nantes de procurar o aparelho e de conferir a assinatura, então o RELOGIO\nnão diz nada de aparelho nenhum: o desconhecido recebe a mesma resposta.\n\nverificar_autorizacao segue devolvendo o código AUTORIZACAO do vetor\ncomum com o protocolo em JavaScript; a rota usa conferir_autorizacao, que\nsepara o motivo.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "63915ba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/63915babc1c33a730cf286b8d3380892e33667f2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:06:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: vagas de conexão por endereço e reserva para o canal do EBGeo\n\nUm endereço só ocupava as 500 vagas, e o canal do EBGeo e o desafio do\nACME disputavam com ele (revisão de 2026-11-10).\n\n- RETRANSMISSOR_CONEXOES_POR_IP, padrão 128 (decisão do chefe,\n  2026-11-10; zero desliga): cada celular segura até umas três conexões,\n  o que dá uns 40 atrás da mesma CGNAT ou do Wi-Fi do quartel. A conta é\n  por endereço, e por bloco /64 no IPv6, o recorte do limite de login, e\n  volta quando a conexão fecha.\n- Quatro vagas além do teto só para o endereço da última sessão\n  autenticada do EBGeo, guardado em memória: com tudo tomado, o canal que\n  caiu ainda volta. Antes da primeira sessão não há reserva, porque o\n  EBGeo só se distingue de um anônimo depois do desafio assinado. O ACME\n  não tem endereço conhecido e não tem reserva.\n- Config::de recebe quem responde pelas variáveis, para o padrão ter teste.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "35893b6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/35893b6ad4f80ae8f6473be35c8676ed9fee8b7d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:04:23.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a preparação do canal que falha derruba a conexão, e a aba separa \"conectado\" de \"recebendo\"\n\nNo \"pronto\", o cliente publica a lista, despeja os retornos pendentes e reemite\nas revogações antes de conceder os créditos. Com o banco fora nesse instante a\ncorrente rejeitava, os créditos nunca saíam, e a conexão seguia viva com pings:\no retransmissor não mandava nada, ninguém derrubava, e nada refazia a\npreparação quando o banco voltava. A aba Sistema dizia \"Conectado\".\n\nA falha agora derruba a conexão que a iniciou, e o laço de reconexão tenta de\nnovo. Os créditos só saem na conexão que os pediu. O estado ganha `recebendo`\n(os créditos desta conexão saíram), a rota da aba o leva, e a frase diz\n\"Conectado, mas ainda sem receber dos celulares\". Revisão de 2026-11-10 (enlace).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "898c704",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/898c704360a5d47c216043121fd8c1c8057bf61f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T11:03:12.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: cota por caixa na loja comum e folga para o retorno\n\nEnvelopes e retornos de todos dividem os 128 MiB, e nada limitava a\ncaixa de UM aparelho: celulares travados, ou um só pedindo `eventos`,\nenchiam a loja de todos; e no teto o retorno era descartado e o envelope\ndele confirmado em seguida (revisão de 2026-11-10).\n\n- Cota por caixa: 256 retornos ou 8 MiB, e sai o mais velho do MESMO\n  aparelho. O retorno de 1 KiB mede 1.424 bytes na loja: a caixa cheia\n  pesa 356 KiB, e 100 celulares travados, 35 MiB.\n- Folga do retorno: o envelope é recusado um oitavo antes do teto (16 MiB\n  no padrão, 4 retornos da maior classe, os 4 envelopes que o EBGeo trata\n  ao mesmo tempo), e o retorno segue entrando.\n- O aviso de revogação: a última fatia do teto (1/128, 1 MiB) só recebe\n  retorno de aparelho revogado, e a caixa do revogado guarda os 4 mais\n  novos, para a repetição do aviso não gastar a fatia.\n- Medir o teto e gravar passam a ser uma tomada só da trava: as 16\n  threads da loja não passam mais juntas pela medida.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "c45215a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/c45215a6d065c54d3e8f969aaa89b34f13fa9283",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T11:01:09.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a recusa ATUALIZE do relato não reivindica o id nem gasta o contador (C13)\n\nA C13 diz que abaixo da versão mínima o EBGeo recusa com \"atualize o app\" e os\nrelatos esperam na fila (decisão do chefe de 2026-11-10: vale a C13). O código\njulgava a versão depois da reivindicação e gravava a recusa como o retorno do\nid: o mesmo id, reenviado depois da atualização, recebia a recusa guardada.\n\nPara evento, comentário, estado e situação, a porta agora responde a recusa\nassinada e desfaz a reivindicação e o contador aceito, como o LIMITE e a\nCHAVE_VENCIDA, que nem chegam ao comando único. A versão vem de dentro da cifra,\nentão o julgamento segue depois de abrir o fio. A posição segue recusada em\ndefinitivo. Os apps 0.1.11 a 0.1.13 tratam toda recusa assinada como definitiva\ne apagam o corpo: para eles nada muda, e a versão mínima não deve subir antes de\na 0.1.14 estar espalhada.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "c4f6fb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c4f6fb0c9a6c863706179a40d518bfb926acaa67",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T10:59:30.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: a falha ao aplicar o envelope devolve o contador junto com a reivindicação\n\nO comando único aceita o contador no mesmo passo em que reivindica o id, já\ngravado. Quando a aplicação lançava depois disso (atlas ocupado por uma cópia,\nfoto não gravada agora, erro passageiro do banco), a porta apagava só a\nreivindicação e respondia 503. A nova tentativa do MESMO fio, que o cliente do\nretransmissor faz 1 s depois e o app faz no reenvio, achava o contador gasto e\nlevava a recusa CONTADOR, assinada e guardada, que o app trata como definitiva\ne apaga o corpo: o relato sumia.\n\n`aparelhos.desfazerReivindicacao` apaga a reivindicação sem retorno e devolve o\ncontador às lacunas num comando só. Não abre janela de repetição: o contador só\nvolta com a linha da mensagem, e depois de aplicada o retorno guardado responde\naos reenvios. A posição já gravada fica de fora (o lote atrasado reaplicado\nduplicaria pontos). Os dois testes novos falham DEPOIS da reivindicação, o que\nos do 503 que existiam não faziam. Revisão de 2026-11-10 (enlace e web-aplicacao).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "57785cd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/57785cdee1d7f86ada96df3aa25c36d732a7a7df",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T10:58:10.000Z",
+      "author": "Maj Diniz",
+      "message": "retransmissor: o corpo só reserva o tamanho declarado depois da prévia\n\nDezesseis conexões anônimas que declaravam 4 MiB e não mandavam nada\nseguravam os 64 MiB do orçamento de corpos por 286 s, e todo depósito\nlevava 503 OCUPADO (revisão de 2026-11-10, o conserto do P12 furado).\n\nAgora a conexão segura 1 KiB e tem 10 s para mandar o começo do fio; o\nresto da reserva só sai depois que a prévia acha o aparelho na lista. E\ncada aparelho segura no máximo 8 MiB de corpos ao mesmo tempo (duas vezes\na maior classe), porque a prévia confere a lista e não a assinatura: o\nexcedente leva 429 LIMITE, sem tocar no orçamento dos outros.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "29c6c6a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/29c6c6a6167e00a67429ef0d44202ca938aa66b3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T10:56:43.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o leitor DER do atestado recusa comprimento negativo, nó que não avança e lista sem teto\n\nO comprimento de quatro bytes com o bit alto ligado era somado com `<<`, de 32\nbits com sinal, e virava negativo: o fim do nó ficava antes do começo, `filhos`\nvoltava ao irmão anterior e empilhava até a memória acabar, e `campoDaLista`\ngirava sem sair. O laço é síncrono, roda antes da senha num login que chega da\ninternet, e trava o processo que serve o EBGeo Web.\n\nO comprimento passa a ser somado por multiplicação e conferido contra o fim do\npai, todo nó tem de avançar, cada lista tem teto de 256 nós, e a varredura das\ntags longas usa a mesma conta. A extensão ilegível do certificado vira recusa\ndo atestado, e não erro do login. Revisão de 2026-11-10 (frente web-aplicacao),\ncom os bytes da sonda da revisão no teste.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "fdae2d7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fdae2d7c54126b4e71cea0049d7449b25c078bf1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-10T10:53:45.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: o ping no aperto de mão gotejado não derruba mais o processo, e o aperto ganha prazo total\n\nO `ws.ping()` lança com a conexão ainda em CONNECTING, e o temporizador do ping\no chamava fora de qualquer captura: um retransmissor que gotejasse a resposta da\ntroca de protocolo (o `handshakeTimeout` do `ws` é prazo de inatividade, e cada\nbyte o zera) encerrava o backend do EBGeo Web aos 45 s, em laço.\n\nO ping agora só sai com a conexão aberta, dentro de captura, e o aperto de mão\ntem prazo total de 20 s. Revisão do EBGeo Campo de 2026-11-10 (frente enlace).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "01bf1ef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/01bf1ef1e845b2aab44f77f8a53d73aa63348ad7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/autolabeller",
+      "date": "2026-11-10T10:06:18.000Z",
+      "author": "Maj Diniz",
+      "message": "criar_projeto: o projeto de impressao carrega as mascaras do produto\n\nCom --print-style o roteiro so aplicava o estilo de impressao. Quem liga a mascara\nde cada rotulo aos simbolos que ela apaga e o ferramentasedicao:loadmasks, que o\nconstrutor do PDF chama em mapBuilderUtils.setupMasks, e o projeto saia sem ele: a\ngrade e as linhas passavam por cima da letra na revisao por visao, e no PDF nao.\n\nAgora o roteiro chama o loadmasks com o masks.json da Carta Topografica 2.0 do\nplugin instalado e para com erro se nenhuma mascara entrar.\n\nProva: o projeto gravado e reaberto tem 48 de 48 camadas rotuladas com alvo de\nmascara (47 de 48 no EDGV 1.4), e 63 recortes renderizados dele saem identicos,\npixel a pixel, aos do projeto antigo com a mascara carregada em memoria, e nenhum\nidentico aos do projeto sem mascara.\n\nSo muda o ambiente de revisao (render_carta.py, servidor_ladrilhos.py). O motor\nsegue ignorando a mascara, pela DEC1 de docs/consolidacao-2026-09-05.md.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SxdeBjfuYwmjWRaY8",
+      "sha": "cdbd598",
+      "htmlUrl": "https://github.com/1cgeo/autolabeller/commit/cdbd598050612b1de400bd83e954d2c2f9543bfa",
+      "repoUrl": "https://github.com/1cgeo/autolabeller"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-09T20:12:11.000Z",
