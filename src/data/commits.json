@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-11-10T17:36:10.142Z",
+  "lastUpdate": "2026-11-11T00:30:59.605Z",
   "repoLastUpdate": {
     "1cgeo/ebgeo_web": "2026-11-10T15:59:43.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
@@ -25,7 +25,7 @@
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
     "1cgeo/prototipo_busca_llm": "2025-11-11T10:26:46.468Z",
     "1cgeo/prototipo_colaboracao_tempo_real": "2025-11-11T10:26:46.468Z",
-    "1cgeo/controle_acervo": "2026-11-09T15:44:17.000Z",
+    "1cgeo/controle_acervo": "2026-11-10T21:14:06.000Z",
     "1cgeo/ferramentas_acervo": "2025-11-11T10:26:46.468Z",
     "dsgoficial/pto_controle": "2026-07-30T11:36:04.000Z",
     "dsgoficial/servico_autenticacao": "2026-07-25T12:26:44.000Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-10-14T17:58:02.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-11-09T16:09:55.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-11-10T20:35:14.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-10-01T13:36:20.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-10T16:17:03.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-10T20:39:37.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-11-08T12:21:06.000Z",
     "1cgeo/sap_master": "2026-11-09T12:17:34.000Z",
-    "1cgeo/ebgeo_campo": "2026-11-10T16:13:30.000Z"
+    "1cgeo/ebgeo_campo": "2026-11-10T20:28:10.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10680,
+    "totalCommits": 10685,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -147,7 +147,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 174,
       "dsgoficial/configuracoes_producao": 210,
-      "dsgoficial/ferramentas_edicao": 504,
+      "dsgoficial/ferramentas_edicao": 505,
       "dsgoficial/DsgTools": 680,
       "dsgoficial/sap": 184,
       "dsgoficial/SAP_Gerente": 122,
@@ -155,7 +155,7 @@
       "dsgoficial/EBGeo_Desktop": 146,
       "1cgeo/prototipo_busca_llm": 26,
       "1cgeo/prototipo_colaboracao_tempo_real": 20,
-      "1cgeo/controle_acervo": 626,
+      "1cgeo/controle_acervo": 627,
       "dsgoficial/pto_controle": 48,
       "dsgoficial/servico_autenticacao": 14,
       "dsgoficial/servico_edicao": 20,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 91,
-      "1cgeo/ebgeo_campo": 97,
+      "1cgeo/ebgeo_campo": 98,
       "1cgeo/sap_master": 44,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1385,
+      "1cgeo/chefe_dgeo": 1387,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/controle_acervo",
+      "date": "2026-11-10T21:14:06.000Z",
+      "author": "Maj Diniz",
+      "message": "a 3.53.3: a Classe de suprimento VII no domínio do equipamento\n\nA relação de material carga da Cia Lev (SISCOFIS OM, 10/11/2026) trouxe\nmaterial técnico da Classe VII (conjunto rádio, terminal de comunicação por\nsatélite, câmera 360, notebook), \"tecnologia da informação, comunicações,\neletrônica e informática, inclui equipamentos de imageamento e de transmissão\nde dados e voz\" (EB70-MC-10.238, Quadro 5-1), e o domínio só tinha a VI e a IX.\n\nA migração 2026-11-10_classe_de_suprimento_vii.sql só acrescenta 7=VII, com\nON CONFLICT DO NOTHING, e não sobe o piso: o servidor lê as classes do banco.\nEnsaiada pelo ensaiar_migracao.cjs (o migrado e o novo têm o mesmo schema, duas\nvezes), que reprova a migração vazia (\"só no NOVO: classe_suprimento 7=VII\").\nJá aplicada no banco de produção. O controle de contagem do\ndominios_equipamento.test.js passa de 2 para 3 classes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHaK4BCs3cZxNCKK9f",
+      "sha": "ce4fcd4",
+      "htmlUrl": "https://github.com/1cgeo/controle_acervo/commit/ce4fcd4f1d84b11f354a5cf63d6ead2382925d3f",
+      "repoUrl": "https://github.com/1cgeo/controle_acervo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T20:39:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-10 (reedições 2 e 3 das seis folhas e planilha de regras): planilha de regras de rótulo por classe e tipo, revisão do chefe por janela, reedição por regra na folha inteira (E02), e a terceira passada sobre o que o chefe pegou no PDF (generalização de edificações pela rotina do plugin, supressão na área edificada, drenagem dentro d'água, camadas sem QML fora da carta no plugin 2.3.13); regras-chefe e learnings da editar-carta, diffs e backups das duas reedições\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SxdeBjfuYwmjWRaY8",
+      "sha": "448237f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/448237f2bd9d303cdae8e97b1323d19d42aa028b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-11-10T20:35:14.000Z",
+      "author": "Maj Diniz",
+      "message": "2.3.13: obstáculo vertical e trecho hidroviário deixam de sair na carta com o marcador padrão do QGIS\n\nCarta Topográfica 2.0 e Topográfica Militar 2.0, estilo de impressão.\ninfra_obstaculo_vertical_p e infra_trecho_hidroviario_l estão no camadas.json\ne não tinham QML de impressão: saíam como círculo laranja de 2 mm e linha\nlaranja. Ganham estilo de renderizador nulo e não são desenhadas, até a\ndefinição do símbolo de cada classe na carta topográfica. O estilo de edição\nnão muda.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SxdeBjfuYwmjWRaY8",
+      "sha": "6696279",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/669627982181a69839b2dbc9b7e6d63e4ae84d22",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-10T20:28:10.000Z",
+      "author": "Maj Diniz",
+      "message": "teste-ponta-a-ponta: a bancada do aparelho, com o APK de depuração num celular emulado\n\nO núcleo Kotlin de verdade (fila nativa, serviço de posição com a tela travada,\nKeystore, vídeo) contra o retransmissor e o EBGeo Web locais, pelos dois caminhos.\nOs achados da revisão viram passos de reprovação conhecida, e o bloco V mede a\nvazão do vídeo com atraso e teto de subida na rede do celular.\n\nO build de depuração ganha a depuração do WebView (só em src/debug, que o APK de\nprodução não leva), para o teste dirigir a tela.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3ToUkQHC6hi7YH3H8k",
+      "sha": "328fea9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/328fea9524dca215171be5d74aa37dd968c3a473",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-10T17:57:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-10 (implantação da revisão do Campo): affa4546b na DSG, no 1º CGEO e na página estática, com as migrações 081 e 082 sem símbolo tocado e o corte do link público provado num atlas de teste; certificados operacionais do Campo trocados na DSG e relidos contra o manifesto; learnings da atualizar-ebgeo-dsg (releitura de um minuto, LIKE sem classe, campo-estado no bind mount) e a wiki do servidor da DSG\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9817563",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9817563758f60546339be44174d83086946ffd60",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-10T16:17:03.000Z",
