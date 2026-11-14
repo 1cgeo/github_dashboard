@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-13T17:36:47.791Z",
+  "lastUpdate": "2026-11-14T00:49:22.505Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-11T16:37:41.000Z",
+    "1cgeo/ebgeo_web": "2026-11-13T17:08:46.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10847,
+    "totalCommits": 10851,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3479,
+      "1cgeo/ebgeo_web": 3483,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -192,6 +192,24 @@
   },
   "commits": [
     {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T17:08:46.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a Central de Ajuda acompanha a órbita, a barra em duas linhas e o salvar da órbita\n\nNovidades de 2026-11-13: a Órbita no Horizonte, e o Olho e o Exagero na barra\nde baixo.\n\nPágina nova, \"Como vejo um ponto de todos os lados no Horizonte?\": ligar a\nÓrbita, arrastar pelo círculo, Raio e Altura na barra, Salvar órbita, reabrir\npelo marcador e por Horizontes salvos. A do Horizonte ficaria acima das 320\npalavras com a órbita dentro. O título não usa \"girar\": com ele a página\ntomava o primeiro lugar de \"girar o mapa\" e tirava os atalhos dos três\nprimeiros (atalhos.test.mjs).\n\nCorrigido o que ficou falso: o botão Ajustes da vista não existe mais. A\npágina do Horizonte diz o Olho e o Exagero na barra e ganha a linha da Órbita;\na de guardar a vista e a dos símbolos trocam o painel pela barra.\n\nA figura horiz-coluna-01 sai da página do Horizonte: ela mostra o painel que\nsaiu. A tomada dela foi reescrita para a coluna de hoje, e há uma tomada nova,\nhoriz-orbita-01, para o clipe da órbita. Nenhuma das duas rodou: a mídia não\nfoi regerada, e a página nova usa a figura do botão Horizonte até lá.\n\nBarra lateral, ARQUITETURA e o conjunto de avaliação da busca ganham a página.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "bac1fac",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bac1fac01a3566bbaf64b5d1a6da2c7bc2f8fced",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T16:49:58.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: em órbita o Salvar guarda a órbita, e o marcador do alvo vai para a barra (o chefe, 2026-11-13)\n\nO Salvar orientação continua um botão só. Com a órbita ligada ele salva uma\nÓRBITA na mesma entidade horizonte_vista: o tipo, o raio, a altura sobre o\nalvo, o sentido, a duração da volta e o lado da câmera, além do que a vista já\nguardava. O nome padrão é \"Órbita 1.500 m, 13:38\" e o aviso diz \"Órbita salva\nno mapa como «nome»\". Salvar de novo cria outra, como na vista.\n\nReabrir: o marcador no mapa 2D tem ícone próprio e abre o Horizonte já girando,\nsem passar pela vista parada; a linha em \"Horizontes salvos\" tem o ícone e o\nresumo \"raio 1.500 m · 250 m · volta em 2 min\". Renomear e apagar são os da\nvista. A vista sem tipo continua vista parada.\n\nSalvar a imagem deixa de recusar em órbita, e a legenda troca \"olho a N m\" por\n\"órbita · raio N m · altura N m\".\n\nServidor: a tabela guarda o documento em JSONB e não pediu migração. A borda\nCAMPOS_DA_VISTA ganhou as seis chaves, e é ela que fecha o documento em todas\nas portas (sync, clone, cópia de mapa, importação). Sem elas o servidor as\nderrubava em silêncio, e é isso que os testes novos reprovam. O servidor sobe\nantes do cliente.\n\nO interruptor do marcador do alvo sai da coluna e vira botão da linha dos\najustes da barra, só em órbita, com o mesmo comportamento.\n\nNo editor de briefing a órbita não é oferecida em \"Usar orientação salva\":\nslide de órbita fica para depois.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "50c4634",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/50c463474f814b5fc574ca745104d3f69e54568a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-13T16:40:54.000Z",
       "author": "Maj Diniz",
@@ -199,6 +217,24 @@
       "sha": "3654136",
       "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3654136780de0585cb2f2d7525714004cb98b259",
       "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T15:33:08.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o marcador do alvo da órbita ganha interruptor na coluna e perde a coordenada (o chefe, 2026-11-13)\n\nO chefe, depois de testar a órbita: \"tem que ter um botão ali para esconder\nesse marcador que ele está rodando em volta, não sei se precisa aparecer\ncoordenada tb\".\n\nA coluna ganha o interruptor \"Marcador do alvo\", junto dos outros dois que se\nligam (Símbolos do mapa e Imagem sobre o relevo), acima do fio. Só se desenha\nem órbita, e nasce ligado. Desligado, somem da vista o alfinete do alvo e o\nnome; o mini-mapa não muda, o alvo e o círculo continuam nele. A escolha é de\nquem mexe: vale enquanto a vista estiver aberta, saindo e entrando na órbita e\ntrocando o alvo, e não se grava em lugar nenhum.\n\nA coordenada sai do rótulo: o alfinete vai sozinho quando o ponto não tem\nnome, e mostra só o nome quando a abertura deu um (hoje ninguém dá). \"Copiar\ncoordenadas\" do botão direito continua sendo o caminho da coordenada. O\nparâmetro que levava o formato da coordenada à interface saiu com ela.\n\nNo toque, a coluna passa a começar abaixo dos 44 px que a regra de toque da\ncasa dá ao Fechar: ela estava posta para os 32 px dele, e o primeiro botão\nentrava 4 px sob a pílula. Com o interruptor novo no topo, verde encostava em\nverde.\n\nMedido na bancada do visualizador, com placa de vídeo: ligado, o miolo da\ncabeça do alfinete tem os 25 pixels opacos e a faixa do rótulo nenhum;\ndesligado, nenhum dos dois; a escolha fica depois de sair e entrar na órbita e\ndepois de \"Orbitar este ponto\"; fora da órbita o botão não se desenha. Em\n390x844 a coluna termina 273 px acima da barra.\n\nTestes: horizonte-orbita.test.js (38 casos, um novo) e\nhorizonte-visualizador.test.js (48), rodados um a um. O caso da órbita do\nhorizonte.spec.js ganhou o interruptor, e NÃO foi rodado nesta sessão.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "6a246ed",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a246ed9a2e8c7f09997f58d479713a415c2de95",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T14:56:35.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a Órbita (fatia 1) e a barra em duas linhas, com os ajustes fora da coluna (o chefe, 2026-11-13)\n\nA barra de baixo do Horizonte passa a ter duas linhas de 40 px. A de cima é a\nde antes, intacta (data, régua da hora, Sol); a de baixo recebe o que era o\npainel \"Ajustes da vista\" da coluna: o Olho, com o campo que aceita digitar, o\nExagero e o Alvo, que só se desenha com símbolo no mapa e \"Símbolos do mapa\"\nligado. O botão e o painel saem da coluna, e o Esc perde a camada deles. No\ntoque os controles da barra ganham os 44 px da casa, e no celular cada linha\nquebra em duas. A altura da barra é medida e publicada no documento: o\nmini-mapa sobe quando a barra o alcança, e a barra da apresentação com o texto\nescondido fica acima dela.\n\nA Órbita é o botão novo da coluna: a câmera sai do ponto, sobe e gira num\ncírculo em volta dele, olhando para ele, pelo ramo de voo do renderer (o do\nMover), sobre a grade em memória. A metade pura está em orbita.js: a faixa da\naltura pelo raio (3% ao que a mira de 30 graus alcança), a pose no círculo, o\nperfil de folga sobre o relevo calculado uma vez por grade, raio e altura e\nalisado por um envelope superior (o quadro só interpola), a entrada e a saída\ncom o arco que passa por cima do relevo de baixo, as oito paradas, a régua da\nvolta e o ponto do chão visto de fora do centro. Em órbita a linha de cima da\nbarra vira a reprodução (Girar e Pausar, a régua da volta com a leitura, o\nRaio, o sentido e a duração da volta) e a de baixo traz a data, a hora e o Sol\nencolhidos num botão que os abre sobre a barra, a Altura no lugar do Olho, o\nExagero e o Alvo. Alfinete no alvo, círculo, câmera e cone no mini-mapa,\nrecusa com o motivo nos limites de altura e de raio, aviso do relevo no\ncaminho, arrasto em volta e de altura, roda e pinça no raio, setas e espaço,\n\"Orbitar este ponto\" no menu do botão direito, e \"Mover\" trocando o alvo. Com\nmovimento reduzido ou sem placa de vídeo a órbita não gira sozinha: são oito\nparadas, com Anterior e Próximo.\n\nNesta fatia a órbita esconde o Sol, os símbolos e as feições, como o voo do\nMover, e recusa \"Salvar orientação\" e \"Salvar a imagem\" dizendo para sair\ndela. A paridade em movimento, o \"Salvar órbita\" e a Ajuda são as fatias\nseguintes.\n\nMedido na bancada do visualizador, com placa de vídeo: nenhum pedido de rede\nentre o clique na Órbita e a volta inteira (30,1 s na volta de 30 s). A\nbancada passa a montar a grade do ponto PEDIDO: até aqui o \"Mover\" nela\nrecebia de volta a grade do cume.\n\nTestes: horizonte-orbita.test.js (novo, 37 casos), e horizonte-visualizador,\nhorizonte-edicao e horizonte-desenho atualizados, rodados um a um. Os dois\nspecs do Playwright foram atualizados e ganharam o caso da órbita, mas NÃO\nforam rodados nesta sessão: a bateria é de quem recebe a fatia.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "eb9aa2c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eb9aa2cba89a5db15d363dc4b63eb2724333ce2c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
     },
     {
       "repo": "1cgeo/ebgeo_360",
