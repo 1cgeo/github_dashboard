@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-14T16:29:31.108Z",
+  "lastUpdate": "2026-11-14T23:47:18.255Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-14T01:24:19.000Z",
+    "1cgeo/ebgeo_web": "2026-11-14T18:37:58.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-14T13:50:56.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-14T23:02:36.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -69,7 +69,7 @@
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
     "1cgeo/ebgeo_produtor": "2026-11-08T12:21:06.000Z",
     "1cgeo/sap_master": "2026-11-09T12:17:34.000Z",
-    "1cgeo/ebgeo_campo": "2026-11-11T16:09:41.000Z"
+    "1cgeo/ebgeo_campo": "2026-11-14T22:09:32.000Z"
   },
   "repoPrivate": {
     "1cgeo/ebgeo_web": true,
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10867,
+    "totalCommits": 10898,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3493,
+      "1cgeo/ebgeo_web": 3504,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -173,7 +173,7 @@
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
       "1cgeo/ebgeo_produtor": 91,
-      "1cgeo/ebgeo_campo": 182,
+      "1cgeo/ebgeo_campo": 189,
       "1cgeo/sap_master": 44,
       "1cgeo/0Bug_Report": 3,
       "1cgeo/server-healthcheck": 4,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1406,
+      "1cgeo/chefe_dgeo": 1419,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,285 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T23:02:36.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (tela travada): a causa da posição rala e imprecisa é o GPS pedido a cada 10 s, que deixa o chip ligar e desligar; pedido a 1 s, leitura a cada 1,0 s e precisão estável, sem wake lock nos dois casos; o conserto espera a decisão sobre a bateria\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "7870922",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7870922648416e7012e8bfa59cd663384284e93e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T22:09:59.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (0.1.19 provada no S24): com a posição da tela vindo do GNSS do núcleo, o rádio do Wi-Fi varre 0 ms em 70 s com o app na frente (eram 25,4 s em 71 s); o teste da tela travada com o diagnóstico da posição ficou por fazer\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "6c1be98",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6c1be9885ab109d71af977bbf869a2c119b0580a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T22:09:32.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a posição da tela pelo GNSS do núcleo provada num S24, no IMPLANTACAO.md\n\nCom a 0.1.19 na frente o rádio do Wi-Fi varreu 0 ms em 70 s (eram 25,4 s em 71 s), sem nenhum pedido de varredura no período.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "5ac6e4d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/5ac6e4deecaf593abc00eefb740083ce1ac0298b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T22:00:48.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (0.1.19 na main): a posição da tela pelo GNSS do núcleo e o diagnóstico do serviço de posição, sem prova no celular; a hipótese do controlador da Samsung que para o GNSS com o aparelho parado, para a leitura rala com a tela travada\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "3869be7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/3869be743f06d2bc45c1e1e42d78d8a4a8bf7b1b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T21:59:44.000Z",
+      "author": "Maj Diniz",
+      "message": "núcleo e tela: a posição da tela vem do GNSS do núcleo (C26), o diagnóstico do serviço de posição pelo dumpsys, e a versão 0.1.19\n\nNo Android a tela pedia a posição ao WebView em alta precisão, e o localizador do Google varria o Wi-Fi a cada 7 s em nome do app: num S24, com o app na frente, o rádio passava 36% do tempo varrendo (25,4 s em 71 s), e 0,2% com o app no fundo. A tela passa a receber as leituras do LocationManager pelo evento gps-da-tela (GpsDaTela, com a mesma interface do navigator.geolocation em gps-nativo.ts); a rede só entra com o GNSS calado há 15 s, a cada 20 s.\n\nO ServicoDeCampo responde ao dumpsys com o ritmo pedido, o wake lock e as últimas leituras (provedor, precisão, se entrou no lote), sem coordenada: é o instrumento para a leitura rala com a tela travada, ainda sem causa testada.\n\nJVM 209 de 209, testes da tela 107 de 107, bancada do aparelho emulado pelo retransmissor (A, B e F) 29 de 29. Sem prova num celular de verdade.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "3f918c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/3f918c6623e33074def40d2497c96cad7b15c3aa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T21:44:10.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (0.1.18 publicada): o release v0.1.18 e a página relidos no destino, o prompt para gravar a versão corrente na DSG, e o que a investigação do Wi-Fi do S24 mostrou (o engasgo não é o celular varrendo; com o app na frente o rádio varre 36% do tempo)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "32186b2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/32186b2702206f07ec73810a463f4468240bcb61",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T21:23:21.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (prova pelo 4G): com a 0.1.18 o S24 sobe a 400 kb/s aos 20 s e fica, com os envios em 142 ms na mediana e 70 a 72 fios por minuto no retransmissor; na 0.1.15, pelo 4G, caía ao degrau baixo em 20 s\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "04c7a72",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/04c7a72ce868eada9f60efc1af5fc67d6470efae",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T21:22:55.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: a prova da 0.1.18 pelo 4G num S24, no IMPLANTACAO.md\n\nCom o Wi-Fi desligado a taxa partiu em 200 kb/s, subiu a 400 aos 20 s e ficou, com os envios em 142 ms na mediana e 70 a 72 fios por minuto no retransmissor.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "7e58120",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/7e581206ce1845c66aab2dee318a0518b98f5f03",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T20:46:36.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: o teste_4g.sh para se o celular não está no adb\n\nCom o cabo tirado, toda leitura voltava vazia e o roteiro tomava o celular por destravado; nada chegou ao aparelho, mas ele seguia até a etapa do app.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "dbc3590",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dbc359030f324ba2fc3be68a934979943482d6d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T20:44:39.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-14 (cont.): a guarda antes do commit-tree roda sem pipe, no learnings da retrospectiva e no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "f6c15df",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f6c15df3fe3a1b932f82acd6a7a709699456aaa0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T20:43:43.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo: a expressão regular do ler_movimento.py sem o trecho que a guarda de caminhos lê como unidade de disco\n\nO commit anterior saiu por índice temporário com a guarda acusando esta linha, porque a saída dela passou por um filtro que escondeu o código de retorno.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "1c801e5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1c801e5faeccad8dbfec64bfac6e676f6abae7a8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T20:42:10.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (0.1.16 a 0.1.18): a assinatura com o hash fora do Keystore e o diagnóstico pelo dumpsys na main do ebgeo_campo; no S24 o chip deixou de pesar, e a taxa que seguiu caindo no Wi-Fi é do enlace do celular (ping ao roteador, com o app fechado); falta a prova pelo 4G; a decisão com o raio de explosão, duas linhas do livro-razão, o método em \"Testar no celular\" e os roteiros de medida do S24\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "7a71660",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7a71660cb6251b73b0133fb8645953d833d1fb8d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T20:38:39.000Z",
+      "author": "Maj Diniz",
+      "message": "núcleo: o diagnóstico do vídeo pelo dumpsys (C25), e a versão 0.1.18\n\nO app de produção não escreve log e a tela dele não se lê de fora. Na prova da 0.1.16 num S24 a taxa caía e não havia como saber por quê. O serviço de vídeo passa a responder ao `adb shell dumpsys activity service` com os números da transmissão, o histórico da taxa, a duração das últimas assinaturas (Cofre) e a duração e o desfecho dos últimos pedidos HTTP (MedidaDaRede, no Mensageiro). Só na memória do processo, e só o que está na lista: não sai mapa, atlas, nome, posição, endereço nem a mensagem da exceção.\n\nCom ele, no S24: a assinatura com o hash fora leva 150 ms na mediana e 417 ms no máximo; a sonda para 400 kb/s passa; e a taxa cai por silêncio de 3 a 9 s em todos os pedidos de uma vez, a cada 23,5 s, que o ping do celular ao próprio roteador mostrou ser do Wi-Fi dele, com o app fechado.\n\nJVM 204 de 204. Bancada do aparelho emulado pelo retransmissor, blocos A, B e C a 15 s, sem reprovação.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "b748c17",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/b748c17eb3447867a52d36bd84dca26ff84cab57",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T20:19:37.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-14 (A07/M08 na Fonte 1cgeo): o lote de recarga matricial em 4674 fechou em 981 de 981, com os retidos resolvidos (folhas combinadas pelo INOM, GeoTIFF gerado do PDF e provado pela quadrícula, folha errada na Fonte, PDF da Fonte anexado, datum antigo aproximado em Araquari e Blumenau); o SAP 3.0 completado com 12 arquivos, 6 rótulos de edição pelo impresso e o PDF como formato alternativo; a carregar-bdgex ganha o carregador por Playwright para envio grande, o sha256 em fluxo e a prova que pega o PDF vazio da queda de conexão; a auditar-acervo ganha os scripts de georreferência e o que a prova da quadrícula pegou; o projeto qualidade-bdgex nasce com o estado do relatório; as decisões de 2026-11-11 a 13 e uma linha do livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMRgWRht74nXmmB3UB",
+      "sha": "97a8b45",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/97a8b4580092674ae0bfccd33c7cb197a78cc081",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T19:42:18.000Z",
+      "author": "Maj Diniz",
+      "message": "teste-ponta-a-ponta/aparelho e docs: o passo do hash fora, a decisão C24 e a 0.1.16 no IMPLANTACAO.md\n\nO bloco A lê no armazém do núcleo o modo de assinatura das duas chaves, e o login aceito pelo EBGeo de verdade é a prova de que a assinatura no fio não mudou. O README da bancada diz que ela não vê o custo da chave em hardware, e aponta a bancada do Keystore.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "63bca15",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/63bca15ee6e4b0548d1ba55f9de4d57492cd4d78",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T19:42:18.000Z",
+      "author": "Maj Diniz",
+      "message": "ferramentas: a bancada do Keystore, que mede no aparelho o custo da assinatura no StrongBox e no TEE\n\nUm app de uma tela, com pacote próprio, sem rede: assina de 32 bytes a 64 KiB com o hash dentro e fora, em série e com 4 em paralelo, e escreve no logcat. O emulador assina em software e nunca mostra o que o chip custa. O README traz o que ela mediu num S24 em 2026-11-14.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "a86c466",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/a86c466b35c00c40b1bb941c9d51e1c6aefa3b43",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_campo",
+      "date": "2026-11-14T19:42:18.000Z",
+      "author": "Maj Diniz",
+      "message": "núcleo: as chaves do aparelho assinam com o hash fora do Keystore (C24), e a versão 0.1.16\n\nNum S24 a identidade mora no StrongBox, e o SHA256withECDSA mandava o fio inteiro ao chip em fatias de 4 KiB: 403 ms para assinar 16 KiB, 760 ms para 32 KiB e 1.356 ms para 64 KiB, com o chip dando 40 a 53 KiB por segundo ao todo. O vídeo caía ao degrau mais baixo em 20 s e ficava, em Wi-Fi bom e no 4G (medido em 2026-11-14, no log do Keystore do aparelho e na bancada do Keystore).\n\nO app passa a calcular o SHA-256 e o Keystore assina os 32 bytes (NONEwithECDSA): 138 ms com qualquer tamanho, e a assinatura no fio é a mesma. A chave nasce aceitando o SHA-256 e o modo sem digest, no StrongBox quando ele aceita e prova, senão no TEE; a última tentativa é o TEE só com o SHA-256, como até a 0.1.15. O login de antes volta à tela de login.\n\nJVM 197 de 197. Bancada do aparelho emulado pelo retransmissor: blocos A e B, 15 de 15, e o bloco C a 15 s com a tela travada, 13 de 13.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "6754ec7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_campo/commit/6754ec75c733ee12b97466630124453a98607b08",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_campo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T19:27:06.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-campo 2026-11-14 (bancada do Keystore no S24): o custo da assinatura por tamanho no StrongBox e no TEE, com o hash dentro e fora do chip; as duas saídas da 0.1.16 medidas, e a escolha do chefe pela A (hash no app, com queda para o TEE); o fonte e o resultado da bancada na pasta do projeto\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "ed63c7d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ed63c7d7a77734935aeebd73b95d8e614c4c379e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T18:56:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-14 (EBGeo Campo 0.1.15 no S24): primeira prova num celular de verdade, pelo retransmissor de produção, com o destino lido na DSG; o vídeo não passa do degrau baixo porque o S24 assina cada fio dentro do StrongBox (medido no log do Keystore do aparelho, com a posição sem vídeo como controle), e com a tela travada a posição a 15 s chega rala e imprecisa por causa da leitura do GPS; o PROJECT.md do Campo com o estado e o método de medir o APK de produção sem log, o prompt de leitura do banco, a decisão com o raio de explosão e três linhas do livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "59c1c4e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/59c1c4edb4b90066329aad40afe0531caccbdd1b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T18:42:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-14 (camada de câmeras do EBGeo Web): a obra foi enviada à main do ebgeo_web em onze commits (até 063f419de), com o projeto, o mock, a colheita das 64 câmeras do Sul e o pacote para o agente das instâncias em 01-Projects/ebgeo-cameras; a decisão (item único na Externa, lido só por conta, sem interruptor geral); a wiki ebgeo-web ganha o terceiro tipo da Externa e os fatos das fontes; subagentes.md, planejar-mudanca-sistema e medir-desempenho-web ganham o que a obra em fases ensinou (a suíte de unidade inteira no fim de cada fase, tela decidida em mock e de novo na tela real, vídeo de terceiro só no Chrome instalado)",
+      "sha": "9787dd6",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9787dd6bbbb43cbefb76485cbe3785eacee62c4a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T18:37:58.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: o plano de obra sai da raiz, e as citações dele apontam a página da wiki\n\nA obra fechou. O durável do plano (o desenho, as decisões do dono com data, o que fica fora e o que a\npublicação exige) está em docs/wiki/cameras-ao-vivo.md, e os 24 arquivos que citavam o plano em\ncomentário ou em texto de censo passam a citar a página.\n\nProva: lint e a suíte de unidade do frontend inteira (27.900 casos). A suíte inteira do repositório\ntinha passado no commit anterior: frontend 27.900, backend 7.869, e2e 334 e Ajuda 113.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "063f419",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/063f419de6d34390468f7b21b5d32e3160838184",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:57:39.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: o censo das escritas cruas declara a camada das câmeras, com motivo e contagem\n\nA suíte inteira pegou o que as rodadas por arquivo não rodaram: a camada das câmeras escreve as duas\nsources que ela mesma cria, como o rastreio, e o censo pede que isso seja declarado.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "8dfae47",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8dfae47b227992774046cea7e71fd979d9990115",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:54:13.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras (fase 6, documentação): três páginas da Ajuda, a página da wiki e o plano com as seis fases feitas\n\nAjuda: \"Como vejo as câmeras ao vivo no mapa?\" para quem usa o mapa (adicionar pela Externa, ler o\nmapa, a janela e a grade, o que fazer em cada aviso de falha), e duas páginas do administrador\n(cadastrar uma câmera com o editor de pose, e importar câmeras de um arquivo, com o formato chave a\nchave e um exemplo aceito pelo esquema do servidor). A linha das Novidades aponta a página nova.\nWiki: o desenho e as decisões da camada, ligada ao índice e à página das camadas externas.\nPlano: as seis fases feitas na main local; faltam a suíte inteira e o envio.\n\nAs três páginas saem com a figura do Catálogo que já existia: as figuras próprias pedem o motor de\nmídia, que precisa da origem dos tiles de produção.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "e9e3458",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e9e3458e3313a09f0393a6c21042bde857fdcee0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:43:46.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: a janela minimizada sai da tela, e o painel da camada fica sem \"Restaurar padrão\", sem o parágrafo e sem rolagem própria na lista\n\nDecisões do dono (2026-11-14), vendo a tela com as câmeras reais:\n- a janela minimizada não aparece no mapa, nem como faixa: fica só na lista das janelas do painel\n  de estilo da camada, de onde um clique no nome a restaura, e a grade se fecha sem ela;\n- o painel de estilo da camada Câmeras não tem \"Restaurar padrão\";\n- o parágrafo explicativo abaixo da lista saiu;\n- a lista das janelas não rola por conta própria: rola o corpo do painel, com o \"Concluir\" à vista.\n\nO spec do mapa deixa de supor que só as câmeras dele estão no banco da rodada ao provar o zoom.\n\nProva: os specs cameras-grade e cameras-no-mapa no navegador, e o controle em que a minimizada\ncontinua na tela reprova.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "4c0299a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4c0299a9ea1c699426b844a91bf588fefe79c345",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:20:53.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: a linha da camada na aba Camadas tem o zoom, além do olho e da lixeira\n\nDecisão do dono (2026-11-14): a camada de câmeras se trata como qualquer outra na aba Camadas. A\nlinha ganha o \"Ir para camada\", que enquadra as câmeras lidas (a linha não tem caixa declarada), e\ndiz o que fazer quando ainda não há câmera lida. O spec do mapa passa a provar o zoom e a lixeira:\nremover a camada fecha as janelas, tira os pontos do mapa e a camada do atlas.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "ebbbfc2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ebbbfc2d8988471a31bb3777d5e0e7bada5f02d1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:20:53.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras (fase 5, mapa): a grade das janelas e os comandos delas no painel da camada, em ícones\n\nUm gerente de grade que só conhece retângulos encaixa as janelas em células 16:9 à direita, embaixo\nou no mapa inteiro, sem sobreposição, desviando da busca, dos atalhos, do selo da conta e da coluna\nde ferramentas. O painel de estilo da camada ganhou os comandos em ícone: abrir as câmeras da tela\n(já em grade), os três modos de grade e o solto, diminuir e aumentar as janelas (com aviso no\nlimite), minimizar e restaurar todas, fechar todas, e a lista das janelas abertas. A janela ganhou\nmarcar (as marcadas ocupam mais células) e minimizar, que para a fonte de verdade. Arrastar ou\nredimensionar uma janela a tira da grade, e escolher uma grade a devolve. A grade acompanha o\ntamanho da tela e o painel lateral. No celular não há grade.\n\nTambém nesta fase: quatro tamanhos de letra da folha das câmeras passaram a tokens da escala.\n\nProva: spec cameras-grade no navegador com nove câmeras, medindo os retângulos na tela, e controles\nque reprovam com o limite do aumentar medido errado, sem a saída da grade no arrasto, com minimizar\ncomo pausa e com a marcada sem crescer. A suíte inteira roda uma vez no fim da obra.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "538d037",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/538d037b832beec7f3c8de67df6cb5d8f7562daa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:13:43.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: o item Câmeras não se desativa, e o administrador liga e desliga câmera por câmera\n\nDecisão do dono (2026-11-14): não há interruptor da camada inteira, para nunca desligar tudo sem\nquerer. A sub-aba Externa da administração deixa de listar o item Câmeras, as rotas da Externa\nrecusam desativá-lo ou trocar a configuração dele (409, dizendo onde ir), e o item que estiver\ndesativado volta com a próxima câmera criada ou importada, mantendo o nome.\n\nProva: os testes de integração das câmeras e da Externa, com controles que reprovam sem a recusa e\nsem a volta; e o spec da administração, que reprova sem o filtro da lista.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "ef9351d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ef9351da6c173068ea799bce5680c9a0b738fab9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T17:06:07.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras (fase 4, administração): o editor de pose no mapa, com o ponto que se arrasta e três alças para rumo, abertura e alcance\n\nNo formulário da câmera, um mapa carregado sob demanda mostra o ponto e o campo de visão sobre o\nsatélite, ao lado do vídeo do Testar. O ponto se arrasta (ou nasce por um clique, na câmera nova) e\ntrês alças mudam o rumo, a abertura e o alcance; arrastar escreve nos campos do formulário e digitar\nmove o desenho, e nada é gravado antes de salvar. Pôr o ponto no mapa marca a precisão da posição\ncomo posta pelo administrador. A câmera sem campo de visão ganha e perde o campo por botão, com o\npadrão de 60 graus e 300 m. O MapLibre entra na página de administração só por esta porta.\n\nProva: spec admin-cameras-pose no navegador com servidor real, e controles que reprovam sem a escrita\ndo arrasto no formulário, sem a marca manual e com a conta da abertura pela metade. A suíte inteira\nroda uma vez no fim da obra, antes do envio.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "05a8a4b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/05a8a4ba048d464a3e3c29d7ceab5d3dffca577b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T16:12:35.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras (fase 3, mapa): a camada única com agrupamento e campo de visão, e a janela de vídeo que diz a causa quando não abre\n\nO item Câmeras nasce na categoria Externa com a primeira câmera criada ou importada, e o Gestor o\nadiciona pelo Catálogo. O gerente das externas entrega o tipo camera a um gerente próprio, que lê as\ncâmeras com a conta, desenha a pílula do agrupamento com a quantidade, os pontos por estado e o campo\nde visão (cheio quando firme, pontilhado quando aproximado, tracejado quando a câmera se move) e abre\na janela no clique. A janela é leve, sobre as peças de gesto da casa: arrasta, muda de tamanho, toma a\ntela pelo botão ou por dois cliques na imagem, e ao fechar para os pedidos à fonte. Quando o vídeo não\nabre ela diz a causa, e a rede que não alcança um servidor põe em cinza as outras câmeras dele até uma\ntocar. O painel de estilo liga o campo de visão, abre as câmeras da tela (16 por clique) e fecha todas.\nSem conta, o item não aparece no Catálogo nem na aba Camadas.\n\nProva: spec cameras-no-mapa no navegador com servidor real, e controles que reprovam sem a delegação\ndo tipo, sem a marca por servidor, sem os dois cliques e sem parar a fonte ao fechar. A suíte inteira\nroda uma vez no fim da obra, antes do envio.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "bcd1109",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bcd1109e411936acb6ad35cd4cdbfffa46f5467f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T15:10:03.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras (fase 2, administração): a sub-aba Câmeras do Catálogo, com lista, formulário, importação e teste do vídeo\n\nSó o administrador a vê, depois da Externa. A lista traz busca e a situação de cada câmera; o\nformulário espelha o esquema do servidor (https no endereço, faixas dos números, campo de visão por\ninteiro) e a frase de recusa some quando a pessoa volta a digitar; a importação lê um arquivo no\nformato da rota e diz qual câmera o servidor recusou; \"Testar\" toca a mídia numa prévia e diz em\npalavras se está ao vivo, se a rede não alcança a fonte, se a câmera está fora do ar ou se o\ncadastro não abre no navegador.\n\nAs fontes de câmera (HLS de terceiro e YouTube) nascem num módulo próprio, que a janela do mapa vai\nusar na fase seguinte. A tela e o hls.js chegam sob demanda, e a lista fechada de pacotes da\nadministração guarda isso.\n\nConserta também a frase da tabela de câmeras no censo de imagens órfãs, que o censo de acentos lia\ncomo português sem acento desde a fase 1.\n\nProvado: lint, os testes de unidade novos (62, 39 e 87 casos), as guardas tocadas e o spec do\nnavegador (cria, edita, importa três, desativa e reativa; o produtor não vê a sub-aba), 2 de 2.\nSem prova: o vídeo ao vivo num navegador de verdade, que depende da internet.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "d00a73a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d00a73ae40f19f0ed8c3d4005b93c824f27e8450",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T14:25:06.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras (fase 1, servidor): o cadastro de câmeras ao vivo, lido só por conta e escrito só pelo administrador\n\nA tabela de câmeras (sem PostGIS: longitude e latitude em colunas numéricas, campo de visão em\nazimute, abertura e alcance), o módulo com a leitura das ativas para conta autenticada e, só para\no administrador, listar todas, criar, editar, desativar e importar em lote. O esquema é fechado, o\nendereço do vídeo tem de ser https, e a escrita entra na trilha com o alvo próprio de câmera.\n\nO esquema da camada externa passa a aceitar o tipo câmera, que as fases seguintes usam para o item\núnico da seção Externa. A cláusula 2.8 da constituição ganha a frase da leitura só com conta\n(o dono, 2026-11-14). O plano da obra está em PLANO-CAMERAS.md.\n\nProvado nesta fase: lint, os testes tocados um a um (cameras.test.js 34 de 34) e o controle em que\ntirar a autenticação da leitura reprova 2 casos. A suíte inteira, que a migração pede, roda uma\nvez no fim da obra, antes do envio.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "0d5398c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0d5398c86067e218cb315b367045a11ee0fda4bf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-14T13:50:56.000Z",
