@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-14T00:49:22.505Z",
+  "lastUpdate": "2026-11-14T16:29:31.108Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-13T17:08:46.000Z",
+    "1cgeo/ebgeo_web": "2026-11-14T01:24:19.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -15,10 +15,10 @@
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-10-01T08:48:19.000Z",
+    "dsgoficial/modelagens": "2026-11-14T11:16:35.000Z",
     "dsgoficial/configuracoes_producao": "2026-10-05T15:43:51.000Z",
     "dsgoficial/ferramentas_edicao": "2026-11-09T12:57:32.000Z",
-    "dsgoficial/DsgTools@dev": "2026-11-11T16:53:21.000Z",
+    "dsgoficial/DsgTools@dev": "2026-11-14T11:16:36.000Z",
     "dsgoficial/sap": "2026-11-09T11:05:45.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-09-25T18:43:16.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-13T16:40:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-14T13:50:56.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10851,
+    "totalCommits": 10867,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3483,
+      "1cgeo/ebgeo_web": 3493,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -145,10 +145,10 @@
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 174,
+      "dsgoficial/modelagens": 175,
       "dsgoficial/configuracoes_producao": 210,
       "dsgoficial/ferramentas_edicao": 506,
-      "dsgoficial/DsgTools": 690,
+      "dsgoficial/DsgTools": 692,
       "dsgoficial/sap": 184,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 76,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1403,
+      "1cgeo/chefe_dgeo": 1406,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 37,
@@ -191,6 +191,150 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T13:50:56.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-sobrevoo 2026-11-14: o voo visto sobre o relevo e a imagem reais do 1º CGEO, o conserto do traço da linha sob o olho, as duas revisões independentes (desempenho e UI/UX) guardadas no projeto, a receita do relevo real no stack local e o roteiro da bateria única do ebgeo_web (.claude/scripts/bateria_ebgeo_web.sh)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "c028a43",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c028a431804021104d3c73765744381119fb22f3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T13:00:56.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-13 (EBGeo Web, sobrevoo no Horizonte): a órbita e o voo de rota na main do ebgeo_web (bac1fac01 e 6906ffd6f), com a paridade em movimento; o projeto ebgeo-sobrevoo nasce com o estado, as medidas e o que não foi provado (relevo real); cinco decisões; a wiki ganha a entrada do sobrevoo; a receita de desenvolvimento ganha o Playwright em paradas, a vista sem a rede do relevo, o branch de junção e onde entram as variáveis da bateria (reincidência, no livro-razão); a medir-desempenho-web ganha a régua da paridade e a atribuição por cadência\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "bde6ddf",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bde6ddf1b039548b178e112cc8f0083f24656f07",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-14T11:48:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-14 (issue 857 do DsgTools): o banco EDGV 3.0 saía com a modelagem antiga em servidor que guardava o template de 2022; a dev deixa de usar template, a legada recebe o conserto mínimo e a EDGV 3.0 sobe para 1.1.7 no modelagens\n\nA causa, as medidas e a prova de ponta a ponta ficam na evidência do projeto\natualizacao-dsgtools, com o conversor de SQL do modelagens para o DsgTools e\nos scripts de ensaio, que só existiam na pasta temporária. A wiki/dsgtools\nganha a seção da criação de banco e abre com o ponteiro para o projeto, que\nnão foi lido antes do conserto (livro-razão): testado no QGIS 4.0.0 e com\ntrês consertos num commit só, os dois pendentes na mesa do chefe.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "c47e63a",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c47e63a51d5f3d49aea1d95ee6d43e7133f2a72e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-11-14T11:16:36.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(db): cria o banco EDGV direto do SQL, sem template no servidor (#857)\n\nO banco EDGV era copiado de um template guardado no servidor\n(template_edgv_3 e afins), que só era refeito quando a versão de\nimplementação dele era MENOR que a do SQL embarcado. A EDGV 3.0 passou de\n('3.0','4') para ('EDGV 3.0','1.1') com renumeração de 12 domínios, e\ncomo '4' não é menor que '1.1.6' o servidor que já tinha o template\nantigo seguia criando banco com 143 domínios e a numeração antiga.\n\nO template sai: o banco nasce do SQL embarcado, já no SRID pedido, e o\nmodelo vai ao servidor em um único envio. Ficam a cópia de um banco\nexistente (lote e banco escolhido como modelo) e o filtro que esconde os\ntemplates antigos da lista de bancos.\n\n- remove checkTemplate, createTemplateDatabase, getTemplateName,\n  checkTemplateImplementationVersion e getImplementationVersionFromFile;\n- remove o PostgisDbThread, que não tinha chamador e apontava para SQL\n  que não existe mais;\n- banco que falha na criação é derrubado em vez de ficar vazio;\n- a tabela de estilos só é criada se o modelo não a trouxe, o que fazia\n  a criação do EDGV 2.1.3 Pro falhar.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "d5ea054",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/d5ea05430384fc492b315c819ddea8dc1e3192d0",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/DsgTools",
+      "date": "2026-11-14T11:16:36.000Z",
+      "author": "Maj Diniz",
+      "message": "feat(db): atualiza EDGV 3.0 (1.1.7), Topo (1.4.6) e Orto (2.5.4)\n\nOs três SQL de criação voltam a ser iguais aos do dsgoficial/modelagens,\nconvertidos para o formato do plugin (comando terminado em '#', SRID no\nmarcador [epsg], LF, sem espaço no fim da linha). A conversão foi\nconferida contra o histórico: aplicada às versões 1.1.6, 1.4.4 e 2.5.2\ndo modelagens, reproduz byte a byte os arquivos que estavam aqui.\n\n- EDGV 3.0 1.1.7: enc_central_geradora_eolica_l,\n  enc_est_gerad_energia_eletrica_l, hid_foz_maritima_a,\n  lml_limite_legal_l e o domínio tipo_limite_legal;\n- EDGV 3.0 Topo 1.4.6 e Orto 2.5.4: llp_localidade_a.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "f185a1b",
+      "htmlUrl": "https://github.com/dsgoficial/DsgTools/commit/f185a1bb2642fd529073e593aab8d347e98c49d3",
+      "repoUrl": "https://github.com/dsgoficial/DsgTools"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-11-14T11:16:35.000Z",
+      "author": "Maj Diniz",
+      "message": "edgv 3.0 v1.1.7: a versão acompanha o que o modelo já tinha ganho\n\nO edgv_300.sql seguia em 1.1.6 desde o 88666fe (2024-11-19), mas ganhou\nenc_central_geradora_eolica_l, enc_est_gerad_energia_eletrica_l e\nhid_foz_maritima_a no 8fabfb1 e lml_limite_legal_l com o domínio\ntipo_limite_legal no f6f9c09. O DsgTools embarcava o 1.1.6 de antes\ndessas classes, então dois bancos \"EDGV 3.0 / 1.1.6\" podiam ter 292 ou\n296 tabelas, e nenhuma comparação de versão distinguia um do outro\n(dsgoficial/DsgTools#857). Só o número muda: SQL, master file e o\nmapeamento para shapefile que declara a versão do modelo.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "4660450",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/4660450296fdfd65e92ccd60c19523c93ddad931",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T01:24:19.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte (spec da rota): o painel recolhido se confere pela barra do voo, que existe com e sem placa de vídeo\n\nO spec esperava o Tocar logo depois da decolagem; sem placa de vídeo o voo vai em paradas e o\nTocar dá lugar ao Anterior e ao Próximo. Pego na primeira rodada do spec.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "6906ffd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6906ffd6feaf238f679c0d76cd81966a4b9173eb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T00:24:31.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte (wiki e ajuda): a imagem acompanha o voo, e a órbita mostra o Sol, os símbolos e os desenhos\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "0daf74d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0daf74d6f841f1656dd428c65a587bfc2a648024",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-14T00:20:13.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a paridade em movimento, o Sol, os símbolos e as feições na órbita e no voo de rota (o chefe, 2026-11-13)\n\n\"Queremos a mesma renderização seja no horizonte seja na orbita ou na rota\": a\nórbita e o voo de rota deixam de esconder o Sol, os símbolos e as feições do\nmapa, e os desenham com os interruptores do Horizonte parado. Só o \"Mover\", um\ntrânsito curto, segue desenhando o relevo sozinho.\n\nA posição sai a cada quadro, do olho do quadro, pela conta do ramo de voo do\nshader. O que o relevo esconde sai de uma TABELA DE VISADA do olho, feita fora\ndo fio da tela: por azimute e distância, a maior tangente do relevo até ali. A\nmáscara de um símbolo ou de um vértice é uma leitura dela, e a última distância\nde cada coluna é o horizonte que o Sol lê. A cada troca de grade de um voo as\ncontas do centro se refazem, e valem até a primeira tabela da grade nova.\n\nAs feições seguem desenhadas pelo mapa escondido, com o estilo delas. Em\nmovimento ele reescreve as fontes numa cadência, para onde o olho vai estar\nquando a escrita chegar à tela, e entre duas escritas o desenho pronto desliza\ncom o giro da vista. A cadência segue a folga da placa e o custo da escrita. A\nescrita deixa de fora a feição que está fora da janela da vista, e a grade nova\nde um voo prepara de novo o que já foi lido, sem reler o mapa.\n\nO clique num símbolo em voo pausa a rota e o seleciona; na órbita seleciona\ncomo no Horizonte parado. O botão \"Linha da rota\" vale em voo.\n\nTrês acertos da entrega anterior: a porta do sobrevoo fecha o painel da feição\n(como o botão dele fecha) e recolhe a barra lateral, que cobriam o Tocar, a\nleitura e o mini-mapa; o worker do relevo da rota que falha sozinho na carga é\niniciado de novo uma vez, e a falha vai ao log com o que o navegador disse dela;\ne o menu do botão direito abre para cima quando cairia sobre a barra do pé.\n\nA bancada do custo é nova (bench/horizonte/paridade-medir.mjs): dirige o app,\nporque as feições são do mapa escondido dele.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "1fedaba",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1fedabadd6581241cd442c5b48c043f6274f24aa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T23:21:08.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a Central de Ajuda ganha o sobrevoo de itinerário\n\nPágina nova, \"Como sobrevoo um itinerário no Horizonte?\": a seção Sobrevoo do painel da Linha, da\nSeta e da Linha de Coordenação, Criar sobrevoo, tocar e pausar, olhar em volta, a régua, os\najustes gravados na linha e os da barra, que valem só para quem mexe, e o Sobrevoar da aba Camadas.\n\nNovidades de 2026-11-13 ganham a linha. A página usa o clipe da linha desenhada com o painel\naberto até a mídia própria ser gerada. Barra lateral, ARQUITETURA e o conjunto de avaliação da\nbusca ganham a página.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "036b162",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/036b1622e26af909a2b864d929c85b4b72af154c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T23:14:27.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a tela do voo de rota liga a imagem que desliza com o olho\n\nO visualizador entrega ao motor as fontes de imagem da vista e o interruptor; em rota a carga da\nimagem de um ponto só roda com a rota suspensa (a órbita lançada dela), quando o motor devolve o\nrenderer aos anéis da vista parada.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "059fd6f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/059fd6f83a716347405755517d2fd24edea02746",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T23:07:11.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a imagem sobre o relevo acompanha o olho no voo de rota, com cada anel numa janela de tiles sobre uma textura em toro, e a bancada que mede (o chefe, 2026-11-13)\n\nParada, a imagem são quatro anéis carregados em volta de um ponto, cada um um canvas que sobe inteiro. Em voo isso seria reenviar os quatro a cada recentragem: 7 ms na RTX A2000 e 51 a 57 ms na Intel UHD 770 por envio, medido. Cada anel vira uma janela de tiles que segue o olho: o tile (x, y) mora no slot (x mod lado, y mod lado) de uma textura que se repete, o shader soma um deslocamento constante à quadrática da vista parada, e só o tile novo sobe, com os nove níveis de mip.\n\n- imagem.js: a metade pura (a janela, o lado da textura, o deslocamento, a ordem da fila pela direção do voo).\n- imagem-em-voo.js: o gerente. As quatro janelas do começo carregam antes de decolar (281 tiles a 22 S), em voo só o que entra, seis pedidos por vez. O slot de quem saiu é esvaziado antes do desenho seguinte, e num salto de quilômetros o anel sai do desenho até esvaziar: nunca aparece a imagem de outro lugar.\n- render-cilindrico.js: a variante do shader atrás de IMAGEM_DESLIZANTE e as três funções dos anéis deslizantes. Sem a variante o shader é o da vista parada: o Horizonte parado e a órbita saem byte a byte iguais aos de antes, com e sem imagem, nas duas placas.\n- carga-da-imagem.js: o pintor de ladrilhos sai da carga parada para servir às duas, com as mesmas fontes e a mesma credencial.\n- motor-da-rota.js: recebe as fontes e o interruptor (imagem), expõe ligarImagem e estado.imagem, e pinta dentro de um orçamento por quadro.\n- bancada: imagem sintética em tiles com um tom por zoom, cenários com e sem imagem, o anel fino por altura do olho, a rede lenta e o interruptor ligado em voo.\n\nMedido nas duas placas e nas duas resoluções, três rodadas válidas: a imagem soma 0,1 ms ao quadro da RTX e 1 a 2 ms ao da UHD; o pior quadro que só pintou tiles fica abaixo do pior quadro de uma troca de malha; o pico de memória sobe cerca de 400 MB e não cresce com a rota. Os números estão em docs/wiki/horizonte.md.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "0501a53",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0501a534a41edcba2466f1c6eca3f9785b954841",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T22:04:13.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o modo rota na vista, que o Sobrevoar de uma linha abre (o chefe, 2026-11-13)\n\nA porta do sobrevoo deixa de abrir o Horizonte parado no começo da rota e abre a\nvista em modo rota: o relevo da rota inteira carrega antes de decolar, com a\ncontagem das partes na tela de carga, e a recusa do motor vira o aviso do que\nfazer. A barra segue em duas linhas: em cima Tocar e Pausar, Voltar ao início, a\nrégua do percurso desenhada como perfil (o chão, a câmera tracejada, um traço\npor vértice, os trechos em âmbar quando o terreno passa da altitude) e a\nvelocidade de reprodução; embaixo os ajustes, com o olho da linha, que na barra\né de quem mexe. Arrastar olha em volta e a rota segue; pausado, a grade é a do\nponto e a vista é o Horizonte dele; o Esc desfaz uma coisa por toque.\n\nO que a vista segue da linha enquanto voa: os ajustes que o painel ou um colega\ngravam entram no voo (com posto, nome de guerra e OM de quem mudou), o traçado\nnovo é dito e o voo continua pelo que carregou, e a linha apagada fecha a vista\ncom o motivo. Selecionar a linha da própria rota não fecha a vista. Sem placa de\nvídeo, ou com movimento reduzido, o voo vai de vértice em vértice.\n\nNo motor: suspender e retomar, para a órbita lançada da rota, que carrega outra\ngrade no renderer; e as fases passam a morar na metade pura, para a interface\nlê-las sem importar o corredor.\n\nAcertos do painel e do dado: a trava no vocabulário da casa; \"Altitude\" como\naltitude absoluta, dita no rótulo e na unidade do campo; o sobrevoo atravessa a\nconversão entre os três tipos que voam; e o mínimo de 50 m e as frases de recusa\ncom um dono só.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "4a8e25a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a8e25a71b955878c468587dfe1bd570b34f95f5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T20:26:54.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte (wiki): o pico de memória da rota sai com a faixa das duas resoluções medidas\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "d32b86d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d32b86d3a0793fa0b61a4bcab107ca99ba4e7c7b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T20:26:10.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o motor da rota, com a grade polar que desliza sob o olho, o relevo do corredor carregado antes de decolar e a bancada que mede (o chefe, 2026-11-13)\n\nO sobrevoo na linha roda no renderer do Horizonte. Esta fatia é o motor, sem tela:\n\n- horizon_tool/rota.js: a rota em metros, a posição e o rumo por estação (arco nos vértices, o rumo não salta), o perfil da cota do olho calculado uma vez, os trechos em que o relevo passa da altitude, as paradas, e a escolha do próximo centro da grade pela folga do buraco sob o olho;\n- terrain/horizonte/corredor*.js e malha.js: a lista dos tiles que a rota inteira pede, o worker persistente que os guarda decodificados e monta a grade de qualquer ponto sem rede (bit a bit a da carga parada), e a falha de rede que reprova a carga em vez de virar buraco;\n- horizon_tool/render-cilindrico.js: prepararTroca, a troca de malha em dois conjuntos de buffers de tamanho fixo, em fatias. O Horizonte parado e a órbita desenham os mesmos pixels (conferido contra bac1fac01 nas duas placas, sete poses, zero byte de diferença);\n- horizon_tool/motor-da-rota.js: carregar com progresso, tocar, pausar, ir para uma estação, quadro a quadro, ajustes em voo sem recarregar o corredor, e o olho que espera a grade em vez de desenhar o buraco;\n- bench/horizonte/rota*: a bancada sobre relevo sintético servido em tiles, sem servidor nem dado real, e o roteiro de medida.\n\nMedido, três rodadas válidas: quadro de 2,7 a 3,0 ms na RTX A2000 e de 17 a 22 ms na UHD 770; recentragem de 0,55 s no worker; pior quadro de uma troca de 12 a 14 ms na RTX e de 31 a 38 ms na UHD, contra 115 e 135 ms com as 36 geometrias de uma vez.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "768e25d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/768e25d740c5a240341f63864d018f630708c148",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-13T19:36:08.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: o sobrevoo mora na linha, com a seção no painel e o Sobrevoar na aba Camadas (o chefe, 2026-11-13)\n\nA Linha, a Seta simples e a Linha de Coordenação passam a guardar um sobrevoo\nna própria feição, sem tipo novo: a chave `sobrevoo` das propriedades, com o\nmodo (a pé, viatura, aeronave), a altura do olho, de onde ela se mede (terreno\nou altitude), a velocidade e a inclinação da vista. O modo só preenche os\noutros quatro. Largura da vista, exagero, data e hora não se gravam.\n\nA folha `horizon_tool/sobrevoo.js` não importa nada e roda em node: o\nvocabulário, os padrões por modo, o leitor que normaliza (fora da faixa volta\nà faixa, chave desconhecida some, o que não é objeto conta como sem sobrevoo),\na rota de cada tipo pelo eixo desenhado em `baseCoordinates`, as duas recusas\n(seta combinada, rota com menos de 50 m), a duração, o resumo e o que a seção\ndo painel mostra em cada situação.\n\nPainel: a seção \"Sobrevoo\" fecha os três painéis. Sem sobrevoo, \"Criar\nsobrevoo\" grava na hora os padrões da Aeronave, só a chave e sobre a feição\ncomo a store a guarda, relê para conferir e abre a vista. Com sobrevoo, os\najustes, a linha do percurso, \"Sobrevoar\" e \"Remover\" são edição pendente do\npainel e entram pelo Salvar, como cor e espessura; Remover apaga a chave, não a\ndeixa vazia. Quem não pode editar agora (Leitor, mapa travado, feição\nbloqueada) vê o resumo e \"Sobrevoar\", e a trava em texto. A seção some com\nvárias feições e no atlas que proíbe o terreno, pela regra do Horizonte.\n\nA chave entrou nas três listas `hasFeatureChanged`, sem o que o Salvar não a\npersistia. No KMZ e no GeoJSON dos dados ela viaja no estilo do dado estendido\nsob o próprio nome, porque o estilo só levava primitivos, e volta para a feição\nque volta como linha. Colar, duplicar, mover de camada e o `.ebgeo` já levavam\na feição inteira; estão presos por teste.\n\nA casca do painel para o par \"Correção de Zoom\" e \"Zoom de Referência\" ANTES da\nseção: movido para o fim, ele caía sob o título \"Sobrevoo\" no painel da Linha\nde Coordenação.\n\nAba Camadas: o avião de papel na linha da feição com sobrevoo, e \"Sobrevoar\" no\nmenu do botão direito, acima de \"Enquadrar\", para todo posto e todo estado.\n\nA porta é uma só, `sobrevoar` (`horizon_tool/sobrevoar.js`), que recebe a\nfeição ou o id. Nesta entrega ela abre o Horizonte no primeiro ponto da rota,\nolhando pelo rumo da primeira perna; o voo ao longo da rota vem depois.\n\nTestes: `horizonte-sobrevoo`, `sobrevoo-no-painel`, `sobrevoo-acompanha-as-copias`\ne `integration/sobrevoo-grava-na-feicao`; o censo `edicao-por-mapa-censo`\nganhou a entrada da seção somente leitura. Sem linha nas novidades da Ajuda: o\nvoo ainda não existe.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "eed52e3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/eed52e372a265e7d038377b32e92cf33883bb01b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-13T17:08:46.000Z",
