@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-15T23:54:07.578Z",
+  "lastUpdate": "2026-11-16T20:07:57.931Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-14T23:44:11.000Z",
+    "1cgeo/ebgeo_web": "2026-11-16T18:33:41.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-11-09T12:10:49.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-11-16T16:29:35.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
@@ -57,17 +57,17 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-15T22:01:51.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-16T19:31:54.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
     "1cgeo/fotos_aereas": "2026-10-07T22:30:16.000Z",
-    "1cgeo/ia_vegetacao": "2026-09-26T22:24:16.000Z",
+    "1cgeo/ia_vegetacao": "2026-11-16T16:29:44.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-08T12:21:06.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-16T17:46:38.000Z",
     "1cgeo/sap_master": "2026-11-09T12:17:34.000Z",
     "1cgeo/ebgeo_campo": "2026-11-14T22:09:32.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10906,
+    "totalCommits": 10947,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3510,
+      "1cgeo/ebgeo_web": 3534,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -165,14 +165,14 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 447,
+      "dsgoficial/pytorch_segmentation_models_trainer": 449,
       "1cgeo/geoswarm": 68,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
       "1cgeo/ebgeo_360": 68,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 91,
+      "1cgeo/ebgeo_produtor": 93,
       "1cgeo/ebgeo_campo": 189,
       "1cgeo/sap_master": 44,
       "1cgeo/0Bug_Report": 3,
@@ -183,14 +183,383 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1421,
+      "1cgeo/chefe_dgeo": 1430,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
-      "1cgeo/ia_vegetacao": 37,
+      "1cgeo/ia_vegetacao": 41,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T19:31:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16 (cont.): astro 7.4.12 nos três destinos e o nodejs do host da DSG em 22.23.5; o construir.sh da DSG sai rc 5 com o frontend reprovado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "775adc5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/775adc57dc7192158893a82c21ecfbbf696cd949",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T18:36:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16: vento, extração e QBRN no ar (vento só na DSG); partícula mais lenta de longe e sem o disco do ponteiro; o medidor de tiles procurava no canto\n\nEBGeo Web 4f908ed5b nas duas instâncias (087 e 088), vento ligado e cadastrado na DSG com\nminiatura, extração ligada na Topográfica; 1433d680d nos três destinos (velocidadeNaTela, disco\nfora, figuras da Ajuda refeitas no motor). Decisões cont. 3 a 6, três linhas do livro-razão,\nlearnings da atualizar-ebgeo-dsg e da medir-desempenho-web (GPU integrada desta estação), e a 087\ndas câmeras no ar no PROJECT.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cd3a0c9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/cd3a0c95fff95f141182427793163be33f3cc4ae",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T18:33:41.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: astro 7.3.7 -> 7.4.12, que fecha os alertas GHSA-r3h5-4585-7x3w e GHSA-mh32-jxcr-mh9f\n\nNenhum dos dois era alcançável (a Ajuda é estática, sem adapter, e sem tag dinâmica), e o chefe\nmandou subir. Lock gerado com o npm 12.0.2 da DSG; `npm ci --dry-run` aceito pelo 12.0.2 e pelo\n11.8.0 do 1º CGEO. Build com as mesmas 174 páginas e ajuda:test 113 de 113.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "504147a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/504147a4792b3a6b618603c94bfbbd194459bab6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T18:04:59.000Z",
+      "author": "Maj Diniz",
+      "message": "camada vento (wiki): a velocidade na tela, e a medida em GPU integrada\n\nIntel UHD 770 por D3D11, na DSG, plano, globo e terreno 3D inclinado: de 60,0 a 60,2 quadros por\nsegundo com a camada ligada e percentil 95 de 16,7 a 16,8 ms, contra 60,1 a 60,4 do controle\ndesligado. Falta o notebook padrão.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1433d68",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1433d680d78fb692259ff345febda3205b149a90",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T18:04:59.000Z",
+      "author": "Maj Diniz",
+      "message": "medir tiles do mapa base: confere cada vizinho atravessado, e não só o do canto\n\nA feição que saía pela direita E por baixo era procurada só no tile do canto, e contava como falta:\n48 de 49 \"faltas\" na DSG tinham o id nos dois vizinhos de lado. Medida de novo, a DSG dá 100% de\nmesmo id no vizinho em todas as camadas do Planetiler; a única falta real é um polígono de 1\nunidade² descartado por tamanho em base_mundo/land. A wiki da extração troca a tabela e a\nexplicação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c6f1c59",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c6f1c590ea26ebe86dacde0e830e2336f6ecd0dd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T18:04:59.000Z",
+      "author": "Maj Diniz",
+      "message": "camada vento: a partícula fica mais lenta de longe, fixa por nível, e sai o disco em volta do ponteiro\n\nDecisão do chefe da DGEO de 2026-11-16, em produção: de longe, com o Brasil inteiro, a animação\nestava \"muito rápida\", e o círculo sem partículas seguindo o mouse era estranho. velocidadeNaTela\n(estilo-do-vento.model.js): proporcional ao vento; abaixo do zoom 8 cai pela metade a cada dois\nníveis (um quarto no zoom 4, cerca de 63 px/s para 10 m/s, contra 250 de antes e 85 do\nearth.nullschool); do zoom 8 para cima, a de antes; por nível, dividida pelo teto da legenda, e não\nmais pela média da hora. Guarda: tests/unit/vento-velocidade-na-tela.test.js, com a regra velha\ncomo controle que reprova a vista do Brasil.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "23b8c9c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/23b8c9ca179789c33250b4631a974d3745cfd09e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-16T17:46:38.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: o teste da nuvem de 2026-11-16 (a 0.4.5), como ler o app instalado em execução, e o build depois do pull\n\n- O desenvolvimento.md ganha os quatro defeitos da 0.4.5 com o pior caso de cada prova (a estação\n  reaberta sobre a mesma fila; o clique segurado no e2e; o filtro de endereço negado no lote), o\n  inspetor do Node no processo principal com pontos de parada que só anotam, e, no Instalador, o\n  node_modules da raiz depois do pull, o spawn EPERM do electron-builder e o executável que sumiu.\n- O atitude.js: o OSD e a SEI 245 são o mesmo relógio, o do controle (medido lado a lado com o RC Pro\n  10 h 55 min atrás).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4bacfae",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/4bacfae6e65c000222c7381d115006335d38bccc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-16T17:38:37.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.5: a atitude da nuvem no voo certo, o Transmitir pela nuvem com os voos anteriores na tela, o clique que sobrevive ao redesenho, e o Liberar que confere sem administrador\n\nAchado no teste de 2026-11-16 com o Mavic 3E, o RC Pro e o app instalado:\n\n- A atitude da câmera ia a um voo encerrado: o donoDoOsd dava o OSD ao PRIMEIRO cartão com a série do\n  drone, e os encerrados ficam na tela. Lido no app em execução (o depurador do Node, com pontos de parada\n  que só anotam): o OSD ia ao 0136181c, de 05/11, e o voo no ar ficava com 1.871 pontos sem rumo nem\n  inclinação, com o cartão dizendo \"o controle não está na nuvem\". A encerrada não conta, e entre as da\n  série a que está recebendo vem primeiro. O teste novo reabre a estação sobre a mesma fila (o retomar,\n  como o app ao abrir) e reprova o código antigo.\n- O \"Transmitir pela nuvem\" sumia pelo mesmo motivo: o cartão encerrado do mesmo drone, casado pela\n  série, tomava o controle, e o cartão do voo novo pedia o RTMP digitado.\n- O \"Encerrar transmissão\" e o \"Ligar a detecção\" falhavam às vezes: o bloco de botões que ficava no\n  redesenho de cada segundo saía da página e voltava (o replaceWith e o replaceChildren), e o Chromium\n  perde o clique cujo botão saiu entre apertar e soltar. Agora o cartão só tira o que mudou. O e2e\n  aperta, segura 1,5 s e solta: sem o conserto, o botão saiu da página 4 vezes em 3 s e o clique se perdeu.\n- O \"Liberar o notebook para o controle\" criava as regras e voltava como se não tivesse feito nada: numa\n  estação sem administrador o Get-NetFirewallAddressFilter -All voltou com 0 de 651 e \"Acesso negado\", e\n  as regras liam sem endereço. Faltando o filtro no lote, a leitura pede o da regra pelo pipe, que responde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7f31fa5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/7f31fa53f78c47d4ba2848c147d5016261bc9df6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T17:13:18.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (figuras): o balão do grupo Análise com os oito botões, nas quatro figuras que o mostram\n\nv2-terreno-analise-01 e -02, deslocamento-analise-01 e lacunas-analise-01 regravadas pelo motor de\nmídia; as tomadas conferem os oito rótulos, com a Predição QBRN, e o texto alternativo das quatro\npáginas diz oito botões.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "34f0c0b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/34f0c0bbe5b3719fe47556fae213ecd747fbc2b2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T17:13:17.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda (figuras): vento, Predição QBRN e Extrair do mapa base saem do motor de mídia com os tiles de produção\n\nAs três figuras vinham do harness, sobre o mapa base cinza. A tomada da extração não existia e foi\nescrita (a Topográfica do retrato, marcada para extração, em Santa Maria); a da Predição QBRN rola a\nseção Informações para o topo, porque o realce dela saía do quadro de 1280x800. Sai o aviso de\nharness do \"estado\" das três mídias e do cabeçalho das tomadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "95db4f2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/95db4f2be8acf77430e19fa0629c0f2800356e77",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T17:13:15.000Z",
+      "author": "Maj Diniz",
+      "message": "camada vento (wiki): a busca ligada na DSG, a medida em produção e o que ficou sem prova\n\nA DSG alcança o NOMADS sem proxy: primeira rodada em 36 s, 6,5 MB no disco. O 1º CGEO fica\ndesligado (sem saída para a internet). 60,2 quadros por segundo no plano em Chromium sem GPU, sobre\na Topográfica. Sem prova em produção: a camada privada e o agendamento depois de um reinício. A\npendência da figura da Ajuda sai, porque o motor de mídia a refez.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "6a35acf",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a35acf5d1e3e98a2be00b5300f30f698bcdc662",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T17:13:15.000Z",
+      "author": "Maj Diniz",
+      "message": "extrair do mapa base (wiki): a medida dos tiles de produção, feita nas duas instâncias\n\nAs nove fontes vetoriais da Topográfica medidas em volta de Santa Maria pelo\ndev/medir-tiles-do-mapa-base.mjs, de dentro do backend de cada servidor. A regra de 100% de id\nreprova (camadas de tippecanoe sem id; 98,9 a 99,9% de mesmo id no vizinho nas do Planetiler), e a\nbase foi marcada por decisão do chefe. A causa dos <100% fica sem prova, com o teste descrito.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "f499a19",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f499a191614ff2a50e8faf1cda0b579a797da576",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-16T16:29:44.000Z",
+      "author": "Maj Borba",
+      "message": "Regime de resolucao: imagem e mascara a 5 m com contexto fixo a 10 m\n\n- dataset: img_scale=2 (media 2x2 na imagem, classe majoritaria na mascara,\n  mesma janela de 640 m), full_mask para avaliar na grade de 2,5 m,\n  cache do DINOv3 extraido da imagem de 5 m (05b --img-scale 2)\n- injetor: media k x k para reducao por fator k >= 3 (k=2 inalterado)\n- TTA amplia a saida para a grade da mascara\n- fila: 4 celulas do regime de resolucao no final (completo, seeds 1-20)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "9ab4e3a",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/9ab4e3a500d7220ab9bd11886cf3b2d4ef455e01",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-16T16:29:35.000Z",
+      "author": "Maj Borba",
+      "message": "Add UNetFormerBackbone (GeoSeg decoder on smp encoders) and fix window padding\n\nSmp 3-step interface, so context can be injected into encoder features\nbefore decoding. GeoSeg's reflect pad used a 2-tuple (rejected by torch on\n4D tensors) and failed when the map is smaller than the window; inputs of\n128-224 px crashed. Now a 4-tuple, reflect when possible, replicate\notherwise; 256 px unchanged. Tests: tests/test_unetformer.py (100%).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "b59a8a9",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/b59a8a9469eaebf1b94135612d06e29d19b3ac56",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T15:49:35.000Z",
+      "author": "Maj Diniz",
+      "message": "planos de extração e de vento: saem da raiz, com a obra feita e o que era durável na wiki\n\nOs dois planos de obra cumpriram a função. O que valia guardar está nas\npáginas da wiki (extrair-do-mapa-base, camada-vento e predicao-qbrn: o\nporquê, as armadilhas, as medidas e as pendências), nas decisões de\n2026-11-16 e na cláusula 2.15 da constituição. A Predição Aperfeiçoada,\nque não entrou, está descrita em camada-vento como obra não feita, com o\nque falta para abri-la.\n\nSeis cabeçalhos de módulo que citavam os planos passam a citar a página\nda wiki.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "4f908ed",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f908ed5b26b57df9c2c1881f0d46ad0fe31159c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T15:48:41.000Z",
+      "author": "Maj Diniz",
+      "message": "predição QBRN (ferramenta): um clique no incidente desenha a área de perigo a favor do vento, pelo gabarito do FM 3-11.3\n\nOitava ferramenta do grupo Análise. O clique lê o vento previsto a 10 m\nno ponto e na hora da barra do tempo, calcula a Área de Liberação e a\nárea de perigo, grava na camada ativa e abre Detalhes da Feição, com\nInformações acima das abas Parâmetros e Estilo. Sem vento previsto, pede\no vento medido antes de desenhar e não inventa. O vento medido prevalece;\na estabilidade é sugerida e confirmada pela pessoa, e sem resposta vale a\nestável, dita como presumida. Biológico, nuclear e radiológico são\nrecusados com o motivo.\n\nA feição guarda os parâmetros e o vento usado, e todo cliente deriva a\nfigura, inclusive sem a camada de vento (migração 088, que só alarga os\ntipos aceitos). A predição avisa quando o vento previsto gira 30 graus ou\ncruza os 10 km/h, e nunca se refaz sozinha. \"Atualizar\" cria a seguinte e\nfecha a validade da anterior. O botão direito sobre um Evento QBRN da\nMedida de Coordenação abre a predição naquele ponto.\n\nA prova de tela pegou dois defeitos: o filtro dos rótulos sumia quando o\napp reescrevia os filtros das camadas, e a segunda porta perdia a\ngeometria da feição vinda do menu. Os rótulos de tempo levam o zoom a\npartir do qual não tocam o incidente nem um ao outro.\n\nFecho: lint, 28.392 testes do frontend, 7.945 do backend, 334 de\nintegração e 113 da Ajuda. Não medido: o vento do GFS contra estação, e\nos números do gabarito não passaram por quem é de DQBRN. A ferramenta\nfica fora do celular, como pendência. As fichas N12 e N91 da análise dos\nmanuais foram editadas no arquivo gerado, sem regenerar. A figura da\nAjuda veio do harness, sobre o mapa base cinza.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "61f5fbd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/61f5fbd165502824fa6a5b79a98d74fae06626fa",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-16T15:38:47.000Z",
+      "author": "Maj Borba",
+      "message": "Metodo com OlmoEarth (Decisao 6), ablacoes da proposta e generalizacao de arquitetura\n\n- fila: ablacoes -AEF/-MB/-DV3 de full_sum_natural_aef_olmo_gem15, proposta\n  estendida a 40 seeds no completo, leave-one-out com ForTy retirado,\n  piloto de lr (RGB puro) das 6 arquiteturas novas\n- model.py: decoder_arch deeplabv3plus (recalcula layer3/layer4 apos a\n  injecao, senao o contexto nao chega ao ASPP), segformer e hrnet_ocr\n  (HRNet-W18-OCR da pytorch-smt, injecao no ramo de 1/8)\n- encoder_name em train_one_fold e no TTA\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "2b6d643",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/2b6d643aa13d1e44f5e34a2a96423dd230d4cf82",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-16T15:38:35.000Z",
+      "author": "Maj Borba",
+      "message": "Add build_hrnet_ocr (any width, timm ImageNet weights) and branch_hook\n\nHRNet-W18-OCR (~12.1M params) for small training sets, next to the\nexisting W48 (~70M). branch_hook injects external context into the\nbranch tensors entering stage 3. Tests: tests/test_hrnet_ocr_width.py.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "a3ab450",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/a3ab450f176fa71c02595fbaf9044ae1f88b7503",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T13:49:01.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16: PE 7/2026 do 4º CGEO, 7 itens nossos homologados com ata, 13 e 15 sem fornecedor; risco dos vencedores e dos produtos\n\n- acompanhar_pregao.py: item \"Homologado\" com o resultado cancelado (temResultado falso) sumia em silêncio; agora entra, o cancelado sai marcado com o motivo e os itens sem fornecedor são listados\n- consultar-licitacao: amarração item, ata e quantidade nossa pelos PDFs das atas; marca do vencedor pela pesquisa de preço quando a ata diz \"Conforme TR\"\n- levantar-fornecedores: histórico com motivo de cancelamento por niFornecedor, impedimento do art. 156 III vale só no ente sancionador, certidão consolidada do TCU por API\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RWg9iJAvqskEMeRPe",
+      "sha": "a7ddffa",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/a7ddffa257ed882ef6024a59832dad06ba302c8b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T13:46:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16: câmeras do EBGeo abertas sem conta e miniaturas das camadas externas; o hash da DSG e o build da estática viram script\n\nA wiki do EBGeo Web deixa de dizer que as câmeras são lidas só por conta, e a do servidor do 1º CGEO ganha a linha do dia. A skill atualizar-ebgeo-dsg aprende dois métodos: o construir.sh aceita o hash a publicar, e o build da estática ganha um script que leva o MSYS_NO_PATHCONV dentro e recusa o dist errado, depois de três recaídas com a regra escrita. A convenção de saída avisa que o nome da zona no Git Bash desta estação devolve UTC. Uma linha no livro-razão.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "4ee6caa",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4ee6caaafad5ad497283db769f4c4bc64360a74b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T13:41:42.000Z",
+      "author": "Maj Diniz",
+      "message": "extrair do mapa base (ferramenta): a feição do mapa base vira feição do mapa, com janela de opções, destaque no hover e extração por área\n\nFerramenta nova no grupo Utilitários. Ligar abre a janela de opções, na\ncasca do painel de ponto: Inteira ou Parte, os tipos de geometria e os\ngrupos do mapa base na tela, lembrados no navegador. O ponteiro acende a\nfeição inteira numa prévia única, o clique a remonta dos tiles do zoom\nmáximo da fonte e a grava na camada ativa, uma feição por parte num\ngesto só, e a ferramenta continua ligada. Botão direito e pressão longa\nescolhem entre as feições sob o ponteiro; a área extrai em lote, com um\ndesfazer. \"Inteira\" emenda pelo nome a via, a ferrovia e o rio.\n\nO mesmo destaque no hover entra na Informações da Carta. O menu de\ncontexto ganha \"Extrair para o mapa\".\n\nSó extrai do mapa base marcado no catálogo com extracao: true, que o\nformulário do administrador passa a ter como interruptor e o servidor\nvalida como booleano estrito. Sem a marca a ferramenta recusa, com o\nmotivo, em toda base.\n\nA suíte acusou o menu da ferramenta fechando pelo aperto de fora sem\nperguntar onde o aperto começou; entrou o guarda dos outros menus. O\nteste de auto-cadastro por endereço morreu uma vez na suíte inteira e\npassa sozinho e na rodada anterior; não é área tocada aqui.\n\nNão medido: os tiles do Martin de produção (dev/medir-tiles-do-mapa-base.mjs\né o comando) e a sincronização de uma área grande em atlas de servidor.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "10735c3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/10735c3bd0ec71249dfc9dc7dc03f9bf924c6fe3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T13:41:42.000Z",
+      "author": "Maj Diniz",
+      "message": "vento (camada): o vento previsto animado no mapa, na categoria Análise, seguindo a barra do tempo\n\nA linha de analysis_layers de tipo \"vento\" passa a ser entregue a um\ngerente próprio, carregado sob demanda: campo de cores por velocidade,\npartículas em canvas 2D no globo e no plano, quatro níveis, linha na aba\nCamadas com o instante desenhado e a legenda, painel Configurar estilo e\na leitura do vento do ponto na caixa de coordenadas. A camada segue o\ncursor da barra do tempo, mostra a hora atual com a barra desligada e\nsome fora do alcance da previsão dizendo por quê.\n\nO administrador ganha, na aba Sistema, a seção que liga a busca do GFS e\nmostra a rodada, a idade e a última falha, e na aba Catálogo o cadastro\nda camada com o corpo sugerido pelo servidor. O módulo vento-no-ponto dá\no vento previsto de um ponto e de um instante à Predição QBRN.\n\nOnde o código mandou mais que o plano: o campo de cores é fonte de\nimagem, porque o MapLibre 6 recusa fonte de canvas no estilo; as\npartículas ficam acima das feições, com traço fino e um disco apagado em\nvolta do ponteiro; qualquer movimento do mapa as pausa.\n\nMedido em navegador sem GPU: 60 quadros por segundo no plano e de 43 a\n50 com o terreno 3D e o mapa inclinado. A figura da Ajuda veio de\ncaptura do harness, sobre o mapa base cinza de teste: a tomada do motor\nde mídia está escrita e não rodou. Este commit leva também as linhas de\nnovidades, índice da wiki e decisões que a ferramenta de extração do\ncommit seguinte divide com a camada.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "51834a8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/51834a8418d31a39a366cb3ae12cfa8f108d78f3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T13:34:16.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-cameras 2026-11-16: a migração do comentário da tabela e a linha das novidades estão na main (d548fb9df), sem deploy\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "3483651",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/34836516688c3460540eddc56272a6f24e566511",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T13:33:31.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: o comentário da tabela diz a regra nova, e as novidades da Ajuda contam que a camada abre sem conta\n\nA migração 087_cameras_lidas_por_todos.sql reescreve o COMMENT da tabela cameras, que 086_cameras.sql gravara com a leitura só por conta autenticada, revogada pelo dono em 2026-11-16. Só o comentário muda: nenhuma coluna, nenhum CHECK e nenhuma linha. Um caso de integração prende o texto.\n\nA página de novidades da Ajuda ganha a linha de 2026-11-16: a camada Câmeras abre também para quem não entrou na conta.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "d548fb9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d548fb9df675a13da67fb7e656d75b68b7dda87e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T13:17:53.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-cameras 2026-11-16: as câmeras abrem sem conta e o EBGeo Web 7d95a30bb está no ar na DSG, no 1º CGEO e na estática; miniaturas das camadas externas gravadas pela API; o 1º CGEO não tem saída para a internet\n\nDuas decisões de 2026-11-16 com o índice, o estado do projeto das câmeras, o fato do servidor do 1º CGEO na wiki, os aprendizados de atualizar-ebgeo-dsg e uma linha do livro-razão.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "5f9f367",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5f9f36707803c3472fc4a55bfb3166eede1bd696",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-16T12:24:33.000Z",
+      "author": "Maj Borba",
+      "message": "Adiciona fila e supervisor do plano GEM-15/ForTy e documenta os insumos\n\n- run_aux_extra_queue.py: claims atomicos por mkdir, G3a/G3w/G3L, fatorial 2x2,\n  extensao a 40 seeds e ablacoes da proposta e do modelo com todos os insumos\n- aux_extra_supervisor.py: workers em pgid proprio, reduz a 1 worker com GPU ocupada\n- docs/03_dados.md e config.example.yaml: caches cache_gem15 e cache_forty\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "851074f",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/851074f17a3d69811c3e0bab6a4b08369ff5187c",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-16T12:24:33.000Z",
+      "author": "Maj Borba",
+      "message": "Adiciona contextos extras no injetor (OlmoEarth, Tessera, GEM-15, ForTy) e pilotos de fusao\n\n- caches OlmoEarth v1.3 (06) e Tessera (08), dequantizacao propria em constants.py\n- dataset/model: aef_source (aef, olmo, aef_olmo, tessera), aux_extra (gem15,\n  gem15_nodata, forty) concatenado ao fim do slot aef, inclusive com use_aef=False\n- pilotos de fusao AEF/OlmoEarth/Tessera, injecao nivel 2 e spot-check de\n  arquitetura (piloto e completo v4); infer_probs.py\n- eval_tta_new_experiments: flags das configs novas\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "8365774",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/83657740f5b8dc2a823353f3884413131c3d42c5",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T12:13:04.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: a camada abre com ou sem conta, e o cartão Câmeras ganha miniatura\n\nO dono decidiu em 2026-11-16 que as câmeras abrem também para quem não entrou na conta, o que revoga a leitura só por conta de 2026-11-14. O GET /api/v1/cameras responde a qualquer chamador, com limitador próprio; a lista do administrador e as escritas seguem só do administrador. O Catálogo e a aba Camadas deixam de esconder o item por sessão, e o gerente lê sem conta. Com isso some o defeito relatado: ao sair da conta num atlas local, a linha Câmeras sumia da aba e as câmeras ficavam desenhadas no mapa, sem ter onde desligá-las.\n\nO cartão Câmeras leva uma miniatura embutida no app, porque o servidor recusa trocar o config desse item; a miniatura cadastrada, se houver, vence.\n\nCláusula 2.8 da constituição, a wiki, a Ajuda (com a figura da administração regravada) e os censos acompanham.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "7d95a30",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7d95a30bb92417ddb6f7377298d5bd0dd276d26e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T12:03:34.000Z",
+      "author": "Maj Diniz",
+      "message": "predição QBRN (núcleo): o gabarito do FM 3-11.3 como dado, a geometria da área de perigo e a figura derivada das propriedades\n\nO gabarito mora num arquivo de dados com a fonte de cada número\n(apêndice, tabela, página do FM 3-11.3 de 2006, de divulgação\nirrestrita), separado da geometria. Casos: químico não persistente,\nquímico persistente e produto perigoso sem identificação; biológico e\nnuclear só como recusa com o motivo. A ATP 45 vigente e o TM 3-11.32 são\nrestritos e não foram usados.\n\nTrês pontos seguem o texto do manual e não o protótipo: as marcas de\nchegada medem-se da borda a barlavento, o recipiente desconhecido do\nquímico persistente tem raio de 2 km, e as pontas das marcas correm\npelos lados da área (a perpendicular do protótipo errava 50 m pela\nconvergência dos meridianos). A estabilidade é sugerida pelas Tabelas\nD-13 e D-14.\n\nAinda sem tela: a ferramenta vem depois da camada de vento.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "4a83147",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a83147e86d7ff73e6179dc2533911f6a6aecf92",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T12:03:34.000Z",
+      "author": "Maj Diniz",
+      "message": "extrair do mapa base (núcleo): decodificador de tile, remontagem pelo zoom máximo, réguas e a feição inteira pelo nome\n\nMódulos puros, sem DOM nem MapLibre, com o leitor de tile injetado: o\ndecodificador MVT próprio com id de 64 bits, a busca dos pedaços pelos\ntiles vizinhos, a remontagem de ponto, linha e polígono, as réguas de\ncompletude e de concordância na faixa, a fonte sem id limitada a um\ntile e o encadeamento pelo nome para via, ferrovia e rio.\n\nProva com nove tiles reais do Overture: paridade com o decodificador de\nreferência nas 2.925 feições, 33 linhas e 43 polígonos cortados por\nborda saindo como uma geometria só, e o pior caso degradado da saída\nreal (pedaço deslocado e pedaço retirado) reprovando a régua.\n\nA régua de concordância da bancada dava alarme falso em tile são e\nvirou distância dirigida; a limpeza só tira o vértice nascido do corte.\nAinda sem tela: a ferramenta vem no próximo commit.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "098bfa4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/098bfa4ae4f1cf300002c67494d5bd94224310f2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T12:03:34.000Z",
+      "author": "Maj Diniz",
+      "message": "vento (backend): o servidor baixa o GFS da NOAA, guarda as duas últimas rodadas e serve o índice e os campos à camada de Análise\n\nO backend passa a buscar o GFS 0,25 no filtro do NOMADS, por exceção\nautorizada pelo dono em 2026-11-16 à regra de não fazer chamada de saída\n(constituição 2.15 e docs/decisions). A busca nasce desligada e só o\nadministrador a liga. O leitor de GRIB2 é próprio, em JS puro, e cobre o\nempacotamento simples, que foi o que veio nos 288 campos reais; outro\nmodelo é recusado com nome. O pacote tem um índice por rodada e um\narquivo por campo, um byte por componente, quatro níveis e 0 a 72 h.\n\nA camada é uma linha de analysis_layers com source.type \"vento\", sem\nmigração, e as leituras passam pelo predicado de acesso do catálogo. O\ncontrato para o cliente está em docs/wiki/camada-vento.md.\n\nProva: leitor contra 150 pontos lidos por outra pilha, grade deslocada\nreprovando, e uma rodada real baixada do NOMADS. A suíte inteira acusou a\nsonda de escrita num teste da ortoimagem que montava a configuração sem\no bloco novo, consertado aqui.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "d79d7d6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d79d7d6762785cb202693536dbec89c6de1f8a57",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T10:55:45.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16 (conferência do SAG): sete lançamentos no SAP 3.0 (a provisão postal 2026NC019420 com a NE000314, três liquidações de 11 NOV e os recolhimentos 2026NC402988 e 2026NC001929), reconta em delta zero; o crédito da Migração 1º CTA na 167382 fica fora por decisão do chefe; a consultar-orcamento passa a abrir a rodada pela anterior, refaz o passo 8 toda vez e ganha o fecha_pares_ne.js, que fecha os empenhos por UG, data e valor líquido\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "25707a8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/25707a8fa307ee96ad04861d7f8a288a767d3433",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T10:41:43.000Z",
+      "author": "Maj Diniz",
+      "message": "planos de extração e de vento: a janela de opções da extração e as decisões do chefe antes da obra\n\nO plano da extração ganha a janela de opções que abre com a ferramenta\n(Inteira ou Parte, tipos de geometria e os grupos do mapa base), como o\nprotótipo passou a ter. Os dois planos ganham, no começo, as decisões\ntomadas em 2026-11-16: a extração só na Topográfica, com o destaque no\nhover também na Informações da Carta e \"Inteira\" emendando via, ferrovia e\nrio; o vento baixado pelo backend, por exceção à regra da chamada de saída,\ne por isso na categoria Análise; o gabarito do FM 3-11.3; a Predição\nAperfeiçoada fora da obra.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "a1cd56c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a1cd56c9bc38cd89d02306b2498958ea8c976417",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T10:23:44.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16 (Iguaçu 1h e 1d: da extração à entrega): as 28 folhas (PDF, GeoTIFF do PDF, SHP e bdgex_matricial) nas pastas dos blocos; a pista de Cascavel só com a cota 759 na produção; o lml_limite_legal que falta no mapeamento 3.0 -> SHP do repo modelagens, com a cópia corrigida; os learnings da exportar-carta (GeoTIFF do plugin sem memória, PDF de 0 byte, retomada), da editar-carta (ceifa do harness, flags sobre a produção, regras do chefe) e da converter-modelagens; scripts novos das duas skills; PROJECT.md, backups pequenos do bloco (os de geometria e os acima de 5 MB ficam fora do git), dez decisões e três linhas do livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "d069ebd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d069ebd0c7065b862759e8cf0b19289898f38cf4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T10:02:25.000Z",
+      "author": "Maj Diniz",
+      "message": "vento e predição QBRN: o plano de obra, com a camada de vento animada, a predição pelo gabarito e a aperfeiçoada pelo vento em grade\n\nPlano na raiz, sem código no aplicativo. Três partes: a camada Vento como\ntipo novo da categoria Externa (GFS recortado no Brasil, partículas no globo\ne no plano, seguindo a barra do tempo), a Predição QBRN como oitava\nferramenta do grupo Análise (gabarito do FM 3-11.3, vento lido da grade ou\nmedido, feição com saída derivada) e a Predição Aperfeiçoada como modo da\nmesma ferramenta (nuvem levada pelo vento em grade, área por hora, sem\nconcentração). Traz o que foi medido no protótipo, o que já existe no\ncódigo, as fases 0 a 9, onze decisões em aberto e os riscos. A Parte C é\ndesenho, sem protótipo nem medida.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QUKW139re261xMuM5",
+      "sha": "190f84d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/190f84d15dd2ba4481f2d1213ed701491b4ad22b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T00:43:50.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-sobrevoo 2026-11-15: as decisões abertas fechadas pelo chefe, o lote 8c91bfe18 no ar na DSG, no 1º CGEO e na estática (imagem do Horizonte pelas bases do Catálogo, anel z16 pela vista, aviso do proxy, joi), e a Ortoimagem com um interruptor por imagem\n\nTrês decisões de 2026-11-15 com o índice, o estado dos projetos sobrevoo e câmeras, o exportador das câmeras aparando o texto com o arquivo regerado, os aprendizados de atualizar-ebgeo-dsg e duas linhas do livro-razão.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "f099cbd",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f099cbd5b667d1e3d4349161a7401b55aeda42ad",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T00:21:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda: o motor de mídia liga a imagem sobre o relevo, e as figuras e os clipes do Horizonte, da órbita e do sobrevoo são regravados com ela\n\nO motor passa a semear a fonte da imagem do retrato de produção e reprova a tomada do Horizonte sem a imagem, em vez de gravar o relevo cinza.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "8c91bfe",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8c91bfe1835bf6679d4d1b81dc26899d4ecb1122",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T00:21:11.000Z",
+      "author": "Maj Diniz",
+      "message": "backend: joi 17.13.9, que fecha o aviso alto do npm audit, e folga de relógio no teste da lixeira do Meu Acervo\n\nO teste comparava o prazo de 30 dias, que sai do relógio do banco, com o Date.now() do Node, sem folga, e reprovava por 3 a 5 ms numa máquina com o banco adiantado.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "a941821",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a9418219b2143c65ceacd00db528741d47038d42",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T00:21:11.000Z",
+      "author": "Maj Diniz",
+      "message": "câmeras: a falha sem resposta cuja sonda respondeu diz \"A câmera não respondeu\" e nomeia o proxy\n\nUm proxy que pede senha responde 407 à sonda de rede no lugar da câmera, e a página não distingue essa resposta da da fonte: a janela dizia \"A câmera está fora do ar\" quando a causa era a rede. O título novo não afirma que a câmera caiu, o detalhe nomeia o proxy, e a página da Ajuda ganha a linha.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "b8b5996",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b8b5996db57ccebb470d77bdf1d8f147d799b692",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T00:21:10.000Z",
+      "author": "Maj Diniz",
+      "message": "horizonte: a imagem sobre o relevo vem da melhor fonte que o Catálogo tiver para o lugar, e o anel fino só é pedido enquanto o quadro o alcança\n\nOnde a fonte configurada (o Sentinel em super-resolução, que cobre só o Sul) não tem ladrilho, e a base em uso não é de imagens, o Horizonte passa a tentar as outras bases de imagens do Catálogo, pela prioridade, cada uma dentro da caixa e dos zooms dela. Provado na tela com o catálogo e os ladrilhos de produção: fora do Sul o relevo ganhou imagem, no Sul nada mudou, e sem as reservas o mesmo ponto ficou cinza.\n\nCom o olho acima de 2.000 m sobre o terreno, o anel z16 da imagem em voo deixa de ser pedido enquanto está fora do quadro, e volta quando a vista é inclinada até ele.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3SDd25FUr1e7vjAm3A",
+      "sha": "fa30f3d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fa30f3d7539168033562ac0fc229cf452f976a34",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-16T00:11:12.000Z",
+      "author": "Maj Diniz",
+      "message": "extrair do mapa base: o plano de obra, com a remontagem pelo zoom máximo da fonte, o desempenho e a interface\n\nA geometria nunca vem da tela: o clique escolhe a feição pelo id do tile e ela é\nremontada dos tiles do zoom máximo. Medido nos PMTiles públicos do Overture\n(520 tiles, 1.384 feições remontadas) e num protótipo navegável. Sem código no\naplicativo; a fase 0 mede o Martin de produção e a DSG.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "96195cd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/96195cd427ae3a39e1e17353d5989da1f75a6d01",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-15T22:01:51.000Z",
