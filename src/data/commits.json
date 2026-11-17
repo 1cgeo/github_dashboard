@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-16T20:07:57.931Z",
+  "lastUpdate": "2026-11-17T19:02:43.263Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-16T18:33:41.000Z",
+    "1cgeo/ebgeo_web": "2026-11-17T12:24:26.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-10-14T17:58:02.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-11-11T13:12:55.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-11-17T00:04:28.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-11-11T17:19:07.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-16T19:31:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-17T16:24:32.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10947,
+    "totalCommits": 10958,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3534,
+      "1cgeo/ebgeo_web": 3537,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -147,7 +147,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 175,
       "dsgoficial/configuracoes_producao": 210,
-      "dsgoficial/ferramentas_edicao": 506,
+      "dsgoficial/ferramentas_edicao": 507,
       "dsgoficial/DsgTools": 692,
       "dsgoficial/sap": 184,
       "dsgoficial/SAP_Gerente": 122,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1430,
+      "1cgeo/chefe_dgeo": 1437,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 41,
@@ -191,6 +191,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-17T16:24:32.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-17 (cont. 4): quem administra um mapa restrito do EBGeo Web passa a lê-lo, só em Leitura (cf9f23295 na main do ebgeo_web, sem deploy), com os quatro casos de edição consertados; a proposta ao chefe abre por exemplo concreto\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLVVfzaUQWki3JZQR9",
+      "sha": "641de43",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/641de433931987f95dc7c69399534dca7b5d6eec",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-17T15:56:29.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-17 (cont. 3): enxerto do acréscimo do remoto em arquivo sujo de entrada alheia\n\nO alinhamento local depois do push por cima de origin/main tinha três arquivos compartilhados com entrada alheia no meio, e a regra do prefixo não valia. O roteiro enxertar_do_remoto.py põe no disco só o que o commit novo acrescentou, por âncora, com cópia antes; a linha do learnings diz quando usar e como provar.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "dbaa22b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/dbaa22bf32854d08a9e19d4daf959455de4468a2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-17T15:53:42.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-17 (cont. 3): player da Invernada Capões refeito pela planta em DWG e pelo modelo do Revit (lido pelo FME), com os pedidos do comandante (túnel em destaque, casas grandes de 2 e 3 pavimentos, torre de contêiner) e a árvore derrubada inteira\n\n- PROJECT.md do projeto reescrito no estado atual: fontes, decisões, o que está feito e o que depende do chefe\n- wiki/ebgeo-3d: \"Tirar a árvore que a obra alcança\" e \"Planta de CAD e modelo do Revit como fonte do plano\"\n- conventions: tela de tentativa não vai à mesa do chefe (saida), formato que \"não abre\" pede o inventário dos conversores (fontes), parar a tarefa em segundo plano não mata o roteiro (contrato-de-pronto)\n- livro-razão: quatro eventos da sessão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "be7738e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/be7738e9b4abd75d90af4bc6acd41950ed87b05d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-17T12:26:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-17 (cont. 2): busca no mapa base do EBGeo Web, com o plano na main do ebgeo_web (ee2941b1a) e o protótipo de tela; prospecção do MOS 35G e da Defense One; o GERS não garante id estável no tema base\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMDxKD89vM1ajjxG6U",
+      "sha": "d1d0c5f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d1d0c5f62cff0d3dce3296060981b207709a991e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-17T12:24:26.000Z",
+      "author": "Maj Diniz",
+      "message": "plano da busca no mapa base: base de busca por mapa base, por nome ou por tipo, com ingestão dos PMTiles do Overture\n\nSó o plano de obra, na raiz. Nenhum código.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMDxKD89vM1ajjxG6U",
+      "sha": "ee2941b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ee2941b1acb67f77029da8be97dbab0085c64fb4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-17T12:07:09.000Z",
+      "author": "Maj Diniz",
+      "message": "quem administra um mapa restrito passa a lê-lo (D9 e D20 revistas), e os quatro casos abertos do lote de 2026-11-16\n\n- permissão por mapa: Dono e Gestor do atlas, Gestor de um mapa ancestral e\n  administrador global leem o restrito sem ato nenhum, só em Leitura; comentar\n  e editar seguem pedindo concessão no próprio mapa. O piso mora em\n  fn_piso_de_quem_administra (090_quem_administra_le.sql), uma linha por papel,\n  e a migração marca view_changed em cada atlas com restrito vivo. Estatuto\n  5.5, 5.9 e 5.10 com o aval do chefe.\n- diálogo de permissões: seção \"Leem por administrar (só leitura)\" e botão\n  \"Conceder-me edição\"; sai o aviso de quem administrava sem ler.\n- cliente: o comentário de um mapa cujo nível caiu para Leitura sai também da\n  geração de reserva do disco.\n- clone: o comentário é copiado por mapa, porque o Gestor do atlas passou a\n  ter visão total e só lê o restrito.\n- visibilidade: a edição de observador viaja por observador, numa fila por\n  feição aplicada sobre a lista viva; digitar com o modal aberto não perde\n  valor nem desfaz arraste, e o redesenho devolve o foco ao campo.\n- viewshed 3D: cada campo grava só a si, o valor que chega durante uma\n  gravação espera a vez, e o Descartar grava só as chaves que o painel mudou.\n- alças: todo produtor de alça pergunta a alcasRecusadas antes de desenhar;\n  feição oculta, bloqueada ou em mapa travado não as recebe de volta ao\n  gravar, e o ícone de mover some junto.\n- análises: cobertura de rádio, enlace, deslocamento e inundação gravam o\n  parâmetro pendente na desseleção, preso ao mapa da edição, pelo módulo comum\n  parametro-pendente.js, que o radar também usa.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLVVfzaUQWki3JZQR9",
+      "sha": "cf9f232",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf9f232956bb9501a28cde63df5766b5a4d1a35f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-17T10:41:40.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-17 (cont. 1): conferência do SAG, NC 129 a 131 (TIC e frota) e liquidação 187 no SAP 3.0; divulgação, splits e a obra da Migração 1º CTA ficam fora\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "6de6ffb",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6de6ffb49855a36dc56a914ed7f8c5416f066aa1",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-17T09:11:43.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-17: player 3D avulso da Remonta - Invernada Capões com o plano de construção dos croquis, em pasta e em arquivo HTML único; o novo casado com a fotogrametria (sol das sombras gravadas, PBR, chão no próprio tileset)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFJY9cF44pxTNUiBr7S",
+      "sha": "7bf9d17",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7bf9d178bdae319915ec601dbe899deadbcd9868",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-17T09:04:47.000Z",
+      "author": "Maj Diniz",
+      "message": "lote de doze pedidos do chefe: dono do grupo é membro, Meu Acervo na página da conta, vídeo que enquadra, viewshed que não volta\n\n- grupos: o dono conta como membro do próprio grupo, por definição e sem linha\n  gravada (fn_group_member_ids); o estatuto ganha a cláusula 4.8.\n- vídeo: dar play pela aba de camadas enquadra o voo ou a transmissão; o seletor\n  de qualidade do reconhecimento não fecha mais sozinho; a trilha recebe o\n  clique mesmo sob a pegada.\n- atlas: sombreamento ligado por padrão em mapa sem nada gravado; criar atlas\n  não dispara mais o aviso de sair da página.\n- camadas: o botão de comentário vira balão com \"Comentar\"; ocultar pelo olho\n  solta a seleção e tira as alças; o \"%\" dos parâmetros da declividade cabe.\n- acervo: sai do trilho lateral e vive na página da conta, com porta no menu\n  da conta e na barra do topo.\n- visibilidade: a edição não volta mais ao estado anterior (a seleção recebe\n  o objeto editado, o arraste é recusado durante o recálculo) e o parâmetro\n  pendente é gravado ao desselecionar, também no radar.\n- fogos: a frente cortada da LAADA sai só com os vértices originais e os cortes.\n- ajuda: página \"esconder um ramo da ORBAT\" em rascunho até a figura sair;\n  novidades de 2026-11-16.\n- e2e-ui: três specs que já estavam errados antes do lote (grupo sem \"Aplicar\",\n  nome sem a OM na primeira pessoa, toast de restaurar do Meu Acervo).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "df32e4d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/df32e4dead53e9dff4ff7d1169fb352b2681098c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-11-17T00:04:28.000Z",
+      "author": "Maj Diniz",
+      "message": "2.3.15: tamanho do nome de rio pela regra e pela largura, e escudo de rodovia nunca vazio\n\n- sizetextriverline: funde e mede separado o que está dentro e fora de polígono. O rio fundido herdava os atributos do menor trecho, e a linha simples que encostava num rio largo levava até 16 pt (ou o rio largo caía para 9 pt).\n- Dentro de polígono, com a massa d'água (parâmetro opcional, ou a cobter_massa_dagua_a do projeto), o rio fino acima de 9 pt desce ao maior entre a tabela de fora e o tamanho que cabe na largura do rio no papel. Rio largo não muda. Funções puras em riverLabelSize.py.\n- edicao_identificador_trecho_rod_p (topo 2.0, impressão e edição): prioridade 10 e mostrar todos, porque o QGIS descartava o número e deixava o escudo vazio.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "f16d6fe",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/f16d6feb3b67dd2e689acd2de768af7b82292556",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-16T20:59:36.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-16 (cont. 9): NC 2026NC403059 do PE 7/2026 do 4º CGEO nas minutas 32348 (HDN), 32349 (FASTPRINTER) e 32351 (RISSATTO); sobram R$ 632,00\n\n- requisitar-sped: NC que não fecha com a cota, letra \"1I\" da DSG contra o item do SAP 3.0, ata vetada já regularizada no PNCP, classe 031.11 para permanente, minuta que some depois de criada (32350)\n- ciclo-2026: pendência de assinatura até 18NOV, NC por cadastrar no SAP 3.0, subitem da ND em aberto, scanner sem fornecedor\n- plano-gestao-1cgeo: frase usada nas requisições de TIC\n- livro-razão: relato técnico demais (\"não entendi nada\")\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2a8ea8c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2a8ea8c85858a55ae792640cb74671f654c59c04",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-16T19:31:54.000Z",
