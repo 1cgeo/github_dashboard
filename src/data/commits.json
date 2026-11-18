@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-18T02:15:49.294Z",
+  "lastUpdate": "2026-11-18T18:46:41.817Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-17T22:35:52.000Z",
+    "1cgeo/ebgeo_web": "2026-11-18T16:34:47.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -19,7 +19,7 @@
     "dsgoficial/configuracoes_producao": "2026-10-05T15:43:51.000Z",
     "dsgoficial/ferramentas_edicao": "2026-11-09T12:57:32.000Z",
     "dsgoficial/DsgTools@dev": "2026-11-14T11:16:36.000Z",
-    "dsgoficial/sap": "2026-11-09T11:05:45.000Z",
+    "dsgoficial/sap": "2026-11-18T10:48:52.000Z",
     "dsgoficial/SAP_Gerente": "2026-04-13T00:36:26.000Z",
     "dsgoficial/SAP_Operador": "2026-09-25T18:43:16.000Z",
     "dsgoficial/EBGeo": "2026-04-14T13:47:15.000Z",
@@ -36,7 +36,7 @@
     "1cgeo/produtos": "2026-07-30T11:34:30.000Z",
     "1cgeo/prototipo_roteamento_restricao": "2025-03-30T14:11:45.000Z",
     "1cgeo/prototipo_location_ar": "2025-04-05T09:45:53.000Z",
-    "dsgoficial/pytorch_segmentation_models_trainer": "2026-11-16T16:29:35.000Z",
+    "dsgoficial/pytorch_segmentation_models_trainer": "2026-11-18T14:35:00.000Z",
     "1cgeo/ebgeo_web@camadas": "2026-02-03T10:20:52.000Z",
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-17T22:37:27.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-18T16:46:14.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
     "1cgeo/fotos_aereas": "2026-10-07T22:30:16.000Z",
-    "1cgeo/ia_vegetacao": "2026-11-16T16:29:44.000Z",
+    "1cgeo/ia_vegetacao": "2026-11-18T12:34:16.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10960,
+    "totalCommits": 10980,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3538,
+      "1cgeo/ebgeo_web": 3545,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -149,7 +149,7 @@
       "dsgoficial/configuracoes_producao": 210,
       "dsgoficial/ferramentas_edicao": 507,
       "dsgoficial/DsgTools": 692,
-      "dsgoficial/sap": 184,
+      "dsgoficial/sap": 187,
       "dsgoficial/SAP_Gerente": 122,
       "dsgoficial/SAP_Operador": 76,
       "dsgoficial/EBGeo_Desktop": 146,
@@ -165,7 +165,7 @@
       "1cgeo/produtos": 56,
       "1cgeo/prototipo_roteamento_restricao": 3,
       "1cgeo/prototipo_location_ar": 36,
-      "dsgoficial/pytorch_segmentation_models_trainer": 449,
+      "dsgoficial/pytorch_segmentation_models_trainer": 454,
       "1cgeo/geoswarm": 68,
       "1cgeo/tileclass": 101,
       "1cgeo/controle_orcamentario": 21,
@@ -183,14 +183,194 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1438,
+      "1cgeo/chefe_dgeo": 1442,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
-      "1cgeo/ia_vegetacao": 41,
+      "1cgeo/ia_vegetacao": 42,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T16:46:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18 (cont. 4): maquete de Monte Castelo com projeção, do plano à exibição (wiki projecao-em-maquete e estado no ebgeo-tuiuti); estudo da mesa de pinos em 01-Projects/mesa-de-pinos; a régua da simbologia militar no código do EBGeo Web e a janela na tela do chefe por Chrome dedicado, na wiki; falas da sessão por script na retrospectiva\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHkq5eBsEtY3PBRa1w",
+      "sha": "81d3c7f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/81d3c7f574a40fcbd7b6c6a9dd04172b8f19e3b3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T16:34:47.000Z",
+      "author": "Maj Diniz",
+      "message": "documentação conferida contra o código: a wiki, o README, o MEMORY, o cartas-contrato, o CLAUDE.md e a CONSTITUICAO.md com o estado de hoje e sem histórico narrativo\n\nRevisão de 2026-11-18, pedida pelo chefe (\"tirar incoerências, coisas que já mudaram\"):\n- docs/wiki: 133 páginas conferidas contra o código em sete lotes e uma varredura\n  entre lotes (fila sem compactação, papel Leitor, seis exceções REST, op recusada\n  vira problema, clone do dono com a árvore, linha sem servidor em ebgeo2.0).\n- wiki-schema.md: supersessão se reescreve no conteúdo; o histórico fica no git.\n- CLAUDE.md: três pacotes com a ajuda/, npm test com ajuda:test, a main como linha\n  do produto, Produtor e Credenciado com o arquivo pessoal, telemetria, barrels.\n- CONSTITUICAO.md: chave de API com as três amarras (1.2, 10.7), pacotes do\n  Produtor (2.4), 2.9 e 2.11 pelo código (decisão do chefe), camadas do sistema\n  que se excluem vazias (5.13, 5.14), 5.12 vigente, 5.13 em obra com o motivo,\n  câmeras no de-para (9.3); ABERTAS do teste de estado acompanha.\n- README, docs/MEMORY.md, docs/cartas-contrato.md e docs/doutrina.md com os\n  fatos de hoje.\n- docs-integridade: saem as isenções órfãs de 002_atlas.sql e\n  feature-search.control.js.\n\nDiário de decisões e livro-razão fora do escopo, por decisão do chefe.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TCmCHEVgDt9ipWZpz",
+      "sha": "8ddecaa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8ddecaa4b43f34e41a127a6bae410c1df6aa62ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T16:30:10.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18 (cont. 2): busca no mapa base e roteamento por via no código do ebgeo_web (7a4fd1251..bbff6020f, push sem deploy), com a fonte de rota como cadastro, o vocabulário aceito e a viatura pesada sem dimensões; lições de Playwright com aria-disabled e de captura no meio da animação\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RhRZwqdygiWFLQ8fR",
+      "sha": "406c44f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/406c44fe5b2d85f3b9ce7f43ee0a1153374d72a2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-18T14:35:00.000Z",
+      "author": "Maj Borba",
+      "message": "Add per-tile caches of GEM-15 elevation and Forest Typology 2020 (tools/aux_rasters)\n\n- tools/aux_rasters/gem15.py: GEM-15 DSM/DTM from the public COGs (static\n  STAC, no Earth Engine account), resampled to the tile grid; 7 relative\n  terrain channels; Gem15CacheLoader (same interface as AefCacheLoader).\n- tools/aux_rasters/forest_typology.py: ForTy 2020 v1.0 probabilities from\n  the public COGs, cached per-zone header index; ForTyCacheLoader (6 classes).\n- tools/aux_rasters/common.py: warp onto the tile grid, manifest reader and a\n  threaded, resumable batch downloader with a status report.\n- CLI: download-gem15, download-forest-typology.\n- Docs (auxiliary-rasters.md, link from aef-embeddings.md), example config,\n  CHANGELOG. Tests: tests/test_aux_rasters.py (offline; 100% of the three\n  modules and of the new CLI lines, incl. the failed-tile report).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnY9CLBF9KFbR6d8SFz",
+      "sha": "3a0e1d0",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/3a0e1d049d063d85aa7e9558d729217f278cf641",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-18T14:03:47.000Z",
+      "author": "Maj Borba",
+      "message": "Fix test pollution: stop leaking a constant current_epoch onto Model\n\nThree tests set `type(model).current_epoch = PropertyMock(return_value=0)`,\nwhich replaced `current_epoch` on the `Model` class for the rest of the\npytest-xdist worker. Every later `Model` subclass then saw epoch 0 forever,\nso the AIO2 tests (`test_aio2_two_phase.py`, `test_resume.py`) that rely on\nreal epochs failed in CI whenever they landed on the same worker after\n`test_model_methods.py` (ACT never fired, scripted early stopping hit\nepoch 3 instead of 5, crash callbacks never reached their epoch).\n\nUse `patch.object(..., new_callable=PropertyMock)` so the class attribute is\nrestored after each test. Reproduced with the CI lock (torch 2.13,\nlightning 2.6.5) by running the worker's file order; passes after the fix.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnY9CLBF9KFbR6d8SFz",
+      "sha": "bdaeab2",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/bdaeab22decb1011624b7ed9a0e47015c3332125",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-18T13:07:05.000Z",
+      "author": "Maj Borba",
+      "message": "Update vulnerable dependencies (Dependabot) and adapt to Pillow 13 / hydra 1.3.8\n\n- uv.lock: aiohttp, certifi, filelock, hydra-core, mako, multidict, pillow,\n  pyasn1, setuptools, urllib3. torch untouched (main resolution already 2.13;\n  the alerts left are for 2.4.1 in the CUDA-12-pinned gpu-ml fork).\n- web: vitest/@vitest/coverage-v8 ^4.1.12 + npm audit fix; website: npm audit\n  fix of the lockfile. No --force (breaking) upgrades.\n- PolygonRNN inference passes the crop box as a tuple (Pillow 13 compares it\n  with a tuple and failed on numpy arrays).\n- test_build_masks_from_postgis patches PostgisGeoDF with a plain function:\n  hydra-core 1.3.8 refuses unittest.mock targets.\n\nChecked in a clean worktree with the CI install recipe: the tests that differ\nbetween the old and new lock pass after these two fixes; web tests (56) and\nbuild pass; the Docusaurus build passes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "61094cc",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/61094ccb6f365b36fc12a423da0fce0b9d01be90",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-18T12:35:52.000Z",
+      "author": "Maj Borba",
+      "message": "Add AIO2 two-phase driver, val_best phase-2 trigger and resumable runs\n\n- train() runs AIO2 (MeanTeacherModel) warm-up + O2C correction end to end\n  via fit_two_phase; phase 2 starts from a callback-stripped warm-up\n  checkpoint; fixes the 0/1-indexed I_r lookup; act_checkpoint_dir defaults\n  per seed; aio2/* diagnostics kept in _seed_result.json.\n- New phase2_trigger: val_best (phase 2 from the warm-up's best-val checkpoint).\n- New resumable: true: per-epoch resume_ckpt/<phase>_last.ckpt, logger pinned\n  to the interrupted version_N, ExperimentsRunner keeps interrupted run dirs,\n  AIO2 resumes per phase (aio2_state.json). New utils/resume_utils.py.\n- Docs, example config conf/examples/mean_teacher_aio2.yaml, CHANGELOG.\n- Tests: test_resume.py, test_aio2_two_phase.py (100% of resume_utils.py and\n  mean_teacher_model.py; all new lines of train.py/experiments_runner.py covered).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnY9CLBF9KFbR6d8SFz",
+      "sha": "df72906",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/df729063fdbbcd3e3e3495fa18d822f9470d4e0b",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "dsgoficial/pytorch_segmentation_models_trainer",
+      "date": "2026-11-18T12:34:16.000Z",
+      "author": "Maj Borba",
+      "message": "Declare einops as a core dependency and refresh uv.lock\n\nUNetFormerBackbone imports einops at module level, but it was never declared,\nso CI failed collecting tests/test_unetformer.py (ModuleNotFoundError). The\nlock is regenerated with it; this also picks up the olmoearth extra (zarr,\nobstore) that was declared in pyproject.toml but missing from the stale lock.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "30b5c6f",
+      "htmlUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer/commit/30b5c6fe8a7757cfb308aaa2edeaa19dc2615c47",
+      "repoUrl": "https://github.com/dsgoficial/pytorch_segmentation_models_trainer"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-18T12:34:16.000Z",
+      "author": "Maj Borba",
+      "message": "Queue: pause windows, blocked GPUs, missing-source eval and gem15_only\n\n- aux_extra_supervisor: pause windows (pause_windows.json), blocked GPUs\n  (blocked_gpus.json), and Pedro-mode migration only when free VRAM < 2 GB.\n- eval_missing_source.py: evaluates the method checkpoint with TTA D8 with\n  one source zeroed at inference (AEF, OlmoEarth, GEM-15, MapBiomas, DINOv3).\n- run_aux_extra_queue: evalmiss jobs (3 regimes x seeds 1-20, plus 21-40 in\n  completo) and gem15_only training (60 runs), queued before the lr pilot.\n- eval_tta_new_experiments: gem15_only flags.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "d63c2be",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/d63c2be8e01b26da77649116b24165ab1cd2a8b3",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T11:51:20.000Z",
+      "author": "Maj Diniz",
+      "message": "registros da obra de busca e de rota: os dois planos só com o que falta, a decisão do dia e as novidades\n\nOs planos guardam o que falta: as medidas nos tiles de produção, a carga do índice, o onde, o grafo do Brasil, a fonte das velocidades da tropa e a implantação. A contagem em produção que a migração 091 pede vem antes do deploy.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RhRZwqdygiWFLQ8fR",
+      "sha": "bbff602",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bbff6020fe9455716fe65ebe29513673b9c15625",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T11:51:20.000Z",
+      "author": "Maj Diniz",
+      "message": "achados fora do escopo da obra de busca e de rota\n\nO ajudante dos testes de extração separa a feição cortada de verdade da cópia de buffer, e as réguas e a remontagem medem cada classe com contagem exata. Os mocks de getLayers dos testes do menu ficam síncronos como o real. As citações a um PLANO-DESLOCAMENTO.md que não existe passam à página da wiki do Deslocamento. O panels-2d.css usava um token de raio indefinido, e os três cantos passam a 4 px.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RhRZwqdygiWFLQ8fR",
+      "sha": "49f13f2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/49f13f21c4bfd204e60d13495b882d43aedfa8ba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T11:51:19.000Z",
+      "author": "Maj Diniz",
+      "message": "roteamento por via: o módulo de rota sobre o Valhalla 3.9.3, a ferramenta Rota com bloqueio por camada e o Seguir vias da Linha\n\nO backend fala com o motor vizinho (ROTEAMENTO_URL, desligado por padrão) e o cliente não o conhece: tetos de 20 pontos, 1.000 bloqueios, 50.000 vértices e 10.000 km², ponto dentro do bloqueio recusado antes de pedir, perna sem caminho sem derrubar as outras, rota de comparação sem bloqueios e velocidade por classe de via refeita sobre as arestas do motor. A viatura pesada é caminhão sem dimensões (decisão do chefe de 2026-11-18). Configuração do motor com os tetos e compose de desenvolvimento em dev/roteamento/.\n\nA Rota é tipo de feição novo nos dois pacotes (migração 093_rota.sql), no grupo Análise, com o painel, a tabela de velocidades, o desvio dos bloqueios e o aviso quando os bloqueios mudam depois do cálculo, sem reescrita automática. Feição oculta numa camada de bloqueio continua bloqueando. Este commit também leva os censos e a fiação que as três frentes da obra compartilham.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RhRZwqdygiWFLQ8fR",
+      "sha": "50b5c85",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/50b5c856993d95ea54b8bd983230fb8d7e007067",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T11:51:19.000Z",
+      "author": "Maj Diniz",
+      "message": "busca no mapa base: o índice do Overture gerado dos próprios PMTiles, a rota com dois motores, o painel e a extração da lista\n\nA busca de cada mapa base vem da base que ele aponta. Motor nomes (o acervo da casa, com a ordenação calibrada) e motor indice (esquema busca, migração 092_indice_de_busca.sql, particionado por base), atrás da mesma resposta em /api/v1/busca-no-mapa-base. A ingestão (npm run busca:ingerir) lê os PMTiles por leitor próprio, com ensaio por padrão, régua da carga e assinatura dos arquivos. Vocabulário de 119 tipos aceito pelo chefe em 2026-11-18, com o rótulo comum e a classe da EDGV entre os sinônimos. A busca por tipo perto do centro desce pelo índice espacial (KNN).\n\nNa tela: a barra mostra a linha de tipo e Ver todos; o painel Buscar no mapa base, aberto pela barra e pelo chip do Extrair, marca e extrai num Desfazer só, com o teto de 400 dentro da porta e o casamento pelo id de origem do Overture. A página da Ajuda fica em rascunho até a figura, que pede a base carregada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RhRZwqdygiWFLQ8fR",
+      "sha": "9c312c8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c312c838a7b16751f43b7ed3a46640d48f911ee",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T11:51:18.000Z",
+      "author": "Maj Diniz",
+      "message": "terreno, base de busca e fonte de rota viram cadastros de administrador que o mapa base aponta, sem eixo de acesso\n\nO terreno sai da lista de tipos de recurso (frente T do PLANO-BUSCA-NO-MAPA-BASE.md): sem nível de acesso, dono, concessão nem entrada no acervo, e quem lê o tile dele é quem enxerga algum mapa base que o aponta. A cláusula 2.1 da CONSTITUICAO.md volta a sete tipos, e a 2.12 a seis tabelas de catálogo.\n\nEntram bases_de_busca e fontes_de_rota, com basemaps.base_de_busca_id e basemaps.fonte_de_rota_id e a linha instalacao como padrão (decisão do chefe de 2026-11-18: a fonte de rota é cadastro como o terreno). O módulo mapa-base-config guarda os três atrás de requireAdmin, o /api/config leva busca e rota em todo mapa base, e o cliente lê só pelos resolvedores base-de-busca-da-base.js e fonte-de-rota-da-base.js.\n\nA migração 091_cadastros_do_mapa_base.sql NÃO é aditiva: apaga concessão, empréstimo e pedido de passagem de terreno e as colunas do eixo. Antes do deploy, contar em produção os terrenos privados e as concessões de terreno.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3RhRZwqdygiWFLQ8fR",
+      "sha": "7a4fd12",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7a4fd125167904c4fc3a45c9b644a13d54a87d62",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-11-18T10:48:52.000Z",
+      "author": "Maj Diniz",
+      "message": "metadados: declaracao_linhagem vira gmd:statement quando o produto nao tem passo de linhagem\n\nProduto sem atividade de producao no SAP (o CDGV que nasce do banco de edicao\nda carta) saia com o LI_Lineage vazio, e o formulario do BDGEx exige a\n'Declaracao' nesse caso e nao deixa chegar a aba de arquivos. O campo\ndeclaracao_linhagem do metadado do produto/lote ja existia e nao chegava ao\nXML; agora preenche o gmd:statement. Com passo de linhagem, nada muda.\n\nAchado na carga dos CDGV 10k e 2k de Porto Alegre no BDGEx Op, 2026-11-18.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "19df4bb",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/19df4bb621787f079b20aaad7475c5c9ea76062c",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-11-18T10:19:41.000Z",
+      "author": "Maj Diniz",
+      "message": "metadados: carta especial com marcador 'Não-SCN' no inom sai pelo template especial, com bbox\n\nO gerador de XML testava so se o inom estava preenchido, e o cadastro grava o\nmarcador 'Não-SCN' em inom/mi das especiais: a carta caia no template SCN\n(titulo 'NOME - Não-SCN - escala', serie SCN, colecao Mapeamento Sistematico,\nbbox vazio). Passa a usar a mesma regua INOM_SCN do JSON de edicao.\n\nOs templates topo e vetor especiais tinham o geographicElement da\nidentificacao vazio, entao o preenchimento do bbox pela geometria do produto\nnao achava onde escrever; ganham o EX_GeographicBoundingBox, como o orto.\nA 1:2.000 entra em EQUIDISTANCIA_POR_ESCALA com 1 m.\n\nAchado nas cartas 10k e 2k de Porto Alegre (lotes 114 e 115), 2026-11-18.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "e677949",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/e677949c73af04bc4d75bf268996eace33beb767",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T09:46:59.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18 (cont.): depois do commit por índice temporário, o reset dos meus paths alinha o índice compartilhado\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TCmCHEVgDt9ipWZpz",
+      "sha": "2dd4568",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2dd45681da7f697b432a49190e2e8b4727f1b916",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T09:46:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18: documento de plano e de demanda guarda só o que falta (feito e descartado saem, histórico no git), na revisão dos sete documentos da raiz do ebgeo_web (993d39fd7); remover o Cesium segue em aberto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TCmCHEVgDt9ipWZpz",
+      "sha": "9d852f0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9d852f00929d331d0f3e5a4f946b632a2c75d9ad",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T09:23:14.000Z",
+      "author": "Maj Diniz",
+      "message": "documentos de demanda e de plano da raiz só com o que falta: feito e descartado saem, e as decisões do chefe de 2026-11-18\n\nOs sete documentos (REQUISITOS-ABANDONAR-EBGEO-DESKTOP, DEMANDAS-FAC2FTER-ALFA,\nDEMANDAS-PITCIC, DEMANDAS-REFERENCIAS-EXTERNAS e os planos de 3D, rádio e SIAOP)\nconferidos contra 0731d4ec9. Item feito e demanda descartada saem, o histórico\nfica no git, e a numeração dos itens não muda.\n\nDecisões do chefe aplicadas: C2 (T7, T11, T15) passa ao FAC2FTer; C22 recusado;\nisócrona viária do PITCIC pela via emendada ao através campo; Visibilidade basta\ncom 100 km e \"três ou mais\"; plano do 3D fica, remover o Cesium em aberto;\nreferências externas 17.9 fechado, 11.2, 11.3, 2.1 e 15.1 decididos; as dez\ndecisões do SIAOP na seção 11 do plano. Ponteiros para itens apagados\nconsertados em comentários e na wiki. Registro em docs/decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TCmCHEVgDt9ipWZpz",
+      "sha": "993d39f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/993d39fd79b7fbecc51ddc2c6a816df56201b8a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "dsgoficial/sap",
+      "date": "2026-11-18T08:40:17.000Z",
+      "author": "Maj Diniz",
+      "message": "sap_cli: lote fechar --dry-run le o lote no servidor em vez de estourar no token nulo\n\nO precisaServidor do lote dispensava a credencial em todo --dry-run, mas o\nfechar monta o PUT a partir do lote lido no servidor. O cfg chegava null e o\ncomando quebrava em \"Cannot read properties of null (reading 'token')\".\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "77c41f3",
+      "htmlUrl": "https://github.com/dsgoficial/sap/commit/77c41f33f2de41351ec24106868e8a1fe8d8f40a",
+      "repoUrl": "https://github.com/dsgoficial/sap"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-17T22:37:27.000Z",
