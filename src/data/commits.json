@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2026-11-19T01:49:22.518Z",
+  "lastUpdate": "2026-11-19T18:57:49.410Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-18T21:43:19.000Z",
+    "1cgeo/ebgeo_web": "2026-11-19T18:11:42.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
-    "1cgeo/doc_ortoimagem": "2026-07-24T13:21:53.000Z",
-    "1cgeo/doc_topografica": "2026-10-01T10:11:53.000Z",
+    "1cgeo/doc_ortoimagem": "2026-11-19T17:05:33.000Z",
+    "1cgeo/doc_topografica": "2026-11-19T17:05:45.000Z",
     "1cgeo/doc_dgeo": "2026-10-30T12:15:47.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-18T19:27:28.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-19T16:03:47.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10985,
+    "totalCommits": 10995,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,10 +136,10 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3547,
+      "1cgeo/ebgeo_web": 3554,
       "1cgeo/servico_nomes_geograficos": 29,
-      "1cgeo/doc_ortoimagem": 44,
-      "1cgeo/doc_topografica": 117,
+      "1cgeo/doc_ortoimagem": 45,
+      "1cgeo/doc_topografica": 118,
       "1cgeo/doc_dgeo": 564,
       "1cgeo/ferramentas_mgcp": 20,
       "1cgeo/mgcp": 19,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1445,
+      "1cgeo/chefe_dgeo": 1446,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 42,
@@ -191,6 +191,96 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T18:11:42.000Z",
+      "author": "Maj Diniz",
+      "message": "rota: a rota se refaz ao vivo enquanto se arrasta o ponto, e arrastar o meio da rota insere um ponto\n\nPedido do chefe da DGEO em 2026-11-19, com a interação do route_snapper como referência (o motor segue o\nValhalla do backend).\n\n- Arrastar uma alça numerada refaz a rota durante o arrasto: no máximo um pedido em voo, o mais novo\n  cancela o anterior, intervalo mínimo de 100 ms que cresce com a resposta medida, e a prévia sem a\n  comparação dos bloqueios; no soltar, o cálculo completo e a gravação de sempre. Esc devolve a rota.\n- Arrastar o meio do traçado (depois de 4 px) cria um ponto entre os dois da perna, com a mesma prévia;\n  não arma no teto de 20 pontos, com a feição oculta, com cadeado ou com o mapa travado.\n- Testes: unitário do agendador (rota-previa-ao-vivo) e e2e com motor falso (rota-arrasto-ao-vivo).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "9ef2bb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9ef2bb01190140ac074410ed7905c19bb14a6254",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T18:11:09.000Z",
+      "author": "Maj Diniz",
+      "message": "busca no mapa base: calibração da ordem pela política do chefe (degrau só de capital e metrópole, estado 0,9, faixa cheia por palavras)\n\nPolítica do chefe da DGEO de 2026-11-19, depois do conjunto dourado do Overture (o degrau do peso 1 vencia\nqualquer distância: \"santa maria\" em Santa Maria trazia uma homônima a 2.552 km na frente da local).\n\n- O degrau do peso 1 só para capital de país ou de estado e metrópole de @prominence 72 ou mais; 30 a 71\n  pesa 0,9, 13 a 29 0,7, o resto 0,5. Homônimo perto vence o distante que não é capital nem metrópole.\n- Estado e país pesam 0,9: o nome de um estado-cidade traz a cidade primeiro.\n- No caminho das palavras a faixa cheia é \"tem todas as palavras\", não \"contém o texto digitado\": \"ruta 21\"\n  punha \"Ruta 21\" a 966 km na frente de \"Ruta Nacional 21\" a 3 km.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "0803ef2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0803ef2c8b285593c0c323133d73a24139f1b5f0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-11-19T17:05:45.000Z",
+      "author": "1º Ten Marcel",
+      "message": "continuação topo nova",
+      "sha": "29624a2",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/29624a256f57f33b01785f4b05bd2ea182e1e3cf",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "1cgeo/doc_ortoimagem",
+      "date": "2026-11-19T17:05:33.000Z",
+      "author": "1º Ten Marcel",
+      "message": "inicio orto nova",
+      "sha": "95c23ae",
+      "htmlUrl": "https://github.com/1cgeo/doc_ortoimagem/commit/95c23ae89188eb90ee476717fc0858a9da378f6a",
+      "repoUrl": "https://github.com/1cgeo/doc_ortoimagem"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-19T16:03:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 9): EBGeo nas duas instâncias com busca por palavra e coerência (sem ruas, peso pela proeminência, apelidos, correção de erro), rota provada na tela, proposta da busca de endereços\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "8ccc469",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8ccc469e3c088d56b9f2bfecd2e5a13c6f452db9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T13:43:50.000Z",
+      "author": "Maj Diniz",
+      "message": "busca no mapa base: sem ruas, peso pela proeminência, apelidos e correção de erro pelo vocabulário\n\nDecisões do chefe da DGEO de 2026-11-19, medidas no conjunto dourado do Overture (365 casos) e na carga\ndo 1º CGEO.\n\n- A busca principal não trata de ruas (vão para a busca de endereços): arruamento, trilha e caminho\n  entram como \"nunca\"; o trecho de classe de rodovia só entra quando é rodovia (sigla em routes, nome\n  rodoviário ou trunk; nome de rua nunca). O trecho sem nome entra pela sigla, e a sigla do trecho com\n  nome vai para os nomes alternativos (\"BR-158\" acha pelo número).\n- A localidade pesa pelo @prominence do tile (56+ ou capital 1; 30-55 0,9; 13-29 0,7; resto 0,5):\n  antes toda localidade pesava 1 e \"rua\" listava lugarejos a 3.000 km, e \"Linha Porto Alegre\" vinha\n  antes da capital. Estado e país pesam 1.\n- Apelidos no vocabulário: \"Plano Piloto\" ganha \"Brasília\". Os nomes alternativos entram nas palavras\n  e na semelhança da ordem.\n- Correção de erro: a palavra desconhecida vira a mais frequente a uma edição (Norvig, pega a inversão\n  \"snata\"/\"santa\" que o trigrama perde) ou a mais parecida por trigrama (095_correcao_de_palavra.sql);\n  sem nome com todas as palavras, a rara com parecida dez vezes mais frequente é trocada antes de\n  recuar para a mais rara; prefixo longo ou depois de outra palavra expande a 500 palavras.\n- Sem centro e com palavra comum, a leitura é de mil casamentos (3,4 s antes).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "2882eb8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2882eb8863d10d6f7cdc40a3d6de5aab2102aad8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T13:37:45.000Z",
+      "author": "Maj Diniz",
+      "message": "deps(backend): eslint 10.15.0 e override de glob 14.0.6 e minimatch 11.0.9 no test-exclude\n\nFecha os alertas 100 (glob, GHSA de AbortSignal) e 101 (minimatch, DoS por\nglobparts) do Dependabot, ambos em dependência de desenvolvimento. O eslint\n10.15.0 já pede minimatch ^11.0.5; o test-exclude 8.0.0, última versão, ainda\npede glob ^13 e minimatch ^10, daí o override. npm audit do backend de 6\nmoderados para 0; c8 --all acionado uma vez sobre src/utils (o globSync do\ntest-exclude acha os arquivos), eslint acionado, npm ci --dry-run limpo (npm\n11.8.0). Suíte não rodada, a pedido.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "af6981a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/af6981a2e3a781f5378f79643e4e2fe59d795bcc",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T13:35:21.000Z",
+      "author": "Maj Diniz",
+      "message": "README: o que é o EBGeo, por que nasceu e o que se propõe a fazer\n\nAbre o README pela apresentação da plataforma (origem na Operação Taquari 2,\nconcepção, Cenário Operacional Comum, capacidades e emprego), e a parte técnica\npassa para a seção Desenvolvimento, com as subseções um nível abaixo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "dae6a76",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dae6a76bb4f5a64ef6c6141595497f9beb42c75d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T10:28:48.000Z",
+      "author": "Maj Diniz",
+      "message": "busca no mapa base: índice por palavra (plano B), a busca por nome do Overture abaixo dos 500 ms\n\nO trigrama do nome inteiro passava da régua nos nomes comuns (\"rua\" 13,9 s, \"são joão\" 7,1 s no\n1º CGEO, 15,15 milhões de feições): 1,24 milhão de candidatos, 8 s de similaridade e distância.\n\n- 094_palavras_da_busca.sql: busca.termos e busca.palavras, a coluna busca.feicao.palavras com GIN\n  e GIN parcial no peso 1 (ON ONLY, sem construir nas partições que já existem), e busca.palavra,\n  o vocabulário de cada carga com o número de nomes por palavra. Aditiva.\n- A carga grava as palavras, os dois GIN na partição nova e o vocabulário antes da troca; o da carga\n  antiga sai depois dela.\n- A busca lê a frequência e escolhe: poucos casamentos (palavra rara, ou a interseção que o GIN conta\n  abaixo de 20 mil) vão pelo GIN e todos são pontuados; muitos vão pelos vizinhos do centro (no máximo\n  50 mil percorridos) mais o peso 1. Palavra desconhecida sai da busca; sem nome com todas, fica a\n  mais rara. Sem varredura sequencial no caminho das palavras. Carga antiga segue pelo trigrama.\n- Piloto em tabela temporária sobre a carga real: rua 83 ms, são joão ~230 ms, escola municipal\n  ~170 ms, rua do ~300 ms.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "8ec174b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8ec174b5cae18f0f8922e2b4ebdf654cfa66f80c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T04:17:42.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: 86 mídias regeradas depois do lote de 16/11 (Acervo fora do trilho, Meu Acervo na barra, botão Comentar)\n\nO piloto leu as 114 mídias regeradas desde 2026-11-04, mais 154 de controle, por réguas de\nmolde provadas contra a saída real degradada: 71 mostravam o botão Acervo no trilho, 4 a barra\ndo topo sem Meu Acervo e 13 o \"+\" antigo dos Comentários (86 ids, duas em duas listas).\nRegeradas uma por vez, com banco novo a cada rodada, e lidas lado a lado com a versão antiga;\nas réguas reprovam o estado antigo nas 86.\n\n- tomadas consertadas: calor-02 (espera de novo o \"Tudo enviado\"), orbat-01 e orbat-03 (janela\n  maior: o cartão ganhou os Aparelhos de campo em 07/11), tempo-rever-01 (o play agora enquadra\n  o voo; a tomada devolve a câmera), v2-atlas-garmin-01 (pausa final de 3 s);\n- tabela-de-atributos: o alt acompanha a ordem nova da tabela;\n- instáveis, passaram na segunda tentativa sem conserto: recobrimento-01, v2-desenho-colar-01 e\n  l6-simbolo-02.\n\najuda:build (175 páginas) e ajuda:test 113/113 verdes, uma rodada no fim.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "ee732c5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ee732c5e9cbe42cd987ea5d63b579b282d3a2813",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-18T21:43:19.000Z",
