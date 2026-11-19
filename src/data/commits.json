@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-18T18:46:41.817Z",
+  "lastUpdate": "2026-11-19T01:49:22.518Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-18T16:34:47.000Z",
+    "1cgeo/ebgeo_web": "2026-11-18T21:43:19.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-18T16:46:14.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-18T19:27:28.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10980,
+    "totalCommits": 10985,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3545,
+      "1cgeo/ebgeo_web": 3547,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 44,
       "1cgeo/doc_topografica": 117,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1442,
+      "1cgeo/chefe_dgeo": 1445,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 42,
@@ -191,6 +191,51 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T21:43:19.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: figuras dos lotes de 16 e 17/11, página Esconder um ramo da ORBAT publicada\n\n- figuras novas pelo motor de mídia, cada uma lida: orbat-04 (nova), meu-acervo-01 a 03\n  (o Meu Acervo agora em admin.html), v2-base-conta-01 (Meu Acervo no menu da conta) e\n  v2-atlas-permissoes-01 (a seção \"Leem por administrar\", num mapa restrito);\n- tomadas consertadas: meu-acervo-01 e 03 em janela de 960 px; v2-atlas-permissoes-01 restringe\n  o mapa antes de abrir o diálogo, senão a seção nunca aparece;\n- como-fazer/esconder-um-ramo-da-orbat sai do rascunho e entra na barra;\n- compartilhar-o-atlas: com Gestão a pessoa também lê os restritos (cf9f23295);\n- feicoes-no-video: sai a frase \"O play não aproxima o mapa.\", que o lote desmentiu;\n- orbat-ramos-ocultos.js: o comentário diz o que o código faz (a lista esmaece, a árvore não).\n\najuda:build (175 páginas), ajuda:test 113/113 e o lint do frontend verdes, uma rodada no fim.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "1e6030f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1e6030fd2ae3686d78789d169f82eea1b11d4ea2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-18T19:46:00.000Z",
+      "author": "Maj Diniz",
+      "message": "busca no mapa base: o id de origem é o atributo id ou, sem ele, o id do tile\n\nOs PMTiles de produção da Topográfica não trazem o atributo id em camada nenhuma\n(medido no servidor do 1º CGEO em 2026-11-18: 0 de 104 mil feições de infraestrutura\nem 36 tiles de quatro cidades), e a ingestão recusava a carga inteira. O id do tile\nestá em 100% das feições e casa em 100% dos vizinhos.\n\n- idDeOrigemDaFeicao (ingestao/regras.js): o atributo id, e senão String(feature.id)\n  como o decodificador o lê; usado pela regra de entrada, pela varredura, pela\n  conferência da amostra e pela régua da carga;\n- casarPeloIdDeOrigem (cliente) casa pelos dois, com a mesma precedência;\n- o id do tile passa de 2^53 na maioria das feições, mas índice, régua e extração\n  leem o mesmo double pelo mesmo decodificador; 110.899 edificações deram 110.899\n  ids distintos exatos e como double.\n\nEnsaio sobre os tiles de produção: antes \"CARGA RECUSADA\" nas 7 camadas; depois a\nconferência passa e a régua acha 14 de 14 pelo id do tile.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "aa02416",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/aa0241699292f8d9a1d20ebe463f38ca9923a698",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T19:27:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18 (cont. 7): a guarda com pipe reincidiu e levou dois JSON com IP interno ao remoto; learnings da retrospectiva e livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "bcdbd04",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/bcdbd041ae637e1a6bda78d9ab5799703b861f2d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T19:25:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18 (cont. 7, conserto): tira do repositório os dois backups JSON do título do 1d que levavam IP interno e caminho de rede, e marca path-ok nas linhas de credencial pelo .env\n\nO guard rodou com pipe no commit anterior e o código de saída se perdeu. Os dois arquivos ficam só no disco.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "7efd628",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7efd6288715d5dbed58c8d18c2dc4c84d177602f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-18T19:22:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-18 (cont. 7): Iguaçu 1h e 1d no BDGEx e no SAP 3.0, Porto Alegre 10k e 2k no BDGEx Op, gerador de XML da carta especial, mensagem semanal de produção\n\n- Decisions 2026-11-16 (revisão do chefe e cont. 10), 2026-11-17 (cont. 3), 2026-11-18 (cont. 1 e 2)\n- carregar-bdgex: espera pelo botão das shapes, provar_registro.py e diag_form; learnings em duas camadas\n- cadastrar-acervo: carregar_bloco_ct.py, lápide e replace-files sem escrita no volume, CDGV de carta especial\n- criar-metadados-xml, editar-carta, completar-banco-extracao, cruzar-fontes-sca: learnings e scripts do Iguaçu\n- ciclo-2026/mensagem-semanal-producao.md: método e calibração da mensagem semanal\n- livro-razão: 7 correções do chefe de 2026-11-16 e o defeito do XML pego pelo BDGEx Op\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLsFsTVRKHxnNAYxZ4",
+      "sha": "4852c37",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4852c37e8fe900f42c7165a976bf07b629794dde",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-18T16:46:14.000Z",
