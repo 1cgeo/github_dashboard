@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-19T18:57:49.410Z",
+  "lastUpdate": "2026-11-20T01:45:07.272Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-19T18:11:42.000Z",
+    "1cgeo/ebgeo_web": "2026-11-20T01:06:14.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-19T16:03:47.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-20T01:30:54.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 10995,
+    "totalCommits": 11006,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3554,
+      "1cgeo/ebgeo_web": 3559,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1446,
+      "1cgeo/chefe_dgeo": 1452,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 42,
@@ -191,6 +191,105 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-20T01:30:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 14): capacidade do Campo na DSG e no 1º CGEO relida pela tabela do prompt; busca de endereços no ar no 1º CGEO com o RS carregado e medida em produção; conserto do número de casa\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "d133b3f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d133b3f9d5722b58e1f05e99c4abced184f80cb8",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-20T01:06:14.000Z",
+      "author": "Maj Diniz",
+      "message": "busca de endereços: o número de casa tem no máximo seis algarismos (o código no nome fica no nome)\n\nA primeira carga do RS no 1º CGEO foi recusada pela régua da amostra: em Uruguaiana há a\n\"ALAMEDA 13 432240005000072\", a análise lia o código como número de casa, e a consulta dos números\nestourava o `integer` (\"integer out of range\"), desfazendo a troca. A mesma entrada digitada por\nalguém fazia a rota responder 400.\n\n- NUMERO_MAXIMO (999.999) passa a morar na análise do texto, e a carga o importa: as duas concordam.\n- A análise só lê como número de casa o que cabe nele; o mais longo fica no nome.\n- O serviço nunca manda à consulta um número acima do teto (guarda para outro caminho de análise).\n- Testes: o caso de Uruguaiana e o de onze algarismos na análise; a rota responde 200 sem número.\n  Sem o conserto os dois reprovam (a rota respondia 400), com ele passam.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "0c7909b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0c7909b99cc712009a7acccf4f2c72abc3019508",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-20T00:42:17.000Z",
+      "author": "Maj Diniz",
+      "message": "busca de endereços: o piloto do RS (o quarto cadastro do mapa base, o índice do CNEFE 2022 por UF, a busca e o reverso, e o grupo Endereços na barra)\n\n- Migrações 098_bases_de_enderecos.sql (o cadastro e a chave basemaps.base_de_enderecos_id, padrão na instalação) e 099_indice_de_enderecos.sql (o esquema endereco, particionado por UF), as duas aditivas.\n- Módulo busca-de-enderecos: análise do texto (rua, número, CEP, município), busca, reverso e a carga `npm run enderecos:ingerir` (ensaio por padrão, `--aplicar` escreve, régua da amostra pela busca antes da troca).\n- Frontend: o grupo fixo Endereços na barra de busca, com a base de endereços do mapa base; some quando a base não tem carga.\n- Conjunto dourado da internet do RS como teste de unidade; plano em PLANO-BUSCA-DE-ENDERECOS.md e desenho em docs/wiki/busca-de-enderecos.md.\n- Consertos: config.test.js espera a chave enderecos; busca-no-mapa-base-palavras.test.js afirma o vencedor medido (rua-do-centro) no lugar da asserção disjuntiva que o lint reprova.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "ff7e89d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ff7e89d9881658ba4bea299b50dceab94b805144",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-19T23:32:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 13, conserto): o prompt de deploy da capacidade parte do 41da7fcfe, que está no ar nas duas instâncias\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "5d3f9ee",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5d3f9eeaba50db3195f3e9deb4dcc8f176a57ceb",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-19T23:29:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 13): capacidade do EBGeo Web com tropas ao vivo medida (o limite é o navegador) e sete otimizações na main do ebgeo_web (df8cf8eb1, push sem deploy); projeto ebgeo-capacidade com as bancadas e o prompt de deploy, página de wiki, lições de medir desempenho e de subagentes\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "41cc4a2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/41cc4a2e2791ab1eb9e611c5b4f5e7ebac2a96cf",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T23:21:16.000Z",
+      "author": "Maj Diniz",
+      "message": "campo: capacidade com militares ao vivo, o rastro em fonte própria, a abertura em páginas, a lista virtualizada e o backend que não cai com o histórico\n\nSaiu da bancada de capacidade de 2026-11-19 (servidor e navegador medidos em\nseparado, sem o retransmissor). O registro está em docs/decisions, entrada de\n2026-11-19.\n\nNavegador:\n- o rastro dos militares sai da fonte dos pontos para uma fonte própria,\n  regravada no máximo a cada 5 s no ao vivo e na hora no replay, na abertura e\n  na troca de regra, de estilo ou do olho, com a linha simplificada a 15 m;\n- a abertura do mapa lê as posições em páginas por cursor e em colunas\n  (formato=colunas; sem o parâmetro a rota responde como antes);\n- a lista de militares da árvore é virtualizada, em ordem de posto e nome, com\n  a recência como escolha, e o redesenho da árvore não a refaz mais.\n\nServidor:\n- a última posição de cada militar por índice (migração 096);\n- o último ponto do aparelho ordenado pela coluna, e não pelo apelido de saída;\n- o texto de debug de cada consulta só com o debug ligado;\n- o título automático do evento por contador do mapa (migração 097);\n- o retorno guardado do envelope de posição vence em 1 h\n  (CAMPO_PRAZO_RETORNO_POSICAO_MIN), e a gravação descarta o ponto repetido.\n\nMedido depois: atraso da posição na tela de 6,6 s para zero com 5.000\nmilitares; abertura com 1.000 de 9,5 s para 6,0 s (16 leituras e 50 MB, eram\n82 e 466 MB); teto do backend com 7,2 milhões de posições de 303 para 1.154\nenvelopes por segundo, e empate com a tabela vazia.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>",
+      "sha": "df8cf8e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/df8cf8eb1b475b5433595164f6226972818285f3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-19T22:49:39.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 12): segunda rodada da busca (lugares por categoria, omissão 100%, objetiva 96,4%), bancada de endereços e o piloto do RS em obra\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "93183f2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/93183f28b9df57829ad6d1537f6fd563560d0e1d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T21:35:10.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: a busca de hoje em \"Procurar um lugar\", as novidades de 19/11, o Buscar do Extrair e o Seguir vias da Linha\n\n- \"Procurar um lugar\": três letras para os lugares, a busca da Topográfica do 1º CGEO por nome, tipo e sigla\n  de rodovia, com correção de erro e sem ruas; o \"Ver todos\" no painel; o Salvar com a forma real.\n- Novidades de 2026-11-19: a rota ao vivo no arrasto e a busca na Topográfica e na Ortoimagem.\n- Extrair do mapa base: o botão Buscar em \"Outros jeitos\". Linha: o Seguir vias.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "41da7fc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/41da7fcfeb80e5b0d1837affbefbf3e7db263e11",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-19T21:35:10.000Z",
+      "author": "Maj Diniz",
+      "message": "busca no mapa base: lugares do Overture pela categoria, todas as palavras menos uma, e a palavra genérica sem a expansão larga\n\nSegunda rodada de calibração (chefe da DGEO, 2026-11-19), medida no conjunto dourado do Overture.\n\n- Lugares: 64,6% do índice eram lugares sem tipo (peso 0,1), e \"igreja\" em Cachoeira do Sul trazia um\n  morro a 70 km antes da igreja a 3,3 km. O vocabulário casa `basic_category` na camada place (o casamento\n  menos específico, só nela): 66 categorias viram 32 tipos, 21 existentes e 11 novos aceitos pelo chefe\n  (delegacia, presídio, posto de combustível, rodoviária, museu, teatro, monumento, shopping, farmácia,\n  banco, restaurante); farm e military_site ficam fora pelo ruído. 130 tipos.\n- Sem nome com todas as palavras: concorrem \"todas menos uma\" (a mais rara fora primeiro) e \"a mais rara\n  sozinha\", e vence a de melhor candidato, decidido na primeira linha; nas relaxadas a faixa volta a sair da\n  semelhança com o texto inteiro. O erro por omissão tinha caído de 70% para 55%.\n- A palavra genérica sozinha (\"escola\") expande a 50 palavras; 500 só quando o grupo é raro (512 ms antes).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "a7d9b92",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a7d9b921a8585f30b1cdcf8fd996a161c95bbd25",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-19T20:31:41.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 11): a Topográfica e a Ortoimagem do 1º CGEO buscam no Overture; o guard não varre arquivo novo do commit por índice temporário\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "402b874",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/402b874fdaaebb402b29a175dc84c70cf28ff0ec",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-19T20:02:35.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-19 (cont. 10): ordem da busca calibrada pela política do chefe e rota ao vivo no arrasto, no ar nas duas instâncias; conjunto dourado do Overture guardado no projeto\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "f0873b9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f0873b9bb92af9009984caefea18939e5e342053",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-19T18:11:42.000Z",
