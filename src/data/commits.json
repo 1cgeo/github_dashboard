@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-21T01:13:25.862Z",
+  "lastUpdate": "2026-11-21T17:14:52.722Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-20T23:59:26.000Z",
+    "1cgeo/ebgeo_web": "2026-11-21T12:12:57.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-20T23:20:29.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-21T12:13:55.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11013,
+    "totalCommits": 11020,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3564,
+      "1cgeo/ebgeo_web": 3568,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1454,
+      "1cgeo/chefe_dgeo": 1457,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 42,
@@ -191,6 +191,69 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-21T12:13:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-21: feedback de campo do EBGeo avaliado item a item (3D sem falso alarme, visada reta, avisos com ×, identificar no Overture e mais cinco); o ambiente do e2e-ui e os censos esquecidos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "da22aa0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/da22aa08799de33434abd22a83c7e8c4a87d94db",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-21T12:12:57.000Z",
+      "author": "Maj Diniz",
+      "message": "feedback de campo de 2026-11-21: visada reta, avisos com \"×\" e sem repetição, identificar no Overture, imagem sobre polígono, limpar a busca do catálogo, baixar a imagem do atlas, nome longo do mapa base, cartão do comentário 3D\n\nItens do feedback avaliados e aprovados pelo chefe:\n- Linha de visada desenhada RETA (profile-panel.manager.js): o terreno ganha o bojo da Terra e a visada\n  fica reta, como no enlace de rádio. A conta e o veredito não mudam. Provado no relevo de produção\n  (57 km na serra): visada reta, terreno = cota + bojo, veredito igual nas 26 amostras; o desenho\n  antigo reprova a mesma régua (17,7 m de curvatura, terreno 55 m fora).\n- Todo toast tem \"×\" (closable por padrão) e o mesmo texto do mesmo tipo não empilha: reinicia o\n  relógio do que está na tela. O aviso dentro do vídeo (ao vivo e reconhecimento) também ganha \"×\";\n  o fixo fechado só volta com outro texto.\n- Identificar responde no mapa base (Overture), não só na carta (identificar.model.js), com nome e\n  classe em português; o desenho da pessoa segue fora.\n- Imagem sobre polígono: as duas ficam para o menu de escolha (a imagem não decide a classe do clique).\n- O \"×\" na busca do catálogo, sem :has() (classe posta pelo script).\n- \"Baixar imagem\" no cartão do atlas, a quem tem nível conhecido, quando há capa.\n- Nome do mapa base em até duas linhas na miniatura e na grade, com o nome inteiro na dica (os da\n  DSG \"Monte Castello, maquete de 1944, neve\" davam quatro linhas).\n- O cartão do comentário no 3D segue o ponto quando a câmera anda.\n\nProvas de navegador novas, gateadas: comentario-pino-fixo-no-zoom (o pino do 2D a até 0,86 px da\ncoordenada, zoom 17 a 9, três tamanhos), linha-de-visada-reta, nome-longo-do-mapa-base e as duas de\nreordenar mapas (medidas, com PROVA_*).\n\nSuíte: lint limpo, frontend 28.819/28.819, e2e 336/336, specs de navegador tocados verdes; backend com\nas mesmas 51 de vídeo ao vivo, Campo e Produtor de antes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "a2685c3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a2685c35f5513039922ecaf0b3c3db2f1dd1a402",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-21T12:12:40.000Z",
+      "author": "Maj Diniz",
+      "message": "modelo 3D: um tile perdido não acusa o modelo; a conexão que caiu tenta de novo; a telemetria leva a causa\n\nO aviso \"O modelo 3D ... não pôde ser carregado\" aparecia com o modelo na tela (feedback do chefe,\n2026-11-21). Reproduzido em produção cortando a conexão de UM .glb de 176: o painel saía palavra por\npalavra. A telemetria tinha 19 modelos acusados assim nas duas instâncias, todos sem código HTTP.\n\n- Nova tentativa para o pedido sem resposta (RequestErrorEvent sem statusCode), uma por pedido, para o\n  visitante também (assets3d-request.js, tentarDeNovoSemResposta). Um 404 de verdade não vira dois.\n- O veredito do modelo (criarJuizDeFalhaDoModelo): o painel acusa só quando nada desenhável carregou\n  até o fim da rodada (allTilesLoaded); o tile perdido com o modelo na tela vai à telemetria como\n  \"carregou em parte\", sem painel. O modelo privado de todo filho 404 segue acusado.\n- A telemetria leva o caminho do tile e a mensagem do Cesium (na chave `causa`, a que o saneamento do\n  contexto aceita), na acusação e na parte.\n\nProva: modelo-3d-tile-perdido.spec.js (navegador, modelo sintético servido por rota): um filho cai uma\nvez e é pedido de novo, sem painel; um filho cai sempre, sem painel e com \"carregou em parte\" no corpo\nque saiu; todo filho cai e o painel acusa (controle). Com o código de antes os dois primeiros ficam\nvermelhos. Unidade: modelo-3d-falha-parcial.test.js (11 reprovam sem o conserto).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "bb74f34",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bb74f34f9788bd500e172bac8e32a019ca2807ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-21T11:59:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-21: T.REX Map Server lido (código fechado) e quatro ideias no EBGeo Web (régua de conferência e romer na carta, preto e branco, Garmin por aparelho), d711e97c8 na main; decisão, seção na referências externas e seis armadilhas da obra\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "75d67ac",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/75d67ac51b1524f746467756ec8a87b4b635c91e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-21T11:57:54.000Z",
+      "author": "Maj Diniz",
+      "message": "carta: régua de conferência e romer; impressão em preto e branco; Garmin por aparelho\n\nQuatro ideias do T.REX Map Server que o dono escolheu (2026-11-21):\n\n- Régua de conferência (item `regua` da carta): barra de 100 mm do papel\n  (50 a 250), com a frase do que fazer quando não mede isso e, ligada a um\n  quadro, o lado da quadrícula dele no papel.\n- Romer (item `romer`): o L de uma quadrícula UTM do quadro ligado, em dez\n  partes (vinte quando a vigésima ainda lê); só em quadro UTM.\n- Preto e branco na folha única, no mosaico e na carta: a folha pronta em\n  cinza por luminosidade (modo de composição saturation, sem ler pixel);\n  lembrado com a última configuração do PDF.\n- Garmin por aparelho: 100 ou 500 imagens (garmin-perfis.js), lembrado neste\n  computador; a área que não cabe no teto novo é descartada com o motivo.\n\nSchema da carta com os dois tipos novos (aditivo, sem migração), contrato,\nnovidades e três páginas da Ajuda.\n\nProva: régua desenhada a 300 DPI no Chromium mede 1.183 px (100 mm mais o\ntraço); a página em preto e branco tem R=G=B em 44.692 amostras. Backend da\ncarta 60/60 com controle negativo do schema; Ajuda 113/113; frontend com os\ntestes novos e os censos verdes. A suíte da raiz inteira e o e2e não rodaram.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "d711e97",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d711e97c8cdff7dc7e762917edb9b517c95a4f32",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-21T02:25:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-20 (cont.): busca de endereços nacional também na DSG; o 9a664c0af (Rio de Janeiro e São Paulo como município) pela bancada com a F16 das capitais\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "8a0d931",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/8a0d9318f9368dfd528d0dd96f0cd4e9678047bd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-21T01:40:22.000Z",
+      "author": "Maj Diniz",
+      "message": "busca de endereços: \"Rio de Janeiro\" e \"São Paulo\" são o município, e não só a UF\n\nO nome de estado que é também município dele era lido sempre como UF, e o município sumia: o bairro com\nnome de município de outra UF virava o município (\"Rua Ana Neri 2212, Riachuelo, Rio de Janeiro/RJ\" ia a\nRiachuelo/SE). A régua da carga do RJ na DSG recusou por isso (940 de 1.000). Agora a parte é o\nmunicípio, e dá a UF, quando o texto traz a sigla ou quando nenhuma outra parte que não é rua nomeia um\nmunicípio daquela UF; \"Campinas, São Paulo\" e \"Praia Grande, São Paulo\" seguem com São Paulo como UF\n(a parte inteira conta mesmo começando por PRAIA, RIO ou BARRA, que também são tipos no CNEFE).\n\nBancada nacional, a do ar contra esta, nas 27 UFs: sem regressão em família nenhuma (F09 com bairro\n98,7% para 99,3%; internet 96,7%); família nova F16 nas duas capitais: com bairro 66,7% para 99,3%, o\ninterior com o estado por extenso 99,3% nas duas; controle negativo reprovando. Teste de unidade que\nreprova sem o conserto.\n\nSuíte: lint limpo, frontend 28.772/28.772, e2e 336/336; no backend só as 51 de vídeo ao vivo, Campo e\nProdutor do disco cheio da estação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "9a664c0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9a664c0aff16ae19b332b1f7054bcac39c1e5c99",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/ebgeo_web",
       "date": "2026-11-20T23:59:26.000Z",
