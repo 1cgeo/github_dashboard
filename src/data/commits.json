@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-22T00:12:26.304Z",
+  "lastUpdate": "2026-11-22T17:43:58.823Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-21T17:33:53.000Z",
+    "1cgeo/ebgeo_web": "2026-11-22T12:41:41.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-21T17:34:42.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-22T12:43:28.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11022,
+    "totalCommits": 11030,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3569,
+      "1cgeo/ebgeo_web": 3572,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1458,
+      "1cgeo/chefe_dgeo": 1463,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 42,
@@ -191,6 +191,78 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-22T12:43:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-22 (cont. 1): as duas specs de tela do EBGeo Web consertadas (ebgeo_web bfb994eac: o tile ainda grosso do globo do Cesium enganava o zoom e a altura dos pontos; o relevo do e2e ia à internet); D: da estação de 8 para 76 GB livres; decisão com o raio de explosão, estado do projeto, lições na subwiki e um evento no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "617774f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/617774f30d0fbf4fe170300291b2bd6d0b47faa7",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-22T12:41:41.000Z",
+      "author": "Maj Diniz",
+      "message": "3D: o zoom das feições e a altura dos pontos não leem mais o tile ainda grosso do globo; o relevo do e2e não sai para a internet\n\nAs duas specs de tela que reprovavam desde 2026-11-22, com a causa medida por sonda na própria spec.\n\n- feicoes-nativas-no-3d.spec.js reprovava por uma corrida. O tile de nível baixo do globo do Cesium é uma\n  corda que passa por baixo do elipsoide (10 km no nível 1, 35 km no nível 0), e duas leituras supunham o\n  globo carregado:\n  - o zoom lido na parada da câmera saía 12,7 com a câmera no 16,0 e ficava até o próximo movimento. A\n    leitura agora espera o globo carregar (pedirZoom, em feicoes_nativas/camada.js), com a câmera parada;\n    passados 4 s lê assim mesmo e relê quando ele carregar. A primeira leitura passa a refazer o que saiu no\n    zoom do mapa 2D, e o zoom relido no meio da leitura de uma fonte não deixa feição no zoom velho;\n  - a altura de um símbolo amostrada ali o punha 37 km abaixo do chão, e de cima ele ficava no centro da\n    tela e levava todo clique (3 de 20 rodadas depois de consertado o zoom). A altura amostrada abaixo da\n    base do volume do modelo não vale (alturaNoVolume, em feicoes_nativas/chao.js).\n  Com os dois consertos a spec passou 8 de 8, e ganhou a conferência de ponto abaixo do chão.\n- browser-collab-3d-360.spec.js não tinha defeito no app: o relevo padrão do backend descartável é um\n  manifesto na internet, a rede descartava o pedido em silêncio e cada cliente levava 32 s para abrir. O\n  backend do e2e aponta TERRAIN_URL e HILLSHADE_URL para um endereço local que recusa na hora; os dois\n  casos passam em 17 s e 16 s. A suíte de tela inteira não foi rodada com essa mudança (amostra de 26 casos\n  sensíveis ao relevo, verde).\n\nGuarda de unidade: tests/unit/feicoes-nativas-globo-ainda-grosso.test.js. Sem deploy.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "bfb994e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bfb994eac28c4a5fc81e3f32fec25e1276bdc156",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-22T12:39:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-22: tiles do mapa base com id (energia só de linhas, aeródromos) e sem camada morta (base_g_orto na Ortoimagem, world_ebgeo_cabos nas cartas, transportation sem connector, base_mundo sem batimetria e land_cover) no 1º CGEO e na DSG, conferidos feição a feição; a correção 5 medida em bancada e deixada com o chefe; originais apagados com o aval\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "9ce0425",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9ce04257e99198599ac08cab6e4bb9a16ad6fc2e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-22T04:51:14.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-22: a spec de tela das feições no 3D reprova também com a máquina livre, nas duas árvores; causa não achada\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "f7fc2f9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f7fc2f9963696e6b715c066fa9ce3981cc6491c0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-22T04:41:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-21 (cont. 5): identificar no Overture em português (ebgeo_web f10fe844c) e deploy nos três destinos preso a esse hash; piloto da linha de energia com id na América do Sul (sem perda, superconjunto da produção) e o defeito de arredondamento da tensão que só a comparação com a produção pegou\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "1d6dc2c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1d6dc2c47c8fa0d5981882181f3abb9a58bdc888",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-22T04:19:43.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-21 (cont. 4): desempenho do 3D do EBGeo Web com as feições do mapa (ebgeo_web 321d313af): a placa integrada deixa de perder o contexto, qualidade adaptativa em movimento; decisão, estado do projeto, seção na subwiki, lições da bancada na skill medir-desempenho-web (com o split do learnings) e três eventos no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "404def9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/404def9a8787367808af487a3ea3712cf1214565",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-22T04:18:14.000Z",
+      "author": "Maj Diniz",
+      "message": "3D com as feições do mapa: a placa integrada deixa de perder o contexto, qualidade adaptativa em movimento, mouse sem leitura síncrona da placa, e a bancada bench/feicoes-3d\n\nMedido na bancada nova (frontend/bench/feicoes-3d), RTX A2000 e Intel UHD 770 da mesma estação, com A/B\nintercalado contra a árvore de partida; os números estão em docs/wiki/feicoes-nativas-no-3d.md.\n\n- guarda do drapeado: o tile do globo ainda grosso, ampliado, fica sem o drapeado até o tile fino chegar.\n  Na UHD 770 o 3D com 200 feições abria em 1 de 12 vezes (o Windows reiniciava a placa por um quadro acima\n  do prazo do driver) e passou a 12 de 12; na RTX, abrir foi de 9,2 para 7,3 s (200 feições) e de 14,6 para\n  10,1 s (1000), com a maior tarefa longa de 1.970 para 272 ms.\n- só o lote perto do modelo drapeia no modelo (o _isStale do Cesium caiu de 11 a 12 s para 4,7 s em 41 s).\n- uma imagem do mapa por id e um marcador de evento por aparência, com os pixels vindos direto do mapa: o\n  atlas de textura dos billboards foi de 256 e 512 MB para 32 e 128 MB.\n- a barra de coordenadas pergunta por pickAsync, uma leitura por vez, e o cursor de presença só lê a\n  profundidade quando há colega no atlas: o pick síncrono do mouse (2,2 s a cada 5 s) sumiu.\n- qualidade adaptativa em movimento: a placa que não dá 25 quadros por segundo desce o MSAA e a resolução\n  só enquanto a câmera se move. Na UHD 770 o giro foi de 67 para 33 ms (200 feições) e de 100 para 33 ms\n  (1000); na RTX nada muda.\n- o ponteiro que só passa não pede mais um quadro por movimento (286 quadros para 285 eventos viraram 26 a\n  47), salvo com entidade que desenha de propriedade que muda sozinha.\n\nA histerese da chave de zoom foi medida, empatou e não entrou. Sem deploy.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "321d313",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/321d313afc4c1992b67075e6192d083fa02b33e7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-22T02:24:25.000Z",
+      "author": "Maj Diniz",
+      "message": "identificar no mapa base em português: classes do Overture (294 do censo), linha de energia com a tensão, aeródromo e pista, sem o fundo do continente, e o painel com o nome no título e os atributos traduzidos\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "f10fe84",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f10fe844ca9008597887cbc7dfe958254d43a649",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-21T17:34:42.000Z",
