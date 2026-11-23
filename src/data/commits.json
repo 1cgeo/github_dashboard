@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-23T00:40:58.737Z",
+  "lastUpdate": "2026-11-23T21:59:38.355Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-22T23:05:29.000Z",
+    "1cgeo/ebgeo_web": "2026-11-23T17:01:08.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -41,7 +41,7 @@
     "1cgeo/ebgeo_web@novo_360": "2026-06-23T10:06:25.000Z",
     "1cgeo/geoswarm": "2026-10-21T12:30:49.000Z",
     "1cgeo/ferramentas_mgcp@qgis4": "2026-10-14T17:58:02.000Z",
-    "dsgoficial/ferramentas_edicao@qgis4": "2026-11-17T00:04:28.000Z",
+    "dsgoficial/ferramentas_edicao@qgis4": "2026-11-23T12:20:02.000Z",
     "dsgoficial/SAP_Gerente@qgis4": "2026-10-01T13:36:42.000Z",
     "dsgoficial/SAP_Operador@qgis4": "2026-11-11T17:19:07.000Z",
     "dsgoficial/EBGeo_Desktop": "2026-04-14T13:47:15.000Z",
@@ -57,12 +57,12 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-22T23:07:05.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-23T20:52:07.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
     "1cgeo/fotos_aereas": "2026-10-07T22:30:16.000Z",
-    "1cgeo/ia_vegetacao": "2026-11-18T12:34:16.000Z",
+    "1cgeo/ia_vegetacao": "2026-11-23T20:35:10.000Z",
     "1cgeo/l2tools": "2026-09-09T09:31:17.000Z",
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11032,
+    "totalCommits": 11073,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3573,
+      "1cgeo/ebgeo_web": 3590,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -147,7 +147,7 @@
       "1cgeo/doc_capacitacao": 9,
       "dsgoficial/modelagens": 175,
       "dsgoficial/configuracoes_producao": 210,
-      "dsgoficial/ferramentas_edicao": 507,
+      "dsgoficial/ferramentas_edicao": 508,
       "dsgoficial/DsgTools": 692,
       "dsgoficial/sap": 187,
       "dsgoficial/SAP_Gerente": 122,
@@ -183,14 +183,383 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1464,
+      "1cgeo/chefe_dgeo": 1478,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
-      "1cgeo/ia_vegetacao": 42,
+      "1cgeo/ia_vegetacao": 51,
       "dsgoficial/curso_dsgtools": 59
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T20:52:07.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 10): Fase 1 da busca de nomes em commit local do ebgeo_web e medida na imagem final (municípios de 49,9% para 91,2%; o portão reprova em dois eixos, decisão com o chefe); bancada v2 com os blocos novos, o comparador pareado, a regra de publicação e os roteiros da candidata; decisões cont. 7 e 8; a lição da medida depois do conserto dos testes nas convenções e uma linha no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "2e27364",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2e27364ad9abe0db6a3971ae6b46f299ec5cdd8a",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T20:35:10.000Z",
+      "author": "Maj Borba",
+      "message": "Classical batch: --regimes option (biomes only)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "60547d0",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/60547d03054fe1fc3177656ff7e4cb789f1d5719",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T20:32:18.000Z",
+      "author": "Maj Borba",
+      "message": "Redo all DINOv3 runs with aligned augmentation (aug_dv3), per biome\n\n- <cfg>_dv3aug for the 33 configurations that use DINOv3 or RemoteCLIP (same kwargs plus\n  aug_dv3=True); old-runner configurations copied and checked against the checkpoints\n- order after the Decision 30 pilot: core RQ1/RQ3, architecture comparison (method side),\n  then ABL, fuspos, learning curve, source dropout and missing-source evaluations, resolution,\n  adapted comparators, and the method with DINOv3 SAT (Decision 31)\n- pending runs of the old (misaligned) versions removed from the queue; old runs kept on disk\n- CONFIG_FLAGS for all new targets\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "678d7d0",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/678d7d014acf9eb32d9981e3b31ee7802a0b2915",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T20:23:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 9): busca de endereços e barra prontas para a integração; a sessão do roteamento dá push e faz o deploy único (decisão do chefe); estado do projeto e do plano, o comparador resposta a resposta na bancada v2, as armadilhas das suítes com três sessões no clone na subwiki e a lição da passagem nas convenções\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "6a4ef86",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6a4ef863b27e4bfa819c408cc672d5fa3d6b9769",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T20:14:55.000Z",
+      "author": "Maj Borba",
+      "message": "DINOv3 augmentation test: aug_dv3 option and 40 runs at the front of the queue\n\nFinding: in training, _augment flips/rotates RGB, the aef slot, MapBiomas\nand the mask, but the DINOv3 features are loaded afterwards and never\ntransformed (misaligned in 7/8 of training samples); TTA transforms them.\n\naug_dv3 (default False, historical behavior unchanged): the DINOv3\ntensor (C, 16, 16) receives the same flips/rot90 drawn in _augment, with\nno new random draw, so RNG consumption is identical to the current runs\nof the same seed (tested: identical outputs and RNG state; alignment with\nthe RGB checked by 16x16 pooling in all 16 draws).\n\nQueue (Decision 30 of the article): full_sum_natural_aef_olmo_gem15_dv3aug,\nbiomes only, seeds 1-20, as the first block of all_jobs; TTA targets\nregistered.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnXUPTohk5ADbCFoDnK",
+      "sha": "237e429",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/237e4292815a538cd538832835e5a68e659d428b",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T19:17:07.000Z",
+      "author": "Maj Borba",
+      "message": "Missing-source evaluation with per-tile confusion matrices\n\nDecision 29 (article): eval_missing_source.py now evaluates with\nper_tile=True and writes missing_source_per_tile.npz (ids and one\nconfusion matrix per tile for each scenario) so the result can be\nrecomputed on the filtered test sets. Controls recorded in the JSON: the\nsum of per-tile matrices reproduces each scenario's aggregate mIoU, and\nthe 'completo' scenario matches the run's per_tile_confusion_tta.npz.\nAn older JSON without the npz is kept as missing_source_metrics_v1.json.\nThe JSON is written last with per_tile_ok; is_done requires both.\n\nQueue: method evalmiss jobs restricted to the two biomes (the completo\nand seeds 21-40 jobs are dropped), so the 40 biome jobs rerun; source\ndropout evalmiss jobs write the per-tile file from the start.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnXUPTohk5ADbCFoDnK",
+      "sha": "18018b3",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/18018b3705ea8658f4cdd43466e86ea6199b00c8",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T18:28:54.000Z",
+      "author": "Maj Borba",
+      "message": "Learning curve: nested stratified training subsets per seed\n\nDecision 27: UNet-R18 (lr 1e-3), RGB and method, 25/50/75% of each\nbiome's training set, seeds 1-20, 240 runs, queued after the fusion\nposition block and before source dropout. The subset is drawn in\ndo_train (nested across fractions, stratified by class presence, seed\n7000 + seed) before split.json is written, which records the effective\ntrain_ids, n_train_full and train_fraction. train_fraction is removed\nfrom the kwargs passed to train_one_fold. TTA targets registered.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnXUPTohk5ADbCFoDnK",
+      "sha": "bc7e6fc",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/bc7e6fc2f9418719d183bda21346ac857fe6e1a5",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T17:33:05.000Z",
+      "author": "Maj Borba",
+      "message": "Fusion position variants (early, late) and queue restricted to per-biome regimes\n\nDecision 24: dv3_mode early (context summed to conv1 output through a\nzero-init conv outside the encoder) and late (context branch added to the\nlogits through a zero-init head). Same sources as the method; 80 runs,\nper-biome regimes, seeds 1-20.\n\nDecision 25: pending ABL, SRCDROP and RES blocks run only in\npilot_mata_atlantica and pilot_pampa; RES moved from completo_v4 to the\nbiomes at the end of the queue. TTA targets registered for all new runs.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnXUPTohk5ADbCFoDnK",
+      "sha": "3fd1289",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/3fd1289351a04e28d30828263800e20d72e3d4eb",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T17:01:08.000Z",
+      "author": "Maj Diniz",
+      "message": "localidade: o resolvedor de município, UF e país sai da busca de endereços para um módulo neutro; `onde` nos itens de endereço\n\nO módulo `backend/src/modules/localidade/` (sem rota: funções puras e a tabela de apelidos) passa a ser de\nonde a busca de endereços lê a localidade, e é o que a busca de nomes vai importar: ela roda em instalação\nsem carga de endereços, então quem chama entrega a lista. `montarIndice`, `resolver` e `separarLocalidade`\naceitam município, UF e país (código em texto), e `separarLocalidade` devolve todas as leituras plausíveis.\nDesenho comum das duas buscas: o vault do chefe da DGEO, 01-Projects/ebgeo-barra-de-busca/DESENHO.md.\n\nSem mudança de comportamento na busca de endereços: os blocos foram recortados de `analise-do-texto.js`, que\nos reexporta. Conferido no índice de produção do 1º CGEO: 84.791 respostas da bancada comparadas uma a uma com\nas do 4e2a2cde3, 84.782 idênticas e 9 diferentes só pela variação do teto de tempo no texto parcial.\n\nCampo novo na resposta da rota de endereços: `onde`, a segunda linha pronta (\"Bairro, Município/UF\"), que a\nbarra lê. A exceção do censo de acentuação acompanha o arquivo (\"sao\" normalizado mora agora em apelidos.js).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "ed24cd6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ed24cd6425677c9101beb10d1e8b239164844637",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T16:08:39.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva: diagnóstico de \"BDGEx não abre no EBGeo e abre no QGIS\"\n\nA investigação de 2026-11-23 não reproduziu o defeito: o tile do BDGEx\nrespondia em 0,1 a 1,5 s e as duas instâncias (DSG e 1º CGEO) desenhavam a\ncarta até z9,8 no Chrome real. Ficam duas armadilhas de medição em \"Como\nverificar\": desde a troca de certificado de 2026-11-13 o curl da estação\n(Schannel) recusa o BDGEx por revogação inalcançável fora do proxy, o que\nparece servidor fora; e a comparação com o QGIS não prova defeito do app,\nporque o vigia de origens suspende a origem muda em 10 s e o QGIS espera.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TPhGfnU8s7dU3J2oz",
+      "sha": "a377736",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a377736999aa22722311e32e2740011d1b467407",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T15:55:41.000Z",
+      "author": "Maj Diniz",
+      "message": "busca de endereços: o comentário do CEP geral sem número solto (censo de citação de migração)\n\nO censo citacao-de-migracao lia \"final 000\", o CEP geral de município, como número solto de migração em dois\ncomentários do 4e2a2cde3. Só o texto dos comentários muda. A bateria do backend na cópia limpa do 4e2a2cde3\ndeu 8.484 de 8.485, com esse único vermelho; o test:tocados não escolhe esse censo.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "a15220a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a15220a2da61c309d6661f79ab09cefdad71bb96",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T15:23:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 8): Fase 1 da busca de endereços na main do ebgeo_web (4e2a2cde3) com o portão inteiro, inclusive a metade selada; bancada v2 com comparador pareado, portão, verdade externa ampliada, calibração da incerteza e sondas; relatórios das frentes; lição do JIT na wiki e do fan-out medido nas convenções\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "92b6a34",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/92b6a34cbaf39f4e48173ece8365fb657eeb5576",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T15:20:05.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva: o quadro de mapa da carta medido numa carta militar, a correção do estilo por mapa e as demandas da Carta Topográfica Militar\n\n- docs/wiki/quadro-de-mapa-da-carta.md: o detalhe do mapa base segue o zoom do\n  quadro e não a escala (curvas e altura da letra medidas a 1:50.000 e\n  1:25.000), o quadro é um retângulo do plano e não a folha geográfica, a\n  camada de dados sai com o estilo do mapa aberto e o olho da pessoa, e o\n  quadro sem mapa base deixa o papel aparecer.\n- docs/wiki/estilo-da-camada-de-dado.md: o estilo mora na entrada da camada em\n  cada mapa, não no atlas.\n- DEMANDAS-CARTA-MILITAR.md: o que falta ao compositor para a carta sair igual\n  à do plugin Ferramentas de Edição, com a decisão de 2026-10-20 que as\n  demandas reabrem e as perguntas em aberto.\n- livro-razão: a equidistância escrita supondo o zoom, e o estilo \"do atlas\"\n  repassado da wiki sem ler o código.\n- learnings da retrospectiva: sessão cujo produto ficou fora do repositório.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3TPhGfnU8s7dU3J2oz",
+      "sha": "ca7031b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ca7031b1627e52929ee917be6c6c19f45e976f28",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T15:09:13.000Z",
+      "author": "Maj Diniz",
+      "message": "busca de endereços: ordem pelo nome com confiança e piso, município tolerante, CEP como filtro, texto parcial com teto e sem JIT, incerteza calibrada\n\nFase 1 do plano de qualidade da busca de endereços (aval do chefe da DGEO de 2026-11-23). Só consulta e\nordem: sem recarga do índice, sem migração, e o contrato da resposta só cresce.\n\n- A ordem (busca-de-enderecos.ordem.js): o casamento do nome vem antes da classe do número; cada item\n  ganha `confianca` (0 a 1) e `nome_parecido`; abaixo do piso a rua de outro nome não sai como número, e\n  a mesma rua por leitura humana (abreviação, inicial, ordinal por extenso) mantém o número.\n- O contexto (analise-do-texto.js): município com erro de letra, pela metade, por apelido e antes da rua;\n  o CEP dá o município e restringe os candidatos; \"120A\", a letra de código e o tipo raro.\n- As palavras (formas-da-consulta.js, queries): prefixo cruzado com as outras palavras, o município e o\n  centro em anéis; formas fonéticas e correção de duas letras do lado da consulta; trigrama com limiar.\n- O tempo: toda leitura manda `SET LOCAL jit = off` na mesma ida. A compilação JIT do PostgreSQL 17 levava\n  10,3 s numa consulta de candidatos sobre as partições por UF e não se cancela, então o teto de tempo só\n  era atendido depois dela; sem ela, 133 ms. O teto do texto parcial corta o longe e nunca o perto.\n- A incerteza: piso de 35 m no número exato, regra por vão no interpolado e no vizinho, e a recusa da\n  interpolação com os vizinhos a mais de 500 m.\n- A vista: com `zoom` no pedido a proximidade pesa conforme a tela, e a mesma rua e número em mais de um\n  município sai marcada (`ambiguidade`); sem `zoom`, como antes. O texto que é só uma localidade responde\n  o município.\n\nMedido no índice de produção do 1º CGEO, pareado contra a versão do ar (McNemar), sem regressão em\nnenhuma família do portão, da bancada v2 e da verdade externa, inclusive a metade selada: erro no nome do\nmunicípio 69,3% para 98,6%; rua pedida em cidade errada sem número falso 61,7% para 96,2%; dois erros de\ndigitação 85,2% para 96,3%; texto parcial com centro 57,5% para 68,4% com p95 de 956 para 145 ms; texto\nque é só o nome da cidade 0% para 100%; verdade externa (texto cru, a até 100 m) 79,0% para 79,6%.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "4e2a2cd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4e2a2cde36282d3f255d6f291a0dde12deafc96e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T13:38:08.000Z",
+      "author": "Maj Borba",
+      "message": "Model and training: source dropout and fixed-resolution timm encoders\n\n- train.py: per-sample source dropout (method layout only)\n- model.py: Swin and EfficientFormerV2 at 256 px, ImageNet weights with resized attention biases\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "6f83d08",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/6f83d08752490262ce9e38be477ac5f514cd1f6b",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T13:38:08.000Z",
+      "author": "Maj Borba",
+      "message": "Classical baselines v4: RF and XGB with pilot, and batch runner\n\n- baseline_classico_v4.py: stage A/B pilot, selection rule vs default with tolerance\n- run_classico_lote.py: 840 jobs seed-major, memory guard, STOP file, pause windows\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "739728c",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/739728ce061d1ad3622b519f6711e3379fbc1766",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/ia_vegetacao",
+      "date": "2026-11-23T13:38:08.000Z",
+      "author": "Maj Borba",
+      "message": "Queue: per-tile TTA, UNet lr 3e-4 runs, done only after TTA, mandatory update procedure\n\n- eval_per_tile.py and per-tile confusion .npz written by the TTA\n- UNet-R18 lr 3e-4 (unet_r18) in the architecture comparison; registered in CONFIG_FLAGS\n- is_done requires tta_metrics.json; a worker resumes only the TTA when training finished\n  (a VRAM-guard kill between training and TTA left runs without TTA)\n- supervisor: pause windows and blocked GPUs read every tick\n- PROCEDIMENTO_ATUALIZAR_FILA.md, checar_fila.py, reiniciar_supervisor_fronteira.sh,\n  vigiar_primeiro_job.sh: mandatory checks before reloading the queue (after the 20/11 outage)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01QDugnVjq6GNxT7pM89aY9a",
+      "sha": "f1fddb0",
+      "htmlUrl": "https://github.com/1cgeo/ia_vegetacao/commit/f1fddb0fa5cfb561ebd5c6499ec89299bc8e3230",
+      "repoUrl": "https://github.com/1cgeo/ia_vegetacao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T13:10:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 7): busca de nomes geográficos do EBGeo Web investigada; bancada v2 com verdade do IBGE (6.724 consultas de município), baseline no 1º CGEO (a cidade procurada de outra cidade em 1º em 38,3%), conjunto dourado antigo reancorado, causa e conserto provado das consultas de 5 minutos, cinco relatórios, plano de qualidade aprovado pelo chefe, e o desenho comum da barra com a sessão dos endereços; decisão cont. 6, uma linha no livro-razão e as lições na skill planejar-mudanca-sistema\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "d1a707f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/d1a707f01084a6226f5fbf0bad2bccb2864ee827",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "dsgoficial/ferramentas_edicao",
+      "date": "2026-11-23T12:20:02.000Z",
+      "author": "1º Ten Marcel",
+      "message": "Merge branch 'orto_sarp' em qgis4: Carta Ortoimagem SARP\n\nIncorpora os 4 commits exclusivos do orto_sarp (set/2026):\n- \"Carta Ortoimagem OM\" renomeada para \"Carta Ortoimagem SARP\", com a\n  nova chave opcional configuracao_carta (om/default) e validacao\n  condicional de imagemOM/imagemSubordinacao\n- novo ebgeoBanner.png no bdgexAcessInfo, QPTs omMap1/omMap2 e omLayer\n- ajustes de exportacao no Linux e fonte Noto Sans na barra de escala\n- botao de recolher a toolbar\n\nConflitos resolvidos combinando as duas linhas de trabalho:\n- config/exportJsonBuilder.py: mantem MILITARY_TYPES do qgis4 e adota\n  OM_TYPE = \"Carta Ortoimagem SARP\"\n- controllers/mapBuilderController.py: a guarda do grid numerico usa\n  productType != \"omMap\" preservando a excecao da escala 1:2.000\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+      "sha": "2bd5d02",
+      "htmlUrl": "https://github.com/dsgoficial/ferramentas_edicao/commit/2bd5d02d9dbf7599460c53bbb56673c1b3af54f7",
+      "repoUrl": "https://github.com/dsgoficial/ferramentas_edicao"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T10:36:54.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 6): busca de endereços do EBGeo Web investigada só por leitura; bancada v2 (ponderada, top-k, negativos, tecla a tecla, verdade externa), baseline no índice do 1º CGEO, seis relatórios, plano de qualidade aprovado pelo chefe com as réguas novas no PISOS; página cnefe na wiki e três lições nas convenções\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "7deabb9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7deabb9628d47ada31bdb890b006877d9ced7e40",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T09:38:17.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 5): original do overture_base_g_orto apagado nas duas instâncias com aval do chefe; estado do projeto e a linha de volta da decisão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "5cf982b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5cf982b68365aee9bfcd5e3b21a30093efd1795c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T09:29:47.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 4): tiles magros do Overture no ar no 1º CGEO e na DSG (44,4 para 28,9 GB, índice da busca recarregado), base_g_orto com os ids do base_g, dois PMTiles sem uso apagados; receita na skill atualizar-dockers (references/tiles-overture-magros.md, scripts/tiles-overture), obra em 01-Projects/ebgeo-velocidade-dos-tiles, regra do reinício do Martin na wiki, decisões cont. 2 e cont. 4 e um evento no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "30a8730",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/30a873010d9d524e04c4428a8b862507bf079a92",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T09:27:28.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(busca): o destaque do resultado acha a feição pelo id do tile; Ajuda confere overture_base_g\n\nO índice da busca guarda como id de origem o atributo `id` ou, na falta dele, o id da feição no tile.\nOs tiles do Overture de produção não trazem o atributo, e o filtro do destaque só perguntava por ele:\nnunca casava, e a tela desenhava o ponto e a caixa no lugar do contorno. O filtro passa a seguir a\nmesma regra do índice. Em 44 resultados reais da busca do 1º CGEO o filtro novo acha a feição no tile\nem 44 e o antigo em 0.\n\nO roteiro de mídia da Ajuda conferia o TileJSON do `overture_base`, apagado do Martin em 2026-11-23\npor não ter estilo que o lesse; passa a conferir o `overture_base_g`.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QhJLrmjE4FUaEfCF8",
+      "sha": "85a22af",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/85a22afb53101f6cc3ef73f1c1fe3783e559a39a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T08:54:18.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 3): originais dos tiles apagados no 1º CGEO e na DSG, sobras do deploy removidas e página estática em b5ae4bbcd, com aval do chefe; decisão com o raio de explosão, lições nas duas skills de deploy e o estatica.sh aceitando caminho do Git Bash\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "9539b01",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/9539b0121706155e4146e1411748ff11087fbf6c",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T08:44:46.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 2): releitura do lado do app depois da troca dos tiles, 1º CGEO e DSG aprovados; roteiro relida-app.mjs e a lição na skill atualizar-dockers\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "72b2958",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/72b29582ad1be727cd8eb2c4e9963c8679925878",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T07:00:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23 (cont. 1): EBGeo Web b5ae4bbcd no ar no 1º CGEO e na DSG, com o relevo declarado 512 gravado pelo painel e relido; decisão com o raio de explosão, lições nas duas skills de deploy, roteiro de gravação pelo painel e o estado do projeto do 3D\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "ff3f1c8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/ff3f1c81f6c44424098493213c7aa6fbb4f4e635",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T05:41:35.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-23: todas as configurações de produto do EBGeo Web no painel do admin (ebgeo_web b5ae4bbcd, cinco lotes por agentes em worktrees, juntados por patch e provados por um gate só); decisão, método do fan-out na subwiki e um evento no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "000256c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/000256c3e1921a18dbd02bc85f61b3cf1c98fbcd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T05:39:22.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: as 34 configurações de produto têm campo no painel; inventário e decisão de 2026-11-23\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "b5ae4bb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b5ae4bbcd27f34560ba26387b0e7848077fe7a94",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T05:37:49.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: acertos de junção dos lotes (lint dos testes, rótulo de auditoria do endereço dos tiles, leitura do teto de atlas fora do contador do teste de custo)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "6a86593",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6a86593f494c694fdc397e6b4e9d8c1e1fe19b82",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T04:05:47.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: limites que o usuário sente (cota padrão do acervo, teto de atlas, prazo da lixeira e tetos de gravação ao vivo)\n\nLote D da obra de 2026-11-22. ACERVO_COTA_PADRAO_GB, ATLAS_MAX_PER_ACCOUNT, ATLAS_TRASH_RETENTION_DAYS, AOVIVO_TETO_TRANSMISSAO_GB e AOVIVO_TETO_CONTA_GB viram o padrão da instalação; o painel vence campo a campo, sem reiniciar, com \"restaurar o padrão do servidor\". Encurtar o prazo da lixeira apaga atlas na passada seguinte do expurgo: a ajuda diz e a tela pede confirmação. O temporizador do expurgo passa a ligar sempre, para o painel poder ligá-lo. Sem migração.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "7eed5e0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7eed5e076542c21126a33e471c23583bedf3b743",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T04:05:45.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: endereço dos tiles dos mapas base de fábrica, na linha de cada um\n\nLote C da obra de 2026-11-22. OSM_TILE_URL, IMAGENS_TILE_URL, ORTOIMAGEM_TILE_URL e BDGEX_WMS_URL viram o padrão da instalação: a linha do mapa base de fábrica ganha o campo \"Endereço dos tiles\" (config.enderecoDosTiles), com a precedência estilo próprio, depois painel, depois ambiente, e a versão do estilo muda com a gravação. Sem migração.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "1a1e39d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1a1e39d87198f3af7497f754f8f7f6e008a43bc8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T04:05:44.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: esconder o login e o endereço público dos links de e-mail na aba Sistema\n\nLote B da obra de 2026-11-22. LOGIN_OCULTO e APP_BASE_URL viram o padrão da instalação e o painel vence: a caixa \"Esconder o login\" na seção Contas (a ajuda mostra a porta ?entrar, por onde o administrador entra) e o endereço público na seção Aplicação, lido na hora de cada envio. A checagem de subida não muda; a regra de poder ligar o autocadastro passa a contar o endereço gravado no painel. Sem migração.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "93e41ce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93e41ce6a614c32a37c35969f1bb0be2f90bd929",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T04:05:12.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: endereço e zooms do terreno da instalação, relevo da Inundação (HAND) e imagem e terreno do mapa 3D na aba Sistema\n\nLote A da obra de 2026-11-22 (nenhuma configuração de produto só em variável de\nambiente). TERRAIN_URL, HILLSHADE_URL, TERRAIN_MINZOOM, TERRAIN_MAXZOOM,\nHILLSHADE_MAXZOOM, HAND_URL, HAND_MINZOOM, HAND_MAXZOOM, MAP3D_IMAGERY_URL e\nMAP3D_TERRAIN_URL viram o padrão da instalação; o painel vence, campo vazio volta ao\npadrão, e a fonte sai numa forma só (TileJSON ou modelo). Sem migração.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "33535c4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/33535c42974e72244570b04f57491a2f37f4902c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T04:04:48.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: versões do app do EBGeo Campo e fontes do rastreio (aeronaves e satélites) na aba Sistema\n\nDecisão do dono em 2026-11-22: nenhuma configuração de produto só em variável de\nambiente. CAMPO_VERSAO_MINIMA_APP, CAMPO_VERSAO_ATUAL_APP, RASTREIO_ADSB_URL e\nRASTREIO_CELESTRAK_URL viram o padrão da instalação; o que o administrador grava\nvence, sem reiniciar o servidor, e \"restaurar o padrão do servidor\" volta atrás.\n\n- Campo: o par de versões mora na chave `campo` de config_settings, e a porta lê o\n  par em vigor no login, no envelope e nos destinos\n- Rastreio: as duas fontes moram na chave `rastreio`; `off` desliga; gravar a chave\n  do AIS passa a mesclar em vez de substituir, para não apagar as fontes\n- sem migração\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "4100d0c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4100d0ca58eba31c95e8804dc8de14f72793ada4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T02:59:00.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-22 (cont. 5): configuração de produto do EBGeo Web mora no painel do admin, nunca só em variável de ambiente (decisão do chefe; ebgeo_web dd3a5a941: relevo, sombreamento e workers na aba Sistema); regra na wiki, decisão e um evento no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "c0173e9",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c0173e9b0dd3edaadb0dbe96e06da494ef71a2dd",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T02:57:25.000Z",
+      "author": "Maj Diniz",
+      "message": "painel do admin: largura do tile de relevo e do sombreamento, zoom do sombreamento e workers de tile na aba Sistema; saem as duas chaves de ambiente\n\nDecisão do dono em 2026-11-22: nenhuma configuração de produto vive só em variável de\nambiente. TERRAIN_TILE_SIZE e HILLSHADE_TILE_SIZE, criadas no mesmo dia, saem do código.\n\n- aba Sistema, \"Mapa 2D\": largura do tile de relevo, largura do tile do sombreamento,\n  zoom da fonte em que o sombreamento começa e workers de tile (automático pela\n  máquina, ou de 1 a 8 fixo); o override vai por cima da fonte que o ambiente montou\n- cadastro de terreno: campo da largura do tile, que o servidor já aceitava\n- borda de tipo no schema do admin, e fonte sem endereço sai do documento servido\n- o mapa principal reaplica o número de workers do painel antes de nascer\n- teste de tela novo em Chromium real: painel, /api/config e o mapa\n- docs/wiki/config-dinamico.md: a regra e o inventário das variáveis de produto que\n  ainda não têm campo\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "dd3a5a9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dd3a5a941f349b3585d96b6f840d27bde51507c6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T01:46:21.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-22 (cont. 4): decisão do chefe de aplicar tudo em configuração e deploy únicos (workers pela máquina na main do ebgeo_web em f2b7f48c4; relevo 512 na janela da troca dos tiles)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "519f4e2",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/519f4e285d577e1197c04e006eeb8152224a0cb9",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T01:46:16.000Z",
+      "author": "Maj Diniz",
+      "message": "decisões de 2026-11-22: workers do MapLibre pela máquina e relevo declarado 512 em deploy único\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "90fe148",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/90fe1486b8cf349ab087866370965f57bdc615df",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T01:43:59.000Z",
+      "author": "Maj Diniz",
+      "message": "mapa: o número de workers do MapLibre sai da máquina (2 até 4 núcleos, 4 acima), antes do primeiro mapa\n\nO MapLibre 6.15 abre um worker só fora do Safari, e todo tile vetorial espera nessa\nfila. Medido com os tiles reais da Topográfica, cache frio e rede local: na estação\nde 14 núcleos, 4 workers levam o tempo até o mapa assentar de 2,61 para 1,25 s; em 2\nnúcleos, 2 workers ganham de 14% a 23% e 4 perdem para 2. Em 10 Mbps não muda nada.\n\nO corte em 4 núcleos é inferência entre os dois pontos medidos, e a memória por\nworker não foi medida. Onde a biblioteca já escolhe mais de um worker (Safari), a\nescolha dela fica. Decisão do dono em 2026-11-22.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "f2b7f48",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/f2b7f48c41bed4c399ec86a8289a1d7679b5b4ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-23T01:11:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-22 (cont. 3): hillshade pré-calculado medido e recusado (ebgeo_web e5f22aaa1: 0,92 do DEM na mesma resolução, 3% a 7% em tempo sobre o relevo declarado 512, pior com o terreno 3D); veredito na decisão e lições do teste na skill medir-desempenho-web\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "081a22b",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/081a22b1a968c52725814d2f761d1709092eae15",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-23T01:10:55.000Z",
+      "author": "Maj Diniz",
+      "message": "bench/tiles: sombreamento pré-calculado contra calculado no navegador, medido e recusado\n\nPergunta do dono: servir o hillshade pronto, como raster, é melhor que calculá-lo no\nMapLibre? Só entraria com ganho significativo. A bancada ganha `--sombreamento\npre-256|pre-512` e `--sombreamento-minzoom`, com o peso real do tile pronto por zoom\n(censo de 754 tiles reais de DEM).\n\nNa mesma resolução o tile pronto pesa 0,92 do DEM; na abertura empata com o relevo\ndeclarado 512 (2,4 contra 2,6 MB); com o terreno 3D ligado piora (7,4 contra 4,8 MB);\nem tempo até o mapa assentar rende de 3% a 7% sobre o 512 declarado, e tiraria do\nusuário a direção, a âncora e as cores da luz.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QbwNvgwuCvhLm15Am",
+      "sha": "e5f22aa",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e5f22aaa1b59e36ddb3713d4198ca6040d81a300",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-22T23:07:05.000Z",
