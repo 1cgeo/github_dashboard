@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-24T20:34:42.408Z",
+  "lastUpdate": "2026-11-25T19:52:23.252Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-24T17:38:55.000Z",
+    "1cgeo/ebgeo_web": "2026-11-25T19:19:58.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-24T20:23:40.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-25T19:37:48.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11117,
+    "totalCommits": 11211,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3609,
+      "1cgeo/ebgeo_web": 3690,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1500,
+      "1cgeo/chefe_dgeo": 1513,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 51,
@@ -191,6 +191,852 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T19:37:48.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (compositor de Cartas, cont.): duas normas no núcleo com o aval do chefe (a branch viva antes de ler repositório da DGEO; decisão do chefe pela ferramenta de pergunta na hora em que nasce) e a lição do Playwright que sobrevive à tarefa parada\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "2cb7214",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2cb72142419d053fffda417f4984450c268a01b2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T19:30:34.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (compositor de Cartas do ebgeo_web): colegas na folha, Padrão DSG pelo qgis4, grade alfanumérica, prévia e legenda automáticas na `main` (9d52889f4, sem deploy); estado do projeto, a decisão com o raio de explosão, três linhas do livro-razão (branch errado do plugin, pergunta com recomendação no meio da obra, variável do Playwright no portão), a seção da obra em conventions/subagentes, o branch vivo do plugin na wiki e o prompt das figuras do editor de carta\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "7444035",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/7444035e5df60ff656d617b90506ebd81625fb0e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:19:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge remote-tracking branch 'origin/main' into carta5/final",
+      "sha": "9d52889",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9d52889f4a51eedfa6499cfbc0f55af12c3499db",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:08:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/fix-y' into carta5/final",
+      "sha": "875f772",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/875f772bb2537f9128ba9e17fd5d0802fd5d1d20",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:07:45.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: o grupo recém-criado tem o dono como membro no painel de membros\n\nCausa: df32e4dea (2026-11-16, pedido do chefe, cláusula 4.8) fez o dono\ncontar como membro do próprio grupo por definição (fn_group_member_ids,\nmigração 089). LIST_GROUPS conta o dono e LIST_MEMBERS o lista primeiro,\ncom is_owner; a tela tira a contagem do tamanho do roster, então\nsubtítulo e tabela saem da mesma regra. O spec da linha de alcance\nficou para trás e ainda esperava \"0 pessoas\" e a tabela vazia.\n\nConserto: o teste afirma o comportamento novo com a mesma força. Uma\nlinha só no roster, a do dono (data-user-id), com o selo \"Dono\", a\nautoria \"Dono do grupo\" e sem \"Remover\", nenhum estado vazio, e depois\ndela o subtítulo exato \"1 pessoa · 0 recursos · 0 atlas\". As réguas de\nposição do subtítulo não mudam.\n\nProva: o arquivo inteiro 9/9 em série (--repeat-each=3 --retries=0);\ncontrole negativo com memberIsOwner devolvendo false reprova no selo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "93bf673",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/93bf673ca13cbcf8abcc1534c322fedc7bbd2faf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:07:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/fix-x' into carta5/final",
+      "sha": "a78a2ea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a78a2eafb2d642fb1b3de1ffa7494b6dcbe70181",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:07:22.000Z",
+      "author": "Maj Diniz",
+      "message": "aviso: a frase do toast ganha elemento próprio, e os specs leem a frase, não o toast inteiro\n\nCausa: a2685c35f (2026-11-21) deu \"×\" a todo toast, de propósito (feedback de campo: \"tem que ter um\nx em todos os toasts\"). O conteúdo do toast já levava \"O que fazer?\" (b1088d2c1), a ação e o\n\"Relatar\", e o texto do `.toast` inteiro passou a sair com \" ×\" colado. Os specs que comparavam a\nfrase exata reprovavam sem defeito na tela: abertura-remota-que-falha (caso 1), arvore-de-pastas-na-aba\ne camadas-cabecalho-e-lote (achado na varredura, mesma causa).\n\nConserto: no produto, a mensagem mora em `.toast__mensagem` (toast_service.js). O helper\ntests/e2e-ui/helpers/aviso.js lê a frase (`fraseDoAviso`) e grava a de cada toast na inserção\n(`registrarFrasesDosAvisos`, `frasesVistas`), sem recurso ao texto inteiro: aviso sem o elemento\ngrava null e reprova. Os três specs passam a usá-lo, com a mesma igualdade exata; o arvore perde o\ncorte ad hoc de \"O que fazer?\". Caso unitário novo prende o elemento e os vizinhos.\n\nProva: os três arquivos 3 vezes em série, sem retry, verdes (com o do PDF, 27/27). Controle negativo:\nsem a classe, o caso unitário fica vermelho e camadas-cabecalho-e-lote recebe [null].\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "94ceb3a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/94ceb3ad724d2c01ccf47fdc5e84beb341288565",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:07:22.000Z",
+      "author": "Maj Diniz",
+      "message": "e2e-ui: a última configuração do PDF cobra também o \"Preto e branco\"\n\nCausa: d711e97c8 (2026-11-21) passou a gravar `pretoEBranco` com a última configuração do PDF, de\npropósito (\"quem imprime em laser monocromática imprime todas assim\"), e o objeto esperado no spec\nficou sem a chave. Conserto: a igualdade exata continua, agora com `pretoEBranco: false`, o valor que\nesta exportação deixa. Prova: o arquivo inteiro 3 vezes em série, sem retry, verde.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "fcb0b95",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fcb0b954db13b9db7d3f19e23f0acd99c8c47999",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:07:21.000Z",
+      "author": "Maj Diniz",
+      "message": "teste de plano da busca: a caminhada pelos vizinhos prova o KNN com a ordenação desligada, não pela estatística da tabela pequena\n\nCausa: o caso \"o caminho comum ordena pelo índice espacial\" falhava de forma determinística também no\ncommit que o escreveu (8ec174b5c), em ed24cd642, 625f45a00 e cf45e05cb, medido hoje no PostgreSQL 16.1\ncom os parâmetros padrão. A caminhada de CAMINHADA (50.000) é 99,8% da partição do teste (50.084\nlinhas), e o planejador acerta ao ler a partição inteira por bitmap paralelo da chave primária e\nordenar. Em produção ela é 0,3% de 15,15 milhões de linhas. A consulta não mudou nesse ponto: o filtro\nde nome do $22 (625f45a00) não altera o plano. Sem os workers paralelos, ou com caminhada de até\n30.000, o KNN vence.\n\nConserto: só no teste, no molde dos repros de índice. A ordenação sai dentro da transação\n(SET LOCAL enable_sort = off, com ROLLBACK), como a varredura sequencial já saía, e o caso pergunta se\na ordem interna PODE vir do índice espacial. Controle negativo: o id como desempate depois do KNN\ndeixa o Sort no plano e o caso fica vermelho. Prova: 3 rodadas do arquivo, 35/35 em cada.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "4f0940d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f0940d0c2288b6f5b0b9f784cdab05499989dd3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T19:00:03.000Z",
+      "author": "Maj Diniz",
+      "message": "PENDENCIAS.md: os campos do papel que perdem a digitação e o teste intermitente do quadro em Web Mercator\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "5e876fd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5e876fd4f3b0d11411f347ea696375a78e8e56ef",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T18:55:34.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartas: o campo do painel em digitação não é mais redesenhado por baixo da pessoa\n\nO defeito: o que se digitava num campo do painel de propriedades (o Centro do quadro, no spec\ncarta-legenda-pelo-desenho-do-quadro, que falhava em cerca de 1 de 4) se perdia quando o painel era\nrefeito entre a digitação e o Tab. O painel se refaz a cada mudança do documento, e o editor muda o\ndocumento sozinho.\n\nA causa, vista por instrumentação (4 vermelhos em 10, os quatro na mesma ordem): ao selecionar o\nquadro, o painel nasce com \"Lendo as camadas do mapa...\" e pede a lista em segundo plano\n(EditorDeCarta#dadosDoMapa); quando ela chega, agenda o redesenho do painel. Esse quadro de animação\ncaiu entre o preenchimento e o Tab. Dois defeitos do PainelDePropriedades, ambos de 2026-10-19 e\nanteriores ao merge com a main:\n  1. o campo digitado foi trocado por um novo com o valor gravado; o navegador ainda disparou o\n     change do campo removido, mas os ouvintes dele já tinham saído com o painel velho, e o Tab caiu\n     num campo sem edição: nada foi gravado;\n  2. o foco voltou pela POSIÇÃO no painel, e a lista de camadas acrescentou um campo acima: o foco foi\n     para a Escala, e em dois dos quatro casos o texto do Centro foi digitado na Escala (aviso de\n     escala inválida).\nNenhuma prévia, legenda automática ou desenho da base caiu na janela em nenhum dos vermelhos.\n\nO conserto, no molde da sessão para a edição remota durante o arrasto (adiar e rodar uma vez no\nfim): enquanto um campo do painel tem valor digitado sem commit (veio input, não veio change), o\nredesenho com a mesma seleção ESPERA e roda quando o campo faz commit ou é deixado (a janela perder o\nfoco não conta). Vale para todo campo do painel, pela raiz dele. E o foco volta pela identidade do\ncampo (testid, senão o rótulo, e a ordem entre os homônimos), com a posição só quando o campo sumiu.\n\nTeste determinístico: tests/unit/cartas-painel-campo-em-edicao.repro.test.js (10 casos; sem o\nconserto, 8 reprovam; os 2 que passam nos dois lados são controles).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "c7f6ed5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7f6ed5716b0dae06f95b6a44f8bc52b5251a4a1",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T17:48:27.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (EBGeo, lote do tutorial e figuras da Ajuda): estado das 267 figuras regravadas (ecc71c6ae, sem deploy) em ebgeo-ajuda-figuras; JSON carta-ortoimagem do repositório atrás da produção em ebgeo-grupos-do-mapa-base; motor de mídia que não olha o vídeo na wiki ebgeo-web; método do lote por frentes com decisões antes no cacar-bugs-com-agentes; decisão SARP nos dois servidores; uma linha no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5e66310",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5e6631031307bade4d19dc69e3fdc862d6a91fcf",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T17:40:00.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ajuda): re-record the Help figures after the 2026-11-25 screen review and the tutorial lot\n\nThe screen review (0a110f994) and the tutorial lot left most figures stale: the\nactive-tool chip lost its buttons, Extrair do mapa base gained \"Como extrair\",\nAtração moved into Utilitários, the map menu draws no grey command, Rota and\nDeslocamento got numbered points and \"+\" handles, QBRN kept only \"Atualizar\",\nthe Carta lost the Romer item, Travar became Bloquear, drone became SARP.\n\n- 267 page figures re-recorded through the engine (264 existing tomadas plus\n  three new), each one looked at; orbat-celular-02 keeps its 2026-11-08 image\n  (the fraction symbols do not reach the commanders in the disposable bank).\n- rota-01, rota-02 and busca-no-mapa-base-01 are new: lib/gravadas.mjs serves\n  the snapshot's route and search sources and answers /api/v1/rota and\n  /api/v1/busca-no-mapa-base with production responses recorded once (read-only,\n  public Host) in lib/gravadas/*.json, checked for network addresses before\n  writing. The two pages leave draft and enter the sidebar.\n- Every tomada now gets the snapshot's route source in /api/config, as\n  production serves it, so the Análise group and the map menu show Rota.\n- Tomadas adjusted to the screen: cartas-02 (ten Adicionar buttons),\n  cameras-admin-01, inundacao-01, l4-pontos-01 and preencherPontosPorCoordenadas,\n  cameras-importar-01, the analysis-group lists (nine tools), the live flights\n  named SARP Alfa and SARP Bravo.\n- Alts rewritten where the picture changed; every touched page stays at or\n  under 320 words.\n\nVerified: npm run ajuda:test 113/113; npm run lint ok; npm run test:frontend\n29520/29522, the two red were timeouts under load (fontes-sao-texto-para-o-git,\nhorizonte-visada) and pass alone (35/35).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ecc71c6",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ecc71c6ae96b198d212caf6e00832f88abdcc590",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T17:39:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (apresentação do EBGeo): apresentação de 10 minutos em página HTML, fechada e publicada em dsgoficial/ebgeo-apresentacao por ordem do chefe; frase da marca nova na pasta, no folder e no banner; roteiro do vídeo do PremIA reescrito como proposta (a apresentação anônima como fundo, com narração); gestos novos de gravação em tempo real e de câmera quadro a quadro na skill gravar-video-ebgeo; método da apresentação e do número de uso na wiki pecas-graficas-impressas; estado em ebgeo-marketing; duas linhas no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "831b518",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/831b518b94c0860d20c89f26669edacabd45305e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T17:36:52.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge de origin/main em main (marketing: apresentação)",
+      "sha": "b282dce",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b282dce6e96514609d065edc4a984c3b94399881",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T17:36:46.000Z",
+      "author": "Maj Diniz",
+      "message": "marketing: apresentação de 10 minutos em página HTML, e a frase da marca nova nas peças impressas\n\nA apresentação (marketing/apresentacao) é uma página só, com 12 cenas e 52 passos, em que tudo o que se vê\ndo sistema é imagem real: tomadas gravadas, capturas quadro a quadro e análises gravadas em tempo real na\nbancada. Vêm junto os geradores (preparar.py, clipes.py, gerar.mjs com foto e régua de cada passo, site.mjs\npara a versão publicada), os trechos de gravação em bancada/ e as escolhas em DECISOES.md. A mídia e os\ngerados ficam fora do git; a versão publicada mora em dsgoficial/ebgeo-apresentacao. A página tem duas\nvariantes pelo endereço: ?anonimo, sem as marcas e o endereço, e ?video, sem a barra e o cursor.\n\nNa pasta, no folder e no banner a frase da marca passa a ser \"EBGeo: a base de geoinformação do Cenário\nOperacional Comum.\", sai a linha que a repetia e sai \"a rede interna do Exército\".\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "85af1b9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/85af1b9e7c5bc80cd44b74f3b66678376c7438a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T17:03:49.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge de origin/main em carta5/final: a obra das Cartas de 2026-11-25 com o lote do tutorial\n\nJuntados os dois lados, nunca um inteiro. Conflitos:\n- legenda-das-camadas.js: a amostra do símbolo militar tem UM caminho, o da main\n  (simboloMilitar resolvido em imagem da carta por resolverSimbolosDaLegenda e\n  imagemDoSimbolo, com o reúso e a guarda do R9); o símbolo de OM fica com a amostra\n  da main (simboloOm, sem opacidade); a imagem do mapa (imagemId da feição, com\n  opacidade) fica da obra. O ramo de OM repetido saiu.\n- editor-de-carta.js: imports e o fechar dos dois lados; o \"Gerar das camadas\" e a\n  legenda automática passam pelo mesmo _resolverSimbolos/_nomeDosSimbolos, então o\n  símbolo militar entra na legenda automática (antes a amostra simboloMilitar, que o\n  esquema da amostra recusa, chegaria ao documento); o aviso de \"de fora\" diz \"como texto\".\n- previas-dos-quadros.js: a intenção da main (pendentes(), a miniatura espera as\n  prévias) reaplicada sobre as levas: conta o pedido em _pedidos e o desenho em\n  _emCurso cuja imagem ainda não é a da chave, sem contar o redesenho só pela lista da base.\n- variante-de-feicao-censo.test.js: as duas classificações numa só.\n- Documentos: contrato (bullets dos dois lados, Bloquear, a legenda e a miniatura no\n  que o código unido faz), DECISIONS e decisions-2026 (as duas entradas, mais a nota da\n  junção), wiki da presença (a cor pelo userId da main; a folha segue a mesma regra),\n  novidades (as linhas dos dois lados no dia 2026-11-25), Ajuda da legenda (a\n  automática, com os símbolos militar e de OM, dentro das 320 palavras).\n\nFora dos marcadores: PENDENCIAS.md perde o item 5 (a cor do cursor, consertada na main\npor 735068531) e presenca-na-folha.js o comentário velho; os testes estruturais da main\n(miniatura-da-carta-por-conta, legenda-simbolo-reuso) seguem o código unido, e ganham\ncaso de comportamento em cartas-previa-automatica-leva e cartas-legenda-automatica.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "89cf8f3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/89cf8f3052dac3017bba375e1ce75f91470016c5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T16:25:31.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (pré-projeto de mestrado UFRGS): a extração manual de edificações do Convênio RS localizada e medida no banco de insumos (wiki fontes-insumos, com as outras bases casa a casa e a receita do recorte do Open Buildings pelo GeoParquet da VIDA), o método de escrever para um leitor-alvo medindo o corpus dele na skill revisar-escrita (regra 18 e script estilometria_leitor.py) e duas linhas no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "33cecb8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/33cecb8ca4e92af60d93164f62204891d2a41cb0",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:52:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/legenda2' into carta5/integ",
+      "sha": "7da0322",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7da03226078951e968630d17b6ac76431c7a476e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:52:01.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartas: \"Só o que aparece no quadro\" lê do render o que o mapa base desenhou dentro do quadro\n\nCom o filtro ligado, a legenda automática do mapa base lista só os itens da árvore com\numa feição desenhada DENTRO da caixa do quadro, naquele zoom. A resposta sai do mesmo\nrender da prévia (renderizarQuadroDeMapa com consultarDesenhoDaBase): bloco a bloco,\ndepois do idle, queryRenderedFeatures restrito às camadas da base que têm amostra, só no\nretângulo do bloco que é quadro (nunca a borda de recobrimento), em células de 4 x 4, só\nas camadas que ainda faltam, parando quando todas apareceram. Fonte ainda carregando ou\ntile que falhou no render conta como desenhada. Quem não pede não paga nada.\n\nA prévia guarda a lista com a imagem, sob a vista do quadro, e avisa o editor; enquanto o\nrender não chega o documento fica como está (sem gravar a lista do zoom e logo a do\nrender), e sem render nenhum vale o filtro pelo zoom. Dois editores com renders\ndiferentes convergem: a lista dita de novo sobre a do colega, na mesma vista, é a união\ndas duas dentro da lista do zoom, uma vez por assinatura; a lista inteira do zoom de quem\nnão tem render não entra na união. A exportação termina a legenda com o render dela.\n\nDeclara @maplibre/maplibre-gl-style-spec 26.4.4 no frontend (a versão que o maplibre-gl\n6.15.0 já traz; o lockfile ganha só a linha da dependência direta). A tomada cartas-08\nda Ajuda converte a legenda nova em manual antes de Gerar das camadas.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "c304bd5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c304bd5bb84509aece379fbc9cbeb5d9253f1d89",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T15:42:42.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (curso EAD, arrumação da pasta): a pasta curso/ do ebgeo_web arrumada a pedido do chefe (porta de entrada, escolhas da edição, roteiros e documentos sem o diário de obra), o login das duas contas fictícias tirado da decisão de 24 NOV (cita a chave), o estado do projeto com o que depende dele, o método da arrumação na skill e duas linhas no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHkq5eBsEtY3PBRa1w",
+      "sha": "516050c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/516050cb72fe29ee700602da84f0cff83b79ba1d",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:40:18.000Z",
+      "author": "Maj Diniz",
+      "message": "curso: a pasta arrumada, com as escolhas ditas e sem o diário de obra\n\n- README.md novo: por onde começar, o mapa da pasta, os comandos, o estado e\n  o que fica fora do git.\n- op-parana/PLANO.md: as escolhas desta edição (cenário, contas fictícias,\n  figuras simuladas, exemplos, exceções ao mapa vazio) e o que está em aberto.\n- Roteiros: o cabeçalho de cada videoaula virou \"as escolhas\" (o que ensina,\n  o corte, o exemplo e por quê); saíram 660 linhas de texto antigo guardado em\n  comentário e o registro de rodadas; a lista nao_conferido ficou só com o que\n  ainda não foi visto ou ouvido. Três falas (6.1, 6.3, 6.5) deixaram de\n  prometer que o caderno traz cada opção.\n- cenario.yaml e lugares.md: o cenário como ele vale, com as medidas refeitas\n  sobre as coordenadas (nenhuma coordenada mudou).\n- docs/: cada peça do motor descrita como está hoje, com o porquê das\n  decisões; docs/impressos.md e docs/gravar.md deixaram de ser diário.\n- motor/impressos/provas.mjs: a prova da fonte contra o impresso (figuras,\n  opções do vídeo, passos de preparo, palavra com letra comida).\n- package.json: comandos de roteiro, quiz, figuras, provas, gravar e teste.\n- Comentários do motor dizem o que o código faz, sem rodada nem revisor.\n- Fora: identidade/marcas/dsg.png, que ninguém usava, e o login de uma conta\n  de captura que estava num campo de roteiro.\n\nOs 140 testes passam; o conferir segue com as três reprovações de rótulo\ncontra a revisão de tela do produto de 2026-11-25, à espera da sincronia.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHkq5eBsEtY3PBRa1w",
+      "sha": "4558d4d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4558d4d132d3162532c39b65f92316b95bac8a73",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:33:51.000Z",
+      "author": "Maj Diniz",
+      "message": "wiki da presença: o servidor guarda a carta aberta, e o ponteiro e a seleção da carta só chegam a quem a tem aberta\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "4f77bda",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f77bdae2ddd6fb65ded8dd6a137f31db05a3484",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:29:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/presenca2' into carta5/integ",
+      "sha": "9ee77ab",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9ee77ab2a18cd1c4e67fa11fbe1d065c46490a60",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:29:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Padrão DSG: a demanda 2 reduzida ao que falta depois da leitura do qgis4, a Ajuda com as marcas de minuto e a dica do painel com a margem dos rótulos horizontais\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "baa6017",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/baa6017ff72c9ddc87fcbc75ded90c9098e88d41",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:21:45.000Z",
+      "author": "Maj Diniz",
+      "message": "Presença na carta: ponteiro e seleção só a quem está com a carta aberta, e a seleção volta na reconexão\n\nO servidor guarda no socket a carta anunciada por carta_edit_start/carta_edit_end e entrega\no ponteiro e a seleção da carta inteiros só a quem tem a mesma carta aberta e passa no recorte\nde leitura (entregaNaCarta). Quem não a tem aberta recebe um único quadro redigido, na transição\npara a carta, que é o que tira o ponteiro e o destaque do colega do mapa; depois, nada. O lote\nde cursores e o retrato de entrada seguem a mesma regra. Quem abre a carta depois recebe na hora\no ponteiro e a seleção retidos dos colegas (abrirCartaNaSala); quem fecha deixa de receber.\n\nNa reconexão a ponte reanuncia a carta e depois reenvia a seleção e o ponteiro recente\n(reporPresencaNaCarta, PONTEIRO_RECENTE_MS).\n\nLink lento, dois colegas mexendo na folha por 10 s: o par no mapa recebia 96 itens da carta\n(2857 B/s) e agora recebe 0; quem tem a carta aberta segue com 4,8 itens/s por colega.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "5a13095",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5a130956c058acd61264f36a2bb5caf5a23268c4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:20:21.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/grades2' into carta5/integ",
+      "sha": "6f77bb0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/6f77bb0e4a54a6f766893d39f9af40fc27f4f150",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:19:35.000Z",
+      "author": "Maj Diniz",
+      "message": "Padrão DSG relido no plugin vivo (branch qgis4, 2.3.15): tabela completa, marcas de minuto e números condensados\n\nA frente anterior leu o plugin Ferramentas de Edição pelo master (1.3.36). Relido no qgis4:\n- 1:2.000 passa a 10\" de intervalo geográfico e 80 m de passo UTM (40 m por milhar nas\n  escalas da tabela; os 4 cm de papel davam 100 m); 1:5.000 e 1:10.000 ficam em 1' e 200/400 m;\n- rótulos de fora do quadro em preto e linhas, cruzetas e números em cinza 75 %, com o campo\n  novo corDosRotulos nas duas grades (ausente = cor, como antes);\n- marcas de minuto da moldura (generateMinuteTickOnFrame): uma a cada minuto inteiro em cada\n  lado, para dentro, ao longo do meridiano ou do paralelo, com o comprimento do plugin em graus;\n  campo marcasDeMinuto na grade geográfica e \"Marcas de minuto na moldura\" no painel;\n- números internos em Noto Sans Condensed (edicao_grid_numerico_p.qml), campo familiaDosNumeros\n  na UTM, \"Fonte dos números\" no painel e a face carregada na exportação;\n- braços da cruzeta do padrão nos eixos do quadro (os eixos UTM da folha, getLatLonTicks).\nDocumento antigo desenha como antes. Esquema, normalizador, contrato e comentários atualizados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "a5a7b2e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a5a7b2e4a909481a85ae3cdac22b03be4660bc50",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:11:56.000Z",
+      "author": "Maj Diniz",
+      "message": "PENDENCIAS.md: cinco achados fora do escopo da obra das Cartas (instante do quadro, linha do tempo pausada, seleção e desfazer na troca silenciosa, cor da presença no mapa)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "373cd4c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/373cd4c0daf502e069c16f2f5d628d4484de3497",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:10:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda, novidades e documentos da obra das Cartas de 2026-11-25: colegas na folha, Padrão DSG, grade alfanumérica, prévia automática e legenda automática\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "81852cb",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/81852cba92271852b98e26087f8a765c71edbf4d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T15:10:13.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartas: a troca silenciosa guarda o desfazer do mapa aberto, e a junção de prévia, legenda, grades e presença provada com as peças reais\n\nA prévia automática troca o mapa vivo por baixo do editor, e toda troca limpava o\nhistórico de desfazer do mapa que a pessoa tem aberto. A troca silenciosa agora guarda\nas pilhas e as devolve na volta. Consertos de junção entre as frentes: a seleção 2D que\na troca limpava não apaga mais a seleção da carta no servidor, o fechar do editor espera\na leva devolver o mapa, e a colheita das fontes da legenda entra na fila das trocas. O\navaliador de estilo do MapLibre passou para um chunk carregado só quando a legenda do\nmapa base é calculada.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "25c13f0",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/25c13f01c3d224bc7f6f921a2ac572053e24a527",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T14:51:09.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (curso EAD, caderno enxuto, cont.): estatísticas da wiki depois do lint\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHkq5eBsEtY3PBRa1w",
+      "sha": "aa5018e",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/aa5018e400451ece0552a6e2e0e0ca6f4d2106d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T14:49:55.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (curso EAD, caderno enxuto): os dez cadernos do Curso EBGeo encolhem por regra do chefe (645 para 516 páginas), as perguntas viram quiz em Markdown, e tudo vai a commit no ebgeo_web; estado do projeto reescrito, decisão com as palavras dele, método novo na skill produzir-curso-ead, registros de 24 NOV (contas fictícias, relay de e-mail, autocadastro) e seis linhas no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHkq5eBsEtY3PBRa1w",
+      "sha": "423ae62",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/423ae62eeee53a2beb56a68c11b57e3906bace56",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T14:47:04.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (marketing do EBGeo): cinco peças de divulgação fechadas e guardadas em marketing/ do ebgeo_web (graphical abstract em duas versões, pasta executiva, folder tríptico, banner roll-up), com as duas decisões do chefe (o calco e \"condução das operações\" ficam; R$ 3 milhões conferidos no catálogo da Esri), o método e as correções na wiki pecas-graficas-impressas, a regra do revisor de peça em conventions/subagentes, os gestos novos de captura na skill gravar-video-ebgeo, seis linhas no livro-razão e os projetos ebgeo-premia, ebgeo-pasta-executiva e ebgeo-marketing\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "f14c5f0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/f14c5f089a441450e579bd312e1895297f8d8adc",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T14:46:29.000Z",
+      "author": "Maj Diniz",
+      "message": "curso: as 35 videoaulas do Curso EBGeo (Op Paraná) em roteiro, o caderno enxuto, os slides e o quiz\n\nFonte: o plano fechado em 11 módulos e 35 videoaulas (op-parana/PLANO.md), os 34\nroteiros novos e a videoaula 0, com as cenas de captura de cada uma.\n\nCaderno enxuto, por decisão do chefe da DGEO em 2026-11-25 (PADRAO.md, seção\nprópria): cada ficha lista as opções do vídeo e as que mudam o resultado\n(essencial), o resto é a Central de Ajuda; notas só o essencial (consulta fica\nna fonte); abertura em três linhas, sem fecho; perguntas e \"Faça você\" fora do\nPDF. Os dez cadernos foram de 645 para 516 páginas e de 168 para 109 mil\npalavras, sem tirar figura para encolher.\n\nMotor: gerador do caderno e dos slides (opções do vídeo sempre impressas,\npassos de preparo inteiros, legenda de figura de nota, medida da letra pelo que\na imagem pinta), roteiro legível (motor/roteiro.mjs), quiz em Markdown com\nalternativas embaralhadas de modo fixo e gabarito comentado (motor/quiz.mjs),\ncapturas por cena (motor/figuras), carregador tolerante e regras novas do\nconferir. Os 140 testes do motor passam.\n\nPendente: o conferir reprova três rótulos contra a revisão de tela do produto\nde 2026-11-25 (Travar virou Bloquear, o Romer saiu do editor de carta, o botão\nde refazer a Predição QBRN mudou). Os cadernos foram capturados na versão\ninstalada na EBNet, anterior a ela; a sincronia do curso com a revisão entra\njunto com a atualização da instalação.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHkq5eBsEtY3PBRa1w",
+      "sha": "681e656",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/681e6565729cd15bfcd0ab86451500ffcff74a0a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T14:37:32.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge de origin/main em main (marketing)",
+      "sha": "dcfb223",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dcfb223fc9f1cb793e505859e91684ad5d378cdd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T14:37:28.000Z",
+      "author": "Maj Diniz",
+      "message": "marketing: peças de divulgação do EBGeo, com o final, o código e as escolhas de cada uma\n\nPasta marketing/ com cinco peças geradas de HTML e de capturas reais do sistema: o graphical abstract em\nduas versões (a de três painéis, do PremIA, e a de divulgação geral), a pasta executiva com bolso, o folder\ntríptico e o banner roll-up de 80 x 200 cm. Cada peça tem a arte, o preparar.py que recorta as capturas, o\ngerar.mjs que imprime o PDF, a conferência do PDF e um DECISOES.md com o que foi escolhido e por quê.\ncapturas/ guarda as telas de origem e bancada/ os trechos que as fizeram. No git ficam o PDF de impressão\ne uma prévia em JPG; os PNG e o PDF com a guia de corte saem do gerar.mjs.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "b8f5468",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b8f5468385bdf863af197ab62486122328a0be93",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T14:00:58.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/legenda' into carta5/integ\n\n# Conflicts:\n#\tfrontend/src/js/cartas/editor/editor-de-carta.js",
+      "sha": "c55e793",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c55e793d1f88f2a9ca99dd8f7f370a7f7bd5344f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T14:00:39.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/previa' into carta5/integ\n\n# Conflicts:\n#\tdocs/cartas-contrato.md\n#\tfrontend/src/js/cartas/editor/editor-de-carta.js",
+      "sha": "097cd07",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/097cd072d8475a21480cadd91cfe44479f48dac7",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:59:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/presenca' into carta5/integ",
+      "sha": "a627fc9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a627fc9d5c0925fc11570cdeabe066a9924fec47",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:59:29.000Z",
+      "author": "Maj Diniz",
+      "message": "Merge branch 'carta5/grades' into carta5/integ",
+      "sha": "a871cb7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a871cb7ee7af0788252058bfc48748db354bb471",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:58:10.000Z",
+      "author": "Maj Diniz",
+      "message": "legenda automática do quadro: o mapa base pelo estilo e pela árvore de grupos, e o que a pessoa pôs no mapa\n\nA legenda nova da carta nasce automática no quadro principal e se monta sozinha: primeiro as feições\ne as camadas do catálogo do mapa do quadro, depois um item por grupo do mapa base, com a amostra lida\ndas camadas do estilo MapLibre no zoom do quadro (o avaliador do próprio MapLibre). A lista é gravada\nem `entradas`, recalculada pelo editor quando as fontes mudam, sem passo no Desfazer e sem pingue-pongue\nentre dois editores; a exportação a confere antes de desenhar a página. \"Converter em manual\" deixa a\nlista editável. Amostra ganha a borda da via e o ícone ou padrão do sprite; o esquema declara a hachura\ne fecha a amostra e a entrada. A imagem do mapa e a camada do catálogo com legenda própria entram também.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "165bb35",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/165bb35b83480c3d4c700ab0189ba97241818e6c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:33:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartas: a prévia de todo quadro é automática, também a de outro mapa\n\nAo abrir a carta todo quadro ganha imagem sem clique, e o quadro que muda se\nregenera depois de uma pausa (700 ms no mapa aberto, 1,5 s no de outro mapa\nque já tem imagem, medida contra o custo da troca). As prévias saem em levas:\numa sessão de troca por leva, os quadros agrupados por mapa, o aberto primeiro,\numa troca por mapa, e o mapa, a linha do tempo e o cursor devolvidos no finally.\nA leva cede enquanto a pessoa arrasta, digita, gira a roda ou grava, e é\ncancelada ao fechar o editor ou trocar de carta. Mapa que não abre vira estado\nnomeado no quadro, sem aviso e sem nova tentativa sozinha; importação segurando\no mapa adia os quadros de outro mapa sem aviso.\n\nA troca é silenciosa (store/troca-silenciosa.js): a presença não anuncia o mapa\nemprestado, o último mapa lembrado e o endereço não mudam, e os painéis do\neditor não se refazem pela troca. Só corre uma sessão de troca de cada vez\n(exportação e prévia se enfileiram; naVezDasTrocas dá a vez aos gestos que leem\no mapa vivo). Toda prévia desenha o instante do quadro, também a do mapa aberto.\n\n\"Gerar prévia\" sai; \"Atualizar prévia\" fica no painel e no menu para o que a\nchave não vê. A opção aoMapaAberto (costura com a legenda) roda com o mapa do\nquadro vivo, antes da devolução.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "cad9eb3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cad9eb3fd81db0bfa8bab9a43a8f6bc65caaaafd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:26:44.000Z",
+      "author": "Maj Diniz",
+      "message": "Carta: quem edita vê o cursor e a seleção dos colegas na mesma carta\n\nNo editor de cartas, cada colega na mesma carta aparece na folha com a seta e o\nnome (mesma aparência e mesma cor por pessoa do mapa) e uma caixa tracejada na cor\ndele em volta dos itens que selecionou, acompanhando zoom, rolagem e a edição\nremota do item.\n\nServidor: superfície nova `carta` nos quadros de cursor e de seleção, com posição\n{x, y} em mm do papel e `cartaId`, validada com tetos (coordenada, id de item,\nnúmero de itens). O recorte é o da carta, que é do atlas: chega inteiro a quem\npode abrir a carta (`read` no atlas), nada a quem não vê o colega, e a seleção só\né aceita de quem pode editá-la (`write` no atlas, nunca o degrau de um mapa). O\nquadro da carta não leva nem muda o mapa da pessoa. Lote, quadro na hora e retrato\nde entrada recortam pela mesma regra; o visitante segue sem posição.\n\nCliente: o ponteiro sai em mm pelo mesmo throttle das outras superfícies, a\nseleção por um funil único no editor, e o editor ao abrir tira o ponteiro do mapa\n(o app fica inert e o último cursor 2D ficava congelado no mapa dos colegas); ao\nfechar, o ponteiro e a seleção voltam ao mapa. Na carta, seta e caixa usam a mesma\nchave de cor (userId, senão clientId).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "8a9ef62",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8a9ef62a79c5d575f9d6c076cf386986d7591d28",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:22:05.000Z",
+      "author": "Maj Diniz",
+      "message": "Cartas: \"Padrão DSG\" preenche as duas grades do quadro como na carta topográfica da DSG, e o quadro ganha a grade alfanumérica\n\nPadrão DSG (dono, 2026-11-25), no quadro retangular de hoje, numa edição só que o Desfazer desfaz:\na UTM de 4 cm com a coordenada inteira (dois algarismos principais em corpo cheio, o resto em\nsobrescrito, m E e m N no primeiro de baixo e no mais baixo da esquerda), linha mestra a cada dez e\nos números do km dentro do quadro com as linhas cortadas sob eles; a geográfica no intervalo da\ntabela do plugin (1', 2', 5', 10', 20'), em GMS por extenso com GREENWICH no primeiro de cima e\ncruzetas de 5 mm; rótulos laterais horizontais, o que passa do canto sai, corpo UTM 5/3 do\ngeográfico. Cada peça é uma opção normal da grade (formato \"Carta topográfica\", \"Rótulos dos\nlados\", \"Linha mestra a cada 10\", \"Números dentro do quadro\", \"Cruzeta mm\"), e a carta sem os\ncampos novos desenha igual (os digestos de antes continuam valendo).\n\nGrade alfanumérica: terceira grade do quadro, independente, letras ou números por direção (A ... Z,\nAA, AB), faixa por divisões do quadro ou por metros no terreno, ancorada no canto superior esquerdo,\nrótulo no meio de cada faixa no anel de fora das outras grades; modelo, esquema, painel e o mesmo\ndesenho no editor e na exportação.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "5c527dd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5c527dd2ac075e4d165cd964c25df46f95ea1bf9",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:15:26.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: the review fixes in the wiki, the cards contract and the ledger\n\nThe access-request counter follows one rule on its three paths\n(pedidosVaoAoGestor), and the route answer never undoes a newer number;\nthe card thumbnail is per account, capped, cleaned on logout and on\ndelete, and signed by a key-ordered JSON.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b24cb22",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b24cb22050f61255f6a822f2f506f52eb173e715",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:09:43.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cartas): a legend symbol image goes up only while the editor is on the carta, and reuses the carta's own\n\ntutorial 2026-11-25 (review): R9. \"Gerar das camadas\" (C1) uploaded each\nmilitary symbol as an image of the carta and checked this._aberto only after\nevery upload, so an editor closed during the drawing still uploaded images no\nlegend would cite; and the SIDC cache lived only while the editor was open, so\nevery reopening uploaded the same symbol again.\n\nFix: the editor checks it is still open on the same carta, with the legend,\nbefore resolving the symbols (vivo()), and imagemDoSimbolo asks podeSubir\nbefore each upload; a drawing whose bytes are those of an image the carta\nalready cites (idsDeImagensDoDocumento) reuses that image.\n\nProof: tests/unit/legenda-simbolo-reuso.repro.test.js, 3 red on 3d02a1d55 (a\nsecond image of the same SIDC, an upload after the close, the editor guard\nabsent), 4/4 green after, red again with src reverted.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "18475ea",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/18475eae8ef39c6c75f6cf9c539540b77d82b4f8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:09:42.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(import): only centre when the whole file fits at the zoom on screen\n\ntutorial 2026-11-25 (review): R7. A4 made a fit that hits the ceiling (z16)\nonly centre. With the view ABOVE the ceiling (z19), a file that needs z16.5\nalso hits it, and the camera stayed at 19 with the file 2^(19 - 16.5) = 5.7\ntimes the screen. Root cause: the A4 test was only \"the fit hit the ceiling\",\nnever whether the extent fits at the current zoom. _planoDoEnquadramento now\nalso asks the fit without the ceiling (the map's max zoom, else 24) and only\ncentres when it is >= the zoom on screen; otherwise it frames as before.\n\nProof: tests/unit/import-vista-acima-do-teto.repro.test.js, REPRO red on\n3d02a1d55 (easeTo with only the centre at z19), 3/3 green after, red again\nwith import.control.js reverted. The A4 cases (single point at z12 the size of\na drawn one; spread file unchanged) stay green, here and in A4's own repro.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ba86d47",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ba86d47ad490e4d8fb0433bc38b2c8043312d5eb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:09:41.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cartas): the card's thumbnail is per account, bounded, and signed whatever the key order\n\ntutorial 2026-11-25 (review): R6. The thumbnail (C2) is the sheet painted for\nwhoever closed the editor, and it was kept by carta id and signature only, so\nanother account on the same computer got the first one's picture; nothing\nbounded it either, in the localStorage that also holds the session token.\n\nFix (miniatura-da-carta.js): the key carries the account (sessionContext\nuserId; \"local\" for the session without an account; none for the public-link\nvisitor); leaving the account erases them all (apagarMiniaturas, from\naccount.control); a deleted carta takes its picture (esquecerMiniatura, from\nthe Cartas tab); at most 40 per account, the most recently kept; a picture over\n64 K characters is not kept; a full quota gives the thumbnail up and evicts\nnothing. assinaturaDoDocumento signs the JSON with sorted keys, because the\nserver's JSONB gives the document back in its own order. And the editor keeps\nno picture while a frame preview is still pending (PreviasDosQuadros.pendentes).\n\nChanged miniatura-da-carta.repro.test.js: its signature case compared a\nstructuredClone (same key order), so it passed by construction; it now\ncompares a copy with the keys reversed. Its bad-JSON case wrote the old key.\n\nProof: tests/unit/miniatura-da-carta-por-conta.repro.test.js 7/7 red on\n3d02a1d55 (B read A's picture, no ceiling, no cleanup, signature differs by key\norder, editor guard absent), 7/7 green after, red again with src reverted. The\neditor guard is a structural case (the editor does not load in node).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "42eb4ef",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/42eb4efcae1cd9a99071d1a265e60c7e09d1e74f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:09:08.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): the relative mode with nothing dated anchors on Day D, and the dialog shows the bar's window with it off\n\ntutorial 2026-11-25 (review): R5. After B3 the blank bounds of the relative\nmode stay automatic, and in a map with no dated feature yet (the plan that\nstarts from Day D) resolveTimelineBounds had nothing to derive from: it\nreturned null and the controller fell back to NOW, with D off the ruler. Root\ncause: the patch was the only place that knew D, and it no longer writes it as\na bound. Fix: in the relative mode, with origem and no extent, the automatic\nwindow is D to D + DEFAULT_TIMELINE_SPAN_UNITS.\n\nWith temporal off the settings dialog showed the anchor and the default span.\nIt now reads, once at opening, the extent the bar would use\n(TemporalControl.extensaoAutomatica: the map's own dated features plus the\nextra extents, as _syncForActiveMap) and completes it with the pending config.\nleitura-do-mapa-aberto-censo counts the second getCurrentMapFeatures(mapName)\nof temporal-controller.js (same class, the ruler's own features).\n\nProof: tests/unit/temporal-relativo-sem-feicao-datada.repro.test.js, 2 REPRO\nred on 3d02a1d55 (window at now; fields 0 and 24 for features at D+2..D+6),\n4/4 green after, red again with src reverted. B3's repro stays green.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0263bb7",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0263bb7f605a7485f606dbe99e5bee3c8add95be",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:09:07.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): an older counters answer never undoes a newer number; one read in flight; read without real time too\n\ntutorial 2026-11-25 (review): R2, R4, and the pullOptions JSDoc of R10.\nR2 root cause: _lerPedidosPendentes applied the route's answer as it came, and\nthe answer is the server's state when the GET left. A live map_access_requests\nframe, or a snapshot, landing while it was in flight was undone (the decided\nrequest came back as 1). Fix: _pedidos keeps a stamp per map (the frame) and\none for the snapshot (_aplicarRetrato); the answer applies only to a map no\nnewer source touched since it left. One GET in flight per session (the\nopening pull and the socket's sync_response both asked), and a 404 (server\nwithout the route) is said once and not asked again in the session.\n\nR4 root cause: _puxarSemTempoReal never read the counters, and without a socket\nno frame arrives, so the counter never moved. It reads them where it asks for\nthe symbol points.\n\nR10: the JSDoc of pullOptions sat above aplicarContadorDePedidos; back on its\nfunction.\n\nProof: tests/integration/pedidos-pendentes-frescor.repro.test.js, 5 REPRO red\non 3d02a1d55 (1 instead of 0 twice, 2 GETs, 3 GETs on 404, 0 GETs without\nreal time), 7/7 green after, red again with sync-engine.js reverted.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4a22601",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a22601611808d1b19fe65a6f879921891ad7eaf",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:09:07.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(historico): restoring the atlas leaves every lock as it is, and says so\n\ntutorial 2026-11-25 (review): R8, owner's decision 3 extended to every lock.\nA6 took `locked` out of the restore of `maps` only. `layers`, `layer_folders`\nand `groups` have the column too (003_atlas.sql, 031_pastas_de_camadas.sql),\nand the restore list still put it back: a layer locked after the moment came\nback unlocked. Now `locked` is in `fora` for the four tables.\n\nThe confirmation says \"Bloqueios e restrições ficam como estão.\" (and the\nAjuda page voltar-a-uma-versao says the same), and a restore that brings\nnothing back, which is now also the case of a moment that differs from now\nonly by a lock, says \"O atlas já está como estava nesse momento. Bloqueios e\nrestrições não entram na restauração.\"\n\nProof: two new cases in historico-restaurar-nao-mexe-no-bloqueio.repro.test.js\n(layer, folder and group locked after the moment stay locked while the layer\nname comes back; only locks changed gives voltaram + sairam = 0). Red on\n3d02a1d55 (locked false; voltaram 2), 4/4 green after, red again with\nhistorico.restaurar.js reverted.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "10413c9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/10413c915c951ead01368449e32c8456075a0958",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:08:45.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(map-sharing): the counters route sends what the snapshot sends, by one rule\n\ntutorial 2026-11-25 (review): R3, and the route comment of R10.\nRoot cause: the snapshot sends pedidosPendentes of a map the caller reads only\nwhen the atlas can give someone a partial view (ATLAS_TEM_VISAO_PARCIAL,\nsync.service.js), and GET /atlas/:atlasId/pedidos-pendentes sent every map the\ncaller administers. In an atlas whose last restriction went away with a\nrequest still pending, the snapshot said nothing and the route said 1, and the\nclient (which reads the route after every tail) showed a number the next\nsnapshot erased.\n\nFix: pedidosVaoAoGestor (maps/visao-de-leitura.js), administra && (!le ||\nvisaoParcial), used by the snapshot's readable branch and by the route, which\nnow reads ATLAS_TEM_VISAO_PARCIAL. The routes file now says what the public\nlink token gets: 200 with porMapa empty.\n\nProof: tests/integration/pedidos-pendentes-retrato-e-rota.repro.test.js red\non 3d02a1d55 (route 1, snapshot undefined), 3/3 green after, red again with\nbackend/src reverted; the control (atlas still partial: both say 1) and the\npublic token case green throughout. pedidos-pendentes-do-atlas and\npedidos-de-acesso-no-escalao green.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e73ddbd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e73ddbd09271989eb6f62709334e67654162e597",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T13:08:44.000Z",
+      "author": "Maj Diniz",
+      "message": "test(censo): register the access-request counters route in the content and resource censuses\n\ntutorial 2026-11-25 (review): R1. GET /atlas/:atlasId/pedidos-pendentes\n(map-sharing.routes.js, pedidosRouter, from A7) was in the read-by-view\ncensus only, so saidas-de-conteudo-censo and superficies-de-recurso-censo\nfailed on 3d02a1d55 (\"toda ROTA está no censo\" and its fixture proof, 4\ncases). Registered as json (res.json { porMapa }) and as R_OUTRA behind\ncarregarVisaoDoAtlas, CONTEUDO_DE_ATLAS.\n\nThe resource census then refused the declared gate: its scanner searched the\nNEXT route declaration from one character past the current one, and the rest\nof a prefixed router name (\"edidosRouter.get(\") matched right there, so the\nblock of pedidosRouter.get was the letter \"p\". The search now starts after the\ndeclaration itself; a block can only get longer, so every other gate check\nstill sees what it saw.\n\nProof: the eleven unit censuses (tests/unit/*-censo.test.js) 107/111 on\n3d02a1d55 (the 4 above), 111/111 after.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c4abf6d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c4abf6d7848edfdbb261bcb1817f2c0fc0bf01a0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T12:31:34.000Z",
+      "author": "Maj Diniz",
+      "message": "docs: owner decisions, ledger lines and wiki paragraphs of the tutorial lot\n\ndecisions-2026.md and the index get the fourteen owner decisions of\n2026-11-25 (the twelve, A4 and A7) with the assistant's choices, the\nblast radius and the two production actions. The ledger gets the\nconduct deviations of the lot, with the product findings fused in one\nline. The wiki gets the automatic window, the access-request read\nafter a tail, the read-only route, the lock out of the restore, the\nsearch alias, and the cursor colour key (the page claimed it was the\nuserId). cartas-contrato.md gets the legend symbol and the thumbnail.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9c19ba1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9c19ba17b87d4463ce3806a26a16642d7210901f",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T12:31:24.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ajuda): the tutorial lot in the pages and in the news\n\nLimpar of a trajectory undoes, the angle is the smaller one with the\nends in any order, choosing a search result gives the keyboard back to\nthe map, the relative mode shows the window in use, the atlas restore\nkeeps the map lock, \"Definir como padrão\" saves the edit, a tight\nimport only centres, the factor is written 1× to 3×, and the access\nrequest counter reaches who was away. News for 2026-11-25.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "07f4e82",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/07f4e826b0d6bce433530a36ab1e70df6d3c2ab5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T12:26:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (cont. 3): prompt para regravar as figuras da Ajuda do EBGeo Web depois da revisão de tela (projeto ebgeo-ajuda-figuras, sem deploy); sobras não commitadas de 15 e 16/11 (decisão e lições da obra de vento, extração e predição QBRN, três linhas do livro-razão, telemetria); lição do checkout local do vault atrás do remoto\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "68fca5d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/68fca5d9505d249f8e544e431df55fd162b6a63f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T12:23:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Ajuda do botão direito: o comando que não pode rodar não aparece, em vez de ficar apagado\n\nA página ainda descrevia \"Orientar para Norte\" e \"Quem vê este ponto\" como apagados; desde 0a110f994 o menu do mapa não desenha linha cinza.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "cf1e1b3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cf1e1b3c8d6afd62f58b77702168ba93c55b3b5c",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T12:15:50.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (cont. 2): revisão de tela do EBGeo Web pedida pelo chefe (chip sem botão, menu do mapa sem cinza, pontos da Rota e do Deslocamento, QBRN, Romer) na `main` do ebgeo_web (0a110f994, sem deploy); lições de controle negativo do lote, de decisão de tela conferida pelos specs e de acesso ao navegador antes de medir lentidão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "6d6b83d",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6d6b83dd971a2ef8e143df13e58e4e0a5a046fd3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T12:12:16.000Z",
+      "author": "Maj Diniz",
+      "message": "revisão de tela do chefe (2026-11-25): o chip da ferramenta ativa sem botão, o menu do mapa sem comando cinza, pontos da Rota e do Deslocamento, QBRN atualiza a mesma predição, Romer fora da Carta\n\n- Chip da ferramenta ativa: a folha `toolbar/dica-do-chip.js` só aceita texto (dica e estado). Extrair do mapa base ganhou na janela o bloco \"Como extrair\" (Por clique, Por área, Buscar por nome ou tipo), o fechar desliga a ferramenta e uma seta a recolhe ao cabeçalho. Seguir vias da Linha e a Atração viraram interruptores de Utilitários.\n- Menu do botão direito do mapa: a linha inerte ou recusada sai antes de o menu abrir, e \"Orientar para Norte\" ficou compacto.\n- Rota: tropa e bloqueios só na aba Parâmetros; o seletor de tropa não volta mais ao valor antigo (a aba redesenhava antes de o cálculo gravar); \"+\" nas pontas, alça no meio do trecho e lista de pontos com \"×\"; a pé manda `ignore_oneways` (não medido no motor); o nome do motor saiu da tela do usuário.\n- Deslocamento: pontos numerados, \"+\" de perna para inserir, \"+\" da ponta para continuar a mesma feição, \"Remover ponto\" no menu do mapa, e limiar no arrasto de alça.\n- Predição QBRN: \"Atualizar\" refaz a mesma feição; saíram a predição seguinte e os dois botões que passaram a fazer o mesmo.\n- Carta: o Romer saiu da tela, e a carta gravada com um abre, exporta e vira arquivo sem ele (o esquema do servidor ainda aceita o tipo).\n- Linha de Visada: o terreno é lido uma vez por análise, e o leitor de relevo busca primeiro os tiles que já tem.\n\nVerificado: lint; frontend 29.415 de 29.415; e2e de contrato 336 de 336; Ajuda 113 de 113; backend 8.768 de 8.769 (o vermelho é o plano de consulta de `busca-no-mapa-base-palavras.test.js`, em arquivos que este commit não toca, 3 de 3 sozinho nesta estação); specs de tela das ferramentas mexidas verdes, com \"Copiar Feição\" do menu instável em uma tentativa por rodada. A bancada `frontend/bench/rota` ainda usa o botão de bloqueios do chip e fica por adaptar.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "0a110f9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0a110f99433c72fbd1ea16abecaa3bd007bd51a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T12:10:52.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(texto): the map-lock refusals of the live and special layers ask who can unlock; tests follow C1, C2, C5, C6\n\nThe frontend suite after the lot found what the word change exposed:\n\n- features_tab/layer-list.component.js (Receber) and\n  features_tab/transmissoes-ao-vivo.list.js (estilo) told everyone \"O mapa está\n  bloqueado. Desbloqueie-o\" without asking whether the person can unlock.\n  While the sentence said \"travado. Destrave-o\" the census of\n  frase-da-trava-pela-capacidade.repro.test.js never saw it. Both now go\n  through lockedMapNotice(canUnlockMapSync(), ...), the house's form, and\n  edicao-por-mapa-censo.test.js classifies the two new calls (MAPA_ATUAL).\n- frase-da-trava-pela-capacidade: the carta item lock (\"O quadro está\n  bloqueado. Desbloqueie-o na lista de itens\") is another lock, lifted by who\n  edits, and stays out of the census like the group's.\n- variante-de-feicao-censo: legenda-das-camadas.js writes the legend sample\n  `simboloOm` from the marker's value after deciding by isFeatureVariant\n  (C1), named with its reason; simbolos-da-legenda.js no longer cites the\n  marker in prose.\n- carta-operations.test.js: listarCartas returns `assinatura` (C2).\n- aovivo.test.js and temporal-settings-modelo.test.js asserted the old words\n  (C5, C6).\n\ntutorial 2026-11-25: C5 (class), suite follow-up\nProof: npm test --prefix frontend after the last write: 29273 passed, 1\nfailed (horizonte-visada, a 20 s timeout under load; 33/33 alone in 9 s,\nuntouched by this lot).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1270c06",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1270c062b1d1d892429b75555ec17ccc6418675e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:55:15.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(sync): the access-request read after a tail never rejects\n\ntutorial 2026-11-25: A7 follow-up. _lerPedidosPendentes is not awaited, and\nits visitor guard ran outside the try: a session context without isVisitor\n(the double of descarte-que-sobrevive-a-saida.repro.test.js) turned into two\nunhandled rejections in the full frontend run. The guard moves inside the try,\nso the promise really never rejects, as its JSDoc says.\n\nProof: the full frontend suite reported the two unhandled rejections; after\nthe move, that file and sync-engine.test.js run 141/141 with none.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "85f2105",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/85f2105c84256aaa8f33fd0f84429090edb0b584",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:48:51.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(busca): alias \"São Cristóvão\" for the village the tiles write \"São Crstóvão\"\n\nRoot cause: the name comes misspelled from the data (an OpenStreetMap node in\nwestern Paraná that the Overture carries into the `division` layer of the\nTopográfica tiles), and the base map search indexes the tile's own name, so\ntyping the right name did not find the village.\n\nFix (owner's decision 12): the \"Plano Piloto\" mechanism, an alias in\nvocabulario/overture-v1.json applied at ingestion (apelidosDaFeicao, read by\n`alternativos` in ingestao/varredura.js). No subtype or state filter: the\nvillage may come as locality, localadmin or microhood, and any \"São Crstóvão\"\nis the same typo. The map label stays as the data writes it.\n\nThe alias reaches production only with a new ingestion of the base map\nsearch index (ingestao/ingerir.js): the index already loaded has no\nalternative name for the village.\n\ntutorial 2026-11-25: C10\nProof: tests/unit/busca-apelido-sao-cristovao.repro.test.js red on 938fd660b\n(1 of 3: the alias), green 3/3; negative control red; the house's alias test\n(busca-regras-de-entrada.test.js) green 21/21.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5ba8b88",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5ba8b881b41e2db57ec8f4fea938e2770f762779",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:47:42.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(import): a fit that hits the ceiling only centres, and the point anchors at the current zoom\n\ntutorial 2026-11-25: A4 (owner's decision: option b). The import framed with\nfitBounds (maxZoom 16) and anchored sizeCreatedAtZoom/labelCreatedAtZoom at\nthe fit's zoom. A single point, or a group tighter than z16 shows, lands on\nthe ceiling, so with the view at 12 the point was anchored at 16 and, back at\n12, drew at 2^(12-16) = 1/16 of a point drawn there.\n\nImportControl._planoDoEnquadramento decides once, by the same camera\narithmetic (cameraForBounds with ENQUADRAMENTO_DO_IMPORT): when the fit's zoom\nis >= maxZoom, the camera only centres (easeTo with the centre, no zoom) and\nthe anchor is the current zoom, as for a drawn point; below the ceiling it\nframes and anchors at the fit as before (the fix of the inflated point of\n2026-10-28, a7588af17, which had no test). The map's zoom default still rules\n(zoomDeReferenciaNaCriacao). Both framing doors of the import (GeoJSON family\nand KML/KMZ) go through _zoomDoEnquadramento and zoomToFeatures; no other door\nframes features it creates (paste does not frame; \"Pontos por Coordenadas\"\nhas its own owner-decided rule).\n\nProof: tests/unit/ponto-importado-no-zoom-de-trabalho.repro.test.js. Red on\nbase (single point and tight group at 0.625 instead of 10 on screen at z12),\ngreen with the fix (4/4), red again with it reverted. The inflated-point case\n(view 6.5, spread file fit 10.4, anchor 10.4, still framed) and the map-default\ncase are green on base and stay green.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0fa6e95",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0fa6e9527c107b49ceec9c8b9799dbedb2acb73e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:42:58.000Z",
+      "author": "Maj Diniz",
+      "message": "docs(ajuda): Informações da Carta answers on the Topográfica too\n\nRoot cause: ferramentas/informacoes-da-carta.mdx was written when the tool\nread only the chart (edgv_*); since 2026-11-21 it also answers on the\nTopográfica (ehIdentificavel, painelDoMapaBase in\nvector_info/identificar.model.js), and the page kept saying to switch to the\nDSG and that the Topográfica shows nothing.\n\nFix: the steps name DSG or Topográfica; \"Ler o resultado\" says how each one\nreads (the DSG's technical type after \"Atributos:\", the Topográfica's name and\ntype in Portuguese, \"Sem outros atributos\"); the caution and \"Se não deu\ncerto\" say only the satellite images show nothing. extrair-do-mapa-base.mdx\npoints to it as \"um objeto do mapa de fundo\".\n\ntutorial 2026-11-25: C11a\nProof: tests/unit/ajuda-informacoes-da-carta-topografica.repro.test.js, pinned\nto the code (a Topográfica road is identifiable and its title is the one the\npage shows), red with the old page, green with the new.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "89dcc5c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/89dcc5c92f6f5c6dc72c88859bca249ebfbe179d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:40:18.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(mailer): e-mail subjects without the dash, \"EBGeo: <assunto>\"\n\nRoot cause: the five subjects of src/utils/mailer.js joined the system's name\nand the subject with \" — \" (\"Confirme sua conta — EBGeo\", \"EBGeo — redefinição\nde senha\"), and no test asserted any subject. The repo had no other subject\nseparator, so decision 11's fallback applies.\n\nFix (owner's decision 11): \"EBGeo: Confirme sua conta\", \"EBGeo: Confirme o\nseu novo e-mail\", \"EBGeo: Tentativa de usar o seu e-mail\", \"EBGeo:\nRedefinição de senha\", \"EBGeo: Cadastro não concluído\".\n\ntutorial 2026-11-25: C9\nProof: tests/unit/assunto-dos-emails.repro.test.js (each message through a\ncapturing transport: exact subject, no dash in subject or body) red on\n938fd660b (5 of 6), green 6/6; negative control red 5 of 6.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1ae4c85",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1ae4c857e066b17c5b0119d24438f495dc503355",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:36:57.000Z",
+      "author": "Maj Diniz",
+      "message": "test(map-sharing): the echelon scenarios point to the A7 fix\n\ntutorial 2026-11-25: A7 follow-up, header only.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8a12c32",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8a12c322884d43c645b68d6b48468216902b6c29",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:36:48.000Z",
+      "author": "Maj Diniz",
+      "message": "test(texto): the C8 census title without a template curly (no-template-curly-in-string)\n\ntutorial 2026-11-25: C8 follow-up; eslint --max-warnings 0 on the file is clean.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "0233df4",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0233df425440a4c67b1d4dc5ad19209b61317ee2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:36:34.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(map-sharing): read the access-request counters after a sync by the tail\n\ntutorial 2026-11-25: A7 (owner's decision of 2026-11-25: a read-only route).\nA pending access request writes nothing to the atlas log, so whoever\nadministers the map and was offline when it was made came back through the\nTAIL (zero operations, no pedidosPendentes) and the row of the map showed no\ncounter until the next full snapshot. The snapshot and the live frame\n(map_access_requests) were right: measured in the three echelon scenarios of\npedidos-de-acesso-no-escalao.test.js.\n\nBackend: GET /atlas/:atlasId/pedidos-pendentes (additive; auth, the caller's\nview, 404 without relation) answers { porMapa } with every map the caller\nadministers (administraMapa over the view, zero included) and nothing about\nany other map. Registered in the read census; listed in backend/README.md.\n\nClient: after a tail, at the opening pull and on a sync_response without a\nsnapshot, the engine reads the route (not awaited, best effort, skipped for\nthe public-link visitor) and applies each count through the same function as\nthe live frame (aplicarContadorDePedidos: access index + MAP_MODIFIED, which\nthe Maps tab already rereads on). The sync envelope and the tail are unchanged.\n\nProof: frontend/tests/integration/sync-engine.test.js \"REPRO A7\" red on base\n(counter 0 after the tail, opening and reconnect), green with the fix, red\nagain with the client files reverted. backend/tests/integration/\npedidos-pendentes-do-atlas.test.js green (owner sees all, the Gestor of one\nmap sees that map and its submap, the requester sees nothing, a stranger\n404); negative control: with the administraMapa filter dropped, the Gestor and\nthe requester cases go red.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "a005601",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a0056019f78c6ec76e309a1f202336ba3f5d5687",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:36:33.000Z",
+      "author": "Maj Diniz",
+      "message": "test(panels): braces in the census walk of the A2 repro (lint curly)\n\ntutorial 2026-11-25: A2 follow-up, no behavior change.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "78eaa1a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/78eaa1a14056f6ea707340b7b86385c074fc0de4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:36:29.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(texto): the count of features agrees with the number (\"1 feição\", \"2 feições\")\n\nRoot cause: seven doors interpolated the number straight into \"feições\" with\nno singular branch: the map card's statistics (maps.tab.js), the KMZ export's\nsuccess, the convex hull's description, the undo label of a mixed creation,\nthe multiple-selection header and the temporal batch section's title and\nbutton; the rest of the house already wrote `n === 1 ? '1 feição' : ...`.\n\nFix (owner's decision 9): each door takes the singular branch.\n\ntutorial 2026-11-25: C8\nProof: tests/unit/contagem-de-feicoes-concorda.repro.test.js, a census of every\n`${n} feições` of frontend/src/js (the same n compared in the line or the\nthree before, an upper-case constant, or a listed count that is never one),\nplus the undo label itself; red on 938fd660b (7 doors), green after;\nnegative control red.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "e98b5be",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e98b5be78ca99cd639b41e7e245581089635c4b8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:33:56.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(info): Informações e Suporte names the Divisão de Geoinformação do 1º CGEO and writes the ordinal\n\nRoot cause: modals/info.modal.js said the system is developed by the\nDiretoria de Serviço Geográfico, and the CGEO cards (and the secondary server\nnotice) wrote \"1° CGEO\", \"7° Centro\" with the degree sign where Portuguese\nwrites the ordinal.\n\nFix (owner's decision 6): \"O sistema é desenvolvido pela Divisão de\nGeoinformação do 1º Centro de Geoinformação (1º CGEO)\", the contact stays\nebgeo@dsg.eb.mil.br; every \"N°\" ordinal of a Centro or CGEO becomes \"Nº\"\n(the class, in the secondary server notice too, whose test follows).\n\ntutorial 2026-11-25: C7\nProof: tests/unit/info-suporte-autoria.repro.test.js (the modal's own HTML\nplus a census of the string literals) red on 938fd660b (2/2), green after;\nnegative control red 2/2.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "2963fa2",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/2963fa22c74b5f994b4bf70cdfadc10921c73657",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:29:38.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(texto): \"drone\" becomes SARP in every visible text of the screen and the Ajuda\n\nRoot cause: the video, live transmission and orthoimage doors were written\nwith \"drone\" (the recon video style, the live layer, the Atlas settings, the\npoint marker, the data style's colour/label/recipe, the ADS-B category, the\n\"Transmissões ao vivo\" refusal of the backend, the base map group name) while\nthe data style already said \"Imagens de SARP\".\n\nFix (owner's decision 8): every visible string says SARP. Keys and ids stay\n(`drone` as the transmission origin, `ponto-drone`, `recon-drone-`), the\nCatálogo's search words keep \"drone\" as a synonym (catalog-search.js), the\nAjuda keeps it in `palavras`, in the pasted firewall command and in the page\naddress `acompanhar-o-drone-ao-vivo` (title and text change). Tests that\nasserted the live layer's sentences change with them.\n\nThe group name in backend/scripts/grupos-do-mapa-base/carta-ortoimagem.json\n(\"Imagem de SARP\") only reaches production when that script is run again\nwith --aplicar: the row already loaded keeps \"Imagem de drone\".\n\ntutorial 2026-11-25: C6\nProof: tests/unit/drone-vira-sarp.repro.test.js, a census of every string\nliteral of frontend/src/js and backend/src, of the base map group names and of\nevery prose line of the Ajuda; red on 938fd660b (3/4), green after; negative\ncontrol red 3/4.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "923911c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/923911c1635167a4c80ee97765da6308689ef7ad",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:24:25.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(texto): \"Travar\" becomes \"Bloquear\" in every visible text of the screen and the Ajuda\n\nRoot cause: the lock of maps, layers, features and carta items was named two\nways, \"Bloquear\" in some doors and \"Travar\"/\"Destravar\"/\"travado\"/\"trava\" in\nothers (carta editor menu, properties and item list, Histórico phrases,\nReagendar, field units, live layers, detections, the attribute table, the\nmap tree), and the Ajuda said both.\n\nFix (owner's decision 7): every visible string becomes bloquear,\ndesbloquear, bloqueado, bloqueio. Identifiers, CSS classes, keys and\ncomments stay; the freezing sense stays (\"o vídeo trava\", \"para não travar a\nmaquete\"); the Ajuda's `palavras` keep \"travar\" as a search synonym, as\ndecision 8 keeps \"drone\" in the Catálogo's search; novidades.mdx is history.\nTests that asserted the old words change with them (cartas menu labels,\nHistórico \"Bloqueou a camada\", Reagendar's \"feições bloqueadas\").\n\ntutorial 2026-11-25: C5\nProof: tests/unit/travar-vira-bloquear.repro.test.js, a census of every string\nliteral of frontend/src/js and backend/src (espree tokens, comments never\ncount) and every prose line of the Ajuda; red on 938fd660b (36 strings, 26\nlines), green after; negative control red.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "04afc30",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/04afc301767944494e4b916300632aa97260d3c0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(measure): the angle is the smaller one, 0 to 180, with the arc on that side\n\nOwner's decision 1 (2026-11-25). Root cause: calculateAngle returned the\nclockwise sweep from the first ray to the second (0 to 360), and the arc\n(generateArcCoordinates, called with the bearings in click order) followed\nthe same sweep: a right angle clicked counterclockwise measured 270, with the\narc outside.\n\nFix: calculateAngle returns min(sweep, 360 - sweep), keeping the modulo form\nthe azimuth census requires; minorArcBearings orders the two bearings so the\nclockwise sweep is the smaller side, and both arc sites of\nMeasurementAngleControl (preview and finalize) use it, so the label (the\narc's midpoint) sits on the side of the value. The results panel and the\nlabel read the same value; no other screen shows it.\n\ntutorial 2026-11-25: B9\n\nProof: tests/unit/medir-angulo-menor-angulo.repro.test.js, red on 938fd660b\n(90 measured 270; the order changed the value) and, for the arc cases, red\nwith the src reverted (120/30 and -170/170 swept the big side), green after.\nChanged measurement-geometry.test.js: it asserted the clockwise 270 and the\n[0, 360) range.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "cc35946",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/cc35946dc272caada6726e332e79fd330ee4f3b8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:58.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(account): the avatar initials come from the war name\n\nOwner's decision 2 (2026-11-25): the initials of the account corner come from\nthe war name (BRASIL gives \"BR\"; a two-word war name gives both initials),\nwith the login when there is none, and never with the rank.\n\nRoot cause: the client session kept only username (the login) and\ndisplayName (rank plus war name), and AccountControl._render and createAppBar\ndrew getInitials(login). The account record (/auth/me, /auth/login) already\ncarries nome_guerra, so this is not a server contract change.\n\nFix: sessionUserInfoFromMe emits nomeGuerra (trimmed, null when blank),\nSessionContext keeps it under the same preserve-when-omitted rule as\ndisplayName and clears it with the session, and the two account surfaces draw\ngetInitials(nomeGuerra || login). The avatar color key (userId) is unchanged.\n\ntutorial 2026-11-25: B8\n\nProof: tests/unit/iniciais-pelo-nome-de-guerra.repro.test.js, red on\n938fd660b (nomeGuerra undefined, initials of the login), green after, red\nagain with the src reverted. Changed nome-militar-na-conta.test.js (it pinned\nthe initials to the login), session-context.test.js and sync-engine.test.js\n(strict shapes of the hydration, now with nomeGuerra: null).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "d58dc11",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/d58dc11d14758434211f740f664d29ad57c5a3b4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:57.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(presence): a colleague's cursor has the color of their avatar\n\nRoot cause: RemoteCursorsLayer._createElement colored the marker by\ngetPresenceColor(clientId), and the clientId carries a per-tab suffix\n(operation-factory.js), while the roster of who is online colors by\nuserId || clientId; the comment promised the same key. The cursor frame\ncarries both (collab.handlers.js sends clientId and userId), and the presence\nstore keeps them on the cursor entry. So the cursor had another hue than the\navatar, and a new one on every reconnect.\n\nFix: the cursor color comes from cursor.userId, with the clientId only when\nthe frame has no user.\n\ntutorial 2026-11-25: B7\n\nProof: tests/integration/cor-do-cursor-e-a-do-avatar.repro.test.js, real\npresence store: red on 938fd660b (cursor #65a30d, avatar #0d9488; another\ncolor on the second tab), green after, red again with the src reverted.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7350685",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/7350685310070236f84f415ea73fabc4ff6074b4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:56.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(ui): factors on screen with a decimal comma and the × sign\n\nRoot cause: the playback speed of the timeline bar and the vertical\nexaggeration of the atlas settings (four sites) interpolated the raw number\nfollowed by the letter x, with the JavaScript point: \"0.5x\", \"1.5x\". The\nowner's decision 10 is the form reconhecimento-janela.js already used,\n\"0,5×\", \"1,5×\".\n\nFix: textoDoFator in utilities/decimal-ptbr.js (zero imports), used by the\nfive sites and escaped where it goes into markup (html-interpolado-censo).\nThe options keep their numeric value.\n\ntutorial 2026-11-25: B6\n\nProof: tests/unit/fator-com-virgula-e-vezes.repro.test.js, a census over\nsrc/js for an interpolation followed by a glued \"x\": red on 938fd660b with\nthe five sites, green after, red again with the src reverted. Changed\ntests/e2e-ui/static-modals.spec.js: it read the mirrored value with\nparseFloat, which stops at the comma; it now swaps the comma first. Run once\nwith --retries=0: 4 passed.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "74a6250",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/74a6250e4cbf3f052034ac457d6ec6d8b7b49f65",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:55.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(trajectory): the comment on \"Limpar\" says what the store does: it undoes\n\nThree texts disagreed: the confirmation (fraseDeLimpezaDeTrajetoria) says the\nclearing undoes with Ctrl+Z or Desfazer; the comment on the button in\ntemporal-attributes-section.js said no trajectory edit is undoable; and the\nHelp page says Limpar does not undo. The proof is the real store over\nfake-indexeddb: the clearing writes through updateFeature with a transform on\nthe current map (the call persist makes), and undoLastAction gives the whole\nroute back. The confirmation was right and the comment wrong; the Help text\nis proposed in the campaign report (front C owns ajuda/).\n\ntutorial 2026-11-25: B5\n\nProof: tests/integration/limpar-trajetoria-se-desfaz.repro.test.js, green on\n938fd660b and after (it decides which text is true; no behavior changed).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "5a17a0f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/5a17a0f243d48936a07f4f77762794023e91a206",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:54.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(trajectory): right-click while adding stops the map context menu\n\nRoot cause: TrajectoryEditControl._onCanvasContextMenu listens in the CAPTURE\nof the canvas and ContextMenuControl._onRightClick on the same canvas without\ncapture. The vertex branch called preventDefault and stopPropagation; the\n\"Adicionar no mapa\" branch only preventDefault, and the menu opened because\nhasActiveTool() is false while adding (the editor is not a tool). The other\nbranches return on purpose (Mac Ctrl+click, no feature, no vertex under the\npointer, where the map menu should open).\n\nFix: stopPropagation in the adding branch too.\n\ntutorial 2026-11-25: B4\n\nProof: tests/unit/trajetoria-botao-direito-no-acrescimo.repro.test.js, with a\ncanvas double that dispatches capture then bubble listeners at the target and\nhonors the stop flag: red on 938fd660b (the map menu listener ran once),\ngreen after, red again with the src reverted; the control case (not adding,\nno vertex) still opens the menu.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "08e5482",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/08e54828ac574e69820421237464ab0ab1530fcb",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): the relative mode shows the bar's window and keeps it automatic\n\nRoot cause, in two places. TemporalSettingsModal._offsetDisplay showed\nD + 30 units for an automatic end, a number no ruler drew; and\nresolverPatchDaConfig turned untouched blank bounds into EXPLICIT origem and\norigem + 30 * step, so a Save that only changed the unit froze the window and\nit stopped following the features.\n\nFix: the offset fields show TemporalControl.getBounds() for an automatic\nbound (the anchor and the default span when the bar has none), and the\nrelative mode keeps blank bounds null, as the absolute mode already did; the\ninversion is refused only when both ends exist. The now unused unitMs\nargument left resolverPatchDaConfig.\n\ntutorial 2026-11-25: B3\n\nProof: tests/unit/temporal-relativo-janela-automatica.repro.test.js, red on\n938fd660b (Fim showed 30 for a 5-day window; the patch carried inicio and\nfim), green after, red again with the src reverted. Changed\ntemporal-settings-modelo.test.js: it asserted the old 30-unit window as the\ncontract.\n\nThe strings that front C changes in these two files were not touched.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c7a5843",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c7a5843718419c4fe3d4c59c248be75d15b7a357",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:53.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(temporal): one validity gives the default 24-step ruler, not one step\n\nRoot cause: with a single validity (or features with only a start) the\nfeature extent has min == max, so resolveTimelineBounds fills both bounds and\nthe completion branch never runs; the fim <= inicio guard then widened the\nwindow by ONE unit (inicio + unitToMs), while every other completion uses\nDEFAULT_TIMELINE_SPAN_UNITS. The ruler stayed stuck in the first hour after\nthe first dated feature.\n\nFix: the degenerate window gets the same span as a missing end.\n\ntutorial 2026-11-25: B2\n\nProof: tests/unit/linha-do-tempo-uma-validade-so.repro.test.js, red on\n938fd660b in the four units (fim was inicio + 1 unit), green after, red again\nwith the src reverted. A comment in\ntemporal-controller-estado-e-aplicacao.repro.test.js said \"em um passo\" and\nnow says \"pelo vão padrão\"; its assertion is unchanged.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "3fa7a73",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3fa7a73c623b0c2b5e44922b33eeb6e014223368",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:52.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(search): choosing a place gives the keyboard back to the map\n\nRoot cause: the result row's mousedown calls preventDefault (so the list\nsurvives until the click), which keeps the focus in the search field, and\n_selectResult never moved it. KeyboardShortcuts.handleKeyDown leaves early\nwhile a text field has focus, so a tool key typed into the search; and Esc,\nwith the list already closed, cleared the search instead of releasing the\ntool.\n\nFix: _devolverFocoAoMapa focuses the MapLibre canvas (tabindex=\"0\") when the\nchoice takes the person to a place: address, place, locality and other API\nresults, a coordinate, and a local feature. Expanding a group (\"Mais N\") is\nlist navigation and keeps the focus in the field.\n\ntutorial 2026-11-25: B1\n\nProof: tests/unit/busca-escolha-devolve-o-foco-ao-mapa.repro.test.js, red on\n938fd660b (canvas focused 0 times on click, Enter and feature), green after,\nred again with the src reverted (negative control).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "1769d24",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/1769d242bfd05d3e46744a92edeeeaee7db55516",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:23:18.000Z",
+      "author": "Maj Diniz",
+      "message": "test(map-sharing): access-request counter in an echelon scenario, snapshot and live frame\n\ntutorial 2026-11-25: A7 (investigation, no fix). Three plausible scenarios of\ntwo accounts that only interact with each other (Cap owns the atlas, Ten asks\nfor a map of his): restricted submap, root map with a map-only participant,\nand a submap created with the Cap's socket already in the room. In all three\nthe Cap's snapshot carries pedidosPendentes = 1 and the live frame reaches a\nsocket whose view comes from carregarVisaoDoSocket (the gateway's loader),\nnot from a view built by hand. Green on base.\n\nWhat the probe found and this file does not pin: creating a request writes\nnothing to the log, so a Cap who was offline when the Ten asked comes back\nthrough the tail (zero operations, no counter) and sees the number only on\nthe next full snapshot. Closing it changes the sync contract (a marker, a\ntail field or a new route) and went to the coordinator.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "377e025",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/377e025626f2e28829097af42d66d9119910a475",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:16:16.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(historico): restoring the atlas leaves the map lock as it is\n\ntutorial 2026-11-25: A6. The `maps` entry of the restore table list left out\natlas_id, restrito, parent_id and importado_de, but not `locked`, so the copy\nof \"before\" put back the lock of that moment: a map locked after the moment\ncame back unlocked (and one unlocked after it came back locked). Owner's\ndecision of 2026-11-25: the lock stays out of the restore, like `restrito`.\n\nThe client's restore confirmation lists nothing column by column, so nothing\nthere promised the lock would come back; the \"Travou/Destravou\" phrase is the\nhistory list's description of a gesture, not part of the restore.\n\nProof: backend/tests/integration/historico-restaurar-nao-mexe-no-bloqueio.repro.test.js\n(own database, real sync pushes). Red on base (lock false after restoring a\nmoment before the lock), green with the fix (2/2), red again with it reverted.\nThe map name still comes back in both cases, so the map row is still restored.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "53e6455",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/53e64558055739c0112bc320af4f57cbcdfdcc5d",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:16:01.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(quill): the rich text editor speaks Portuguese (headings, link tooltip, button names)\n\nRoot cause: \"Heading 1/2/3\", \"Normal\", \"Visit URL:\", \"Edit\", \"Remove\",\n\"Save\" and \"Enter link:\" are Quill's own words, written by quill.snow.css as\nthe `content` of ::before/::after, and each toolbar button is named by its\nformat in English by modules/toolbar.js (aria-label \"bold\", \"list: ordered\").\nOnly the slide's size picker had been translated (briefing-editor.css).\n\nFix: css/quill-em-portugues.css, imported by the map page manifest, overrides\nevery English content of the house's formats with one class more than\nQuill's rule (quill.snow.css is imported on demand after the manifest and\nwould win a tie by order). traduzirBarraDoQuill (utilities/quill-helpers.js)\nsets a pt-BR title and aria-label on each control and a Portuguese example\nin the link box; createQuillEditor and the notes panel call it. Nothing in\nnode_modules is touched.\n\ntutorial 2026-11-25: C3\nProof: tests/unit/quill-em-portugues.repro.test.js red on 938fd660b (3/3),\ngreen after; negative control (CSS removed, manifest and helper reverted)\nred 3/3.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "7263250",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/726325024982886d7184e599ecf5498c8790f1b6",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T11:02:04.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(identificar): base map attributes kept as JSON text are read, not shown raw\n\nRoot cause: the Overture tiles keep the list attributes of a segment\n(road_surface, speed_limits, access_restrictions, width_rules...) as JSON\ntext, and valorDoAtributo (vector_info/identificar.model.js) passed that text\nto valorEmPortugues(String(valor)), which returns it as written: the panel said\n\"Revestimento: [{\"value\":\"paved\"}]\". The backend already parses `routes` the\nsame way (refsDaVia).\n\nFix: a JSON list or object is read; a list of {value} says its values (the\nsurface in Portuguese, REVESTIMENTOS_EM_PORTUGUES with the Overture enum),\nany other object says its leaves as \"chave: valor\" (between/when left out),\nan empty list leaves the attribute out. Text that only looks like JSON stays.\n\ntutorial 2026-11-25: C4\nProof: tests/unit/identificar-atributo-json.repro.test.js red on 938fd660b\n(2/2), green after; negative control red 2/2; identificar-no-mapa-base green.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c9185a8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c9185a892085e577dc5aef5870817b3e6180cef4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T10:59:24.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cartas): the card shows a real thumbnail of the sheet, kept on this computer\n\nRoot cause: `_cartao` (sidebar/tabs/cartas.tab.js) only drew a rectangle in\nthe paper's proportion with a CSS gradient, and nothing ever made a picture\nof the sheet.\n\nFix (owner's decision 5): when the editor closes, Folha.miniatura composes the\nitem canvases the sheet already painted (the export drawer's ink, frame\npreviews from previas-dos-quadros.js included) into an 80 px picture; once\nthe session's pending writes reach the store, it is kept in localStorage by\ncarta id with the stored document's signature (assinaturaDoDocumento, which\nlistarCartas now returns), and CARTA_MINIATURA_GUARDADA makes the tab redraw.\nA card whose document changed since, or was never closed here, keeps the\nrectangle. Nothing is added to the synced document, no column, no migration.\n\ntutorial 2026-11-25: C2\nProof: tests/unit/miniatura-da-carta.repro.test.js red on 938fd660b (4/4),\ngreen after; negative control (store files reverted, cache module removed)\nred 4/4.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "9e65c03",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9e65c035e6527f210dd160d058ec42afff747238",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T10:58:59.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(panels): \"Definir como padrão\" saves the pending feature edit too\n\ntutorial 2026-11-25: A2. The button in createModernButtons called\nonSetDefault() and then deselectAllFeatures({ skipSave: true }), and a\ndeselect with skipSave drops the pending panel edit: size 1.5, \"Definir como\npadrão\", reload, and the feature was back at 1 (the default kept 1.5). It now\nsaves by the same path as \"Salvar\" (doSave, with the undo batch), then sets the\ndefault, then deselects without saving again. Every tool that passes\nhasSetDefault goes through this button; the 3D and 360 panels build their own,\nbut they write each field as it changes, so they have no pending edit to lose\n(a census in the repro pins that list).\n\nProof: tests/unit/definir-como-padrao-salva-a-edicao.repro.test.js (real\nbuttons, fake control). Red on base (saveFeatures called 0 times), green with\nthe fix, red again with the fix reverted.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "42dc9d3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/42dc9d3154017bbeabb8ec947462d75b69261352",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T10:53:03.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (cont. 1): elogio do 2º Sgt Tolfo (despedida por transferência ex officio), designação em BI não prova trabalho feito (TREx suprimido por correção do chefe), cruzamento da atividade técnica e do ano corrente com o SAP 2.3.6 no SKILL.md e no learnings do fazer-elogio, e a linha no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "c21fdfa",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c21fdfac4cba2bed9c64b2a0c221eadac7ec6089",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T10:52:13.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(cartas): military and OM symbols get a legend sample in \"Gerar das camadas\"\n\nRoot cause: amostraDaFeicao only knew the area, line and point tools, so a\nmilitary_symbol (and the OM symbol, an image feature with simboloOm) fell into\n`return null` and into the \"de fora\" count, although the legend already draws\nan `imagem` sample and the export already decodes it.\n\nFix: a military symbol is an image sample grouped by SIDC (and custom fill),\nnamed after its catalogue entry (main icon subtype/type/entity); the editor\nturns it into an atlas image of the carta through subirImagemDaCarta, so the\ndocument keeps the contract's `imagemId` sample and no new schema field. The\nOM symbol is the contract's `simboloOm` sample, named by simboloOmNome. The\n\"de fora\" toast and the census reason follow; the Ajuda says the symbol enters.\n\ntutorial 2026-11-25: C1\nProof: tests/unit/legenda-simbolo-militar.repro.test.js red on 938fd660b (4/4),\ngreen after; negative control (legenda-das-camadas.js reverted) red 4/4.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "968a5cd",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/968a5cd18eb242afd69c220481ab15bea5fcfd62",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T10:51:47.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(map): first \"Salvar vista inicial\" says \"salva\", and names the map it saves\n\ntutorial 2026-11-25: A3 (and the fragile part of A1). saveMapPosition asked\nhasMapSavedPosition AFTER saveMapView, so the answer was always true and the\nfirst save read \"Vista inicial atualizada\". It is asked before now. The map is\npassed to saveMapView instead of the implicit current map, and a refusal by\nthe store (level, map lock) returns a failure instead of announcing a view\nthat was not written (same shape as clearMapPosition).\n\nProof: tests/integration/vista-inicial-primeira-vez-diz-salva.repro.test.js\n(real store, MapManager with a stand-in camera). Red with the fix reverted\n(message \"atualizada\" on the first save; locked map reported as success),\ngreen with it.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8c14454",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8c14454b3a6b1db2173f62c8e0a6ce3e22070149",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T10:51:45.000Z",
+      "author": "Maj Diniz",
+      "message": "fix(store): renaming a name-keyed map moves its key in the resolver too\n\ntutorial 2026-11-25: A1. In a local atlas the default map is stored under its\nNAME (\"Principal\") and the resolver registers it as Principal -> Principal.\nLocalRepository.renameMap (legacy branch) moves the record to the new name and\nremoves the old key, but mapResolver.renameMap kept the old id, so the next\nwrite by the new name (saveMapView, notes, any saveMap) resolved to \"Principal\"\nand re-created that record. After a reload the map came back as \"Principal\",\nholding the saved view, next to the renamed one without it.\n\nmapResolver.renameMap now re-keys a non-UUID id to the new name (same\nisValidUUID predicate as the repository branch), carrying access and creation\ninstant along.\n\nProof: tests/integration/renomear-mapa-padrao-e-salvar-vista.repro.test.js\n(real store over fake-indexeddb, reload by fresh modules). Red on base\n(['Operação Alfa', 'Principal'] after reload), green with the fix, red again\nwith the fix reverted (negative control).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "15fb504",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/15fb504416318212894c62d2b9b21eccd30d7b64",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T10:22:16.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25: conferência do SAG de 25 NOV fechada sem nada a lançar (reconta em delta zero no exercício e nos RPNP, só as diferenças conhecidas de 24 NOV, a liquidação dos cinco empenhos de 17 NOV ainda por vir com a tela ns da 160382 parada em 19 NOV), linha no estado do ciclo e bloco datado no detalhe da skill\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "34b8a69",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/34b8a69e023b85aa1e811df9d0e6d9a1ecb21d40",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-24T20:23:40.000Z",
