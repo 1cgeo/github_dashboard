@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-25T19:52:23.252Z",
+  "lastUpdate": "2026-11-26T02:45:24.206Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-25T19:19:58.000Z",
+    "1cgeo/ebgeo_web": "2026-11-26T00:30:57.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-25T19:37:48.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-26T01:06:10.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11211,
+    "totalCommits": 11219,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3690,
+      "1cgeo/ebgeo_web": 3695,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1513,
+      "1cgeo/chefe_dgeo": 1516,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 51,
@@ -191,6 +191,78 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T01:06:10.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (EBGeo, deploy nas três instâncias e figuras da Ajuda): 952e36f02 no ar na DSG, no 1º CGEO e na estática (decisão com o raio de explosão); palavra-chave \"São Simão\" no modelo da Invernada Capões nos dois servidores; estado de dez projetos do EBGeo depois do deploy (cartas, curso, deslocamento, roteamento, reconhecimento, campo, rastreio, velocidade dos tiles, figuras da Ajuda e busca no mapa base); o cache do Vite dividido entre worktrees na wiki ebgeo-web; a triagem da lista \"depende do chefe\" em conventions/subagentes; o gesto do safe.directory e do deploy em paralelo no learnings da atualizar-dockers; uma linha no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHBKwYvJau6Nhushpt",
+      "sha": "49e1ccc",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/49e1cccf07a4fdcd8fb070127940657a4a5c6f6f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-26T00:30:57.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: figuras regravadas depois do canto do mapa sem atribuição e do Meu Acervo em pílulas (c3dce08c2)\n\n152 mídias regravadas pelo motor, por seleção e não pela rodada completa:\nas 3 do Meu Acervo (sub-abas em pílula e os botões do painel), 117 das 119\nda lista do \"i\" da atribuição e 32 que a conferência das outras achou com o\npé do mapa no quadro (coordenadas, seletor do mapa base ou a coluna da\ndireita), l3-vista-01 entre elas. Retrato do catálogo renovado: o de 16/11\nnão tinha a busca do Overture nem a Rota no grupo Análise.\n\n- l3-vista-01: o recorte volta até a borda de baixo, sem a atribuição.\n- Sete tomadas paravam o cursor em 1240, 770, que com a coluna 18 px mais\n  baixa cai na bússola e abre a dica \"Orientar para o norte\" por cima do\n  Terreno; o cursor desce para 1240, 790.\n- briefing-horizonte-01 é a gravação aprovada com o retrato de 16/11: com\n  o novo, a lista de orientações salvas veio vazia duas vezes.\n- Ficam as de HEAD: v2-base-atlas-02 e v2-terreno-cobradio-01 (clipe\n  com 19 s e 22 s, acima do teto de 15 s, em três rodadas e com os dois\n  retratos) e as figuras do editor de carta, que não mostram o canto.\n\nNenhum alt mudou. Sem deploy.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHBKwYvJau6Nhushpt",
+      "sha": "952e36f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/952e36f0286efef38fcffdf4e242b5db5c68d999",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T22:10:14.000Z",
+      "author": "Maj Diniz",
+      "message": "Carta: a Escala mantém o valor depois do Enter; testes de tela com cache do Vite próprio por checkout\n\n- Editor de carta: o foco que o painel devolve depois do redesenho (o Enter grava, o painel se refaz) não esvazia mais a Escala; só o foco da pessoa esvazia o campo para abrir a lista inteira de escalas. Antes a escala ficava gravada, mas o campo aparecia vazio, como se o Enter a tivesse apagado. Repro: tests/unit/cartas-escala-enter-mantem-valor.repro.test.js (vermelho na base).\n- Camada de tela (Playwright): o Vite do vite.e2e.config.js usa um cacheDir por checkout (tests/e2e-ui/cache-do-vite.js), fora do node_modules/.vite dividido que o Vite de outra worktree apaga ao subir (504 em módulo, medido no motor da Ajuda em 745c47911: 5 de 5 com o cache dividido, 0 de 5 com cache próprio). Os dois specs que importavam de /node_modules/.vite/deps passam a ler o caminho do cache novo (DEPS_DO_VITE); um teste unitário barra a volta do caminho antigo.\n- ajuda/roteiros/README.md: a armadilha da Escala registra o conserto do editor.\n\nTestes, uma vez: test:frontend 29.732 de 29.745 (3 vermelhos: dois de tempo sob carga, que passam sozinhos, 69 de 69 com os testes novos; e o dist/ ausente na worktree nova); ajuda:test com código 0; os dois specs alterados 6 de 6 em portas próprias; lint limpo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHBKwYvJau6Nhushpt",
+      "sha": "9fec67c",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9fec67cda9deb2cb9166f03951e71a99435a45c0",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T21:37:33.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: motor de mídia com cache do Vite próprio e escrita na Escala sem estouro de tempo\n\nA falha intermitente da cartas-10 tinha duas causas, as duas medidas em 2026-11-25.\n\nFalha A (legenda sem os itens do mapa base, aviso \"Não foi possível carregar esta\nfunção\"): o Vite do motor dividia o node_modules/.vite com toda worktree pela junção,\ne o Vite que sobe com outra configuração apaga o deps ao subir e só o devolve segundos\ndepois. O import() de cartas/legenda-do-mapa-base.js pede o maplibre-gl-style-spec\npela primeira vez e recebia 504 nessa janela. Com a re-otimização forçada de outro\nprocesso nessa janela, 5 de 5 rodadas falharam com o cache dividido e 0 de 5 com o\ncacheDir próprio (lib/vite.motor.config.mjs, node_modules/.vite-motor-ajuda, no molde\ndas bancadas); depois, 6 de 6 rodadas limpas aprovadas.\n\nFalha B (tempo estourado em escreverNoCampo): o painel refeito depois do Enter devolve\no foco à Escala nova, que esvazia ao ganhar foco. Uma sonda de 30 escritas deu 12\nestouros com o gesto antigo e 0 com o blur dentro da espera.\n\nArmadilhas no README dos roteiros. Sem deploy.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHBKwYvJau6Nhushpt",
+      "sha": "745c479",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/745c479111a4f23b1cc8d8c3967cc522024840f4",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T21:17:30.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (EBGeo Web, mudança de tela): mapa principal sem atribuição, Contas paradas e Lixeira vencida dentro de Usuários, aba \"Postos e OM\" e botões do Meu Acervo na `main` (c3dce08c2, sem deploy); a decisão com o risco aceito e a de 2026-11-04 marcada como superada; o prompt das figuras da Ajuda (3 do Meu Acervo e 189 mídias com o \"i\") e o estado dos dois projetos; os censos e o banco de desenvolvimento atrás das migrações na subwiki; a lição da obra em três frentes em conventions/subagentes\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "10f37f0",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/10f37f005fa05c64d6a68f26c94387f662d1bd7b",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T21:12:04.000Z",
+      "author": "Maj Diniz",
+      "message": "Tela: mapa principal sem atribuição, Contas paradas e Lixeira vencida dentro de Usuários, aba \"Postos e OM\" e botões do Meu Acervo no padrão do painel (o chefe, 2026-11-25)\n\n- Mapa principal: sai o controle de atribuição do MapLibre, no computador e no\n  celular, e as duas colunas do canto inferior direito voltam à distância da\n  borda de antes de 908a06fda. Supera a decisão de 2026-11-04.\n- Administração: \"Contas paradas\" e \"Lixeira vencida\" saem do trilho e viram\n  partes da aba Usuários, numa fileira só. O endereço antigo ?aba=paradas\n  continua chegando; rotas, gates e papéis não mudam.\n- Administração: a aba \"Pessoal\" passa a se chamar \"Postos e OM\" (só o rótulo).\n- Meu Acervo: os comandos da tela usam as classes do painel, e as sub-abas a\n  navegação em pílula do Catálogo.\n\nVerificado: lint limpo, test:tocados (2048 arquivos, 29740 casos) e os specs de\nPlaywright das telas mexidas (27 casos). Sem deploy.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFL8KCQQbisLUKCfYVM",
+      "sha": "c3dce08",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/c3dce08c29b5a654dc280423f6beef1f7b9c3f30",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-25T20:39:03.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-25 (DSGDEM, áreas do ANADEM): receita e scripts de inferir em área pedida por terceiros e montar a entrega na skill avaliar-mdt (scripts/entrega_areas, com a conferência que reprova); o PALSAR como insumo frágil e a queda da JAXA na wiki gabdem; estado e números contra o ANADEM v1 em avaliacao-gabdem; bloqueio e decisão aberta D5 em gabdem-ia; lição de fonte de insumo na skill de campanha; decisão do chefe pela entrega sem PALSAR; duas linhas no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFMux7Z132EkppjrhpT",
+      "sha": "5f5ac16",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/5f5ac162d606fbad7f5c1e7635b498cb77b8d02f",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-25T20:26:14.000Z",
+      "author": "Maj Diniz",
+      "message": "ajuda: figuras do editor de carta depois do compositor de 2026-11-25\n\nRegravadas pelo motor (sem deploy):\n- cartas-08: a legenda MANUAL com a parte Gerar das camadas, pelo fluxo novo\n  (converte a automática antes de gerar); alt reescrito.\n- v2-desenho-carta-grade-01: o painel rola até o botão Padrão DSG, que aparece\n  inteiro acima do anel (a Moldura saía cortada); alt reescrito.\n- cartas-03: o quadro com a prévia automática; a tomada reprova se o painel\n  ainda tiver Gerar prévia ou não tiver Atualizar prévia.\n\nNovas, no molde das cartas-0N:\n- cartas-10: a legenda automática (ponto, linha e área com nome, a legenda\n  Convenções ao lado do quadro, a parte Legenda automática realçada). A tomada\n  reprova a lista sem a parte do mapa base e o aviso na tela: numa rodada o\n  módulo não carregou e o motor aprovou a figura assim.\n- cartas-11: o Padrão DSG a 1:50.000, com a folha a 156 % no canto do quadro.\n- cartas-12: a grade alfanumérica (A a F, 1 a 4), que substitui a figura\n  emprestada da grade em grade-alfanumerica-da-carta.\n- cartas-13: o colega na folha, em dois navegadores pela presença real\n  (ctx.outroContexto): o ponteiro com o nome e a caixa tracejada no Norte.\n\nlib/cartas.mjs ganha os passos que as tomadas novas dividem (selecionar o\nquadro, escrever num campo, rolar painel e folha, esperar a lista parar).\nO alt de cartas-05 passa a citar a marca Preto e branco, que a figura mostra.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHBKwYvJau6Nhushpt",
+      "sha": "4fdaab3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4fdaab3175a63dc4d85861de72433b6100ec050a",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-25T19:37:48.000Z",
