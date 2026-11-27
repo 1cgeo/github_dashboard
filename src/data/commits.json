@@ -1,7 +1,7 @@
 {
-  "lastUpdate": "2026-11-26T19:30:15.617Z",
+  "lastUpdate": "2026-11-27T02:44:49.595Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-26T16:32:40.000Z",
+    "1cgeo/ebgeo_web": "2026-11-27T02:33:26.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-26T17:56:54.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-27T02:35:44.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11236,
+    "totalCommits": 11254,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,7 +136,7 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3701,
+      "1cgeo/ebgeo_web": 3711,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 45,
       "1cgeo/doc_topografica": 118,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1526,
+      "1cgeo/chefe_dgeo": 1534,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 52,
@@ -191,6 +191,168 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-27T02:35:44.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-marketing 2026-11-26: quinta versão dos dois vídeos curtos (vertical de 1 min 56 s e abertura de 1 min 28 s), na sequência do vídeo do PremIA e com as análises sem interface; segunda leva de correções do chefe na skill gravar-video-ebgeo (a ordem é a tese, não prometer o que o sistema não faz, análise sem interface, passagem contínua, emenda de frase, 25 para 30 quadros, ambiente do reconhecedor fora da pasta temporária)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "c0e77c5",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/c0e77c5ba7c4d1e868db0fa7e9f0e28ee1aa8f48",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T02:33:26.000Z",
+      "author": "Maj Diniz",
+      "message": "marketing: vídeo de abertura, quinta versão (1 min 28 s), com as análises sem interface\n\nPedidos do chefe da DGEO sobre a quarta versão (2026-11-26), com narração nova inteira:\n\n- Abre como o vídeo do PremIA: tela preta com \"Maio de 2024\" e \"Rio Grande do Sul · Operação\n  Taquari 2\"; a enchente entra na segunda frase.\n- \"A geoinformação já existia\" (carta topográfica, imagem de SARP, modelo 3D, fotografia 360°, em\n  grade) antes de \"Faltava a plataforma para disseminar\"; a base pronta fica com o país e o relevo.\n- As análises em tela cheia, sem barra lateral nem painel: o mapa antes e depois de cada cálculo,\n  e a predição QBRN regravada deitada (clipes.py, novo). A voz diz \"a rota, pela estrada ou através\n  do campo\" e \"área de perigo QBRN\".\n- As câmeras ao vivo com frase própria, longe da detecção de objetos; sai \"a base se renova com o\n  que a tropa vê\".\n- Passagens de cena sem mergulho no preto e sem título sobre título.\n- bancada: vertical-fotos.mjs aceita a janela deitada (FV_TELA) e vertical-qbrn-na-dsg.mjs também\n  (GA_TELA).\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "268359b",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/268359b620101821d1b463e1dc361b7972b20b03",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T02:07:20.000Z",
+      "author": "Maj Diniz",
+      "message": "marketing: vídeo curto vertical abre com a tela preta do vídeo do PremIA\n\nA abertura fria (Maio de 2024, Rio Grande do Sul, Operação Taquari 2) entra antes da enchente, a\npedido do chefe da DGEO; a data nasce parada no meio e só na saída sobe e encolhe.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "a479d56",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a479d5644bc51f6d79aebc145db9c848fe53e280",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T01:56:14.000Z",
+      "author": "Maj Diniz",
+      "message": "marketing: vídeo curto vertical, quinta versão (1 min 56 s), na sequência do vídeo do PremIA\n\nPedidos do chefe da DGEO sobre a quarta versão, em duas rodadas (2026-11-26):\n\n- A ordem segue a tese do vídeo do PremIA: a carta impressa não acompanhava; a geoinformação já\n  existia (carta topográfica, imagem de SARP, modelo 3D, fotografia 360°); faltava a plataforma;\n  nasce o EBGeo; a pilha (carta, imagem, análise, planejamento) com \"Do terreno à decisão\"; os\n  selos; e só então a base pronta.\n- A cota da água sobe na abertura (1,9 a 5,3 m); a linha de visada mostra o perfil do terreno; a\n  voz diz \"área de perigo QBRN\"; sai o briefing e fica a carta; os números do acervo entram juntos,\n  sem as organizações militares; Horizonte a 100 m e sobrevoo a 300 m do terreno.\n- Passagens contínuas: a cena que sai fica por baixo da que entra, e o texto que sai some antes de\n  o seguinte entrar.\n- emendar.py (novo): troca trechos da narração por outras gravações da mesma voz, no meio de\n  silêncio medido, sem regravar o resto (um parágrafo, uma frase e o corte do fim).\n- bancada: a parte visada-perfil (o gráfico do painel) e a altura do olho do sobrevoo.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "8f0a4bc",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8f0a4bc545e0010d9cba22af1406d555a611a2f8",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-27T01:16:49.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-26 (EBGeo, GeoPackage na main e obra da imagem): Exportar GeoPackage integrado (0bd12b17d) depois de duas rodadas de revisão independente; estado do projeto reescrito; contratos das duas obras; estudo do catálogo dentro da camada, com a decisão de não fazer agora; três decisões do chefe (a imagem como camada de catálogo, três origens num recurso, aval da obra); a fila das rodadas pesadas e o revisor que deriva a verdade de outro lado em conventions/subagentes\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKpLTiZFmcsT5jV1pN",
+      "sha": "2bee8d8",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/2bee8d88f76cca75cf9aeb25f0fb4612ee1ddcb2",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T00:59:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Plano de importação e exportação: a imagem como camada de catálogo, três origens num recurso e o aval da obra\n\nSó documento. Decisões do chefe da DGEO de 2026-11-26 tomadas depois da última versão do plano: a imagem georreferenciada se comporta igual à ortoimagem (camada de catálogo), a imagem por endereço é o mesmo recurso com cota zero, o GeoPDF se testa com um PDF do próprio EBGeo, e o catálogo dentro da camada não se faz agora.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKpLTiZFmcsT5jV1pN",
+      "sha": "0bd12b1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/0bd12b17d1df7b2508767e32646edb4aea65773e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T00:26:34.000Z",
+      "author": "Maj Diniz",
+      "message": "GeoPackage: o atlas inteiro num arquivo só, e os consertos da revisão independente\n\nDecisão do dono de 2026-11-26 e achados A1 a A8 da revisão da entrega A.\n- \"Exportar GeoPackage\" oferece o mapa ou o \"Atlas inteiro (todos os mapas)\":\n  as feições de todos os mapas legíveis na mesma tabela de tipo, com a coluna\n  mapa; ebgeo_camadas por (mapa, camada), porque todo mapa tem a sua default;\n  ebgeo_documento com escopo, mapas e a contagem por mapa. A lista do painel se\n  refaz a cada abertura.\n- Atributo de usuário lido só como propriedade própria (constructor, toString e\n  __proto__ numa feição sujavam as outras feições da tabela).\n- A leitura de volta não transforma texto com cara de JSON em objeto\n  (AUTODETECT_JSON_STRINGS=NO); a falha da listagem não vira \"camada\n  inexistente\"; o NUL sai das colunas de texto.\n- O aviso de nada para exportar diz o que o resumo sabe.\n- Testes: o ócio com duas operações concorrentes, a fila da queda para a thread\n  principal, o nada convertido, o atlas escrito e lido pelo GDAL real, e um spec\n  do Playwright que exporta um atlas de vários mapas pela tela.\n- Wiki, Central de Ajuda e plano: grupos fora e menu da camada para depois, por\n  decisão do dono.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKpLTiZFmcsT5jV1pN",
+      "sha": "b90d1d9",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/b90d1d95903801071145ae0eeb3e34c275ea7125",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T23:33:04.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-curso-ead 2026-11-26 (slides): padrão de tela anotada decidido pelo chefe depois da leitura de fora; apresentação e módulos 1 a 4 refeitos e em commit no ebgeo_web (e1e506f59); lições na produzir-curso-ead (a marca é dado, casar em três passadas, o texto decide as marcas, ferramenta de gesto, piloto antes de escalar); uma decisão e uma linha no livro-razão\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "519706f",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/519706f5fe4ed39811dcd93658cb70754790b927",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-26T23:31:53.000Z",
+      "author": "Maj Diniz",
+      "message": "curso: slides refeitos no padrão de tela anotada (a tela se mostra, não se descreve)\n\nDecisão do chefe da DGEO em 2026-11-26, depois da leitura dos módulos 0 a 2 por um leitor de\nfora: o slide deixa a tabela de opções e passa a mostrar o print do painel, do menu ou da janela,\ncom um número sobre cada controle citado e a legenda ao lado. Padrão em PADRAO.md, \"Os slides\".\n\n- motor/impressos/anotar.mjs (novo): casa cada opção da ficha com o controle na tela (em três\n  níveis, em todas as telas da ferramenta), empacota as marcas em recortes legíveis (painel alto\n  sai dobrado em tiras; janela larga inteira até 0,9) e desenha os números por cima.\n- motor/figuras/lib.mjs: toda captura grava <figura>.mapa.json (rótulos e controles com a caixa)\n  e <figura>.tela.jpg (a tela em miniatura). A marca é dado, não pintura.\n- motor/figuras/op-parana/grupos.mjs (novo): os quatro grupos da barra abertos, com o ícone de\n  cada ferramenta; é a figura da abertura de cada videoaula e o ícone do título.\n- compor-slides.mjs: slide de tela anotada, abertura com o grupo numerado, ferramenta de gesto\n  com \"Gestos e comandos\", telas na ordem de uso, texto da legenda decidindo quantas marcas\n  cabem; rodapé sem a data; `slide: false`, `slide_anotado` e `na_tela` na ficha (ESQUEMA.md).\n- Módulo de abertura vira \"Apresentação\", sem número; módulo 2 vira \"Editar, medir e navegar\"\n  (pasta m02-editar-medir-e-navegar).\n- Cenas: painel lateral das três ferramentas da 1.1 que abrem janela; os dois menus de Juntar e\n  Cortar (2.1); o botão de Compartilhar esta vista no canto da tela (2.3).\n\nApresentação e módulos 1 a 4 gerados sem problema na conferência (5, 40, 48, 40 e 41 slides);\n146 testes passam. Os módulos 5 a 10 entram no padrão quando as figuras da EBNet forem recapturadas.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "e1e506f",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/e1e506f590bd6b9ccd2dd9401013bc2751e0819e",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T23:13:33.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-26 (EBGeo, vento, câmeras, declividade e PITCIC): vento na caixa da América do Sul e câmeras de foto periódica com repasse no ar nos três destinos (ebgeo_web 1fea0b39e), 753 câmeras na DSG; duas câmeras antigas corrigidas e quatro desativadas; Declividade continental no mesmo registro do Catálogo, com miniatura nova; calco do PITCIC do Brasil decidido e parado em 11% (estado e consertos de calco.py e declividade.py no projeto); seis decisões e sete linhas no livro-razão; quatro chaves no env-guia; lições na atualizar-ebgeo-dsg (API pelo servidor com credencial pelo stdin, repasse, miniatura, troca de arquivo de camada), na subwiki do ebgeo_web e na convenção de subagentes (a prova longa é do pai); auxiliares api.sh e chamar.sh, conferir_vivas.py e os lotes da colheita do Brasil\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFHBKwYvJau6Nhushpt",
+      "sha": "60899de",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/60899de932ce79d91a452f35bfffc22694f0f375",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-26T22:52:55.000Z",
+      "author": "Maj Diniz",
+      "message": "GeoPackage: o motor vetorial do GDAL no worker e o Exportar GeoPackage na aba Exportar (T3)\n\nFase 1 do plano de importação e exportação, entrega A.\n- vendor/gdal-vetor.js: listar as camadas de um arquivo (geometria, sistema,\n  contagem declarada, outro corpo celeste, só raster), ler UMA camada como\n  GeoJSON em 4326 (tabela só de atributos sem reprojeção) e escrever um\n  GeoPackage com o esquema tipado por um VRT do OGR. Falhas com código próprio.\n  O motor de vendor/gdal.js passa de uma operação a quatro, pela mesma fila,\n  com o mesmo ócio e a mesma queda para a thread principal.\n- Depois de ler um File, /input volta a aceitar escrita (o WORKERFS ficava\n  montado e o PDF seguinte falhava no mesmo worker; medido no Chromium).\n- \"Exportar GeoPackage\" ao lado do GeoJSON, com o mesmo seletor de mapa: uma\n  tabela por tipo no esquema do EBGeo Desktop, eixo dos táticos como geometria e\n  o desenho em geom_desenho (WKT), SIDC e amplificadores em coluna, atributo com\n  apelido, props com as propriedades inteiras e duas tabelas de raiz\n  (ebgeo_documento, ebgeo_camadas). Onde o Desktop e o aceite divergem, vale o\n  aceite (docs/wiki/exportar-geopackage.md).\n- Testes contra o gdal3.js de verdade em node, a ida pela montagem e pelo motor\n  reais, e um spec do Playwright que exporta um atlas de 31 tipos pela tela e\n  confere a contagem por tipo do arquivo e a leitura de volta no worker.\n- Central de Ajuda (novidade e página de exportação), wiki e plano.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKpLTiZFmcsT5jV1pN",
+      "sha": "9f99986",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/9f999865490ab66fcb08d51553d1689a23429966",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T20:47:57.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-26 (EBGeo da DSG, retorno do autocadastro): o cadastro e o \"Esqueci a senha\" dizem na tela se a conta existe (veto do chefe à não enumeração), caixa \"Mostrar senhas\" sob o par e link de confirmação em página sem mapa, publicados na DSG em 8e428c197; roteiro do Pedro atualizado; na subwiki de desenvolvimento, como inverter um contrato de autenticação e as armadilhas da suíte\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "b1c9760",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/b1c97601c80a8945ce0a762c7e3b7c4b7ddca442",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T19:49:22.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-26 (EBGeo, pilotos de importação e exportação): bancada de navegador, manifesto dos 55 arquivos de teste e resultados brutos no projeto ebgeo-importacao-exportacao; estado do projeto reescrito com o que os pilotos disseram (GeoPackage passa, o GDAL do pacote não abre TIFF em JPEG e o geotiff.js abre, GeoPDF do QGIS pede recorte de moldura, o QGIS grava o estilo no GeoPackage); decisão do chefe (ferramenta própria ao lado da Figura, guarda local sem conta, georreferenciamento por pontos); wiki ebgeo-web e opengeos-licoes-ebgeo-web; três gestos de medida no learnings da medir-desempenho-web\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKpLTiZFmcsT5jV1pN",
+      "sha": "6fcc554",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/6fcc5542d5d6c8d5ae8c2d02b5b7fdb02056c1a5",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T19:49:14.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-marketing 2026-11-26: o vídeo de abertura não vai para o Drive, por decisão do chefe\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "e6e5707",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/e6e5707b7bc9de7f2025e1ec89b17d34c60a1b9e",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-26T19:45:48.000Z",
+      "author": "Maj Diniz",
+      "message": "Plano de importação e exportação: os números dos pilotos e as decisões que vieram deles\n\nSó documento, nada no código.\n\n- PLANO-IMPORTACAO-E-EXPORTACAO.md reescrito: o que os pilotos mediram no\n  Chromium e no Firefox com dados reais (GeoPackage, imagem georreferenciada,\n  GeoPDF e estilo do QGIS), as seis fases e o que ficou sem prova.\n- docs/decisions: a imagem georreferenciada ganha ferramenta própria ao lado\n  da Figura, fica guardada no computador quando não há conta e pode ser\n  georreferenciada por pontos de controle; o leitor de TIFF passa a ser o\n  geotiff.js, porque o GDAL do pacote não abre JPEG.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFKpLTiZFmcsT5jV1pN",
+      "sha": "dcfecf5",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/dcfecf51ce2e75b4da80bfa92947d5dc5b694741",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-26T19:42:39.000Z",
+      "author": "Maj Diniz",
+      "message": "ebgeo-curso-ead 2026-11-26: Capacitação EBGeo fechada, com a Parte B recapturada, o material na pasta pública e o curso em commit no ebgeo_web (ba1532d0a); quatro lições na produzir-curso-ead (passo com nome e prazo, figura sem cena sai da pasta, renomear não toca dado da instalação, cópia leve na entrega)\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "52e1e1c",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/52e1e1c2724c9cb6e3975a8bad4f845bf4c4f0d3",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-26T19:41:12.000Z",
+      "author": "Maj Diniz",
+      "message": "Autocadastro: diz na tela se usuário ou e-mail existem, \"Mostrar senhas\" sob o par, e o link de confirmação abre página sem mapa\n\nRetorno da turma do curso no EBGeo da DSG, decisão do chefe da DGEO de 2026-11-26:\n- POST /auth/register responde 409 USERNAME_TAKEN / EMAIL_TAKEN, e o formulário\n  pergunta antes, ao sair do campo, por GET /auth/register/availability; sai o\n  aviso por e-mail \"Cadastro não concluído\".\n- POST /auth/forgot-password diz por que não enviou (404 sem conta, 409 não\n  confirmado, 403 desativada, 503 envio falhou).\n- Uma caixa \"Mostrar senhas\" sob o par de senhas (cadastro e recuperação): o Tab\n  vai da senha para a confirmação.\n- ?verify= mostra só o desfecho, sem mapa e sem trava de aba, e avisa a aba do\n  cadastro por BroadcastChannel, que fecha o aviso e abre a entrada.\n\nA não enumeração foi recomendada e não acolhida; o custo está em\ndocs/decisions/decisions-2026.md.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "8e428c1",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/8e428c19700d53c5bcc52ba8fbe141a27ec7c192",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-26T19:40:22.000Z",
+      "author": "Maj Diniz",
+      "message": "curso: vira \"Capacitação EBGeo\", ganha o módulo 0 e acompanha a tela de 25 NOV\n\n- Nome: \"Capacitação EBGeo\" no lugar de \"Curso EBGeo\", sem a edição \"Op Paraná\" na\n  assinatura dos impressos, das cartelas e do quiz (assinaturaDoCurso em impressos/texto.mjs).\n- Módulo 0: slides de visão geral gerados da própria fonte (compor-visao-geral.mjs):\n  o que a capacitação cobre, num olhar e módulo a módulo, por parte.\n- Texto e cenas de captura acertados com a revisão de tela de 2026-11-25: sai o Romer\n  (4.3, vira Régua de conferência), \"Travar\" vira \"Bloquear\", a prévia da carta é automática,\n  a Legenda nasce automática, \"Seguir vias\" e \"Atração\" moram no grupo Utilitários, a Rota\n  liga o bloqueio por chave na aba Parâmetros do painel (7.3), e o Atualizar da QBRN refaz\n  a mesma predição.\n- Cena da Rota (7.3) com passos nomeados no log e prazo de 60 s por passo; a lista\n  Camadas de bloqueio é trazida para a tela antes da figura.\n\nConferência aprovada (3.356 rótulos contra o código) e 140 testes passam.\n\nCo-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_019yZGFLmvPorfwHvAAu5KeV",
+      "sha": "ba1532d",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ba1532d0a66c53a4cb7b7cf87d7adfd368c70bcd",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/chefe_dgeo",
       "date": "2026-11-26T17:56:54.000Z",
