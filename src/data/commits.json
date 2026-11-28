@@ -1,21 +1,21 @@
 {
-  "lastUpdate": "2026-11-27T19:26:28.058Z",
+  "lastUpdate": "2026-11-28T02:34:47.411Z",
   "repoLastUpdate": {
-    "1cgeo/ebgeo_web": "2026-11-27T18:13:48.000Z",
+    "1cgeo/ebgeo_web": "2026-11-27T22:27:51.000Z",
     "1cgeo/ebgeo_web@egbeo1.1": "2025-11-11T10:26:46.468Z",
     "1cgeo/servico_nomes_geograficos": "2026-07-26T14:30:30.000Z",
     "1cgeo/ebgeo_web_2": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2@refactor": "2025-11-11T10:26:46.468Z",
     "1cgeo/ebgeo_web_2_backend": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_ortoimagem": "2026-11-27T19:00:08.000Z",
-    "1cgeo/doc_topografica": "2026-11-27T19:05:36.000Z",
+    "1cgeo/doc_topografica": "2026-11-27T20:05:53.000Z",
     "1cgeo/doc_dgeo": "2026-11-27T15:00:19.000Z",
     "1cgeo/ferramentas_mgcp": "2026-06-05T15:21:07.000Z",
     "1cgeo/mgcp": "2025-11-11T10:26:46.468Z",
     "1cgeo/doc_mgcp": "2026-07-27T17:51:25.000Z",
     "1cgeo/doc_capacitacao": "2026-07-20T23:32:58.000Z",
     "1cgeo/ebgeo_web_2_admin": "2025-11-11T10:26:46.468Z",
-    "dsgoficial/modelagens": "2026-11-27T18:59:37.000Z",
+    "dsgoficial/modelagens": "2026-11-27T20:05:50.000Z",
     "dsgoficial/configuracoes_producao": "2026-10-05T15:43:51.000Z",
     "dsgoficial/ferramentas_edicao": "2026-11-09T12:57:32.000Z",
     "dsgoficial/DsgTools@dev": "2026-11-24T17:43:26.000Z",
@@ -57,7 +57,7 @@
     "1cgeo/github_dashboard": "2026-10-23T21:36:38.000Z",
     "1cgeo/pit_ia_2025": "2026-01-21T17:48:57.000Z",
     "1cgeo/autolabeller": "2026-11-10T10:06:18.000Z",
-    "1cgeo/chefe_dgeo": "2026-11-27T14:41:22.000Z",
+    "1cgeo/chefe_dgeo": "2026-11-27T22:55:21.000Z",
     "dsgoficial/curso_dsgtools": "2026-06-12T16:24:12.000Z",
     "1cgeo/ebgeo_backend": "2026-07-18T17:11:51.000Z",
     "1cgeo/ebgeo_web@integracao_backend": "2026-09-30T21:37:52.000Z",
@@ -67,7 +67,7 @@
     "1cgeo/dsg_topology": "2026-10-04T09:47:16.000Z",
     "1cgeo/dsg_versioning": "2026-10-12T21:03:12.000Z",
     "1cgeo/dsg-edit": "2026-10-15T19:47:46.000Z",
-    "1cgeo/ebgeo_produtor": "2026-11-16T17:46:38.000Z",
+    "1cgeo/ebgeo_produtor": "2026-11-27T21:00:27.000Z",
     "1cgeo/sap_master": "2026-11-09T12:17:34.000Z",
     "1cgeo/ebgeo_campo": "2026-11-14T22:09:32.000Z"
   },
@@ -126,7 +126,7 @@
     "1cgeo/ebgeo_campo": true
   },
   "stats": {
-    "totalCommits": 11279,
+    "totalCommits": 11293,
     "commitsPerYear": {
       "2024": 1513,
       "2025": 1802
@@ -136,16 +136,16 @@
       "2025": 35
     },
     "commitsByRepo": {
-      "1cgeo/ebgeo_web": 3719,
+      "1cgeo/ebgeo_web": 3728,
       "1cgeo/servico_nomes_geograficos": 29,
       "1cgeo/doc_ortoimagem": 46,
-      "1cgeo/doc_topografica": 119,
+      "1cgeo/doc_topografica": 120,
       "1cgeo/doc_dgeo": 565,
       "1cgeo/ferramentas_mgcp": 20,
       "1cgeo/mgcp": 19,
       "1cgeo/doc_mgcp": 36,
       "1cgeo/doc_capacitacao": 9,
-      "dsgoficial/modelagens": 176,
+      "dsgoficial/modelagens": 177,
       "dsgoficial/configuracoes_producao": 210,
       "dsgoficial/ferramentas_edicao": 509,
       "dsgoficial/DsgTools": 693,
@@ -172,7 +172,7 @@
       "1cgeo/ebgeo_360": 69,
       "1cgeo/ebgeo_backend": 40,
       "1cgeo/ferramentas_ebgeo": 33,
-      "1cgeo/ebgeo_produtor": 93,
+      "1cgeo/ebgeo_produtor": 94,
       "1cgeo/ebgeo_campo": 189,
       "1cgeo/sap_master": 44,
       "1cgeo/0Bug_Report": 3,
@@ -183,7 +183,7 @@
       "1cgeo/dsg-edit": 79,
       "1cgeo/pit_ia_2025": 8,
       "1cgeo/autolabeller": 154,
-      "1cgeo/chefe_dgeo": 1543,
+      "1cgeo/chefe_dgeo": 1545,
       "1cgeo/fotos_aereas": 32,
       "1cgeo/l2tools": 102,
       "1cgeo/ia_vegetacao": 53,
@@ -191,6 +191,132 @@
     }
   },
   "commits": [
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-27T22:55:21.000Z",
+      "author": "Maj Diniz",
+      "message": "EBGeo 416ab0ac5 nos três destinos (Cortar Polígono nas seis áreas, botão direito livre em mais cinco ferramentas): Decisions cont. 11; livro-razão do teste vermelho deixado na main pelo JSON da Ortoimagem; na criar-molduras, os traços do situacao_do_bdgex.py por código (o caractere literal escapou do guard no commit anterior)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "4cffcda",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/4cffcdac4cabe8ebda3f2f492643f252e52a9d34",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T22:27:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Legenda da Ortoimagem conta as quatro imagens, e novidade e decisão do corte nas seis áreas\n\nO teste da legenda esperava os dois itens de imagem do arquivo antigo; com a árvore dos servidores\n(bba186898) são quatro, todos fora da legenda por não terem camada no estilo, como antes.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "416ab0a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/416ab0ac5524e1324a08e8b5da4ceaf64631af1b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T22:02:51.000Z",
+      "author": "Maj Diniz",
+      "message": "Cortar Polígono para as seis áreas: formas viram polígono, portões seguem a borda\n\nO chefe da DGEO pediu o corte para todos os tipos de área. O gesto é o mesmo\n(\"Cortar Polígono\" no botão direito e no menu da feição, traçar a linha,\nbotão direito para cortar) e passa a valer para Polígono, Círculo, Elipse,\nRetângulo, Setor e Área de Coordenação; os resultados de análise ficam de\nfora porque são recalculados.\n\nAs formas guardam a receita (centro e raio, largura e altura) e regeneram o\ncontorno inteiro dela, então uma parte não pode continuar círculo: as partes\nnascem polígono comum, com o estilo, a etiqueta, a hachura, os dados e a\ncamada, e sem chave da receita. Para isso replaceLinearFeatures troca de balde\n(removedSource): a forma sai do dela e as partes entram em polygons no mesmo\nlote lógico e no mesmo passo de desfazer, e o Ctrl+Z devolve o círculo com o\nraio (provado na store real sobre fake-indexeddb).\n\nNa área de coordenação as partes continuam área, com símbolo, minas e\naltitudes. Cada portão é uma razão ao longo da borda, que não vale em outra\nborda: ele volta a ser o ponto na borda original, vai para a parte cuja borda\no contém (nunca a linha de corte; no cruzamento, a primeira) e ganha a razão\nmedida nela, recomposta a menos de 1 m. O texto posicionado segue a mesma\nregra e volta ao padrão na outra parte.\n\nAjuda: a página de juntar e cortar passa a cobrir as áreas, com título,\nlinks, barra e ARQUITETURA atualizados.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "13c5de3",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/13c5de3647f98d6155f8202312a8e021002c4cba",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T21:43:06.000Z",
+      "author": "Maj Diniz",
+      "message": "Botão direito com Ponto, Texto, Imagem, Azimute e Visada ligados abre o menu com o norte e a coordenada\n\nAs cinco não usam o botão direito, e o teste cobra a marca e a ausência de ouvinte em cada arquivo.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "4f1790a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4f1790a122d0ec4620ef15ee5c14bbbecaeedf19",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T21:34:24.000Z",
+      "author": "Maj Diniz",
+      "message": "Grupos da Ortoimagem: o repositório volta a ser o espelho dos servidores (Sentinel, Planet, SR e SARP separados)\n\nO arquivo juntava Sentinel, Planet e SR num item só, e um --aplicar com ele desfaria nos dois servidores\na divisão que o chefe da DGEO confirmou como a correta (2026-11-27). Copiado do /config da DSG, igual ao\ndo 1º CGEO; o dry-run do grupos-do-mapa-base.js diz \"já está gravado\" nas duas instâncias.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "bba1868",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/bba1868985075a08d93be78b1bfa6841d6bc1968",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/chefe_dgeo",
+      "date": "2026-11-27T21:27:28.000Z",
+      "author": "Maj Diniz",
+      "message": "retrospectiva 2026-11-27 (EBGeo, lote de onze pedidos e molduras do Brasil todo): o método das molduras do EBGeo (Fontes do BDGEx, SAP 3.0, carga com volta e régua) passa da pasta temporária para a criar-molduras; na atualizar-ebgeo-dsg, a API da DSG abre pelo nome público, a captura repassa o /martin e a bateria pede o backend instalado; na baixar-acervo-bdgex, o relatório das Fontes (INOM decide, U+2212, matricial e vetorial); entradas da Decisions (cont. 7, 8 e 10) e duas linhas no livro-razão\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "1b05cd7",
+      "htmlUrl": "https://github.com/1cgeo/chefe_dgeo/commit/1b05cd786c7d4cc13c7d9585957f8b015261c0f4",
+      "repoUrl": "https://github.com/1cgeo/chefe_dgeo"
+    },
+    {
+      "repo": "1cgeo/ebgeo_produtor",
+      "date": "2026-11-27T21:00:27.000Z",
+      "author": "Maj Diniz",
+      "message": "0.4.6: o 360 para o treino de operadores (a pasta compartilhada, a pirâmide pela metade, o nome do operador, o lote novo, a foto quase 2:1, o Meu Acervo) e o passo a passo na tela\n\nRevisão do fluxo 360 de ponta a ponta antes do treino de 2026-11-30, com 657 fotos reais e o\npasseio pela tela como coordenador e como operador noutra máquina.\n\n- Pasta lida por várias máquinas: a gravação dos JSON (gravarAtomico) tenta de novo por até 5 s\n  quando o Windows segura o arquivo (EPERM/EACCES/EBUSY); com um leitor em laço, 184 de 200\n  trocas falhavam sem isso e nenhuma com isso. O tiles.db abre com timeout de 30 s, e o leitor de\n  outra máquina não derruba mais a pirâmide com \"database is locked\".\n- Pirâmide pela metade: projeto.json com piramide.completa (fora do manifesto); sem ela a\n  calibração não grava, o pacote não fecha e a tela segura a divisão e o estúdio. \"Completar a\n  pirâmide\" funciona com calibração gravada quando a estrutura não mudou. A foto que falha sai\n  nomeada; uma criação por vez em cada app.\n- Nome do operador sem diferença de maiúscula, acento e espaço; trocar o dono de faixa calibrada\n  na divisão passa a calibração; deixar sem dono é recusado.\n- Subpasta nova não renomeia as fotos que já estavam (e o trabalho delas fica).\n- Foto quase 2:1 (até 4 px) entra e a pirâmide reamostra para o 2:1 exato; JPEG com dados depois\n  do fim não é truncado.\n- Envio: toda conta com lotação envia, ao próprio Meu Acervo quando não produz (a regra do\n  servidor desde 2026-11-04); só a conta sem lotação é recusada, com o que fazer.\n- UX: quadro \"Próximo passo\" na tela do projeto (quem age e o botão do passo), Atualizar, campos\n  do pacote conferidos antes do diálogo, aviso de projeto sem máscara, Andares diz que se pula\n  na rua, e o roteiro do treino para imprimir (docs/roteiro-do-treino-360.md).\n\nCada conserto tem teste e controle negativo (o conserto revertido reprova o teste).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3Qd286rE5BdHaYih1L",
+      "sha": "b80092a",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_produtor/commit/b80092ab007105a6addd0241339eaa5cafa973e5",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_produtor"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T20:36:19.000Z",
+      "author": "Maj Diniz",
+      "message": "Novidades: a grade de folhas do Brasil todo\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "3a2b4f8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/3a2b4f84607d7710582cca120668d0e0710c08a2",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T20:17:43.000Z",
+      "author": "Maj Diniz",
+      "message": "Novidades e decisão do lote de 2026-11-27: cortar polígono e extrair das camadas de dados\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "a3886da",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/a3886da3b19f355ff842b9f7a0457c41c0016da3",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/doc_topografica",
+      "date": "2026-11-27T20:05:53.000Z",
+      "author": "Maj Diniz",
+      "message": "Domínios com a grafia da EDGV Topo 2.0 revisão 0.20.1\n\nEdificação, ocupação do solo, ponto de controle e RCO passam a citar Indústria de edição, Fabricação de máquinas, pesquisa pública, Assembleia legislativa, Combate a incêndios, Posto polícia militar, Quadra de polo, radiossonda, Referência de Nível e Potsdam 1930, como o domínio corrigido.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QtzovA2gLGwj6KEkx",
+      "sha": "ff06d4a",
+      "htmlUrl": "https://github.com/1cgeo/doc_topografica/commit/ff06d4a832443d1534fe4bd98618ec0508b42fbe",
+      "repoUrl": "https://github.com/1cgeo/doc_topografica"
+    },
+    {
+      "repo": "dsgoficial/modelagens",
+      "date": "2026-11-27T20:05:50.000Z",
+      "author": "Maj Diniz",
+      "message": "edgv topo 2.0 v0.20.1 e orto 3.0.6: erros de digitação nos domínios\n\nEspelho da v0.20.1 do edgv_topo_20 (master, SQL, changelog, ET). O Orto 3.0.6, regerado sobre ela, só muda o Recife contíguo (18) de tipo_elemento_hidrografico; incremento na seção 7.6 do changelog.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QtzovA2gLGwj6KEkx",
+      "sha": "9db85f6",
+      "htmlUrl": "https://github.com/dsgoficial/modelagens/commit/9db85f684dd49e0b5e9e483f2f7d3ed264393016",
+      "repoUrl": "https://github.com/dsgoficial/modelagens"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T19:22:26.000Z",
+      "author": "Maj Diniz",
+      "message": "Extrair do mapa base passa a extrair das camadas de dados ligadas\n\nPedido do chefe da DGEO (2026-11-27): extrair das camadas de dados, por\nexemplo um país, e não só do mapa base. A mesma ferramenta aceita agora o\nclique, a caixa e o menu sobre os países, os municípios, os distritos e as\nmolduras ligados no mapa, sobre qualquer mapa base, e a feição sai inteira e\ncom todos os atributos da camada.\n\nPor que não pelo caminho do mapa base: o world_ebgeo, de onde saem os\npaíses, não tem id nos tiles (medido em 2026-11-16), e no zoom máximo um país\npassa de longe do teto de 64 tiles. Por isso:\n\n- a feição se reconhece pelos atributos do clique (casarPelosAtributos), não\n  pelo id; o preço, escrito na wiki, é que dois vizinhos de atributos iguais\n  sairiam como um;\n- o zoom se escolhe pelo tamanho (extrairDeDado): a sonda lê no zoom da\n  tela, desce dois zooms quando o teto corta, e a caixa da sonda diz o zoom\n  mais alto em que a feição cabe em metade do teto, onde ela é lida de novo;\n  o refinamento que não cobre a caixa da sonda, ou sai incompleto onde ela\n  saiu completa, perde para ela;\n- a camada ligada vem antes do mapa base no clique, a recusa do mapa base só\n  vale quando não há nada de camada de dados sob o gesto, e a recusa da\n  leitura nomeia a camada.\n\nTudo pelo cliente, sem rota nova no backend: os tiles da camada já chegam\npor fetch com a credencial, e o worker da ferramenta faz a leitura.\n\nTestes: frontend/tests/unit/extrair-camada-de-dado.test.js, em tiles\nsintéticos recortados com folga e sem id; dez mutações do conserto (ordem,\ndobra, escada, guarda da ilha, refinamento, identidade, visibilidade,\ncontexto, atributo do nome, destaque) reprovam cada uma o seu caso. O censo\ndas superfícies de recurso ganha a leitura de config.dataLayers. A página\nde Ajuda e a wiki dizem o novo caminho. Nada medido em tile de produção.\n\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "4a9a2b8",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/4a9a2b8a762f03e9bdd4579b2fa2474c17fd354b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T19:14:22.000Z",
+      "author": "Maj Diniz",
+      "message": "Lote de 2026-11-27: Seguir vias removido, mapas base sem \"Usados há pouco\", Países no mapa político, BDGEx centrado, .ebgeo no Importar, Sombreamento com respiro, e o Informações da Carta (cobertura do solo, edificação, botão direito)\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_018J7V3QMTkSipLv4LGzhv5r",
+      "sha": "fb65f0e",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/fb65f0e7b7e0a5993e18f5a5a31d44fef239ee11",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
+    {
+      "repo": "1cgeo/ebgeo_web",
+      "date": "2026-11-27T19:12:54.000Z",
+      "author": "Maj Diniz",
+      "message": "Cortar Polígono: a linha traçada sobre o polígono o divide em feições\n\nO chefe da DGEO pediu o corte do polígono, que a Linha já tinha e a área não.\nO gesto é o mesmo item dos dois menus (\"Cortar Polígono\", no botão direito e no\nmenu do cabeçalho), com cursor em cruz e Esc para cancelar, para ninguém\naprender dois jeitos; só que a pessoa traça a linha (clique por vértice, botão\ndireito no último), porque um ponto não diz por onde a área se parte.\n\nA geometria é da casa (polygon-cut.model.js): o turf não parte polígono, e as\nreceitas com ele deixam fresta entre as partes ou perdem os furos. Cada\ncruzamento é um nó só, compartilhado pelas partes; furo atravessado vira\nentalhe, furo intacto fica na parte que o contém; ponta solta e ponte são\npodadas e, sobrando uma parte, a recusa diz que a linha não divide o polígono.\nAs partes herdam estilo e atributos, as observações seguem o lado.\n\nA troca é replaceLinearFeatures, a mesma de juntar e cortar seta: um lote\nlógico no servidor e um Ctrl+Z. Fica de fora a área de coordenação (portões na\nborda) e o multipolígono, que a importação já separa.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "sha": "ff5f900",
+      "htmlUrl": "https://github.com/1cgeo/ebgeo_web/commit/ff5f900bca547618cd51719c7e90541de4162a3b",
+      "repoUrl": "https://github.com/1cgeo/ebgeo_web"
+    },
     {
       "repo": "1cgeo/doc_topografica",
       "date": "2026-11-27T19:05:36.000Z",
